@@ -13,8 +13,8 @@ MCU     = cortex-m4
 CFLAGS  = -mcpu=$(MCU) -mthumb -O2 -ffreestanding -fno-builtin \
           -mfpu=fpv4-sp-d16 -mfloat-abi=softfp \
           -Wall -Wextra \
-          -fdump-tree-optimized-graph -fstack-usage \ 
-          -DCPU_S32K144HFT0VLLT \
+	  -fdump-tree-optimized-graph -fstack-usage \
+	  -DCPU_S32K144HFT0VLLT \
           -DUSING_OS_FREERTOS \
           -I./Sources \
           -I./Sources/FreeMASTER \
@@ -153,21 +153,19 @@ all: $(TARGET).elf $(TARGET).bin
 
 # C compile
 %.o: %.c
-        $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Startup assembly (.S = preprocessed asm)
 startup_S32K144.o: ../S32K144_003_new_project/s32k144_test_project_1/Project_Settings/Startup_Code/startup_S32K144.S
-        $(CC) -mcpu=$(MCU) -mthumb -c $< -o $@
+	$(CC) -mcpu=$(MCU) -mthumb -c $< -o $@
 
 # Link
 $(TARGET).elf: $(OBJS)
-        $(CC) $(LDFLAGS) $(OBJS) -o $@
+	$(CC) $(LDFLAGS) $(OBJS) -o $@
 
 # Binary for flashing
 $(TARGET).bin: $(TARGET).elf
-        $(OBJCOPY) -O binary $< $@
+	$(OBJCOPY) -O binary $< $@
 
 clean:
-        rm -f $(OBJS) $(TARGET).elf $(TARGET).bin
-
-                                                                                                                                                                                                      171,0-1       Bot
+	rm -f $(OBJS) $(TARGET).elf $(TARGET).bin
