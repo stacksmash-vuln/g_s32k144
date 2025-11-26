@@ -1,0 +1,391 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_POWER_SYS_CallbacksManagement" {
+	style="dashed";
+	color="black";
+	label="POWER_SYS_CallbacksManagement ()";
+	subgraph cluster_7_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_7_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1014686025\<bb\ 8\>:\l\
+|#\ _35\ =\ PHI\ \<0(7),\ _9(12)\>\l\
+|#\ returnCode_34\ =\ PHI\ \<0(7),\ returnCode_12(12)\>\l\
+|_2\ =\ gPowerManagerState.staticCallbacks;\l\
+|_3\ =\ (int)\ _35;\l\
+|callbackConfig_27\ =\ (*_2)[_3];\l\
+|if\ (callbackConfig_27\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 9\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [30.00%]\l\
+}"];
+
+	fn_7_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:710280221\<bb\ 9\>:\l\
+|_4\ =\ callbackConfig_27-\>callbackType;\l\
+|if\ (_4\ !=\ callbackTypeFilter_16)\l\
+\ \ goto\ \<bb\ 10\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [34.00%]\l\
+}"];
+
+	fn_7_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1001794440\<bb\ 12\>:\l\
+|#\ returnCode_12\ =\ PHI\ \<returnCode_34(9),\ returnCode_34(10),\ returnCode_34(8),\ errorCode_15(11)\>\l\
+|_8\ =\ *currentStaticCallback_25(D);\l\
+|_9\ =\ _8\ +\ 1;\l\
+|*currentStaticCallback_25(D)\ =\ _9;\l\
+|if\ (_9\ \<\ callbacksNumber_11)\l\
+\ \ goto\ \<bb\ 8\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [5.50%]\l\
+}"];
+
+	fn_7_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:468784943\<bb\ 10\>:\l\
+|_5\ =\ callbackConfig_27-\>callbackFunction;\l\
+|_6\ =\ callbackConfig_27-\>callbackData;\l\
+|callbackStatusCode_29\ =\ _5\ (notifyStruct_21(D),\ _6);\l\
+|if\ (callbackStatusCode_29\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:234392471\<bb\ 11\>:\l\
+|_7\ =\ *currentStaticCallback_25(D);\l\
+|gPowerManagerState.errorCallbackIndex\ =\ _7;\l\
+|if\ (policy_31(D)\ !=\ 1)\l\
+\ \ goto\ \<bb\ 13\>;\ [5.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [94.50%]\l\
+}"];
+
+	}
+	fn_7_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_7_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_7_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:71947384\<bb\ 2\>:\l\
+|_1\ =\ notifyStruct_21(D)-\>notifyType;\l\
+|if\ (_1\ \>\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [37.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [62.50%]\l\
+}"];
+
+	fn_7_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:71947384\<bb\ 3\>:\l\
+|if\ (_1\ ==\ 2)\l\
+\ \ goto\ \<bb\ 6\>;\ [66.67%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [33.33%]\l\
+}"];
+
+	fn_7_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:23982462\<bb\ 4\>:\l\
+|*currentStaticCallback_25(D)\ =\ 0;\l\
+goto\ \<bb\ 13\>;\ [100.00%]\l\
+}"];
+
+	fn_7_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:35973692\<bb\ 5\>:\l\
+|callbacksNumber_23\ =\ gPowerManagerState.staticCallbacksNumber;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_7_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:17986846\<bb\ 6\>:\l\
+|callbacksNumber_22\ =\ gPowerManagerState.staticCallbacksNumber;\l\
+}"];
+
+	fn_7_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:47964922\<bb\ 7\>:\l\
+|#\ callbacksNumber_11\ =\ PHI\ \<callbacksNumber_23(5),\ callbacksNumber_22(6)\>\l\
+|#\ errorCode_15\ =\ PHI\ \<259(5),\ 260(6)\>\l\
+|#\ callbackTypeFilter_16\ =\ PHI\ \<2(5),\ 1(6)\>\l\
+|*currentStaticCallback_25(D)\ =\ 0;\l\
+|if\ (callbacksNumber_11\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [98.57%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [1.43%]\l\
+}"];
+
+	fn_7_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:71947386\<bb\ 13\>:\l\
+|#\ returnCode_14\ =\ PHI\ \<0(4),\ 0(7),\ errorCode_15(11),\ returnCode_12(12)\>\l\
+|return\ returnCode_14;\l\
+}"];
+
+	fn_7_basic_block_0:s -> fn_7_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[62%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[37%]"];
+	fn_7_basic_block_3:s -> fn_7_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_7_basic_block_3:s -> fn_7_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_7_basic_block_4:s -> fn_7_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_5:s -> fn_7_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_6:s -> fn_7_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_7:s -> fn_7_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[98%]"];
+	fn_7_basic_block_7:s -> fn_7_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[1%]"];
+	fn_7_basic_block_8:s -> fn_7_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_7_basic_block_8:s -> fn_7_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_7_basic_block_9:s -> fn_7_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_7_basic_block_9:s -> fn_7_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_7_basic_block_10:s -> fn_7_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_10:s -> fn_7_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_11:s -> fn_7_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_7_basic_block_11:s -> fn_7_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_7_basic_block_12:s -> fn_7_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[94%]"];
+	fn_7_basic_block_12:s -> fn_7_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_7_basic_block_13:s -> fn_7_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_7_basic_block_0:s -> fn_7_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_POWER_SYS_Init" {
+	style="dashed";
+	color="black";
+	label="POWER_SYS_Init ()";
+	fn_1_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|gPowerManagerState.configs\ =\ powerConfigsPtr_3(D);\l\
+|gPowerManagerState.configsNumber\ =\ configsNumber_5(D);\l\
+|gPowerManagerState.currentConfig\ =\ 0;\l\
+|if\ (callbacksPtr_8(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [30.00%]\l\
+}"];
+
+	fn_1_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 3\>:\l\
+|gPowerManagerState.staticCallbacks\ =\ callbacksPtr_8(D);\l\
+|gPowerManagerState.staticCallbacksNumber\ =\ callbacksNumber_13(D);\l\
+|gPowerManagerState.errorCallbackIndex\ =\ callbacksNumber_13(D);\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_1_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:322122544\<bb\ 4\>:\l\
+|gPowerManagerState.staticCallbacks\ =\ 0B;\l\
+|MEM\ \<unsigned\ short\>\ [(unsigned\ char\ *)&gPowerManagerState\ +\ 12B]\ =\ 0;\l\
+}"];
+
+	fn_1_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|_17\ =\ POWER_SYS_DoInit\ ();\ [tail\ call]\l\
+|return\ _17;\l\
+}"];
+
+	fn_1_basic_block_0:s -> fn_1_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_1_basic_block_2:s -> fn_1_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_1_basic_block_2:s -> fn_1_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_1_basic_block_3:s -> fn_1_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_1_basic_block_4:s -> fn_1_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_1_basic_block_5:s -> fn_1_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_1_basic_block_0:s -> fn_1_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_POWER_SYS_Deinit" {
+	style="dashed";
+	color="black";
+	label="POWER_SYS_Deinit ()";
+	fn_2_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_2_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_2_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|gPowerManagerState.configs\ =\ 0B;\l\
+|gPowerManagerState.configsNumber\ =\ 0;\l\
+|gPowerManagerState.staticCallbacks\ =\ 0B;\l\
+|gPowerManagerState.staticCallbacksNumber\ =\ 0;\l\
+|_7\ =\ POWER_SYS_DoDeinit\ ();\ [tail\ call]\l\
+|return\ _7;\l\
+}"];
+
+	fn_2_basic_block_0:s -> fn_2_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_2_basic_block_2:s -> fn_2_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_2_basic_block_0:s -> fn_2_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_POWER_SYS_GetLastMode" {
+	style="dashed";
+	color="black";
+	label="POWER_SYS_GetLastMode ()";
+	fn_3_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_3_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_3_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ gPowerManagerState.currentConfig;\l\
+|*powerModeIndexPtr_6(D)\ =\ _1;\l\
+|_2\ =\ gPowerManagerState.errorCallbackIndex;\l\
+|_3\ =\ gPowerManagerState.staticCallbacksNumber;\l\
+|_8\ =\ _2\ !=\ _3;\l\
+|_9\ =\ (\<unnamed\ type\>)\ _8;\l\
+|return\ _9;\l\
+}"];
+
+	fn_3_basic_block_0:s -> fn_3_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_3_basic_block_2:s -> fn_3_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_3_basic_block_0:s -> fn_3_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_POWER_SYS_GetLastModeConfig" {
+	style="dashed";
+	color="black";
+	label="POWER_SYS_GetLastModeConfig ()";
+	fn_4_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_4_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_4_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ gPowerManagerState.configs;\l\
+|_2\ =\ gPowerManagerState.currentConfig;\l\
+|_3\ =\ (int)\ _2;\l\
+|_4\ =\ (*_1)[_3];\l\
+|*powerModePtr_9(D)\ =\ _4;\l\
+|_5\ =\ gPowerManagerState.errorCallbackIndex;\l\
+|_6\ =\ gPowerManagerState.staticCallbacksNumber;\l\
+|_11\ =\ _5\ !=\ _6;\l\
+|_12\ =\ (\<unnamed\ type\>)\ _11;\l\
+|return\ _12;\l\
+}"];
+
+	fn_4_basic_block_0:s -> fn_4_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_4_basic_block_2:s -> fn_4_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_4_basic_block_0:s -> fn_4_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_POWER_SYS_GetErrorCallbackIndex" {
+	style="dashed";
+	color="black";
+	label="POWER_SYS_GetErrorCallbackIndex ()";
+	fn_5_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_5_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_5_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\ gPowerManagerState.errorCallbackIndex;\l\
+|return\ _2;\l\
+}"];
+
+	fn_5_basic_block_0:s -> fn_5_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_2:s -> fn_5_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_5_basic_block_0:s -> fn_5_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_POWER_SYS_GetErrorCallback" {
+	style="dashed";
+	color="black";
+	label="POWER_SYS_GetErrorCallback ()";
+	fn_6_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_6_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_6_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ gPowerManagerState.errorCallbackIndex;\l\
+|_2\ =\ gPowerManagerState.staticCallbacksNumber;\l\
+|if\ (_1\ \<\ _2)\l\
+\ \ goto\ \<bb\ 3\>;\ [71.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [29.00%]\l\
+}"];
+
+	fn_6_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:762356697\<bb\ 3\>:\l\
+|_3\ =\ gPowerManagerState.staticCallbacks;\l\
+|_4\ =\ (int)\ _1;\l\
+|iftmp.0_7\ =\ (*_3)[_4];\l\
+}"];
+
+	fn_6_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ iftmp.0_5\ =\ PHI\ \<iftmp.0_7(3),\ 0B(2)\>\l\
+|return\ iftmp.0_5;\l\
+}"];
+
+	fn_6_basic_block_0:s -> fn_6_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[71%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[29%]"];
+	fn_6_basic_block_3:s -> fn_6_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_4:s -> fn_6_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_6_basic_block_0:s -> fn_6_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_POWER_SYS_SetMode" {
+	style="dashed";
+	color="black";
+	label="POWER_SYS_SetMode ()";
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|currentStaticCallback\ =\ 0;\l\
+|_1\ =\ gPowerManagerState.configs;\l\
+|_2\ =\ (int)\ powerModeIndex_8(D);\l\
+|configPtr_9\ =\ (*_1)[_2];\l\
+|_3\ =\ gPowerManagerState.staticCallbacksNumber;\l\
+|gPowerManagerState.errorCallbackIndex\ =\ _3;\l\
+|notifyStruct.policy\ =\ policy_11(D);\l\
+|notifyStruct.targetPowerConfigIndex\ =\ powerModeIndex_8(D);\l\
+|notifyStruct.targetPowerConfigPtr\ =\ configPtr_9;\l\
+|notifyStruct.notifyType\ =\ 1;\l\
+|returnCode_17\ =\ POWER_SYS_CallbacksManagement\ (&notifyStruct,\ &currentStaticCallback,\ policy_11(D));\l\
+|if\ (policy_11(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [79.76%]\l\
+}"];
+
+	fn_8_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:856416479\<bb\ 3\>:\l\
+|if\ (returnCode_17\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_8_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:645533584\<bb\ 4\>:\l\
+|returnCode_19\ =\ POWER_SYS_DoSetMode\ (configPtr_9);\l\
+|if\ (returnCode_19\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_8_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:213026081\<bb\ 5\>:\l\
+|gPowerManagerState.currentConfig\ =\ powerModeIndex_8(D);\l\
+|notifyStruct.notifyType\ =\ 2;\l\
+|returnCode_26\ =\ POWER_SYS_CallbacksManagement\ (&notifyStruct,\ &currentStaticCallback,\ 1);\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_8_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:860715742\<bb\ 6\>:\l\
+|#\ returnCode_29\ =\ PHI\ \<returnCode_17(3),\ returnCode_19(4)\>\l\
+|notifyStruct.notifyType\ =\ 0;\l\
+|POWER_SYS_CallbacksManagement\ (&notifyStruct,\ &currentStaticCallback,\ 1);\l\
+}"];
+
+	fn_8_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|#\ returnCode_4\ =\ PHI\ \<returnCode_26(5),\ returnCode_29(6)\>\l\
+|currentStaticCallback\ =\{v\}\ \{CLOBBER\};\l\
+|notifyStruct\ =\{v\}\ \{CLOBBER\};\l\
+|return\ returnCode_4;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_8_basic_block_3:s -> fn_8_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_8_basic_block_3:s -> fn_8_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_8_basic_block_4:s -> fn_8_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_8_basic_block_4:s -> fn_8_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_8_basic_block_5:s -> fn_8_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_6:s -> fn_8_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_7:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_POWER_SYS_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="POWER_SYS_GetDefaultConfig ()";
+	fn_9_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_9_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_9_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>powerMode\ =\ 1;\l\
+|config_2(D)-\>sleepOnExitValue\ =\ 0;\l\
+|return;\l\
+}"];
+
+	fn_9_basic_block_0:s -> fn_9_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_9_basic_block_0:s -> fn_9_basic_block_1:n [style="invis",constraint=true];
+}
+}

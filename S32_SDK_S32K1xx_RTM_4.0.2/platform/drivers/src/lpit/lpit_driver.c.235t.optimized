@@ -1,0 +1,982 @@
+
+;; Function LPIT_DRV_GetDefaultConfig (LPIT_DRV_GetDefaultConfig, funcdef_no=22, decl_uid=5293, cgraph_uid=23, symbol_order=25)
+
+LPIT_DRV_GetDefaultConfig (struct lpit_user_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->enableRunInDebug = 0;
+  config_2(D)->enableRunInDoze = 0;
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_GetDefaultChanConfig (LPIT_DRV_GetDefaultChanConfig, funcdef_no=23, decl_uid=5295, cgraph_uid=24, symbol_order=26)
+
+LPIT_DRV_GetDefaultChanConfig (struct lpit_user_channel_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  MEM <unsigned short> [(void *)config_2(D)] = 256;
+  config_2(D)->period = 1000000;
+  config_2(D)->triggerSource = 0;
+  config_2(D)->triggerSelect = 0;
+  MEM <unsigned int> [(_Bool *)config_2(D) + 16B] = 0;
+  config_2(D)->isInterruptEnabled = 1;
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_Init (LPIT_DRV_Init, funcdef_no=24, decl_uid=5298, cgraph_uid=25, symbol_order=27)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+LPIT_DRV_Init (uint32_t instance, const struct lpit_user_config_t * userConfig)
+{
+  volatile uint32_t delay;
+  volatile uint32_t delay;
+  uint32_t core_to_per_clock_ratio;
+  uint32_t lpit_freq;
+  uint32_t core_freq;
+  uint32_t * _1;
+  long unsigned int _2;
+  long unsigned int core_freq.0_3;
+  long unsigned int _4;
+  _Bool _5;
+  _Bool _6;
+  long unsigned int _14;
+  long unsigned int delay.4_15;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int delay.3_34;
+  long unsigned int _35;
+  long unsigned int delay.4_36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int delay.1_39;
+  long unsigned int _40;
+  long unsigned int delay.2_41;
+  long unsigned int _42;
+  long unsigned int _43;
+  sizetype _44;
+  long unsigned int prephitmp_45;
+  long unsigned int _59;
+  long unsigned int delay.2_60;
+  long unsigned int prephitmp_65;
+
+  <bb 2> [local count: 1073741824]:
+  _44 = instance_7(D) * 4;
+  _1 = &s_lpitSourceClockFrequency + _44;
+  CLOCK_SYS_GetFreq (69, _1);
+  core_freq = 0;
+  CLOCK_SYS_GetFreq (0, &core_freq);
+  lpit_freq_12 = s_lpitSourceClockFrequency[instance_7(D)];
+  _2 = lpit_freq_12 >> 1;
+  core_freq.0_3 = core_freq;
+  _4 = _2 + core_freq.0_3;
+  core_to_per_clock_ratio_13 = _4 / lpit_freq_12;
+  delay ={v} core_to_per_clock_ratio_13;
+  _37 ={v} MEM[(struct LPIT_Type *)1073967104B].MCR;
+  _38 = _37 | 2;
+  MEM[(struct LPIT_Type *)1073967104B].MCR ={v} _38;
+  delay.2_60 ={v} delay;
+  if (delay.2_60 != 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 3>; [11.00%]
+
+  <bb 3> [local count: 1073741825]:
+  _42 ={v} MEM[(struct LPIT_Type *)1073967104B].MCR;
+  _43 = _42 & 4294967293;
+  MEM[(struct LPIT_Type *)1073967104B].MCR ={v} _43;
+  delay ={v} core_to_per_clock_ratio_13;
+  _32 ={v} MEM[(struct LPIT_Type *)1073967104B].MCR;
+  _33 = _32 | 1;
+  MEM[(struct LPIT_Type *)1073967104B].MCR ={v} _33;
+  delay.4_15 ={v} delay;
+  if (delay.4_15 != 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 4> [local count: 8687547547]:
+  delay.1_39 ={v} delay;
+  _40 = delay.1_39 + 4294967295;
+  delay ={v} _40;
+  __asm__ __volatile__("nop");
+  __asm__ __volatile__("nop");
+  __asm__ __volatile__("nop");
+  delay.2_41 ={v} delay;
+  if (delay.2_41 != 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 3>; [11.00%]
+
+  <bb 5> [local count: 1073741825]:
+  _5 = userConfig_16(D)->enableRunInDebug;
+  _23 ={v} MEM[(struct LPIT_Type *)1073967104B].MCR;
+  _24 = _23 & 4294967287;
+  MEM[(struct LPIT_Type *)1073967104B].MCR ={v} _24;
+  _25 ={v} MEM[(struct LPIT_Type *)1073967104B].MCR;
+  if (_5 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 6> [local count: 8687547547]:
+  delay.3_34 ={v} delay;
+  _35 = delay.3_34 + 4294967295;
+  delay ={v} _35;
+  __asm__ __volatile__("nop");
+  __asm__ __volatile__("nop");
+  __asm__ __volatile__("nop");
+  delay.4_36 ={v} delay;
+  if (delay.4_36 != 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 7> [local count: 536870912]:
+  _14 = _25 | 8;
+
+  <bb 8> [local count: 1073741824]:
+  # prephitmp_45 = PHI <_14(7), _25(5)>
+  MEM[(struct LPIT_Type *)1073967104B].MCR ={v} prephitmp_45;
+  _6 = userConfig_16(D)->enableRunInDoze;
+  _18 ={v} MEM[(struct LPIT_Type *)1073967104B].MCR;
+  _19 = _18 & 4294967291;
+  MEM[(struct LPIT_Type *)1073967104B].MCR ={v} _19;
+  _20 ={v} MEM[(struct LPIT_Type *)1073967104B].MCR;
+  if (_6 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 536870912]:
+  _59 = _20 | 4;
+
+  <bb 10> [local count: 1073741824]:
+  # prephitmp_65 = PHI <_59(9), _20(8)>
+  MEM[(struct LPIT_Type *)1073967104B].MCR ={v} prephitmp_65;
+  core_freq ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_Deinit (LPIT_DRV_Deinit, funcdef_no=25, decl_uid=5300, cgraph_uid=26, symbol_order=28)
+
+LPIT_DRV_Deinit (uint32_t instance)
+{
+  long unsigned int _2;
+  long unsigned int _3;
+
+  <bb 2> [local count: 1073741824]:
+  _2 ={v} MEM[(struct LPIT_Type *)1073967104B].MCR;
+  _3 = _2 & 4294967294;
+  MEM[(struct LPIT_Type *)1073967104B].MCR ={v} _3;
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_StartTimerChannels (LPIT_DRV_StartTimerChannels, funcdef_no=27, decl_uid=5307, cgraph_uid=28, symbol_order=30)
+
+LPIT_DRV_StartTimerChannels (uint32_t instance, uint32_t mask)
+{
+  long unsigned int _3;
+  long unsigned int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _3 ={v} MEM[(struct LPIT_Type *)1073967104B].SETTEN;
+  _4 = mask_2(D) | _3;
+  MEM[(struct LPIT_Type *)1073967104B].SETTEN ={v} _4;
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_StopTimerChannels (LPIT_DRV_StopTimerChannels, funcdef_no=28, decl_uid=5310, cgraph_uid=29, symbol_order=31)
+
+LPIT_DRV_StopTimerChannels (uint32_t instance, uint32_t mask)
+{
+  long unsigned int _3;
+  long unsigned int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _3 ={v} MEM[(struct LPIT_Type *)1073967104B].CLRTEN;
+  _4 = mask_2(D) | _3;
+  MEM[(struct LPIT_Type *)1073967104B].CLRTEN ={v} _4;
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_SetTimerPeriodByUs (LPIT_DRV_SetTimerPeriodByUs, funcdef_no=29, decl_uid=5314, cgraph_uid=30, symbol_order=32)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+LPIT_DRV_SetTimerPeriodByUs (uint32_t instance, uint32_t channel, uint32_t periodUs)
+{
+  uint32_t tmp;
+  uint64_t count;
+  status_t reVal;
+  uint32_t * _1;
+  long unsigned int _3;
+  long long unsigned int _5;
+  long long unsigned int _6;
+  long long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _19;
+  long unsigned int _20;
+  unsigned int _22;
+  sizetype _23;
+
+  <bb 2> [local count: 1073741824]:
+  _23 = instance_10(D) * 4;
+  _1 = &s_lpitSourceClockFrequency + _23;
+  CLOCK_SYS_GetFreq (69, _1);
+  _3 = s_lpitSourceClockFrequency[instance_10(D)];
+  count_14 = periodUs_13(D) w* _3;
+  _5 = count_14 / 1000000;
+  count_15 = _5 + 18446744073709551615;
+  _19 ={v} MEM[(const struct LPIT_Type *)1073967104B].TMR[channel_16(D)].TCTRL;
+  _20 = _19 >> 2;
+  tmp_21 = _20 & 3;
+  _22 = tmp_21 + 4294967295;
+  if (_22 <= 2)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  if (count_15 <= 4294967295)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 4> [local count: 536870913]:
+  if (count_15 <= 4294967295)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 5> [local count: 268435457]:
+  if (tmp_21 == 1)
+    goto <bb 6>; [67.33%]
+  else
+    goto <bb 9>; [32.67%]
+
+  <bb 6> [local count: 182536112]:
+  if (count_15 > 131070)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 91268056]:
+  if (count_15 > 65535)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 45634028]:
+  _6 = _5 + 18446744073709486079;
+  _7 = _6 << 16;
+  count_18 = _7 | 65535;
+
+  <bb 9> [local count: 445602856]:
+  # count_26 = PHI <count_15(5), count_15(3), count_18(8), count_15(7)>
+  _8 = (long unsigned int) count_26;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_16(D)].TVAL ={v} _8;
+
+  <bb 10> [local count: 1073741824]:
+  # reVal_17 = PHI <1(4), 0(9), 1(3), 1(6)>
+  return reVal_17;
+
+}
+
+
+
+;; Function LPIT_DRV_InitChannel (LPIT_DRV_InitChannel, funcdef_no=26, decl_uid=5304, cgraph_uid=27, symbol_order=29)
+
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+LPIT_DRV_InitChannel (uint32_t instance, uint32_t channel, const struct lpit_user_channel_config_t * userChannelConfig)
+{
+  const IRQn_Type lpitIrqId[4];
+  status_t reVal;
+  _Bool _1;
+  _Bool _2;
+  <unnamed type> _3;
+  <unnamed type> _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  <unnamed type> _7;
+  long unsigned int _8;
+  _Bool _9;
+  _Bool _10;
+  _Bool _11;
+  _Bool _12;
+  long unsigned int _13;
+  <unnamed type> _14;
+  long unsigned int _15;
+  <unnamed type> _16;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long unsigned int _65;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  long unsigned int _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  long unsigned int _99;
+  long unsigned int _102;
+  long unsigned int _103;
+  long unsigned int _111;
+  long unsigned int prephitmp_112;
+  long unsigned int _113;
+  long unsigned int prephitmp_114;
+  long unsigned int _115;
+  long unsigned int prephitmp_116;
+  long unsigned int _117;
+  long unsigned int prephitmp_118;
+
+  <bb 2> [local count: 1073741824]:
+  MEM <signed char> [(IRQn_Type[4] *)&lpitIrqId] = 48;
+  MEM <signed char> [(IRQn_Type[4] *)&lpitIrqId + 1B] = 49;
+  MEM <signed char> [(IRQn_Type[4] *)&lpitIrqId + 2B] = 50;
+  MEM <signed char> [(IRQn_Type[4] *)&lpitIrqId + 3B] = 51;
+  if (channel_20(D) == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _1 = userChannelConfig_21(D)->chainChannel;
+  if (_1 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 4> [local count: 536870912]:
+  _2 = userChannelConfig_21(D)->chainChannel;
+  _41 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _42 = _41 & 4294967293;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _42;
+  _43 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  if (_2 != 0)
+    goto <bb 5>; [75.00%]
+  else
+    goto <bb 6>; [25.00%]
+
+  <bb 5> [local count: 402653184]:
+  _111 = _43 | 2;
+
+  <bb 6> [local count: 805306369]:
+  # prephitmp_112 = PHI <_99(19), _111(5), _43(4)>
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} prephitmp_112;
+  _3 = userChannelConfig_21(D)->timerMode;
+  _34 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _35 = _34 & 4294967283;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _35;
+  _36 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _37 = (long unsigned int) _3;
+  _38 = _37 << 2;
+  _39 = _38 & 12;
+  _40 = _36 | _39;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _40;
+  _4 = userChannelConfig_21(D)->periodUnits;
+  if (_4 == 1)
+    goto <bb 7>; [20.24%]
+  else
+    goto <bb 8>; [79.76%]
+
+  <bb 7> [local count: 162994008]:
+  _5 = userChannelConfig_21(D)->period;
+  reVal_25 = LPIT_DRV_SetTimerPeriodByUs (instance_23(D), channel_20(D), _5);
+  if (reVal_25 == 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 8> [local count: 642312361]:
+  _6 = userChannelConfig_21(D)->period;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TVAL ={v} _6;
+
+  <bb 9> [local count: 723809365]:
+  _7 = userChannelConfig_21(D)->triggerSource;
+  _67 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _68 = _67 & 4286578687;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _68;
+  _69 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _70 = (long unsigned int) _7;
+  _71 = _70 << 23;
+  _72 = _71 & 8388608;
+  _73 = _69 | _72;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _73;
+  _8 = userChannelConfig_21(D)->triggerSelect;
+  _61 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _62 = _61 & 4043309055;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _62;
+  _63 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _64 = _8 << 24;
+  _65 = _64 & 251658240;
+  _66 = _63 | _65;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _66;
+  _9 = userChannelConfig_21(D)->enableReloadOnTrigger;
+  _56 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _57 = _56 & 4294705151;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _57;
+  _58 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  if (_9 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 361904683]:
+  _113 = _58 | 262144;
+
+  <bb 11> [local count: 723809365]:
+  # prephitmp_114 = PHI <_113(10), _58(9)>
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} prephitmp_114;
+  _10 = userChannelConfig_21(D)->enableStopOnInterrupt;
+  _51 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _52 = _51 & 4294836223;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _52;
+  _53 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  if (_10 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 361904683]:
+  _115 = _53 | 131072;
+
+  <bb 13> [local count: 723809365]:
+  # prephitmp_116 = PHI <_115(12), _53(11)>
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} prephitmp_116;
+  _11 = userChannelConfig_21(D)->enableStartOnTrigger;
+  _46 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  _47 = _46 & 4294901759;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} _47;
+  _48 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL;
+  if (_11 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 361904683]:
+  _117 = _48 | 65536;
+
+  <bb 15> [local count: 723809365]:
+  # prephitmp_118 = PHI <_117(14), _48(13)>
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_20(D)].TCTRL ={v} prephitmp_118;
+  _12 = userChannelConfig_21(D)->isInterruptEnabled;
+  if (_12 != 0)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 16> [local count: 361904682]:
+  _13 = 1 << channel_20(D);
+  _74 ={v} MEM[(struct LPIT_Type *)1073967104B].MIER;
+  _75 = _13 | _74;
+  MEM[(struct LPIT_Type *)1073967104B].MIER ={v} _75;
+  _14 = lpitIrqId[channel_20(D)];
+  INT_SYS_EnableIRQ (_14);
+  goto <bb 18>; [100.00%]
+
+  <bb 17> [local count: 361904682]:
+  _15 = 1 << channel_20(D);
+  _76 ={v} MEM[(struct LPIT_Type *)1073967104B].MIER;
+  _77 = ~_15;
+  _78 = _76 & _77;
+  MEM[(struct LPIT_Type *)1073967104B].MIER ={v} _78;
+  _16 = lpitIrqId[channel_20(D)];
+  INT_SYS_DisableIRQ (_16);
+
+  <bb 18> [local count: 1073741824]:
+  # reVal_17 = PHI <1(3), 0(17), 0(16), reVal_25(7)>
+  lpitIrqId ={v} {CLOBBER};
+  return reVal_17;
+
+  <bb 19> [local count: 268435457]:
+  _102 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[0].TCTRL;
+  _103 = _102 & 4294967293;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[0].TCTRL ={v} _103;
+  _99 ={v} MEM[(struct LPIT_Type *)1073967104B].TMR[0].TCTRL;
+  goto <bb 6>; [100.00%]
+
+}
+
+
+
+;; Function LPIT_DRV_SetTimerPeriodInDual16ModeByUs (LPIT_DRV_SetTimerPeriodInDual16ModeByUs, funcdef_no=30, decl_uid=5319, cgraph_uid=31, symbol_order=33)
+
+Removing basic block 6
+Removing basic block 7
+LPIT_DRV_SetTimerPeriodInDual16ModeByUs (uint32_t instance, uint32_t channel, uint16_t periodHigh, uint16_t periodLow)
+{
+  uint64_t periodCount;
+  uint64_t periodLowCount;
+  uint64_t periodHighCount;
+  status_t reVal;
+  uint32_t * _1;
+  long unsigned int _3;
+  long long unsigned int _5;
+  long long unsigned int _7;
+  long long unsigned int _8;
+  long unsigned int _9;
+  unsigned int _24;
+  sizetype _25;
+  unsigned int _26;
+
+  <bb 2> [local count: 1073741824]:
+  _25 = instance_12(D) * 4;
+  _1 = &s_lpitSourceClockFrequency + _25;
+  CLOCK_SYS_GetFreq (69, _1);
+  _3 = s_lpitSourceClockFrequency[instance_12(D)];
+  _24 = (unsigned int) periodHigh_15(D);
+  periodHighCount_16 = _3 w* _24;
+  _5 = periodHighCount_16 / 1000000;
+  periodHighCount_17 = _5 + 18446744073709551615;
+  if (periodHighCount_17 > 65535)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _26 = (unsigned int) periodLow_18(D);
+  periodLowCount_19 = _3 w* _26;
+  _7 = periodLowCount_19 / 1000000;
+  periodLowCount_20 = _7 + 18446744073709551615;
+  if (periodLowCount_20 > 65535)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _8 = periodHighCount_17 << 16;
+  periodCount_21 = _8 | periodLowCount_20;
+  _9 = (long unsigned int) periodCount_21;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_22(D)].TVAL ={v} _9;
+
+  <bb 5> [local count: 1073741824]:
+  # reVal_10 = PHI <1(2), 0(4), 1(3)>
+  return reVal_10;
+
+}
+
+
+
+;; Function LPIT_DRV_GetTimerPeriodByUs (LPIT_DRV_GetTimerPeriodByUs, funcdef_no=31, decl_uid=5322, cgraph_uid=32, symbol_order=34)
+
+Removing basic block 9
+Removing basic block 10
+LPIT_DRV_GetTimerPeriodByUs (uint32_t instance, uint32_t channel)
+{
+  uint32_t tmp;
+  uint64_t currentPeriod;
+  long unsigned int _1;
+  uint32_t * _2;
+  long long unsigned int _3;
+  long long unsigned int _4;
+  long long unsigned int _5;
+  long long unsigned int _6;
+  long long unsigned int _7;
+  long unsigned int _8;
+  long long unsigned int _9;
+  long long unsigned int _10;
+  long long unsigned int _11;
+  long unsigned int _12;
+  long long unsigned int _13;
+  long long unsigned int _14;
+  long long unsigned int _15;
+  long unsigned int _16;
+  long long unsigned int _17;
+  long unsigned int _27;
+  long unsigned int _28;
+  unsigned int _30;
+  sizetype _31;
+  long unsigned int _32;
+
+  <bb 2> [local count: 1073741824]:
+  _31 = instance_19(D) * 4;
+  _2 = &s_lpitSourceClockFrequency + _31;
+  CLOCK_SYS_GetFreq (69, _2);
+  _32 ={v} MEM[(const struct LPIT_Type *)1073967104B].TMR[channel_22(D)].TVAL;
+  currentPeriod_23 = (uint64_t) _32;
+  _27 ={v} MEM[(const struct LPIT_Type *)1073967104B].TMR[channel_22(D)].TCTRL;
+  _28 = _27 >> 2;
+  tmp_29 = _28 & 3;
+  _30 = tmp_29 + 4294967295;
+  if (_30 <= 2)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (tmp_29 == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 7>; [66.00%]
+
+  <bb 4> [local count: 182536112]:
+  if (currentPeriod_23 > 65535)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 91268056]:
+  _3 = currentPeriod_23 >> 16;
+  _1 = _32 & 65535;
+  _4 = (long long unsigned int) _1;
+  _5 = _3 + _4;
+  _6 = _5 * 1000000;
+  _7 = _6 + 2000000;
+  _8 = s_lpitSourceClockFrequency[instance_19(D)];
+  _9 = (long long unsigned int) _8;
+  currentPeriod_26 = _7 / _9;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 91268056]:
+  _10 = currentPeriod_23 + 1;
+  _11 = _10 * 1000000;
+  _12 = s_lpitSourceClockFrequency[instance_19(D)];
+  _13 = (long long unsigned int) _12;
+  currentPeriod_25 = _11 / _13;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 891205713]:
+  _14 = currentPeriod_23 + 1;
+  _15 = _14 * 1000000;
+  _16 = s_lpitSourceClockFrequency[instance_19(D)];
+  _17 = (long long unsigned int) _16;
+  currentPeriod_24 = _15 / _17;
+
+  <bb 8> [local count: 1073741824]:
+  # currentPeriod_18 = PHI <currentPeriod_25(6), currentPeriod_24(7), currentPeriod_26(5)>
+  return currentPeriod_18;
+
+}
+
+
+
+;; Function LPIT_DRV_GetCurrentTimerUs (LPIT_DRV_GetCurrentTimerUs, funcdef_no=32, decl_uid=5325, cgraph_uid=33, symbol_order=35)
+
+Removing basic block 7
+Removing basic block 8
+LPIT_DRV_GetCurrentTimerUs (uint32_t instance, uint32_t channel)
+{
+  uint32_t tmp;
+  uint64_t currentTime;
+  uint32_t * _1;
+  long long unsigned int _2;
+  long long unsigned int _3;
+  long long unsigned int _4;
+  long long unsigned int _5;
+  long unsigned int _6;
+  long long unsigned int _7;
+  long long unsigned int _8;
+  long unsigned int _9;
+  long long unsigned int _10;
+  long unsigned int _12;
+  long unsigned int _20;
+  long unsigned int _21;
+  unsigned int _23;
+  sizetype _24;
+  long unsigned int _25;
+
+  <bb 2> [local count: 1073741824]:
+  _24 = instance_13(D) * 4;
+  _1 = &s_lpitSourceClockFrequency + _24;
+  CLOCK_SYS_GetFreq (69, _1);
+  _25 ={v} MEM[(const struct LPIT_Type *)1073967104B].TMR[channel_16(D)].CVAL;
+  currentTime_17 = (uint64_t) _25;
+  _20 ={v} MEM[(const struct LPIT_Type *)1073967104B].TMR[channel_16(D)].TCTRL;
+  _21 = _20 >> 2;
+  tmp_22 = _21 & 3;
+  _23 = tmp_22 + 4294967295;
+  if (_23 <= 2)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (tmp_22 == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 4> [local count: 182536112]:
+  _2 = currentTime_17 >> 16;
+  _12 = _25 & 65535;
+  _3 = (long long unsigned int) _12;
+  _4 = _2 + _3;
+  _5 = _4 * 1000000;
+  _6 = s_lpitSourceClockFrequency[instance_13(D)];
+  _7 = (long long unsigned int) _6;
+  currentTime_19 = _5 / _7;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 891205713]:
+  _8 = _25 w* 1000000;
+  _9 = s_lpitSourceClockFrequency[instance_13(D)];
+  _10 = (long long unsigned int) _9;
+  currentTime_18 = _8 / _10;
+
+  <bb 6> [local count: 1073741824]:
+  # currentTime_11 = PHI <currentTime_19(4), currentTime_18(5)>
+  return currentTime_11;
+
+}
+
+
+
+;; Function LPIT_DRV_SetTimerPeriodByCount (LPIT_DRV_SetTimerPeriodByCount, funcdef_no=33, decl_uid=5329, cgraph_uid=34, symbol_order=36)
+
+LPIT_DRV_SetTimerPeriodByCount (uint32_t instance, uint32_t channel, uint32_t count)
+{
+  <bb 2> [local count: 1073741824]:
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_2(D)].TVAL ={v} count_3(D);
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_SetTimerPeriodInDual16ModeByCount (LPIT_DRV_SetTimerPeriodInDual16ModeByCount, funcdef_no=34, decl_uid=5334, cgraph_uid=35, symbol_order=37)
+
+LPIT_DRV_SetTimerPeriodInDual16ModeByCount (uint32_t instance, uint32_t channel, uint16_t periodHigh, uint16_t periodLow)
+{
+  uint32_t period;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (long unsigned int) periodHigh_4(D);
+  _2 = _1 << 16;
+  _3 = (long unsigned int) periodLow_5(D);
+  period_6 = _2 | _3;
+  MEM[(struct LPIT_Type *)1073967104B].TMR[channel_8(D)].TVAL ={v} period_6;
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_GetTimerPeriodByCount (LPIT_DRV_GetTimerPeriodByCount, funcdef_no=35, decl_uid=5337, cgraph_uid=36, symbol_order=38)
+
+Removing basic block 6
+Removing basic block 7
+LPIT_DRV_GetTimerPeriodByCount (uint32_t instance, uint32_t channel)
+{
+  uint32_t tmp;
+  uint32_t currentPeriod;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _7;
+  long unsigned int _8;
+  unsigned int _10;
+  long unsigned int _12;
+
+  <bb 2> [local count: 1073741824]:
+  _12 ={v} MEM[(const struct LPIT_Type *)1073967104B].TMR[channel_5(D)].TVAL;
+  _7 ={v} MEM[(const struct LPIT_Type *)1073967104B].TMR[channel_5(D)].TCTRL;
+  _8 = _7 >> 2;
+  tmp_9 = _8 & 3;
+  _10 = tmp_9 + 4294967295;
+  if (_10 <= 2)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (tmp_9 == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 4> [local count: 182536112]:
+  _1 = _12 >> 16;
+  _2 = _12 & 65535;
+  currentPeriod_6 = _1 + _2;
+
+  <bb 5> [local count: 1073741824]:
+  # currentPeriod_3 = PHI <_12(2), currentPeriod_6(4), _12(3)>
+  return currentPeriod_3;
+
+}
+
+
+
+;; Function LPIT_DRV_GetCurrentTimerCount (LPIT_DRV_GetCurrentTimerCount, funcdef_no=36, decl_uid=5340, cgraph_uid=37, symbol_order=39)
+
+Removing basic block 6
+Removing basic block 7
+LPIT_DRV_GetCurrentTimerCount (uint32_t instance, uint32_t channel)
+{
+  uint32_t tmp;
+  uint32_t currentTime;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _7;
+  long unsigned int _8;
+  unsigned int _10;
+  long unsigned int _12;
+
+  <bb 2> [local count: 1073741824]:
+  _12 ={v} MEM[(const struct LPIT_Type *)1073967104B].TMR[channel_5(D)].CVAL;
+  _7 ={v} MEM[(const struct LPIT_Type *)1073967104B].TMR[channel_5(D)].TCTRL;
+  _8 = _7 >> 2;
+  tmp_9 = _8 & 3;
+  _10 = tmp_9 + 4294967295;
+  if (_10 <= 2)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (tmp_9 == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 4> [local count: 182536112]:
+  _1 = _12 >> 16;
+  _2 = _12 & 65535;
+  currentTime_6 = _1 + _2;
+
+  <bb 5> [local count: 1073741824]:
+  # currentTime_3 = PHI <_12(2), currentTime_6(4), _12(3)>
+  return currentTime_3;
+
+}
+
+
+
+;; Function LPIT_DRV_EnableTimerChannelInterrupt (LPIT_DRV_EnableTimerChannelInterrupt, funcdef_no=37, decl_uid=5343, cgraph_uid=38, symbol_order=40)
+
+LPIT_DRV_EnableTimerChannelInterrupt (uint32_t instance, uint32_t mask)
+{
+  long unsigned int _3;
+  long unsigned int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _3 ={v} MEM[(struct LPIT_Type *)1073967104B].MIER;
+  _4 = mask_2(D) | _3;
+  MEM[(struct LPIT_Type *)1073967104B].MIER ={v} _4;
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_DisableTimerChannelInterrupt (LPIT_DRV_DisableTimerChannelInterrupt, funcdef_no=38, decl_uid=5346, cgraph_uid=39, symbol_order=41)
+
+LPIT_DRV_DisableTimerChannelInterrupt (uint32_t instance, uint32_t mask)
+{
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  _3 ={v} MEM[(struct LPIT_Type *)1073967104B].MIER;
+  _4 = ~mask_2(D);
+  _5 = _3 & _4;
+  MEM[(struct LPIT_Type *)1073967104B].MIER ={v} _5;
+  return;
+
+}
+
+
+
+;; Function LPIT_DRV_GetInterruptFlagTimerChannels (LPIT_DRV_GetInterruptFlagTimerChannels, funcdef_no=39, decl_uid=5349, cgraph_uid=40, symbol_order=42)
+
+LPIT_DRV_GetInterruptFlagTimerChannels (uint32_t instance, uint32_t mask)
+{
+  long unsigned int _3;
+  long unsigned int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _3 ={v} MEM[(const struct LPIT_Type *)1073967104B].MSR;
+  _4 = mask_2(D) & _3;
+  return _4;
+
+}
+
+
+
+;; Function LPIT_DRV_ClearInterruptFlagTimerChannels (LPIT_DRV_ClearInterruptFlagTimerChannels, funcdef_no=40, decl_uid=5352, cgraph_uid=41, symbol_order=43)
+
+LPIT_DRV_ClearInterruptFlagTimerChannels (uint32_t instance, uint32_t mask)
+{
+  long unsigned int vol.11_3;
+
+  <bb 2> [local count: 1073741824]:
+  MEM[(struct LPIT_Type *)1073967104B].MSR ={v} mask_2(D);
+  vol.11_3 ={v} MEM[(struct LPIT_Type *)1073967104B].MSR;
+  return;
+
+}
+
+

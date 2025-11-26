@@ -1,0 +1,477 @@
+
+;; Function PDB_DRV_Init (PDB_DRV_Init, funcdef_no=16, decl_uid=6738, cgraph_uid=17, symbol_order=18)
+
+Removing basic block 10
+Removing basic block 11
+PDB_DRV_Init (const uint32_t instance, const struct pdb_timer_config_t * const userConfigPtr)
+{
+  clock_names_t instanceClkName;
+  struct PDB_Type * base;
+  static const clock_names_t s_pdbClkNames[2] = {55, 56};
+  _Bool _1;
+  _Bool _2;
+  _Bool _3;
+  <unnamed type> _4;
+  <unnamed type> _5;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+
+  <bb 2> [local count: 1073741823]:
+  base_10 = s_pdbBase[instance_9(D)];
+  instanceClkName_11 = s_pdbClkNames[instance_9(D)];
+  CLOCK_SYS_GetFreq (instanceClkName_11, 0B);
+  PDB_Init (base_10);
+  PDB_ConfigTimer (base_10, userConfigPtr_14(D));
+  _1 = userConfigPtr_14(D)->instanceBackToBackEnable;
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  _18 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _19 = _18 | 8192;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _19;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870911]:
+  _20 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _21 = _20 & 4294959103;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _21;
+
+  <bb 5> [local count: 1073741823]:
+  _2 = userConfigPtr_14(D)->intEnable;
+  if (_2 != 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 6> [local count: 719407024]:
+  _3 = userConfigPtr_14(D)->seqErrIntEnable;
+  if (_3 != 0)
+    goto <bb 7>; [67.00%]
+  else
+    goto <bb 8>; [33.00%]
+
+  <bb 7> [local count: 836337507]:
+  _4 = s_pdbIrqId[instance_9(D)];
+  INT_SYS_EnableIRQ (_4); [tail call]
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 237404316]:
+  _5 = s_pdbIrqId[instance_9(D)];
+  INT_SYS_DisableIRQ (_5); [tail call]
+
+  <bb 9> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_Deinit (PDB_DRV_Deinit, funcdef_no=17, decl_uid=6740, cgraph_uid=18, symbol_order=19)
+
+PDB_DRV_Deinit (const uint32_t instance)
+{
+  struct PDB_Type * base;
+  <unnamed type> _1;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+
+  <bb 2> [local count: 1073741824]:
+  base_4 = s_pdbBase[instance_3(D)];
+  _1 = s_pdbIrqId[instance_3(D)];
+  INT_SYS_DisableIRQ (_1);
+  _8 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _9 = _8 & 4294959103;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _9;
+  _6 ={v} base_4->SC;
+  _7 = _6 & 4294967167;
+  base_4->SC ={v} _7;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_GetDefaultConfig (PDB_DRV_GetDefaultConfig, funcdef_no=18, decl_uid=6742, cgraph_uid=19, symbol_order=20)
+
+PDB_DRV_GetDefaultConfig (struct pdb_timer_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->loadValueMode = 0;
+  config_2(D)->seqErrIntEnable = 0;
+  config_2(D)->clkPreDiv = 0;
+  config_2(D)->clkPreMultFactor = 0;
+  config_2(D)->triggerInput = 0;
+  config_2(D)->continuousModeEnable = 0;
+  config_2(D)->dmaEnable = 0;
+  config_2(D)->intEnable = 0;
+  config_2(D)->instanceBackToBackEnable = 0;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_Enable (PDB_DRV_Enable, funcdef_no=19, decl_uid=6744, cgraph_uid=20, symbol_order=21)
+
+PDB_DRV_Enable (const uint32_t instance)
+{
+  struct PDB_Type * base;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _4 ={v} base_3->SC;
+  _5 = _4 | 128;
+  base_3->SC ={v} _5;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_Disable (PDB_DRV_Disable, funcdef_no=20, decl_uid=6746, cgraph_uid=21, symbol_order=22)
+
+PDB_DRV_Disable (const uint32_t instance)
+{
+  struct PDB_Type * base;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _4 ={v} base_3->SC;
+  _5 = _4 & 4294967167;
+  base_3->SC ={v} _5;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_SoftTriggerCmd (PDB_DRV_SoftTriggerCmd, funcdef_no=21, decl_uid=6748, cgraph_uid=22, symbol_order=23)
+
+PDB_DRV_SoftTriggerCmd (const uint32_t instance)
+{
+  struct PDB_Type * base;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _4 ={v} base_3->SC;
+  _5 = _4 | 65536;
+  base_3->SC ={v} _5;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_GetTimerValue (PDB_DRV_GetTimerValue, funcdef_no=22, decl_uid=6750, cgraph_uid=23, symbol_order=24)
+
+PDB_DRV_GetTimerValue (const uint32_t instance)
+{
+  const struct PDB_Type * base;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _4 ={v} base_3->CNT;
+  _5 = _4 & 65535;
+  return _5;
+
+}
+
+
+
+;; Function PDB_DRV_GetTimerIntFlag (PDB_DRV_GetTimerIntFlag, funcdef_no=23, decl_uid=6752, cgraph_uid=24, symbol_order=25)
+
+PDB_DRV_GetTimerIntFlag (const uint32_t instance)
+{
+  const struct PDB_Type * base;
+  long unsigned int _4;
+  long unsigned int _5;
+  _Bool _6;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _4 ={v} base_3->SC;
+  _5 = _4 >> 6;
+  _6 = (_Bool) _5;
+  return _6;
+
+}
+
+
+
+;; Function PDB_DRV_ClearTimerIntFlag (PDB_DRV_ClearTimerIntFlag, funcdef_no=24, decl_uid=6754, cgraph_uid=25, symbol_order=26)
+
+PDB_DRV_ClearTimerIntFlag (const uint32_t instance)
+{
+  volatile uint32_t dummy_read;
+  struct PDB_Type * base;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int vol.0_7;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _4 ={v} base_3->SC;
+  _5 = _4 & 4294967231;
+  base_3->SC ={v} _5;
+  _6 ={v} base_3->SC;
+  dummy_read ={v} _6;
+  vol.0_7 ={v} dummy_read;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_LoadValuesCmd (PDB_DRV_LoadValuesCmd, funcdef_no=25, decl_uid=6756, cgraph_uid=26, symbol_order=27)
+
+PDB_DRV_LoadValuesCmd (const uint32_t instance)
+{
+  struct PDB_Type * base;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _4 ={v} base_3->SC;
+  _5 = _4 | 1;
+  base_3->SC ={v} _5;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_SetTimerModulusValue (PDB_DRV_SetTimerModulusValue, funcdef_no=26, decl_uid=6759, cgraph_uid=27, symbol_order=28)
+
+PDB_DRV_SetTimerModulusValue (const uint32_t instance, const uint16_t value)
+{
+  struct PDB_Type * base;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _5 ={v} base_3->MOD;
+  _6 = _5 & 4294901760;
+  _7 = (long unsigned int) value_4(D);
+  _8 = _6 | _7;
+  base_3->MOD ={v} _8;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_SetValueForTimerInterrupt (PDB_DRV_SetValueForTimerInterrupt, funcdef_no=27, decl_uid=6762, cgraph_uid=28, symbol_order=29)
+
+PDB_DRV_SetValueForTimerInterrupt (const uint32_t instance, const uint16_t value)
+{
+  struct PDB_Type * base;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _5 ={v} base_3->IDLY;
+  _6 = _5 & 4294901760;
+  _7 = (long unsigned int) value_4(D);
+  _8 = _6 | _7;
+  base_3->IDLY ={v} _8;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_ConfigAdcPreTrigger (PDB_DRV_ConfigAdcPreTrigger, funcdef_no=28, decl_uid=6766, cgraph_uid=29, symbol_order=30)
+
+PDB_DRV_ConfigAdcPreTrigger (const uint32_t instance, const uint32_t chn, const struct pdb_adc_pretrigger_config_t * configPtr)
+{
+  struct PDB_Type * base;
+  long unsigned int _1;
+  long unsigned int _2;
+  _Bool _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  _Bool _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  _Bool _9;
+
+  <bb 2> [local count: 1073741824]:
+  base_12 = s_pdbBase[instance_11(D)];
+  _1 = configPtr_13(D)->adcPreTriggerIdx;
+  _2 = 1 << _1;
+  _3 = configPtr_13(D)->preTriggerEnable;
+  PDB_SetAdcPreTriggerEnable (base_12, chn_14(D), _2, _3);
+  _4 = configPtr_13(D)->adcPreTriggerIdx;
+  _5 = 1 << _4;
+  _6 = configPtr_13(D)->preTriggerOutputEnable;
+  PDB_SetAdcPreTriggerOutputEnable (base_12, chn_14(D), _5, _6);
+  _7 = configPtr_13(D)->adcPreTriggerIdx;
+  _8 = 1 << _7;
+  _9 = configPtr_13(D)->preTriggerBackToBackEnable;
+  PDB_SetAdcPreTriggerBackToBackEnable (base_12, chn_14(D), _8, _9); [tail call]
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_GetAdcPreTriggerFlags (PDB_DRV_GetAdcPreTriggerFlags, funcdef_no=29, decl_uid=6770, cgraph_uid=30, symbol_order=31)
+
+PDB_DRV_GetAdcPreTriggerFlags (const uint32_t instance, const uint32_t chn, const uint32_t preChnMask)
+{
+  const struct PDB_Type * base;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _6 ={v} base_3->CH[chn_4(D)].S;
+  _7 = _6 >> 16;
+  _8 = preChnMask_5(D) & _7;
+  _9 = _8 & 255;
+  return _9;
+
+}
+
+
+
+;; Function PDB_DRV_ClearAdcPreTriggerFlags (PDB_DRV_ClearAdcPreTriggerFlags, funcdef_no=30, decl_uid=6774, cgraph_uid=31, symbol_order=32)
+
+PDB_DRV_ClearAdcPreTriggerFlags (const uint32_t instance, const uint32_t chn, const uint32_t preChnMask)
+{
+  struct PDB_Type * base;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  PDB_ClearAdcPreTriggerFlags (base_3, chn_4(D), preChnMask_5(D)); [tail call]
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_GetAdcPreTriggerSeqErrFlags (PDB_DRV_GetAdcPreTriggerSeqErrFlags, funcdef_no=31, decl_uid=6778, cgraph_uid=32, symbol_order=33)
+
+PDB_DRV_GetAdcPreTriggerSeqErrFlags (const uint32_t instance, const uint32_t chn, const uint32_t preChnMask)
+{
+  const struct PDB_Type * base;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _6 ={v} base_3->CH[chn_4(D)].S;
+  _7 = preChnMask_5(D) & _6;
+  _8 = _7 & 255;
+  return _8;
+
+}
+
+
+
+;; Function PDB_DRV_ClearAdcPreTriggerSeqErrFlags (PDB_DRV_ClearAdcPreTriggerSeqErrFlags, funcdef_no=32, decl_uid=6782, cgraph_uid=33, symbol_order=34)
+
+PDB_DRV_ClearAdcPreTriggerSeqErrFlags (const uint32_t instance, const uint32_t chn, const uint32_t preChnMask)
+{
+  struct PDB_Type * base;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  PDB_ClearAdcPreTriggerSeqErrFlags (base_3, chn_4(D), preChnMask_5(D)); [tail call]
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_SetAdcPreTriggerDelayValue (PDB_DRV_SetAdcPreTriggerDelayValue, funcdef_no=33, decl_uid=6787, cgraph_uid=34, symbol_order=35)
+
+PDB_DRV_SetAdcPreTriggerDelayValue (const uint32_t instance, const uint32_t chn, const uint32_t preChn, const uint32_t value)
+{
+  struct PDB_Type * base;
+  long unsigned int _7;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _7 = value_6(D) & 65535;
+  base_3->CH[chn_4(D)].DLY[preChn_5(D)] ={v} _7;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_SetCmpPulseOutEnable (PDB_DRV_SetCmpPulseOutEnable, funcdef_no=34, decl_uid=6791, cgraph_uid=35, symbol_order=36)
+
+PDB_DRV_SetCmpPulseOutEnable (const uint32_t instance, const uint32_t pulseChnMask, const _Bool enable)
+{
+  struct PDB_Type * base;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  PDB_SetCmpPulseOutEnable (base_3, pulseChnMask_4(D), enable_5(D)); [tail call]
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_SetCmpPulseOutDelayForHigh (PDB_DRV_SetCmpPulseOutDelayForHigh, funcdef_no=35, decl_uid=6795, cgraph_uid=36, symbol_order=37)
+
+PDB_DRV_SetCmpPulseOutDelayForHigh (const uint32_t instance, const uint32_t pulseChn, const uint32_t value)
+{
+  struct PDB_Type * base;
+  short unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _6 = (short unsigned int) value_5(D);
+  base_3->POnDLY[pulseChn_4(D)].ACCESS16BIT.DLY1 ={v} _6;
+  return;
+
+}
+
+
+
+;; Function PDB_DRV_SetCmpPulseOutDelayForLow (PDB_DRV_SetCmpPulseOutDelayForLow, funcdef_no=36, decl_uid=6799, cgraph_uid=37, symbol_order=38)
+
+PDB_DRV_SetCmpPulseOutDelayForLow (const uint32_t instance, const uint32_t pulseChn, const uint32_t value)
+{
+  struct PDB_Type * base;
+  short unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_pdbBase[instance_2(D)];
+  _6 = (short unsigned int) value_5(D);
+  base_3->POnDLY[pulseChn_4(D)].ACCESS16BIT.DLY2 ={v} _6;
+  return;
+
+}
+
+

@@ -1,0 +1,830 @@
+
+;; Function xEventGroupCreate (xEventGroupCreate, funcdef_no=5, decl_uid=6214, cgraph_uid=6, symbol_order=5)
+
+Removing basic block 5
+xEventGroupCreate ()
+{
+  struct EventGroup_t * pxEventBits;
+  struct List_t * _1;
+
+  <bb 2> [local count: 1073741824]:
+  pxEventBits_5 = pvPortMalloc (24);
+  if (pxEventBits_5 != 0B)
+    goto <bb 3>; [53.47%]
+  else
+    goto <bb 4>; [46.53%]
+
+  <bb 3> [local count: 574129753]:
+  pxEventBits_5->uxEventBits = 0;
+  _1 = &pxEventBits_5->xTasksWaitingForBits;
+  vListInitialise (_1);
+
+  <bb 4> [local count: 1073741824]:
+  return pxEventBits_5;
+
+}
+
+
+
+;; Function xEventGroupWaitBits (xEventGroupWaitBits, funcdef_no=7, decl_uid=6220, cgraph_uid=8, symbol_order=7)
+
+Merging blocks 4 and 38
+Merging blocks 7 and 39
+Merging blocks 10 and 40
+Merging blocks 14 and 41
+Removing basic block 23
+Removing basic block 42
+Removing basic block 43
+Removing basic block 44
+Removing basic block 45
+Removing basic block 46
+Removing basic block 47
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+xEventGroupWaitBits (struct EventGroupDef_t * xEventGroup, const EventBits_t uxBitsToWaitFor, const BaseType_t xClearOnExit, const BaseType_t xWaitForAllBits, TickType_t xTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  const EventBits_t uxCurrentEventBits;
+  BaseType_t xAlreadyYielded;
+  EventBits_t uxControlBits;
+  EventBits_t uxReturn;
+  long unsigned int _1;
+  long int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  struct List_t * _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+
+  <bb 2> [local count: 30374594]:
+  if (xEventGroup_21(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 9112378]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_43 : "i" 16 : "memory");
+
+  <bb 4> [local count: 920350123]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 21262216]:
+  _1 = uxBitsToWaitFor_22(D) & 4278190080;
+  if (_1 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_29 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 10631108]:
+  if (uxBitsToWaitFor_22(D) == 0)
+    goto <bb 9>; [67.00%]
+  else
+    goto <bb 11>; [33.00%]
+
+  <bb 9> [local count: 7122842]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_47 : "i" 16 : "memory");
+
+  <bb 10> [local count: 719407025]:
+  goto <bb 10>; [100.00%]
+
+  <bb 11> [local count: 3508266]:
+  _2 = xTaskGetSchedulerState ();
+  if (_2 != 0)
+    goto <bb 15>; [33.00%]
+  else
+    goto <bb 12>; [67.00%]
+
+  <bb 12> [local count: 2350538]:
+  if (xTicksToWait_25(D) == 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 13> [local count: 1175269]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_48 : "i" 16 : "memory");
+
+  <bb 14> [local count: 118702158]:
+  goto <bb 14>; [100.00%]
+
+  <bb 15> [local count: 2332997]:
+  vTaskSuspendAll ();
+  uxCurrentEventBits_27 = MEM[(struct EventGroup_t *)xEventGroup_21(D)].uxEventBits;
+  if (xWaitForAllBits_28(D) == 0)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 16> [local count: 1166498]:
+  _49 = uxBitsToWaitFor_22(D) & uxCurrentEventBits_27;
+  if (_49 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 17> [local count: 1166498]:
+  _50 = uxBitsToWaitFor_22(D) & uxCurrentEventBits_27;
+  if (uxBitsToWaitFor_22(D) == _50)
+    goto <bb 18>; [34.00%]
+  else
+    goto <bb 21>; [66.00%]
+
+  <bb 18> [local count: 979859]:
+  if (xClearOnExit_30(D) != 0)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 19> [local count: 489930]:
+  xTaskResumeAll ();
+  goto <bb 36>; [100.00%]
+
+  <bb 20> [local count: 489929]:
+  _3 = ~uxBitsToWaitFor_22(D);
+  _4 = _3 & uxCurrentEventBits_27;
+  MEM[(struct EventGroup_t *)xEventGroup_21(D)].uxEventBits = _4;
+  xTaskResumeAll ();
+  goto <bb 36>; [100.00%]
+
+  <bb 21> [local count: 1353138]:
+  if (xTicksToWait_25(D) == 0)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 22>; [50.00%]
+
+  <bb 22> [local count: 676569]:
+  if (xClearOnExit_30(D) != 0)
+    goto <bb 23>; [50.00%]
+  else
+    goto <bb 24>; [50.00%]
+
+  <bb 23> [local count: 338285]:
+
+  <bb 24> [local count: 676569]:
+  # uxControlBits_14 = PHI <_1(22), 16777216(23)>
+  if (xWaitForAllBits_28(D) != 0)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 25> [local count: 338285]:
+  uxControlBits_31 = uxControlBits_14 | 67108864;
+
+  <bb 26> [local count: 1166498]:
+  # uxControlBits_15 = PHI <uxControlBits_31(25), uxControlBits_14(24)>
+  _5 = &MEM[(struct EventGroup_t *)xEventGroup_21(D)].xTasksWaitingForBits;
+  _6 = uxControlBits_15 | uxBitsToWaitFor_22(D);
+  vTaskPlaceOnUnorderedEventList (_5, _6, xTicksToWait_25(D));
+  xAlreadyYielded_89 = xTaskResumeAll ();
+  if (xAlreadyYielded_89 == 0)
+    goto <bb 27>; [50.00%]
+  else
+    goto <bb 28>; [50.00%]
+
+  <bb 27> [local count: 583249]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 28> [local count: 1166498]:
+  uxReturn_40 = uxTaskResetEventItemValue ();
+  _7 = uxReturn_40 & 33554432;
+  if (_7 == 0)
+    goto <bb 29>; [33.00%]
+  else
+    goto <bb 35>; [67.00%]
+
+  <bb 29> [local count: 384944]:
+  vPortEnterCritical ();
+  uxReturn_42 = MEM[(struct EventGroup_t *)xEventGroup_21(D)].uxEventBits;
+  if (xWaitForAllBits_28(D) == 0)
+    goto <bb 30>; [50.00%]
+  else
+    goto <bb 31>; [50.00%]
+
+  <bb 30> [local count: 192472]:
+  _51 = uxBitsToWaitFor_22(D) & uxReturn_42;
+  if (_51 != 0)
+    goto <bb 32>; [50.00%]
+  else
+    goto <bb 34>; [50.00%]
+
+  <bb 31> [local count: 192472]:
+  _52 = uxBitsToWaitFor_22(D) & uxReturn_42;
+  if (uxBitsToWaitFor_22(D) == _52)
+    goto <bb 32>; [34.00%]
+  else
+    goto <bb 34>; [66.00%]
+
+  <bb 32> [local count: 161677]:
+  if (xClearOnExit_30(D) != 0)
+    goto <bb 33>; [50.00%]
+  else
+    goto <bb 34>; [50.00%]
+
+  <bb 33> [local count: 80838]:
+  _8 = ~uxBitsToWaitFor_22(D);
+  _9 = _8 & uxReturn_42;
+  MEM[(struct EventGroup_t *)xEventGroup_21(D)].uxEventBits = _9;
+
+  <bb 34> [local count: 384944]:
+  vPortExitCritical ();
+
+  <bb 35> [local count: 1166498]:
+  # uxReturn_12 = PHI <uxReturn_42(34), uxReturn_40(28)>
+  uxReturn_46 = uxReturn_12 & 16777215;
+
+  <bb 36> [local count: 2332997]:
+  # uxReturn_13 = PHI <uxCurrentEventBits_27(37), uxReturn_46(35), uxCurrentEventBits_27(20), uxCurrentEventBits_27(19)>
+  return uxReturn_13;
+
+  <bb 37> [local count: 141830]:
+  xTaskResumeAll ();
+  goto <bb 36>; [100.00%]
+
+}
+
+
+
+;; Function xEventGroupClearBits (xEventGroupClearBits, funcdef_no=8, decl_uid=6223, cgraph_uid=9, symbol_order=8)
+
+Merging blocks 4 and 9
+Merging blocks 7 and 10
+xEventGroupClearBits (struct EventGroupDef_t * xEventGroup, const EventBits_t uxBitsToClear)
+{
+  EventBits_t uxReturn;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  long unsigned int _1;
+  long unsigned int _12;
+  long unsigned int _13;
+
+  <bb 2> [local count: 22667608]:
+  if (xEventGroup_3(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 6800282]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_7 : "i" 16 : "memory");
+
+  <bb 4> [local count: 686828449]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 15867325]:
+  _1 = uxBitsToClear_5(D) & 4278190080;
+  if (_1 != 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 8>; [33.00%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 5236217]:
+  vPortEnterCritical ();
+  uxReturn_11 = MEM[(struct EventGroup_t *)xEventGroup_3(D)].uxEventBits;
+  _12 = ~uxBitsToClear_5(D);
+  _13 = uxReturn_11 & _12;
+  MEM[(struct EventGroup_t *)xEventGroup_3(D)].uxEventBits = _13;
+  vPortExitCritical ();
+  return uxReturn_11;
+
+}
+
+
+
+;; Function xEventGroupGetBitsFromISR (xEventGroupGetBitsFromISR, funcdef_no=9, decl_uid=6233, cgraph_uid=10, symbol_order=9)
+
+xEventGroupGetBitsFromISR (struct EventGroupDef_t * xEventGroup)
+{
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  EventBits_t uxReturn;
+
+  <bb 2> [local count: 1073741824]:
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_4, "=r" ulNewBASEPRI_5 : "i" 16 : "memory");
+  uxReturn_3 = MEM[(const struct EventGroup_t *)xEventGroup_1(D)].uxEventBits;
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_4 : "memory");
+  return uxReturn_3;
+
+}
+
+
+
+;; Function xEventGroupSetBits (xEventGroupSetBits, funcdef_no=10, decl_uid=6226, cgraph_uid=11, symbol_order=10)
+
+Merging blocks 4 and 19
+Merging blocks 7 and 20
+Removing basic block 18
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+xEventGroupSetBits (struct EventGroupDef_t * xEventGroup, const EventBits_t uxBitsToSet)
+{
+  EventBits_t uxBitsWaitedFor;
+  EventBits_t uxBitsToClear;
+  const struct ListItem_t * pxListEnd;
+  struct ListItem_t * pxNext;
+  struct ListItem_t * pxListItem;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  long unsigned int _1;
+  long unsigned int prephitmp_6;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _19;
+  long unsigned int _21;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _28;
+  long unsigned int _33;
+  long unsigned int pretmp_53;
+  long unsigned int prephitmp_54;
+  long unsigned int _56;
+  long unsigned int _58;
+  long unsigned int prephitmp_59;
+
+  <bb 2> [local count: 22667608]:
+  if (xEventGroup_3(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 6800282]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_7 : "i" 16 : "memory");
+
+  <bb 4> [local count: 686828449]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 15867325]:
+  _1 = uxBitsToSet_4(D) & 4278190080;
+  if (_1 != 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 8>; [33.00%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 5236217]:
+  pxListEnd_11 = &MEM[(const struct List_t *)xEventGroup_3(D) + 4B].xListEnd;
+  vTaskSuspendAll ();
+  pxListItem_12 = MEM[(const struct List_t *)xEventGroup_3(D) + 4B].xListEnd.pxNext;
+  _13 = MEM[(struct EventGroup_t *)xEventGroup_3(D)].uxEventBits;
+  _14 = uxBitsToSet_4(D) | _13;
+  MEM[(struct EventGroup_t *)xEventGroup_3(D)].uxEventBits = _14;
+  if (pxListEnd_11 != pxListItem_12)
+    goto <bb 9>; [89.00%]
+  else
+    goto <bb 17>; [11.00%]
+
+  <bb 9> [local count: 42365759]:
+  # pxListItem_35 = PHI <pxListItem_12(8), pxNext_16(15)>
+  # uxBitsToClear_50 = PHI <_1(8), uxBitsToClear_36(15)>
+  # prephitmp_6 = PHI <_14(8), prephitmp_54(15)>
+  pxNext_16 = pxListItem_35->pxNext;
+  uxBitsWaitedFor_17 = pxListItem_35->xItemValue;
+  uxBitsWaitedFor_18 = uxBitsWaitedFor_17 & 16777215;
+  _19 = uxBitsWaitedFor_17 & 67108864;
+  if (_19 == 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 21182879]:
+  _21 = prephitmp_6 & uxBitsWaitedFor_18;
+  if (_21 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 11> [local count: 21182879]:
+  _23 = prephitmp_6 & uxBitsWaitedFor_18;
+  if (uxBitsWaitedFor_18 == _23)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 15>; [66.00%]
+
+  <bb 12> [local count: 17793619]:
+  _24 = uxBitsWaitedFor_17 & 16777216;
+  if (_24 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 13> [local count: 8896809]:
+  uxBitsToClear_26 = uxBitsWaitedFor_18 | uxBitsToClear_50;
+
+  <bb 14> [local count: 17793619]:
+  # uxBitsToClear_34 = PHI <uxBitsToClear_26(13), uxBitsToClear_50(12)>
+  _28 = prephitmp_6 | 33554432;
+  vTaskRemoveFromUnorderedEventList (pxListItem_35, _28);
+  pretmp_53 = MEM[(struct EventGroup_t *)xEventGroup_3(D)].uxEventBits;
+
+  <bb 15> [local count: 42365759]:
+  # uxBitsToClear_36 = PHI <uxBitsToClear_50(10), uxBitsToClear_34(14), uxBitsToClear_50(11)>
+  # prephitmp_54 = PHI <prephitmp_6(10), pretmp_53(14), prephitmp_6(11)>
+  if (pxListEnd_11 != pxNext_16)
+    goto <bb 9>; [89.00%]
+  else
+    goto <bb 16>; [11.00%]
+
+  <bb 16> [local count: 4660233]:
+  _56 = ~uxBitsToClear_36;
+  _58 = prephitmp_54 & _56;
+
+  <bb 17> [local count: 5236217]:
+  # prephitmp_59 = PHI <_58(16), _14(8)>
+  MEM[(struct EventGroup_t *)xEventGroup_3(D)].uxEventBits = prephitmp_59;
+  xTaskResumeAll ();
+  _33 = MEM[(struct EventGroup_t *)xEventGroup_3(D)].uxEventBits;
+  return _33;
+
+}
+
+
+
+;; Function xEventGroupSync (xEventGroupSync, funcdef_no=6, decl_uid=6231, cgraph_uid=7, symbol_order=6)
+
+Merging blocks 4 and 25
+Merging blocks 7 and 26
+Merging blocks 11 and 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+xEventGroupSync (struct EventGroupDef_t * xEventGroup, const EventBits_t uxBitsToSet, const EventBits_t uxBitsToWaitFor, TickType_t xTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  BaseType_t xAlreadyYielded;
+  EventBits_t uxReturn;
+  EventBits_t uxOriginalBitValue;
+  long unsigned int _1;
+  long int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  struct List_t * _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+
+  <bb 2> [local count: 21262216]:
+  _1 = uxBitsToWaitFor_24(D) & 4278190080;
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_47 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 10631108]:
+  if (uxBitsToWaitFor_24(D) == 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 8>; [33.00%]
+
+  <bb 6> [local count: 7122842]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_48 : "i" 16 : "memory");
+
+  <bb 7> [local count: 719407024]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 3508266]:
+  _2 = xTaskGetSchedulerState ();
+  if (_2 != 0)
+    goto <bb 12>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 9> [local count: 2350538]:
+  if (xTicksToWait_27(D) == 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 10> [local count: 1175269]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_49 : "i" 16 : "memory");
+
+  <bb 11> [local count: 118702158]:
+  goto <bb 11>; [100.00%]
+
+  <bb 12> [local count: 1157728]:
+  vTaskSuspendAll ();
+  uxOriginalBitValue_29 = MEM[(struct EventGroup_t *)xEventGroup_23(D)].uxEventBits;
+  xEventGroupSetBits (xEventGroup_23(D), uxBitsToSet_30(D));
+  _3 = uxOriginalBitValue_29 | uxBitsToSet_30(D);
+  _4 = _3 & uxBitsToWaitFor_24(D);
+  if (_4 == uxBitsToWaitFor_24(D))
+    goto <bb 13>; [34.00%]
+  else
+    goto <bb 14>; [66.00%]
+
+  <bb 13> [local count: 793219]:
+  # _71 = PHI <_3(12), _69(24)>
+  _5 = MEM[(struct EventGroup_t *)xEventGroup_23(D)].uxEventBits;
+  _6 = ~uxBitsToWaitFor_24(D);
+  _7 = _5 & _6;
+  MEM[(struct EventGroup_t *)xEventGroup_23(D)].uxEventBits = _7;
+  xTaskResumeAll ();
+  goto <bb 23>; [100.00%]
+
+  <bb 14> [local count: 764100]:
+  if (xTicksToWait_27(D) != 0)
+    goto <bb 15>; [66.50%]
+  else
+    goto <bb 16>; [33.50%]
+
+  <bb 15> [local count: 1166498]:
+  _8 = &MEM[(struct EventGroup_t *)xEventGroup_23(D)].xTasksWaitingForBits;
+  _9 = uxBitsToWaitFor_24(D) | 83886080;
+  vTaskPlaceOnUnorderedEventList (_8, _9, xTicksToWait_27(D));
+  xAlreadyYielded_36 = xTaskResumeAll ();
+  if (xAlreadyYielded_36 == 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 16> [local count: 1031651]:
+  uxReturn_32 = MEM[(struct EventGroup_t *)xEventGroup_23(D)].uxEventBits;
+  xTaskResumeAll ();
+  goto <bb 23>; [100.00%]
+
+  <bb 17> [local count: 583249]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 18> [local count: 1166498]:
+  uxReturn_41 = uxTaskResetEventItemValue ();
+  _10 = uxReturn_41 & 33554432;
+  if (_10 == 0)
+    goto <bb 19>; [33.00%]
+  else
+    goto <bb 22>; [67.00%]
+
+  <bb 19> [local count: 384944]:
+  vPortEnterCritical ();
+  uxReturn_43 = MEM[(struct EventGroup_t *)xEventGroup_23(D)].uxEventBits;
+  _11 = uxBitsToWaitFor_24(D) & uxReturn_43;
+  if (_11 == uxBitsToWaitFor_24(D))
+    goto <bb 20>; [34.00%]
+  else
+    goto <bb 21>; [66.00%]
+
+  <bb 20> [local count: 130881]:
+  _12 = ~uxBitsToWaitFor_24(D);
+  _13 = _12 & uxReturn_43;
+  MEM[(struct EventGroup_t *)xEventGroup_23(D)].uxEventBits = _13;
+
+  <bb 21> [local count: 384944]:
+  vPortExitCritical ();
+
+  <bb 22> [local count: 1166498]:
+  # uxReturn_16 = PHI <uxReturn_43(21), uxReturn_41(18)>
+  uxReturn_46 = uxReturn_16 & 16777215;
+
+  <bb 23> [local count: 2332997]:
+  # uxReturn_17 = PHI <uxReturn_32(16), uxReturn_46(22), _71(13)>
+  return uxReturn_17;
+
+  <bb 24> [local count: 1175269]:
+  vTaskSuspendAll ();
+  uxOriginalBitValue_67 = MEM[(struct EventGroup_t *)xEventGroup_23(D)].uxEventBits;
+  xEventGroupSetBits (xEventGroup_23(D), uxBitsToSet_30(D));
+  _69 = uxBitsToSet_30(D) | uxOriginalBitValue_67;
+  _70 = uxBitsToWaitFor_24(D) & _69;
+  if (uxBitsToWaitFor_24(D) == _70)
+    goto <bb 13>; [34.00%]
+  else
+    goto <bb 16>; [66.00%]
+
+}
+
+
+
+;; Function vEventGroupDelete (vEventGroupDelete, funcdef_no=11, decl_uid=6235, cgraph_uid=12, symbol_order=11)
+
+Merging blocks 7 and 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+vEventGroupDelete (struct EventGroupDef_t * xEventGroup)
+{
+  uint32_t ulNewBASEPRI;
+  struct xLIST_ITEM * _1;
+  long unsigned int _3;
+  const struct MiniListItem_t * pretmp_4;
+  long unsigned int _13;
+
+  <bb 2> [local count: 21880958]:
+  vTaskSuspendAll ();
+  _13 ={v} MEM[(const struct List_t *)xEventGroup_5(D) + 4B].uxNumberOfItems;
+  if (_13 != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 3>; [5.50%]
+
+  <bb 3> [local count: 11249850]:
+  vPortFree (xEventGroup_5(D));
+  xTaskResumeAll (); [tail call]
+  return;
+
+  <bb 4> [local count: 20677505]:
+  pretmp_4 = &MEM[(const struct List_t *)xEventGroup_5(D) + 4B].xListEnd;
+
+  <bb 5> [local count: 193292874]:
+  _1 = MEM[(const struct List_t *)xEventGroup_5(D) + 4B].xListEnd.pxNext;
+  if (_1 == pretmp_4)
+    goto <bb 6>; [5.50%]
+  else
+    goto <bb 8>; [94.50%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_11 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 182661766]:
+  vTaskRemoveFromUnorderedEventList (_1, 33554432);
+  _3 ={v} MEM[(const struct List_t *)xEventGroup_5(D) + 4B].uxNumberOfItems;
+  if (_3 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 3>; [5.50%]
+
+}
+
+
+
+;; Function vEventGroupSetBitsCallback (vEventGroupSetBitsCallback, funcdef_no=12, decl_uid=6238, cgraph_uid=13, symbol_order=12)
+
+vEventGroupSetBitsCallback (void * pvEventGroup, const uint32_t ulBitsToSet)
+{
+  <bb 2> [local count: 1073741824]:
+  xEventGroupSetBits (pvEventGroup_2(D), ulBitsToSet_3(D)); [tail call]
+  return;
+
+}
+
+
+
+;; Function vEventGroupClearBitsCallback (vEventGroupClearBitsCallback, funcdef_no=13, decl_uid=6241, cgraph_uid=14, symbol_order=13)
+
+Merging blocks 4 and 9
+Merging blocks 7 and 10
+vEventGroupClearBitsCallback (void * pvEventGroup, const uint32_t ulBitsToClear)
+{
+  EventBits_t uxReturn;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  long unsigned int _6;
+  long unsigned int _10;
+  long unsigned int _11;
+
+  <bb 2> [local count: 1073741824]:
+  if (pvEventGroup_2(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 322122528]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_5 : "i" 16 : "memory");
+
+  <bb 4> [local count: 32534373790]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 751619248]:
+  _6 = ulBitsToClear_3(D) & 4278190080;
+  if (_6 != 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 8>; [33.00%]
+
+  <bb 6> [local count: 503584908]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_7 : "i" 16 : "memory");
+
+  <bb 7> [local count: 50862071755]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 248034340]:
+  vPortEnterCritical ();
+  uxReturn_9 = MEM[(struct EventGroup_t *)pvEventGroup_2(D)].uxEventBits;
+  _10 = ~ulBitsToClear_3(D);
+  _11 = uxReturn_9 & _10;
+  MEM[(struct EventGroup_t *)pvEventGroup_2(D)].uxEventBits = _11;
+  vPortExitCritical (); [tail call]
+  return;
+
+}
+
+

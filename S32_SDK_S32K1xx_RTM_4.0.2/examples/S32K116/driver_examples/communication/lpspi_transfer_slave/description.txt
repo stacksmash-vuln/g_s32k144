@@ -1,0 +1,2 @@
+Uses the instance of the LPSPI as slave to send data to the master device of the SPI Bus.
+The example documentation can be found in the S32 SDK documentation at Examples and Demos section. (<SDK_PATH>/doc/Start_Here.html)

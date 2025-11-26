@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<regs:peripheral xmlns:regs="http://swtools.freescale.net/XSD/registers/3.0/regsPeripheral.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://swtools.freescale.net/XSD/registers/3.0/regsPeripheral.xsd http://swtools.freescale.net/XSD/registers/3.0/regsPeripheral.xsd">
+  <register offset="0x1" width="8" name="LVDSC2" description="Low Voltage Detect Status and Control 2 Register">
+    <alias type="CMSIS" value="LVDSC2"/>
+    <reserved_bit_field offset="0" width="5" reset_value="0"/>
+    <bit_field offset="5" width="1" name="LVWIE" access="RW" reset_value="0" description="Low-Voltage Warning Interrupt Enable">
+      <alias type="CMSIS" value="PMC_LVDSC2_LVWIE(x)"/>
+      <bit_field_value name="LVDSC2_LVWIE_0b0" value="0b0" description="Hardware interrupt disabled (use polling)"/>
+      <bit_field_value name="LVDSC2_LVWIE_0b1" value="0b1" description="Request a hardware interrupt when LVWF=1"/>
+    </bit_field>
+    <bit_field offset="6" width="1" name="LVWACK" access="WO" reset_value="0" description="Low-Voltage Warning Acknowledge">
+      <alias type="CMSIS" value="PMC_LVDSC2_LVWACK(x)"/>
+    </bit_field>
+    <bit_field offset="7" width="1" name="LVWF" access="RO" reset_value="0" description="Low-Voltage Warning Flag">
+      <alias type="CMSIS" value="PMC_LVDSC2_LVWF(x)"/>
+      <bit_field_value name="LVDSC2_LVWF_0b0" value="0b0" description="Low-voltage warning event not detected"/>
+      <bit_field_value name="LVDSC2_LVWF_0b1" value="0b1" description="Low-voltage warning event detected"/>
+    </bit_field>
+  </register>
+  <register offset="0x2" width="8" name="REGSC" description="Regulator Status and Control Register">
+    <alias type="CMSIS" value="REGSC"/>
+    <bit_field offset="0" width="1" name="BIASEN" access="RW" reset_value="0" description="Bias Enable Bit">
+      <alias type="CMSIS" value="PMC_REGSC_BIASEN(x)"/>
+      <bit_field_value name="REGSC_BIASEN_0b0" value="0b0" description="Biasing disabled, core logic can run in full performance"/>
+      <bit_field_value name="REGSC_BIASEN_0b1" value="0b1" description="Biasing enabled, core logic is slower and there are restrictions in allowed system clock speed (see Data Sheet for details)"/>
+    </bit_field>
+    <bit_field offset="1" width="1" name="CLKBIASDIS" access="RW" reset_value="0" description="Clock Bias Disable Bit">
+      <alias type="CMSIS" value="PMC_REGSC_CLKBIASDIS(x)"/>
+      <bit_field_value name="REGSC_CLKBIASDIS_0b0" value="0b0" description="No effect"/>
+      <bit_field_value name="REGSC_CLKBIASDIS_0b1" value="0b1" description="In VLPS mode, the bias currents and reference voltages for the following clock modules are disabled: SIRC, FIRC, PLL. (if available on device)"/>
+    </bit_field>
+    <bit_field offset="2" width="1" name="REGFPM" access="RO" reset_value="0x1" description="Regulator in Full Performance Mode Status Bit">
+      <alias type="CMSIS" value="PMC_REGSC_REGFPM(x)"/>
+      <bit_field_value name="REGSC_REGFPM_0b0" value="0b0" description="Regulator is in low power mode or transition to/from"/>
+      <bit_field_value name="REGSC_REGFPM_0b1" value="0b1" description="Regulator is in full performance mode"/>
+    </bit_field>
+    <reserved_bit_field offset="3" width="3" reset_value="0"/>
+    <bit_field offset="6" width="1" name="LPOSTAT" access="RO" reset_value="0" reset_mask="0" description="LPO Status Bit">
+      <alias type="CMSIS" value="PMC_REGSC_LPOSTAT(x)"/>
+      <bit_field_value name="REGSC_LPOSTAT_0b0" value="0b0" description="Low power oscillator in low phase"/>
+      <bit_field_value name="REGSC_LPOSTAT_0b1" value="0b1" description="Low power oscillator in high phase"/>
+    </bit_field>
+    <bit_field offset="7" width="1" name="LPODIS" access="RW" reset_value="0" description="LPO Disable Bit">
+      <alias type="CMSIS" value="PMC_REGSC_LPODIS(x)"/>
+      <bit_field_value name="REGSC_LPODIS_0b0" value="0b0" description="Low power oscillator enabled"/>
+      <bit_field_value name="REGSC_LPODIS_0b1" value="0b1" description="Low power oscillator disabled"/>
+    </bit_field>
+  </register>
+  <register offset="0x3" width="8" name="LVRFLG" description="Low Voltage Reset Flags Register">
+    <alias type="CMSIS" value="LVRFLG"/>
+    <bit_field offset="0" width="1" name="LVRF" access="W1C" reset_value="0" reset_mask="0" description="LVR Core Flag">
+      <alias type="CMSIS" value="PMC_LVRFLG_LVRF(x)"/>
+    </bit_field>
+    <bit_field offset="1" width="1" name="LVRLPF" access="W1C" reset_value="0" reset_mask="0" description="LVR in low power mode core Flag">
+      <alias type="CMSIS" value="PMC_LVRFLG_LVRLPF(x)"/>
+    </bit_field>
+    <bit_field offset="2" width="1" name="LVRXF" access="W1C" reset_value="0" reset_mask="0" description="LVR External Flag">
+      <alias type="CMSIS" value="PMC_LVRFLG_LVRXF(x)"/>
+    </bit_field>
+    <bit_field offset="3" width="1" name="LVRXLPF" access="W1C" reset_value="0" reset_mask="0" description="LVR external in low power mode flag">
+      <alias type="CMSIS" value="PMC_LVRFLG_LVRXLPF(x)"/>
+    </bit_field>
+    <bit_field offset="4" width="1" name="LVR3F" access="W1C" reset_value="0" reset_mask="0" description="LVR 3V Flag">
+      <alias type="CMSIS" value="PMC_LVRFLG_LVR3F(x)"/>
+    </bit_field>
+    <bit_field offset="5" width="1" name="LVR3FLSF" access="W1C" reset_value="0" reset_mask="0" description="LVR 3V Flash memory Flag">
+      <alias type="CMSIS" value="PMC_LVRFLG_LVR3FLSF(x)"/>
+    </bit_field>
+    <reserved_bit_field offset="6" width="1" reset_value="0"/>
+    <bit_field offset="7" width="1" name="PORF" access="W1C" reset_value="0" reset_mask="0" description="POR Flag">
+      <alias type="CMSIS" value="PMC_LVRFLG_PORF(x)"/>
+    </bit_field>
+  </register>
+  <register offset="0x4" width="8" name="LPOTRIM" description="Low Power Oscillator Trim Register">
+    <alias type="CMSIS" value="LPOTRIM"/>
+    <bit_field offset="0" width="5" name="LPOTRIM" access="RW" reset_value="0" reset_mask="0" description="LPO trimming bits">
+      <alias type="CMSIS" value="PMC_LPOTRIM_LPOTRIM(x)"/>
+    </bit_field>
+    <reserved_bit_field offset="5" width="3" reset_value="0"/>
+  </register>
+</regs:peripheral>

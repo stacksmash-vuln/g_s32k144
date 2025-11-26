@@ -1,0 +1,216 @@
+
+;; Function FTM_DRV_InitCounter (FTM_DRV_InitCounter, funcdef_no=141, decl_uid=6751, cgraph_uid=142, symbol_order=141)
+
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+FTM_DRV_InitCounter (uint32_t instance, const struct ftm_timer_param_t * timer)
+{
+  unsigned int ivtmp.17;
+  status_t retStatus;
+  struct ftm_state_t * state;
+  struct FTM_Type * ftmBase;
+  <unnamed type> _1;
+  short unsigned int _2;
+  short unsigned int _3;
+  <unnamed type> _4;
+  struct FTM_Type * _6;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int vol.1_29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  sizetype _63;
+
+  <bb 2> [local count: 340836342]:
+  state_13 = ftmStatePtr[instance_11(D)];
+  if (state_13 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 11>; [30.00%]
+
+  <bb 3> [local count: 238585440]:
+  _1 = state_13->ftmMode;
+  if (_1 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 4> [local count: 119292720]:
+  ftmBase_12 = g_ftmBase[instance_11(D)];
+  _30 ={v} ftmBase_12->SC;
+  _31 = _30 & 4294967271;
+  ftmBase_12->SC ={v} _31;
+  _27 ={v} ftmBase_12->SC;
+  _28 = _27 & 4294966783;
+  ftmBase_12->SC ={v} _28;
+  vol.1_29 ={v} ftmBase_12->SC;
+  _2 = timer_14(D)->initialValue;
+  _23 ={v} ftmBase_12->CNTIN;
+  _24 = _23 & 4294901760;
+  _25 = (long unsigned int) _2;
+  _26 = _24 | _25;
+  ftmBase_12->CNTIN ={v} _26;
+  _3 = timer_14(D)->finalValue;
+  _19 ={v} ftmBase_12->MOD;
+  _20 = _19 & 4294901760;
+  _21 = (long unsigned int) _3;
+  _22 = _20 | _21;
+  ftmBase_12->MOD ={v} _22;
+  _17 ={v} ftmBase_12->QDCTRL;
+  _18 = _17 & 4294967294;
+  ftmBase_12->QDCTRL ={v} _18;
+
+  <bb 5> [local count: 954449105]:
+  # ivtmp.17_62 = PHI <0(4), ivtmp.17_61(5)>
+  _63 = ivtmp.17_62 * 8;
+  _6 = ftmBase_12 + _63;
+  _33 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_6 + 12B];
+  _34 = _33 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_6 + 12B] ={v} _34;
+  _35 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_6 + 12B];
+  _36 = _35 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_6 + 12B] ={v} _36;
+  ivtmp.17_61 = ivtmp.17_62 + 1;
+  if (ivtmp.17_61 != 8)
+    goto <bb 5>; [87.50%]
+  else
+    goto <bb 6>; [12.50%]
+
+  <bb 6> [local count: 119292720]:
+  _4 = timer_14(D)->mode;
+  if (_4 == 6)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 40559525]:
+  _37 ={v} ftmBase_12->SC;
+  _38 = _37 & 4294967263;
+  ftmBase_12->SC ={v} _38;
+  goto <bb 10>; [100.00%]
+
+  <bb 8> [local count: 78733195]:
+  if (_4 == 7)
+    goto <bb 9>; [34.00%]
+  else
+    goto <bb 10>; [66.00%]
+
+  <bb 9> [local count: 26769287]:
+  _39 ={v} ftmBase_12->SC;
+  _40 = _39 & 4294967263;
+  _41 = _40 | 32;
+  ftmBase_12->SC ={v} _41;
+
+  <bb 10> [local count: 119292720]:
+  state_13->ftmMode = _4;
+
+  <bb 11> [local count: 340836342]:
+  # retStatus_5 = PHI <0(10), 1(2), 1(3)>
+  return retStatus_5;
+
+}
+
+
+
+;; Function FTM_DRV_CounterStart (FTM_DRV_CounterStart, funcdef_no=142, decl_uid=6753, cgraph_uid=143, symbol_order=142)
+
+FTM_DRV_CounterStart (uint32_t instance)
+{
+  const struct ftm_state_t * state;
+  struct FTM_Type * ftmBase;
+  <unnamed type> _1;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+
+  <bb 2> [local count: 1073741824]:
+  ftmBase_4 = g_ftmBase[instance_3(D)];
+  state_5 = ftmStatePtr[instance_3(D)];
+  _1 = state_5->ftmClockSource;
+  _6 ={v} ftmBase_4->SC;
+  _7 = _6 & 4294967271;
+  _8 = (long unsigned int) _1;
+  _9 = _8 << 3;
+  _10 = _9 & 24;
+  _11 = _7 | _10;
+  ftmBase_4->SC ={v} _11;
+  return 0;
+
+}
+
+
+
+;; Function FTM_DRV_CounterStop (FTM_DRV_CounterStop, funcdef_no=143, decl_uid=6755, cgraph_uid=144, symbol_order=143)
+
+FTM_DRV_CounterStop (uint32_t instance)
+{
+  struct FTM_Type * ftmBase;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  ftmBase_3 = g_ftmBase[instance_2(D)];
+  _4 ={v} ftmBase_3->SC;
+  _5 = _4 & 4294967271;
+  ftmBase_3->SC ={v} _5;
+  return 0;
+
+}
+
+
+
+;; Function FTM_DRV_CounterRead (FTM_DRV_CounterRead, funcdef_no=144, decl_uid=6757, cgraph_uid=145, symbol_order=144)
+
+FTM_DRV_CounterRead (uint32_t instance)
+{
+  const struct FTM_Type * ftmBase;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  ftmBase_3 = g_ftmBase[instance_2(D)];
+  _4 ={v} ftmBase_3->CNT;
+  _5 = _4 & 65535;
+  return _5;
+
+}
+
+
+
+;; Function FTM_MC_DRV_GetDefaultConfig (FTM_MC_DRV_GetDefaultConfig, funcdef_no=145, decl_uid=6759, cgraph_uid=146, symbol_order=145)
+
+FTM_MC_DRV_GetDefaultConfig (struct ftm_timer_param_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->mode = 6;
+  config_2(D)->initialValue = 0;
+  config_2(D)->finalValue = 65535;
+  return;
+
+}
+
+

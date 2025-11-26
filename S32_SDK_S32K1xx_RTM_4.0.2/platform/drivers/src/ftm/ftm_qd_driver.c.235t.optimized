@@ -1,0 +1,263 @@
+
+;; Function FTM_DRV_QuadDecodeStart (FTM_DRV_QuadDecodeStart, funcdef_no=141, decl_uid=6772, cgraph_uid=142, symbol_order=141)
+
+Removing basic block 12
+Removing basic block 13
+FTM_DRV_QuadDecodeStart (uint32_t instance, const struct ftm_quad_decode_config_t * config)
+{
+  status_t retStatus;
+  struct ftm_state_t * state;
+  struct FTM_Type * ftmBase;
+  <unnamed type> _1;
+  <unnamed type> _2;
+  _Bool _3;
+  unsigned char _4;
+  _Bool _5;
+  unsigned char _6;
+  <unnamed type> _7;
+  <unnamed type> _8;
+  short unsigned int _9;
+  short unsigned int _10;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long unsigned int _65;
+
+  <bb 2> [local count: 1073741824]:
+  state_18 = ftmStatePtr[instance_16(D)];
+  if (state_18 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 11>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _1 = state_18->ftmMode;
+  if (_1 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 4> [local count: 375809640]:
+  ftmBase_17 = g_ftmBase[instance_16(D)];
+  _35 ={v} ftmBase_17->QDCTRL;
+  _36 = _35 & 4294967294;
+  ftmBase_17->QDCTRL ={v} _36;
+  _33 ={v} ftmBase_17->SC;
+  _34 = _33 & 4294967271;
+  ftmBase_17->SC ={v} _34;
+  _2 = config_19(D)->mode;
+  _27 ={v} ftmBase_17->QDCTRL;
+  _28 = _27 & 4294967287;
+  _29 = (long unsigned int) _2;
+  _30 = _29 << 3;
+  _31 = _30 & 8;
+  _32 = _28 | _31;
+  ftmBase_17->QDCTRL ={v} _32;
+  _3 = config_19(D)->phaseAConfig.phaseInputFilter;
+  if (_3 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 187904820]:
+  _23 ={v} ftmBase_17->QDCTRL;
+  _24 = _23 | 128;
+  ftmBase_17->QDCTRL ={v} _24;
+  _4 = config_19(D)->phaseAConfig.phaseFilterVal;
+  FTM_DRV_SetChnInputCaptureFilter (ftmBase_17, 0, _4);
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 187904820]:
+  _25 ={v} ftmBase_17->QDCTRL;
+  _26 = _25 & 4294967167;
+  ftmBase_17->QDCTRL ={v} _26;
+
+  <bb 7> [local count: 375809640]:
+  _5 = config_19(D)->phaseBConfig.phaseInputFilter;
+  if (_5 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 187904820]:
+  _37 ={v} ftmBase_17->QDCTRL;
+  _38 = _37 | 64;
+  ftmBase_17->QDCTRL ={v} _38;
+  _6 = config_19(D)->phaseBConfig.phaseFilterVal;
+  FTM_DRV_SetChnInputCaptureFilter (ftmBase_17, 1, _6);
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 187904820]:
+  _39 ={v} ftmBase_17->QDCTRL;
+  _40 = _39 & 4294967231;
+  ftmBase_17->QDCTRL ={v} _40;
+
+  <bb 10> [local count: 375809640]:
+  _7 = config_19(D)->phaseAConfig.phasePolarity;
+  _60 ={v} ftmBase_17->QDCTRL;
+  _61 = _60 & 4294967263;
+  _62 = (long unsigned int) _7;
+  _63 = _62 << 5;
+  _64 = _63 & 32;
+  _65 = _61 | _64;
+  ftmBase_17->QDCTRL ={v} _65;
+  _8 = config_19(D)->phaseBConfig.phasePolarity;
+  _54 ={v} ftmBase_17->QDCTRL;
+  _55 = _54 & 4294967279;
+  _56 = (long unsigned int) _8;
+  _57 = _56 << 4;
+  _58 = _57 & 16;
+  _59 = _55 | _58;
+  ftmBase_17->QDCTRL ={v} _59;
+  _9 = config_19(D)->initialVal;
+  _50 ={v} ftmBase_17->CNTIN;
+  _51 = _50 & 4294901760;
+  _52 = (long unsigned int) _9;
+  _53 = _51 | _52;
+  ftmBase_17->CNTIN ={v} _53;
+  _10 = config_19(D)->maxVal;
+  _46 ={v} ftmBase_17->MOD;
+  _47 = _46 & 4294901760;
+  _48 = (long unsigned int) _10;
+  _49 = _47 | _48;
+  ftmBase_17->MOD ={v} _49;
+  _43 ={v} ftmBase_17->CNT;
+  _44 = _43 & 4294901760;
+  _45 = _44 | _52;
+  ftmBase_17->CNT ={v} _45;
+  _41 ={v} ftmBase_17->QDCTRL;
+  _42 = _41 | 1;
+  ftmBase_17->QDCTRL ={v} _42;
+  state_18->ftmMode = 5;
+
+  <bb 11> [local count: 1073741824]:
+  # retStatus_11 = PHI <0(10), 1(2), 1(3)>
+  return retStatus_11;
+
+}
+
+
+
+;; Function FTM_DRV_QuadDecodeStop (FTM_DRV_QuadDecodeStop, funcdef_no=142, decl_uid=6774, cgraph_uid=143, symbol_order=142)
+
+FTM_DRV_QuadDecodeStop (uint32_t instance)
+{
+  struct ftm_state_t * state;
+  struct FTM_Type * ftmBase;
+  long unsigned int _6;
+  long unsigned int _7;
+
+  <bb 2> [local count: 1073741824]:
+  ftmBase_3 = g_ftmBase[instance_2(D)];
+  state_4 = ftmStatePtr[instance_2(D)];
+  _6 ={v} ftmBase_3->QDCTRL;
+  _7 = _6 & 4294967294;
+  ftmBase_3->QDCTRL ={v} _7;
+  state_4->ftmMode = 0;
+  return 0;
+
+}
+
+
+
+;; Function FTM_DRV_QuadGetState (FTM_DRV_QuadGetState, funcdef_no=143, decl_uid=6776, cgraph_uid=144, symbol_order=143)
+
+FTM_DRV_QuadGetState (uint32_t instance)
+{
+  const struct FTM_Type * ftmBase;
+  unsigned char _1;
+  long unsigned int _9;
+  short unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  _Bool _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  _Bool _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  _Bool _19;
+  unsigned char _20;
+  unsigned char _21;
+
+  <bb 2> [local count: 1073741824]:
+  ftmBase_5 = g_ftmBase[instance_4(D)];
+  _17 ={v} ftmBase_5->QDCTRL;
+  _18 = _17 & 4;
+  _19 = _18 != 0;
+  _20 = VIEW_CONVERT_EXPR<unsigned char>(_19);
+  _14 ={v} ftmBase_5->QDCTRL;
+  _15 = _14 & 2;
+  _16 = _15 != 0;
+  _1 = VIEW_CONVERT_EXPR<unsigned char>(_16);
+  _11 ={v} ftmBase_5->SC;
+  _12 = _11 & 512;
+  _13 = _12 != 0;
+  _21 = VIEW_CONVERT_EXPR<unsigned char>(_13);
+  _9 ={v} ftmBase_5->CNT;
+  _10 = (short unsigned int) _9;
+  <retval>.counter = _10;
+  MEM <unsigned char> [(struct  *)&<retval> + 2B] = _21;
+  MEM <unsigned char> [(struct  *)&<retval> + 3B] = _1;
+  MEM <unsigned char> [(struct  *)&<retval> + 4B] = _20;
+  return <retval>;
+
+}
+
+
+
+;; Function FTM_QD_DRV_GetDefaultConfig (FTM_QD_DRV_GetDefaultConfig, funcdef_no=144, decl_uid=6778, cgraph_uid=145, symbol_order=144)
+
+FTM_QD_DRV_GetDefaultConfig (struct ftm_quad_decode_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->mode = 1;
+  config_2(D)->initialVal = 0;
+  config_2(D)->maxVal = 65535;
+  MEM <unsigned short> [(void *)config_2(D) + 6B] = 0;
+  MEM <unsigned short> [(void *)config_2(D) + 8B] = 0;
+  MEM <unsigned short> [(void *)config_2(D) + 10B] = 0;
+  return;
+
+}
+
+

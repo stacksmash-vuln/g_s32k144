@@ -1,0 +1,4 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_hw_access.c:49:6:FTM_DRV_InitModule	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_hw_access.c:63:6:FTM_DRV_Reset	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_hw_access.c:128:6:FTM_DRV_SetChnTriggerCmd	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_hw_access.c:163:6:FTM_DRV_SetChnInputCaptureFilter	0	static

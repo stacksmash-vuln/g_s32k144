@@ -1,0 +1,1442 @@
+
+;; Function CMP_DRV_Reset (CMP_DRV_Reset, funcdef_no=50, decl_uid=6378, cgraph_uid=51, symbol_order=51)
+
+CMP_DRV_Reset (const uint32_t instance)
+{
+  <bb 2> [local count: 1073741824]:
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} 100663296;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} 0;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} 0;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetInitConfigAll (CMP_DRV_GetInitConfigAll, funcdef_no=51, decl_uid=6380, cgraph_uid=52, symbol_order=52)
+
+CMP_DRV_GetInitConfigAll (struct cmp_module_t * config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->comparator.dmaTriggerState = 0;
+  config_2(D)->comparator.outputInterruptTrigger = 0;
+  config_2(D)->comparator.mode = 0;
+  config_2(D)->comparator.filterSampleCount = 0;
+  config_2(D)->comparator.filterSamplePeriod = 0;
+  config_2(D)->comparator.powerMode = 0;
+  config_2(D)->comparator.inverterState = 0;
+  config_2(D)->comparator.outputSelect = 0;
+  config_2(D)->comparator.pinState = 0;
+  config_2(D)->comparator.hysteresisLevel = 0;
+  config_2(D)->dac.state = 0;
+  config_2(D)->dac.voltageReferenceSource = 0;
+  config_2(D)->dac.voltage = 0;
+  config_2(D)->mux.negativeInputMux = 0;
+  config_2(D)->mux.positiveInputMux = 0;
+  config_2(D)->mux.negativePortMux = 0;
+  config_2(D)->mux.positivePortMux = 0;
+  config_2(D)->triggerMode.roundRobinState = 0;
+  config_2(D)->triggerMode.roundRobinInterruptState = 0;
+  config_2(D)->triggerMode.fixedPort = 0;
+  config_2(D)->triggerMode.fixedChannel = 0;
+  config_2(D)->triggerMode.samples = 0;
+  config_2(D)->triggerMode.roundRobinChannelsState = 0;
+  config_2(D)->triggerMode.programedState = 0;
+  config_2(D)->triggerMode.initializationDelay = 0;
+  config_2(D)->comparator.offsetLevel = 0;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetDefaultConfig (CMP_DRV_GetDefaultConfig, funcdef_no=52, decl_uid=6382, cgraph_uid=53, symbol_order=53)
+
+CMP_DRV_GetDefaultConfig (struct cmp_module_t * config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->comparator.dmaTriggerState = 0;
+  config_2(D)->comparator.outputInterruptTrigger = 3;
+  config_2(D)->comparator.mode = 1;
+  config_2(D)->comparator.filterSampleCount = 0;
+  config_2(D)->comparator.filterSamplePeriod = 0;
+  config_2(D)->comparator.powerMode = 0;
+  config_2(D)->comparator.inverterState = 0;
+  config_2(D)->comparator.outputSelect = 0;
+  config_2(D)->comparator.pinState = 0;
+  config_2(D)->comparator.hysteresisLevel = 0;
+  config_2(D)->dac.state = 1;
+  config_2(D)->dac.voltageReferenceSource = 0;
+  config_2(D)->dac.voltage = 127;
+  config_2(D)->mux.negativeInputMux = 1;
+  config_2(D)->mux.positiveInputMux = 1;
+  config_2(D)->mux.negativePortMux = 0;
+  config_2(D)->mux.positivePortMux = 1;
+  config_2(D)->triggerMode.roundRobinState = 0;
+  config_2(D)->triggerMode.roundRobinInterruptState = 0;
+  config_2(D)->triggerMode.fixedPort = 0;
+  config_2(D)->triggerMode.fixedChannel = 0;
+  config_2(D)->triggerMode.samples = 0;
+  config_2(D)->triggerMode.roundRobinChannelsState = 0;
+  config_2(D)->triggerMode.programedState = 0;
+  config_2(D)->triggerMode.initializationDelay = 0;
+  config_2(D)->comparator.offsetLevel = 0;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_Init (CMP_DRV_Init, funcdef_no=53, decl_uid=6385, cgraph_uid=54, symbol_order=54)
+
+CMP_DRV_Init (const uint32_t instance, const struct cmp_module_t * const config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  _Bool _1;
+  <unnamed type> _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  unsigned char _5;
+  <unnamed type> _6;
+  <unnamed type> _7;
+  <unnamed type> _8;
+  <unnamed type> _9;
+  <unnamed type> _10;
+  _Bool _11;
+  <unnamed type> _12;
+  unsigned char _13;
+  unsigned char _14;
+  unsigned char _15;
+  <unnamed type> _16;
+  <unnamed type> _17;
+  <unnamed type> _18;
+  unsigned char _19;
+  unsigned char _20;
+  unsigned char _21;
+  unsigned char _22;
+  _Bool _23;
+  _Bool _24;
+  <unnamed type> _25;
+  unsigned char _26;
+  long unsigned int vol.1_33;
+  long unsigned int _35;
+  long unsigned int vol.0_37;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _62;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  long unsigned int _77;
+  long unsigned int _78;
+  long unsigned int _79;
+  long unsigned int _81;
+  long unsigned int _82;
+  long unsigned int _83;
+  long unsigned int _84;
+  long unsigned int _85;
+  long unsigned int _88;
+  long unsigned int _89;
+  long unsigned int _90;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  long unsigned int _100;
+  long unsigned int _101;
+  long unsigned int _102;
+  long unsigned int _106;
+  long unsigned int _107;
+  long unsigned int _108;
+  long unsigned int _112;
+  long unsigned int _114;
+  long unsigned int _115;
+  long unsigned int _116;
+  long unsigned int _117;
+  long unsigned int _118;
+  long unsigned int _119;
+  long unsigned int _120;
+  long unsigned int _121;
+  long unsigned int _122;
+  long unsigned int _123;
+  <unnamed type> _126;
+  long unsigned int _127;
+  long unsigned int _129;
+  long unsigned int _130;
+  long unsigned int _131;
+  long unsigned int _132;
+  long unsigned int _133;
+  long unsigned int _134;
+  long unsigned int _135;
+  long unsigned int _136;
+  long unsigned int _137;
+  long unsigned int _138;
+  long unsigned int _139;
+  long unsigned int _140;
+  long unsigned int _141;
+  long unsigned int _142;
+  long unsigned int _143;
+  long unsigned int _144;
+  long unsigned int _145;
+  long unsigned int _146;
+  long unsigned int _147;
+  long unsigned int _148;
+  <unnamed type> _151;
+  long unsigned int _152;
+  long unsigned int _153;
+  long unsigned int _154;
+  long unsigned int _155;
+  long unsigned int _156;
+  long unsigned int _157;
+  long unsigned int _160;
+  long unsigned int _161;
+  long unsigned int _162;
+  long unsigned int _163;
+  long unsigned int _164;
+  long unsigned int _190;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = config_28(D)->comparator.dmaTriggerState;
+  _160 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _161 = _160 & 3221225471;
+  _162 = (long unsigned int) _1;
+  _163 = _162 << 30;
+  _164 = _161 | _163;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _164;
+  _2 = config_28(D)->comparator.outputInterruptTrigger;
+  tmp_149 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  tmp_150 = tmp_149 & 3892314111;
+  _151 = _2 >> 1;
+  _152 = (long unsigned int) _151;
+  _153 = _152 << 28;
+  _154 = _153 & 268435456;
+  _155 = (long unsigned int) _2;
+  _156 = _155 << 27;
+  _157 = _156 & 134217728;
+  _190 = tmp_150 | _157;
+  tmp_159 = _154 | _190;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_159;
+  _3 = config_28(D)->comparator.mode;
+  _4 = config_28(D)->comparator.filterSampleCount;
+  _5 = config_28(D)->comparator.filterSamplePeriod;
+  CMP_SetFunctionalMode (1074212864B, _3, _4, _5);
+  _6 = config_28(D)->comparator.powerMode;
+  _144 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _145 = _144 & 4294963199;
+  _146 = (long unsigned int) _6;
+  _147 = _146 << 12;
+  _148 = _145 | _147;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _148;
+  _7 = config_28(D)->comparator.inverterState;
+  _139 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _140 = _139 & 4294965247;
+  _141 = (long unsigned int) _7;
+  _142 = _141 << 11;
+  _143 = _140 | _142;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _143;
+  _8 = config_28(D)->comparator.outputSelect;
+  _134 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _135 = _134 & 4294966271;
+  _136 = (long unsigned int) _8;
+  _137 = _136 << 10;
+  _138 = _135 | _137;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _138;
+  _9 = config_28(D)->comparator.pinState;
+  _129 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _130 = _129 & 4294966783;
+  _131 = (long unsigned int) _9;
+  _132 = _131 << 9;
+  _133 = _130 | _132;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _133;
+  _10 = config_28(D)->comparator.hysteresisLevel;
+  tmp_124 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  tmp_125 = tmp_124 & 4294967292;
+  _126 = _10 & 3;
+  _127 = (long unsigned int) _126;
+  tmp_128 = tmp_125 | _127;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_128;
+  _11 = config_28(D)->dac.state;
+  _119 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  _120 = _119 & 4294934527;
+  _121 = (long unsigned int) _11;
+  _122 = _121 << 15;
+  _123 = _120 | _122;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} _123;
+  _12 = config_28(D)->dac.voltageReferenceSource;
+  _114 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  _115 = _114 & 4294967281;
+  _116 = (long unsigned int) _12;
+  _117 = _116 << 14;
+  _118 = _115 | _117;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} _118;
+  _13 = config_28(D)->dac.voltage;
+  tmp_110 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_111 = tmp_110 & 4294967040;
+  _112 = (long unsigned int) _13;
+  tmp_113 = tmp_111 | _112;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_113;
+  _14 = config_28(D)->mux.negativeInputMux;
+  tmp_104 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_105 = tmp_104 & 4294965503;
+  _106 = (long unsigned int) _14;
+  _107 = _106 << 8;
+  _108 = _107 & 1792;
+  tmp_109 = tmp_105 | _108;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_109;
+  _15 = config_28(D)->mux.positiveInputMux;
+  tmp_98 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_99 = tmp_98 & 4294952959;
+  _100 = (long unsigned int) _15;
+  _101 = _100 << 11;
+  _102 = _101 & 14336;
+  tmp_103 = tmp_99 | _102;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_103;
+  _16 = config_28(D)->mux.negativePortMux;
+  tmp_92 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_93 = tmp_92 & 4244635647;
+  _94 = (long unsigned int) _16;
+  _95 = _94 << 24;
+  _96 = _95 & 50331648;
+  tmp_97 = tmp_93 | _96;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_97;
+  _17 = config_28(D)->mux.positivePortMux;
+  tmp_86 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_87 = tmp_86 & 3892314111;
+  _88 = (long unsigned int) _17;
+  _89 = _88 << 27;
+  _90 = _89 & 402653184;
+  tmp_91 = tmp_87 | _90;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_91;
+  _18 = config_28(D)->triggerMode.fixedPort;
+  _81 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  _82 = _81 & 3758096383;
+  _83 = (long unsigned int) _18;
+  _84 = _83 << 29;
+  _85 = _82 | _84;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} _85;
+  _19 = config_28(D)->triggerMode.fixedChannel;
+  tmp_75 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_76 = tmp_75 & 4060086271;
+  _77 = (long unsigned int) _19;
+  _78 = _77 << 25;
+  _79 = _78 & 234881024;
+  tmp_80 = tmp_76 | _79;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_80;
+  _20 = config_28(D)->triggerMode.samples;
+  tmp_69 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_70 = tmp_69 & 4294918143;
+  _71 = (long unsigned int) _20;
+  _72 = _71 << 14;
+  _73 = _72 & 65535;
+  tmp_74 = tmp_70 | _73;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_74;
+  _21 = config_28(D)->triggerMode.roundRobinChannelsState;
+  tmp_64 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_65 = tmp_64 & 4278255615;
+  _66 = (long unsigned int) _21;
+  _67 = _66 << 16;
+  tmp_68 = tmp_65 | _67;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_68;
+  _22 = config_28(D)->triggerMode.programedState;
+  tmp_60 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_61 = tmp_60 & 4294967040;
+  _62 = (long unsigned int) _22;
+  tmp_63 = tmp_61 | _62;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_63;
+  _23 = config_28(D)->triggerMode.roundRobinInterruptState;
+  _55 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  _56 = _55 & 4294967265;
+  _57 = (long unsigned int) _23;
+  _58 = _57 << 30;
+  _59 = _56 | _58;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} _59;
+  _24 = config_28(D)->triggerMode.roundRobinState;
+  _50 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  _51 = _50 & 2147483647;
+  _52 = (long unsigned int) _24;
+  _53 = _52 << 31;
+  _54 = _51 | _53;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} _54;
+  _25 = config_28(D)->comparator.offsetLevel;
+  tmp_44 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  tmp_45 = tmp_44 & 4294967291;
+  _46 = (long unsigned int) _25;
+  _47 = _46 << 2;
+  _48 = _47 & 4;
+  tmp_49 = tmp_45 | _48;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_49;
+  _26 = config_28(D)->triggerMode.initializationDelay;
+  tmp_38 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_39 = tmp_38 & 4294951167;
+  _40 = (long unsigned int) _26;
+  _41 = _40 << 8;
+  _42 = _41 & 16128;
+  tmp_43 = tmp_39 | _42;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_43;
+  tmp_34 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _35 = tmp_34 & 4194303999;
+  tmp_36 = _35 | 100663296;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_36;
+  vol.0_37 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  tmp_31 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_32 = tmp_31 | 16711680;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_32;
+  vol.1_33 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetConfigAll (CMP_DRV_GetConfigAll, funcdef_no=54, decl_uid=6388, cgraph_uid=55, symbol_order=55)
+
+CMP_DRV_GetConfigAll (const uint32_t instance, struct cmp_module_t * const config)
+{
+  _Bool rising_enabled;
+  _Bool falling_enabled;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  <unnamed type> _1;
+  long unsigned int _32;
+  unsigned char _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  unsigned char _37;
+  <unnamed type> _38;
+  unsigned char _40;
+  long unsigned int _42;
+  unsigned char _43;
+  long unsigned int _45;
+  unsigned char _47;
+  long unsigned int _49;
+  unsigned char _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  unsigned char _54;
+  <unnamed type> _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  _Bool _58;
+  long unsigned int _59;
+  long unsigned int _60;
+  _Bool _61;
+  long unsigned int _63;
+  unsigned char _65;
+  long unsigned int _67;
+  unsigned char _69;
+  long unsigned int _71;
+  <unnamed type> _73;
+  long unsigned int _75;
+  <unnamed type> _77;
+  unsigned char _79;
+  long unsigned int _80;
+  long unsigned int _81;
+  unsigned char _82;
+  <unnamed type> _83;
+  long unsigned int _84;
+  long unsigned int _85;
+  _Bool _86;
+  <unnamed type> _89;
+  long unsigned int _90;
+  long unsigned int _91;
+  unsigned char _92;
+  <unnamed type> _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  unsigned char _96;
+  <unnamed type> _97;
+  long unsigned int _98;
+  long unsigned int _99;
+  unsigned char _100;
+  <unnamed type> _101;
+  long unsigned int _102;
+  long unsigned int _103;
+  unsigned char _104;
+  <unnamed type> _105;
+  long unsigned int _107;
+  unsigned char _108;
+  long unsigned int _110;
+  unsigned char _112;
+  long unsigned int _113;
+  long unsigned int _114;
+  long unsigned int _116;
+  long unsigned int _117;
+  unsigned char _119;
+  unsigned char _120;
+  unsigned char _121;
+  <unnamed type> _122;
+  long unsigned int _123;
+  long unsigned int _124;
+  _Bool _125;
+
+  <bb 2> [local count: 1073741824]:
+  _123 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _124 = _123 >> 30;
+  _125 = (_Bool) _124;
+  config_3(D)->comparator.dmaTriggerState = _125;
+  _113 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _114 = _113 >> 28;
+  rising_enabled_115 = (_Bool) _114;
+  _116 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _117 = _116 >> 27;
+  falling_enabled_118 = (_Bool) _117;
+  _119 = (unsigned char) rising_enabled_115;
+  _120 = _119 << 1;
+  _121 = (unsigned char) falling_enabled_118;
+  _122 = _120 | _121;
+  config_3(D)->comparator.outputInterruptTrigger = _122;
+  _1 = CMP_GetFunctionalMode (1074212864B);
+  config_3(D)->comparator.mode = _1;
+  tmp_109 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _110 = tmp_109 >> 4;
+  tmp_111 = _110 & 7;
+  _112 = (unsigned char) tmp_111;
+  config_3(D)->comparator.filterSampleCount = _112;
+  tmp_106 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _107 = tmp_106 >> 16;
+  _108 = (unsigned char) _107;
+  config_3(D)->comparator.filterSamplePeriod = _108;
+  _102 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _103 = _102 >> 12;
+  _104 = (unsigned char) _103;
+  _105 = _104 & 1;
+  config_3(D)->comparator.powerMode = _105;
+  _98 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _99 = _98 >> 11;
+  _100 = (unsigned char) _99;
+  _101 = _100 & 1;
+  config_3(D)->comparator.inverterState = _101;
+  _94 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _95 = _94 >> 10;
+  _96 = (unsigned char) _95;
+  _97 = _96 & 1;
+  config_3(D)->comparator.outputSelect = _97;
+  _90 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _91 = _90 >> 9;
+  _92 = (unsigned char) _91;
+  _93 = _92 & 1;
+  config_3(D)->comparator.pinState = _93;
+  tmp_87 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  tmp_88 = tmp_87 & 3;
+  _89 = (<unnamed type>) tmp_88;
+  config_3(D)->comparator.hysteresisLevel = _89;
+  _84 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _85 = _84 >> 15;
+  _86 = (_Bool) _85;
+  config_3(D)->dac.state = _86;
+  _80 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _81 = _80 >> 14;
+  _82 = (unsigned char) _81;
+  _83 = _82 & 1;
+  config_3(D)->dac.voltageReferenceSource = _83;
+  tmp_78 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _79 = (unsigned char) tmp_78;
+  config_3(D)->dac.voltage = _79;
+  tmp_74 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _75 = tmp_74 >> 24;
+  tmp_76 = _75 & 3;
+  _77 = (<unnamed type>) tmp_76;
+  config_3(D)->mux.negativePortMux = _77;
+  tmp_70 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _71 = tmp_70 >> 27;
+  tmp_72 = _71 & 3;
+  _73 = (<unnamed type>) tmp_72;
+  config_3(D)->mux.positivePortMux = _73;
+  tmp_66 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _67 = tmp_66 >> 8;
+  tmp_68 = _67 & 7;
+  _69 = (unsigned char) tmp_68;
+  config_3(D)->mux.negativeInputMux = _69;
+  tmp_62 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _63 = tmp_62 >> 11;
+  tmp_64 = _63 & 7;
+  _65 = (unsigned char) tmp_64;
+  config_3(D)->mux.positiveInputMux = _65;
+  _59 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _60 = _59 >> 31;
+  _61 = (_Bool) _60;
+  config_3(D)->triggerMode.roundRobinState = _61;
+  _56 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _57 = _56 >> 30;
+  _58 = (_Bool) _57;
+  config_3(D)->triggerMode.roundRobinInterruptState = _58;
+  _52 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _53 = _52 >> 29;
+  _54 = (unsigned char) _53;
+  _55 = _54 & 1;
+  config_3(D)->triggerMode.fixedPort = _55;
+  tmp_48 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _49 = tmp_48 >> 25;
+  tmp_50 = _49 & 7;
+  _51 = (unsigned char) tmp_50;
+  config_3(D)->triggerMode.fixedChannel = _51;
+  tmp_44 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _45 = tmp_44 >> 14;
+  tmp_46 = _45 & 3;
+  _47 = (unsigned char) tmp_46;
+  config_3(D)->triggerMode.samples = _47;
+  tmp_41 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _42 = tmp_41 >> 16;
+  _43 = (unsigned char) _42;
+  config_3(D)->triggerMode.roundRobinChannelsState = _43;
+  tmp_39 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _40 = (unsigned char) tmp_39;
+  config_3(D)->triggerMode.programedState = _40;
+  _35 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _36 = _35 >> 2;
+  _37 = (unsigned char) _36;
+  _38 = _37 & 1;
+  config_3(D)->comparator.offsetLevel = _38;
+  tmp_31 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _32 = tmp_31 >> 8;
+  tmp_33 = _32 & 63;
+  _34 = (unsigned char) tmp_33;
+  config_3(D)->triggerMode.initializationDelay = _34;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetInitConfigDAC (CMP_DRV_GetInitConfigDAC, funcdef_no=55, decl_uid=6390, cgraph_uid=56, symbol_order=56)
+
+CMP_DRV_GetInitConfigDAC (struct cmp_dac_t * config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->state = 0;
+  config_2(D)->voltageReferenceSource = 0;
+  config_2(D)->voltage = 0;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_ConfigDAC (CMP_DRV_ConfigDAC, funcdef_no=56, decl_uid=6393, cgraph_uid=57, symbol_order=57)
+
+CMP_DRV_ConfigDAC (const uint32_t instance, const struct cmp_dac_t * config)
+{
+  uint32_t tmp;
+  _Bool _1;
+  <unnamed type> _2;
+  unsigned char _3;
+  long unsigned int _8;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = config_5(D)->state;
+  _15 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  _16 = _15 & 4294934527;
+  _17 = (long unsigned int) _1;
+  _18 = _17 << 15;
+  _19 = _16 | _18;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} _19;
+  _2 = config_5(D)->voltageReferenceSource;
+  _10 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  _11 = _10 & 4294967281;
+  _12 = (long unsigned int) _2;
+  _13 = _12 << 14;
+  _14 = _11 | _13;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} _14;
+  _3 = config_5(D)->voltage;
+  tmp_6 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_7 = tmp_6 & 4294967040;
+  _8 = (long unsigned int) _3;
+  tmp_9 = tmp_7 | _8;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_9;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetDACConfig (CMP_DRV_GetDACConfig, funcdef_no=57, decl_uid=6396, cgraph_uid=58, symbol_order=58)
+
+CMP_DRV_GetDACConfig (const uint32_t instance, struct cmp_dac_t * const config)
+{
+  uint32_t tmp;
+  unsigned char _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  unsigned char _10;
+  <unnamed type> _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  _Bool _14;
+
+  <bb 2> [local count: 1073741824]:
+  _12 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _13 = _12 >> 15;
+  _14 = (_Bool) _13;
+  config_2(D)->state = _14;
+  _8 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _9 = _8 >> 14;
+  _10 = (unsigned char) _9;
+  _11 = _10 & 1;
+  config_2(D)->voltageReferenceSource = _11;
+  tmp_6 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _7 = (unsigned char) tmp_6;
+  config_2(D)->voltage = _7;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetInitConfigMUX (CMP_DRV_GetInitConfigMUX, funcdef_no=58, decl_uid=6398, cgraph_uid=59, symbol_order=59)
+
+CMP_DRV_GetInitConfigMUX (struct cmp_anmux_t * config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->negativePortMux = 0;
+  config_2(D)->positivePortMux = 0;
+  config_2(D)->negativeInputMux = 0;
+  config_2(D)->positiveInputMux = 0;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_ConfigMUX (CMP_DRV_ConfigMUX, funcdef_no=59, decl_uid=6401, cgraph_uid=60, symbol_order=60)
+
+CMP_DRV_ConfigMUX (const uint32_t instance, const struct cmp_anmux_t * config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  <unnamed type> _1;
+  <unnamed type> _2;
+  unsigned char _3;
+  unsigned char _4;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = config_6(D)->negativePortMux;
+  tmp_25 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_26 = tmp_25 & 4244635647;
+  _27 = (long unsigned int) _1;
+  _28 = _27 << 24;
+  _29 = _28 & 50331648;
+  tmp_30 = tmp_26 | _29;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_30;
+  _2 = config_6(D)->positivePortMux;
+  tmp_19 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_20 = tmp_19 & 3892314111;
+  _21 = (long unsigned int) _2;
+  _22 = _21 << 27;
+  _23 = _22 & 402653184;
+  tmp_24 = tmp_20 | _23;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_24;
+  _3 = config_6(D)->negativeInputMux;
+  tmp_13 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_14 = tmp_13 & 4294965503;
+  _15 = (long unsigned int) _3;
+  _16 = _15 << 8;
+  _17 = _16 & 1792;
+  tmp_18 = tmp_14 | _17;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_18;
+  _4 = config_6(D)->positiveInputMux;
+  tmp_7 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_8 = tmp_7 & 4294952959;
+  _9 = (long unsigned int) _4;
+  _10 = _9 << 11;
+  _11 = _10 & 14336;
+  tmp_12 = tmp_8 | _11;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_12;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetMUXConfig (CMP_DRV_GetMUXConfig, funcdef_no=60, decl_uid=6404, cgraph_uid=61, symbol_order=61)
+
+CMP_DRV_GetMUXConfig (const uint32_t instance, struct cmp_anmux_t * const config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  long unsigned int _8;
+  unsigned char _10;
+  long unsigned int _12;
+  unsigned char _14;
+  long unsigned int _16;
+  <unnamed type> _18;
+  long unsigned int _20;
+  <unnamed type> _22;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_19 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _20 = tmp_19 >> 24;
+  tmp_21 = _20 & 3;
+  _22 = (<unnamed type>) tmp_21;
+  config_2(D)->negativePortMux = _22;
+  tmp_15 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _16 = tmp_15 >> 27;
+  tmp_17 = _16 & 3;
+  _18 = (<unnamed type>) tmp_17;
+  config_2(D)->positivePortMux = _18;
+  tmp_11 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _12 = tmp_11 >> 8;
+  tmp_13 = _12 & 7;
+  _14 = (unsigned char) tmp_13;
+  config_2(D)->negativeInputMux = _14;
+  tmp_7 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _8 = tmp_7 >> 11;
+  tmp_9 = _8 & 7;
+  _10 = (unsigned char) tmp_9;
+  config_2(D)->positiveInputMux = _10;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetInitTriggerMode (CMP_DRV_GetInitTriggerMode, funcdef_no=61, decl_uid=6406, cgraph_uid=62, symbol_order=62)
+
+CMP_DRV_GetInitTriggerMode (struct cmp_trigger_mode_t * config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->roundRobinState = 0;
+  config_2(D)->roundRobinInterruptState = 0;
+  config_2(D)->fixedPort = 0;
+  config_2(D)->fixedChannel = 0;
+  config_2(D)->samples = 0;
+  config_2(D)->roundRobinChannelsState = 0;
+  config_2(D)->programedState = 0;
+  config_2(D)->initializationDelay = 0;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_ConfigTriggerMode (CMP_DRV_ConfigTriggerMode, funcdef_no=62, decl_uid=6409, cgraph_uid=63, symbol_order=63)
+
+CMP_DRV_ConfigTriggerMode (const uint32_t instance, const struct cmp_trigger_mode_t * config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  _Bool _1;
+  _Bool _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  unsigned char _5;
+  unsigned char _6;
+  unsigned char _7;
+  unsigned char _8;
+  long unsigned int _13;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = config_10(D)->roundRobinState;
+  _48 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  _49 = _48 & 2147483647;
+  _50 = (long unsigned int) _1;
+  _51 = _50 << 31;
+  _52 = _49 | _51;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} _52;
+  _2 = config_10(D)->roundRobinInterruptState;
+  _43 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  _44 = _43 & 4294967265;
+  _45 = (long unsigned int) _2;
+  _46 = _45 << 30;
+  _47 = _44 | _46;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} _47;
+  _3 = config_10(D)->fixedPort;
+  _38 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  _39 = _38 & 3758096383;
+  _40 = (long unsigned int) _3;
+  _41 = _40 << 29;
+  _42 = _39 | _41;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} _42;
+  _4 = config_10(D)->fixedChannel;
+  tmp_32 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_33 = tmp_32 & 4060086271;
+  _34 = (long unsigned int) _4;
+  _35 = _34 << 25;
+  _36 = _35 & 234881024;
+  tmp_37 = tmp_33 | _36;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_37;
+  _5 = config_10(D)->samples;
+  tmp_26 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_27 = tmp_26 & 4294918143;
+  _28 = (long unsigned int) _5;
+  _29 = _28 << 14;
+  _30 = _29 & 65535;
+  tmp_31 = tmp_27 | _30;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_31;
+  _6 = config_10(D)->initializationDelay;
+  tmp_20 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_21 = tmp_20 & 4294951167;
+  _22 = (long unsigned int) _6;
+  _23 = _22 << 8;
+  _24 = _23 & 16128;
+  tmp_25 = tmp_21 | _24;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_25;
+  _7 = config_10(D)->roundRobinChannelsState;
+  tmp_15 ={v} MEM[(struct CMP_Type *)1074212864B].C1;
+  tmp_16 = tmp_15 & 4278255615;
+  _17 = (long unsigned int) _7;
+  _18 = _17 << 16;
+  tmp_19 = tmp_16 | _18;
+  MEM[(struct CMP_Type *)1074212864B].C1 ={v} tmp_19;
+  _8 = config_10(D)->programedState;
+  tmp_11 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_12 = tmp_11 & 4294967040;
+  _13 = (long unsigned int) _8;
+  tmp_14 = tmp_12 | _13;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_14;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetTriggerModeConfig (CMP_DRV_GetTriggerModeConfig, funcdef_no=63, decl_uid=6412, cgraph_uid=64, symbol_order=64)
+
+CMP_DRV_GetTriggerModeConfig (const uint32_t instance, struct cmp_trigger_mode_t * const config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  long unsigned int _12;
+  unsigned char _14;
+  unsigned char _16;
+  long unsigned int _18;
+  unsigned char _19;
+  long unsigned int _21;
+  unsigned char _23;
+  long unsigned int _25;
+  unsigned char _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  unsigned char _30;
+  <unnamed type> _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  _Bool _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  _Bool _37;
+
+  <bb 2> [local count: 1073741824]:
+  _35 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _36 = _35 >> 31;
+  _37 = (_Bool) _36;
+  config_2(D)->roundRobinState = _37;
+  _32 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _33 = _32 >> 30;
+  _34 = (_Bool) _33;
+  config_2(D)->roundRobinInterruptState = _34;
+  _28 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _29 = _28 >> 29;
+  _30 = (unsigned char) _29;
+  _31 = _30 & 1;
+  config_2(D)->fixedPort = _31;
+  tmp_24 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _25 = tmp_24 >> 25;
+  tmp_26 = _25 & 7;
+  _27 = (unsigned char) tmp_26;
+  config_2(D)->fixedChannel = _27;
+  tmp_20 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _21 = tmp_20 >> 14;
+  tmp_22 = _21 & 3;
+  _23 = (unsigned char) tmp_22;
+  config_2(D)->samples = _23;
+  tmp_17 ={v} MEM[(const struct CMP_Type *)1074212864B].C1;
+  _18 = tmp_17 >> 16;
+  _19 = (unsigned char) _18;
+  config_2(D)->roundRobinChannelsState = _19;
+  tmp_15 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _16 = (unsigned char) tmp_15;
+  config_2(D)->programedState = _16;
+  tmp_11 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _12 = tmp_11 >> 8;
+  tmp_13 = _12 & 63;
+  _14 = (unsigned char) tmp_13;
+  config_2(D)->initializationDelay = _14;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetOutputFlags (CMP_DRV_GetOutputFlags, funcdef_no=64, decl_uid=6415, cgraph_uid=65, symbol_order=65)
+
+CMP_DRV_GetOutputFlags (const uint32_t instance, cmp_output_trigger_t * flags)
+{
+  _Bool falling_enabled;
+  _Bool rising_enabled;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  unsigned char _5;
+  unsigned char _6;
+  unsigned char _7;
+  unsigned char _8;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _2 = _1 >> 26;
+  rising_enabled_10 = (_Bool) _2;
+  _3 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _4 = _3 >> 25;
+  falling_enabled_11 = (_Bool) _4;
+  _5 = (unsigned char) rising_enabled_10;
+  _6 = _5 << 1;
+  _7 = (unsigned char) falling_enabled_11;
+  _8 = _6 | _7;
+  *flags_12(D) = _8;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_ClearOutputFlags (CMP_DRV_ClearOutputFlags, funcdef_no=65, decl_uid=6417, cgraph_uid=66, symbol_order=66)
+
+CMP_DRV_ClearOutputFlags (const uint32_t instance)
+{
+  uint32_t tmp;
+  long unsigned int _1;
+  long unsigned int vol.0_6;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_3 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _1 = tmp_3 & 4194303999;
+  tmp_4 = _1 | 100663296;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_4;
+  vol.0_6 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetInputFlags (CMP_DRV_GetInputFlags, funcdef_no=66, decl_uid=6420, cgraph_uid=67, symbol_order=67)
+
+CMP_DRV_GetInputFlags (const uint32_t instance, cmp_ch_list_t * flags)
+{
+  uint32_t tmp;
+  long unsigned int _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_4 ={v} MEM[(const struct CMP_Type *)1074212864B].C2;
+  _1 = tmp_4 >> 16;
+  _2 = (unsigned char) _1;
+  *flags_5(D) = _2;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_ClearInputFlags (CMP_DRV_ClearInputFlags, funcdef_no=67, decl_uid=6422, cgraph_uid=68, symbol_order=68)
+
+CMP_DRV_ClearInputFlags (const uint32_t instance)
+{
+  uint32_t tmp;
+  long unsigned int vol.1_5;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_2 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  tmp_3 = tmp_2 | 16711680;
+  MEM[(struct CMP_Type *)1074212864B].C2 ={v} tmp_3;
+  vol.1_5 ={v} MEM[(struct CMP_Type *)1074212864B].C2;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetInitConfigComparator (CMP_DRV_GetInitConfigComparator, funcdef_no=68, decl_uid=6424, cgraph_uid=69, symbol_order=69)
+
+CMP_DRV_GetInitConfigComparator (struct cmp_comparator_t * config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->outputInterruptTrigger = 0;
+  config_2(D)->dmaTriggerState = 0;
+  config_2(D)->mode = 0;
+  config_2(D)->filterSampleCount = 0;
+  config_2(D)->filterSamplePeriod = 0;
+  config_2(D)->powerMode = 0;
+  config_2(D)->inverterState = 0;
+  config_2(D)->outputSelect = 0;
+  config_2(D)->pinState = 0;
+  config_2(D)->offsetLevel = 0;
+  config_2(D)->hysteresisLevel = 0;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_ConfigComparator (CMP_DRV_ConfigComparator, funcdef_no=69, decl_uid=6427, cgraph_uid=70, symbol_order=70)
+
+CMP_DRV_ConfigComparator (const uint32_t instance, const struct cmp_comparator_t * config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  _Bool _1;
+  <unnamed type> _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  unsigned char _5;
+  unsigned char _6;
+  unsigned char _7;
+  <unnamed type> _8;
+  <unnamed type> _9;
+  <unnamed type> _10;
+  <unnamed type> _11;
+  <unnamed type> _12;
+  <unnamed type> _13;
+  <unnamed type> _19;
+  long unsigned int _20;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _60;
+  long unsigned int _61;
+  <unnamed type> _65;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  long unsigned int _91;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = config_15(D)->dmaTriggerState;
+  _74 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _75 = _74 & 3221225471;
+  _76 = (long unsigned int) _1;
+  _77 = _76 << 30;
+  _78 = _75 | _77;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _78;
+  _2 = config_15(D)->outputInterruptTrigger;
+  tmp_63 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  tmp_64 = tmp_63 & 3892314111;
+  _65 = _2 >> 1;
+  _66 = (long unsigned int) _65;
+  _67 = _66 << 28;
+  _68 = _67 & 268435456;
+  _69 = (long unsigned int) _2;
+  _70 = _69 << 27;
+  _71 = _70 & 134217728;
+  _91 = tmp_64 | _71;
+  tmp_73 = _68 | _91;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_73;
+  _3 = config_15(D)->mode;
+  _4 = config_15(D)->filterSampleCount;
+  _5 = config_15(D)->filterSamplePeriod;
+  CMP_SetFunctionalMode (1074212864B, _3, _4, _5);
+  _6 = config_15(D)->filterSamplePeriod;
+  tmp_56 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _57 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _58 = _57 & 4278255615;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _58;
+  tmp_59 = tmp_56 & 4278255615;
+  _60 = (long unsigned int) _6;
+  _61 = _60 << 16;
+  tmp_62 = tmp_59 | _61;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_62;
+  _7 = config_15(D)->filterSampleCount;
+  tmp_48 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _49 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _50 = _49 & 4294967183;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _50;
+  tmp_51 = tmp_48 & 4294967183;
+  _52 = (long unsigned int) _7;
+  _53 = _52 << 4;
+  _54 = _53 & 112;
+  tmp_55 = tmp_51 | _54;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_55;
+  _8 = config_15(D)->powerMode;
+  _43 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _44 = _43 & 4294963199;
+  _45 = (long unsigned int) _8;
+  _46 = _45 << 12;
+  _47 = _44 | _46;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _47;
+  _9 = config_15(D)->inverterState;
+  _38 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _39 = _38 & 4294965247;
+  _40 = (long unsigned int) _9;
+  _41 = _40 << 11;
+  _42 = _39 | _41;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _42;
+  _10 = config_15(D)->outputSelect;
+  _33 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _34 = _33 & 4294966271;
+  _35 = (long unsigned int) _10;
+  _36 = _35 << 10;
+  _37 = _34 | _36;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _37;
+  _11 = config_15(D)->pinState;
+  _28 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  _29 = _28 & 4294966783;
+  _30 = (long unsigned int) _11;
+  _31 = _30 << 9;
+  _32 = _29 | _31;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} _32;
+  _12 = config_15(D)->offsetLevel;
+  tmp_22 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  tmp_23 = tmp_22 & 4294967291;
+  _24 = (long unsigned int) _12;
+  _25 = _24 << 2;
+  _26 = _25 & 4;
+  tmp_27 = tmp_23 | _26;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_27;
+  _13 = config_15(D)->hysteresisLevel;
+  tmp_17 ={v} MEM[(struct CMP_Type *)1074212864B].C0;
+  tmp_18 = tmp_17 & 4294967292;
+  _19 = _13 & 3;
+  _20 = (long unsigned int) _19;
+  tmp_21 = tmp_18 | _20;
+  MEM[(struct CMP_Type *)1074212864B].C0 ={v} tmp_21;
+  return 0;
+
+}
+
+
+
+;; Function CMP_DRV_GetComparatorConfig (CMP_DRV_GetComparatorConfig, funcdef_no=70, decl_uid=6430, cgraph_uid=71, symbol_order=71)
+
+CMP_DRV_GetComparatorConfig (const uint32_t instance, struct cmp_comparator_t * config)
+{
+  _Bool rising_enabled;
+  _Bool falling_enabled;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  <unnamed type> _1;
+  <unnamed type> _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  unsigned char _21;
+  <unnamed type> _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  unsigned char _25;
+  <unnamed type> _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  unsigned char _29;
+  <unnamed type> _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  unsigned char _33;
+  <unnamed type> _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  unsigned char _37;
+  <unnamed type> _38;
+  long unsigned int _40;
+  unsigned char _41;
+  long unsigned int _43;
+  unsigned char _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _49;
+  long unsigned int _50;
+  unsigned char _52;
+  unsigned char _53;
+  unsigned char _54;
+  <unnamed type> _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  _Bool _58;
+
+  <bb 2> [local count: 1073741824]:
+  _56 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _57 = _56 >> 30;
+  _58 = (_Bool) _57;
+  config_3(D)->dmaTriggerState = _58;
+  _46 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _47 = _46 >> 28;
+  rising_enabled_48 = (_Bool) _47;
+  _49 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _50 = _49 >> 27;
+  falling_enabled_51 = (_Bool) _50;
+  _52 = (unsigned char) rising_enabled_48;
+  _53 = _52 << 1;
+  _54 = (unsigned char) falling_enabled_51;
+  _55 = _53 | _54;
+  config_3(D)->outputInterruptTrigger = _55;
+  _1 = CMP_GetFunctionalMode (1074212864B);
+  config_3(D)->mode = _1;
+  tmp_42 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _43 = tmp_42 >> 4;
+  tmp_44 = _43 & 7;
+  _45 = (unsigned char) tmp_44;
+  config_3(D)->filterSampleCount = _45;
+  tmp_39 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _40 = tmp_39 >> 16;
+  _41 = (unsigned char) _40;
+  config_3(D)->filterSamplePeriod = _41;
+  _35 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _36 = _35 >> 12;
+  _37 = (unsigned char) _36;
+  _38 = _37 & 1;
+  config_3(D)->powerMode = _38;
+  _31 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _32 = _31 >> 11;
+  _33 = (unsigned char) _32;
+  _34 = _33 & 1;
+  config_3(D)->inverterState = _34;
+  _27 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _28 = _27 >> 10;
+  _29 = (unsigned char) _28;
+  _30 = _29 & 1;
+  config_3(D)->outputSelect = _30;
+  _23 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _24 = _23 >> 9;
+  _25 = (unsigned char) _24;
+  _26 = _25 & 1;
+  config_3(D)->pinState = _26;
+  _19 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  _20 = _19 >> 2;
+  _21 = (unsigned char) _20;
+  _22 = _21 & 1;
+  config_3(D)->offsetLevel = _22;
+  tmp_16 ={v} MEM[(const struct CMP_Type *)1074212864B].C0;
+  tmp_17 = tmp_16 & 3;
+  _18 = (<unnamed type>) tmp_17;
+  config_3(D)->hysteresisLevel = _18;
+  return 0;
+
+}
+
+

@@ -1,0 +1,1975 @@
+
+;; Function FLEXIO_SPI_DRV_MasterStopTransfer (FLEXIO_SPI_DRV_MasterStopTransfer, funcdef_no=56, decl_uid=8092, cgraph_uid=57, symbol_order=56)
+
+Removing basic block 9
+Removing basic block 10
+FLEXIO_SPI_DRV_MasterStopTransfer (struct flexio_spi_master_state_t * master)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint8_t resourceIndex;
+  struct FLEXIO_Type * baseAddr;
+  long unsigned int _1;
+  unsigned char _2;
+  sizetype _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  int _14;
+  int _17;
+  struct FLEXIO_Type * _29;
+  <unnamed type> _30;
+  sizetype _31;
+  signed short _32;
+  unsigned char _33;
+  signed short _34;
+  unsigned char _37;
+  unsigned char _38;
+  int _40;
+  int _41;
+  long unsigned int _42;
+  unsigned char _46;
+  unsigned char _47;
+  unsigned char _50;
+  unsigned char _54;
+  unsigned char _55;
+  int _57;
+  int _58;
+  long unsigned int _59;
+  _Bool _61;
+  struct QueueDefinition * * _62;
+  struct FLEXIO_Type * _74;
+  signed short _75;
+  signed short _77;
+
+  <bb 2> [local count: 1073741824]:
+  resourceIndex_5 = master_4(D)->flexioCommon.resourceIndex;
+  _1 = master_4(D)->flexioCommon.instance;
+  baseAddr_6 = g_flexioBase[_1];
+  _17 = (int) resourceIndex_5;
+  _32 = (signed short) resourceIndex_5;
+  _75 = (signed short) 4;
+  _31 = _32 w* _75;
+  _29 = baseAddr_6 + _31;
+  tmp_18 ={v} MEM <volatile uint32_t> [(struct FLEXIO_Type *)_29 + 128B];
+  tmp_19 = tmp_18 & 4294967288;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_29 + 128B] ={v} tmp_19;
+  _2 = resourceIndex_5 + 1;
+  _14 = (int) _2;
+  _77 = (signed short) _2;
+  _34 = (signed short) 4;
+  _7 = _77 w* _34;
+  _74 = baseAddr_6 + _7;
+  tmp_15 ={v} MEM <volatile uint32_t> [(struct FLEXIO_Type *)_74 + 128B];
+  tmp_16 = tmp_15 & 4294967288;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_74 + 128B] ={v} tmp_16;
+  tmp_12 ={v} MEM <volatile uint32_t> [(struct FLEXIO_Type *)_29 + 1024B];
+  tmp_13 = tmp_12 & 4294967292;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_29 + 1024B] ={v} tmp_13;
+  tmp_10 ={v} MEM <volatile uint32_t> [(struct FLEXIO_Type *)_74 + 1024B];
+  tmp_11 = tmp_10 & 4294967292;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_74 + 1024B] ={v} tmp_11;
+  _9 = 1 << _17;
+  baseAddr_6->SHIFTERR ={v} _9;
+  _8 = 1 << _14;
+  baseAddr_6->SHIFTERR ={v} _8;
+  baseAddr_6->SHIFTSTAT ={v} _8;
+  _30 = master_4(D)->driverType;
+  if (_30 == 0)
+    goto <bb 4>; [33.33%]
+  else
+    goto <bb 3>; [66.67%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_30 == 2)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 357913944]:
+  _33 = (unsigned char) _9;
+  _37 = (unsigned char) _8;
+  _38 = _33 | _37;
+  tmp_39 ={v} baseAddr_6->SHIFTSIEN;
+  _40 = (int) _38;
+  _41 = ~_40;
+  _42 = (long unsigned int) _41;
+  tmp_43 = tmp_39 & _42;
+  baseAddr_6->SHIFTSIEN ={v} tmp_43;
+  tmp_44 ={v} baseAddr_6->SHIFTEIEN;
+  tmp_45 = _42 & tmp_44;
+  baseAddr_6->SHIFTEIEN ={v} tmp_45;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 357913944]:
+  _46 = master_4(D)->txDMAChannel;
+  EDMA_DRV_StopChannel (_46);
+  _47 = master_4(D)->rxDMAChannel;
+  EDMA_DRV_StopChannel (_47);
+  _50 = (unsigned char) _9;
+  _54 = (unsigned char) _8;
+  _55 = _50 | _54;
+  tmp_56 ={v} baseAddr_6->SHIFTSDEN;
+  _57 = (int) _55;
+  _58 = ~_57;
+  _59 = (long unsigned int) _58;
+  tmp_60 = tmp_56 & _59;
+  baseAddr_6->SHIFTSDEN ={v} tmp_60;
+
+  <bb 6> [local count: 1073741831]:
+  master_4(D)->driverIdle = 1;
+  master_4(D)->txRemainingBytes = 0;
+  master_4(D)->rxRemainingBytes = 0;
+  _61 = master_4(D)->blocking;
+  if (_61 != 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 7> [local count: 354334802]:
+  _62 = &master_4(D)->idleSemaphore;
+  OSIF_SemaPost (_62); [tail call]
+
+  <bb 8> [local count: 1073741831]:
+  return;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterCheckStatus (FLEXIO_SPI_DRV_MasterCheckStatus, funcdef_no=62, decl_uid=8147, cgraph_uid=63, symbol_order=62)
+
+Removing basic block 44
+Removing basic block 45
+Removing basic block 46
+Removing basic block 47
+Removing basic block 48
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+Removing basic block 57
+Removing basic block 58
+FLEXIO_SPI_DRV_MasterCheckStatus (void * stateStruct)
+{
+  struct FLEXIO_Type * baseAddr;
+  uint32_t data;
+  uint8_t resourceIndex;
+  uint32_t data;
+  uint32_t data;
+  uint32_t data;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint8_t resourceIndex;
+  struct FLEXIO_Type * baseAddr;
+  long unsigned int _1;
+  void (*<T7f6>) (void *, spi_event_t, void *) _2;
+  void * _3;
+  unsigned char _4;
+  void (*<T7f6>) (void *, spi_event_t, void *) _5;
+  void * _6;
+  unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  <unnamed type> _11;
+  void (*<T7f6>) (void *, spi_event_t, void *) _12;
+  void * _13;
+  long unsigned int pretmp_15;
+  unsigned int _21;
+  int _37;
+  long unsigned int _38;
+  _Bool _39;
+  int _41;
+  long unsigned int _42;
+  _Bool _43;
+  long unsigned int _45;
+  _Bool _46;
+  long unsigned int _48;
+  _Bool _49;
+  int _53;
+  int _54;
+  long unsigned int _55;
+  long unsigned int prephitmp_60;
+  long unsigned int pretmp_61;
+  <unnamed type> _62;
+  <unnamed type> _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  uint8_t * prephitmp_72;
+  long unsigned int _74;
+  uint8_t * _75;
+  <unnamed type> _76;
+  unsigned char _78;
+  short unsigned int _79;
+  sizetype _82;
+  uint8_t * _83;
+  long unsigned int _85;
+  long unsigned int _86;
+  long unsigned int _89;
+  const uint8_t * _90;
+  <unnamed type> _91;
+  unsigned char _92;
+  short unsigned int _94;
+  sizetype _97;
+  const uint8_t * _98;
+  long unsigned int _99;
+  <unnamed type> _100;
+  int _101;
+  long unsigned int _103;
+  long unsigned int _104;
+  int _106;
+  int _107;
+  <unnamed type> prephitmp_121;
+  <unnamed type> pretmp_122;
+  uint8_t * pretmp_124;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].flexioCommon.instance;
+  baseAddr_23 = g_flexioBase[_1];
+  resourceIndex_24 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].flexioCommon.resourceIndex;
+  regValue_36 ={v} MEM[(const struct FLEXIO_Type *)baseAddr_23].SHIFTERR;
+  _37 = (int) resourceIndex_24;
+  _38 = regValue_36 >> _37;
+  _39 = (_Bool) _38;
+  if (_39 != 0)
+    goto <bb 3>; [20.24%]
+  else
+    goto <bb 5>; [79.76%]
+
+  <bb 3> [local count: 217325344]:
+  MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].status = 1280;
+  FLEXIO_SPI_DRV_MasterStopTransfer (stateStruct_20(D));
+  _2 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].callback;
+  if (_2 != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 43>; [30.00%]
+
+  <bb 4> [local count: 152127741]:
+  _3 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].callbackParam;
+  _2 (stateStruct_20(D), 0, _3); [tail call]
+  goto <bb 42>; [100.00%]
+
+  <bb 5> [local count: 856416480]:
+  _4 = resourceIndex_24 + 1;
+  regValue_40 ={v} MEM[(const struct FLEXIO_Type *)baseAddr_23].SHIFTERR;
+  _41 = (int) _4;
+  _42 = regValue_40 >> _41;
+  _43 = (_Bool) _42;
+  if (_43 != 0)
+    goto <bb 6>; [20.24%]
+  else
+    goto <bb 8>; [79.76%]
+
+  <bb 6> [local count: 173338694]:
+  MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].status = 1281;
+  FLEXIO_SPI_DRV_MasterStopTransfer (stateStruct_20(D));
+  _5 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].callback;
+  if (_5 != 0B)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 43>; [30.00%]
+
+  <bb 7> [local count: 121337086]:
+  _6 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].callbackParam;
+  _5 (stateStruct_20(D), 0, _6); [tail call]
+  goto <bb 42>; [100.00%]
+
+  <bb 8> [local count: 683077786]:
+  regValue_44 ={v} MEM[(const struct FLEXIO_Type *)baseAddr_23].SHIFTSTAT;
+  _45 = regValue_44 >> _41;
+  _46 = (_Bool) _45;
+  if (_46 != 0)
+    goto <bb 9>; [33.00%]
+  else
+    goto <bb 21>; [67.00%]
+
+  <bb 9> [local count: 225415667]:
+  _62 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].bitOrder;
+  if (_62 == 1)
+    goto <bb 10>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 10> [local count: 76641328]:
+  data_65 ={v} MEM[(const struct FLEXIO_Type *)baseAddr_23].SHIFTBUF[_41];
+  _66 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].transferSize;
+  _67 = (long unsigned int) _66;
+  _68 = 4 - _67;
+  _69 = _68 * 8;
+  data_70 = data_65 >> _69;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 148774340]:
+  data_73 ={v} MEM[(const struct FLEXIO_Type *)baseAddr_23].SHIFTBUFBIS[_41];
+
+  <bb 12> [local count: 225415668]:
+  # data_77 = PHI <data_70(10), data_73(11)>
+  _74 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].rxRemainingBytes;
+  if (_74 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 13> [local count: 112707834]:
+  _75 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].rxData;
+  if (_75 != 0B)
+    goto <bb 14>; [70.00%]
+  else
+    goto <bb 21>; [30.00%]
+
+  <bb 14> [local count: 78895484]:
+  _76 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].transferSize;
+  if (_76 == 2)
+    goto <bb 18>; [25.00%]
+  else
+    goto <bb 15>; [75.00%]
+
+  <bb 15> [local count: 78895484]:
+  if (_76 == 4)
+    goto <bb 19>; [33.33%]
+  else
+    goto <bb 16>; [66.67%]
+
+  <bb 16> [local count: 78895484]:
+  if (_76 == 1)
+    goto <bb 17>; [33.33%]
+  else
+    goto <bb 20>; [66.67%]
+
+  <bb 17> [local count: 19723871]:
+  _78 = (unsigned char) data_77;
+  *_75 = _78;
+  pretmp_124 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].rxData;
+  pretmp_122 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].transferSize;
+  pretmp_15 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].rxRemainingBytes;
+  goto <bb 20>; [100.00%]
+
+  <bb 18> [local count: 19723871]:
+  _79 = (short unsigned int) data_77;
+  MEM[(uint16_t *)_75] = _79;
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 19723871]:
+  MEM[(uint32_t *)_75] = data_77;
+  pretmp_61 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].rxRemainingBytes;
+
+  <bb 20> [local count: 78895484]:
+  # prephitmp_72 = PHI <_75(19), pretmp_124(17), _75(18), _75(16)>
+  # prephitmp_121 = PHI <_76(19), pretmp_122(17), _76(18), _76(16)>
+  # prephitmp_60 = PHI <pretmp_61(19), pretmp_15(17), _74(18), _74(16)>
+  _82 = (sizetype) prephitmp_121;
+  _83 = prephitmp_72 + _82;
+  MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].rxData = _83;
+  _85 = prephitmp_60 - _82;
+  MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].rxRemainingBytes = _85;
+
+  <bb 21> [local count: 683077787]:
+  regValue_47 ={v} MEM[(const struct FLEXIO_Type *)baseAddr_23].SHIFTSTAT;
+  _48 = regValue_47 >> _37;
+  _49 = (_Bool) _48;
+  if (_49 != 0)
+    goto <bb 22>; [33.00%]
+  else
+    goto <bb 36>; [67.00%]
+
+  <bb 22> [local count: 225415668]:
+  _89 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].txRemainingBytes;
+  if (_89 == 0)
+    goto <bb 23>; [34.00%]
+  else
+    goto <bb 24>; [66.00%]
+
+  <bb 23> [local count: 112707834]:
+  _8 = 1 << _37;
+  tmp_52 ={v} baseAddr_23->SHIFTSIEN;
+  _21 = _8 & 255;
+  _53 = (int) _21;
+  _54 = ~_53;
+  _55 = (long unsigned int) _54;
+  tmp_56 = tmp_52 & _55;
+  baseAddr_23->SHIFTSIEN ={v} tmp_56;
+  tmp_50 ={v} baseAddr_23->SHIFTEIEN;
+  tmp_51 = tmp_50 & _55;
+  baseAddr_23->SHIFTEIEN ={v} tmp_51;
+  goto <bb 37>; [100.00%]
+
+  <bb 24> [local count: 148774340]:
+  _86 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].flexioCommon.instance;
+  baseAddr_87 = g_flexioBase[_86];
+  resourceIndex_88 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].flexioCommon.resourceIndex;
+  _90 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].txData;
+  if (_90 != 0B)
+    goto <bb 25>; [70.00%]
+  else
+    goto <bb 34>; [30.00%]
+
+  <bb 25> [local count: 104142038]:
+  _91 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].transferSize;
+  if (_91 == 2)
+    goto <bb 29>; [25.00%]
+  else
+    goto <bb 26>; [75.00%]
+
+  <bb 26> [local count: 104142038]:
+  if (_91 == 4)
+    goto <bb 30>; [33.33%]
+  else
+    goto <bb 27>; [66.67%]
+
+  <bb 27> [local count: 104142038]:
+  if (_91 == 1)
+    goto <bb 28>; [33.33%]
+  else
+    goto <bb 31>; [66.67%]
+
+  <bb 28> [local count: 26035510]:
+  _92 = *_90;
+  data_93 = (uint32_t) _92;
+  goto <bb 31>; [100.00%]
+
+  <bb 29> [local count: 26035510]:
+  _94 = MEM[(const uint16_t *)_90];
+  data_95 = (uint32_t) _94;
+  goto <bb 31>; [100.00%]
+
+  <bb 30> [local count: 26035510]:
+  data_96 = MEM[(const uint32_t *)_90];
+
+  <bb 31> [local count: 104142038]:
+  # data_102 = PHI <data_96(30), data_93(28), data_95(29), 4294967295(27)>
+  _97 = (sizetype) _91;
+  _98 = _90 + _97;
+  MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].txData = _98;
+  _99 = _89 - _97;
+  MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].txRemainingBytes = _99;
+  _100 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].bitOrder;
+  if (_100 == 1)
+    goto <bb 32>; [34.00%]
+  else
+    goto <bb 33>; [66.00%]
+
+  <bb 32> [local count: 35408293]:
+  _101 = (int) resourceIndex_88;
+  baseAddr_87->SHIFTBUF[_101] ={v} data_102;
+  goto <bb 35>; [100.00%]
+
+  <bb 33> [local count: 68733745]:
+  _103 = 4 - _97;
+  _104 = _103 * 8;
+  data_105 = data_102 << _104;
+  _106 = (int) resourceIndex_88;
+  baseAddr_87->SHIFTBUFBIS[_106] ={v} data_105;
+  goto <bb 35>; [100.00%]
+
+  <bb 34> [local count: 44632302]:
+  _107 = (int) resourceIndex_88;
+  baseAddr_87->SHIFTBUF[_107] ={v} 4294967295;
+  goto <bb 43>; [100.00%]
+
+  <bb 35> [local count: 104142038]:
+  if (_99 == 0)
+    goto <bb 23>; [34.63%]
+  else
+    goto <bb 43>; [65.37%]
+
+  <bb 36> [local count: 457662120]:
+  _9 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].txRemainingBytes;
+  if (_9 == 0)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 43>; [50.00%]
+
+  <bb 37> [local count: 341538893]:
+  _10 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].rxRemainingBytes;
+  if (_10 == 0)
+    goto <bb 38>; [50.00%]
+  else
+    goto <bb 43>; [50.00%]
+
+  <bb 38> [local count: 170769447]:
+  _11 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].status;
+  if (_11 == 2)
+    goto <bb 39>; [34.00%]
+  else
+    goto <bb 40>; [66.00%]
+
+  <bb 39> [local count: 58061612]:
+  MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].status = 0;
+
+  <bb 40> [local count: 170769447]:
+  FLEXIO_SPI_DRV_MasterStopTransfer (stateStruct_20(D));
+  _12 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].callback;
+  if (_12 != 0B)
+    goto <bb 41>; [70.00%]
+  else
+    goto <bb 43>; [30.00%]
+
+  <bb 41> [local count: 119538613]:
+  _13 = MEM[(struct flexio_spi_master_state_t *)stateStruct_20(D)].callbackParam;
+  _12 (stateStruct_20(D), 0, _13); [tail call]
+
+  <bb 42> [local count: 1073741825]:
+  return;
+
+  <bb 43> [local count: 680738386]:
+  goto <bb 42>; [100.00%]
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterEndDmaTransfer (FLEXIO_SPI_DRV_MasterEndDmaTransfer, funcdef_no=58, decl_uid=8111, cgraph_uid=59, symbol_order=58)
+
+Removing basic block 5
+FLEXIO_SPI_DRV_MasterEndDmaTransfer (void * stateStruct, edma_chn_status_t status)
+{
+  void (*<T7f6>) (void *, spi_event_t, void *) _1;
+  void * _2;
+  _Bool _8;
+  <unnamed type> _9;
+
+  <bb 2> [local count: 1073741824]:
+  _8 = status_6(D) == 1;
+  _9 = (<unnamed type>) _8;
+  MEM[(struct flexio_spi_master_state_t *)stateStruct_5(D)].status = _9;
+  FLEXIO_SPI_DRV_MasterStopTransfer (stateStruct_5(D));
+  _1 = MEM[(struct flexio_spi_master_state_t *)stateStruct_5(D)].callback;
+  if (_1 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _2 = MEM[(struct flexio_spi_master_state_t *)stateStruct_5(D)].callbackParam;
+  _1 (stateStruct_5(D), 0, _2); [tail call]
+
+  <bb 4> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterInit (FLEXIO_SPI_DRV_MasterInit, funcdef_no=66, decl_uid=7208, cgraph_uid=67, symbol_order=66)
+
+Removing basic block 6
+Removing basic block 12
+Removing basic block 13
+Removing basic block 15
+FLEXIO_SPI_DRV_MasterInit (uint32_t instance, const struct flexio_spi_master_user_config_t * userConfigPtr, struct flexio_spi_master_state_t * master)
+{
+  int32_t tmpDiv;
+  struct FLEXIO_Type * baseAddr;
+  uint8_t dmaReqRx;
+  uint8_t dmaReqTx;
+  uint32_t inputClock;
+  status_t retCode;
+  <unnamed type> _1;
+  struct flexio_common_state_t * _2;
+  <unnamed type> _3;
+  struct QueueDefinition * * _4;
+  <unnamed type> _6;
+  <unnamed type> _7;
+  void (*<T7f6>) (void *, spi_event_t, void *) _8;
+  void * _9;
+  long unsigned int inputClock.0_10;
+  long unsigned int _11;
+  unsigned char _12;
+  unsigned char _13;
+  long unsigned int _14;
+  _Bool _16;
+  long unsigned int _17;
+  unsigned char _18;
+  status_t _19;
+  long unsigned int _49;
+  unsigned char _50;
+  long unsigned int _54;
+  long int inputClock.3_55;
+  long int baudRate.4_56;
+  long int _57;
+  long int _58;
+  long int _59;
+  long int _61;
+  short unsigned int _63;
+  long unsigned int _64;
+  short unsigned int _65;
+  short unsigned int _66;
+  short unsigned int _67;
+  short unsigned int _68;
+  short unsigned int _69;
+  unsigned char _70;
+  unsigned char _71;
+  unsigned char _72;
+  long unsigned int _73;
+  long unsigned int _74;
+  long unsigned int _75;
+  struct FLEXIO_Type * _77;
+  long unsigned int _81;
+  long unsigned int _82;
+  long unsigned int _83;
+  int _84;
+  long unsigned int _85;
+  sizetype _86;
+  long unsigned int _88;
+  unsigned char _92;
+  unsigned char _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  int _99;
+  long unsigned int _100;
+  long unsigned int _101;
+  unsigned char _102;
+  unsigned char _103;
+  unsigned char _104;
+  long unsigned int _105;
+  long unsigned int _106;
+  long unsigned int _107;
+  long unsigned int _109;
+  long unsigned int _110;
+  long unsigned int _113;
+  long unsigned int _114;
+  long unsigned int _115;
+  long unsigned int _116;
+  unsigned char _117;
+  long unsigned int _118;
+  long unsigned int _119;
+  long unsigned int _120;
+  long unsigned int _121;
+  signed short _209;
+  signed short _210;
+  signed short _211;
+  struct FLEXIO_Type * _212;
+  sizetype _213;
+  signed short _223;
+  <unnamed type> pretmp_226;
+  <unnamed type> prephitmp_227;
+  long unsigned int prephitmp_229;
+  long unsigned int prephitmp_233;
+  long unsigned int prephitmp_234;
+
+  <bb 2> [local count: 1073741819]:
+  _1 = g_flexioClock[instance_23(D)];
+  CLOCK_SYS_GetFreq (_1, &inputClock);
+  master_25(D)->flexioCommon.resourceCount = 2;
+  _2 = &master_25(D)->flexioCommon;
+  retCode_28 = FLEXIO_DRV_InitDriver (instance_23(D), _2);
+  if (retCode_28 != 0)
+    goto <bb 11>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669597]:
+  _3 = userConfigPtr_29(D)->driverType;
+  if (_3 != 1)
+    goto <bb 4>; [48.88%]
+  else
+    goto <bb 5>; [51.12%]
+
+  <bb 4> [local count: 346397696]:
+  _4 = &master_25(D)->idleSemaphore;
+  OSIF_SemaCreate (_4, 0);
+  pretmp_226 = userConfigPtr_29(D)->driverType;
+
+  <bb 5> [local count: 708669597]:
+  # prephitmp_227 = PHI <pretmp_226(4), _3(3)>
+  master_25(D)->driverType = prephitmp_227;
+  _6 = userConfigPtr_29(D)->bitOrder;
+  master_25(D)->bitOrder = _6;
+  _7 = userConfigPtr_29(D)->transferSize;
+  master_25(D)->transferSize = _7;
+  _8 = userConfigPtr_29(D)->callback;
+  master_25(D)->callback = _8;
+  _9 = userConfigPtr_29(D)->callbackParam;
+  master_25(D)->callbackParam = _9;
+  master_25(D)->driverIdle = 1;
+  MEM <unsigned short> [(_Bool *)master_25(D) + 48B] = 256;
+  master_25(D)->status = 0;
+  inputClock.0_10 = inputClock;
+  _49 = MEM[(long unsigned int *)master_25(D) + 4B];
+  _50 = MEM[(unsigned char *)master_25(D) + 9B];
+  baseAddr_52 = g_flexioBase[_49];
+  _54 = userConfigPtr_29(D)->baudRate;
+  inputClock.3_55 = (long int) inputClock.0_10;
+  baudRate.4_56 = (long int) _54;
+  _57 = inputClock.3_55 + baudRate.4_56;
+  _58 = baudRate.4_56 * 2;
+  _59 = _57 / _58;
+  tmpDiv_60 = _59 + -1;
+  _61 = MIN_EXPR <tmpDiv_60, 255>;
+  tmpDiv_62 = MAX_EXPR <_61, 1>;
+  _63 = (short unsigned int) tmpDiv_62;
+  _65 = (short unsigned int) _7;
+  _66 = _65 * 16;
+  _67 = _66 + 65535;
+  _68 = _67 << 8;
+  _69 = _63 + _68;
+  _70 = userConfigPtr_29(D)->clockPolarity;
+  _16 = _70 != 0;
+  _71 = userConfigPtr_29(D)->clockPhase;
+  if (_71 == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 354334799]:
+
+  <bb 7> [local count: 708669597]:
+  # prephitmp_229 = PHI <8388608(5), 0(6)>
+  # prephitmp_233 = PHI <0(5), 33(6)>
+  # prephitmp_234 = PHI <0(5), 8388608(6)>
+  _72 = userConfigPtr_29(D)->mosiPin;
+  _73 = (long unsigned int) _72;
+  _74 = _73 << 8;
+  _75 = _74 & 1792;
+  _64 = _75 | prephitmp_229;
+  _81 = (long unsigned int) _50;
+  _82 = _81 << 24;
+  _83 = _82 & 50331648;
+  _17 = _64 | _83;
+  _84 = (int) _50;
+  _85 = _17 | 196608;
+  _223 = (signed short) _50;
+  _209 = (signed short) 4;
+  _86 = _223 w* _209;
+  _77 = baseAddr_52 + _86;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_77 + 128B] ={v} _85;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_77 + 256B] ={v} prephitmp_233;
+  _92 = _50 + 1;
+  _93 = userConfigPtr_29(D)->misoPin;
+  _94 = (long unsigned int) _93;
+  _95 = _94 << 8;
+  _96 = _95 & 1792;
+  _14 = _83 | _96;
+  _99 = (int) _92;
+  _100 = _14 | prephitmp_234;
+  _210 = (signed short) _92;
+  _211 = (signed short) 4;
+  _213 = _210 w* _211;
+  _212 = baseAddr_52 + _213;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_212 + 128B] ={v} _100;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_212 + 256B] ={v} 0;
+  _101 = (long unsigned int) _69;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_77 + 1280B] ={v} _101;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_77 + 1152B] ={v} 16785954;
+  _102 = _50 << 2;
+  _103 = _102 + 1;
+  _104 = userConfigPtr_29(D)->sckPin;
+  _105 = (long unsigned int) _104;
+  _106 = _105 << 8;
+  _107 = _106 & 1792;
+  _109 = (long unsigned int) _16;
+  _110 = _109 << 7;
+  _113 = (long unsigned int) _103;
+  _114 = _113 << 24;
+  _115 = _114 & 251658240;
+  _88 = _107 | _110;
+  _11 = _88 | _115;
+  _116 = _11 | 12779520;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_77 + 1024B] ={v} _116;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_212 + 1280B] ={v} 65535;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_212 + 1152B] ={v} 4352;
+  _117 = userConfigPtr_29(D)->ssPin;
+  _118 = (long unsigned int) _117;
+  _119 = _118 << 8;
+  _120 = _119 & 1792;
+  _121 = _120 | 196736;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_212 + 1024B] ={v} _121;
+  if (prephitmp_227 == 0)
+    goto <bb 9>; [33.33%]
+  else
+    goto <bb 8>; [66.67%]
+
+  <bb 8> [local count: 708669597]:
+  if (prephitmp_227 == 2)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 9> [local count: 236223201]:
+  master_25(D)->flexioCommon.isr = FLEXIO_SPI_DRV_MasterCheckStatus;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 236223201]:
+  _12 = userConfigPtr_29(D)->rxDMAChannel;
+  master_25(D)->rxDMAChannel = _12;
+  _13 = userConfigPtr_29(D)->txDMAChannel;
+  master_25(D)->txDMAChannel = _13;
+  dmaReqTx_44 = g_flexioDMASrc[instance_23(D)][_84];
+  dmaReqRx_45 = g_flexioDMASrc[instance_23(D)][_99];
+  EDMA_DRV_SetChannelRequestAndTrigger (_13, dmaReqTx_44, 0);
+  _18 = userConfigPtr_29(D)->rxDMAChannel;
+  EDMA_DRV_SetChannelRequestAndTrigger (_18, dmaReqRx_45, 0);
+
+  <bb 11> [local count: 1073741824]:
+  # _19 = PHI <retCode_28(10), retCode_28(2), retCode_28(9), retCode_28(8)>
+  inputClock ={v} {CLOBBER};
+  return _19;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterDeinit (FLEXIO_SPI_DRV_MasterDeinit, funcdef_no=67, decl_uid=7210, cgraph_uid=68, symbol_order=67)
+
+Removing basic block 7
+Removing basic block 8
+FLEXIO_SPI_DRV_MasterDeinit (struct flexio_spi_master_state_t * master)
+{
+  _Bool _1;
+  <unnamed type> _2;
+  struct QueueDefinition * * _3;
+  struct flexio_common_state_t * _4;
+  status_t _5;
+  status_t _12;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = master_9(D)->driverIdle;
+  if (_1 != 0)
+    goto <bb 3>; [78.28%]
+  else
+    goto <bb 6>; [21.72%]
+
+  <bb 3> [local count: 840525097]:
+  _2 = master_9(D)->driverType;
+  if (_2 != 1)
+    goto <bb 4>; [48.88%]
+  else
+    goto <bb 5>; [51.12%]
+
+  <bb 4> [local count: 410848664]:
+  _3 = &master_9(D)->idleSemaphore;
+  OSIF_SemaDestroy (_3);
+
+  <bb 5> [local count: 840525097]:
+  _4 = &master_9(D)->flexioCommon;
+  _12 = FLEXIO_DRV_DeinitDriver (_4); [tail call]
+
+  <bb 6> [local count: 1073741824]:
+  # _5 = PHI <_12(5), 2(2)>
+  return _5;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterSetBaudRate (FLEXIO_SPI_DRV_MasterSetBaudRate, funcdef_no=68, decl_uid=7213, cgraph_uid=69, symbol_order=68)
+
+Removing basic block 5
+FLEXIO_SPI_DRV_MasterSetBaudRate (struct flexio_spi_master_state_t * master, uint32_t baudRate)
+{
+  int32_t tmpDiv;
+  uint8_t resourceIndex;
+  uint32_t inputClock;
+  uint16_t timerCmp;
+  struct FLEXIO_Type * baseAddr;
+  long unsigned int _1;
+  _Bool _2;
+  <unnamed type> _3;
+  long unsigned int inputClock.6_4;
+  short unsigned int _5;
+  status_t _6;
+  long unsigned int _16;
+  signed short _17;
+  long unsigned int _18;
+  short unsigned int _19;
+  long int inputClock.3_20;
+  long int baudRate.4_21;
+  long int _22;
+  long int _23;
+  long int _24;
+  long int _26;
+  short unsigned int _28;
+  sizetype _30;
+  const struct FLEXIO_Type * _32;
+  signed short _34;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = master_9(D)->driverIdle;
+  if (_2 != 0)
+    goto <bb 3>; [63.97%]
+  else
+    goto <bb 4>; [36.03%]
+
+  <bb 3> [local count: 686872649]:
+  _1 = master_9(D)->flexioCommon.instance;
+  baseAddr_10 = g_flexioBase[_1];
+  resourceIndex_11 = master_9(D)->flexioCommon.resourceIndex;
+  _3 = g_flexioClock[_1];
+  CLOCK_SYS_GetFreq (_3, &inputClock);
+  inputClock.6_4 = inputClock;
+  inputClock.3_20 = (long int) inputClock.6_4;
+  baudRate.4_21 = (long int) baudRate_13(D);
+  _22 = inputClock.3_20 + baudRate.4_21;
+  _23 = baudRate.4_21 * 2;
+  _24 = _22 / _23;
+  tmpDiv_25 = _24 + -1;
+  _26 = MIN_EXPR <tmpDiv_25, 255>;
+  tmpDiv_27 = MAX_EXPR <_26, 1>;
+  _28 = (short unsigned int) tmpDiv_27;
+  _17 = (signed short) resourceIndex_11;
+  _34 = (signed short) 4;
+  _30 = _17 w* _34;
+  _32 = baseAddr_10 + _30;
+  _18 ={v} MEM <const uint32_t> [(const struct FLEXIO_Type *)_32 + 1280B];
+  _19 = (short unsigned int) _18;
+  _5 = _19 & 65280;
+  timerCmp_14 = _5 | _28;
+  _16 = (long unsigned int) timerCmp_14;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_32 + 1280B] ={v} _16;
+
+  <bb 4> [local count: 1073741824]:
+  # _6 = PHI <0(3), 2(2)>
+  inputClock ={v} {CLOBBER};
+  return _6;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterGetBaudRate (FLEXIO_SPI_DRV_MasterGetBaudRate, funcdef_no=69, decl_uid=7216, cgraph_uid=70, symbol_order=69)
+
+FLEXIO_SPI_DRV_MasterGetBaudRate (struct flexio_spi_master_state_t * master, uint32_t * baudRate)
+{
+  uint8_t resourceIndex;
+  uint32_t inputClock;
+  uint16_t divider;
+  const struct FLEXIO_Type * baseAddr;
+  long unsigned int _1;
+  <unnamed type> _2;
+  long unsigned int _3;
+  long unsigned int inputClock.8_4;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  int _19;
+  long unsigned int _20;
+  short unsigned int _21;
+  short unsigned int _22;
+  long unsigned int _23;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = master_11(D)->flexioCommon.instance;
+  baseAddr_12 = g_flexioBase[_1];
+  resourceIndex_13 = master_11(D)->flexioCommon.resourceIndex;
+  _2 = g_flexioClock[_1];
+  CLOCK_SYS_GetFreq (_2, &inputClock);
+  _19 = (int) resourceIndex_13;
+  _20 ={v} baseAddr_12->TIMCMP[_19];
+  _21 = (short unsigned int) _20;
+  divider_15 = _21 & 255;
+  _3 = (long unsigned int) divider_15;
+  inputClock.8_4 = inputClock;
+  _23 = inputClock.8_4 + 1;
+  _6 = _3 + _23;
+  _22 = divider_15 + 1;
+  _7 = (long unsigned int) _22;
+  _8 = _7 * 2;
+  _9 = _6 / _8;
+  *baudRate_16(D) = _9;
+  inputClock ={v} {CLOBBER};
+  return 0;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterTransfer (FLEXIO_SPI_DRV_MasterTransfer, funcdef_no=70, decl_uid=7221, cgraph_uid=71, symbol_order=70)
+
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+FLEXIO_SPI_DRV_MasterTransfer (struct flexio_spi_master_state_t * master, const uint8_t * txData, uint8_t * rxData, uint32_t dataSize)
+{
+  uint32_t addr;
+  uint32_t addr;
+  uint8_t shifter;
+  const struct FLEXIO_Type * baseAddr;
+  uint32_t addr;
+  uint32_t tmp;
+  static const edma_transfer_size_t dmaTransferSize[4] = {0, 1, 2, 2};
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint8_t resourceIndex;
+  struct FLEXIO_Type * baseAddr;
+  long unsigned int _1;
+  _Bool _2;
+  <unnamed type> _3;
+  unsigned int _5;
+  unsigned char _6;
+  unsigned int _9;
+  unsigned char _10;
+  unsigned char _11;
+  status_t _12;
+  long unsigned int _33;
+  sizetype _37;
+  sizetype _38;
+  _Bool _39;
+  sizetype _42;
+  int _43;
+  unsigned char _47;
+  int _48;
+  sizetype _62;
+  long unsigned int _63;
+  sizetype _65;
+  uint32_t * _67;
+  unsigned char _69;
+  <unnamed type> _70;
+  sizetype _71;
+  const uint32_t * _72;
+  sizetype _74;
+  const uint32_t * _75;
+  long unsigned int _76;
+  <unnamed type> _77;
+  long unsigned int _78;
+  sizetype _79;
+  long unsigned int _83;
+  <unnamed type> _84;
+  sizetype _85;
+  long unsigned int _86;
+  const uint8_t * _89;
+  unsigned char _90;
+  uint8_t * _91;
+  uint32_t * _93;
+  unsigned char _95;
+  long unsigned int _96;
+  unsigned char _98;
+  <unnamed type> _100;
+  signed short _101;
+  const uint32_t * _102;
+  long unsigned int _103;
+  <unnamed type> _104;
+  long unsigned int _105;
+  signed short _108;
+  const uint32_t * _109;
+  sizetype _112;
+  long unsigned int _113;
+  <unnamed type> _114;
+  long unsigned int _115;
+  long unsigned int _116;
+  uint8_t * _119;
+  unsigned char _120;
+  unsigned char _121;
+  unsigned char _122;
+  unsigned char _123;
+  sizetype _124;
+  unsigned int _125;
+  unsigned char _126;
+  long unsigned int _127;
+  unsigned int _129;
+  unsigned char _130;
+  unsigned char _131;
+  long unsigned int _133;
+  struct FLEXIO_Type * _155;
+  sizetype _156;
+  sizetype _157;
+  signed short _158;
+  signed short _159;
+  <unnamed type> pretmp_160;
+  long unsigned int _162;
+  long unsigned int prephitmp_163;
+  <unnamed type> pretmp_164;
+  long unsigned int _166;
+  long unsigned int prephitmp_167;
+  struct FLEXIO_Type * _168;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = master_15(D)->driverIdle;
+  if (_2 != 0)
+    goto <bb 3>; [63.97%]
+  else
+    goto <bb 28>; [36.03%]
+
+  <bb 3> [local count: 686872649]:
+  _1 = master_15(D)->flexioCommon.instance;
+  baseAddr_16 = g_flexioBase[_1];
+  resourceIndex_17 = master_15(D)->flexioCommon.resourceIndex;
+  master_15(D)->txData = txData_18(D);
+  master_15(D)->rxData = rxData_20(D);
+  master_15(D)->txRemainingBytes = dataSize_22(D);
+  master_15(D)->rxRemainingBytes = dataSize_22(D);
+  master_15(D)->driverIdle = 0;
+  master_15(D)->status = 2;
+  _39 = MEM[(_Bool *)master_15(D) + 49B];
+  _43 = (int) resourceIndex_17;
+  _157 = (sizetype) resourceIndex_17;
+  _158 = (signed short) resourceIndex_17;
+  _108 = (signed short) 4;
+  _156 = _158 w* _108;
+  _155 = baseAddr_16 + _156;
+  tmp_44 ={v} MEM <volatile uint32_t> [(struct FLEXIO_Type *)_155 + 128B];
+  tmp_45 = tmp_44 & 4294967288;
+  tmp_46 = tmp_45 | 2;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_155 + 128B] ={v} tmp_46;
+  _47 = resourceIndex_17 + 1;
+  _48 = (int) _47;
+  _101 = (signed short) _47;
+  _159 = (signed short) 4;
+  _112 = _101 w* _159;
+  _168 = baseAddr_16 + _112;
+  tmp_49 ={v} MEM <volatile uint32_t> [(struct FLEXIO_Type *)_168 + 128B];
+  tmp_50 = tmp_49 & 4294967288;
+  tmp_51 = tmp_50 | 1;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_168 + 128B] ={v} tmp_51;
+  if (_39 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 343436324]:
+  tmp_53 ={v} MEM <volatile uint32_t> [(struct FLEXIO_Type *)_155 + 1024B];
+  tmp_54 = tmp_53 & 4294967292;
+  tmp_55 = tmp_54 | 1;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_155 + 1024B] ={v} tmp_55;
+  tmp_56 ={v} MEM <volatile uint32_t> [(struct FLEXIO_Type *)_168 + 1024B];
+  tmp_57 = tmp_56 & 4294967292;
+  tmp_58 = tmp_57 | 3;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_168 + 1024B] ={v} tmp_58;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 343436324]:
+  tmp_59 ={v} MEM <volatile uint32_t> [(struct FLEXIO_Type *)_155 + 1024B];
+  tmp_60 = tmp_59 & 4294967292;
+  tmp_61 = tmp_60 | 3;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_155 + 1024B] ={v} tmp_61;
+
+  <bb 6> [local count: 686872649]:
+  _3 = master_15(D)->driverType;
+  if (_3 == 1)
+    goto <bb 10>; [25.00%]
+  else
+    goto <bb 7>; [75.00%]
+
+  <bb 7> [local count: 686872649]:
+  if (_3 == 2)
+    goto <bb 11>; [33.33%]
+  else
+    goto <bb 8>; [66.67%]
+
+  <bb 8> [local count: 686872649]:
+  if (_3 == 0)
+    goto <bb 9>; [33.33%]
+  else
+    goto <bb 28>; [66.67%]
+
+  <bb 9> [local count: 171718162]:
+  _5 = 1 << _43;
+  _6 = (unsigned char) _5;
+  _9 = 1 << _48;
+  _10 = (unsigned char) _9;
+  _11 = _6 | _10;
+  tmp_32 ={v} baseAddr_16->SHIFTSIEN;
+  _33 = (long unsigned int) _11;
+  tmp_34 = tmp_32 | _33;
+  baseAddr_16->SHIFTSIEN ={v} tmp_34;
+  tmp_30 ={v} baseAddr_16->SHIFTEIEN;
+  tmp_31 = tmp_30 | _33;
+  baseAddr_16->SHIFTEIEN ={v} tmp_31;
+  goto <bb 28>; [100.00%]
+
+  <bb 10> [local count: 171718162]:
+  FLEXIO_SPI_DRV_MasterCheckStatus (master_15(D));
+  goto <bb 28>; [100.00%]
+
+  <bb 11> [local count: 171718162]:
+  if (txData_18(D) != 0B)
+    goto <bb 12>; [70.00%]
+  else
+    goto <bb 13>; [30.00%]
+
+  <bb 12> [local count: 120202714]:
+  addr_66 = (uint32_t) txData_18(D);
+  goto <bb 14>; [100.00%]
+
+  <bb 13> [local count: 51515448]:
+  master_15(D)->dummyDmaData = 4294967295;
+  _67 = &master_15(D)->dummyDmaData;
+  addr_68 = (uint32_t) _67;
+
+  <bb 14> [local count: 171718162]:
+  # addr_87 = PHI <addr_66(12), addr_68(13)>
+  _69 = master_15(D)->txDMAChannel;
+  _70 = MEM[(const struct flexio_spi_master_state_t *)master_15(D)].bitOrder;
+  if (_70 == 1)
+    goto <bb 15>; [34.00%]
+  else
+    goto <bb 16>; [66.00%]
+
+  <bb 15> [local count: 58384176]:
+  _85 = _157 + 128;
+  _79 = _85 * 4;
+  _72 = baseAddr_16 + _79;
+  addr_73 = (uint32_t) _72;
+  pretmp_160 = MEM[(const struct flexio_spi_master_state_t *)master_15(D)].transferSize;
+  _162 = (long unsigned int) pretmp_160;
+  goto <bb 17>; [100.00%]
+
+  <bb 16> [local count: 113333986]:
+  _62 = _157 + 160;
+  _42 = _62 * 4;
+  _75 = baseAddr_16 + _42;
+  _76 = (long unsigned int) _75;
+  _77 = MEM[(const struct flexio_spi_master_state_t *)master_15(D)].transferSize;
+  _78 = (long unsigned int) _77;
+  _127 = 4 - _78;
+  addr_80 = _76 + _127;
+
+  <bb 17> [local count: 171718162]:
+  # addr_88 = PHI <addr_73(15), addr_80(16)>
+  # prephitmp_163 = PHI <_162(15), _78(16)>
+  _83 = prephitmp_163 + 4294967295;
+  _84 = dmaTransferSize[_83];
+  _86 = dataSize_22(D) / prephitmp_163;
+  EDMA_DRV_ConfigMultiBlockTransfer (_69, 1, addr_87, addr_88, _84, prephitmp_163, _86, 1);
+  _89 = master_15(D)->txData;
+  if (_89 == 0B)
+    goto <bb 18>; [17.43%]
+  else
+    goto <bb 19>; [82.57%]
+
+  <bb 18> [local count: 29930476]:
+  _90 = master_15(D)->txDMAChannel;
+  EDMA_DRV_SetSrcOffset (_90, 0);
+
+  <bb 19> [local count: 171718162]:
+  _91 = master_15(D)->rxData;
+  if (_91 != 0B)
+    goto <bb 20>; [70.00%]
+  else
+    goto <bb 21>; [30.00%]
+
+  <bb 20> [local count: 120202714]:
+  addr_92 = (uint32_t) _91;
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 51515448]:
+  _93 = &master_15(D)->dummyDmaData;
+  addr_94 = (uint32_t) _93;
+
+  <bb 22> [local count: 171718162]:
+  # addr_118 = PHI <addr_92(20), addr_94(21)>
+  _95 = master_15(D)->rxDMAChannel;
+  _96 = MEM[(const struct flexio_spi_master_state_t *)master_15(D)].flexioCommon.instance;
+  baseAddr_97 = g_flexioBase[_96];
+  _98 = MEM[(const struct flexio_spi_master_state_t *)master_15(D)].flexioCommon.resourceIndex;
+  shifter_99 = _98 + 1;
+  _100 = MEM[(const struct flexio_spi_master_state_t *)master_15(D)].bitOrder;
+  if (_100 == 1)
+    goto <bb 23>; [34.00%]
+  else
+    goto <bb 24>; [66.00%]
+
+  <bb 23> [local count: 58384176]:
+  _38 = (sizetype) shifter_99;
+  _124 = _38 + 128;
+  _71 = _124 * 4;
+  _102 = baseAddr_97 + _71;
+  _103 = (long unsigned int) _102;
+  _104 = MEM[(const struct flexio_spi_master_state_t *)master_15(D)].transferSize;
+  _105 = (long unsigned int) _104;
+  _63 = 4 - _105;
+  addr_107 = _63 + _103;
+  goto <bb 25>; [100.00%]
+
+  <bb 24> [local count: 113333986]:
+  _74 = (sizetype) shifter_99;
+  _65 = _74 + 160;
+  _37 = _65 * 4;
+  _109 = baseAddr_97 + _37;
+  addr_110 = (uint32_t) _109;
+  pretmp_164 = MEM[(const struct flexio_spi_master_state_t *)master_15(D)].transferSize;
+  _166 = (long unsigned int) pretmp_164;
+
+  <bb 25> [local count: 171718162]:
+  # addr_117 = PHI <addr_107(23), addr_110(24)>
+  # prephitmp_167 = PHI <_105(23), _166(24)>
+  _113 = prephitmp_167 + 4294967295;
+  _114 = dmaTransferSize[_113];
+  _115 = master_15(D)->rxRemainingBytes;
+  _116 = _115 / prephitmp_167;
+  EDMA_DRV_ConfigMultiBlockTransfer (_95, 0, addr_117, addr_118, _114, prephitmp_167, _116, 1);
+  _119 = master_15(D)->rxData;
+  if (_119 == 0B)
+    goto <bb 26>; [17.43%]
+  else
+    goto <bb 27>; [82.57%]
+
+  <bb 26> [local count: 29930476]:
+  _120 = master_15(D)->rxDMAChannel;
+  EDMA_DRV_SetDestOffset (_120, 0);
+
+  <bb 27> [local count: 171718162]:
+  _121 = master_15(D)->rxDMAChannel;
+  EDMA_DRV_InstallCallback (_121, FLEXIO_SPI_DRV_MasterEndDmaTransfer, master_15(D));
+  _122 = master_15(D)->txDMAChannel;
+  EDMA_DRV_StartChannel (_122);
+  _123 = master_15(D)->rxDMAChannel;
+  EDMA_DRV_StartChannel (_123);
+  _125 = 1 << _43;
+  _126 = (unsigned char) _125;
+  _129 = 1 << _48;
+  _130 = (unsigned char) _129;
+  _131 = _126 | _130;
+  tmp_132 ={v} baseAddr_16->SHIFTSDEN;
+  _133 = (long unsigned int) _131;
+  tmp_134 = tmp_132 | _133;
+  baseAddr_16->SHIFTSDEN ={v} tmp_134;
+
+  <bb 28> [local count: 1073741824]:
+  # _12 = PHI <0(27), 0(10), 0(9), 2(2), 0(8)>
+  return _12;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterTransferBlocking (FLEXIO_SPI_DRV_MasterTransferBlocking, funcdef_no=71, decl_uid=7227, cgraph_uid=72, symbol_order=71)
+
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+FLEXIO_SPI_DRV_MasterTransferBlocking (struct flexio_spi_master_state_t * master, const uint8_t * txData, uint8_t * rxData, uint32_t dataSize, uint32_t timeout)
+{
+  status_t osifError;
+  status_t status;
+  _Bool _1;
+  <unnamed type> _2;
+  struct QueueDefinition * * _3;
+  status_t _4;
+  <unnamed type> _20;
+  struct QueueDefinition * * _21;
+  <unnamed type> _26;
+  <unnamed type> pretmp_28;
+  _Bool _29;
+  <unnamed type> _30;
+  unsigned char _31;
+  <unnamed type> pretmp_33;
+  <unnamed type> _34;
+  <unnamed type> prephitmp_51;
+  <unnamed type> pretmp_52;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = master_8(D)->driverIdle;
+  if (_1 != 0)
+    goto <bb 3>; [78.28%]
+  else
+    goto <bb 20>; [21.72%]
+
+  <bb 3> [local count: 840525096]:
+  _2 = master_8(D)->driverType;
+  if (_2 != 1)
+    goto <bb 4>; [48.88%]
+  else
+    goto <bb 5>; [51.12%]
+
+  <bb 4> [local count: 410848664]:
+  master_8(D)->blocking = 1;
+  _3 = &master_8(D)->idleSemaphore;
+  OSIF_SemaWait (_3, 0);
+
+  <bb 5> [local count: 840525096]:
+  status_15 = FLEXIO_SPI_DRV_MasterTransfer (master_8(D), txData_11(D), rxData_12(D), dataSize_13(D));
+  if (status_15 != 0)
+    goto <bb 6>; [51.12%]
+  else
+    goto <bb 7>; [48.88%]
+
+  <bb 6> [local count: 429676432]:
+  master_8(D)->blocking = 0;
+  goto <bb 20>; [100.00%]
+
+  <bb 7> [local count: 410848664]:
+  _20 = master_8(D)->driverType;
+  if (_20 == 1)
+    goto <bb 11>; [25.00%]
+  else
+    goto <bb 8>; [75.00%]
+
+  <bb 8> [local count: 410848664]:
+  _26 = _20 & 253;
+  if (_26 == 0)
+    goto <bb 10>; [33.33%]
+  else
+    goto <bb 9>; [66.67%]
+
+  <bb 9> [local count: 102712166]:
+  master_8(D)->blocking = 0;
+  pretmp_28 = master_8(D)->status;
+  goto <bb 19>; [100.00%]
+
+  <bb 10> [local count: 205424332]:
+  _21 = &master_8(D)->idleSemaphore;
+  osifError_22 = OSIF_SemaWait (_21, timeout_16(D));
+  master_8(D)->blocking = 0;
+  if (osifError_22 == 3)
+    goto <bb 18>; [30.36%]
+  else
+    goto <bb 17>; [69.64%]
+
+  <bb 11> [local count: 933747001]:
+  _29 = master_8(D)->driverIdle;
+  if (_29 != 0)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 12> [local count: 466873500]:
+  _30 = master_8(D)->driverType;
+  if (_30 == 1)
+    goto <bb 14>; [33.33%]
+  else
+    goto <bb 13>; [66.67%]
+
+  <bb 13> [local count: 466873500]:
+  if (_30 == 2)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 14> [local count: 155624501]:
+  FLEXIO_SPI_DRV_MasterCheckStatus (master_8(D));
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [local count: 155624501]:
+  _31 = master_8(D)->rxDMAChannel;
+  EDMA_DRV_GetRemainingMajorIterationsCount (_31);
+
+  <bb 16> [local count: 933747005]:
+  _34 = master_8(D)->status;
+  if (_34 == 2)
+    goto <bb 11>; [89.00%]
+  else
+    goto <bb 21>; [11.00%]
+
+  <bb 17> [local count: 143057504]:
+  pretmp_52 = master_8(D)->status;
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [local count: 62366827]:
+  master_8(D)->status = 3;
+  FLEXIO_SPI_DRV_MasterStopTransfer (master_8(D));
+  pretmp_33 = master_8(D)->status;
+
+  <bb 19> [local count: 410848668]:
+  # prephitmp_51 = PHI <pretmp_28(9), _34(21), pretmp_33(18), pretmp_52(17)>
+
+  <bb 20> [local count: 1073741827]:
+  # _4 = PHI <prephitmp_51(19), status_15(6), 2(2)>
+  return _4;
+
+  <bb 21> [local count: 102712170]:
+  master_8(D)->blocking = 0;
+  goto <bb 19>; [100.00%]
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterTransferAbort (FLEXIO_SPI_DRV_MasterTransferAbort, funcdef_no=72, decl_uid=7229, cgraph_uid=73, symbol_order=72)
+
+Removing basic block 5
+FLEXIO_SPI_DRV_MasterTransferAbort (struct flexio_spi_master_state_t * master)
+{
+  _Bool _1;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = master_4(D)->driverIdle;
+  if (_1 != 0)
+    goto <bb 4>; [51.12%]
+  else
+    goto <bb 3>; [48.88%]
+
+  <bb 3> [local count: 524845000]:
+  master_4(D)->status = 1282;
+  FLEXIO_SPI_DRV_MasterStopTransfer (master_4(D));
+
+  <bb 4> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterGetStatus (FLEXIO_SPI_DRV_MasterGetStatus, funcdef_no=73, decl_uid=7232, cgraph_uid=74, symbol_order=73)
+
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+FLEXIO_SPI_DRV_MasterGetStatus (struct flexio_spi_master_state_t * master, uint32_t * bytesRemaining)
+{
+  uint32_t remainingBytes;
+  _Bool _1;
+  <unnamed type> _2;
+  unsigned char _3;
+  status_t _15;
+
+  <bb 2> [local count: 1073741821]:
+  remainingBytes_9 = master_8(D)->rxRemainingBytes;
+  _1 = master_8(D)->driverIdle;
+  if (_1 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870910]:
+  _2 = master_8(D)->driverType;
+  if (_2 == 1)
+    goto <bb 5>; [33.33%]
+  else
+    goto <bb 4>; [66.67%]
+
+  <bb 4> [local count: 536870910]:
+  if (_2 == 2)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 178956971]:
+  FLEXIO_SPI_DRV_MasterCheckStatus (master_8(D));
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 178956971]:
+  _3 = master_8(D)->rxDMAChannel;
+  remainingBytes_11 = EDMA_DRV_GetRemainingMajorIterationsCount (_3);
+
+  <bb 7> [local count: 1073741824]:
+  # remainingBytes_4 = PHI <remainingBytes_9(2), remainingBytes_9(5), remainingBytes_11(6), remainingBytes_9(4)>
+  if (bytesRemaining_13(D) != 0B)
+    goto <bb 8>; [70.00%]
+  else
+    goto <bb 9>; [30.00%]
+
+  <bb 8> [local count: 751619281]:
+  *bytesRemaining_13(D) = remainingBytes_4;
+
+  <bb 9> [local count: 1073741824]:
+  _15 = master_8(D)->status;
+  return _15;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_SlaveInit (FLEXIO_SPI_DRV_SlaveInit, funcdef_no=74, decl_uid=7236, cgraph_uid=75, symbol_order=74)
+
+Removing basic block 6
+Removing basic block 12
+Removing basic block 13
+Removing basic block 15
+FLEXIO_SPI_DRV_SlaveInit (uint32_t instance, const struct flexio_spi_slave_user_config_t * userConfigPtr, struct flexio_spi_slave_state_t * slave)
+{
+  struct FLEXIO_Type * baseAddr;
+  uint8_t dmaReqRx;
+  uint8_t dmaReqTx;
+  status_t retCode;
+  struct flexio_common_state_t * _1;
+  <unnamed type> _2;
+  struct QueueDefinition * * _3;
+  signed short _4;
+  <unnamed type> _5;
+  <unnamed type> _6;
+  void (*<T7f6>) (void *, spi_event_t, void *) _7;
+  void * _8;
+  long unsigned int _9;
+  unsigned char _10;
+  unsigned char _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  struct FLEXIO_Type * _14;
+  _Bool _15;
+  unsigned char _16;
+  status_t _17;
+  long unsigned int _45;
+  unsigned char _46;
+  unsigned char _47;
+  unsigned char _48;
+  unsigned char _49;
+  unsigned char _50;
+  unsigned char _51;
+  unsigned char _52;
+  long unsigned int _53;
+  struct FLEXIO_Type * _55;
+  sizetype _56;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+  sizetype _63;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  unsigned char _74;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  int _81;
+  long unsigned int _82;
+  unsigned char _84;
+  long unsigned int _86;
+  long unsigned int _87;
+  long unsigned int _88;
+  signed short _89;
+  long unsigned int _90;
+  long unsigned int _91;
+  signed short _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  long unsigned int _97;
+  <unnamed type> pretmp_108;
+  <unnamed type> prephitmp_109;
+  signed short _110;
+  long unsigned int prephitmp_111;
+  long unsigned int prephitmp_112;
+  long unsigned int prephitmp_113;
+
+  <bb 2> [local count: 1073741819]:
+  slave_21(D)->flexioCommon.resourceCount = 2;
+  _1 = &slave_21(D)->flexioCommon;
+  retCode_25 = FLEXIO_DRV_InitDriver (instance_23(D), _1);
+  if (retCode_25 != 0)
+    goto <bb 11>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669597]:
+  _2 = userConfigPtr_26(D)->driverType;
+  if (_2 != 1)
+    goto <bb 4>; [48.88%]
+  else
+    goto <bb 5>; [51.12%]
+
+  <bb 4> [local count: 346397696]:
+  _3 = &slave_21(D)->idleSemaphore;
+  OSIF_SemaCreate (_3, 0);
+  pretmp_108 = userConfigPtr_26(D)->driverType;
+
+  <bb 5> [local count: 708669597]:
+  # prephitmp_109 = PHI <pretmp_108(4), _2(3)>
+  slave_21(D)->driverType = prephitmp_109;
+  _5 = userConfigPtr_26(D)->bitOrder;
+  slave_21(D)->bitOrder = _5;
+  _6 = userConfigPtr_26(D)->transferSize;
+  slave_21(D)->transferSize = _6;
+  _7 = userConfigPtr_26(D)->callback;
+  slave_21(D)->callback = _7;
+  _8 = userConfigPtr_26(D)->callbackParam;
+  slave_21(D)->callbackParam = _8;
+  slave_21(D)->driverIdle = 1;
+  MEM <unsigned short> [(_Bool *)slave_21(D) + 48B] = 0;
+  slave_21(D)->status = 0;
+  _45 = MEM[(long unsigned int *)slave_21(D) + 4B];
+  _46 = MEM[(unsigned char *)slave_21(D) + 9B];
+  _47 = MEM[(unsigned char *)userConfigPtr_26(D) + 3B];
+  _48 = MEM[(unsigned char *)userConfigPtr_26(D) + 4B];
+  _49 = MEM[(unsigned char *)userConfigPtr_26(D) + 5B];
+  _50 = MEM[(unsigned char *)userConfigPtr_26(D) + 6B];
+  _51 = MEM[(unsigned char *)userConfigPtr_26(D) + 7B];
+  _52 = MEM[(unsigned char *)userConfigPtr_26(D) + 8B];
+  baseAddr_54 = g_flexioBase[_45];
+  _15 = _47 != 0;
+  if (_48 == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 354334799]:
+
+  <bb 7> [local count: 708669597]:
+  # prephitmp_111 = PHI <8388608(5), 0(6)>
+  # prephitmp_112 = PHI <0(5), 1(6)>
+  # prephitmp_113 = PHI <0(5), 8388608(6)>
+  _59 = (long unsigned int) _50;
+  _60 = _59 << 8;
+  _61 = _60 & 1792;
+  _9 = _61 | prephitmp_111;
+  _67 = (long unsigned int) _46;
+  _68 = _67 << 24;
+  _69 = _68 & 50331648;
+  _53 = _9 | _69;
+  _70 = (int) _46;
+  _71 = _53 | 196608;
+  _93 = (signed short) _46;
+  _4 = (signed short) 4;
+  _63 = _93 w* _4;
+  _14 = baseAddr_54 + _63;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_14 + 128B] ={v} _71;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_14 + 256B] ={v} prephitmp_112;
+  _74 = _46 + 1;
+  _76 = (long unsigned int) _49;
+  _77 = _76 << 8;
+  _78 = _77 & 1792;
+  _13 = _69 | _78;
+  _81 = (int) _74;
+  _82 = _13 | prephitmp_113;
+  _89 = (signed short) _74;
+  _110 = (signed short) 4;
+  _56 = _89 w* _110;
+  _55 = baseAddr_54 + _56;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_55 + 128B] ={v} _82;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_55 + 256B] ={v} 0;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_14 + 1280B] ={v} 65535;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_14 + 1152B] ={v} 18900480;
+  _84 = _52 << 1;
+  _86 = (long unsigned int) _51;
+  _87 = _86 << 8;
+  _88 = _87 & 1792;
+  _90 = (long unsigned int) _15;
+  _91 = _90 << 7;
+  _94 = (long unsigned int) _84;
+  _95 = _94 << 24;
+  _96 = _95 & 251658240;
+  _72 = _88 | _91;
+  _12 = _72 | _96;
+  _97 = _12 | 12582912;
+  MEM <volatile uint32_t> [(struct FLEXIO_Type *)_14 + 1024B] ={v} _97;
+  if (prephitmp_109 == 0)
+    goto <bb 9>; [33.33%]
+  else
+    goto <bb 8>; [66.67%]
+
+  <bb 8> [local count: 708669597]:
+  if (prephitmp_109 == 2)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 9> [local count: 236223201]:
+  slave_21(D)->flexioCommon.isr = FLEXIO_SPI_DRV_MasterCheckStatus;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 236223201]:
+  _10 = userConfigPtr_26(D)->rxDMAChannel;
+  slave_21(D)->rxDMAChannel = _10;
+  _11 = userConfigPtr_26(D)->txDMAChannel;
+  slave_21(D)->txDMAChannel = _11;
+  dmaReqTx_41 = g_flexioDMASrc[instance_23(D)][_70];
+  dmaReqRx_42 = g_flexioDMASrc[instance_23(D)][_81];
+  EDMA_DRV_SetChannelRequestAndTrigger (_11, dmaReqTx_41, 0);
+  _16 = userConfigPtr_26(D)->rxDMAChannel;
+  EDMA_DRV_SetChannelRequestAndTrigger (_16, dmaReqRx_42, 0);
+
+  <bb 11> [local count: 1073741824]:
+  # _17 = PHI <retCode_25(10), retCode_25(2), retCode_25(9), retCode_25(8)>
+  return _17;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_MasterGetDefaultConfig (FLEXIO_SPI_DRV_MasterGetDefaultConfig, funcdef_no=75, decl_uid=7256, cgraph_uid=76, symbol_order=75)
+
+FLEXIO_SPI_DRV_MasterGetDefaultConfig (struct flexio_spi_master_user_config_t * userConfigPtr)
+{
+  <bb 2> [local count: 1073741824]:
+  userConfigPtr_2(D)->baudRate = 100000;
+  MEM <unsigned int> [(void *)userConfigPtr_2(D) + 4B] = 65536;
+  MEM <unsigned int> [(unsigned char *)userConfigPtr_2(D) + 8B] = 33619968;
+  userConfigPtr_2(D)->ssPin = 3;
+  userConfigPtr_2(D)->callback = 0B;
+  userConfigPtr_2(D)->callbackParam = 0B;
+  MEM <unsigned short> [(unsigned char *)userConfigPtr_2(D) + 24B] = 65535;
+  return;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_SlaveGetDefaultConfig (FLEXIO_SPI_DRV_SlaveGetDefaultConfig, funcdef_no=76, decl_uid=7258, cgraph_uid=77, symbol_order=76)
+
+FLEXIO_SPI_DRV_SlaveGetDefaultConfig (struct flexio_spi_slave_user_config_t * userConfigPtr)
+{
+  <bb 2> [local count: 1073741824]:
+  MEM <unsigned int> [(void *)userConfigPtr_2(D)] = 65536;
+  MEM <unsigned int> [(unsigned char *)userConfigPtr_2(D) + 4B] = 33619968;
+  userConfigPtr_2(D)->ssPin = 3;
+  userConfigPtr_2(D)->callback = 0B;
+  userConfigPtr_2(D)->callbackParam = 0B;
+  MEM <unsigned short> [(unsigned char *)userConfigPtr_2(D) + 20B] = 65535;
+  return;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_SlaveDeinit (FLEXIO_SPI_DRV_SlaveDeinit, funcdef_no=77, decl_uid=7238, cgraph_uid=78, symbol_order=77)
+
+Removing basic block 7
+Removing basic block 8
+FLEXIO_SPI_DRV_SlaveDeinit (struct flexio_spi_slave_state_t * slave)
+{
+  _Bool _5;
+  <unnamed type> _6;
+  struct QueueDefinition * * _7;
+  struct flexio_common_state_t * _8;
+  <unnamed type> _9;
+  <unnamed type> _10;
+
+  <bb 2> [local count: 1073741824]:
+  _5 = MEM[(struct flexio_spi_master_state_t *)slave_2(D)].driverIdle;
+  if (_5 != 0)
+    goto <bb 3>; [78.28%]
+  else
+    goto <bb 6>; [21.72%]
+
+  <bb 3> [local count: 840525097]:
+  _6 = MEM[(struct flexio_spi_master_state_t *)slave_2(D)].driverType;
+  if (_6 != 1)
+    goto <bb 4>; [48.88%]
+  else
+    goto <bb 5>; [51.12%]
+
+  <bb 4> [local count: 410848664]:
+  _7 = &MEM[(struct flexio_spi_master_state_t *)slave_2(D)].idleSemaphore;
+  OSIF_SemaDestroy (_7);
+
+  <bb 5> [local count: 840525097]:
+  _8 = &MEM[(struct flexio_spi_master_state_t *)slave_2(D)].flexioCommon;
+  _9 = FLEXIO_DRV_DeinitDriver (_8); [tail call]
+
+  <bb 6> [local count: 1073741824]:
+  # _10 = PHI <_9(5), 2(2)>
+  return _10;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_SlaveTransfer (FLEXIO_SPI_DRV_SlaveTransfer, funcdef_no=78, decl_uid=7243, cgraph_uid=79, symbol_order=78)
+
+FLEXIO_SPI_DRV_SlaveTransfer (struct flexio_spi_slave_state_t * slave, const uint8_t * txData, uint8_t * rxData, uint32_t dataSize)
+{
+  status_t _7;
+
+  <bb 2> [local count: 1073741824]:
+  _7 = FLEXIO_SPI_DRV_MasterTransfer (slave_2(D), txData_3(D), rxData_4(D), dataSize_5(D)); [tail call]
+  return _7;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_SlaveTransferBlocking (FLEXIO_SPI_DRV_SlaveTransferBlocking, funcdef_no=79, decl_uid=7249, cgraph_uid=80, symbol_order=79)
+
+FLEXIO_SPI_DRV_SlaveTransferBlocking (struct flexio_spi_slave_state_t * slave, const uint8_t * txData, uint8_t * rxData, uint32_t dataSize, uint32_t timeout)
+{
+  status_t _8;
+
+  <bb 2> [local count: 1073741824]:
+  _8 = FLEXIO_SPI_DRV_MasterTransferBlocking (slave_2(D), txData_3(D), rxData_4(D), dataSize_5(D), timeout_6(D)); [tail call]
+  return _8;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_SlaveTransferAbort (FLEXIO_SPI_DRV_SlaveTransferAbort, funcdef_no=83, decl_uid=7251, cgraph_uid=81, symbol_order=80)
+
+Removing basic block 5
+FLEXIO_SPI_DRV_SlaveTransferAbort (struct flexio_spi_slave_state_t * slave)
+{
+  _Bool _5;
+
+  <bb 2> [local count: 1073741824]:
+  _5 = MEM[(struct flexio_spi_master_state_t *)slave_2(D)].driverIdle;
+  if (_5 != 0)
+    goto <bb 4>; [51.12%]
+  else
+    goto <bb 3>; [48.88%]
+
+  <bb 3> [local count: 524845000]:
+  MEM[(struct flexio_spi_master_state_t *)slave_2(D)].status = 1282;
+  FLEXIO_SPI_DRV_MasterStopTransfer (slave_2(D));
+
+  <bb 4> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function FLEXIO_SPI_DRV_SlaveGetStatus (FLEXIO_SPI_DRV_SlaveGetStatus, funcdef_no=81, decl_uid=7254, cgraph_uid=82, symbol_order=81)
+
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+FLEXIO_SPI_DRV_SlaveGetStatus (struct flexio_spi_slave_state_t * slave, uint32_t * bytesRemaining)
+{
+  uint32_t remainingBytes;
+  _Bool _7;
+  <unnamed type> _8;
+  unsigned char _9;
+  <unnamed type> _12;
+
+  <bb 2> [local count: 1073741824]:
+  remainingBytes_6 = MEM[(struct flexio_spi_master_state_t *)slave_2(D)].rxRemainingBytes;
+  _7 = MEM[(struct flexio_spi_master_state_t *)slave_2(D)].driverIdle;
+  if (_7 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  _8 = MEM[(struct flexio_spi_master_state_t *)slave_2(D)].driverType;
+  if (_8 == 1)
+    goto <bb 5>; [33.33%]
+  else
+    goto <bb 4>; [66.67%]
+
+  <bb 4> [local count: 536870911]:
+  if (_8 == 2)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 178956972]:
+  FLEXIO_SPI_DRV_MasterCheckStatus (slave_2(D));
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 178956972]:
+  _9 = MEM[(struct flexio_spi_master_state_t *)slave_2(D)].rxDMAChannel;
+  remainingBytes_10 = EDMA_DRV_GetRemainingMajorIterationsCount (_9);
+
+  <bb 7> [local count: 1073741827]:
+  # remainingBytes_11 = PHI <remainingBytes_10(6), remainingBytes_6(2), remainingBytes_6(5), remainingBytes_6(4)>
+  if (bytesRemaining_3(D) != 0B)
+    goto <bb 8>; [70.00%]
+  else
+    goto <bb 9>; [30.00%]
+
+  <bb 8> [local count: 751619283]:
+  *bytesRemaining_3(D) = remainingBytes_11;
+
+  <bb 9> [local count: 1073741827]:
+  _12 = MEM[(struct flexio_spi_master_state_t *)slave_2(D)].status;
+  return _12;
+
+}
+
+

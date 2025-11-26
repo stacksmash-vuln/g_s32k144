@@ -1,0 +1,353 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/erm/erm_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_ERM_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="ERM_DRV_Init ()";
+	subgraph cluster_6_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_6_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 5\>:\l\
+|#\ ivtmp.23_46\ =\ PHI\ \<ivtmp.23_58(4),\ ivtmp.23_59(11)\>\l\
+|_57\ =\ (void\ *)\ ivtmp.23_46;\l\
+|_4\ =\ MEM[base:\ _57,\ offset:\ 0B];\l\
+|_5\ =\ MEM[base:\ _57,\ offset:\ 4B];\l\
+|interruptCfg_7\ =\ MEM\ \<unsigned\ char\>\ [(const\ struct\ erm_interrupt_config_t\ *)_5];\l\
+|interruptCfg$1_6\ =\ MEM\ \<unsigned\ char\>\ [(const\ struct\ erm_interrupt_config_t\ *)_5\ +\ 1B];\l\
+|_15\ =\ VIEW_CONVERT_EXPR\<_Bool\>(interruptCfg_7);\l\
+|tempCtrl_16\ =\{v\}\ MEM[(struct\ ERM_Type\ *)1073840128B].CR0;\l\
+|if\ (_15\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_6_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 6\>:\l\
+|_52\ =\ (signed\ short)\ _4;\l\
+|_50\ =\ (signed\ short)\ 4;\l\
+|_18\ =\ _52\ w*\ _50;\l\
+|_19\ =\ 2147483648\ \>\>\ _18;\l\
+|tempCtrl_20\ =\ tempCtrl_16\ \|\ _19;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_6_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 7\>:\l\
+|_1\ =\ (signed\ short)\ _4;\l\
+|_53\ =\ (signed\ short)\ 4;\l\
+|_22\ =\ _1\ w*\ _53;\l\
+|_23\ =\ 2147483648\ \>\>\ _22;\l\
+|_24\ =\ ~_23;\l\
+|tempCtrl_25\ =\ tempCtrl_16\ &\ _24;\l\
+}"];
+
+	fn_6_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 8\>:\l\
+|#\ tempCtrl_26\ =\ PHI\ \<tempCtrl_20(6),\ tempCtrl_25(7)\>\l\
+|#\ prephitmp_65\ =\ PHI\ \<_18(6),\ _22(7)\>\l\
+|MEM[(struct\ ERM_Type\ *)1073840128B].CR0\ =\{v\}\ tempCtrl_26;\l\
+|_27\ =\ VIEW_CONVERT_EXPR\<_Bool\>(interruptCfg$1_6);\l\
+|tempCtrl_28\ =\{v\}\ MEM[(struct\ ERM_Type\ *)1073840128B].CR0;\l\
+|if\ (_27\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_6_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 9\>:\l\
+|_31\ =\ 1073741824\ \>\>\ prephitmp_65;\l\
+|tempCtrl_32\ =\ tempCtrl_28\ \|\ _31;\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_6_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 10\>:\l\
+|_35\ =\ 1073741824\ \>\>\ prephitmp_65;\l\
+|_36\ =\ ~_35;\l\
+|tempCtrl_37\ =\ tempCtrl_28\ &\ _36;\l\
+}"];
+
+	fn_6_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 11\>:\l\
+|#\ tempCtrl_38\ =\ PHI\ \<tempCtrl_32(9),\ tempCtrl_37(10)\>\l\
+|MEM[(struct\ ERM_Type\ *)1073840128B].CR0\ =\{v\}\ tempCtrl_38;\l\
+|ivtmp.23_59\ =\ ivtmp.23_46\ +\ 8;\l\
+|if\ (_51\ !=\ ivtmp.23_59)\l\
+\ \ goto\ \<bb\ 5\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_6_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_6_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_6_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|ERM_Init\ (1073840128B);\l\
+|if\ (channelCnt_10(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [11.00%]\l\
+}"];
+
+	fn_6_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 3\>:\l\
+|return;\l\
+}"];
+
+	fn_6_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 4\>:\l\
+|ivtmp.23_58\ =\ (unsigned\ int)\ userConfigArr_11(D);\l\
+|_56\ =\ channelCnt_10(D)\ +\ 255;\l\
+|_3\ =\ (signed\ short)\ 8;\l\
+|_44\ =\ ivtmp.23_58\ +\ 8;\l\
+|_14\ =\ (signed\ short)\ _56;\l\
+|_51\ =\ WIDEN_MULT_PLUS_EXPR\ \<_3,\ _14,\ _44\>;\l\
+}"];
+
+	fn_6_basic_block_0:s -> fn_6_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_6_basic_block_3:s -> fn_6_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_6_basic_block_4:s -> fn_6_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_5:s -> fn_6_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_5:s -> fn_6_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_6:s -> fn_6_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_7:s -> fn_6_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_8:s -> fn_6_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_8:s -> fn_6_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_9:s -> fn_6_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_10:s -> fn_6_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_11:s -> fn_6_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_6_basic_block_11:s -> fn_6_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_6_basic_block_0:s -> fn_6_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_ERM_DRV_Deinit" {
+	style="dashed";
+	color="black";
+	label="ERM_DRV_Deinit ()";
+	fn_7_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_7_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_7_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|ERM_Init\ (1073840128B);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_7_basic_block_0:s -> fn_7_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_7_basic_block_0:s -> fn_7_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_ERM_DRV_SetInterruptConfig" {
+	style="dashed";
+	color="black";
+	label="ERM_DRV_SetInterruptConfig ()";
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ interruptCfg.enableSingleCorrection;\l\
+|tempCtrl_16\ =\{v\}\ MEM[(struct\ ERM_Type\ *)1073840128B].CR0;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_8_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_11\ =\ (signed\ short)\ channel_4(D);\l\
+|_6\ =\ (signed\ short)\ 4;\l\
+|_18\ =\ _11\ w*\ _6;\l\
+|_19\ =\ 2147483648\ \>\>\ _18;\l\
+|tempCtrl_20\ =\ tempCtrl_16\ \|\ _19;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_8_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_29\ =\ (signed\ short)\ channel_4(D);\l\
+|_10\ =\ (signed\ short)\ 4;\l\
+|_22\ =\ _29\ w*\ _10;\l\
+|_23\ =\ 2147483648\ \>\>\ _22;\l\
+|_24\ =\ ~_23;\l\
+|tempCtrl_25\ =\ tempCtrl_16\ &\ _24;\l\
+}"];
+
+	fn_8_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ tempCtrl_26\ =\ PHI\ \<tempCtrl_20(3),\ tempCtrl_25(4)\>\l\
+|#\ prephitmp_30\ =\ PHI\ \<_18(3),\ _22(4)\>\l\
+|MEM[(struct\ ERM_Type\ *)1073840128B].CR0\ =\{v\}\ tempCtrl_26;\l\
+|_2\ =\ interruptCfg.enableNonCorrectable;\l\
+|tempCtrl_5\ =\{v\}\ MEM[(struct\ ERM_Type\ *)1073840128B].CR0;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_8_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 6\>:\l\
+|_8\ =\ 1073741824\ \>\>\ prephitmp_30;\l\
+|tempCtrl_9\ =\ tempCtrl_5\ \|\ _8;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_8_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 7\>:\l\
+|_12\ =\ 1073741824\ \>\>\ prephitmp_30;\l\
+|_13\ =\ ~_12;\l\
+|tempCtrl_14\ =\ tempCtrl_5\ &\ _13;\l\
+}"];
+
+	fn_8_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ tempCtrl_15\ =\ PHI\ \<tempCtrl_9(6),\ tempCtrl_14(7)\>\l\
+|MEM[(struct\ ERM_Type\ *)1073840128B].CR0\ =\{v\}\ tempCtrl_15;\l\
+|return;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_8_basic_block_3:s -> fn_8_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_4:s -> fn_8_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_5:s -> fn_8_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_8_basic_block_5:s -> fn_8_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_8_basic_block_6:s -> fn_8_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_7:s -> fn_8_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_8:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_ERM_DRV_GetInterruptConfig" {
+	style="dashed";
+	color="black";
+	label="ERM_DRV_GetInterruptConfig ()";
+	fn_9_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_9_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_9_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_10\ =\{v\}\ MEM[(const\ struct\ ERM_Type\ *)1073840128B].CR0;\l\
+|_16\ =\ (signed\ short)\ channel_2(D);\l\
+|_17\ =\ (signed\ short)\ 4;\l\
+|_12\ =\ _16\ w*\ _17;\l\
+|_13\ =\ 2147483648\ \>\>\ _12;\l\
+|retVal_14\ =\ _10\ &\ _13;\l\
+|_15\ =\ retVal_14\ !=\ 0;\l\
+|interruptPtr_3(D)-\>enableSingleCorrection\ =\ _15;\l\
+|_6\ =\{v\}\ MEM[(const\ struct\ ERM_Type\ *)1073840128B].CR0;\l\
+|_7\ =\ 1073741824\ \>\>\ _12;\l\
+|retVal_8\ =\ _6\ &\ _7;\l\
+|_9\ =\ retVal_8\ !=\ 0;\l\
+|interruptPtr_3(D)-\>enableNonCorrectable\ =\ _9;\l\
+|return;\l\
+}"];
+
+	fn_9_basic_block_0:s -> fn_9_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_9_basic_block_0:s -> fn_9_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_ERM_DRV_ClearEvent" {
+	style="dashed";
+	color="black";
+	label="ERM_DRV_ClearEvent ()";
+	fn_10_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_10_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_10_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|if\ (eccEvent_2(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.00%]\l\
+}"];
+
+	fn_10_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:365072224\<bb\ 3\>:\l\
+|_17\ =\ (signed\ short)\ channel_4(D);\l\
+|_18\ =\ (signed\ short)\ 4;\l\
+|_6\ =\ _17\ w*\ _18;\l\
+|_7\ =\ 2147483648\ \>\>\ _6;\l\
+|MEM[(struct\ ERM_Type\ *)1073840128B].SR0\ =\{v\}\ _7;\l\
+|vol.1_8\ =\{v\}\ MEM[(struct\ ERM_Type\ *)1073840128B].SR0;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_10_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669600\<bb\ 4\>:\l\
+|if\ (eccEvent_2(D)\ ==\ 2)\l\
+\ \ goto\ \<bb\ 5\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_10_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:240947666\<bb\ 5\>:\l\
+|_15\ =\ (signed\ short)\ channel_4(D);\l\
+|_16\ =\ (signed\ short)\ 4;\l\
+|_10\ =\ _15\ w*\ _16;\l\
+|_11\ =\ 1073741824\ \>\>\ _10;\l\
+|MEM[(struct\ ERM_Type\ *)1073840128B].SR0\ =\{v\}\ _11;\l\
+|vol.2_12\ =\{v\}\ MEM[(struct\ ERM_Type\ *)1073840128B].SR0;\l\
+}"];
+
+	fn_10_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|return;\l\
+}"];
+
+	fn_10_basic_block_0:s -> fn_10_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_10_basic_block_3:s -> fn_10_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_4:s -> fn_10_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_10_basic_block_4:s -> fn_10_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_10_basic_block_5:s -> fn_10_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_6:s -> fn_10_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_10_basic_block_0:s -> fn_10_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_ERM_DRV_GetErrorDetail" {
+	style="dashed";
+	color="black";
+	label="ERM_DRV_GetErrorDetail ()";
+	fn_11_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_11_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_11_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_6\ =\{v\}\ MEM[(const\ struct\ ERM_Type\ *)1073840128B].SR0;\l\
+|_16\ =\ (signed\ short)\ channel_3(D);\l\
+|_17\ =\ (signed\ short)\ 4;\l\
+|_8\ =\ _16\ w*\ _17;\l\
+|_9\ =\ 2147483648\ \>\>\ _8;\l\
+|retVal_10\ =\ _6\ &\ _9;\l\
+|if\ (retVal_10\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_11_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_11\ =\{v\}\ MEM[(const\ struct\ ERM_Type\ *)1073840128B].SR0;\l\
+|_12\ =\ 1073741824\ \>\>\ _8;\l\
+|retVal_13\ =\ _11\ &\ _12;\l\
+|if\ (retVal_13\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [35.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [65.00%]\l\
+}"];
+
+	fn_11_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:348966093\<bb\ 4\>:\l\
+}"];
+
+	fn_11_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ eccEvent_1\ =\ PHI\ \<1(2),\ 2(3),\ 0(4)\>\l\
+|_14\ =\ (int)\ channel_3(D);\l\
+|_15\ =\{v\}\ MEM[(const\ struct\ ERM_Type\ *)1073840128B].EARn[_14].EAR;\l\
+|*addressPtr_4(D)\ =\ _15;\l\
+|return\ eccEvent_1;\l\
+}"];
+
+	fn_11_basic_block_0:s -> fn_11_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_11_basic_block_2:s -> fn_11_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_11_basic_block_2:s -> fn_11_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_11_basic_block_3:s -> fn_11_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[35%]"];
+	fn_11_basic_block_3:s -> fn_11_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[65%]"];
+	fn_11_basic_block_4:s -> fn_11_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_11_basic_block_5:s -> fn_11_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_11_basic_block_0:s -> fn_11_basic_block_1:n [style="invis",constraint=true];
+}
+}

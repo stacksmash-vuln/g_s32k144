@@ -1,0 +1,7 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/trgmux/trgmux_driver.c:71:10:TRGMUX_DRV_Init	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/trgmux/trgmux_driver.c:114:10:TRGMUX_DRV_Deinit	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/trgmux/trgmux_driver.c:135:10:TRGMUX_DRV_SetTrigSourceForTargetModule	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/trgmux/trgmux_driver.c:168:25:TRGMUX_DRV_GetTrigSourceForTargetModule	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/trgmux/trgmux_driver.c:185:6:TRGMUX_DRV_SetLockForTargetModule	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/trgmux/trgmux_driver.c:203:6:TRGMUX_DRV_GetLockForTargetModule	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/trgmux/trgmux_driver.c:221:6:TRGMUX_DRV_GenSWTrigger	0	static

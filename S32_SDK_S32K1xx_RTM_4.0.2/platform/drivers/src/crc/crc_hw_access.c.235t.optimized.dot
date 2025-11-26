@@ -1,0 +1,136 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_hw_access.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_CRC_Init" {
+	style="dashed";
+	color="black";
+	label="CRC_Init ()";
+	fn_17_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_17_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_17_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|ctrlTemp_14\ =\{v\}\ base_2(D)-\>CTRL;\l\
+|ctrlTemp_15\ =\ ctrlTemp_14\ &\ 4278190079;\l\
+|ctrlTemp_16\ =\ ctrlTemp_15\ \|\ 16777216;\l\
+|base_2(D)-\>CTRL\ =\{v\}\ ctrlTemp_16;\l\
+|ctrlTemp_12\ =\{v\}\ base_2(D)-\>CTRL;\l\
+|ctrlTemp_13\ =\ ctrlTemp_12\ &\ 1073741823;\l\
+|base_2(D)-\>CTRL\ =\{v\}\ ctrlTemp_13;\l\
+|ctrlTemp_10\ =\{v\}\ base_2(D)-\>CTRL;\l\
+|ctrlTemp_11\ =\ ctrlTemp_10\ &\ 3489660927;\l\
+|base_2(D)-\>CTRL\ =\{v\}\ ctrlTemp_11;\l\
+|ctrlTemp_8\ =\{v\}\ base_2(D)-\>CTRL;\l\
+|ctrlTemp_9\ =\ ctrlTemp_8\ &\ 4227858431;\l\
+|base_2(D)-\>CTRL\ =\{v\}\ ctrlTemp_9;\l\
+|base_2(D)-\>GPOLY\ =\{v\}\ 4129;\l\
+|ctrlTemp_5\ =\{v\}\ base_2(D)-\>CTRL;\l\
+|ctrlTemp_6\ =\ ctrlTemp_5\ &\ 4261412863;\l\
+|ctrlTemp_7\ =\ ctrlTemp_6\ \|\ 33554432;\l\
+|base_2(D)-\>CTRL\ =\{v\}\ ctrlTemp_7;\l\
+|base_2(D)-\>DATAu.DATA\ =\{v\}\ 0;\l\
+|ctrlTemp_3\ =\{v\}\ base_2(D)-\>CTRL;\l\
+|ctrlTemp_4\ =\ ctrlTemp_3\ &\ 4261412863;\l\
+|base_2(D)-\>CTRL\ =\{v\}\ ctrlTemp_4;\l\
+|return;\l\
+}"];
+
+	fn_17_basic_block_0:s -> fn_17_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_2:s -> fn_17_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_17_basic_block_0:s -> fn_17_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CRC_SetSeedReg" {
+	style="dashed";
+	color="black";
+	label="CRC_SetSeedReg ()";
+	fn_18_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_18_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_18_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|ctrlTemp_6\ =\{v\}\ base_2(D)-\>CTRL;\l\
+|ctrlTemp_7\ =\ ctrlTemp_6\ &\ 4261412863;\l\
+|ctrlTemp_8\ =\ ctrlTemp_7\ \|\ 33554432;\l\
+|base_2(D)-\>CTRL\ =\{v\}\ ctrlTemp_8;\l\
+|base_2(D)-\>DATAu.DATA\ =\{v\}\ seedValue_3(D);\l\
+|ctrlTemp_4\ =\{v\}\ base_2(D)-\>CTRL;\l\
+|ctrlTemp_5\ =\ ctrlTemp_4\ &\ 4261412863;\l\
+|base_2(D)-\>CTRL\ =\{v\}\ ctrlTemp_5;\l\
+|return;\l\
+}"];
+
+	fn_18_basic_block_0:s -> fn_18_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_18_basic_block_2:s -> fn_18_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_18_basic_block_0:s -> fn_18_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CRC_GetCrcResult" {
+	style="dashed";
+	color="black";
+	label="CRC_GetCrcResult ()";
+	fn_19_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_19_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_19_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_7\ =\{v\}\ base_4(D)-\>CTRL;\l\
+|_8\ =\ _7\ &\ 16777216;\l\
+|if\ (_8\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_19_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_9\ =\{v\}\ base_4(D)-\>CTRL;\l\
+|_10\ =\ _9\ \>\>\ 28;\l\
+|temp_11\ =\ _10\ &\ 3;\l\
+|_12\ =\ temp_11\ +\ 4294967295;\l\
+|if\ (_12\ \<=\ 2)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_19_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_17\ =\{v\}\ base_4(D)-\>DATAu.DATA;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_19_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 5\>:\l\
+|_13\ =\ (unsigned\ char)\ temp_11;\l\
+|_1\ =\ _13\ +\ 254;\l\
+|if\ (_1\ \<=\ 1)\l\
+\ \ goto\ \<bb\ 6\>;\ [82.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [18.00%]\l\
+}"];
+
+	fn_19_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:220117072\<bb\ 6\>:\l\
+|_15\ =\{v\}\ base_4(D)-\>DATAu.DATA_16.H;\l\
+|result_6\ =\ (uint32_t)\ _15;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_19_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:316753840\<bb\ 7\>:\l\
+|_16\ =\{v\}\ base_4(D)-\>DATAu.DATA_16.L;\l\
+|result_5\ =\ (uint32_t)\ _16;\l\
+}"];
+
+	fn_19_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ result_2\ =\ PHI\ \<result_5(7),\ _17(4),\ result_6(6)\>\l\
+|return\ result_2;\l\
+}"];
+
+	fn_19_basic_block_0:s -> fn_19_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_2:s -> fn_19_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_2:s -> fn_19_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_3:s -> fn_19_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_3:s -> fn_19_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_4:s -> fn_19_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_5:s -> fn_19_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[82%]"];
+	fn_19_basic_block_5:s -> fn_19_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[18%]"];
+	fn_19_basic_block_6:s -> fn_19_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_7:s -> fn_19_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_8:s -> fn_19_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_19_basic_block_0:s -> fn_19_basic_block_1:n [style="invis",constraint=true];
+}
+}

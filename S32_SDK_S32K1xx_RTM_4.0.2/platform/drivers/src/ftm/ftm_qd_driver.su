@@ -1,0 +1,4 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_qd_driver.c:47:10:FTM_DRV_QuadDecodeStart	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_qd_driver.c:106:10:FTM_DRV_QuadDecodeStop	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_qd_driver.c:128:26:FTM_DRV_QuadGetState	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_qd_driver.c:150:6:FTM_QD_DRV_GetDefaultConfig	0	static

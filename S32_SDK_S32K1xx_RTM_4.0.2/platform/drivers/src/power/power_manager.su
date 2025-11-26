@@ -1,0 +1,9 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c:224:17:POWER_SYS_CallbacksManagement	40	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c:70:10:POWER_SYS_Init	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c:110:10:POWER_SYS_Deinit	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c:133:10:POWER_SYS_GetLastMode	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c:165:10:POWER_SYS_GetLastModeConfig	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c:196:9:POWER_SYS_GetErrorCallbackIndex	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c:208:40:POWER_SYS_GetErrorCallback	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c:323:10:POWER_SYS_SetMode	40	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/power/power_manager.c:406:6:POWER_SYS_GetDefaultConfig	0	static

@@ -1,0 +1,354 @@
+
+;; Function PDB_Init (PDB_Init, funcdef_no=16, decl_uid=6808, cgraph_uid=17, symbol_order=16)
+
+PDB_Init (struct PDB_Type * const base)
+{
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+
+  <bb 2> [local count: 59637414]:
+  base_8(D)->SC ={v} 0;
+  _18 ={v} base_8(D)->SC;
+  _19 = _18 | 128;
+  base_8(D)->SC ={v} _19;
+  base_8(D)->MOD ={v} 65535;
+  base_8(D)->IDLY ={v} 65535;
+  base_8(D)->CH[0].C1 ={v} 0;
+  base_8(D)->CH[0].S ={v} 0;
+  base_8(D)->CH[0].DLY[0] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 28B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 32B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 36B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 40B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 44B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 48B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 52B] ={v} 0;
+  base_8(D)->CH[1].C1 ={v} 0;
+  base_8(D)->CH[1].S ={v} 0;
+  base_8(D)->CH[1].DLY[0] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 68B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 72B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 76B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 80B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 84B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 88B] ={v} 0;
+  MEM <volatile uint32_t> [(struct PDB_Type *)base_8(D) + 92B] ={v} 0;
+  base_8(D)->POEN ={v} 0;
+  base_8(D)->POnDLY[0].PODLY ={v} 0;
+  _22 ={v} base_8(D)->SC;
+  _23 = _22 | 1;
+  base_8(D)->SC ={v} _23;
+  _20 ={v} base_8(D)->SC;
+  _21 = _20 & 4294967167;
+  base_8(D)->SC ={v} _21;
+  return;
+
+}
+
+
+
+;; Function PDB_ConfigTimer (PDB_ConfigTimer, funcdef_no=17, decl_uid=6811, cgraph_uid=18, symbol_order=17)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+PDB_ConfigTimer (struct PDB_Type * const base, const struct pdb_timer_config_t * configPtr)
+{
+  uint32_t sc;
+  <unnamed type> _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  _Bool _5;
+  <unnamed type> _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  <unnamed type> _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  <unnamed type> _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  _Bool _18;
+  _Bool _19;
+  _Bool _20;
+  long unsigned int _39;
+  long unsigned int _40;
+
+  <bb 2> [local count: 1073741824]:
+  sc_27 ={v} base_26(D)->SC;
+  sc_28 = sc_27 & 4293984465;
+  _1 = configPtr_29(D)->loadValueMode;
+  _2 = (long unsigned int) _1;
+  _3 = _2 << 18;
+  _4 = _3 & 786432;
+  sc_30 = _4 | sc_28;
+  _5 = configPtr_29(D)->seqErrIntEnable;
+  if (_5 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  sc_31 = sc_30 | 131072;
+
+  <bb 4> [local count: 1073741824]:
+  # sc_21 = PHI <sc_31(3), sc_30(2)>
+  _6 = configPtr_29(D)->clkPreDiv;
+  _7 = (long unsigned int) _6;
+  _8 = _7 << 12;
+  _9 = _8 & 28672;
+  _10 = configPtr_29(D)->triggerInput;
+  _11 = (long unsigned int) _10;
+  _12 = _11 << 8;
+  _13 = _12 & 3840;
+  _40 = _9 | _13;
+  _14 = configPtr_29(D)->clkPreMultFactor;
+  _15 = (long unsigned int) _14;
+  _16 = _15 << 2;
+  _17 = _16 & 12;
+  _39 = _17 | _40;
+  sc_34 = sc_21 | _39;
+  _18 = configPtr_29(D)->continuousModeEnable;
+  if (_18 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  sc_35 = sc_34 | 2;
+
+  <bb 6> [local count: 1073741824]:
+  # sc_22 = PHI <sc_35(5), sc_34(4)>
+  _19 = configPtr_29(D)->dmaEnable;
+  if (_19 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 536870913]:
+  sc_36 = sc_22 | 32768;
+
+  <bb 8> [local count: 1073741824]:
+  # sc_23 = PHI <sc_36(7), sc_22(6)>
+  _20 = configPtr_29(D)->intEnable;
+  if (_20 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 536870913]:
+  sc_37 = sc_23 | 32;
+
+  <bb 10> [local count: 1073741824]:
+  # sc_24 = PHI <sc_37(9), sc_23(8)>
+  base_26(D)->SC ={v} sc_24;
+  return;
+
+}
+
+
+
+;; Function PDB_SetAdcPreTriggerBackToBackEnable (PDB_SetAdcPreTriggerBackToBackEnable, funcdef_no=18, decl_uid=6846, cgraph_uid=19, symbol_order=18)
+
+PDB_SetAdcPreTriggerBackToBackEnable (struct PDB_Type * const base, uint32_t chn, uint32_t preChnMask, _Bool enable)
+{
+  uint32_t c1;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  c1_10 ={v} base_8(D)->CH[chn_9(D)].C1;
+  if (enable_11(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _1 = preChnMask_12(D) << 16;
+  _2 = _1 & 16711680;
+  c1_14 = _2 | c1_10;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _3 = preChnMask_12(D) << 16;
+  _4 = _3 & 16711680;
+  _5 = ~_4;
+  c1_13 = _5 & c1_10;
+
+  <bb 5> [local count: 1073741824]:
+  # c1_6 = PHI <c1_14(3), c1_13(4)>
+  base_8(D)->CH[chn_9(D)].C1 ={v} c1_6;
+  return;
+
+}
+
+
+
+;; Function PDB_SetAdcPreTriggerOutputEnable (PDB_SetAdcPreTriggerOutputEnable, funcdef_no=19, decl_uid=6851, cgraph_uid=20, symbol_order=19)
+
+PDB_SetAdcPreTriggerOutputEnable (struct PDB_Type * const base, uint32_t chn, uint32_t preChnMask, _Bool enable)
+{
+  uint32_t c1;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  c1_10 ={v} base_8(D)->CH[chn_9(D)].C1;
+  if (enable_11(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _1 = preChnMask_12(D) << 8;
+  _2 = _1 & 65535;
+  c1_14 = _2 | c1_10;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _3 = preChnMask_12(D) << 8;
+  _4 = _3 & 65535;
+  _5 = ~_4;
+  c1_13 = _5 & c1_10;
+
+  <bb 5> [local count: 1073741824]:
+  # c1_6 = PHI <c1_14(3), c1_13(4)>
+  base_8(D)->CH[chn_9(D)].C1 ={v} c1_6;
+  return;
+
+}
+
+
+
+;; Function PDB_SetAdcPreTriggerEnable (PDB_SetAdcPreTriggerEnable, funcdef_no=20, decl_uid=6856, cgraph_uid=21, symbol_order=20)
+
+PDB_SetAdcPreTriggerEnable (struct PDB_Type * const base, uint32_t chn, uint32_t preChnMask, _Bool enable)
+{
+  uint32_t c1;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+
+  <bb 2> [local count: 1073741824]:
+  c1_8 ={v} base_6(D)->CH[chn_7(D)].C1;
+  if (enable_9(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _1 = preChnMask_10(D) & 255;
+  c1_12 = _1 | c1_8;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _2 = preChnMask_10(D) & 255;
+  _3 = ~_2;
+  c1_11 = _3 & c1_8;
+
+  <bb 5> [local count: 1073741824]:
+  # c1_4 = PHI <c1_12(3), c1_11(4)>
+  base_6(D)->CH[chn_7(D)].C1 ={v} c1_4;
+  return;
+
+}
+
+
+
+;; Function PDB_ClearAdcPreTriggerFlags (PDB_ClearAdcPreTriggerFlags, funcdef_no=21, decl_uid=6865, cgraph_uid=22, symbol_order=21)
+
+PDB_ClearAdcPreTriggerFlags (struct PDB_Type * const base, uint32_t chn, uint32_t preChnMask)
+{
+  uint32_t s;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+
+  <bb 2> [local count: 1073741824]:
+  s_7 ={v} base_5(D)->CH[chn_6(D)].S;
+  _1 = preChnMask_8(D) << 16;
+  _2 = _1 & 16711680;
+  _3 = ~_2;
+  s_9 = _3 & s_7;
+  base_5(D)->CH[chn_6(D)].S ={v} s_9;
+  return;
+
+}
+
+
+
+;; Function PDB_ClearAdcPreTriggerSeqErrFlags (PDB_ClearAdcPreTriggerSeqErrFlags, funcdef_no=22, decl_uid=6874, cgraph_uid=23, symbol_order=22)
+
+PDB_ClearAdcPreTriggerSeqErrFlags (struct PDB_Type * const base, uint32_t chn, uint32_t preChnMask)
+{
+  uint32_t s;
+  volatile uint32_t dummy_read;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int vol.0_12;
+
+  <bb 2> [local count: 1073741824]:
+  s_7 ={v} base_5(D)->CH[chn_6(D)].S;
+  _1 = preChnMask_8(D) & 255;
+  _2 = ~_1;
+  s_9 = _2 & s_7;
+  base_5(D)->CH[chn_6(D)].S ={v} s_9;
+  _3 ={v} base_5(D)->CH[chn_6(D)].S;
+  dummy_read ={v} _3;
+  vol.0_12 ={v} dummy_read;
+  return;
+
+}
+
+
+
+;; Function PDB_SetCmpPulseOutEnable (PDB_SetCmpPulseOutEnable, funcdef_no=23, decl_uid=6884, cgraph_uid=24, symbol_order=23)
+
+PDB_SetCmpPulseOutEnable (struct PDB_Type * const base, uint32_t pulseChnMask, _Bool enable)
+{
+  uint32_t poen;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+
+  <bb 2> [local count: 1073741824]:
+  poen_7 ={v} base_6(D)->POEN;
+  if (enable_8(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _1 = pulseChnMask_9(D) & 255;
+  poen_11 = _1 | poen_7;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _2 = pulseChnMask_9(D) & 255;
+  _3 = ~_2;
+  poen_10 = _3 & poen_7;
+
+  <bb 5> [local count: 1073741824]:
+  # poen_4 = PHI <poen_11(3), poen_10(4)>
+  base_6(D)->POEN ={v} poen_4;
+  return;
+
+}
+
+

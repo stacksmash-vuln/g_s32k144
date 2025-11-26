@@ -1,0 +1,13 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:102:10:WDOG_DRV_Init	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:160:10:WDOG_DRV_Deinit	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:195:7:WDOG_DRV_GetConfig	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:212:6:WDOG_DRV_GetDefaultConfig	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:238:10:WDOG_DRV_SetInt	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:270:6:WDOG_DRV_ClearIntFlag	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:286:7:WDOG_DRV_Trigger	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:301:10:WDOG_DRV_GetCounter	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:316:10:WDOG_DRV_SetWindow	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:352:10:WDOG_DRV_SetMode	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:397:10:WDOG_DRV_SetTimeout	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:426:10:WDOG_DRV_SetTestMode	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c:459:18:WDOG_DRV_GetTestMode	0	static

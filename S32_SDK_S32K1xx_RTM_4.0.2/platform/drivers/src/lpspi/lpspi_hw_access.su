@@ -1,0 +1,11 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:79:6:LPSPI_Init	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:96:10:LPSPI_Disable	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:120:10:LPSPI_SetMasterSlaveMode	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:132:6:LPSPI_SetFlushFifoCmd	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:159:10:LPSPI_ClearStatusFlag	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:181:10:LPSPI_SetPcsPolarityMode	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:222:10:LPSPI_SetPinConfigMode	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:276:10:LPSPI_SetBaudRate	48	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:381:10:LPSPI_SetBaudRateDivisor	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:408:6:LPSPI_SetTxCommandReg	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_hw_access.c:433:6:LPSPI_SetPcs	0	static

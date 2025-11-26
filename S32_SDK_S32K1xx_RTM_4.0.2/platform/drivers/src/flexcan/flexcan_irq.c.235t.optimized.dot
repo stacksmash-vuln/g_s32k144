@@ -1,0 +1,224 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_CAN0_ORed_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN0_ORed_IRQHandler ()";
+	fn_0_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_0_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_0_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_BusOff_IRQHandler\ (0);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_0_basic_block_0:s -> fn_0_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_2:s -> fn_0_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_0_basic_block_0:s -> fn_0_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN0_Error_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN0_Error_IRQHandler ()";
+	fn_1_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_Error_IRQHandler\ (0);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_1_basic_block_0:s -> fn_1_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_1_basic_block_2:s -> fn_1_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_1_basic_block_0:s -> fn_1_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN0_Wake_Up_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN0_Wake_Up_IRQHandler ()";
+	fn_2_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_2_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_2_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_WakeUpHandler\ (0);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_2_basic_block_0:s -> fn_2_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_2_basic_block_2:s -> fn_2_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_2_basic_block_0:s -> fn_2_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN0_ORed_0_15_MB_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN0_ORed_0_15_MB_IRQHandler ()";
+	fn_3_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_3_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_3_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_IRQHandler\ (0);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_3_basic_block_0:s -> fn_3_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_3_basic_block_2:s -> fn_3_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_3_basic_block_0:s -> fn_3_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN0_ORed_16_31_MB_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN0_ORed_16_31_MB_IRQHandler ()";
+	fn_14_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_14_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_14_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_IRQHandler\ (0);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_14_basic_block_0:s -> fn_14_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_14_basic_block_2:s -> fn_14_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_14_basic_block_0:s -> fn_14_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN1_ORed_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN1_ORed_IRQHandler ()";
+	fn_5_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_5_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_5_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_BusOff_IRQHandler\ (1);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_5_basic_block_0:s -> fn_5_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_2:s -> fn_5_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_5_basic_block_0:s -> fn_5_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN1_Error_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN1_Error_IRQHandler ()";
+	fn_6_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_6_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_6_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_Error_IRQHandler\ (1);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_6_basic_block_0:s -> fn_6_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_6_basic_block_0:s -> fn_6_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN1_ORed_0_15_MB_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN1_ORed_0_15_MB_IRQHandler ()";
+	fn_7_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_7_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_7_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_IRQHandler\ (1);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_7_basic_block_0:s -> fn_7_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_7_basic_block_0:s -> fn_7_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN1_ORed_16_31_MB_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN1_ORed_16_31_MB_IRQHandler ()";
+	fn_16_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_16_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_16_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_IRQHandler\ (1);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_16_basic_block_0:s -> fn_16_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_16_basic_block_2:s -> fn_16_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_16_basic_block_0:s -> fn_16_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN2_ORed_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN2_ORed_IRQHandler ()";
+	fn_9_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_9_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_9_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_BusOff_IRQHandler\ (2);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_9_basic_block_0:s -> fn_9_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_9_basic_block_0:s -> fn_9_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN2_Error_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN2_Error_IRQHandler ()";
+	fn_10_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_10_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_10_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_Error_IRQHandler\ (2);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_10_basic_block_0:s -> fn_10_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_10_basic_block_0:s -> fn_10_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN2_ORed_0_15_MB_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN2_ORed_0_15_MB_IRQHandler ()";
+	fn_11_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_11_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_11_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_IRQHandler\ (2);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_11_basic_block_0:s -> fn_11_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_11_basic_block_2:s -> fn_11_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_11_basic_block_0:s -> fn_11_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CAN2_ORed_16_31_MB_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="CAN2_ORed_16_31_MB_IRQHandler ()";
+	fn_18_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_18_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_18_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|FLEXCAN_IRQHandler\ (2);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_18_basic_block_0:s -> fn_18_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_18_basic_block_2:s -> fn_18_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_18_basic_block_0:s -> fn_18_basic_block_1:n [style="invis",constraint=true];
+}
+}

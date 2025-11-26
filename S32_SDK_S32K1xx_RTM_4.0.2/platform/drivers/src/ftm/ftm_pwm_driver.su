@@ -1,0 +1,7 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_pwm_driver.c:382:10:FTM_DRV_DeinitPwm	32	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_pwm_driver.c:447:10:FTM_DRV_UpdatePwmChannel	28	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_pwm_driver.c:258:10:FTM_DRV_InitPwm	64	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_pwm_driver.c:576:10:FTM_DRV_UpdatePwmPeriod	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_pwm_driver.c:643:10:FTM_DRV_FastUpdatePwmChannels	12	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_pwm_driver.c:675:10:FTM_DRV_ControlChannelOutput	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_pwm_driver.c:764:6:FTM_PWM_DRV_IrqHandler	4	static

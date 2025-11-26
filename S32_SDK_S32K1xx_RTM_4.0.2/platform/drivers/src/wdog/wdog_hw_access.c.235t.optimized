@@ -1,0 +1,464 @@
+
+;; Function WDOG_Deinit (WDOG_Deinit, funcdef_no=13, decl_uid=6384, cgraph_uid=14, symbol_order=13)
+
+Removing basic block 11
+WDOG_Deinit (struct WDOG_Type * const base)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int vol.1_8;
+  long unsigned int vol.2_10;
+  long unsigned int vol.0_12;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int vol.3_18;
+  long unsigned int _19;
+  long unsigned int _20;
+
+  <bb 2> [local count: 118111600]:
+  _1 ={v} base_6(D)->CS;
+  _2 = _1 & 8192;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 59055800]:
+  base_6(D)->CNT ={v} 3643327776;
+  vol.0_12 ={v} base_6(D)->CNT;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 59055800]:
+  base_6(D)->CNT ={v} 50464;
+  vol.1_8 ={v} base_6(D)->CNT;
+  base_6(D)->CNT ={v} 55592;
+  vol.2_10 ={v} base_6(D)->CNT;
+
+  <bb 5> [local count: 118111600]:
+  base_6(D)->CS ={v} 9504;
+  base_6(D)->TOVAL ={v} 1024;
+  base_6(D)->WIN ={v} 0;
+  _16 ={v} base_6(D)->CS;
+  _17 = _16 & 8192;
+  if (_17 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 6> [local count: 59055800]:
+  base_6(D)->CNT ={v} 3028329986;
+
+  <bb 7> [local count: 118111600]:
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 59055800]:
+  base_6(D)->CNT ={v} 42498;
+  vol.3_18 ={v} base_6(D)->CNT;
+  base_6(D)->CNT ={v} 46208;
+  goto <bb 7>; [100.00%]
+
+  <bb 9> [local count: 1073741824]:
+  _19 ={v} MEM[(const struct WDOG_Type *)base_6(D)].CS;
+  _20 = _19 & 1024;
+  if (_20 == 0)
+    goto <bb 9>; [89.00%]
+  else
+    goto <bb 10>; [11.00%]
+
+  <bb 10> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function WDOG_SetInt (WDOG_SetInt, funcdef_no=14, decl_uid=6387, cgraph_uid=15, symbol_order=14)
+
+Removing basic block 10
+Removing basic block 11
+WDOG_SetInt (struct WDOG_Type * const base, _Bool enable)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _8;
+  long unsigned int vol.5_12;
+  long unsigned int vol.6_14;
+  long unsigned int vol.4_16;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int prephitmp_23;
+
+  <bb 2> [local count: 118111600]:
+  _1 ={v} base_10(D)->CS;
+  _2 = _1 & 8192;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 59055800]:
+  base_10(D)->CNT ={v} 3643327776;
+  vol.4_16 ={v} base_10(D)->CNT;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 59055800]:
+  base_10(D)->CNT ={v} 50464;
+  vol.5_12 ={v} base_10(D)->CNT;
+  base_10(D)->CNT ={v} 55592;
+  vol.6_14 ={v} base_10(D)->CNT;
+
+  <bb 5> [local count: 118111600]:
+  _3 ={v} base_10(D)->CS;
+  _4 = _3 & 4294967231;
+  if (enable_17(D) != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 59055800]:
+  _8 = _4 | 64;
+
+  <bb 7> [local count: 118111600]:
+  # prephitmp_23 = PHI <_8(6), _4(5)>
+  base_10(D)->CS ={v} prephitmp_23;
+
+  <bb 8> [local count: 1073741824]:
+  _19 ={v} MEM[(const struct WDOG_Type *)base_10(D)].CS;
+  _20 = _19 & 1024;
+  if (_20 == 0)
+    goto <bb 8>; [89.00%]
+  else
+    goto <bb 9>; [11.00%]
+
+  <bb 9> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function WDOG_Config (WDOG_Config, funcdef_no=15, decl_uid=6390, cgraph_uid=16, symbol_order=15)
+
+Removing basic block 5
+Removing basic block 7
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 37
+Removing basic block 38
+Removing basic block 39
+Removing basic block 40
+Removing basic block 41
+Removing basic block 42
+Removing basic block 43
+WDOG_Config (struct WDOG_Type * const base, const struct wdog_user_config_t * wdogUserConfig)
+{
+  uint32_t cs;
+  status_t status;
+  _Bool _1;
+  _Bool _2;
+  <unnamed type> _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  _Bool _7;
+  _Bool _8;
+  _Bool _9;
+  _Bool _10;
+  _Bool _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  short unsigned int _14;
+  long unsigned int _15;
+  short unsigned int _16;
+  long unsigned int _17;
+  long unsigned int iftmp.8_22;
+  long unsigned int iftmp.9_23;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _36;
+  long unsigned int prephitmp_37;
+  long unsigned int vol.13_46;
+  long unsigned int vol.14_48;
+  long unsigned int vol.12_50;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long unsigned int prephitmp_72;
+
+  <bb 2> [local count: 472446400]:
+  cs_32 ={v} base_31(D)->CS;
+  _57 ={v} MEM[(const struct WDOG_Type *)base_31(D)].CS;
+  _58 = _57 & 128;
+  _55 ={v} MEM[(const struct WDOG_Type *)base_31(D)].CS;
+  INT_SYS_DisableIRQGlobal ();
+  if (_58 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 28>; [50.00%]
+
+  <bb 3> [local count: 236223200]:
+  _56 = _55 & 32;
+  if (_56 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 28>; [50.00%]
+
+  <bb 4> [local count: 118111600]:
+  cs_34 = cs_32 & 4294929560;
+  _1 = wdogUserConfig_35(D)->winEnable;
+  if (_1 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 59055800]:
+
+  <bb 6> [local count: 118111600]:
+  # iftmp.8_22 = PHI <32768(4), _58(5)>
+  _2 = wdogUserConfig_35(D)->prescalerEnable;
+  if (_2 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 59055800]:
+
+  <bb 8> [local count: 118111600]:
+  # iftmp.9_23 = PHI <4096(6), _58(7)>
+  _3 = wdogUserConfig_35(D)->clkSource;
+  _4 = (long unsigned int) _3;
+  _5 = _4 << 8;
+  _6 = _5 & 768;
+  _28 = _6 | cs_34;
+  _27 = iftmp.8_22 | _28;
+  cs_38 = iftmp.9_23 | _27;
+  _7 = wdogUserConfig_35(D)->intEnable;
+  if (_7 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 59055800]:
+  _36 = cs_38 | 64;
+
+  <bb 10> [local count: 118111600]:
+  # prephitmp_37 = PHI <_36(9), cs_38(8)>
+  _8 = wdogUserConfig_35(D)->updateEnable;
+  if (_8 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 59055800]:
+  _26 = prephitmp_37 | 32;
+
+  <bb 12> [local count: 118111600]:
+  # prephitmp_72 = PHI <_26(11), prephitmp_37(10)>
+  _9 = wdogUserConfig_35(D)->opMode.debug;
+  if (_9 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 13> [local count: 59055800]:
+  cs_41 = prephitmp_72 | 4;
+
+  <bb 14> [local count: 118111600]:
+  # cs_19 = PHI <cs_41(13), prephitmp_72(12)>
+  _10 = wdogUserConfig_35(D)->opMode.wait;
+  if (_10 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [local count: 59055800]:
+  cs_42 = cs_19 | 2;
+
+  <bb 16> [local count: 118111600]:
+  # cs_20 = PHI <cs_42(15), cs_19(14)>
+  _11 = wdogUserConfig_35(D)->opMode.stop;
+  if (_11 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 17> [local count: 59055800]:
+  cs_43 = cs_20 | 1;
+
+  <bb 18> [local count: 118111600]:
+  # cs_21 = PHI <cs_43(17), cs_20(16)>
+  cs_44 = cs_21 | 24704;
+  _12 ={v} base_31(D)->CS;
+  _13 = _12 & 8192;
+  if (_13 != 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 19> [local count: 59055800]:
+  base_31(D)->CNT ={v} 3643327776;
+  vol.12_50 ={v} base_31(D)->CNT;
+  goto <bb 21>; [100.00%]
+
+  <bb 20> [local count: 59055800]:
+  base_31(D)->CNT ={v} 50464;
+  vol.13_46 ={v} base_31(D)->CNT;
+  base_31(D)->CNT ={v} 55592;
+  vol.14_48 ={v} base_31(D)->CNT;
+
+  <bb 21> [local count: 118111600]:
+
+  <bb 22> [local count: 1073741824]:
+  _59 ={v} MEM[(const struct WDOG_Type *)base_31(D)].CS;
+  _60 = _59 & 2048;
+  if (_60 == 0)
+    goto <bb 22>; [89.00%]
+  else
+    goto <bb 23>; [11.00%]
+
+  <bb 23> [local count: 118111600]:
+  base_31(D)->CS ={v} cs_44;
+  _14 = wdogUserConfig_35(D)->timeoutValue;
+  _15 = (long unsigned int) _14;
+  base_31(D)->TOVAL ={v} _15;
+  if (_1 != 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 24> [local count: 59055800]:
+  _16 = wdogUserConfig_35(D)->windowValue;
+  _17 = (long unsigned int) _16;
+  base_31(D)->WIN ={v} _17;
+
+  <bb 25> [local count: 118111600]:
+
+  <bb 26> [local count: 1073741824]:
+  _61 ={v} MEM[(const struct WDOG_Type *)base_31(D)].CS;
+  _62 = _61 & 2048;
+  if (_62 != 0)
+    goto <bb 26>; [89.00%]
+  else
+    goto <bb 27>; [11.00%]
+
+  <bb 27> [local count: 1073741824]:
+  _63 ={v} MEM[(const struct WDOG_Type *)base_31(D)].CS;
+  _64 = _63 & 1024;
+  if (_64 == 0)
+    goto <bb 27>; [89.00%]
+  else
+    goto <bb 28>; [11.00%]
+
+  <bb 28> [local count: 472446400]:
+  # status_18 = PHI <1(3), 1(2), 0(27)>
+  INT_SYS_EnableIRQGlobal ();
+  return status_18;
+
+}
+
+
+
+;; Function WDOG_GetConfig (WDOG_GetConfig, funcdef_no=16, decl_uid=6392, cgraph_uid=17, symbol_order=16)
+
+Removing basic block 5
+WDOG_GetConfig (const struct WDOG_Type * base)
+{
+  unsigned char config;
+  uint32_t cs;
+  long unsigned int _1;
+  _Bool _2;
+  long unsigned int _3;
+  _Bool _4;
+  long unsigned int _5;
+  _Bool _6;
+  long unsigned int _7;
+  _Bool _8;
+  long unsigned int _9;
+  _Bool _10;
+  long unsigned int _11;
+  _Bool _12;
+  unsigned int _13;
+  _Bool _14;
+  long unsigned int _15;
+  short unsigned int _16;
+  long unsigned int _17;
+  short unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  unsigned char _25;
+  unsigned char _26;
+  unsigned char _27;
+  unsigned char _28;
+  unsigned char _29;
+  unsigned char _30;
+  unsigned char _31;
+  unsigned char _33;
+
+  <bb 2> [local count: 1073741824]:
+  cs_24 ={v} base_23(D)->CS;
+  _1 = cs_24 & 32768;
+  _2 = _1 != 0;
+  _25 = VIEW_CONVERT_EXPR<unsigned char>(_2);
+  _3 = cs_24 & 4096;
+  _4 = _3 != 0;
+  _26 = VIEW_CONVERT_EXPR<unsigned char>(_4);
+  _5 = cs_24 & 64;
+  _6 = _5 != 0;
+  _27 = VIEW_CONVERT_EXPR<unsigned char>(_6);
+  _7 = cs_24 & 32;
+  _8 = _7 != 0;
+  _28 = VIEW_CONVERT_EXPR<unsigned char>(_8);
+  _9 = cs_24 & 4;
+  _10 = _9 != 0;
+  _29 = VIEW_CONVERT_EXPR<unsigned char>(_10);
+  _11 = cs_24 & 2;
+  _12 = _11 != 0;
+  _30 = VIEW_CONVERT_EXPR<unsigned char>(_12);
+  _14 = (_Bool) cs_24;
+  _31 = VIEW_CONVERT_EXPR<unsigned char>(_14);
+  _15 ={v} base_23(D)->TOVAL;
+  _16 = (short unsigned int) _15;
+  _17 ={v} base_23(D)->WIN;
+  _18 = (short unsigned int) _17;
+  _19 = cs_24 >> 8;
+  _20 = _19 & 3;
+  _13 = _20 + 4294967295;
+  if (_13 <= 2)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _33 = (unsigned char) _20;
+
+  <bb 4> [local count: 1073741824]:
+  # config_32 = PHI <_33(3), 0(2)>
+  MEM <unsigned char> [(struct  *)&<retval>] = config_32;
+  MEM <unsigned char> [(struct  *)&<retval> + 1B] = _30;
+  MEM <unsigned char> [(struct  *)&<retval> + 2B] = _31;
+  MEM <unsigned char> [(struct  *)&<retval> + 3B] = _29;
+  MEM <unsigned char> [(struct  *)&<retval> + 4B] = _28;
+  MEM <unsigned char> [(struct  *)&<retval> + 5B] = _27;
+  MEM <unsigned char> [(struct  *)&<retval> + 6B] = _25;
+  <retval>.windowValue = _18;
+  <retval>.timeoutValue = _16;
+  MEM <unsigned char> [(struct  *)&<retval> + 12B] = _26;
+  return <retval>;
+
+}
+
+

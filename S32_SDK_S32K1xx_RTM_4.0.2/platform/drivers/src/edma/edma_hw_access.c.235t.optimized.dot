@@ -1,0 +1,654 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_EDMA_Init" {
+	style="dashed";
+	color="black";
+	label="EDMA_Init ()";
+	subgraph cluster_28_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_28_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1010605809\<bb\ 3\>:\l\
+|#\ ivtmp.29_24\ =\ PHI\ \<0(2),\ ivtmp.29_23(3)\>\l\
+|_10\ =\ (int)\ ivtmp.29_24;\l\
+|base_4(D)-\>TCD[_10].NBYTES.MLNO\ =\{v\}\ 0;\l\
+|_25\ =\ ivtmp.29_24\ *\ 32;\l\
+|_1\ =\ base_4(D)\ +\ _25;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ DMA_Type\ *)_1\ +\ 4096B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_1\ +\ 4100B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_1\ +\ 4102B]\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_10].SLAST\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_10].DADDR\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_10].DOFF\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_10].CITER.ELINKNO\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_10].DLASTSGA\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_10].CSR\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_10].BITER.ELINKNO\ =\{v\}\ 0;\l\
+|ivtmp.29_23\ =\ ivtmp.29_24\ +\ 1;\l\
+|if\ (ivtmp.29_23\ !=\ 16)\l\
+\ \ goto\ \<bb\ 3\>;\ [93.75%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [6.25%]\l\
+}"];
+
+	}
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136016\<bb\ 2\>:\l\
+|regValTemp_5\ =\{v\}\ base_4(D)-\>CR;\l\
+|regValTemp_6\ =\ regValTemp_5\ &\ 4294770489;\l\
+|base_4(D)-\>CR\ =\{v\}\ regValTemp_6;\l\
+}"];
+
+	fn_28_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136016\<bb\ 4\>:\l\
+|return;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_2:s -> fn_28_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_3:s -> fn_28_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[93%]"];
+	fn_28_basic_block_3:s -> fn_28_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[6%]"];
+	fn_28_basic_block_4:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_CancelTransfer" {
+	style="dashed";
+	color="black";
+	label="EDMA_CancelTransfer ()";
+	subgraph cluster_29_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|_1\ =\{v\}\ base_4(D)-\>CR;\l\
+|_2\ =\ _1\ &\ 131072;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|regValTemp_5\ =\{v\}\ base_4(D)-\>CR;\l\
+|regValTemp_6\ =\ regValTemp_5\ &\ 4294836223;\l\
+|regValTemp_7\ =\ regValTemp_6\ \|\ 131072;\l\
+|base_4(D)-\>CR\ =\{v\}\ regValTemp_7;\l\
+}"];
+
+	fn_29_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|return;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_3:s -> fn_29_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_29_basic_block_3:s -> fn_29_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_29_basic_block_4:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_CancelTransferWithError" {
+	style="dashed";
+	color="black";
+	label="EDMA_CancelTransferWithError ()";
+	subgraph cluster_30_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_30_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|_1\ =\{v\}\ base_4(D)-\>CR;\l\
+|_2\ =\ _1\ &\ 65536;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|regValTemp_5\ =\{v\}\ base_4(D)-\>CR;\l\
+|regValTemp_6\ =\ regValTemp_5\ &\ 4294901759;\l\
+|regValTemp_7\ =\ regValTemp_6\ \|\ 65536;\l\
+|base_4(D)-\>CR\ =\{v\}\ regValTemp_7;\l\
+}"];
+
+	fn_30_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|return;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_3:s -> fn_30_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_30_basic_block_3:s -> fn_30_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_30_basic_block_4:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_SetErrorIntCmd" {
+	style="dashed";
+	color="black";
+	label="EDMA_SetErrorIntCmd ()";
+	fn_31_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_31_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_31_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (enable_2(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_31_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|base_4(D)-\>SEEI\ =\{v\}\ channel_5(D);\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_31_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|base_4(D)-\>CEEI\ =\{v\}\ channel_5(D);\l\
+}"];
+
+	fn_31_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_31_basic_block_0:s -> fn_31_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_2:s -> fn_31_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_31_basic_block_2:s -> fn_31_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_31_basic_block_3:s -> fn_31_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_4:s -> fn_31_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_5:s -> fn_31_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_31_basic_block_0:s -> fn_31_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_SetDmaRequestCmd" {
+	style="dashed";
+	color="black";
+	label="EDMA_SetDmaRequestCmd ()";
+	fn_32_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_32_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_32_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (enable_2(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_32_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|base_4(D)-\>SERQ\ =\{v\}\ channel_5(D);\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_32_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|base_4(D)-\>CERQ\ =\{v\}\ channel_5(D);\l\
+}"];
+
+	fn_32_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_32_basic_block_0:s -> fn_32_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_4:s -> fn_32_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_5:s -> fn_32_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_32_basic_block_0:s -> fn_32_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_TCDClearReg" {
+	style="dashed";
+	color="black";
+	label="EDMA_TCDClearReg ()";
+	fn_33_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_33_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_33_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ (int)\ channel_2(D);\l\
+|base_4(D)-\>TCD[_1].NBYTES.MLNO\ =\{v\}\ 0;\l\
+|_20\ =\ (signed\ short)\ channel_2(D);\l\
+|_19\ =\ (signed\ short)\ 32;\l\
+|_17\ =\ _20\ w*\ _19;\l\
+|_18\ =\ base_4(D)\ +\ _17;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ DMA_Type\ *)_18\ +\ 4096B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_18\ +\ 4100B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_18\ +\ 4102B]\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_1].SLAST\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_1].DADDR\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_1].DOFF\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_1].CITER.ELINKNO\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_1].DLASTSGA\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_1].CSR\ =\{v\}\ 0;\l\
+|base_4(D)-\>TCD[_1].BITER.ELINKNO\ =\{v\}\ 0;\l\
+|return;\l\
+}"];
+
+	fn_33_basic_block_0:s -> fn_33_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_2:s -> fn_33_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_33_basic_block_0:s -> fn_33_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_TCDSetAttribute" {
+	style="dashed";
+	color="black";
+	label="EDMA_TCDSetAttribute ()";
+	fn_34_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_34_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_34_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ (short\ unsigned\ int)\ srcModulo_12(D);\l\
+|_2\ =\ _1\ \<\<\ 11;\l\
+|_3\ =\ (short\ unsigned\ int)\ srcTransferSize_13(D);\l\
+|_4\ =\ _3\ \<\<\ 8;\l\
+|_5\ =\ _4\ &\ 1792;\l\
+|_6\ =\ (short\ unsigned\ int)\ destModulo_15(D);\l\
+|_7\ =\ _6\ \<\<\ 3;\l\
+|_8\ =\ _7\ &\ 255;\l\
+|_22\ =\ destTransferSize_16(D)\ &\ 7;\l\
+|_9\ =\ (short\ unsigned\ int)\ _22;\l\
+|_10\ =\ _8\ \|\ _9;\l\
+|_24\ =\ _2\ \|\ _10;\l\
+|regValTemp_17\ =\ _5\ \|\ _24;\l\
+|_11\ =\ (int)\ channel_18(D);\l\
+|base_20(D)-\>TCD[_11].ATTR\ =\{v\}\ regValTemp_17;\l\
+|return;\l\
+}"];
+
+	fn_34_basic_block_0:s -> fn_34_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_2:s -> fn_34_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_34_basic_block_0:s -> fn_34_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_TCDSetNbytes" {
+	style="dashed";
+	color="black";
+	label="EDMA_TCDSetNbytes ()";
+	fn_35_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_35_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_35_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\{v\}\ base_13(D)-\>CR;\l\
+|_2\ =\ _1\ &\ 128;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_35_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_3\ =\ (int)\ channel_14(D);\l\
+|_4\ =\{v\}\ base_13(D)-\>TCD[_3].NBYTES.MLOFFNO;\l\
+|_5\ =\ (signed\ int)\ _4;\l\
+|if\ (_5\ \>=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [59.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [41.00%]\l\
+}"];
+
+	fn_35_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:316753840\<bb\ 4\>:\l\
+|_6\ =\{v\}\ base_13(D)-\>TCD[_3].NBYTES.MLOFFNO;\l\
+|_7\ =\ _6\ &\ 1073741824;\l\
+|if\ (_7\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_35_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:158376920\<bb\ 5\>:\l\
+|_8\ =\ nbytes_15(D)\ &\ 1073741823;\l\
+|base_13(D)-\>TCD[_3].NBYTES.MLOFFNO\ =\{v\}\ _8;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_35_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:378493992\<bb\ 6\>:\l\
+|regValTemp_18\ =\{v\}\ base_13(D)-\>TCD[_3].NBYTES.MLOFFYES;\l\
+|regValTemp_19\ =\ regValTemp_18\ &\ 4294966272;\l\
+|_9\ =\ nbytes_15(D)\ &\ 1023;\l\
+|regValTemp_20\ =\ _9\ \|\ regValTemp_19;\l\
+|base_13(D)-\>TCD[_3].NBYTES.MLOFFYES\ =\{v\}\ regValTemp_20;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_35_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 7\>:\l\
+|_10\ =\ (int)\ channel_14(D);\l\
+|base_13(D)-\>TCD[_10].NBYTES.MLNO\ =\{v\}\ nbytes_15(D);\l\
+}"];
+
+	fn_35_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|return;\l\
+}"];
+
+	fn_35_basic_block_0:s -> fn_35_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_3:s -> fn_35_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[59%]"];
+	fn_35_basic_block_3:s -> fn_35_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[41%]"];
+	fn_35_basic_block_4:s -> fn_35_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_4:s -> fn_35_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_5:s -> fn_35_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_6:s -> fn_35_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_7:s -> fn_35_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_8:s -> fn_35_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_35_basic_block_0:s -> fn_35_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_TCDSetMinorLoopOffset" {
+	style="dashed";
+	color="black";
+	label="EDMA_TCDSetMinorLoopOffset ()";
+	fn_36_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_36_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_36_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\{v\}\ base_14(D)-\>CR;\l\
+|_2\ =\ _1\ &\ 128;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_36_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_3\ =\ (int)\ channel_15(D);\l\
+|_4\ =\{v\}\ base_14(D)-\>TCD[_3].NBYTES.MLOFFNO;\l\
+|_5\ =\ (signed\ int)\ _4;\l\
+|if\ (_5\ \<\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [41.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [59.00%]\l\
+}"];
+
+	fn_36_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:316753841\<bb\ 4\>:\l\
+|_22\ =\{v\}\ base_14(D)-\>TCD[_3].NBYTES.MLOFFNO;\l\
+|_23\ =\ _22\ &\ 1073741824;\l\
+|if\ (_23\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_36_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:220117072\<bb\ 5\>:\l\
+|_25\ =\{v\}\ base_14(D)-\>TCD[_3].NBYTES.MLOFFNO;\l\
+}"];
+
+	fn_36_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:402653184\<bb\ 6\>:\l\
+|regValTemp_16\ =\{v\}\ base_14(D)-\>TCD[_3].NBYTES.MLOFFYES;\l\
+|regValTemp_17\ =\ regValTemp_16\ &\ 3221226495;\l\
+|offset.1_8\ =\ (long\ unsigned\ int)\ offset_18(D);\l\
+|_9\ =\ offset.1_8\ \<\<\ 10;\l\
+|_10\ =\ _9\ &\ 1073740800;\l\
+|regValTemp_19\ =\ _10\ \|\ regValTemp_17;\l\
+|base_14(D)-\>TCD[_3].NBYTES.MLOFFYES\ =\{v\}\ regValTemp_19;\l\
+}"];
+
+	fn_36_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|return;\l\
+}"];
+
+	fn_36_basic_block_0:s -> fn_36_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_3:s -> fn_36_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[41%]"];
+	fn_36_basic_block_3:s -> fn_36_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[59%]"];
+	fn_36_basic_block_4:s -> fn_36_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_4:s -> fn_36_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_5:s -> fn_36_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_6:s -> fn_36_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_7:s -> fn_36_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_36_basic_block_0:s -> fn_36_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_TCDSetScatterGatherLink" {
+	style="dashed";
+	color="black";
+	label="EDMA_TCDSetScatterGatherLink ()";
+	fn_37_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_37_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_37_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ (int)\ channel_2(D);\l\
+|base_4(D)-\>TCD[_1].DLASTSGA\ =\{v\}\ nextTCDAddr_5(D);\l\
+|return;\l\
+}"];
+
+	fn_37_basic_block_0:s -> fn_37_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_2:s -> fn_37_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_37_basic_block_0:s -> fn_37_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_TCDSetChannelMinorLink" {
+	style="dashed";
+	color="black";
+	label="EDMA_TCDSetChannelMinorLink ()";
+	fn_38_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_38_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_38_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ (int)\ channel_16(D);\l\
+|regValTemp_19\ =\{v\}\ base_18(D)-\>TCD[_1].BITER.ELINKYES;\l\
+|regValTemp_20\ =\ regValTemp_19\ &\ 32767;\l\
+|if\ (enable_21(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_38_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|return;\l\
+}"];
+
+	fn_38_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|regValTemp.3_41\ =\ (signed\ short)\ regValTemp_20;\l\
+|_42\ =\ regValTemp.3_41\ \|\ -32768;\l\
+|regValTemp_43\ =\ (uint16_t)\ _42;\l\
+|base_18(D)-\>TCD[_1].BITER.ELINKYES\ =\{v\}\ regValTemp_43;\l\
+|regValTemp_45\ =\{v\}\ base_18(D)-\>TCD[_1].CITER.ELINKYES;\l\
+|regValTemp_46\ =\ regValTemp_45\ &\ 32767;\l\
+|regValTemp.5_47\ =\ (signed\ short)\ regValTemp_46;\l\
+|_48\ =\ regValTemp.5_47\ \|\ -32768;\l\
+|regValTemp_49\ =\ (uint16_t)\ _48;\l\
+|base_18(D)-\>TCD[_1].CITER.ELINKYES\ =\{v\}\ regValTemp_49;\l\
+|regValTemp_28\ =\{v\}\ base_18(D)-\>TCD[_1].BITER.ELINKYES;\l\
+|regValTemp_29\ =\ regValTemp_28\ &\ 57855;\l\
+|_6\ =\ (short\ unsigned\ int)\ linkChannel_30(D);\l\
+|_7\ =\ _6\ \<\<\ 9;\l\
+|_8\ =\ (signed\ short)\ _7;\l\
+|_9\ =\ _8\ &\ 7680;\l\
+|regValTemp.6_10\ =\ (signed\ short)\ regValTemp_29;\l\
+|_11\ =\ _9\ \|\ regValTemp.6_10;\l\
+|regValTemp_31\ =\ (uint16_t)\ _11;\l\
+|base_18(D)-\>TCD[_1].BITER.ELINKYES\ =\{v\}\ regValTemp_31;\l\
+|regValTemp_33\ =\{v\}\ base_18(D)-\>TCD[_1].CITER.ELINKYES;\l\
+|regValTemp_34\ =\ regValTemp_33\ &\ 57855;\l\
+|regValTemp.7_12\ =\ (signed\ short)\ regValTemp_34;\l\
+|_13\ =\ _9\ \|\ regValTemp.7_12;\l\
+|regValTemp_35\ =\ (uint16_t)\ _13;\l\
+|base_18(D)-\>TCD[_1].CITER.ELINKYES\ =\{v\}\ regValTemp_35;\l\
+goto\ \<bb\ 3\>;\ [100.00%]\l\
+}"];
+
+	fn_38_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 5\>:\l\
+|base_18(D)-\>TCD[_1].BITER.ELINKYES\ =\{v\}\ regValTemp_20;\l\
+|regValTemp_56\ =\{v\}\ base_18(D)-\>TCD[_1].CITER.ELINKYES;\l\
+|regValTemp_57\ =\ regValTemp_56\ &\ 32767;\l\
+|base_18(D)-\>TCD[_1].CITER.ELINKYES\ =\{v\}\ regValTemp_57;\l\
+goto\ \<bb\ 3\>;\ [100.00%]\l\
+}"];
+
+	fn_38_basic_block_0:s -> fn_38_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_38_basic_block_3:s -> fn_38_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_38_basic_block_4:s -> fn_38_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_5:s -> fn_38_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_0:s -> fn_38_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_TCDSetMajorCount" {
+	style="dashed";
+	color="black";
+	label="EDMA_TCDSetMajorCount ()";
+	fn_39_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_39_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_39_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ (int)\ channel_16(D);\l\
+|_2\ =\{v\}\ base_18(D)-\>TCD[_1].BITER.ELINKNO;\l\
+|_36\ =\ (signed\ short)\ _2;\l\
+|if\ (_36\ \<\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [41.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [59.00%]\l\
+}"];
+
+	fn_39_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:440234144\<bb\ 3\>:\l\
+|regValTemp_28\ =\{v\}\ base_18(D)-\>TCD[_1].BITER.ELINKYES;\l\
+|regValTemp_29\ =\ regValTemp_28\ &\ 65024;\l\
+|_3\ =\ (signed\ short)\ count_21(D);\l\
+|_4\ =\ _3\ &\ 511;\l\
+|regValTemp.8_5\ =\ (signed\ short)\ regValTemp_29;\l\
+|_6\ =\ _4\ \|\ regValTemp.8_5;\l\
+|regValTemp_30\ =\ (uint16_t)\ _6;\l\
+|base_18(D)-\>TCD[_1].BITER.ELINKYES\ =\{v\}\ regValTemp_30;\l\
+|regValTemp_32\ =\{v\}\ base_18(D)-\>TCD[_1].CITER.ELINKYES;\l\
+|regValTemp_33\ =\ regValTemp_32\ &\ 65024;\l\
+|regValTemp.9_7\ =\ (signed\ short)\ regValTemp_33;\l\
+|_8\ =\ _4\ \|\ regValTemp.9_7;\l\
+|regValTemp_34\ =\ (uint16_t)\ _8;\l\
+|base_18(D)-\>TCD[_1].CITER.ELINKYES\ =\{v\}\ regValTemp_34;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_39_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:633507681\<bb\ 4\>:\l\
+|regValTemp_19\ =\{v\}\ base_18(D)-\>TCD[_1].BITER.ELINKNO;\l\
+|regValTemp_20\ =\ regValTemp_19\ &\ 32768;\l\
+|_9\ =\ (signed\ short)\ count_21(D);\l\
+|_10\ =\ _9\ &\ 32767;\l\
+|regValTemp.10_11\ =\ (signed\ short)\ regValTemp_20;\l\
+|_12\ =\ _10\ \|\ regValTemp.10_11;\l\
+|regValTemp_22\ =\ (uint16_t)\ _12;\l\
+|base_18(D)-\>TCD[_1].BITER.ELINKNO\ =\{v\}\ regValTemp_22;\l\
+|regValTemp_24\ =\{v\}\ base_18(D)-\>TCD[_1].CITER.ELINKNO;\l\
+|regValTemp_25\ =\ regValTemp_24\ &\ 32768;\l\
+|regValTemp.11_13\ =\ (signed\ short)\ regValTemp_25;\l\
+|_14\ =\ _10\ \|\ regValTemp.11_13;\l\
+|regValTemp_26\ =\ (uint16_t)\ _14;\l\
+|base_18(D)-\>TCD[_1].CITER.ELINKNO\ =\{v\}\ regValTemp_26;\l\
+}"];
+
+	fn_39_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_39_basic_block_0:s -> fn_39_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_2:s -> fn_39_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[41%]"];
+	fn_39_basic_block_2:s -> fn_39_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[59%]"];
+	fn_39_basic_block_3:s -> fn_39_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_4:s -> fn_39_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_5:s -> fn_39_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_39_basic_block_0:s -> fn_39_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_TCDGetCurrentMajorCount" {
+	style="dashed";
+	color="black";
+	label="EDMA_TCDGetCurrentMajorCount ()";
+	fn_40_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_40_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_40_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ (int)\ channel_6(D);\l\
+|_2\ =\{v\}\ base_8(D)-\>TCD[_1].BITER.ELINKNO;\l\
+|_12\ =\ (signed\ short)\ _2;\l\
+|if\ (_12\ \<\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [41.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [59.00%]\l\
+}"];
+
+	fn_40_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:440234144\<bb\ 3\>:\l\
+|_3\ =\{v\}\ base_8(D)-\>TCD[_1].CITER.ELINKYES;\l\
+|result_10\ =\ _3\ &\ 511;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:633507681\<bb\ 4\>:\l\
+|_4\ =\{v\}\ base_8(D)-\>TCD[_1].CITER.ELINKNO;\l\
+|result_9\ =\ _4\ &\ 32767;\l\
+}"];
+
+	fn_40_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ result_5\ =\ PHI\ \<result_10(3),\ result_9(4)\>\l\
+|_11\ =\ (uint32_t)\ result_5;\l\
+|return\ _11;\l\
+}"];
+
+	fn_40_basic_block_0:s -> fn_40_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_2:s -> fn_40_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[41%]"];
+	fn_40_basic_block_2:s -> fn_40_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[59%]"];
+	fn_40_basic_block_3:s -> fn_40_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_4:s -> fn_40_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_5:s -> fn_40_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_40_basic_block_0:s -> fn_40_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_DMAMUX_Init" {
+	style="dashed";
+	color="black";
+	label="DMAMUX_Init ()";
+	subgraph cluster_41_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_41_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1010605809\<bb\ 3\>:\l\
+|#\ ivtmp.75_10\ =\ PHI\ \<0(2),\ ivtmp.75_9(3)\>\l\
+|_1\ =\ (int)\ ivtmp.75_10;\l\
+|base_5(D)-\>CHCFG[_1]\ =\{v\}\ 0;\l\
+|ivtmp.75_9\ =\ ivtmp.75_10\ +\ 1;\l\
+|if\ (ivtmp.75_9\ !=\ 16)\l\
+\ \ goto\ \<bb\ 3\>;\ [93.75%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [6.25%]\l\
+}"];
+
+	}
+	fn_41_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_41_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_41_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136016\<bb\ 2\>:\l\
+}"];
+
+	fn_41_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136016\<bb\ 4\>:\l\
+|return;\l\
+}"];
+
+	fn_41_basic_block_0:s -> fn_41_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_2:s -> fn_41_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_3:s -> fn_41_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[93%]"];
+	fn_41_basic_block_3:s -> fn_41_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[6%]"];
+	fn_41_basic_block_4:s -> fn_41_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_41_basic_block_0:s -> fn_41_basic_block_1:n [style="invis",constraint=true];
+}
+}

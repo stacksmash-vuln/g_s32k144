@@ -1,0 +1,23 @@
+
+;; Function EIM_InitChannel (EIM_InitChannel, funcdef_no=8, decl_uid=6223, cgraph_uid=9, symbol_order=8)
+
+EIM_InitChannel (struct EIM_Type * const base)
+{
+  uint32_t temp;
+
+  <bb 2> [local count: 357878152]:
+  temp_17 ={v} base_4(D)->EICHEN;
+  temp_21 = temp_17 & 2147483647;
+  base_4(D)->EICHEN ={v} temp_21;
+  base_4(D)->EICHDn[0].WORD0 ={v} 0;
+  base_4(D)->EICHDn[0].WORD1 ={v} 0;
+  temp_29 ={v} base_4(D)->EICHEN;
+  temp_33 = temp_29 & 3221225471;
+  base_4(D)->EICHEN ={v} temp_33;
+  base_4(D)->EICHDn[1].WORD0 ={v} 0;
+  base_4(D)->EICHDn[1].WORD1 ={v} 0;
+  return;
+
+}
+
+

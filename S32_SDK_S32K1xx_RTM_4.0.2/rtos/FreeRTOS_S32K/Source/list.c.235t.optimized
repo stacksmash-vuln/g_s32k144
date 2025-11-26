@@ -1,0 +1,155 @@
+
+;; Function vListInitialise (vListInitialise, funcdef_no=5, decl_uid=5944, cgraph_uid=6, symbol_order=5)
+
+vListInitialise (struct List_t * const pxList)
+{
+  struct MiniListItem_t * _1;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = &pxList_2(D)->xListEnd;
+  pxList_2(D)->pxIndex = _1;
+  pxList_2(D)->xListEnd.xItemValue = 4294967295;
+  pxList_2(D)->xListEnd.pxNext = _1;
+  pxList_2(D)->xListEnd.pxPrevious = _1;
+  pxList_2(D)->uxNumberOfItems ={v} 0;
+  return;
+
+}
+
+
+
+;; Function vListInitialiseItem (vListInitialiseItem, funcdef_no=6, decl_uid=5946, cgraph_uid=7, symbol_order=6)
+
+vListInitialiseItem (struct ListItem_t * const pxItem)
+{
+  <bb 2> [local count: 1073741824]:
+  pxItem_2(D)->pvContainer = 0B;
+  return;
+
+}
+
+
+
+;; Function vListInsertEnd (vListInsertEnd, funcdef_no=7, decl_uid=5952, cgraph_uid=8, symbol_order=7)
+
+vListInsertEnd (struct List_t * const pxList, struct ListItem_t * const pxNewListItem)
+{
+  struct ListItem_t * const pxIndex;
+  struct xLIST_ITEM * _1;
+  struct xLIST_ITEM * _2;
+  long unsigned int _3;
+  long unsigned int _4;
+
+  <bb 2> [local count: 1073741824]:
+  pxIndex_7 = pxList_6(D)->pxIndex;
+  pxNewListItem_8(D)->pxNext = pxIndex_7;
+  _1 = pxIndex_7->pxPrevious;
+  pxNewListItem_8(D)->pxPrevious = _1;
+  _2 = pxIndex_7->pxPrevious;
+  _2->pxNext = pxNewListItem_8(D);
+  pxIndex_7->pxPrevious = pxNewListItem_8(D);
+  pxNewListItem_8(D)->pvContainer = pxList_6(D);
+  _3 ={v} pxList_6(D)->uxNumberOfItems;
+  _4 = _3 + 1;
+  pxList_6(D)->uxNumberOfItems ={v} _4;
+  return;
+
+}
+
+
+
+;; Function vListInsert (vListInsert, funcdef_no=8, decl_uid=5949, cgraph_uid=9, symbol_order=8)
+
+Removing basic block 7
+Removing basic block 8
+vListInsert (struct List_t * const pxList, struct ListItem_t * const pxNewListItem)
+{
+  const TickType_t xValueOfInsertion;
+  struct ListItem_t * pxIterator;
+  struct xLIST_ITEM * _1;
+  long unsigned int _2;
+  long unsigned int _4;
+  long unsigned int _5;
+  struct xLIST_ITEM * pretmp_20;
+  struct xLIST_ITEM * prephitmp_21;
+
+  <bb 2> [local count: 178956971]:
+  xValueOfInsertion_10 = pxNewListItem_9(D)->xItemValue;
+  if (xValueOfInsertion_10 == 4294967295)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 60845371]:
+  pxIterator_13 = pxList_11(D)->xListEnd.pxPrevious;
+  pretmp_20 = pxIterator_13->pxNext;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 118111600]:
+  pxIterator_12 = &pxList_11(D)->xListEnd;
+
+  <bb 5> [local count: 1073741824]:
+  # pxIterator_6 = PHI <pxIterator_12(4), _1(5)>
+  _1 = pxIterator_6->pxNext;
+  _2 = _1->xItemValue;
+  if (_2 <= xValueOfInsertion_10)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 6>; [11.00%]
+
+  <bb 6> [local count: 178956971]:
+  # pxIterator_7 = PHI <pxIterator_13(3), pxIterator_6(5)>
+  # prephitmp_21 = PHI <pretmp_20(3), _1(5)>
+  pxNewListItem_9(D)->pxNext = prephitmp_21;
+  prephitmp_21->pxPrevious = pxNewListItem_9(D);
+  pxNewListItem_9(D)->pxPrevious = pxIterator_7;
+  pxIterator_7->pxNext = pxNewListItem_9(D);
+  pxNewListItem_9(D)->pvContainer = pxList_11(D);
+  _4 ={v} pxList_11(D)->uxNumberOfItems;
+  _5 = _4 + 1;
+  pxList_11(D)->uxNumberOfItems ={v} _5;
+  return;
+
+}
+
+
+
+;; Function uxListRemove (uxListRemove, funcdef_no=9, decl_uid=5954, cgraph_uid=10, symbol_order=9)
+
+Removing basic block 5
+uxListRemove (struct ListItem_t * const pxItemToRemove)
+{
+  struct List_t * const pxList;
+  struct xLIST_ITEM * _1;
+  struct xLIST_ITEM * _2;
+  struct ListItem_t * _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  UBaseType_t _15;
+
+  <bb 2> [local count: 1073741824]:
+  pxList_9 = pxItemToRemove_8(D)->pvContainer;
+  _1 = pxItemToRemove_8(D)->pxNext;
+  _2 = pxItemToRemove_8(D)->pxPrevious;
+  _1->pxPrevious = _2;
+  _2->pxNext = _1;
+  _3 = pxList_9->pxIndex;
+  if (_3 == pxItemToRemove_8(D))
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 4>; [70.00%]
+
+  <bb 3> [local count: 322122544]:
+  pxList_9->pxIndex = _2;
+
+  <bb 4> [local count: 1073741824]:
+  pxItemToRemove_8(D)->pvContainer = 0B;
+  _4 ={v} pxList_9->uxNumberOfItems;
+  _5 = _4 + 4294967295;
+  pxList_9->uxNumberOfItems ={v} _5;
+  _15 ={v} pxList_9->uxNumberOfItems;
+  return _15;
+
+}
+
+

@@ -1,0 +1,25 @@
+var struct_buffers =
+[
+    [ "certChain", "struct_buffers.html#aae988e11493327fb0cfd0cffaaf43e04", null ],
+    [ "certificate", "struct_buffers.html#a8c0642275291a6c92d6f177f3fea0df6", null ],
+    [ "clearOutputBuffer", "struct_buffers.html#a93ef3da8188c04d5294d4c09fea62ddd", null ],
+    [ "digest", "struct_buffers.html#adab6e7f059adfc606bae9edf9dd6e291", null ],
+    [ "domainName", "struct_buffers.html#a9c41b0315771e52f9d58a0e34bbef178", null ],
+    [ "inputBuffer", "struct_buffers.html#a55ee123e2d75aa18e41c40cdbd331c0f", null ],
+    [ "key", "struct_buffers.html#a55dc7630b9124e398b391d7a20cff707", null ],
+    [ "keySz", "struct_buffers.html#a00455611fa9c64280f1a2ec760999eaf", null ],
+    [ "keyType", "struct_buffers.html#a588f9b269fc02fe7c52d88a549dbbfac", null ],
+    [ "outputBuffer", "struct_buffers.html#ac014e957f02fd6994300f9998c1cd479", null ],
+    [ "plainSz", "struct_buffers.html#a0695cbe5b7d69c07c9eb1e4d162c4763", null ],
+    [ "prevSent", "struct_buffers.html#ad0d1ee791652be7646c01c38c4cc7f3e", null ],
+    [ "serverDH_G", "struct_buffers.html#ae2204e078f314781e6d245a1ae1883ab", null ],
+    [ "serverDH_Key", "struct_buffers.html#aeea06ab5a0e95c979311b1636069aa0f", null ],
+    [ "serverDH_P", "struct_buffers.html#ad4a418ecd7ca1691a37c7063d64e6695", null ],
+    [ "serverDH_Priv", "struct_buffers.html#a3684fafcd0f6d153c6f3b8d1983990c4", null ],
+    [ "serverDH_Pub", "struct_buffers.html#a480aea25bff728517472e108c9a3c121", null ],
+    [ "sig", "struct_buffers.html#ae2141605f2eb4bcb01f36bab51907b32", null ],
+    [ "weOwnCert", "struct_buffers.html#a1231988a3dd42b385a904bb3db0c242c", null ],
+    [ "weOwnCertChain", "struct_buffers.html#a73c22e3bca54897cb567706323c0557e", null ],
+    [ "weOwnDH", "struct_buffers.html#a4798292c72bfb911204c1bad26891714", null ],
+    [ "weOwnKey", "struct_buffers.html#a332f3f4ddd0b7f08a303d1e9a196d844", null ]
+];

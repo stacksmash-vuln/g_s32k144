@@ -1,0 +1,315 @@
+
+;; Function RTC_Enable (RTC_Enable, funcdef_no=28, decl_uid=6450, cgraph_uid=29, symbol_order=28)
+
+Removing basic block 5
+RTC_Enable (struct RTC_Type * const base)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  status_t statusCode;
+  long unsigned int _6;
+  _Bool _7;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_5 ={v} MEM[(const struct RTC_Type *)base_4(D)].SR;
+  _6 = tmp_5 >> 4;
+  _7 = (_Bool) _6;
+  if (_7 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_8 ={v} base_4(D)->SR;
+  tmp_9 = tmp_8 & 4294967279;
+  tmp_10 = tmp_9 | 16;
+  base_4(D)->SR ={v} tmp_10;
+
+  <bb 4> [local count: 1073741824]:
+  # statusCode_1 = PHI <0(3), 1(2)>
+  return statusCode_1;
+
+}
+
+
+
+;; Function RTC_Disable (RTC_Disable, funcdef_no=29, decl_uid=6452, cgraph_uid=30, symbol_order=29)
+
+Removing basic block 5
+RTC_Disable (struct RTC_Type * const base)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  long unsigned int _6;
+  _Bool _7;
+  long unsigned int _11;
+  _Bool _12;
+  <unnamed type> _14;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_5 ={v} MEM[(const struct RTC_Type *)base_4(D)].SR;
+  _6 = tmp_5 >> 4;
+  _7 = (_Bool) _6;
+  if (_7 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_8 ={v} base_4(D)->SR;
+  tmp_9 = tmp_8 & 4294967279;
+  base_4(D)->SR ={v} tmp_9;
+
+  <bb 4> [local count: 1073741824]:
+  tmp_10 ={v} MEM[(const struct RTC_Type *)base_4(D)].SR;
+  _11 = tmp_10 >> 4;
+  _12 = (_Bool) _11;
+  _14 = (<unnamed type>) _12;
+  return _14;
+
+}
+
+
+
+;; Function RTC_SetTimeSecondsRegister (RTC_SetTimeSecondsRegister, funcdef_no=30, decl_uid=6468, cgraph_uid=31, symbol_order=30)
+
+Removing basic block 5
+RTC_SetTimeSecondsRegister (struct RTC_Type * const base, uint32_t seconds)
+{
+  uint32_t tmp;
+  status_t statusCode;
+  long unsigned int _8;
+  _Bool _9;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_7 ={v} MEM[(const struct RTC_Type *)base_4(D)].SR;
+  _8 = tmp_7 >> 4;
+  _9 = (_Bool) _8;
+  if (_9 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  base_4(D)->TSR ={v} seconds_5(D);
+
+  <bb 4> [local count: 1073741824]:
+  # statusCode_1 = PHI <0(3), 1(2)>
+  return statusCode_1;
+
+}
+
+
+
+;; Function RTC_ConfigureRegisterLock (RTC_ConfigureRegisterLock, funcdef_no=31, decl_uid=6455, cgraph_uid=32, symbol_order=31)
+
+Removing basic block 9
+Removing basic block 10
+RTC_ConfigureRegisterLock (struct RTC_Type * const base, rtc_lock_register_select_t registerToConfig)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  status_t statusCode;
+  long unsigned int _3;
+  long unsigned int _8;
+  _Bool _9;
+
+  <bb 2> [local count: 1073741817]:
+  tmp_7 ={v} MEM[(const struct RTC_Type *)base_5(D)].LR;
+  _8 = tmp_7 >> 6;
+  _3 = ~_8;
+  _9 = (_Bool) _3;
+  if (_9 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870908]:
+  switch (registerToConfig_6(D)) <default: <L14> [0.00%], case 0: <L10> [25.00%], case 1: <L11> [25.00%], case 2: <L12> [25.00%], case 3: <L13> [25.00%]>
+
+  <bb 4> [local count: 107374183]:
+<L10>:
+  tmp_10 ={v} base_5(D)->LR;
+  tmp_11 = tmp_10 & 4294967231;
+  base_5(D)->LR ={v} tmp_11;
+  goto <bb 8>; [100.00%]
+
+  <bb 5> [local count: 107374183]:
+<L11>:
+  tmp_12 ={v} base_5(D)->LR;
+  tmp_13 = tmp_12 & 4294967263;
+  base_5(D)->LR ={v} tmp_13;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 107374183]:
+<L12>:
+  tmp_14 ={v} base_5(D)->LR;
+  tmp_15 = tmp_14 & 4294967279;
+  base_5(D)->LR ={v} tmp_15;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 107374183]:
+<L13>:
+  tmp_16 ={v} base_5(D)->LR;
+  tmp_17 = tmp_16 & 4294967287;
+  base_5(D)->LR ={v} tmp_17;
+
+  <bb 8> [local count: 1073741824]:
+  # statusCode_1 = PHI <1(2), 0(4), 0(5), 0(6), 0(7), 1(3)>
+<L14>:
+  return statusCode_1;
+
+}
+
+
+
+;; Function RTC_IsRegisterLocked (RTC_IsRegisterLocked, funcdef_no=32, decl_uid=6458, cgraph_uid=33, symbol_order=32)
+
+Removing basic block 8
+RTC_IsRegisterLocked (const struct RTC_Type * const base, rtc_lock_register_select_t reg)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  _Bool state;
+  long unsigned int _2;
+  long unsigned int _6;
+  long unsigned int _8;
+  _Bool _9;
+  long unsigned int _11;
+  _Bool _12;
+  long unsigned int _14;
+  _Bool _15;
+  long unsigned int _17;
+  _Bool _18;
+  long unsigned int _19;
+  long unsigned int _20;
+
+  <bb 2> [local count: 1073741809]:
+  switch (reg_3(D)) <default: <L7> [0.00%], case 0: <L8> [25.00%], case 1: <L10> [25.00%], case 2: <L9> [25.00%], case 3: <L11> [25.00%]>
+
+  <bb 3> [local count: 214748365]:
+<L8>:
+  tmp_7 ={v} base_5(D)->LR;
+  _8 = tmp_7 >> 6;
+  _20 = ~_8;
+  _9 = (_Bool) _20;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 214748365]:
+<L9>:
+  tmp_10 ={v} base_5(D)->LR;
+  _11 = tmp_10 >> 4;
+  _19 = ~_11;
+  _12 = (_Bool) _19;
+  goto <bb 7>; [100.00%]
+
+  <bb 5> [local count: 214748365]:
+<L10>:
+  tmp_13 ={v} base_5(D)->LR;
+  _14 = tmp_13 >> 5;
+  _6 = ~_14;
+  _15 = (_Bool) _6;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 214748365]:
+<L11>:
+  tmp_16 ={v} base_5(D)->LR;
+  _17 = tmp_16 >> 3;
+  _2 = ~_17;
+  _18 = (_Bool) _2;
+
+  <bb 7> [local count: 1073741824]:
+  # state_1 = PHI <_9(3), _12(4), _15(5), _18(6), 0(2)>
+<L7>:
+  return state_1;
+
+}
+
+
+
+;; Function RTC_ConfigureClockOut (RTC_ConfigureClockOut, funcdef_no=33, decl_uid=6461, cgraph_uid=34, symbol_order=33)
+
+Removing basic block 10
+Removing basic block 11
+RTC_ConfigureClockOut (struct RTC_Type * const base, rtc_clk_out_config_t config)
+{
+  uint32_t tmp;
+  status_t statusCode;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _13;
+  long unsigned int _23;
+  _Bool _24;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_22 ={v} MEM[(const struct RTC_Type *)base_15(D)].LR;
+  _23 = tmp_22 >> 4;
+  _13 = ~_23;
+  _24 = (_Bool) _13;
+  if (_24 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (config_16(D) == 1)
+    goto <bb 7>; [25.00%]
+  else
+    goto <bb 4>; [75.00%]
+
+  <bb 4> [local count: 536870913]:
+  if (config_16(D) == 2)
+    goto <bb 8>; [33.33%]
+  else
+    goto <bb 5>; [66.67%]
+
+  <bb 5> [local count: 536870913]:
+  if (config_16(D) == 0)
+    goto <bb 6>; [33.33%]
+  else
+    goto <bb 9>; [66.67%]
+
+  <bb 6> [local count: 134217728]:
+  _1 ={v} base_15(D)->CR;
+  _2 = _1 & 4278190079;
+  base_15(D)->CR ={v} _2;
+  goto <bb 9>; [100.00%]
+
+  <bb 7> [local count: 134217728]:
+  _3 ={v} base_15(D)->CR;
+  _4 = _3 & 4278190047;
+  base_15(D)->CR ={v} _4;
+  _5 ={v} base_15(D)->CR;
+  _6 = _5 | 16777216;
+  base_15(D)->CR ={v} _6;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 134217728]:
+  _7 ={v} base_15(D)->CR;
+  _8 = _7 & 4278190047;
+  base_15(D)->CR ={v} _8;
+  _9 ={v} base_15(D)->CR;
+  _10 = _9 | 16777248;
+  base_15(D)->CR ={v} _10;
+
+  <bb 9> [local count: 1073741824]:
+  # statusCode_11 = PHI <1(2), 0(6), 0(7), 0(8), 0(5)>
+  return statusCode_11;
+
+}
+
+

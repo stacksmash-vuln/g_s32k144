@@ -1,0 +1,8 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/mpu/mpu_driver.c:105:6:MPU_DRV_Deinit	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/mpu/mpu_driver.c:137:6:MPU_DRV_SetRegionAddr	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/mpu/mpu_driver.c:164:10:MPU_DRV_SetRegionConfig	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/mpu/mpu_driver.c:62:10:MPU_DRV_Init	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/mpu/mpu_driver.c:224:10:MPU_DRV_SetMasterAccessRights	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/mpu/mpu_driver.c:256:6:MPU_DRV_GetDetailErrorAccessInfo	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/mpu/mpu_driver.c:308:19:MPU_DRV_GetDefaultRegionConfig	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/mpu/mpu_driver.c:344:6:MPU_DRV_EnableRegion	0	static

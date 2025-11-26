@@ -1,0 +1,157 @@
+
+;; Function EWM_DRV_Init (EWM_DRV_Init, funcdef_no=7, decl_uid=6301, cgraph_uid=8, symbol_order=8)
+
+Removing basic block 6
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 17
+EWM_DRV_Init (uint32_t instance, const struct ewm_init_config_t * config)
+{
+  uint8_t tempValue;
+  status_t statusCode;
+  unsigned char _1;
+  unsigned char _2;
+  unsigned char _3;
+  _Bool _4;
+  <unnamed type> _5;
+  unsigned char iftmp.0_8;
+  unsigned char _14;
+  _Bool _15;
+
+  <bb 2> [local count: 1073741823]:
+  _14 ={v} MEM[(const struct EWM_Type *)1074139136B].CTRL;
+  _15 = (_Bool) _14;
+  if (_15 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  _1 = config_11(D)->compareHigh;
+  _2 = config_11(D)->compareLow;
+  if (_1 <= _2)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  if (_1 == 255)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 5> [local count: 177167400]:
+  _3 = config_11(D)->prescaler;
+  MEM[(struct EWM_Type *)1074139136B].CLKPRESCALER ={v} _3;
+  MEM[(struct EWM_Type *)1074139136B].CMPH ={v} _1;
+  MEM[(struct EWM_Type *)1074139136B].CMPL ={v} _2;
+  _4 = config_11(D)->interruptEnable;
+  if (_4 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 88583700]:
+
+  <bb 7> [local count: 177167400]:
+  # iftmp.0_8 = PHI <9(5), 1(6)>
+  _5 = config_11(D)->assertLogic;
+  if (_5 == 1)
+    goto <bb 9>; [33.33%]
+  else
+    goto <bb 8>; [66.67%]
+
+  <bb 8> [local count: 177167400]:
+  if (_5 == 2)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 9> [local count: 59055800]:
+  tempValue_13 = iftmp.0_8 | 4;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 59055800]:
+  tempValue_12 = iftmp.0_8 | 6;
+
+  <bb 11> [local count: 177167401]:
+  # tempValue_7 = PHI <tempValue_13(9), tempValue_12(10), iftmp.0_8(8)>
+  MEM[(struct EWM_Type *)1074139136B].CTRL ={v} tempValue_7;
+
+  <bb 12> [local count: 1073741824]:
+  # statusCode_6 = PHI <1(3), 0(11), 1(2), 1(4)>
+  return statusCode_6;
+
+}
+
+
+
+;; Function EWM_DRV_GetDefaultConfig (EWM_DRV_GetDefaultConfig, funcdef_no=8, decl_uid=6303, cgraph_uid=9, symbol_order=9)
+
+EWM_DRV_GetDefaultConfig (struct ewm_init_config_t * config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->interruptEnable = 0;
+  config_2(D)->assertLogic = 1;
+  config_2(D)->prescaler = 255;
+  config_2(D)->compareHigh = 254;
+  config_2(D)->compareLow = 0;
+  return;
+
+}
+
+
+
+;; Function EWM_DRV_Refresh (EWM_DRV_Refresh, funcdef_no=9, decl_uid=6305, cgraph_uid=10, symbol_order=10)
+
+EWM_DRV_Refresh (uint32_t instance)
+{
+  <bb 2> [local count: 1073741824]:
+  INT_SYS_DisableIRQGlobal ();
+  MEM[(struct EWM_Type *)1074139136B].SERV ={v} 180;
+  MEM[(struct EWM_Type *)1074139136B].SERV ={v} 44;
+  INT_SYS_EnableIRQGlobal (); [tail call]
+  return;
+
+}
+
+
+
+;; Function EWM_DRV_GetInputPinAssertLogic (EWM_DRV_GetInputPinAssertLogic, funcdef_no=10, decl_uid=6307, cgraph_uid=11, symbol_order=11)
+
+Removing basic block 4
+Removing basic block 6
+EWM_DRV_GetInputPinAssertLogic (uint32_t instance)
+{
+  ewm_in_assert_logic_t returnValue;
+  unsigned char _2;
+  unsigned char _4;
+  unsigned char _5;
+  unsigned char _6;
+
+  <bb 2> [local count: 1073741824]:
+  _4 ={v} MEM[(const struct EWM_Type *)1074139136B].CTRL;
+  _2 = _4 & 4;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _5 ={v} MEM[(const struct EWM_Type *)1074139136B].CTRL;
+  _6 = _5 & 2;
+  if (_6 != 0)
+    goto <bb 5>; [35.00%]
+  else
+    goto <bb 4>; [65.00%]
+
+  <bb 4> [local count: 348966093]:
+
+  <bb 5> [local count: 1073741824]:
+  # returnValue_1 = PHI <_2(2), 2(3), 1(4)>
+  return returnValue_1;
+
+}
+
+

@@ -1,0 +1,190 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ewm/ewm_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_EWM_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="EWM_DRV_Init ()";
+	fn_7_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_7_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_7_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|_14\ =\{v\}\ MEM[(const\ struct\ EWM_Type\ *)1074139136B].CTRL;\l\
+|_15\ =\ (_Bool)\ _14;\l\
+|if\ (_15\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 3\>:\l\
+|_1\ =\ config_11(D)-\>compareHigh;\l\
+|_2\ =\ config_11(D)-\>compareLow;\l\
+|if\ (_1\ \<=\ _2)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|if\ (_1\ ==\ 255)\l\
+\ \ goto\ \<bb\ 12\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_7_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 5\>:\l\
+|_3\ =\ config_11(D)-\>prescaler;\l\
+|MEM[(struct\ EWM_Type\ *)1074139136B].CLKPRESCALER\ =\{v\}\ _3;\l\
+|MEM[(struct\ EWM_Type\ *)1074139136B].CMPH\ =\{v\}\ _1;\l\
+|MEM[(struct\ EWM_Type\ *)1074139136B].CMPL\ =\{v\}\ _2;\l\
+|_4\ =\ config_11(D)-\>interruptEnable;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 6\>:\l\
+}"];
+
+	fn_7_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 7\>:\l\
+|#\ iftmp.0_8\ =\ PHI\ \<9(5),\ 1(6)\>\l\
+|_5\ =\ config_11(D)-\>assertLogic;\l\
+|if\ (_5\ ==\ 1)\l\
+\ \ goto\ \<bb\ 9\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [66.67%]\l\
+}"];
+
+	fn_7_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 8\>:\l\
+|if\ (_5\ ==\ 2)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 9\>:\l\
+|tempValue_13\ =\ iftmp.0_8\ \|\ 4;\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_7_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 10\>:\l\
+|tempValue_12\ =\ iftmp.0_8\ \|\ 6;\l\
+}"];
+
+	fn_7_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167401\<bb\ 11\>:\l\
+|#\ tempValue_7\ =\ PHI\ \<tempValue_13(9),\ tempValue_12(10),\ iftmp.0_8(8)\>\l\
+|MEM[(struct\ EWM_Type\ *)1074139136B].CTRL\ =\{v\}\ tempValue_7;\l\
+}"];
+
+	fn_7_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 12\>:\l\
+|#\ statusCode_6\ =\ PHI\ \<1(3),\ 0(11),\ 1(2),\ 1(4)\>\l\
+|return\ statusCode_6;\l\
+}"];
+
+	fn_7_basic_block_0:s -> fn_7_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_3:s -> fn_7_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_3:s -> fn_7_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_4:s -> fn_7_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_7_basic_block_4:s -> fn_7_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_7_basic_block_5:s -> fn_7_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_5:s -> fn_7_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_6:s -> fn_7_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_7:s -> fn_7_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_7_basic_block_7:s -> fn_7_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_7_basic_block_8:s -> fn_7_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_8:s -> fn_7_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_9:s -> fn_7_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_10:s -> fn_7_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_11:s -> fn_7_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_12:s -> fn_7_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_7_basic_block_0:s -> fn_7_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EWM_DRV_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="EWM_DRV_GetDefaultConfig ()";
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>interruptEnable\ =\ 0;\l\
+|config_2(D)-\>assertLogic\ =\ 1;\l\
+|config_2(D)-\>prescaler\ =\ 255;\l\
+|config_2(D)-\>compareHigh\ =\ 254;\l\
+|config_2(D)-\>compareLow\ =\ 0;\l\
+|return;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EWM_DRV_Refresh" {
+	style="dashed";
+	color="black";
+	label="EWM_DRV_Refresh ()";
+	fn_9_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_9_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_9_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|INT_SYS_DisableIRQGlobal\ ();\l\
+|MEM[(struct\ EWM_Type\ *)1074139136B].SERV\ =\{v\}\ 180;\l\
+|MEM[(struct\ EWM_Type\ *)1074139136B].SERV\ =\{v\}\ 44;\l\
+|INT_SYS_EnableIRQGlobal\ ();\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_9_basic_block_0:s -> fn_9_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_9_basic_block_0:s -> fn_9_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EWM_DRV_GetInputPinAssertLogic" {
+	style="dashed";
+	color="black";
+	label="EWM_DRV_GetInputPinAssertLogic ()";
+	fn_10_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_10_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_10_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_4\ =\{v\}\ MEM[(const\ struct\ EWM_Type\ *)1074139136B].CTRL;\l\
+|_2\ =\ _4\ &\ 4;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_10_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_5\ =\{v\}\ MEM[(const\ struct\ EWM_Type\ *)1074139136B].CTRL;\l\
+|_6\ =\ _5\ &\ 2;\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [35.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [65.00%]\l\
+}"];
+
+	fn_10_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:348966093\<bb\ 4\>:\l\
+}"];
+
+	fn_10_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ returnValue_1\ =\ PHI\ \<_2(2),\ 2(3),\ 1(4)\>\l\
+|return\ returnValue_1;\l\
+}"];
+
+	fn_10_basic_block_0:s -> fn_10_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_3:s -> fn_10_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[35%]"];
+	fn_10_basic_block_3:s -> fn_10_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[65%]"];
+	fn_10_basic_block_4:s -> fn_10_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_5:s -> fn_10_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_10_basic_block_0:s -> fn_10_basic_block_1:n [style="invis",constraint=true];
+}
+}

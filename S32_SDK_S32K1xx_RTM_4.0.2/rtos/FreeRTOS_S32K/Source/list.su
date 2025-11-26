@@ -1,0 +1,5 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/list.c:37:6:vListInitialise	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/list.c:62:6:vListInitialiseItem	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/list.c:74:6:vListInsertEnd	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/list.c:103:6:vListInsert	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/list.c:170:13:uxListRemove	4	static

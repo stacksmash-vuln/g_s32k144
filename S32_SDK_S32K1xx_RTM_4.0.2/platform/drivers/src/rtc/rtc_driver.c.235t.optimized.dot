@@ -1,0 +1,1626 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/rtc/rtc_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_RTC_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_Init ()";
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|g_rtcRuntimeConfig[instance_11(D)].alarmConfig\ =\ 0B;\l\
+|g_rtcRuntimeConfig[instance_11(D)].intConfig\ =\ 0B;\l\
+|g_rtcRuntimeConfig[instance_11(D)].secondsIntConfig\ =\ 0B;\l\
+|g_rtcRuntimeConfig[instance_11(D)].isAlarmTimeNew\ =\ 0;\l\
+|_1\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 2);\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+}"];
+
+	fn_28_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|INT_SYS_DisableIRQ\ (46);\l\
+|_37\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].CR;\l\
+|_38\ =\ _37\ \|\ 1;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].CR\ =\{v\}\ _38;\l\
+|_39\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].CR;\l\
+|_40\ =\ _39\ &\ 4294967294;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].CR\ =\{v\}\ _40;\l\
+|statusCode_19\ =\ RTC_SetTimeSecondsRegister\ (1073991680B,\ 1);\l\
+|INT_SYS_ClearPending\ (46);\l\
+|_2\ =\ rtcUserCfg_21(D)-\>clockOutConfig;\l\
+|RTC_ConfigureClockOut\ (1073991680B,\ _2);\l\
+|_3\ =\ rtcUserCfg_21(D)-\>clockSelect;\l\
+|tmp_31\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].CR;\l\
+|tmp_32\ =\ tmp_31\ &\ 4294967167;\l\
+|_33\ =\ (long\ unsigned\ int)\ _3;\l\
+|_34\ =\ _33\ \<\<\ 7;\l\
+|_35\ =\ _34\ &\ 255;\l\
+|tmp_36\ =\ tmp_32\ \|\ _35;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].CR\ =\{v\}\ tmp_36;\l\
+|_4\ =\ rtcUserCfg_21(D)-\>updateEnable;\l\
+|tmp_27\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].CR;\l\
+|tmp_28\ =\ tmp_27\ &\ 4294967287;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_28_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 4\>:\l\
+|_57\ =\ tmp_28\ \|\ 8;\l\
+}"];
+
+	fn_28_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 5\>:\l\
+|#\ prephitmp_58\ =\ PHI\ \<_57(4),\ tmp_28(3)\>\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].CR\ =\{v\}\ prephitmp_58;\l\
+|_5\ =\ rtcUserCfg_21(D)-\>nonSupervisorAccessEnable;\l\
+|tmp_23\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].CR;\l\
+|tmp_24\ =\ tmp_23\ &\ 4294967291;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_28_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 6\>:\l\
+|_59\ =\ tmp_24\ \|\ 4;\l\
+}"];
+
+	fn_28_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 7\>:\l\
+|#\ prephitmp_60\ =\ PHI\ \<_59(6),\ tmp_24(5)\>\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].CR\ =\{v\}\ prephitmp_60;\l\
+|_6\ =\ rtcUserCfg_21(D)-\>compensation;\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_28_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 8\>:\l\
+|load_dst_45\ =\ MEM\ \<short\ unsigned\ int\>\ [(void\ *)rtcUserCfg_21(D)];\l\
+|bswapdst_56\ =\ load_dst_45\ r\>\>\ 8;\l\
+|_55\ =\ (long\ unsigned\ int)\ bswapdst_56;\l\
+|tmp_41\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].TCR;\l\
+|tmp_42\ =\ tmp_41\ &\ 4294901760;\l\
+|tmp_48\ =\ tmp_42\ \|\ _55;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].TCR\ =\{v\}\ tmp_48;\l\
+}"];
+
+	fn_28_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|#\ statusCode_8\ =\ PHI\ \<statusCode_19(8),\ 1(2),\ statusCode_19(7)\>\l\
+|return\ statusCode_8;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_2:s -> fn_28_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_28_basic_block_2:s -> fn_28_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_28_basic_block_3:s -> fn_28_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_3:s -> fn_28_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_4:s -> fn_28_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_5:s -> fn_28_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_5:s -> fn_28_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_6:s -> fn_28_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_7:s -> fn_28_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_7:s -> fn_28_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_8:s -> fn_28_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_9:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_Deinit" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_Deinit ()";
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 2);\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+}"];
+
+	fn_29_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|INT_SYS_DisableIRQ\ (46);\l\
+|INT_SYS_DisableIRQ\ (47);\l\
+|_9\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].CR;\l\
+|_10\ =\ _9\ \|\ 1;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].CR\ =\{v\}\ _10;\l\
+|_11\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].CR;\l\
+|_12\ =\ _11\ &\ 4294967294;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].CR\ =\{v\}\ _12;\l\
+|INT_SYS_ClearPending\ (46);\l\
+}"];
+
+	fn_29_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ statusCode_2\ =\ PHI\ \<0(3),\ 1(2)\>\l\
+|return\ statusCode_2;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_29_basic_block_3:s -> fn_29_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_4:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_GetDefaultConfig ()";
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>clockSelect\ =\ 0;\l\
+|config_2(D)-\>clockOutConfig\ =\ 0;\l\
+|config_2(D)-\>updateEnable\ =\ 1;\l\
+|config_2(D)-\>nonSupervisorAccessEnable\ =\ 1;\l\
+|config_2(D)-\>compensation\ =\ 0;\l\
+|config_2(D)-\>compensationInterval\ =\ 0;\l\
+|return;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_StartCounter" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_StartCounter ()";
+	fn_32_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_32_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_32_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_9\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 1);\l\
+|if\ (_9\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_32_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|tmp_10\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].CR;\l\
+|_11\ =\ tmp_10\ \>\>\ 3;\l\
+|_12\ =\ (_Bool)\ _11;\l\
+|if\ (_12\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_32_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|tmp_15\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|_16\ =\ (_Bool)\ tmp_15;\l\
+|tmp_17\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|tmp_20\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|if\ (_16\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_32_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 5\>:\l\
+|_18\ =\ tmp_17\ \>\>\ 1;\l\
+|_19\ =\ (_Bool)\ _18;\l\
+|if\ (_19\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_32_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 6\>:\l\
+|_21\ =\ tmp_20\ \>\>\ 4;\l\
+|_22\ =\ (_Bool)\ _21;\l\
+|if\ (_22\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_32_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 7\>:\l\
+|statusCode_8\ =\ RTC_Enable\ (1073991680B);\ [tail\ call]\l\
+}"];
+
+	fn_32_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ statusCode_2\ =\ PHI\ \<1(3),\ statusCode_8(7),\ 1(6)\>\l\
+|return\ statusCode_2;\l\
+}"];
+
+	fn_32_basic_block_0:s -> fn_32_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_4:s -> fn_32_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_4:s -> fn_32_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_5:s -> fn_32_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_5:s -> fn_32_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_6:s -> fn_32_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_6:s -> fn_32_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_7:s -> fn_32_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_8:s -> fn_32_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_32_basic_block_0:s -> fn_32_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_StopCounter" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_StopCounter ()";
+	fn_33_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_33_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_33_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_9\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 1);\l\
+|if\ (_9\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|tmp_10\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].CR;\l\
+|_11\ =\ tmp_10\ \>\>\ 3;\l\
+|_12\ =\ (_Bool)\ _11;\l\
+|if\ (_12\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|tmp_15\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|_16\ =\ (_Bool)\ tmp_15;\l\
+|tmp_17\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|tmp_20\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|if\ (_16\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 5\>:\l\
+|_18\ =\ tmp_17\ \>\>\ 1;\l\
+|_19\ =\ (_Bool)\ _18;\l\
+|if\ (_19\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 6\>:\l\
+|_21\ =\ tmp_20\ \>\>\ 4;\l\
+|_22\ =\ (_Bool)\ _21;\l\
+|if\ (_22\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 7\>:\l\
+|statusCode_8\ =\ RTC_Disable\ (1073991680B);\ [tail\ call]\l\
+}"];
+
+	fn_33_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ statusCode_2\ =\ PHI\ \<1(3),\ statusCode_8(7),\ 1(6)\>\l\
+|return\ statusCode_2;\l\
+}"];
+
+	fn_33_basic_block_0:s -> fn_33_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_2:s -> fn_33_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_2:s -> fn_33_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_3:s -> fn_33_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_3:s -> fn_33_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_4:s -> fn_33_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_4:s -> fn_33_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_5:s -> fn_33_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_5:s -> fn_33_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_6:s -> fn_33_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_6:s -> fn_33_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_7:s -> fn_33_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_8:s -> fn_33_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_33_basic_block_0:s -> fn_33_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_ConfigureRegisterLock" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_ConfigureRegisterLock ()";
+	fn_36_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_36_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_36_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ lockConfig_14(D)-\>controlRegisterLock;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [67.00%]\l\
+}"];
+
+	fn_36_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|statusCode_16\ =\ RTC_ConfigureRegisterLock\ (1073991680B,\ 2);\l\
+}"];
+
+	fn_36_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ statusCode_5\ =\ PHI\ \<statusCode_16(3),\ 0(2)\>\l\
+|_2\ =\ lockConfig_14(D)-\>statusRegisterLock;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_36_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 5\>:\l\
+|statusCode_18\ =\ RTC_ConfigureRegisterLock\ (1073991680B,\ 1);\l\
+}"];
+
+	fn_36_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ statusCode_6\ =\ PHI\ \<statusCode_18(5),\ statusCode_5(4)\>\l\
+|_3\ =\ lockConfig_14(D)-\>timeCompensationRegisterLock;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [67.00%]\l\
+}"];
+
+	fn_36_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 7\>:\l\
+|statusCode_20\ =\ RTC_ConfigureRegisterLock\ (1073991680B,\ 3);\l\
+}"];
+
+	fn_36_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ statusCode_7\ =\ PHI\ \<statusCode_20(7),\ statusCode_6(6)\>\l\
+|_4\ =\ lockConfig_14(D)-\>lockRegisterLock;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [67.00%]\l\
+}"];
+
+	fn_36_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 9\>:\l\
+|statusCode_22\ =\ RTC_ConfigureRegisterLock\ (1073991680B,\ 0);\ [tail\ call]\l\
+}"];
+
+	fn_36_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|#\ statusCode_8\ =\ PHI\ \<statusCode_22(9),\ statusCode_7(8)\>\l\
+|return\ statusCode_8;\l\
+}"];
+
+	fn_36_basic_block_0:s -> fn_36_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_36_basic_block_3:s -> fn_36_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_4:s -> fn_36_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_36_basic_block_4:s -> fn_36_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_36_basic_block_5:s -> fn_36_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_6:s -> fn_36_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_36_basic_block_6:s -> fn_36_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_36_basic_block_7:s -> fn_36_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_8:s -> fn_36_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_36_basic_block_8:s -> fn_36_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_36_basic_block_9:s -> fn_36_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_10:s -> fn_36_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_36_basic_block_0:s -> fn_36_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_GetRegisterLock" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_GetRegisterLock ()";
+	fn_37_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_37_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_37_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 0);\l\
+|lockConfig_7(D)-\>lockRegisterLock\ =\ _1;\l\
+|_2\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 2);\l\
+|lockConfig_7(D)-\>controlRegisterLock\ =\ _2;\l\
+|_3\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 1);\l\
+|lockConfig_7(D)-\>statusRegisterLock\ =\ _3;\l\
+|_4\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 3);\l\
+|lockConfig_7(D)-\>timeCompensationRegisterLock\ =\ _4;\l\
+|return;\l\
+}"];
+
+	fn_37_basic_block_0:s -> fn_37_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_2:s -> fn_37_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_37_basic_block_0:s -> fn_37_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_ConfigureTimeCompensation" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_ConfigureTimeCompensation ()";
+	fn_38_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_38_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_38_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 3);\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_38_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|tmp_8\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].TCR;\l\
+|tmp_9\ =\ tmp_8\ &\ 4294901760;\l\
+|_10\ =\ (long\ unsigned\ int)\ compensation_6(D);\l\
+|_11\ =\ _10\ &\ 255;\l\
+|_13\ =\ (long\ unsigned\ int)\ compInterval_7(D);\l\
+|_14\ =\ _13\ \<\<\ 8;\l\
+|_17\ =\ tmp_9\ \|\ _14;\l\
+|tmp_15\ =\ _11\ \|\ _17;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].TCR\ =\{v\}\ tmp_15;\l\
+}"];
+
+	fn_38_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ statusCode_2\ =\ PHI\ \<0(3),\ 1(2)\>\l\
+|return\ statusCode_2;\l\
+}"];
+
+	fn_38_basic_block_0:s -> fn_38_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_38_basic_block_3:s -> fn_38_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_4:s -> fn_38_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_38_basic_block_0:s -> fn_38_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_GetTimeCompensation" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_GetTimeCompensation ()";
+	fn_39_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_39_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_39_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_4\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].TCR;\l\
+|_5\ =\ tmp_4\ \>\>\ 16;\l\
+|_6\ =\ (signed\ char)\ _5;\l\
+|*compensation_2(D)\ =\ _6;\l\
+|_7\ =\ tmp_4\ \>\>\ 24;\l\
+|_8\ =\ (unsigned\ char)\ _7;\l\
+|*compInterval_3(D)\ =\ _8;\l\
+|return;\l\
+}"];
+
+	fn_39_basic_block_0:s -> fn_39_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_2:s -> fn_39_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_39_basic_block_0:s -> fn_39_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_ConvertSecondsToTimeDate" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_ConvertSecondsToTimeDate ()";
+	subgraph cluster_40_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_40_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:853986013\<bb\ 13\>:\l\
+|#\ numberOfDays_75\ =\ PHI\ \<numberOfDays_51(12),\ numberOfDays_44(18)\>\l\
+|#\ ivtmp.95_8\ =\ PHI\ \<1(12),\ ivtmp.95_23(18)\>\l\
+|_68\ =\ (unsigned\ char)\ ivtmp.95_8;\l\
+|if\ (isYearLeap_54\ !=\ 0)\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+}"];
+
+	fn_40_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:426993006\<bb\ 14\>:\l\
+|_15\ =\ MEM[symbol:\ LY,\ index:\ ivtmp.95_8,\ offset:\ 0B];\l\
+|iftmp.5_42\ =\ (long\ unsigned\ int)\ _15;\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:426993006\<bb\ 15\>:\l\
+|_17\ =\ MEM[symbol:\ ULY,\ index:\ ivtmp.95_8,\ offset:\ 0B];\l\
+|iftmp.5_41\ =\ (long\ unsigned\ int)\ _17;\l\
+}"];
+
+	fn_40_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:853986013\<bb\ 16\>:\l\
+|#\ iftmp.5_25\ =\ PHI\ \<iftmp.5_42(14),\ iftmp.5_41(15)\>\l\
+|if\ (iftmp.5_25\ \>=\ numberOfDays_75)\l\
+\ \ goto\ \<bb\ 17\>;\ [5.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [94.50%]\l\
+}"];
+
+	fn_40_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:807016783\<bb\ 18\>:\l\
+|numberOfDays_44\ =\ numberOfDays_75\ -\ iftmp.5_25;\l\
+|ivtmp.95_23\ =\ ivtmp.95_8\ +\ 1;\l\
+|if\ (ivtmp.95_23\ !=\ 13)\l\
+\ \ goto\ \<bb\ 13\>;\ [91.18%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [8.82%]\l\
+}"];
+
+	}
+	subgraph cluster_40_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_40_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 8\>:\l\
+|#\ daysInYear_57\ =\ PHI\ \<daysInYear_70(7),\ 365(21)\>\l\
+|#\ numberOfDays_43\ =\ PHI\ \<numberOfDays_49(7),\ numberOfDays_50(21)\>\l\
+|#\ prephitmp_24\ =\ PHI\ \<_9(7),\ 1971(21)\>\l\
+|_12\ =\ (long\ unsigned\ int)\ daysInYear_57;\l\
+|if\ (_12\ \<=\ numberOfDays_43)\l\
+\ \ goto\ \<bb\ 3\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [11.00%]\l\
+}"];
+
+	fn_40_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:850510901\<bb\ 3\>:\l\
+|_9\ =\ prephitmp_24\ +\ 1;\l\
+|timeDate_30(D)-\>year\ =\ _9;\l\
+|numberOfDays_49\ =\ numberOfDays_43\ -\ _12;\l\
+|_40\ =\ _9\ &\ 3;\l\
+|if\ (_40\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [43.82%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [56.18%]\l\
+}"];
+
+	fn_40_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:850510900\<bb\ 7\>:\l\
+|#\ daysInYear_70\ =\ PHI\ \<366(4),\ 365(3),\ 366(5),\ 365(6)\>\l\
+}"];
+
+	fn_40_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 4\>:\l\
+|_55\ =\ _9\ %\ 100;\l\
+|if\ (_55\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_40_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:238907556\<bb\ 5\>:\l\
+|_56\ =\ _9\ %\ 400;\l\
+|if\ (_56\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_40_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:119453778\<bb\ 6\>:\l\
+}"];
+
+	}
+	fn_40_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_40_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_40_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|timeDate_30(D)-\>year\ =\ 1970;\l\
+|_1\ =\ *seconds_32(D);\l\
+|numberOfDays_33\ =\ _1\ /\ 86400;\l\
+|tempSeconds_34\ =\ _1\ %\ 86400;\l\
+|_2\ =\ tempSeconds_34\ /\ 3600;\l\
+|_3\ =\ (short\ unsigned\ int)\ _2;\l\
+|timeDate_30(D)-\>hour\ =\ _3;\l\
+|tempSeconds_36\ =\ tempSeconds_34\ %\ 3600;\l\
+|_4\ =\ tempSeconds_36\ /\ 60;\l\
+|_5\ =\ (short\ unsigned\ int)\ _4;\l\
+|timeDate_30(D)-\>minutes\ =\ _5;\l\
+|_6\ =\ tempSeconds_36\ %\ 60;\l\
+|_7\ =\ (unsigned\ char)\ _6;\l\
+|timeDate_30(D)-\>seconds\ =\ _7;\l\
+|if\ (_1\ \>\ 31535999)\l\
+\ \ goto\ \<bb\ 21\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [11.00%]\l\
+}"];
+
+	fn_40_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 9\>:\l\
+|numberOfDays_39\ =\ numberOfDays_43\ +\ 1;\l\
+|_52\ =\ prephitmp_24\ &\ 3;\l\
+|if\ (_52\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [43.82%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [56.18%]\l\
+}"];
+
+	fn_40_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 10\>:\l\
+|_58\ =\ prephitmp_24\ %\ 100;\l\
+|if\ (_58\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_40_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29527900\<bb\ 11\>:\l\
+|_59\ =\ prephitmp_24\ %\ 400;\l\
+|_60\ =\ _59\ ==\ 0;\l\
+}"];
+
+	fn_40_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 12\>:\l\
+|#\ isYearLeap_54\ =\ PHI\ \<0(20),\ _60(11),\ 0(9),\ 1(10)\>\l\
+|#\ numberOfDays_51\ =\ PHI\ \<numberOfDays_22(20),\ numberOfDays_39(11),\ numberOfDays_39(9),\ numberOfDays_39(10)\>\l\
+}"];
+
+	fn_40_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:46969230\<bb\ 17\>:\l\
+|_18\ =\ (short\ unsigned\ int)\ _68;\l\
+|timeDate_30(D)-\>month\ =\ _18;\l\
+goto\ \<bb\ 19\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111601\<bb\ 19\>:\l\
+|#\ numberOfDays_62\ =\ PHI\ \<numberOfDays_75(17),\ numberOfDays_44(18)\>\l\
+|_20\ =\ (short\ unsigned\ int)\ numberOfDays_62;\l\
+|timeDate_30(D)-\>day\ =\ _20;\l\
+|return;\l\
+}"];
+
+	fn_40_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:12992276\<bb\ 20\>:\l\
+|numberOfDays_22\ =\ numberOfDays_33\ +\ 1;\l\
+goto\ \<bb\ 12\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 21\>:\l\
+|timeDate_30(D)-\>year\ =\ 1971;\l\
+|numberOfDays_50\ =\ numberOfDays_33\ +\ 4294966931;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_0:s -> fn_40_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_2:s -> fn_40_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_40_basic_block_2:s -> fn_40_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_40_basic_block_3:s -> fn_40_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[43%]"];
+	fn_40_basic_block_3:s -> fn_40_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[56%]"];
+	fn_40_basic_block_4:s -> fn_40_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_40_basic_block_4:s -> fn_40_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_40_basic_block_5:s -> fn_40_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_40_basic_block_5:s -> fn_40_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_40_basic_block_6:s -> fn_40_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_7:s -> fn_40_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_40_basic_block_8:s -> fn_40_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_40_basic_block_8:s -> fn_40_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_40_basic_block_9:s -> fn_40_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[43%]"];
+	fn_40_basic_block_9:s -> fn_40_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[56%]"];
+	fn_40_basic_block_10:s -> fn_40_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_40_basic_block_10:s -> fn_40_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_40_basic_block_11:s -> fn_40_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_12:s -> fn_40_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_13:s -> fn_40_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_40_basic_block_13:s -> fn_40_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_40_basic_block_14:s -> fn_40_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_15:s -> fn_40_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_16:s -> fn_40_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_40_basic_block_16:s -> fn_40_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_40_basic_block_17:s -> fn_40_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_18:s -> fn_40_basic_block_13:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[91%]"];
+	fn_40_basic_block_18:s -> fn_40_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[8%]"];
+	fn_40_basic_block_19:s -> fn_40_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_40_basic_block_20:s -> fn_40_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_21:s -> fn_40_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_0:s -> fn_40_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_GetCurrentTimeDate" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_GetCurrentTimeDate ()";
+	fn_34_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_34_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_34_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_10\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].TSR;\l\
+|tmp_9\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].TSR;\l\
+|seconds\ =\ tmp_9;\l\
+|if\ (tmp_9\ !=\ tmp_10)\l\
+\ \ goto\ \<bb\ 3\>;\ [79.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [20.24%]\l\
+}"];
+
+	fn_34_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:856416481\<bb\ 3\>:\l\
+|tmp_11\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].TSR;\l\
+|if\ (tmp_9\ !=\ tmp_11)\l\
+\ \ goto\ \<bb\ 5\>;\ [79.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [20.24%]\l\
+}"];
+
+	fn_34_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:390664039\<bb\ 4\>:\l\
+|RTC_DRV_ConvertSecondsToTimeDate\ (&seconds,\ currentTime_5(D));\l\
+}"];
+
+	fn_34_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ statusCode_1\ =\ PHI\ \<0(4),\ 1(3)\>\l\
+|seconds\ =\{v\}\ \{CLOBBER\};\l\
+|return\ statusCode_1;\l\
+}"];
+
+	fn_34_basic_block_0:s -> fn_34_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_2:s -> fn_34_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_34_basic_block_2:s -> fn_34_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_34_basic_block_3:s -> fn_34_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_34_basic_block_3:s -> fn_34_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_34_basic_block_4:s -> fn_34_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_5:s -> fn_34_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_34_basic_block_0:s -> fn_34_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_ConvertTimeDateToSeconds" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_ConvertTimeDateToSeconds ()";
+	subgraph cluster_41_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_41_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630227\<bb\ 9\>:\l\
+|#\ year_52\ =\ PHI\ \<year_47(8),\ 1970(2)\>\l\
+|#\ prephitmp_57\ =\ PHI\ \<prephitmp_73(8),\ _5(2)\>\l\
+|year_47\ =\ year_52\ +\ 1;\l\
+|if\ (_2\ !=\ year_47)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [11.00%]\l\
+}"];
+
+	fn_41_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:850510901\<bb\ 4\>:\l\
+|_42\ =\ year_47\ &\ 3;\l\
+|if\ (_42\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [43.82%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [56.18%]\l\
+}"];
+
+	fn_41_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:731057123\<bb\ 8\>:\l\
+|#\ prephitmp_73\ =\ PHI\ \<prephitmp_57(4),\ _7(7),\ prephitmp_57(6)\>\l\
+}"];
+
+	fn_41_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 5\>:\l\
+|_50\ =\ year_47\ %\ 100;\l\
+|if\ (_50\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_41_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:238907557\<bb\ 7\>:\l\
+|_7\ =\ prephitmp_57\ +\ 86400;\l\
+}"];
+
+	fn_41_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:238907556\<bb\ 6\>:\l\
+|_51\ =\ year_47\ %\ 400;\l\
+|if\ (_51\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	}
+	fn_41_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_41_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_41_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|_2\ =\ timeDate_40(D)-\>year;\l\
+|_3\ =\ (long\ unsigned\ int)\ _2;\l\
+|_4\ =\ _3\ +\ 4294965326;\l\
+|_5\ =\ _4\ *\ 31536000;\l\
+|*seconds_39(D)\ =\ _5;\l\
+|if\ (_2\ \>\ 1970)\l\
+\ \ goto\ \<bb\ 9\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [11.00%]\l\
+}"];
+
+	fn_41_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:12992276\<bb\ 3\>:\l\
+|pretmp_70\ =\ timeDate_40(D)-\>month;\l\
+goto\ \<bb\ 17\>;\ [100.00%]\l\
+}"];
+
+	fn_41_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 10\>:\l\
+|_48\ =\ _2\ &\ 3;\l\
+|if\ (_48\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [43.82%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [56.18%]\l\
+}"];
+
+	fn_41_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:46063524\<bb\ 11\>:\l\
+|pretmp_1\ =\ timeDate_40(D)-\>month;\l\
+goto\ \<bb\ 17\>;\ [100.00%]\l\
+}"];
+
+	fn_41_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 12\>:\l\
+|_53\ =\ _2\ %\ 100;\l\
+|if\ (_53\ !=\ 0)\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+}"];
+
+	fn_41_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29527900\<bb\ 13\>:\l\
+|_54\ =\ _2\ %\ 400;\l\
+|if\ (_54\ !=\ 0)\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+}"];
+
+	fn_41_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:14763950\<bb\ 14\>:\l\
+|pretmp_69\ =\ timeDate_40(D)-\>month;\l\
+goto\ \<bb\ 17\>;\ [100.00%]\l\
+}"];
+
+	fn_41_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29527900\<bb\ 15\>:\l\
+|_8\ =\ timeDate_40(D)-\>month;\l\
+|if\ (_8\ \>\ 2)\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+}"];
+
+	fn_41_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:14763950\<bb\ 16\>:\l\
+|_10\ =\ prephitmp_57\ +\ 86400;\l\
+}"];
+
+	fn_41_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 17\>:\l\
+|#\ prephitmp_71\ =\ PHI\ \<pretmp_1(11),\ pretmp_69(14),\ _8(16),\ pretmp_70(3),\ _8(15)\>\l\
+|#\ prephitmp_72\ =\ PHI\ \<prephitmp_57(11),\ prephitmp_57(14),\ _10(16),\ _5(3),\ prephitmp_57(15)\>\l\
+|_13\ =\ (int)\ prephitmp_71;\l\
+|_14\ =\ MONTH_DAYS[_13];\l\
+|_15\ =\ (long\ unsigned\ int)\ _14;\l\
+|_18\ =\ timeDate_40(D)-\>day;\l\
+|_19\ =\ (long\ unsigned\ int)\ _18;\l\
+|_67\ =\ _15\ +\ _19;\l\
+|_64\ =\ _67\ *\ 86400;\l\
+|_23\ =\ timeDate_40(D)-\>hour;\l\
+|_24\ =\ (long\ unsigned\ int)\ _23;\l\
+|_25\ =\ _24\ *\ 3600;\l\
+|_26\ =\ timeDate_40(D)-\>minutes;\l\
+|_27\ =\ (long\ unsigned\ int)\ _26;\l\
+|_28\ =\ _27\ *\ 60;\l\
+|_30\ =\ timeDate_40(D)-\>seconds;\l\
+|_31\ =\ (long\ unsigned\ int)\ _30;\l\
+|_68\ =\ _31\ +\ 4294880896;\l\
+|_62\ =\ _25\ +\ _68;\l\
+|_61\ =\ _28\ +\ _62;\l\
+|_49\ =\ _61\ +\ prephitmp_72;\l\
+|_33\ =\ _49\ +\ _64;\l\
+|*seconds_39(D)\ =\ _33;\l\
+|return;\l\
+}"];
+
+	fn_41_basic_block_0:s -> fn_41_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_2:s -> fn_41_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_41_basic_block_2:s -> fn_41_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_41_basic_block_3:s -> fn_41_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_4:s -> fn_41_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[43%]"];
+	fn_41_basic_block_4:s -> fn_41_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[56%]"];
+	fn_41_basic_block_5:s -> fn_41_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_5:s -> fn_41_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_6:s -> fn_41_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_6:s -> fn_41_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_7:s -> fn_41_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_8:s -> fn_41_basic_block_9:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_41_basic_block_9:s -> fn_41_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_41_basic_block_9:s -> fn_41_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_41_basic_block_10:s -> fn_41_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[43%]"];
+	fn_41_basic_block_10:s -> fn_41_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[56%]"];
+	fn_41_basic_block_11:s -> fn_41_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_12:s -> fn_41_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_12:s -> fn_41_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_13:s -> fn_41_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_13:s -> fn_41_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_14:s -> fn_41_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_15:s -> fn_41_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_15:s -> fn_41_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_16:s -> fn_41_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_17:s -> fn_41_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_41_basic_block_0:s -> fn_41_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_IsTimeDateCorrectFormat" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_IsTimeDateCorrectFormat ()";
+	fn_42_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_42_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_42_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ timeDate_15(D)-\>year;\l\
+|_16\ =\ _1\ &\ 3;\l\
+|if\ (_16\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_42_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_18\ =\ _1\ %\ 100;\l\
+|if\ (_18\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_42_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|_19\ =\ _1\ %\ 400;\l\
+|if\ (_19\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_42_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 5\>:\l\
+}"];
+
+	fn_42_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ iftmp.8_13\ =\ PHI\ \<&LY(4),\ &LY(3),\ &ULY(2),\ &ULY(5)\>\l\
+|_2\ =\ _1\ +\ 63566;\l\
+|if\ (_2\ \>\ 129)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_42_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 7\>:\l\
+|_3\ =\ timeDate_15(D)-\>month;\l\
+|_25\ =\ _3\ +\ 65535;\l\
+|if\ (_25\ \>\ 11)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_42_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 8\>:\l\
+|_4\ =\ timeDate_15(D)-\>day;\l\
+|_27\ =\ _4\ +\ 65535;\l\
+|if\ (_27\ \>\ 30)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_42_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:33554432\<bb\ 9\>:\l\
+|_5\ =\ timeDate_15(D)-\>hour;\l\
+|if\ (_5\ \>\ 23)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_42_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:16777216\<bb\ 10\>:\l\
+|_6\ =\ timeDate_15(D)-\>minutes;\l\
+|if\ (_6\ \>\ 59)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_42_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:8388608\<bb\ 11\>:\l\
+|_7\ =\ timeDate_15(D)-\>seconds;\l\
+|if\ (_7\ \>\ 59)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_42_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:4194304\<bb\ 12\>:\l\
+|_8\ =\ (sizetype)\ _3;\l\
+|_9\ =\ iftmp.8_13\ +\ _8;\l\
+|_10\ =\ *_9;\l\
+|_11\ =\ (short\ unsigned\ int)\ _10;\l\
+|_28\ =\ _4\ \<=\ _11;\l\
+}"];
+
+	fn_42_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 13\>:\l\
+|#\ returnCode_12\ =\ PHI\ \<0(6),\ _28(12),\ 0(9),\ 0(10),\ 0(8),\ 0(7),\ 0(11)\>\l\
+|return\ returnCode_12;\l\
+}"];
+
+	fn_42_basic_block_0:s -> fn_42_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_2:s -> fn_42_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_2:s -> fn_42_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_3:s -> fn_42_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_3:s -> fn_42_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_4:s -> fn_42_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_4:s -> fn_42_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_5:s -> fn_42_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_6:s -> fn_42_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_6:s -> fn_42_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_7:s -> fn_42_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_7:s -> fn_42_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_8:s -> fn_42_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_8:s -> fn_42_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_9:s -> fn_42_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_9:s -> fn_42_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_10:s -> fn_42_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_10:s -> fn_42_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_11:s -> fn_42_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_11:s -> fn_42_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_42_basic_block_12:s -> fn_42_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_13:s -> fn_42_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_42_basic_block_0:s -> fn_42_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_SetTimeDate" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_SetTimeDate ()";
+	fn_35_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_35_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_35_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|seconds\ =\ 0;\l\
+|_1\ =\ RTC_DRV_IsTimeDateCorrectFormat\ (time_8(D));\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [67.00%]\l\
+}"];
+
+	fn_35_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:819063687\<bb\ 3\>:\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_35_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|_15\ =\ RTC_IsRegisterLocked\ (1073991680B,\ 1);\l\
+|if\ (_15\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_35_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 5\>:\l\
+|tmp_16\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].CR;\l\
+|_17\ =\ tmp_16\ \>\>\ 3;\l\
+|_18\ =\ (_Bool)\ _17;\l\
+|if\ (_18\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_35_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 6\>:\l\
+|tmp_21\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|_22\ =\ (_Bool)\ tmp_21;\l\
+|tmp_23\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|tmp_26\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|if\ (_22\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_35_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:44291850\<bb\ 7\>:\l\
+|_24\ =\ tmp_23\ \>\>\ 1;\l\
+|_25\ =\ (_Bool)\ _24;\l\
+|if\ (_25\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_35_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22145925\<bb\ 8\>:\l\
+|_27\ =\ tmp_26\ \>\>\ 4;\l\
+|_28\ =\ (_Bool)\ _27;\l\
+|if\ (_28\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_35_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930483\<bb\ 9\>:\l\
+|RTC_DRV_ConvertTimeDateToSeconds\ (time_8(D),\ &seconds);\l\
+|seconds.4_3\ =\ seconds;\l\
+|statusCode_13\ =\ RTC_SetTimeSecondsRegister\ (1073991680B,\ seconds.4_3);\l\
+}"];
+
+	fn_35_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|#\ statusCode_4\ =\ PHI\ \<statusCode_13(9),\ 1(3)\>\l\
+|seconds\ =\{v\}\ \{CLOBBER\};\l\
+|return\ statusCode_4;\l\
+}"];
+
+	fn_35_basic_block_0:s -> fn_35_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_35_basic_block_3:s -> fn_35_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_4:s -> fn_35_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_4:s -> fn_35_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_5:s -> fn_35_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_5:s -> fn_35_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_6:s -> fn_35_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_6:s -> fn_35_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_7:s -> fn_35_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_7:s -> fn_35_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_8:s -> fn_35_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_8:s -> fn_35_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_9:s -> fn_35_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_10:s -> fn_35_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_35_basic_block_0:s -> fn_35_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_IsYearLeap" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_IsYearLeap ()";
+	fn_43_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_43_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_43_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ year_4(D)\ &\ 3;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_43_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_6\ =\ year_4(D)\ %\ 100;\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_43_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|_7\ =\ year_4(D)\ %\ 400;\l\
+|_8\ =\ _7\ ==\ 0;\l\
+}"];
+
+	fn_43_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ isYearLeap_2\ =\ PHI\ \<0(2),\ _8(4),\ 1(3)\>\l\
+|return\ isYearLeap_2;\l\
+}"];
+
+	fn_43_basic_block_0:s -> fn_43_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_2:s -> fn_43_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_2:s -> fn_43_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_3:s -> fn_43_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_3:s -> fn_43_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_4:s -> fn_43_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_5:s -> fn_43_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_43_basic_block_0:s -> fn_43_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_IRQHandler ()";
+	fn_44_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_44_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_44_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_24\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|_25\ =\ tmp_24\ \>\>\ 2;\l\
+|_26\ =\ (_Bool)\ _25;\l\
+|if\ (_26\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+}"];
+
+	fn_44_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|alarmConfig_15\ =\ g_rtcRuntimeConfig[instance_14(D)].alarmConfig;\l\
+|if\ (alarmConfig_15\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [30.00%]\l\
+}"];
+
+	fn_44_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:547608326\<bb\ 4\>:\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_44_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 5\>:\l\
+|_1\ =\ alarmConfig_15-\>numberOfRepeats;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_44_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904820\<bb\ 6\>:\l\
+|_2\ =\ alarmConfig_15-\>repeatForever;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_44_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904820\<bb\ 7\>:\l\
+|tmp_27\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].TSR;\l\
+|_3\ =\ alarmConfig_15-\>repetitionInterval;\l\
+|_39\ =\ tmp_27\ +\ 4294967295;\l\
+|tempSeconds_19\ =\ _3\ +\ _39;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].TAR\ =\{v\}\ tempSeconds_19;\l\
+|g_rtcRuntimeConfig[instance_14(D)].isAlarmTimeNew\ =\ 1;\l\
+|_5\ =\ alarmConfig_15-\>repeatForever;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [25.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [75.00%]\l\
+}"];
+
+	fn_44_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:140928615\<bb\ 8\>:\l\
+|iftmp.9_21\ =\ _1\ +\ 4294967295;\l\
+}"];
+
+	fn_44_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:281857230\<bb\ 9\>:\l\
+|#\ iftmp.9_10\ =\ PHI\ \<iftmp.9_21(8),\ _1(17),\ 0(7)\>\l\
+|alarmConfig_15-\>numberOfRepeats\ =\ iftmp.9_10;\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_44_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:93952410\<bb\ 10\>:\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].TAR\ =\{v\}\ 0;\l\
+|g_rtcRuntimeConfig[instance_14(D)].isAlarmTimeNew\ =\ 0;\l\
+}"];
+
+	fn_44_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 11\>:\l\
+|_6\ =\ alarmConfig_15-\>alarmCallback;\l\
+|if\ (_6\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 12\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [30.00%]\l\
+}"];
+
+	fn_44_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:263066749\<bb\ 12\>:\l\
+|_7\ =\ alarmConfig_15-\>callbackParams;\l\
+|_6\ (_7);\ [tail\ call]\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_44_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 13\>:\l\
+|intConfig_16\ =\ g_rtcRuntimeConfig[instance_14(D)].intConfig;\l\
+|if\ (intConfig_16\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 14\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [30.00%]\l\
+}"];
+
+	fn_44_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 14\>:\l\
+|_8\ =\ intConfig_16-\>rtcCallback;\l\
+|if\ (_8\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 15\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [30.00%]\l\
+}"];
+
+	fn_44_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:263066749\<bb\ 15\>:\l\
+|_9\ =\ intConfig_16-\>callbackParams;\l\
+|_8\ (_9);\ [tail\ call]\l\
+}"];
+
+	fn_44_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 16\>:\l\
+|return;\l\
+}"];
+
+	fn_44_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:93952410\<bb\ 17\>:\l\
+|tmp_33\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].TSR;\l\
+|_37\ =\ alarmConfig_15-\>repetitionInterval;\l\
+|_38\ =\ tmp_33\ +\ 4294967295;\l\
+|tempSeconds_36\ =\ _37\ +\ _38;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].TAR\ =\{v\}\ tempSeconds_36;\l\
+|g_rtcRuntimeConfig[instance_14(D)].isAlarmTimeNew\ =\ 1;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_44_basic_block_0:s -> fn_44_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_2:s -> fn_44_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_44_basic_block_2:s -> fn_44_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_44_basic_block_3:s -> fn_44_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_44_basic_block_3:s -> fn_44_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_44_basic_block_4:s -> fn_44_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_5:s -> fn_44_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_44_basic_block_5:s -> fn_44_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_44_basic_block_6:s -> fn_44_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_44_basic_block_6:s -> fn_44_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_44_basic_block_7:s -> fn_44_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_44_basic_block_7:s -> fn_44_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_44_basic_block_8:s -> fn_44_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_9:s -> fn_44_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_10:s -> fn_44_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_11:s -> fn_44_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_44_basic_block_11:s -> fn_44_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_44_basic_block_12:s -> fn_44_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_13:s -> fn_44_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_44_basic_block_13:s -> fn_44_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_44_basic_block_14:s -> fn_44_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_44_basic_block_14:s -> fn_44_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_44_basic_block_15:s -> fn_44_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_16:s -> fn_44_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_44_basic_block_17:s -> fn_44_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_0:s -> fn_44_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_SecondsIRQHandler" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_SecondsIRQHandler ()";
+	fn_45_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_45_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_45_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|intCfg_6\ =\ g_rtcRuntimeConfig[instance_5(D)].secondsIntConfig;\l\
+|if\ (intCfg_6\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [30.00%]\l\
+}"];
+
+	fn_45_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 3\>:\l\
+|_1\ =\ intCfg_6-\>rtcSecondsCallback;\l\
+|if\ (_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [30.00%]\l\
+}"];
+
+	fn_45_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:526133498\<bb\ 4\>:\l\
+|_2\ =\ intCfg_6-\>secondsCallbackParams;\l\
+|_1\ (_2);\ [tail\ call]\l\
+}"];
+
+	fn_45_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_45_basic_block_0:s -> fn_45_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_45_basic_block_2:s -> fn_45_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_45_basic_block_2:s -> fn_45_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_45_basic_block_3:s -> fn_45_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_45_basic_block_3:s -> fn_45_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_45_basic_block_4:s -> fn_45_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_45_basic_block_5:s -> fn_45_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_45_basic_block_0:s -> fn_45_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_ConfigureFaultInt" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_ConfigureFaultInt ()";
+	fn_46_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_46_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_46_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|INT_SYS_DisableIRQ\ (46);\l\
+|g_rtcRuntimeConfig[instance_5(D)].intConfig\ =\ intConfig_6(D);\l\
+|_1\ =\ intConfig_6(D)-\>overflowIntEnable;\l\
+|tmp_13\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].IER;\l\
+|tmp_14\ =\ tmp_13\ &\ 4294967293;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_46_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 3\>:\l\
+|_11\ =\ tmp_14\ \|\ 2;\l\
+}"];
+
+	fn_46_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ prephitmp_20\ =\ PHI\ \<_11(3),\ tmp_14(2)\>\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].IER\ =\{v\}\ prephitmp_20;\l\
+|_2\ =\ intConfig_6(D)-\>timeInvalidIntEnable;\l\
+|tmp_9\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].IER;\l\
+|tmp_10\ =\ tmp_9\ &\ 4294967294;\l\
+|_19\ =\ (long\ unsigned\ int)\ _2;\l\
+|tmp_12\ =\ tmp_10\ \|\ _19;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].IER\ =\{v\}\ tmp_12;\l\
+|INT_SYS_EnableIRQ\ (46);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_46_basic_block_0:s -> fn_46_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_46_basic_block_2:s -> fn_46_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_46_basic_block_2:s -> fn_46_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_46_basic_block_3:s -> fn_46_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_46_basic_block_4:s -> fn_46_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_46_basic_block_0:s -> fn_46_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_ConfigureSecondsInt" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_ConfigureSecondsInt ()";
+	fn_47_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_47_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_47_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|INT_SYS_DisableIRQ\ (47);\l\
+|g_rtcRuntimeConfig[instance_5(D)].secondsIntConfig\ =\ intConfig_6(D);\l\
+|_1\ =\ intConfig_6(D)-\>secondIntConfig;\l\
+|tmp_13\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].IER;\l\
+|tmp_14\ =\ tmp_13\ &\ 4294508543;\l\
+|_15\ =\ (long\ unsigned\ int)\ _1;\l\
+|_16\ =\ _15\ \<\<\ 16;\l\
+|_17\ =\ _16\ &\ 458752;\l\
+|tmp_18\ =\ tmp_14\ \|\ _17;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].IER\ =\{v\}\ tmp_18;\l\
+|_2\ =\ intConfig_6(D)-\>secondIntEnable;\l\
+|tmp_9\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].IER;\l\
+|tmp_10\ =\ tmp_9\ &\ 4294967279;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_47_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 3\>:\l\
+|_21\ =\ tmp_10\ \|\ 16;\l\
+}"];
+
+	fn_47_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ prephitmp_22\ =\ PHI\ \<_21(3),\ tmp_10(2)\>\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].IER\ =\{v\}\ prephitmp_22;\l\
+|INT_SYS_EnableIRQ\ (47);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_47_basic_block_0:s -> fn_47_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_47_basic_block_2:s -> fn_47_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_47_basic_block_2:s -> fn_47_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_47_basic_block_3:s -> fn_47_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_47_basic_block_4:s -> fn_47_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_47_basic_block_0:s -> fn_47_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_ConfigureAlarm" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_ConfigureAlarm ()";
+	fn_48_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_48_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_48_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ &alarmConfig_8(D)-\>alarmTime;\l\
+|_2\ =\ RTC_DRV_IsTimeDateCorrectFormat\ (_1);\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [67.00%]\l\
+}"];
+
+	fn_48_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:956811341\<bb\ 3\>:\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_48_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|RTC_DRV_ConvertTimeDateToSeconds\ (_1,\ &alarmTime);\l\
+|tmp_10\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].TSR;\l\
+|alarmTime.13_3\ =\ alarmTime;\l\
+|if\ (alarmTime.13_3\ \>\ tmp_10)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [67.00%]\l\
+}"];
+
+	fn_48_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930483\<bb\ 5\>:\l\
+|INT_SYS_DisableIRQ\ (46);\l\
+|g_rtcRuntimeConfig[instance_13(D)].alarmConfig\ =\ alarmConfig_8(D);\l\
+|alarmTime.14_4\ =\ alarmTime;\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].TAR\ =\{v\}\ alarmTime.14_4;\l\
+|_5\ =\ alarmConfig_8(D)-\>alarmIntEnable;\l\
+|tmp_17\ =\{v\}\ MEM[(struct\ RTC_Type\ *)1073991680B].IER;\l\
+|tmp_18\ =\ tmp_17\ &\ 4294967291;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_48_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58465242\<bb\ 6\>:\l\
+|_23\ =\ tmp_18\ \|\ 4;\l\
+}"];
+
+	fn_48_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930483\<bb\ 7\>:\l\
+|#\ prephitmp_24\ =\ PHI\ \<_23(6),\ tmp_18(5)\>\l\
+|MEM[(struct\ RTC_Type\ *)1073991680B].IER\ =\{v\}\ prephitmp_24;\l\
+|INT_SYS_EnableIRQ\ (46);\l\
+}"];
+
+	fn_48_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ statusCode_6\ =\ PHI\ \<1(3),\ 0(7)\>\l\
+|alarmTime\ =\{v\}\ \{CLOBBER\};\l\
+|return\ statusCode_6;\l\
+}"];
+
+	fn_48_basic_block_0:s -> fn_48_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_48_basic_block_2:s -> fn_48_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_48_basic_block_2:s -> fn_48_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_48_basic_block_3:s -> fn_48_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_48_basic_block_4:s -> fn_48_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_48_basic_block_4:s -> fn_48_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_48_basic_block_5:s -> fn_48_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_48_basic_block_5:s -> fn_48_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_48_basic_block_6:s -> fn_48_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_48_basic_block_7:s -> fn_48_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_48_basic_block_8:s -> fn_48_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_48_basic_block_0:s -> fn_48_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_GetAlarmConfig" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_GetAlarmConfig ()";
+	fn_49_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_49_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_49_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ g_rtcRuntimeConfig[instance_3(D)].alarmConfig;\l\
+|*alarmConfig_4(D)\ =\ *_1;\l\
+|return;\l\
+}"];
+
+	fn_49_basic_block_0:s -> fn_49_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_49_basic_block_2:s -> fn_49_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_49_basic_block_0:s -> fn_49_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_IsAlarmPending" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_IsAlarmPending ()";
+	fn_50_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_50_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_50_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_2\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].SR;\l\
+|_3\ =\ tmp_2\ \>\>\ 2;\l\
+|_4\ =\ (_Bool)\ _3;\l\
+|return\ _4;\l\
+}"];
+
+	fn_50_basic_block_0:s -> fn_50_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_50_basic_block_2:s -> fn_50_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_50_basic_block_0:s -> fn_50_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_RTC_DRV_GetNextAlarmTime" {
+	style="dashed";
+	color="black";
+	label="RTC_DRV_GetNextAlarmTime ()";
+	fn_51_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_51_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_51_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ g_rtcRuntimeConfig[instance_5(D)].isAlarmTimeNew;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [67.00%]\l\
+}"];
+
+	fn_51_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|tmp_10\ =\{v\}\ MEM[(const\ struct\ RTC_Type\ *)1073991680B].TAR;\l\
+|alarmInSec\ =\ tmp_10;\l\
+|RTC_DRV_ConvertSecondsToTimeDate\ (&alarmInSec,\ alarmTime_7(D));\l\
+}"];
+
+	fn_51_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ statusCode_2\ =\ PHI\ \<0(3),\ 1(2)\>\l\
+|alarmInSec\ =\{v\}\ \{CLOBBER\};\l\
+|return\ statusCode_2;\l\
+}"];
+
+	fn_51_basic_block_0:s -> fn_51_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_51_basic_block_2:s -> fn_51_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_51_basic_block_2:s -> fn_51_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_51_basic_block_3:s -> fn_51_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_51_basic_block_4:s -> fn_51_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_51_basic_block_0:s -> fn_51_basic_block_1:n [style="invis",constraint=true];
+}
+}

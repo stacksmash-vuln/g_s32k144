@@ -1,0 +1,79 @@
+/*!
+    @page lin_master_baremetal_s32k144w_group LIN MASTER BAREMETAL
+    @brief Example that shows the usage of the LIN driver in master mode
+
+    ## Application description ##
+    __________
+   This example demonstrates the LIN communication between S32K144W Master and Slave using LIN driver without LIN Stack
+
+    - A frame contains header and data. The Master node can send header and data, but Slave node only can send data.
+    Base on header, Master node or Slave node will take corresponding action.
+    On Master node:
+    - Press BUTTON 0:
+        - For the first time, Master node sends FRAME_MASTER_RECEIVE_DATA header and require slave node responds by sending data (txBuff2).
+        - For the second time, Master sends FRAME_SLAVE_RECEIVE_DATA header, then continue sending data (txBuff1) and slave node will receive the data.
+        - If node successful receives data, this node will turn on LED2/GREEN_LED, otherwise turn on LED1/RED_LED.
+    - Press BUTTON 1:
+        - Master node will check current node state. If the state is LIN_NODE_STATE_SLEEP_MODE, Master node will send wakeup signal and LED0/BLUE_LED will be turned on both nodes, otherwise Master node will send header to set Master node and Slave node to sleep mode and all LED will be turned off both nodes.
+
+    ## Prerequisites ##
+    __________
+    To run the example you will need to have the following items:
+    - 1 Daughter Card S32K14xCVD-Q64 PCB RevX2 SCH RevA1 with S32K144W
+    - 1 Mother Board S32K-MB PCB RevA SCH RevB
+    - 1 XS32K14WEVB-Q064 Board
+    - 1 Power Adapter 12V
+    - 4 Dupont female to female cable
+    - 1 Personal Computer
+    - 1 PEmicro Debugger
+
+    ## Boards supported ##
+    __________
+    The following boards are supported by this application:
+    - 1 Daughter Card S32K14xCVD-Q64 PCB RevX2 SCH RevA1 with S32K144W
+    - 1 Mother Board S32K-MB PCB RevA SCH RevB
+
+    ## Hardware Wiring ##
+    __________
+    The following connections must be done to for this example application to work:
+
+    PIN FUNCTION               |    S32K-MB                                                          | XS32K14WEVB-Q064
+    ---------------------------|---------------------------------------------------------------------|-----------------------------
+    BUTTON 0 (\b PTB12/PTD2)   | BUTTON 0 - wired on the board(set J39, J70 1-2, J69 2-3)            | SW2
+    BUTTON 1 (\b PTB13/PTD3)   | BUTTON 1 - wired on the board(set J38, J68 1-2, J67 2-3)            | SW3
+    LED0 (\b PTC0/PTCD3)       | LED0 - wired on the board(set JP49)                                 | BLUE_LED
+    LED1 (\b PTC1/PTCD7)       | LED1 - wired on the board(set JP50)                                 | RED_LED
+    LED2 (\b PTC2/PTCD0)       | LED2 - wired on the board(set JP51)                                 | GREEN_LED
+    GND (\b GND)               | J6 - Slave GND                                                      | J11.4 - Slave GND
+    LIN (\b *)                 | J48.4 - Slave LIN(set J51(2-3,5-6), J26(1-2), JP31(2-3), JP53(1-2)) | J11.1 - Slave LIN
+
+    <b>(*) Those lines must be modulated using a transceiver, if it is not specified the boards already include the LIN transceiver</b>
+
+    ## How to run ##
+    __________
+    #### 1. Importing the project into the workspace ####
+    After opening S32 Design Studio, go to \b File -> \b New \b S32DS \b Project \b From... and select \b lin_master_baremetal_s32k144w. Then click on \b Finish. \n
+    The project should now be copied into you current workspace.
+    #### 2. Generating the S32 configuration ####
+    The example will run without an active configuration, however if any changes are required, a configuration needs to be generated.
+    The initial configuration will have the same settings as the default example settings.
+    First go to \b Project \b Explorer View in S32 DS and select the current project(\b lin_master_baremetal_s32k144w).
+    Select the "ConfigTools" menu then click on the desired configuration (Pins, Clocks, Peripherals etc...). Clicking on any one of those will generate all the components.
+    Make the desired changes(if any) then click on the "ConfigTools->Update Code" button.
+    #### 3. Building the project ####
+    Select the configuration to be built \b FLASH (Debug_FLASH) or \b RAM (Debug_RAM) by left clicking on the downward arrow corresponding to the \b build button(@image hammer.png).
+    Wait for the build action to be completed before continuing to the next step.
+    #### 4. Running the project ####
+    Go to \b Run and select \b Debug \b Configurations. There will be four debug configurations for this project:
+     Configuration Name | Description
+     -------------------|------------
+     \b lin_master_baremetal_s32k144w_debug_ram_pemicro | Debug the RAM configuration using PEMicro debuggers
+     \b lin_master_baremetal_s32k144w_debug_flash_pemicro | Debug the FLASH configuration using PEMicro debuggers
+    \n Select the desired debug configuration and click on \b Launch. Now the perspective will change to the \b Debug \b Perspective. \n
+    Use the controls to control the program flow.
+
+    @note For more detailed information related to S32 Design Studio usage please consult the available documentation.
+
+
+*/
+

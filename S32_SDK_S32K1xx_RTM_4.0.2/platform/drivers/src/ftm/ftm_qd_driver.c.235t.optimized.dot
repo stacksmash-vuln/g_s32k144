@@ -1,0 +1,228 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_qd_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_FTM_DRV_QuadDecodeStart" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_QuadDecodeStart ()";
+	fn_141_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_141_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_141_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_18\ =\ ftmStatePtr[instance_16(D)];\l\
+|if\ (state_18\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [30.00%]\l\
+}"];
+
+	fn_141_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 3\>:\l\
+|_1\ =\ state_18-\>ftmMode;\l\
+|if\ (_1\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_141_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 4\>:\l\
+|ftmBase_17\ =\ g_ftmBase[instance_16(D)];\l\
+|_35\ =\{v\}\ ftmBase_17-\>QDCTRL;\l\
+|_36\ =\ _35\ &\ 4294967294;\l\
+|ftmBase_17-\>QDCTRL\ =\{v\}\ _36;\l\
+|_33\ =\{v\}\ ftmBase_17-\>SC;\l\
+|_34\ =\ _33\ &\ 4294967271;\l\
+|ftmBase_17-\>SC\ =\{v\}\ _34;\l\
+|_2\ =\ config_19(D)-\>mode;\l\
+|_27\ =\{v\}\ ftmBase_17-\>QDCTRL;\l\
+|_28\ =\ _27\ &\ 4294967287;\l\
+|_29\ =\ (long\ unsigned\ int)\ _2;\l\
+|_30\ =\ _29\ \<\<\ 3;\l\
+|_31\ =\ _30\ &\ 8;\l\
+|_32\ =\ _28\ \|\ _31;\l\
+|ftmBase_17-\>QDCTRL\ =\{v\}\ _32;\l\
+|_3\ =\ config_19(D)-\>phaseAConfig.phaseInputFilter;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_141_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904820\<bb\ 5\>:\l\
+|_23\ =\{v\}\ ftmBase_17-\>QDCTRL;\l\
+|_24\ =\ _23\ \|\ 128;\l\
+|ftmBase_17-\>QDCTRL\ =\{v\}\ _24;\l\
+|_4\ =\ config_19(D)-\>phaseAConfig.phaseFilterVal;\l\
+|FTM_DRV_SetChnInputCaptureFilter\ (ftmBase_17,\ 0,\ _4);\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_141_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904820\<bb\ 6\>:\l\
+|_25\ =\{v\}\ ftmBase_17-\>QDCTRL;\l\
+|_26\ =\ _25\ &\ 4294967167;\l\
+|ftmBase_17-\>QDCTRL\ =\{v\}\ _26;\l\
+}"];
+
+	fn_141_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 7\>:\l\
+|_5\ =\ config_19(D)-\>phaseBConfig.phaseInputFilter;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_141_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904820\<bb\ 8\>:\l\
+|_37\ =\{v\}\ ftmBase_17-\>QDCTRL;\l\
+|_38\ =\ _37\ \|\ 64;\l\
+|ftmBase_17-\>QDCTRL\ =\{v\}\ _38;\l\
+|_6\ =\ config_19(D)-\>phaseBConfig.phaseFilterVal;\l\
+|FTM_DRV_SetChnInputCaptureFilter\ (ftmBase_17,\ 1,\ _6);\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_141_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904820\<bb\ 9\>:\l\
+|_39\ =\{v\}\ ftmBase_17-\>QDCTRL;\l\
+|_40\ =\ _39\ &\ 4294967231;\l\
+|ftmBase_17-\>QDCTRL\ =\{v\}\ _40;\l\
+}"];
+
+	fn_141_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 10\>:\l\
+|_7\ =\ config_19(D)-\>phaseAConfig.phasePolarity;\l\
+|_60\ =\{v\}\ ftmBase_17-\>QDCTRL;\l\
+|_61\ =\ _60\ &\ 4294967263;\l\
+|_62\ =\ (long\ unsigned\ int)\ _7;\l\
+|_63\ =\ _62\ \<\<\ 5;\l\
+|_64\ =\ _63\ &\ 32;\l\
+|_65\ =\ _61\ \|\ _64;\l\
+|ftmBase_17-\>QDCTRL\ =\{v\}\ _65;\l\
+|_8\ =\ config_19(D)-\>phaseBConfig.phasePolarity;\l\
+|_54\ =\{v\}\ ftmBase_17-\>QDCTRL;\l\
+|_55\ =\ _54\ &\ 4294967279;\l\
+|_56\ =\ (long\ unsigned\ int)\ _8;\l\
+|_57\ =\ _56\ \<\<\ 4;\l\
+|_58\ =\ _57\ &\ 16;\l\
+|_59\ =\ _55\ \|\ _58;\l\
+|ftmBase_17-\>QDCTRL\ =\{v\}\ _59;\l\
+|_9\ =\ config_19(D)-\>initialVal;\l\
+|_50\ =\{v\}\ ftmBase_17-\>CNTIN;\l\
+|_51\ =\ _50\ &\ 4294901760;\l\
+|_52\ =\ (long\ unsigned\ int)\ _9;\l\
+|_53\ =\ _51\ \|\ _52;\l\
+|ftmBase_17-\>CNTIN\ =\{v\}\ _53;\l\
+|_10\ =\ config_19(D)-\>maxVal;\l\
+|_46\ =\{v\}\ ftmBase_17-\>MOD;\l\
+|_47\ =\ _46\ &\ 4294901760;\l\
+|_48\ =\ (long\ unsigned\ int)\ _10;\l\
+|_49\ =\ _47\ \|\ _48;\l\
+|ftmBase_17-\>MOD\ =\{v\}\ _49;\l\
+|_43\ =\{v\}\ ftmBase_17-\>CNT;\l\
+|_44\ =\ _43\ &\ 4294901760;\l\
+|_45\ =\ _44\ \|\ _52;\l\
+|ftmBase_17-\>CNT\ =\{v\}\ _45;\l\
+|_41\ =\{v\}\ ftmBase_17-\>QDCTRL;\l\
+|_42\ =\ _41\ \|\ 1;\l\
+|ftmBase_17-\>QDCTRL\ =\{v\}\ _42;\l\
+|state_18-\>ftmMode\ =\ 5;\l\
+}"];
+
+	fn_141_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 11\>:\l\
+|#\ retStatus_11\ =\ PHI\ \<0(10),\ 1(2),\ 1(3)\>\l\
+|return\ retStatus_11;\l\
+}"];
+
+	fn_141_basic_block_0:s -> fn_141_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_2:s -> fn_141_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_141_basic_block_2:s -> fn_141_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_141_basic_block_3:s -> fn_141_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_141_basic_block_3:s -> fn_141_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_141_basic_block_4:s -> fn_141_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_141_basic_block_4:s -> fn_141_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_141_basic_block_5:s -> fn_141_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_6:s -> fn_141_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_7:s -> fn_141_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_141_basic_block_7:s -> fn_141_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_141_basic_block_8:s -> fn_141_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_9:s -> fn_141_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_10:s -> fn_141_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_11:s -> fn_141_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_141_basic_block_0:s -> fn_141_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_DRV_QuadDecodeStop" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_QuadDecodeStop ()";
+	fn_142_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_142_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_142_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|ftmBase_3\ =\ g_ftmBase[instance_2(D)];\l\
+|state_4\ =\ ftmStatePtr[instance_2(D)];\l\
+|_6\ =\{v\}\ ftmBase_3-\>QDCTRL;\l\
+|_7\ =\ _6\ &\ 4294967294;\l\
+|ftmBase_3-\>QDCTRL\ =\{v\}\ _7;\l\
+|state_4-\>ftmMode\ =\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_142_basic_block_0:s -> fn_142_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_2:s -> fn_142_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_142_basic_block_0:s -> fn_142_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_DRV_QuadGetState" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_QuadGetState ()";
+	fn_143_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_143_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_143_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|ftmBase_5\ =\ g_ftmBase[instance_4(D)];\l\
+|_17\ =\{v\}\ ftmBase_5-\>QDCTRL;\l\
+|_18\ =\ _17\ &\ 4;\l\
+|_19\ =\ _18\ !=\ 0;\l\
+|_20\ =\ VIEW_CONVERT_EXPR\<unsigned\ char\>(_19);\l\
+|_14\ =\{v\}\ ftmBase_5-\>QDCTRL;\l\
+|_15\ =\ _14\ &\ 2;\l\
+|_16\ =\ _15\ !=\ 0;\l\
+|_1\ =\ VIEW_CONVERT_EXPR\<unsigned\ char\>(_16);\l\
+|_11\ =\{v\}\ ftmBase_5-\>SC;\l\
+|_12\ =\ _11\ &\ 512;\l\
+|_13\ =\ _12\ !=\ 0;\l\
+|_21\ =\ VIEW_CONVERT_EXPR\<unsigned\ char\>(_13);\l\
+|_9\ =\{v\}\ ftmBase_5-\>CNT;\l\
+|_10\ =\ (short\ unsigned\ int)\ _9;\l\
+|\<retval\>.counter\ =\ _10;\l\
+|MEM\ \<unsigned\ char\>\ [(struct\ \ *)&\<retval\>\ +\ 2B]\ =\ _21;\l\
+|MEM\ \<unsigned\ char\>\ [(struct\ \ *)&\<retval\>\ +\ 3B]\ =\ _1;\l\
+|MEM\ \<unsigned\ char\>\ [(struct\ \ *)&\<retval\>\ +\ 4B]\ =\ _20;\l\
+|return\ \<retval\>;\l\
+}"];
+
+	fn_143_basic_block_0:s -> fn_143_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_143_basic_block_2:s -> fn_143_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_143_basic_block_0:s -> fn_143_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_QD_DRV_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="FTM_QD_DRV_GetDefaultConfig ()";
+	fn_144_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_144_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_144_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>mode\ =\ 1;\l\
+|config_2(D)-\>initialVal\ =\ 0;\l\
+|config_2(D)-\>maxVal\ =\ 65535;\l\
+|MEM\ \<unsigned\ short\>\ [(void\ *)config_2(D)\ +\ 6B]\ =\ 0;\l\
+|MEM\ \<unsigned\ short\>\ [(void\ *)config_2(D)\ +\ 8B]\ =\ 0;\l\
+|MEM\ \<unsigned\ short\>\ [(void\ *)config_2(D)\ +\ 10B]\ =\ 0;\l\
+|return;\l\
+}"];
+
+	fn_144_basic_block_0:s -> fn_144_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_144_basic_block_2:s -> fn_144_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_144_basic_block_0:s -> fn_144_basic_block_1:n [style="invis",constraint=true];
+}
+}

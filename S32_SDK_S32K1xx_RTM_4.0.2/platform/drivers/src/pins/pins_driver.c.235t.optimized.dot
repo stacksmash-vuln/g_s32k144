@@ -1,0 +1,554 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pins/pins_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_PINS_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_Init ()";
+	subgraph cluster_21_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_21_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 4\>:\l\
+|#\ i_12\ =\ PHI\ \<0(3),\ i_9(4)\>\l\
+|#\ ivtmp.51_14\ =\ PHI\ \<ivtmp.51_3(3),\ ivtmp.51_4(4)\>\l\
+|_2\ =\ (const\ struct\ pin_settings_config_t\ *)\ ivtmp.51_14;\l\
+|PINS_Init\ (_2);\l\
+|i_9\ =\ i_12\ +\ 1;\l\
+|ivtmp.51_4\ =\ ivtmp.51_14\ +\ 24;\l\
+|if\ (pinCount_6(D)\ !=\ i_9)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_21_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_21_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_21_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|if\ (pinCount_6(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	fn_21_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 3\>:\l\
+|ivtmp.51_3\ =\ (unsigned\ int)\ config_7(D);\l\
+}"];
+
+	fn_21_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 5\>:\l\
+|return\ 0;\l\
+}"];
+
+	fn_21_basic_block_0:s -> fn_21_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_2:s -> fn_21_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_21_basic_block_2:s -> fn_21_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_21_basic_block_3:s -> fn_21_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_4:s -> fn_21_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_21_basic_block_4:s -> fn_21_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_21_basic_block_5:s -> fn_21_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_21_basic_block_0:s -> fn_21_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_SetPullSel" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_SetPullSel ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (pullConfig_4(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 6\>;\ [25.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [75.00%]\l\
+}"];
+
+	fn_22_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (pullConfig_4(D)\ ==\ 2)\l\
+\ \ goto\ \<bb\ 7\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.67%]\l\
+}"];
+
+	fn_22_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|if\ (pullConfig_4(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [66.67%]\l\
+}"];
+
+	fn_22_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 5\>:\l\
+|_6\ =\{v\}\ base_2(D)-\>PCR[pin_3(D)];\l\
+|_7\ =\ _6\ &\ 4294967293;\l\
+|base_2(D)-\>PCR[pin_3(D)]\ =\{v\}\ _7;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_22_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 6\>:\l\
+|regValue_8\ =\{v\}\ base_2(D)-\>PCR[pin_3(D)];\l\
+|regValue_9\ =\ regValue_8\ &\ 4294967294;\l\
+|regValue_10\ =\ regValue_9\ \|\ 2;\l\
+|base_2(D)-\>PCR[pin_3(D)]\ =\{v\}\ regValue_10;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_22_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 7\>:\l\
+|regValue_11\ =\{v\}\ base_2(D)-\>PCR[pin_3(D)];\l\
+|regValue_12\ =\ regValue_11\ \|\ 3;\l\
+|base_2(D)-\>PCR[pin_3(D)]\ =\{v\}\ regValue_12;\l\
+}"];
+
+	fn_22_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|return;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_2:s -> fn_22_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_22_basic_block_2:s -> fn_22_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_22_basic_block_3:s -> fn_22_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_22_basic_block_3:s -> fn_22_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_22_basic_block_4:s -> fn_22_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_22_basic_block_4:s -> fn_22_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_22_basic_block_5:s -> fn_22_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_6:s -> fn_22_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_7:s -> fn_22_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_8:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_SetMuxModeSel" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_SetMuxModeSel ()";
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|PINS_SetMuxModeSel\ (base_2(D),\ pin_3(D),\ mux_4(D));\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_2:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_SetPinIntSel" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_SetPinIntSel ()";
+	fn_24_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_24_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_24_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|regValue_5\ =\{v\}\ base_2(D)-\>PCR[pin_3(D)];\l\
+|regValue_6\ =\ regValue_5\ &\ 4293984255;\l\
+|_7\ =\ (long\ unsigned\ int)\ intConfig_4(D);\l\
+|_8\ =\ _7\ \<\<\ 16;\l\
+|_9\ =\ _8\ &\ 983040;\l\
+|regValue_10\ =\ regValue_6\ \|\ _9;\l\
+|base_2(D)-\>PCR[pin_3(D)]\ =\{v\}\ regValue_10;\l\
+|return;\l\
+}"];
+
+	fn_24_basic_block_0:s -> fn_24_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_2:s -> fn_24_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_24_basic_block_0:s -> fn_24_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_GetPinIntSel" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_GetPinIntSel ()";
+	fn_25_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_25_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_25_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|regValue_4\ =\{v\}\ base_2(D)-\>PCR[pin_3(D)];\l\
+|_5\ =\ regValue_4\ \>\>\ 16;\l\
+|regValue_6\ =\ _5\ &\ 15;\l\
+|_7\ =\ (\<unnamed\ type\>)\ regValue_6;\l\
+|return\ _7;\l\
+}"];
+
+	fn_25_basic_block_0:s -> fn_25_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_25_basic_block_2:s -> fn_25_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_25_basic_block_0:s -> fn_25_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_ClearPinIntFlagCmd" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_ClearPinIntFlagCmd ()";
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|regValue_4\ =\{v\}\ base_2(D)-\>PCR[pin_3(D)];\l\
+|regValue_5\ =\ regValue_4\ &\ 4278190079;\l\
+|regValue_6\ =\ regValue_5\ \|\ 16777216;\l\
+|base_2(D)-\>PCR[pin_3(D)]\ =\{v\}\ regValue_6;\l\
+|return;\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_2:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_EnableDigitalFilter" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_EnableDigitalFilter ()";
+	fn_27_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_27_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_27_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_4\ =\{v\}\ base_2(D)-\>DFER;\l\
+|_5\ =\ 1\ \<\<\ pin_3(D);\l\
+|_6\ =\ _4\ \|\ _5;\l\
+|base_2(D)-\>DFER\ =\{v\}\ _6;\l\
+|return;\l\
+}"];
+
+	fn_27_basic_block_0:s -> fn_27_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_27_basic_block_2:s -> fn_27_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_27_basic_block_0:s -> fn_27_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_DisableDigitalFilter" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_DisableDigitalFilter ()";
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_4\ =\{v\}\ base_2(D)-\>DFER;\l\
+|_5\ =\ 1\ \<\<\ pin_3(D);\l\
+|_6\ =\ ~_5;\l\
+|_7\ =\ _4\ &\ _6;\l\
+|base_2(D)-\>DFER\ =\{v\}\ _7;\l\
+|return;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_2:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_ConfigDigitalFilter" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_ConfigDigitalFilter ()";
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_4\ =\ config_3(D)-\>clock;\l\
+|_5\ =\ _4\ &\ 1;\l\
+|_6\ =\ (long\ unsigned\ int)\ _5;\l\
+|base_2(D)-\>DFCR\ =\{v\}\ _6;\l\
+|_7\ =\ config_3(D)-\>width;\l\
+|_8\ =\ _7\ &\ 31;\l\
+|_9\ =\ (long\ unsigned\ int)\ _8;\l\
+|base_2(D)-\>DFWR\ =\{v\}\ _9;\l\
+|return;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_GetPortIntFlag" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_GetPortIntFlag ()";
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|regValue_3\ =\{v\}\ base_2(D)-\>ISFR;\l\
+|return\ regValue_3;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_ClearPortIntFlagCmd" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_ClearPortIntFlagCmd ()";
+	fn_31_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_31_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_31_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_2(D)-\>ISFR\ =\{v\}\ 4294967295;\l\
+|return;\l\
+}"];
+
+	fn_31_basic_block_0:s -> fn_31_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_2:s -> fn_31_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_31_basic_block_0:s -> fn_31_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_GetPinsDirection" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_GetPinsDirection ()";
+	fn_32_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_32_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_32_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_3\ =\{v\}\ base_2(D)-\>PDDR;\l\
+|return\ _3;\l\
+}"];
+
+	fn_32_basic_block_0:s -> fn_32_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_32_basic_block_0:s -> fn_32_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_SetPinDirection" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_SetPinDirection ()";
+	fn_33_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_33_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_33_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|pinsDirections_5\ =\{v\}\ base_2(D)-\>PDDR;\l\
+|_6\ =\ 1\ \<\<\ pin_3(D);\l\
+|_7\ =\ ~_6;\l\
+|pinsDirections_8\ =\ pinsDirections_5\ &\ _7;\l\
+|_9\ =\ (long\ unsigned\ int)\ direction_4(D);\l\
+|_10\ =\ _9\ \<\<\ pin_3(D);\l\
+|pinsDirections_11\ =\ pinsDirections_8\ \|\ _10;\l\
+|base_2(D)-\>PDDR\ =\{v\}\ pinsDirections_11;\l\
+|return;\l\
+}"];
+
+	fn_33_basic_block_0:s -> fn_33_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_2:s -> fn_33_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_33_basic_block_0:s -> fn_33_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_SetPinsDirection" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_SetPinsDirection ()";
+	fn_34_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_34_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_34_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_2(D)-\>PDDR\ =\{v\}\ pins_3(D);\l\
+|return;\l\
+}"];
+
+	fn_34_basic_block_0:s -> fn_34_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_2:s -> fn_34_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_34_basic_block_0:s -> fn_34_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_SetPortInputDisable" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_SetPortInputDisable ()";
+	fn_35_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_35_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_35_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_2(D)-\>PIDR\ =\{v\}\ pins_3(D);\l\
+|return;\l\
+}"];
+
+	fn_35_basic_block_0:s -> fn_35_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_35_basic_block_0:s -> fn_35_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_GetPortInputDisable" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_GetPortInputDisable ()";
+	fn_36_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_36_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_36_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_3\ =\{v\}\ base_2(D)-\>PIDR;\l\
+|return\ _3;\l\
+}"];
+
+	fn_36_basic_block_0:s -> fn_36_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_36_basic_block_0:s -> fn_36_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_SetGlobalPinControl" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_SetGlobalPinControl ()";
+	fn_37_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_37_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_37_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|PINS_SetGlobalPinControl\ (base_2(D),\ pins_3(D),\ value_4(D),\ halfPort_5(D));\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_37_basic_block_0:s -> fn_37_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_2:s -> fn_37_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_37_basic_block_0:s -> fn_37_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_SetGlobalIntControl" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_SetGlobalIntControl ()";
+	fn_38_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_38_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_38_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|PINS_SetGlobalIntControl\ (base_2(D),\ pins_3(D),\ value_4(D),\ halfPort_5(D));\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_38_basic_block_0:s -> fn_38_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_38_basic_block_0:s -> fn_38_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_WritePin" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_WritePin ()";
+	fn_39_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_39_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_39_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|pinsValues_5\ =\{v\}\ base_2(D)-\>PDOR;\l\
+|_6\ =\ 1\ \<\<\ pin_3(D);\l\
+|_7\ =\ ~_6;\l\
+|pinsValues_8\ =\ pinsValues_5\ &\ _7;\l\
+|_9\ =\ (long\ unsigned\ int)\ value_4(D);\l\
+|_10\ =\ _9\ \<\<\ pin_3(D);\l\
+|pinsValues_11\ =\ pinsValues_8\ \|\ _10;\l\
+|base_2(D)-\>PDOR\ =\{v\}\ pinsValues_11;\l\
+|return;\l\
+}"];
+
+	fn_39_basic_block_0:s -> fn_39_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_2:s -> fn_39_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_39_basic_block_0:s -> fn_39_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_WritePins" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_WritePins ()";
+	fn_40_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_40_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_40_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_2(D)-\>PDOR\ =\{v\}\ pins_3(D);\l\
+|return;\l\
+}"];
+
+	fn_40_basic_block_0:s -> fn_40_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_2:s -> fn_40_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_40_basic_block_0:s -> fn_40_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_GetPinsOutput" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_GetPinsOutput ()";
+	fn_41_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_41_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_41_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|returnValue_3\ =\{v\}\ base_2(D)-\>PDOR;\l\
+|return\ returnValue_3;\l\
+}"];
+
+	fn_41_basic_block_0:s -> fn_41_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_2:s -> fn_41_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_41_basic_block_0:s -> fn_41_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_SetPins" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_SetPins ()";
+	fn_42_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_42_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_42_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_2(D)-\>PSOR\ =\{v\}\ pins_3(D);\l\
+|return;\l\
+}"];
+
+	fn_42_basic_block_0:s -> fn_42_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_2:s -> fn_42_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_42_basic_block_0:s -> fn_42_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_ClearPins" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_ClearPins ()";
+	fn_43_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_43_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_43_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_2(D)-\>PCOR\ =\{v\}\ pins_3(D);\l\
+|return;\l\
+}"];
+
+	fn_43_basic_block_0:s -> fn_43_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_2:s -> fn_43_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_43_basic_block_0:s -> fn_43_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_TogglePins" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_TogglePins ()";
+	fn_44_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_44_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_44_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_2(D)-\>PTOR\ =\{v\}\ pins_3(D);\l\
+|return;\l\
+}"];
+
+	fn_44_basic_block_0:s -> fn_44_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_2:s -> fn_44_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_44_basic_block_0:s -> fn_44_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PINS_DRV_ReadPins" {
+	style="dashed";
+	color="black";
+	label="PINS_DRV_ReadPins ()";
+	fn_45_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_45_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_45_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|returnValue_3\ =\{v\}\ base_2(D)-\>PDIR;\l\
+|return\ returnValue_3;\l\
+}"];
+
+	fn_45_basic_block_0:s -> fn_45_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_45_basic_block_2:s -> fn_45_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_45_basic_block_0:s -> fn_45_basic_block_1:n [style="invis",constraint=true];
+}
+}

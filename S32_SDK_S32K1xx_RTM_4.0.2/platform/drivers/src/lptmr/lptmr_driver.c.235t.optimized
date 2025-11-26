@@ -1,0 +1,947 @@
+
+;; Function LPTMR_DRV_InitConfigStruct (LPTMR_DRV_InitConfigStruct, funcdef_no=34, decl_uid=6336, cgraph_uid=35, symbol_order=35)
+
+LPTMR_DRV_InitConfigStruct (struct lptmr_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  MEM <unsigned int> [(void *)config_2(D)] = 0;
+  MEM <unsigned short> [(void *)config_2(D) + 4B] = 0;
+  config_2(D)->bypassPrescaler = 0;
+  config_2(D)->compareValue = 0;
+  MEM <unsigned short> [(void *)config_2(D) + 12B] = 0;
+  config_2(D)->pinPolarity = 0;
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_SetConfig (LPTMR_DRV_SetConfig, funcdef_no=36, decl_uid=6343, cgraph_uid=37, symbol_order=37)
+
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+LPTMR_DRV_SetConfig (const uint32_t instance, const struct lptmr_config_t * const config)
+{
+  unsigned int ivtmp.69;
+  uint64_t npresc;
+  uint64_t nticks;
+  uint64_t nn;
+  uint32_t clkFreq;
+  uint32_t clkFreq;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  lptmr_counter_units_t configCounterUnits;
+  _Bool prescBypass;
+  lptmr_workmode_t configWorkMode;
+  uint32_t configCmpValue;
+  <unnamed type> _1;
+  _Bool _2;
+  <unnamed type> _3;
+  _Bool _6;
+  _Bool _7;
+  _Bool _8;
+  <unnamed type> _11;
+  <unnamed type> _13;
+  <unnamed type> _14;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _26;
+  long unsigned int prephitmp_27;
+  long unsigned int prephitmp_29;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  <unnamed type> _52;
+  long unsigned int _53;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  unsigned char _93;
+  <unnamed type> _94;
+  unsigned char _95;
+  long unsigned int _97;
+  long long unsigned int _101;
+  int _104;
+  long long unsigned int _106;
+  long long unsigned int _107;
+  short unsigned int _111;
+  short unsigned int _112;
+  long unsigned int prephitmp_113;
+  long unsigned int prephitmp_115;
+  long unsigned int _119;
+  unsigned char _126;
+  long unsigned int _128;
+  long unsigned int _129;
+  long unsigned int prephitmp_130;
+  long unsigned int _132;
+  long unsigned int _133;
+  long unsigned int _141;
+  long unsigned int prephitmp_142;
+  long unsigned int _143;
+  long unsigned int pretmp_146;
+  long unsigned int _147;
+  long unsigned int _148;
+  long unsigned int _149;
+  long unsigned int prephitmp_155;
+  long unsigned int _156;
+  long unsigned int prephitmp_157;
+  long unsigned int _158;
+  long unsigned int prephitmp_159;
+  long unsigned int _160;
+  long unsigned int prephitmp_161;
+
+  <bb 2> [local count: 1073741824]:
+  configCmpValue_18 = config_17(D)->compareValue;
+  configWorkMode_19 = config_17(D)->workMode;
+  _1 = config_17(D)->prescaler;
+  _2 = config_17(D)->bypassPrescaler;
+  if (configWorkMode_19 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  configCounterUnits_23 = config_17(D)->counterUnits;
+  _3 = config_17(D)->clockSelect;
+  _93 = _3 + 255;
+  if (_93 <= 2)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 177167400]:
+  _94 = CSWTCH.46[_93];
+  CLOCK_SYS_GetFreq (_94, &clkFreq);
+  pretmp_146 = clkFreq;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 177167400]:
+  CLOCK_SYS_GetFreq (11, &clkFreq);
+  _97 = clkFreq;
+  clkFreq ={v} {CLOBBER};
+
+  <bb 6> [local count: 354334800]:
+  # prephitmp_115 = PHI <pretmp_146(4), _97(5)>
+  clkFreq ={v} {CLOBBER};
+  if (configCounterUnits_23 == 1)
+    goto <bb 7>; [20.24%]
+  else
+    goto <bb 15>; [79.76%]
+
+  <bb 7> [local count: 71717363]:
+  _101 = WIDEN_MULT_PLUS_EXPR <configCmpValue_18, prephitmp_115, 500000>;
+  nn_102 = _101 / 1000000;
+
+  <bb 8> [local count: 629799309]:
+  # ivtmp.69_73 = PHI <0(7), ivtmp.69_57(9)>
+  _95 = (unsigned char) ivtmp.69_73;
+  _104 = (int) ivtmp.69_73;
+  npresc_105 = 1 << _104;
+  _106 = npresc_105 >> 1;
+  _107 = nn_102 + _106;
+  nticks_108 = _107 >> _104;
+  if (nticks_108 <= 65536)
+    goto <bb 10>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 9> [local count: 595160348]:
+  ivtmp.69_57 = ivtmp.69_73 + 1;
+  if (ivtmp.69_57 != 17)
+    goto <bb 8>; [93.77%]
+  else
+    goto <bb 14>; [6.23%]
+
+  <bb 10> [local count: 35858682]:
+  if (nticks_108 == 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 11> [local count: 17929341]:
+  _111 = (short unsigned int) nticks_108;
+  _112 = _111 + 65535;
+  _149 = (long unsigned int) _112;
+
+  <bb 12> [local count: 35858682]:
+  # prephitmp_27 = PHI <_149(11), 0(10)>
+  if (_95 == 0)
+    goto <bb 17>; [100.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 13> [local count: 0]:
+  _126 = _95 + 255;
+  _143 = (long unsigned int) _126;
+  _141 = _143 << 3;
+  _119 = _141 & 120;
+
+  <bb 14> [local count: 35858682]:
+  # prephitmp_142 = PHI <prephitmp_27(13), 65535(9)>
+  # prephitmp_113 = PHI <_119(13), 0(9)>
+  goto <bb 17>; [100.00%]
+
+  <bb 15> [local count: 282617437]:
+  _147 = configCmpValue_18 & 65535;
+  _133 = (long unsigned int) _1;
+  _128 = _133 << 3;
+  _21 = _128 & 120;
+  goto <bb 17>; [100.00%]
+
+  <bb 16> [local count: 719407025]:
+  _148 = configCmpValue_18 & 65535;
+  _132 = (long unsigned int) _1;
+  _129 = _132 << 3;
+  _20 = _129 & 120;
+
+  <bb 17> [local count: 1073741825]:
+  # prescBypass_139 = PHI <_2(15), _2(16), 0(14), 1(12)>
+  # prephitmp_130 = PHI <_147(15), _148(16), prephitmp_142(14), prephitmp_27(12)>
+  # prephitmp_29 = PHI <_21(15), _20(16), prephitmp_113(14), 0(12)>
+  LPTMR_Init (1074003968B);
+  _6 = config_17(D)->dmaRequest;
+  tmp_79 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_80 = tmp_79 & 4294966911;
+  if (_6 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 18> [local count: 536870913]:
+  _26 = tmp_80 | 256;
+
+  <bb 19> [local count: 1073741825]:
+  # prephitmp_155 = PHI <_26(18), tmp_80(17)>
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} prephitmp_155;
+  _7 = config_17(D)->interruptEnable;
+  tmp_75 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_76 = tmp_75 & 4294967103;
+  if (_7 != 0)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 20> [local count: 536870913]:
+  _156 = tmp_76 | 64;
+
+  <bb 21> [local count: 1073741825]:
+  # prephitmp_157 = PHI <_156(20), tmp_76(19)>
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} prephitmp_157;
+  _8 = config_17(D)->freeRun;
+  tmp_71 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_72 = tmp_71 & 4294967163;
+  if (_8 != 0)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 22> [local count: 536870913]:
+  _158 = tmp_72 | 4;
+
+  <bb 23> [local count: 1073741825]:
+  # prephitmp_159 = PHI <_158(22), tmp_72(21)>
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} prephitmp_159;
+  tmp_65 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_66 = tmp_65 & 4294967165;
+  _67 = (long unsigned int) configWorkMode_19;
+  _68 = _67 << 1;
+  _69 = _68 & 2;
+  tmp_70 = tmp_66 | _69;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_70;
+  tmp_59 ={v} MEM[(struct LPTMR_Type *)1074003968B].PSR;
+  tmp_60 = tmp_59 & 4294967175;
+  tmp_64 = prephitmp_29 | tmp_60;
+  MEM[(struct LPTMR_Type *)1074003968B].PSR ={v} tmp_64;
+  tmp_55 ={v} MEM[(struct LPTMR_Type *)1074003968B].PSR;
+  tmp_56 = tmp_55 & 4294967291;
+  if (prescBypass_139 != 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 24> [local count: 536870913]:
+  _160 = tmp_56 | 4;
+
+  <bb 25> [local count: 1073741825]:
+  # prephitmp_161 = PHI <_160(24), tmp_56(23)>
+  MEM[(struct LPTMR_Type *)1074003968B].PSR ={v} prephitmp_161;
+  _11 = config_17(D)->clockSelect;
+  tmp_50 ={v} MEM[(struct LPTMR_Type *)1074003968B].PSR;
+  tmp_51 = tmp_50 & 4294967292;
+  _52 = _11 & 3;
+  _53 = (long unsigned int) _52;
+  tmp_54 = tmp_51 | _53;
+  MEM[(struct LPTMR_Type *)1074003968B].PSR ={v} tmp_54;
+  tmp_46 ={v} MEM[(struct LPTMR_Type *)1074003968B].CMR;
+  tmp_47 = tmp_46 & 4294901760;
+  tmp_49 = tmp_47 | prephitmp_130;
+  MEM[(struct LPTMR_Type *)1074003968B].CMR ={v} tmp_49;
+  _13 = config_17(D)->pinSelect;
+  tmp_40 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_41 = tmp_40 & 4294967119;
+  _42 = (long unsigned int) _13;
+  _43 = _42 << 4;
+  _44 = _43 & 48;
+  tmp_45 = tmp_41 | _44;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_45;
+  _14 = config_17(D)->pinPolarity;
+  tmp_34 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_35 = tmp_34 & 4294967159;
+  _36 = (long unsigned int) _14;
+  _37 = _36 << 3;
+  _38 = _37 & 8;
+  tmp_39 = tmp_35 | _38;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_39;
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_Init (LPTMR_DRV_Init, funcdef_no=35, decl_uid=6340, cgraph_uid=36, symbol_order=36)
+
+Removing basic block 5
+LPTMR_DRV_Init (const uint32_t instance, const struct lptmr_config_t * const config, const _Bool startCounter)
+{
+  uint32_t tmp;
+
+  <bb 2> [local count: 1073741824]:
+  LPTMR_DRV_SetConfig (instance_3(D), config_4(D));
+  if (startCounter_6(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_7 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_8 = tmp_7 & 4294967166;
+  tmp_9 = tmp_8 | 1;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_9;
+
+  <bb 4> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_GetConfig (LPTMR_DRV_GetConfig, funcdef_no=37, decl_uid=6346, cgraph_uid=38, symbol_order=38)
+
+LPTMR_DRV_GetConfig (const uint32_t instance, struct lptmr_config_t * const config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  long unsigned int _1;
+  long unsigned int _16;
+  _Bool _17;
+  <unnamed type> _18;
+  long unsigned int _20;
+  <unnamed type> _22;
+  <unnamed type> _26;
+  long unsigned int _28;
+  _Bool _29;
+  long unsigned int _31;
+  <unnamed type> _33;
+  long unsigned int _35;
+  _Bool _36;
+  <unnamed type> _37;
+  long unsigned int _39;
+  _Bool _40;
+  long unsigned int _42;
+  _Bool _43;
+  long unsigned int _45;
+  _Bool _46;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_44 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _45 = tmp_44 >> 8;
+  _46 = (_Bool) _45;
+  config_3(D)->dmaRequest = _46;
+  tmp_41 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _42 = tmp_41 >> 6;
+  _43 = (_Bool) _42;
+  config_3(D)->interruptEnable = _43;
+  tmp_38 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _39 = tmp_38 >> 2;
+  _40 = (_Bool) _39;
+  config_3(D)->freeRun = _40;
+  tmp_34 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _35 = tmp_34 >> 1;
+  _36 = (_Bool) _35;
+  _37 = (<unnamed type>) _36;
+  config_3(D)->workMode = _37;
+  tmp_30 ={v} MEM[(const struct LPTMR_Type *)1074003968B].PSR;
+  _31 = tmp_30 >> 3;
+  tmp_32 = _31 & 15;
+  _33 = (<unnamed type>) tmp_32;
+  config_3(D)->prescaler = _33;
+  tmp_27 ={v} MEM[(const struct LPTMR_Type *)1074003968B].PSR;
+  _28 = tmp_27 >> 2;
+  _29 = (_Bool) _28;
+  config_3(D)->bypassPrescaler = _29;
+  tmp_24 ={v} MEM[(const struct LPTMR_Type *)1074003968B].PSR;
+  tmp_25 = tmp_24 & 3;
+  _26 = (<unnamed type>) tmp_25;
+  config_3(D)->clockSelect = _26;
+  tmp_23 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CMR;
+  _1 = tmp_23 & 65535;
+  config_3(D)->compareValue = _1;
+  config_3(D)->counterUnits = 0;
+  tmp_19 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _20 = tmp_19 >> 4;
+  tmp_21 = _20 & 3;
+  _22 = (<unnamed type>) tmp_21;
+  config_3(D)->pinSelect = _22;
+  tmp_15 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _16 = tmp_15 >> 3;
+  _17 = (_Bool) _16;
+  _18 = (<unnamed type>) _17;
+  config_3(D)->pinPolarity = _18;
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_Deinit (LPTMR_DRV_Deinit, funcdef_no=38, decl_uid=6348, cgraph_uid=39, symbol_order=39)
+
+LPTMR_DRV_Deinit (const uint32_t instance)
+{
+  uint32_t tmp;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_3 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_4 = tmp_3 & 4294967166;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_4;
+  LPTMR_Init (1074003968B); [tail call]
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_SetCompareValueByCount (LPTMR_DRV_SetCompareValueByCount, funcdef_no=39, decl_uid=6351, cgraph_uid=40, symbol_order=40)
+
+Removing basic block 5
+Removing basic block 7
+Removing basic block 8
+Removing basic block 9
+LPTMR_DRV_SetCompareValueByCount (const uint32_t instance, const uint16_t compareValueByCount)
+{
+  uint32_t tmp;
+  uint16_t cnr;
+  uint32_t tmp;
+  uint32_t tmp;
+  status_t statusCode;
+  long unsigned int _6;
+  _Bool _7;
+  _Bool _9;
+  long unsigned int _10;
+  long unsigned int _14;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_8 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _9 = (_Bool) tmp_8;
+  tmp_5 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  if (_9 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _6 = tmp_5 >> 7;
+  _7 = (_Bool) _6;
+  if (_7 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 805306369]:
+  tmp_12 ={v} MEM[(struct LPTMR_Type *)1074003968B].CMR;
+  tmp_13 = tmp_12 & 4294901760;
+  _14 = (long unsigned int) compareValueByCount_4(D);
+  tmp_15 = tmp_13 | _14;
+  MEM[(struct LPTMR_Type *)1074003968B].CMR ={v} tmp_15;
+  MEM[(struct LPTMR_Type *)1074003968B].CNR ={v} 0;
+  _10 ={v} MEM[(struct LPTMR_Type *)1074003968B].CNR;
+  cnr_11 = (uint16_t) _10;
+  if (compareValueByCount_4(D) <= cnr_11)
+    goto <bb 5>; [35.00%]
+  else
+    goto <bb 6>; [65.00%]
+
+  <bb 5> [local count: 281857230]:
+
+  <bb 6> [local count: 1073741824]:
+  # statusCode_1 = PHI <1(3), 0(4), 3(5)>
+  return statusCode_1;
+
+}
+
+
+
+;; Function LPTMR_DRV_GetCompareValueByCount (LPTMR_DRV_GetCompareValueByCount, funcdef_no=40, decl_uid=6354, cgraph_uid=41, symbol_order=41)
+
+LPTMR_DRV_GetCompareValueByCount (const uint32_t instance, uint16_t * const compareValueByCount)
+{
+  uint32_t tmp;
+  short unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_4 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CMR;
+  _5 = (short unsigned int) tmp_4;
+  *compareValueByCount_2(D) = _5;
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_SetCompareValueByUs (LPTMR_DRV_SetCompareValueByUs, funcdef_no=41, decl_uid=6357, cgraph_uid=42, symbol_order=42)
+
+Removing basic block 13
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+LPTMR_DRV_SetCompareValueByUs (const uint32_t instance, const uint32_t compareValueUs)
+{
+  uint32_t clkFreq;
+  uint32_t clkFreq;
+  uint8_t p;
+  uint64_t nn;
+  uint64_t nticks;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint16_t cnr;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint16_t cmpValTicks;
+  status_t returnCode;
+  long unsigned int _6;
+  long unsigned int _12;
+  _Bool _13;
+  _Bool _15;
+  long unsigned int _16;
+  long unsigned int _23;
+  _Bool _24;
+  long unsigned int _26;
+  <unnamed type> _28;
+  <unnamed type> _31;
+  long long unsigned int _38;
+  long long unsigned int _44;
+  short unsigned int _46;
+  short unsigned int _47;
+  unsigned char _49;
+  <unnamed type> _50;
+  long unsigned int _53;
+  long unsigned int pretmp_72;
+  long unsigned int prephitmp_73;
+  int _74;
+  int prephitmp_75;
+  long long unsigned int _76;
+  long long unsigned int _78;
+  long long unsigned int prephitmp_79;
+  long unsigned int _80;
+  long unsigned int prephitmp_81;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_14 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _15 = (_Bool) tmp_14;
+  tmp_11 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  if (_15 != 0)
+    goto <bb 3>; [67.00%]
+  else
+    goto <bb 4>; [33.00%]
+
+  <bb 3> [local count: 719407025]:
+  _12 = tmp_11 >> 7;
+  _13 = (_Bool) _12;
+  if (_13 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 4> [local count: 714038313]:
+  tmp_29 ={v} MEM[(const struct LPTMR_Type *)1074003968B].PSR;
+  tmp_30 = tmp_29 & 3;
+  _31 = (<unnamed type>) tmp_30;
+  _49 = _31 + 255;
+  if (_49 <= 2)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 357019156]:
+  _50 = CSWTCH.46[_49];
+  CLOCK_SYS_GetFreq (_50, &clkFreq);
+  pretmp_72 = clkFreq;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 357019156]:
+  CLOCK_SYS_GetFreq (11, &clkFreq);
+  _53 = clkFreq;
+  clkFreq ={v} {CLOBBER};
+
+  <bb 7> [local count: 714038313]:
+  # prephitmp_73 = PHI <pretmp_72(5), _53(6)>
+  clkFreq ={v} {CLOBBER};
+  tmp_25 ={v} MEM[(const struct LPTMR_Type *)1074003968B].PSR;
+  tmp_22 ={v} MEM[(const struct LPTMR_Type *)1074003968B].PSR;
+  _23 = tmp_22 >> 2;
+  _24 = (_Bool) _23;
+  if (_24 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 8> [local count: 357019156]:
+  _26 = tmp_25 >> 3;
+  tmp_27 = _26 & 15;
+  _28 = (<unnamed type>) tmp_27;
+  p_34 = _28 + 1;
+  _74 = (int) p_34;
+  _76 = 1 << _74;
+  _78 = _76 >> 1;
+
+  <bb 9> [local count: 714038313]:
+  # prephitmp_75 = PHI <_74(8), 0(7)>
+  # prephitmp_79 = PHI <_78(8), 0(7)>
+  _38 = WIDEN_MULT_PLUS_EXPR <compareValueUs_8(D), prephitmp_73, 500000>;
+  nn_39 = _38 / 1000000;
+  _44 = nn_39 + prephitmp_79;
+  nticks_45 = _44 >> prephitmp_75;
+  if (nticks_45 <= 65536)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 10> [local count: 357019156]:
+  if (nticks_45 == 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 11> [local count: 178509578]:
+  _46 = (short unsigned int) nticks_45;
+  _47 = _46 + 65535;
+  _80 = (long unsigned int) _47;
+
+  <bb 12> [local count: 535528735]:
+  # cmpValTicks_66 = PHI <_47(11), 65535(9)>
+  # prephitmp_81 = PHI <_80(11), 65535(9)>
+  tmp_18 ={v} MEM[(struct LPTMR_Type *)1074003968B].CMR;
+  tmp_19 = tmp_18 & 4294901760;
+  tmp_21 = tmp_19 | prephitmp_81;
+  MEM[(struct LPTMR_Type *)1074003968B].CMR ={v} tmp_21;
+  MEM[(struct LPTMR_Type *)1074003968B].CNR ={v} 0;
+  _16 ={v} MEM[(struct LPTMR_Type *)1074003968B].CNR;
+  cnr_17 = (uint16_t) _16;
+  if (cnr_17 >= cmpValTicks_66)
+    goto <bb 13>; [13.33%]
+  else
+    goto <bb 14>; [86.67%]
+
+  <bb 13> [local count: 71403831]:
+
+  <bb 14> [local count: 1073741824]:
+  # returnCode_2 = PHI <3(15), 0(12), 1(3), 3(13)>
+  return returnCode_2;
+
+  <bb 15> [local count: 178509578]:
+  tmp_69 ={v} MEM[(struct LPTMR_Type *)1074003968B].CMR;
+  tmp_1 = tmp_69 & 4294901760;
+  MEM[(struct LPTMR_Type *)1074003968B].CMR ={v} tmp_1;
+  MEM[(struct LPTMR_Type *)1074003968B].CNR ={v} 0;
+  _6 ={v} MEM[(struct LPTMR_Type *)1074003968B].CNR;
+  goto <bb 14>; [100.00%]
+
+}
+
+
+
+;; Function LPTMR_DRV_GetCompareValueByUs (LPTMR_DRV_GetCompareValueByUs, funcdef_no=42, decl_uid=6360, cgraph_uid=43, symbol_order=43)
+
+Removing basic block 8
+LPTMR_DRV_GetCompareValueByUs (const uint32_t instance, uint32_t * const compareValueUs)
+{
+  uint32_t clkFreq;
+  uint32_t clkFreq;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint64_t nn;
+  uint64_t us_real;
+  uint32_t us_local;
+  uint8_t p;
+  long long unsigned int _7;
+  long long unsigned int _8;
+  long long unsigned int _12;
+  long long unsigned int _13;
+  short unsigned int _17;
+  long unsigned int _19;
+  _Bool _20;
+  long unsigned int _22;
+  <unnamed type> _24;
+  <unnamed type> _27;
+  long long unsigned int _28;
+  unsigned char _30;
+  <unnamed type> _31;
+  long unsigned int _34;
+  long unsigned int pretmp_48;
+  long unsigned int prephitmp_49;
+  int _50;
+  int prephitmp_51;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_25 ={v} MEM[(const struct LPTMR_Type *)1074003968B].PSR;
+  tmp_26 = tmp_25 & 3;
+  _27 = (<unnamed type>) tmp_26;
+  _30 = _27 + 255;
+  if (_30 <= 2)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _31 = CSWTCH.46[_30];
+  CLOCK_SYS_GetFreq (_31, &clkFreq);
+  pretmp_48 = clkFreq;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  CLOCK_SYS_GetFreq (11, &clkFreq);
+  _34 = clkFreq;
+  clkFreq ={v} {CLOBBER};
+
+  <bb 5> [local count: 1073741824]:
+  # prephitmp_49 = PHI <pretmp_48(3), _34(4)>
+  clkFreq ={v} {CLOBBER};
+  tmp_21 ={v} MEM[(const struct LPTMR_Type *)1074003968B].PSR;
+  tmp_18 ={v} MEM[(const struct LPTMR_Type *)1074003968B].PSR;
+  _19 = tmp_18 >> 2;
+  _20 = (_Bool) _19;
+  tmp_16 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CMR;
+  _17 = (short unsigned int) tmp_16;
+  if (_20 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 536870913]:
+  _22 = tmp_21 >> 3;
+  tmp_23 = _22 & 15;
+  _24 = (<unnamed type>) tmp_23;
+  p_6 = _24 + 1;
+  _50 = (int) p_6;
+
+  <bb 7> [local count: 1073741824]:
+  # prephitmp_51 = PHI <_50(6), 0(5)>
+  _7 = (long long unsigned int) _17;
+  _8 = _7 + 1;
+  nn_11 = _8 << prephitmp_51;
+  _12 = nn_11 * 1000000;
+  _13 = (long long unsigned int) prephitmp_49;
+  us_real_14 = _12 / _13;
+  _28 = MIN_EXPR <us_real_14, 4294967295>;
+  us_local_15 = (uint32_t) _28;
+  *compareValueUs_5(D) = us_local_15;
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_GetCompareFlag (LPTMR_DRV_GetCompareFlag, funcdef_no=43, decl_uid=6362, cgraph_uid=44, symbol_order=44)
+
+LPTMR_DRV_GetCompareFlag (const uint32_t instance)
+{
+  uint32_t tmp;
+  long unsigned int _3;
+  _Bool _4;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_2 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _3 = tmp_2 >> 7;
+  _4 = (_Bool) _3;
+  return _4;
+
+}
+
+
+
+;; Function LPTMR_DRV_ClearCompareFlag (LPTMR_DRV_ClearCompareFlag, funcdef_no=44, decl_uid=6364, cgraph_uid=45, symbol_order=45)
+
+LPTMR_DRV_ClearCompareFlag (const uint32_t instance)
+{
+  uint32_t tmp;
+  long unsigned int vol.11_4;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_2 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_3 = tmp_2 | 128;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_3;
+  vol.11_4 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_IsRunning (LPTMR_DRV_IsRunning, funcdef_no=45, decl_uid=6366, cgraph_uid=46, symbol_order=46)
+
+LPTMR_DRV_IsRunning (const uint32_t instance)
+{
+  uint32_t tmp;
+  _Bool _3;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_2 ={v} MEM[(const struct LPTMR_Type *)1074003968B].CSR;
+  _3 = (_Bool) tmp_2;
+  return _3;
+
+}
+
+
+
+;; Function LPTMR_DRV_SetInterrupt (LPTMR_DRV_SetInterrupt, funcdef_no=46, decl_uid=6369, cgraph_uid=47, symbol_order=47)
+
+Removing basic block 5
+LPTMR_DRV_SetInterrupt (const uint32_t instance, const _Bool enableInterrupt)
+{
+  uint32_t tmp;
+  long unsigned int _8;
+  long unsigned int prephitmp_9;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_3 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_4 = tmp_3 & 4294967103;
+  if (enableInterrupt_2(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _8 = tmp_4 | 64;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_9 = PHI <_8(3), tmp_4(2)>
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} prephitmp_9;
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_GetCounterValueByCount (LPTMR_DRV_GetCounterValueByCount, funcdef_no=47, decl_uid=6371, cgraph_uid=48, symbol_order=48)
+
+LPTMR_DRV_GetCounterValueByCount (const uint32_t instance)
+{
+  uint16_t cnr;
+  long unsigned int _2;
+
+  <bb 2> [local count: 1073741824]:
+  MEM[(struct LPTMR_Type *)1074003968B].CNR ={v} 0;
+  _2 ={v} MEM[(struct LPTMR_Type *)1074003968B].CNR;
+  cnr_3 = (uint16_t) _2;
+  return cnr_3;
+
+}
+
+
+
+;; Function LPTMR_DRV_StartCounter (LPTMR_DRV_StartCounter, funcdef_no=48, decl_uid=6373, cgraph_uid=49, symbol_order=49)
+
+LPTMR_DRV_StartCounter (const uint32_t instance)
+{
+  uint32_t tmp;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_2 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_3 = tmp_2 & 4294967166;
+  tmp_4 = tmp_3 | 1;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_4;
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_StopCounter (LPTMR_DRV_StopCounter, funcdef_no=49, decl_uid=6375, cgraph_uid=50, symbol_order=50)
+
+LPTMR_DRV_StopCounter (const uint32_t instance)
+{
+  uint32_t tmp;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_2 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_3 = tmp_2 & 4294967166;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_3;
+  return;
+
+}
+
+
+
+;; Function LPTMR_DRV_SetPinConfiguration (LPTMR_DRV_SetPinConfiguration, funcdef_no=50, decl_uid=6379, cgraph_uid=51, symbol_order=51)
+
+LPTMR_DRV_SetPinConfiguration (const uint32_t instance, const lptmr_pinselect_t pinSelect, const lptmr_pinpolarity_t pinPolarity)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_10 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_11 = tmp_10 & 4294967119;
+  _12 = (long unsigned int) pinSelect_2(D);
+  _13 = _12 << 4;
+  _14 = _13 & 48;
+  tmp_15 = tmp_11 | _14;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_15;
+  tmp_4 ={v} MEM[(struct LPTMR_Type *)1074003968B].CSR;
+  tmp_5 = tmp_4 & 4294967159;
+  _6 = (long unsigned int) pinPolarity_3(D);
+  _7 = _6 << 3;
+  _8 = _7 & 8;
+  tmp_9 = tmp_5 | _8;
+  MEM[(struct LPTMR_Type *)1074003968B].CSR ={v} tmp_9;
+  return;
+
+}
+
+

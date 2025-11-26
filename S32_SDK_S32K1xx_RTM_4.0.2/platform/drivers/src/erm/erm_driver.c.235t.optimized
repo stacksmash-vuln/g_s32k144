@@ -1,0 +1,347 @@
+
+;; Function ERM_DRV_Init (ERM_DRV_Init, funcdef_no=6, decl_uid=6303, cgraph_uid=7, symbol_order=7)
+
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+ERM_DRV_Init (uint32_t instance, uint8_t channelCnt, const struct erm_user_config_t * userConfigArr)
+{
+  unsigned int ivtmp.23;
+  unsigned char interruptCfg$1;
+  unsigned char interruptCfg;
+  uint32_t tempCtrl;
+  uint32_t tempCtrl;
+  signed short _1;
+  signed short _3;
+  unsigned char _4;
+  const struct erm_interrupt_config_t * _5;
+  signed short _14;
+  _Bool _15;
+  unsigned int _18;
+  unsigned int _19;
+  unsigned int _22;
+  unsigned int _23;
+  unsigned int _24;
+  _Bool _27;
+  unsigned int _31;
+  unsigned int _35;
+  unsigned int _36;
+  unsigned int _44;
+  signed short _50;
+  unsigned int _51;
+  signed short _52;
+  signed short _53;
+  unsigned char _56;
+  void * _57;
+  unsigned int prephitmp_65;
+
+  <bb 2> [local count: 118111600]:
+  ERM_Init (1073840128B);
+  if (channelCnt_10(D) != 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 3>; [11.00%]
+
+  <bb 3> [local count: 118111600]:
+  return;
+
+  <bb 4> [local count: 105119324]:
+  ivtmp.23_58 = (unsigned int) userConfigArr_11(D);
+  _56 = channelCnt_10(D) + 255;
+  _3 = (signed short) 8;
+  _44 = ivtmp.23_58 + 8;
+  _14 = (signed short) _56;
+  _51 = WIDEN_MULT_PLUS_EXPR <_3, _14, _44>;
+
+  <bb 5> [local count: 955630225]:
+  # ivtmp.23_46 = PHI <ivtmp.23_58(4), ivtmp.23_59(11)>
+  _57 = (void *) ivtmp.23_46;
+  _4 = MEM[base: _57, offset: 0B];
+  _5 = MEM[base: _57, offset: 4B];
+  interruptCfg_7 = MEM <unsigned char> [(const struct erm_interrupt_config_t *)_5];
+  interruptCfg$1_6 = MEM <unsigned char> [(const struct erm_interrupt_config_t *)_5 + 1B];
+  _15 = VIEW_CONVERT_EXPR<_Bool>(interruptCfg_7);
+  tempCtrl_16 ={v} MEM[(struct ERM_Type *)1073840128B].CR0;
+  if (_15 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 477815112]:
+  _52 = (signed short) _4;
+  _50 = (signed short) 4;
+  _18 = _52 w* _50;
+  _19 = 2147483648 >> _18;
+  tempCtrl_20 = tempCtrl_16 | _19;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 477815112]:
+  _1 = (signed short) _4;
+  _53 = (signed short) 4;
+  _22 = _1 w* _53;
+  _23 = 2147483648 >> _22;
+  _24 = ~_23;
+  tempCtrl_25 = tempCtrl_16 & _24;
+
+  <bb 8> [local count: 955630225]:
+  # tempCtrl_26 = PHI <tempCtrl_20(6), tempCtrl_25(7)>
+  # prephitmp_65 = PHI <_18(6), _22(7)>
+  MEM[(struct ERM_Type *)1073840128B].CR0 ={v} tempCtrl_26;
+  _27 = VIEW_CONVERT_EXPR<_Bool>(interruptCfg$1_6);
+  tempCtrl_28 ={v} MEM[(struct ERM_Type *)1073840128B].CR0;
+  if (_27 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 477815112]:
+  _31 = 1073741824 >> prephitmp_65;
+  tempCtrl_32 = tempCtrl_28 | _31;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 477815112]:
+  _35 = 1073741824 >> prephitmp_65;
+  _36 = ~_35;
+  tempCtrl_37 = tempCtrl_28 & _36;
+
+  <bb 11> [local count: 955630225]:
+  # tempCtrl_38 = PHI <tempCtrl_32(9), tempCtrl_37(10)>
+  MEM[(struct ERM_Type *)1073840128B].CR0 ={v} tempCtrl_38;
+  ivtmp.23_59 = ivtmp.23_46 + 8;
+  if (_51 != ivtmp.23_59)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 3>; [11.00%]
+
+}
+
+
+
+;; Function ERM_DRV_Deinit (ERM_DRV_Deinit, funcdef_no=7, decl_uid=6305, cgraph_uid=8, symbol_order=8)
+
+ERM_DRV_Deinit (uint32_t instance)
+{
+  <bb 2> [local count: 1073741824]:
+  ERM_Init (1073840128B); [tail call]
+  return;
+
+}
+
+
+
+;; Function ERM_DRV_SetInterruptConfig (ERM_DRV_SetInterruptConfig, funcdef_no=8, decl_uid=6309, cgraph_uid=9, symbol_order=9)
+
+ERM_DRV_SetInterruptConfig (uint32_t instance, uint8_t channel, struct erm_interrupt_config_t interruptCfg)
+{
+  uint32_t tempCtrl;
+  uint32_t tempCtrl;
+  _Bool _1;
+  _Bool _2;
+  signed short _6;
+  unsigned int _8;
+  signed short _10;
+  signed short _11;
+  unsigned int _12;
+  unsigned int _13;
+  unsigned int _18;
+  unsigned int _19;
+  unsigned int _22;
+  unsigned int _23;
+  unsigned int _24;
+  signed short _29;
+  unsigned int prephitmp_30;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = interruptCfg.enableSingleCorrection;
+  tempCtrl_16 ={v} MEM[(struct ERM_Type *)1073840128B].CR0;
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _11 = (signed short) channel_4(D);
+  _6 = (signed short) 4;
+  _18 = _11 w* _6;
+  _19 = 2147483648 >> _18;
+  tempCtrl_20 = tempCtrl_16 | _19;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _29 = (signed short) channel_4(D);
+  _10 = (signed short) 4;
+  _22 = _29 w* _10;
+  _23 = 2147483648 >> _22;
+  _24 = ~_23;
+  tempCtrl_25 = tempCtrl_16 & _24;
+
+  <bb 5> [local count: 1073741824]:
+  # tempCtrl_26 = PHI <tempCtrl_20(3), tempCtrl_25(4)>
+  # prephitmp_30 = PHI <_18(3), _22(4)>
+  MEM[(struct ERM_Type *)1073840128B].CR0 ={v} tempCtrl_26;
+  _2 = interruptCfg.enableNonCorrectable;
+  tempCtrl_5 ={v} MEM[(struct ERM_Type *)1073840128B].CR0;
+  if (_2 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 536870913]:
+  _8 = 1073741824 >> prephitmp_30;
+  tempCtrl_9 = tempCtrl_5 | _8;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 536870913]:
+  _12 = 1073741824 >> prephitmp_30;
+  _13 = ~_12;
+  tempCtrl_14 = tempCtrl_5 & _13;
+
+  <bb 8> [local count: 1073741824]:
+  # tempCtrl_15 = PHI <tempCtrl_9(6), tempCtrl_14(7)>
+  MEM[(struct ERM_Type *)1073840128B].CR0 ={v} tempCtrl_15;
+  return;
+
+}
+
+
+
+;; Function ERM_DRV_GetInterruptConfig (ERM_DRV_GetInterruptConfig, funcdef_no=9, decl_uid=6313, cgraph_uid=10, symbol_order=10)
+
+ERM_DRV_GetInterruptConfig (uint32_t instance, uint8_t channel, struct erm_interrupt_config_t * const interruptPtr)
+{
+  uint32_t retVal;
+  uint32_t retVal;
+  long unsigned int _6;
+  unsigned int _7;
+  _Bool _9;
+  long unsigned int _10;
+  unsigned int _12;
+  unsigned int _13;
+  _Bool _15;
+  signed short _16;
+  signed short _17;
+
+  <bb 2> [local count: 1073741824]:
+  _10 ={v} MEM[(const struct ERM_Type *)1073840128B].CR0;
+  _16 = (signed short) channel_2(D);
+  _17 = (signed short) 4;
+  _12 = _16 w* _17;
+  _13 = 2147483648 >> _12;
+  retVal_14 = _10 & _13;
+  _15 = retVal_14 != 0;
+  interruptPtr_3(D)->enableSingleCorrection = _15;
+  _6 ={v} MEM[(const struct ERM_Type *)1073840128B].CR0;
+  _7 = 1073741824 >> _12;
+  retVal_8 = _6 & _7;
+  _9 = retVal_8 != 0;
+  interruptPtr_3(D)->enableNonCorrectable = _9;
+  return;
+
+}
+
+
+
+;; Function ERM_DRV_ClearEvent (ERM_DRV_ClearEvent, funcdef_no=10, decl_uid=6317, cgraph_uid=11, symbol_order=11)
+
+Removing basic block 7
+ERM_DRV_ClearEvent (uint32_t instance, uint8_t channel, erm_ecc_event_t eccEvent)
+{
+  unsigned int _6;
+  unsigned int _7;
+  long unsigned int vol.1_8;
+  unsigned int _10;
+  unsigned int _11;
+  long unsigned int vol.2_12;
+  signed short _15;
+  signed short _16;
+  signed short _17;
+  signed short _18;
+
+  <bb 2> [local count: 1073741823]:
+  if (eccEvent_2(D) == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  _17 = (signed short) channel_4(D);
+  _18 = (signed short) 4;
+  _6 = _17 w* _18;
+  _7 = 2147483648 >> _6;
+  MEM[(struct ERM_Type *)1073840128B].SR0 ={v} _7;
+  vol.1_8 ={v} MEM[(struct ERM_Type *)1073840128B].SR0;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 708669600]:
+  if (eccEvent_2(D) == 2)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [local count: 240947666]:
+  _15 = (signed short) channel_4(D);
+  _16 = (signed short) 4;
+  _10 = _15 w* _16;
+  _11 = 1073741824 >> _10;
+  MEM[(struct ERM_Type *)1073840128B].SR0 ={v} _11;
+  vol.2_12 ={v} MEM[(struct ERM_Type *)1073840128B].SR0;
+
+  <bb 6> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function ERM_DRV_GetErrorDetail (ERM_DRV_GetErrorDetail, funcdef_no=11, decl_uid=6321, cgraph_uid=12, symbol_order=12)
+
+Removing basic block 4
+Removing basic block 6
+ERM_DRV_GetErrorDetail (uint32_t instance, uint8_t channel, uint32_t * addressPtr)
+{
+  uint32_t retVal;
+  uint32_t retVal;
+  erm_ecc_event_t eccEvent;
+  long unsigned int _6;
+  unsigned int _8;
+  unsigned int _9;
+  long unsigned int _11;
+  unsigned int _12;
+  int _14;
+  long unsigned int _15;
+  signed short _16;
+  signed short _17;
+
+  <bb 2> [local count: 1073741824]:
+  _6 ={v} MEM[(const struct ERM_Type *)1073840128B].SR0;
+  _16 = (signed short) channel_3(D);
+  _17 = (signed short) 4;
+  _8 = _16 w* _17;
+  _9 = 2147483648 >> _8;
+  retVal_10 = _6 & _9;
+  if (retVal_10 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _11 ={v} MEM[(const struct ERM_Type *)1073840128B].SR0;
+  _12 = 1073741824 >> _8;
+  retVal_13 = _11 & _12;
+  if (retVal_13 != 0)
+    goto <bb 5>; [35.00%]
+  else
+    goto <bb 4>; [65.00%]
+
+  <bb 4> [local count: 348966093]:
+
+  <bb 5> [local count: 1073741824]:
+  # eccEvent_1 = PHI <1(2), 2(3), 0(4)>
+  _14 = (int) channel_3(D);
+  _15 ={v} MEM[(const struct ERM_Type *)1073840128B].EARn[_14].EAR;
+  *addressPtr_4(D) = _15;
+  return eccEvent_1;
+
+}
+
+

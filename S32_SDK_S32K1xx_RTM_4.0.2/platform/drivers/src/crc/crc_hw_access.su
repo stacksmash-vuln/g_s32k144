@@ -1,0 +1,3 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_hw_access.c:46:6:CRC_Init	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_hw_access.c:71:6:CRC_SetSeedReg	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_hw_access.c:86:10:CRC_GetCrcResult	0	static

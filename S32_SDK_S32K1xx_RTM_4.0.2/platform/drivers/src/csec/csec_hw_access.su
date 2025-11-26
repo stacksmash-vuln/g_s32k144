@@ -1,0 +1,7 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/csec/csec_hw_access.c:228:6:CSEC_WriteCmdAndWait	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/csec/csec_hw_access.c:77:6:CSEC_WriteCommandHalfWord	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/csec/csec_hw_access.c:103:6:CSEC_WriteCommandByte	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/csec/csec_hw_access.c:48:6:CSEC_WriteCommandBytes	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/csec/csec_hw_access.c:141:6:CSEC_WriteCommandWords	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/csec/csec_hw_access.c:162:6:CSEC_ReadCommandBytes	28	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/csec/csec_hw_access.c:191:9:CSEC_ReadCommandByte	0	static

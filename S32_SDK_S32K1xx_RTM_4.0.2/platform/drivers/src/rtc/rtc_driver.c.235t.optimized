@@ -1,0 +1,1516 @@
+
+;; Function RTC_DRV_Init (RTC_DRV_Init, funcdef_no=28, decl_uid=6389, cgraph_uid=29, symbol_order=35)
+
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+RTC_DRV_Init (uint32_t instance, const struct rtc_init_config_t * const rtcUserCfg)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  status_t statusCode;
+  _Bool _1;
+  <unnamed type> _2;
+  <unnamed type> _3;
+  _Bool _4;
+  _Bool _5;
+  signed char _6;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  short unsigned int load_dst_45;
+  long unsigned int _55;
+  short unsigned int bswapdst_56;
+  long unsigned int _57;
+  long unsigned int prephitmp_58;
+  long unsigned int _59;
+  long unsigned int prephitmp_60;
+
+  <bb 2> [local count: 1073741824]:
+  g_rtcRuntimeConfig[instance_11(D)].alarmConfig = 0B;
+  g_rtcRuntimeConfig[instance_11(D)].intConfig = 0B;
+  g_rtcRuntimeConfig[instance_11(D)].secondsIntConfig = 0B;
+  g_rtcRuntimeConfig[instance_11(D)].isAlarmTimeNew = 0;
+  _1 = RTC_IsRegisterLocked (1073991680B, 2);
+  if (_1 != 0)
+    goto <bb 9>; [67.00%]
+  else
+    goto <bb 3>; [33.00%]
+
+  <bb 3> [local count: 354334800]:
+  INT_SYS_DisableIRQ (46);
+  _37 ={v} MEM[(struct RTC_Type *)1073991680B].CR;
+  _38 = _37 | 1;
+  MEM[(struct RTC_Type *)1073991680B].CR ={v} _38;
+  _39 ={v} MEM[(struct RTC_Type *)1073991680B].CR;
+  _40 = _39 & 4294967294;
+  MEM[(struct RTC_Type *)1073991680B].CR ={v} _40;
+  statusCode_19 = RTC_SetTimeSecondsRegister (1073991680B, 1);
+  INT_SYS_ClearPending (46);
+  _2 = rtcUserCfg_21(D)->clockOutConfig;
+  RTC_ConfigureClockOut (1073991680B, _2);
+  _3 = rtcUserCfg_21(D)->clockSelect;
+  tmp_31 ={v} MEM[(struct RTC_Type *)1073991680B].CR;
+  tmp_32 = tmp_31 & 4294967167;
+  _33 = (long unsigned int) _3;
+  _34 = _33 << 7;
+  _35 = _34 & 255;
+  tmp_36 = tmp_32 | _35;
+  MEM[(struct RTC_Type *)1073991680B].CR ={v} tmp_36;
+  _4 = rtcUserCfg_21(D)->updateEnable;
+  tmp_27 ={v} MEM[(struct RTC_Type *)1073991680B].CR;
+  tmp_28 = tmp_27 & 4294967287;
+  if (_4 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 177167400]:
+  _57 = tmp_28 | 8;
+
+  <bb 5> [local count: 354334800]:
+  # prephitmp_58 = PHI <_57(4), tmp_28(3)>
+  MEM[(struct RTC_Type *)1073991680B].CR ={v} prephitmp_58;
+  _5 = rtcUserCfg_21(D)->nonSupervisorAccessEnable;
+  tmp_23 ={v} MEM[(struct RTC_Type *)1073991680B].CR;
+  tmp_24 = tmp_23 & 4294967291;
+  if (_5 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 177167400]:
+  _59 = tmp_24 | 4;
+
+  <bb 7> [local count: 354334800]:
+  # prephitmp_60 = PHI <_59(6), tmp_24(5)>
+  MEM[(struct RTC_Type *)1073991680B].CR ={v} prephitmp_60;
+  _6 = rtcUserCfg_21(D)->compensation;
+  if (_6 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 177167400]:
+  load_dst_45 = MEM <short unsigned int> [(void *)rtcUserCfg_21(D)];
+  bswapdst_56 = load_dst_45 r>> 8;
+  _55 = (long unsigned int) bswapdst_56;
+  tmp_41 ={v} MEM[(struct RTC_Type *)1073991680B].TCR;
+  tmp_42 = tmp_41 & 4294901760;
+  tmp_48 = tmp_42 | _55;
+  MEM[(struct RTC_Type *)1073991680B].TCR ={v} tmp_48;
+
+  <bb 9> [local count: 1073741824]:
+  # statusCode_8 = PHI <statusCode_19(8), 1(2), statusCode_19(7)>
+  return statusCode_8;
+
+}
+
+
+
+;; Function RTC_DRV_Deinit (RTC_DRV_Deinit, funcdef_no=29, decl_uid=6391, cgraph_uid=30, symbol_order=36)
+
+Removing basic block 5
+RTC_DRV_Deinit (uint32_t instance)
+{
+  status_t statusCode;
+  _Bool _1;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = RTC_IsRegisterLocked (1073991680B, 2);
+  if (_1 != 0)
+    goto <bb 4>; [67.00%]
+  else
+    goto <bb 3>; [33.00%]
+
+  <bb 3> [local count: 354334800]:
+  INT_SYS_DisableIRQ (46);
+  INT_SYS_DisableIRQ (47);
+  _9 ={v} MEM[(struct RTC_Type *)1073991680B].CR;
+  _10 = _9 | 1;
+  MEM[(struct RTC_Type *)1073991680B].CR ={v} _10;
+  _11 ={v} MEM[(struct RTC_Type *)1073991680B].CR;
+  _12 = _11 & 4294967294;
+  MEM[(struct RTC_Type *)1073991680B].CR ={v} _12;
+  INT_SYS_ClearPending (46);
+
+  <bb 4> [local count: 1073741824]:
+  # statusCode_2 = PHI <0(3), 1(2)>
+  return statusCode_2;
+
+}
+
+
+
+;; Function RTC_DRV_GetDefaultConfig (RTC_DRV_GetDefaultConfig, funcdef_no=30, decl_uid=6393, cgraph_uid=31, symbol_order=37)
+
+RTC_DRV_GetDefaultConfig (struct rtc_init_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->clockSelect = 0;
+  config_2(D)->clockOutConfig = 0;
+  config_2(D)->updateEnable = 1;
+  config_2(D)->nonSupervisorAccessEnable = 1;
+  config_2(D)->compensation = 0;
+  config_2(D)->compensationInterval = 0;
+  return;
+
+}
+
+
+
+;; Function RTC_DRV_StartCounter (RTC_DRV_StartCounter, funcdef_no=32, decl_uid=6395, cgraph_uid=33, symbol_order=39)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+RTC_DRV_StartCounter (uint32_t instance)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  status_t statusCode;
+  _Bool _9;
+  long unsigned int _11;
+  _Bool _12;
+  _Bool _16;
+  long unsigned int _18;
+  _Bool _19;
+  long unsigned int _21;
+  _Bool _22;
+
+  <bb 2> [local count: 1073741824]:
+  _9 = RTC_IsRegisterLocked (1073991680B, 1);
+  if (_9 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_10 ={v} MEM[(const struct RTC_Type *)1073991680B].CR;
+  _11 = tmp_10 >> 3;
+  _12 = (_Bool) _11;
+  if (_12 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  tmp_15 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  _16 = (_Bool) tmp_15;
+  tmp_17 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  tmp_20 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  if (_16 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 134217728]:
+  _18 = tmp_17 >> 1;
+  _19 = (_Bool) _18;
+  if (_19 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 67108864]:
+  _21 = tmp_20 >> 4;
+  _22 = (_Bool) _21;
+  if (_22 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 354334800]:
+  statusCode_8 = RTC_Enable (1073991680B); [tail call]
+
+  <bb 8> [local count: 1073741824]:
+  # statusCode_2 = PHI <1(3), statusCode_8(7), 1(6)>
+  return statusCode_2;
+
+}
+
+
+
+;; Function RTC_DRV_StopCounter (RTC_DRV_StopCounter, funcdef_no=33, decl_uid=6397, cgraph_uid=34, symbol_order=40)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+RTC_DRV_StopCounter (uint32_t instance)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  status_t statusCode;
+  _Bool _9;
+  long unsigned int _11;
+  _Bool _12;
+  _Bool _16;
+  long unsigned int _18;
+  _Bool _19;
+  long unsigned int _21;
+  _Bool _22;
+
+  <bb 2> [local count: 1073741824]:
+  _9 = RTC_IsRegisterLocked (1073991680B, 1);
+  if (_9 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_10 ={v} MEM[(const struct RTC_Type *)1073991680B].CR;
+  _11 = tmp_10 >> 3;
+  _12 = (_Bool) _11;
+  if (_12 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  tmp_15 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  _16 = (_Bool) tmp_15;
+  tmp_17 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  tmp_20 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  if (_16 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 134217728]:
+  _18 = tmp_17 >> 1;
+  _19 = (_Bool) _18;
+  if (_19 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 67108864]:
+  _21 = tmp_20 >> 4;
+  _22 = (_Bool) _21;
+  if (_22 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 354334800]:
+  statusCode_8 = RTC_Disable (1073991680B); [tail call]
+
+  <bb 8> [local count: 1073741824]:
+  # statusCode_2 = PHI <1(3), statusCode_8(7), 1(6)>
+  return statusCode_2;
+
+}
+
+
+
+;; Function RTC_DRV_ConfigureRegisterLock (RTC_DRV_ConfigureRegisterLock, funcdef_no=36, decl_uid=6406, cgraph_uid=37, symbol_order=43)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+RTC_DRV_ConfigureRegisterLock (uint32_t instance, const struct rtc_register_lock_config_t * const lockConfig)
+{
+  status_t statusCode;
+  _Bool _1;
+  _Bool _2;
+  _Bool _3;
+  _Bool _4;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = lockConfig_14(D)->controlRegisterLock;
+  if (_1 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  statusCode_16 = RTC_ConfigureRegisterLock (1073991680B, 2);
+
+  <bb 4> [local count: 1073741824]:
+  # statusCode_5 = PHI <statusCode_16(3), 0(2)>
+  _2 = lockConfig_14(D)->statusRegisterLock;
+  if (_2 != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 354334800]:
+  statusCode_18 = RTC_ConfigureRegisterLock (1073991680B, 1);
+
+  <bb 6> [local count: 1073741824]:
+  # statusCode_6 = PHI <statusCode_18(5), statusCode_5(4)>
+  _3 = lockConfig_14(D)->timeCompensationRegisterLock;
+  if (_3 != 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 7> [local count: 354334800]:
+  statusCode_20 = RTC_ConfigureRegisterLock (1073991680B, 3);
+
+  <bb 8> [local count: 1073741824]:
+  # statusCode_7 = PHI <statusCode_20(7), statusCode_6(6)>
+  _4 = lockConfig_14(D)->lockRegisterLock;
+  if (_4 != 0)
+    goto <bb 9>; [33.00%]
+  else
+    goto <bb 10>; [67.00%]
+
+  <bb 9> [local count: 354334800]:
+  statusCode_22 = RTC_ConfigureRegisterLock (1073991680B, 0); [tail call]
+
+  <bb 10> [local count: 1073741824]:
+  # statusCode_8 = PHI <statusCode_22(9), statusCode_7(8)>
+  return statusCode_8;
+
+}
+
+
+
+;; Function RTC_DRV_GetRegisterLock (RTC_DRV_GetRegisterLock, funcdef_no=37, decl_uid=6409, cgraph_uid=38, symbol_order=44)
+
+RTC_DRV_GetRegisterLock (uint32_t instance, struct rtc_register_lock_config_t * const lockConfig)
+{
+  _Bool _1;
+  _Bool _2;
+  _Bool _3;
+  _Bool _4;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = RTC_IsRegisterLocked (1073991680B, 0);
+  lockConfig_7(D)->lockRegisterLock = _1;
+  _2 = RTC_IsRegisterLocked (1073991680B, 2);
+  lockConfig_7(D)->controlRegisterLock = _2;
+  _3 = RTC_IsRegisterLocked (1073991680B, 1);
+  lockConfig_7(D)->statusRegisterLock = _3;
+  _4 = RTC_IsRegisterLocked (1073991680B, 3);
+  lockConfig_7(D)->timeCompensationRegisterLock = _4;
+  return;
+
+}
+
+
+
+;; Function RTC_DRV_ConfigureTimeCompensation (RTC_DRV_ConfigureTimeCompensation, funcdef_no=38, decl_uid=6413, cgraph_uid=39, symbol_order=45)
+
+Removing basic block 5
+RTC_DRV_ConfigureTimeCompensation (uint32_t instance, uint8_t compInterval, int8_t compensation)
+{
+  uint32_t tmp;
+  status_t statusCode;
+  _Bool _1;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _17;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = RTC_IsRegisterLocked (1073991680B, 3);
+  if (_1 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_8 ={v} MEM[(struct RTC_Type *)1073991680B].TCR;
+  tmp_9 = tmp_8 & 4294901760;
+  _10 = (long unsigned int) compensation_6(D);
+  _11 = _10 & 255;
+  _13 = (long unsigned int) compInterval_7(D);
+  _14 = _13 << 8;
+  _17 = tmp_9 | _14;
+  tmp_15 = _11 | _17;
+  MEM[(struct RTC_Type *)1073991680B].TCR ={v} tmp_15;
+
+  <bb 4> [local count: 1073741824]:
+  # statusCode_2 = PHI <0(3), 1(2)>
+  return statusCode_2;
+
+}
+
+
+
+;; Function RTC_DRV_GetTimeCompensation (RTC_DRV_GetTimeCompensation, funcdef_no=39, decl_uid=6417, cgraph_uid=40, symbol_order=46)
+
+RTC_DRV_GetTimeCompensation (uint32_t instance, uint8_t * compInterval, int8_t * compensation)
+{
+  uint32_t tmp;
+  long unsigned int _5;
+  signed char _6;
+  long unsigned int _7;
+  unsigned char _8;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_4 ={v} MEM[(const struct RTC_Type *)1073991680B].TCR;
+  _5 = tmp_4 >> 16;
+  _6 = (signed char) _5;
+  *compensation_2(D) = _6;
+  _7 = tmp_4 >> 24;
+  _8 = (unsigned char) _7;
+  *compInterval_3(D) = _8;
+  return;
+
+}
+
+
+
+;; Function RTC_DRV_ConvertSecondsToTimeDate (RTC_DRV_ConvertSecondsToTimeDate, funcdef_no=40, decl_uid=6434, cgraph_uid=41, symbol_order=47)
+
+Removing basic block 6
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+RTC_DRV_ConvertSecondsToTimeDate (const uint32_t * const seconds, struct rtc_timedate_t * const timeDate)
+{
+  sizetype ivtmp.95;
+  _Bool isYearLeap;
+  uint16_t daysInYear;
+  uint32_t tempSeconds;
+  uint32_t numberOfDays;
+  long unsigned int _1;
+  long unsigned int _2;
+  short unsigned int _3;
+  long unsigned int _4;
+  short unsigned int _5;
+  long unsigned int _6;
+  unsigned char _7;
+  short unsigned int _9;
+  long unsigned int _12;
+  unsigned char _15;
+  unsigned char _17;
+  short unsigned int _18;
+  short unsigned int _20;
+  short unsigned int prephitmp_24;
+  long unsigned int iftmp.5_25;
+  short unsigned int _40;
+  long unsigned int iftmp.5_41;
+  long unsigned int iftmp.5_42;
+  short unsigned int _52;
+  short unsigned int _55;
+  short unsigned int _56;
+  short unsigned int _58;
+  short unsigned int _59;
+  _Bool _60;
+  unsigned char _68;
+
+  <bb 2> [local count: 118111600]:
+  timeDate_30(D)->year = 1970;
+  _1 = *seconds_32(D);
+  numberOfDays_33 = _1 / 86400;
+  tempSeconds_34 = _1 % 86400;
+  _2 = tempSeconds_34 / 3600;
+  _3 = (short unsigned int) _2;
+  timeDate_30(D)->hour = _3;
+  tempSeconds_36 = tempSeconds_34 % 3600;
+  _4 = tempSeconds_36 / 60;
+  _5 = (short unsigned int) _4;
+  timeDate_30(D)->minutes = _5;
+  _6 = tempSeconds_36 % 60;
+  _7 = (unsigned char) _6;
+  timeDate_30(D)->seconds = _7;
+  if (_1 > 31535999)
+    goto <bb 21>; [89.00%]
+  else
+    goto <bb 20>; [11.00%]
+
+  <bb 3> [local count: 850510901]:
+  _9 = prephitmp_24 + 1;
+  timeDate_30(D)->year = _9;
+  numberOfDays_49 = numberOfDays_43 - _12;
+  _40 = _9 & 3;
+  if (_40 != 0)
+    goto <bb 7>; [43.82%]
+  else
+    goto <bb 4>; [56.18%]
+
+  <bb 4> [local count: 477815112]:
+  _55 = _9 % 100;
+  if (_55 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 238907556]:
+  _56 = _9 % 400;
+  if (_56 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 119453778]:
+
+  <bb 7> [local count: 850510900]:
+  # daysInYear_70 = PHI <366(4), 365(3), 366(5), 365(6)>
+
+  <bb 8> [local count: 955630225]:
+  # daysInYear_57 = PHI <daysInYear_70(7), 365(21)>
+  # numberOfDays_43 = PHI <numberOfDays_49(7), numberOfDays_50(21)>
+  # prephitmp_24 = PHI <_9(7), 1971(21)>
+  _12 = (long unsigned int) daysInYear_57;
+  if (_12 <= numberOfDays_43)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 9>; [11.00%]
+
+  <bb 9> [local count: 105119324]:
+  numberOfDays_39 = numberOfDays_43 + 1;
+  _52 = prephitmp_24 & 3;
+  if (_52 != 0)
+    goto <bb 12>; [43.82%]
+  else
+    goto <bb 10>; [56.18%]
+
+  <bb 10> [local count: 59055800]:
+  _58 = prephitmp_24 % 100;
+  if (_58 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 11> [local count: 29527900]:
+  _59 = prephitmp_24 % 400;
+  _60 = _59 == 0;
+
+  <bb 12> [local count: 118111600]:
+  # isYearLeap_54 = PHI <0(20), _60(11), 0(9), 1(10)>
+  # numberOfDays_51 = PHI <numberOfDays_22(20), numberOfDays_39(11), numberOfDays_39(9), numberOfDays_39(10)>
+
+  <bb 13> [local count: 853986013]:
+  # numberOfDays_75 = PHI <numberOfDays_51(12), numberOfDays_44(18)>
+  # ivtmp.95_8 = PHI <1(12), ivtmp.95_23(18)>
+  _68 = (unsigned char) ivtmp.95_8;
+  if (isYearLeap_54 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 426993006]:
+  _15 = MEM[symbol: LY, index: ivtmp.95_8, offset: 0B];
+  iftmp.5_42 = (long unsigned int) _15;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [local count: 426993006]:
+  _17 = MEM[symbol: ULY, index: ivtmp.95_8, offset: 0B];
+  iftmp.5_41 = (long unsigned int) _17;
+
+  <bb 16> [local count: 853986013]:
+  # iftmp.5_25 = PHI <iftmp.5_42(14), iftmp.5_41(15)>
+  if (iftmp.5_25 >= numberOfDays_75)
+    goto <bb 17>; [5.50%]
+  else
+    goto <bb 18>; [94.50%]
+
+  <bb 17> [local count: 46969230]:
+  _18 = (short unsigned int) _68;
+  timeDate_30(D)->month = _18;
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [local count: 807016783]:
+  numberOfDays_44 = numberOfDays_75 - iftmp.5_25;
+  ivtmp.95_23 = ivtmp.95_8 + 1;
+  if (ivtmp.95_23 != 13)
+    goto <bb 13>; [91.18%]
+  else
+    goto <bb 19>; [8.82%]
+
+  <bb 19> [local count: 118111601]:
+  # numberOfDays_62 = PHI <numberOfDays_75(17), numberOfDays_44(18)>
+  _20 = (short unsigned int) numberOfDays_62;
+  timeDate_30(D)->day = _20;
+  return;
+
+  <bb 20> [local count: 12992276]:
+  numberOfDays_22 = numberOfDays_33 + 1;
+  goto <bb 12>; [100.00%]
+
+  <bb 21> [local count: 105119324]:
+  timeDate_30(D)->year = 1971;
+  numberOfDays_50 = numberOfDays_33 + 4294966931;
+  goto <bb 8>; [100.00%]
+
+}
+
+
+
+;; Function RTC_DRV_GetCurrentTimeDate (RTC_DRV_GetCurrentTimeDate, funcdef_no=34, decl_uid=6400, cgraph_uid=35, symbol_order=41)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+RTC_DRV_GetCurrentTimeDate (uint32_t instance, struct rtc_timedate_t * const currentTime)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t seconds;
+  status_t statusCode;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_10 ={v} MEM[(const struct RTC_Type *)1073991680B].TSR;
+  tmp_9 ={v} MEM[(const struct RTC_Type *)1073991680B].TSR;
+  seconds = tmp_9;
+  if (tmp_9 != tmp_10)
+    goto <bb 3>; [79.76%]
+  else
+    goto <bb 4>; [20.24%]
+
+  <bb 3> [local count: 856416481]:
+  tmp_11 ={v} MEM[(const struct RTC_Type *)1073991680B].TSR;
+  if (tmp_9 != tmp_11)
+    goto <bb 5>; [79.76%]
+  else
+    goto <bb 4>; [20.24%]
+
+  <bb 4> [local count: 390664039]:
+  RTC_DRV_ConvertSecondsToTimeDate (&seconds, currentTime_5(D));
+
+  <bb 5> [local count: 1073741824]:
+  # statusCode_1 = PHI <0(4), 1(3)>
+  seconds ={v} {CLOBBER};
+  return statusCode_1;
+
+}
+
+
+
+;; Function RTC_DRV_ConvertTimeDateToSeconds (RTC_DRV_ConvertTimeDateToSeconds, funcdef_no=41, decl_uid=6437, cgraph_uid=42, symbol_order=48)
+
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+RTC_DRV_ConvertTimeDateToSeconds (const struct rtc_timedate_t * const timeDate, uint32_t * const seconds)
+{
+  uint16_t year;
+  short unsigned int pretmp_1;
+  short unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _7;
+  short unsigned int _8;
+  long unsigned int _10;
+  int _13;
+  short unsigned int _14;
+  long unsigned int _15;
+  short unsigned int _18;
+  long unsigned int _19;
+  short unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  short unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  unsigned char _30;
+  long unsigned int _31;
+  long unsigned int _33;
+  short unsigned int _42;
+  short unsigned int _48;
+  long unsigned int _49;
+  short unsigned int _50;
+  short unsigned int _51;
+  short unsigned int _53;
+  short unsigned int _54;
+  long unsigned int prephitmp_57;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _64;
+  long unsigned int _67;
+  long unsigned int _68;
+  short unsigned int pretmp_69;
+  short unsigned int pretmp_70;
+  short unsigned int prephitmp_71;
+  long unsigned int prephitmp_72;
+  long unsigned int prephitmp_73;
+
+  <bb 2> [local count: 118111600]:
+  _2 = timeDate_40(D)->year;
+  _3 = (long unsigned int) _2;
+  _4 = _3 + 4294965326;
+  _5 = _4 * 31536000;
+  *seconds_39(D) = _5;
+  if (_2 > 1970)
+    goto <bb 9>; [89.00%]
+  else
+    goto <bb 3>; [11.00%]
+
+  <bb 3> [local count: 12992276]:
+  pretmp_70 = timeDate_40(D)->month;
+  goto <bb 17>; [100.00%]
+
+  <bb 4> [local count: 850510901]:
+  _42 = year_47 & 3;
+  if (_42 != 0)
+    goto <bb 8>; [43.82%]
+  else
+    goto <bb 5>; [56.18%]
+
+  <bb 5> [local count: 477815112]:
+  _50 = year_47 % 100;
+  if (_50 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 238907556]:
+  _51 = year_47 % 400;
+  if (_51 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 238907557]:
+  _7 = prephitmp_57 + 86400;
+
+  <bb 8> [local count: 731057123]:
+  # prephitmp_73 = PHI <prephitmp_57(4), _7(7), prephitmp_57(6)>
+
+  <bb 9> [local count: 955630227]:
+  # year_52 = PHI <year_47(8), 1970(2)>
+  # prephitmp_57 = PHI <prephitmp_73(8), _5(2)>
+  year_47 = year_52 + 1;
+  if (_2 != year_47)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 10>; [11.00%]
+
+  <bb 10> [local count: 105119324]:
+  _48 = _2 & 3;
+  if (_48 != 0)
+    goto <bb 11>; [43.82%]
+  else
+    goto <bb 12>; [56.18%]
+
+  <bb 11> [local count: 46063524]:
+  pretmp_1 = timeDate_40(D)->month;
+  goto <bb 17>; [100.00%]
+
+  <bb 12> [local count: 59055800]:
+  _53 = _2 % 100;
+  if (_53 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 13> [local count: 29527900]:
+  _54 = _2 % 400;
+  if (_54 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 14763950]:
+  pretmp_69 = timeDate_40(D)->month;
+  goto <bb 17>; [100.00%]
+
+  <bb 15> [local count: 29527900]:
+  _8 = timeDate_40(D)->month;
+  if (_8 > 2)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 16> [local count: 14763950]:
+  _10 = prephitmp_57 + 86400;
+
+  <bb 17> [local count: 118111600]:
+  # prephitmp_71 = PHI <pretmp_1(11), pretmp_69(14), _8(16), pretmp_70(3), _8(15)>
+  # prephitmp_72 = PHI <prephitmp_57(11), prephitmp_57(14), _10(16), _5(3), prephitmp_57(15)>
+  _13 = (int) prephitmp_71;
+  _14 = MONTH_DAYS[_13];
+  _15 = (long unsigned int) _14;
+  _18 = timeDate_40(D)->day;
+  _19 = (long unsigned int) _18;
+  _67 = _15 + _19;
+  _64 = _67 * 86400;
+  _23 = timeDate_40(D)->hour;
+  _24 = (long unsigned int) _23;
+  _25 = _24 * 3600;
+  _26 = timeDate_40(D)->minutes;
+  _27 = (long unsigned int) _26;
+  _28 = _27 * 60;
+  _30 = timeDate_40(D)->seconds;
+  _31 = (long unsigned int) _30;
+  _68 = _31 + 4294880896;
+  _62 = _25 + _68;
+  _61 = _28 + _62;
+  _49 = _61 + prephitmp_72;
+  _33 = _49 + _64;
+  *seconds_39(D) = _33;
+  return;
+
+}
+
+
+
+;; Function RTC_DRV_IsTimeDateCorrectFormat (RTC_DRV_IsTimeDateCorrectFormat, funcdef_no=42, decl_uid=6441, cgraph_uid=43, symbol_order=49)
+
+Removing basic block 5
+Removing basic block 14
+Removing basic block 15
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+RTC_DRV_IsTimeDateCorrectFormat (const struct rtc_timedate_t * const timeDate)
+{
+  _Bool returnCode;
+  short unsigned int _1;
+  short unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  short unsigned int _5;
+  short unsigned int _6;
+  unsigned char _7;
+  sizetype _8;
+  const uint8_t * _9;
+  unsigned char _10;
+  short unsigned int _11;
+  const uint8_t * iftmp.8_13;
+  short unsigned int _16;
+  short unsigned int _18;
+  short unsigned int _19;
+  short unsigned int _25;
+  short unsigned int _27;
+  _Bool _28;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = timeDate_15(D)->year;
+  _16 = _1 & 3;
+  if (_16 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _18 = _1 % 100;
+  if (_18 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _19 = _1 % 400;
+  if (_19 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 134217728]:
+
+  <bb 6> [local count: 1073741824]:
+  # iftmp.8_13 = PHI <&LY(4), &LY(3), &ULY(2), &ULY(5)>
+  _2 = _1 + 63566;
+  if (_2 > 129)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 536870913]:
+  _3 = timeDate_15(D)->month;
+  _25 = _3 + 65535;
+  if (_25 > 11)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 8> [local count: 134217728]:
+  _4 = timeDate_15(D)->day;
+  _27 = _4 + 65535;
+  if (_27 > 30)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [local count: 33554432]:
+  _5 = timeDate_15(D)->hour;
+  if (_5 > 23)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 10> [local count: 16777216]:
+  _6 = timeDate_15(D)->minutes;
+  if (_6 > 59)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 11> [local count: 8388608]:
+  _7 = timeDate_15(D)->seconds;
+  if (_7 > 59)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 12> [local count: 4194304]:
+  _8 = (sizetype) _3;
+  _9 = iftmp.8_13 + _8;
+  _10 = *_9;
+  _11 = (short unsigned int) _10;
+  _28 = _4 <= _11;
+
+  <bb 13> [local count: 1073741824]:
+  # returnCode_12 = PHI <0(6), _28(12), 0(9), 0(10), 0(8), 0(7), 0(11)>
+  return returnCode_12;
+
+}
+
+
+
+;; Function RTC_DRV_SetTimeDate (RTC_DRV_SetTimeDate, funcdef_no=35, decl_uid=6403, cgraph_uid=36, symbol_order=42)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+RTC_DRV_SetTimeDate (uint32_t instance, const struct rtc_timedate_t * const time)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t seconds;
+  status_t statusCode;
+  _Bool _1;
+  long unsigned int seconds.4_3;
+  _Bool _15;
+  long unsigned int _17;
+  _Bool _18;
+  _Bool _22;
+  long unsigned int _24;
+  _Bool _25;
+  long unsigned int _27;
+  _Bool _28;
+
+  <bb 2> [local count: 1073741824]:
+  seconds = 0;
+  _1 = RTC_DRV_IsTimeDateCorrectFormat (time_8(D));
+  if (_1 != 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 3>; [67.00%]
+
+  <bb 3> [local count: 819063687]:
+  goto <bb 10>; [100.00%]
+
+  <bb 4> [local count: 354334800]:
+  _15 = RTC_IsRegisterLocked (1073991680B, 1);
+  if (_15 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 5> [local count: 177167400]:
+  tmp_16 ={v} MEM[(const struct RTC_Type *)1073991680B].CR;
+  _17 = tmp_16 >> 3;
+  _18 = (_Bool) _17;
+  if (_18 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 6> [local count: 88583700]:
+  tmp_21 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  _22 = (_Bool) tmp_21;
+  tmp_23 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  tmp_26 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  if (_22 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 44291850]:
+  _24 = tmp_23 >> 1;
+  _25 = (_Bool) _24;
+  if (_25 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 8> [local count: 22145925]:
+  _27 = tmp_26 >> 4;
+  _28 = (_Bool) _27;
+  if (_28 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [local count: 116930483]:
+  RTC_DRV_ConvertTimeDateToSeconds (time_8(D), &seconds);
+  seconds.4_3 = seconds;
+  statusCode_13 = RTC_SetTimeSecondsRegister (1073991680B, seconds.4_3);
+
+  <bb 10> [local count: 1073741824]:
+  # statusCode_4 = PHI <statusCode_13(9), 1(3)>
+  seconds ={v} {CLOBBER};
+  return statusCode_4;
+
+}
+
+
+
+;; Function RTC_DRV_IsYearLeap (RTC_DRV_IsYearLeap, funcdef_no=43, decl_uid=6439, cgraph_uid=44, symbol_order=50)
+
+Removing basic block 6
+Removing basic block 7
+RTC_DRV_IsYearLeap (uint16_t year)
+{
+  _Bool isYearLeap;
+  short unsigned int _1;
+  short unsigned int _6;
+  short unsigned int _7;
+  _Bool _8;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = year_4(D) & 3;
+  if (_1 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _6 = year_4(D) % 100;
+  if (_6 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _7 = year_4(D) % 400;
+  _8 = _7 == 0;
+
+  <bb 5> [local count: 1073741824]:
+  # isYearLeap_2 = PHI <0(2), _8(4), 1(3)>
+  return isYearLeap_2;
+
+}
+
+
+
+;; Function RTC_DRV_IRQHandler (RTC_DRV_IRQHandler, funcdef_no=44, decl_uid=6446, cgraph_uid=45, symbol_order=51)
+
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+RTC_DRV_IRQHandler (uint32_t instance)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  const struct rtc_interrupt_config_t * const intConfig;
+  struct rtc_alarm_config_t * alarmConfig;
+  uint32_t tempSeconds;
+  long unsigned int _1;
+  _Bool _2;
+  long unsigned int _3;
+  _Bool _5;
+  void (*<Td3>) (void *) _6;
+  void * _7;
+  void (*<Td3>) (void *) _8;
+  void * _9;
+  long unsigned int iftmp.9_10;
+  long unsigned int iftmp.9_21;
+  long unsigned int _25;
+  _Bool _26;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_24 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  _25 = tmp_24 >> 2;
+  _26 = (_Bool) _25;
+  if (_26 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  alarmConfig_15 = g_rtcRuntimeConfig[instance_14(D)].alarmConfig;
+  if (alarmConfig_15 != 0B)
+    goto <bb 5>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 4> [local count: 547608326]:
+  goto <bb 16>; [100.00%]
+
+  <bb 5> [local count: 375809640]:
+  _1 = alarmConfig_15->numberOfRepeats;
+  if (_1 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 187904820]:
+  _2 = alarmConfig_15->repeatForever;
+  if (_2 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 7> [local count: 187904820]:
+  tmp_27 ={v} MEM[(const struct RTC_Type *)1073991680B].TSR;
+  _3 = alarmConfig_15->repetitionInterval;
+  _39 = tmp_27 + 4294967295;
+  tempSeconds_19 = _3 + _39;
+  MEM[(struct RTC_Type *)1073991680B].TAR ={v} tempSeconds_19;
+  g_rtcRuntimeConfig[instance_14(D)].isAlarmTimeNew = 1;
+  _5 = alarmConfig_15->repeatForever;
+  if (_5 != 0)
+    goto <bb 9>; [25.00%]
+  else
+    goto <bb 8>; [75.00%]
+
+  <bb 8> [local count: 140928615]:
+  iftmp.9_21 = _1 + 4294967295;
+
+  <bb 9> [local count: 281857230]:
+  # iftmp.9_10 = PHI <iftmp.9_21(8), _1(17), 0(7)>
+  alarmConfig_15->numberOfRepeats = iftmp.9_10;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 93952410]:
+  MEM[(struct RTC_Type *)1073991680B].TAR ={v} 0;
+  g_rtcRuntimeConfig[instance_14(D)].isAlarmTimeNew = 0;
+
+  <bb 11> [local count: 375809640]:
+  _6 = alarmConfig_15->alarmCallback;
+  if (_6 != 0B)
+    goto <bb 12>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 12> [local count: 263066749]:
+  _7 = alarmConfig_15->callbackParams;
+  _6 (_7); [tail call]
+  goto <bb 16>; [100.00%]
+
+  <bb 13> [local count: 536870913]:
+  intConfig_16 = g_rtcRuntimeConfig[instance_14(D)].intConfig;
+  if (intConfig_16 != 0B)
+    goto <bb 14>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 14> [local count: 375809640]:
+  _8 = intConfig_16->rtcCallback;
+  if (_8 != 0B)
+    goto <bb 15>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 15> [local count: 263066749]:
+  _9 = intConfig_16->callbackParams;
+  _8 (_9); [tail call]
+
+  <bb 16> [local count: 1073741824]:
+  return;
+
+  <bb 17> [local count: 93952410]:
+  tmp_33 ={v} MEM[(const struct RTC_Type *)1073991680B].TSR;
+  _37 = alarmConfig_15->repetitionInterval;
+  _38 = tmp_33 + 4294967295;
+  tempSeconds_36 = _37 + _38;
+  MEM[(struct RTC_Type *)1073991680B].TAR ={v} tempSeconds_36;
+  g_rtcRuntimeConfig[instance_14(D)].isAlarmTimeNew = 1;
+  goto <bb 9>; [100.00%]
+
+}
+
+
+
+;; Function RTC_DRV_SecondsIRQHandler (RTC_DRV_SecondsIRQHandler, funcdef_no=45, decl_uid=6448, cgraph_uid=46, symbol_order=52)
+
+Removing basic block 6
+Removing basic block 7
+RTC_DRV_SecondsIRQHandler (uint32_t instance)
+{
+  const struct rtc_seconds_int_config_t * const intCfg;
+  void (*<Td3>) (void *) _1;
+  void * _2;
+
+  <bb 2> [local count: 1073741824]:
+  intCfg_6 = g_rtcRuntimeConfig[instance_5(D)].secondsIntConfig;
+  if (intCfg_6 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _1 = intCfg_6->rtcSecondsCallback;
+  if (_1 != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 4> [local count: 526133498]:
+  _2 = intCfg_6->secondsCallbackParams;
+  _1 (_2); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function RTC_DRV_ConfigureFaultInt (RTC_DRV_ConfigureFaultInt, funcdef_no=46, decl_uid=6420, cgraph_uid=47, symbol_order=53)
+
+Removing basic block 5
+RTC_DRV_ConfigureFaultInt (uint32_t instance, struct rtc_interrupt_config_t * const intConfig)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  _Bool _1;
+  _Bool _2;
+  long unsigned int _11;
+  long unsigned int _19;
+  long unsigned int prephitmp_20;
+
+  <bb 2> [local count: 1073741824]:
+  INT_SYS_DisableIRQ (46);
+  g_rtcRuntimeConfig[instance_5(D)].intConfig = intConfig_6(D);
+  _1 = intConfig_6(D)->overflowIntEnable;
+  tmp_13 ={v} MEM[(struct RTC_Type *)1073991680B].IER;
+  tmp_14 = tmp_13 & 4294967293;
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _11 = tmp_14 | 2;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_20 = PHI <_11(3), tmp_14(2)>
+  MEM[(struct RTC_Type *)1073991680B].IER ={v} prephitmp_20;
+  _2 = intConfig_6(D)->timeInvalidIntEnable;
+  tmp_9 ={v} MEM[(struct RTC_Type *)1073991680B].IER;
+  tmp_10 = tmp_9 & 4294967294;
+  _19 = (long unsigned int) _2;
+  tmp_12 = tmp_10 | _19;
+  MEM[(struct RTC_Type *)1073991680B].IER ={v} tmp_12;
+  INT_SYS_EnableIRQ (46); [tail call]
+  return;
+
+}
+
+
+
+;; Function RTC_DRV_ConfigureSecondsInt (RTC_DRV_ConfigureSecondsInt, funcdef_no=47, decl_uid=6423, cgraph_uid=48, symbol_order=54)
+
+Removing basic block 5
+RTC_DRV_ConfigureSecondsInt (uint32_t instance, struct rtc_seconds_int_config_t * const intConfig)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  <unnamed type> _1;
+  _Bool _2;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _21;
+  long unsigned int prephitmp_22;
+
+  <bb 2> [local count: 1073741824]:
+  INT_SYS_DisableIRQ (47);
+  g_rtcRuntimeConfig[instance_5(D)].secondsIntConfig = intConfig_6(D);
+  _1 = intConfig_6(D)->secondIntConfig;
+  tmp_13 ={v} MEM[(struct RTC_Type *)1073991680B].IER;
+  tmp_14 = tmp_13 & 4294508543;
+  _15 = (long unsigned int) _1;
+  _16 = _15 << 16;
+  _17 = _16 & 458752;
+  tmp_18 = tmp_14 | _17;
+  MEM[(struct RTC_Type *)1073991680B].IER ={v} tmp_18;
+  _2 = intConfig_6(D)->secondIntEnable;
+  tmp_9 ={v} MEM[(struct RTC_Type *)1073991680B].IER;
+  tmp_10 = tmp_9 & 4294967279;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _21 = tmp_10 | 16;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_22 = PHI <_21(3), tmp_10(2)>
+  MEM[(struct RTC_Type *)1073991680B].IER ={v} prephitmp_22;
+  INT_SYS_EnableIRQ (47); [tail call]
+  return;
+
+}
+
+
+
+;; Function RTC_DRV_ConfigureAlarm (RTC_DRV_ConfigureAlarm, funcdef_no=48, decl_uid=6426, cgraph_uid=49, symbol_order=55)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+RTC_DRV_ConfigureAlarm (uint32_t instance, struct rtc_alarm_config_t * const alarmConfig)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t alarmTime;
+  status_t statusCode;
+  struct rtc_timedate_t * _1;
+  _Bool _2;
+  long unsigned int alarmTime.13_3;
+  long unsigned int alarmTime.14_4;
+  _Bool _5;
+  long unsigned int _23;
+  long unsigned int prephitmp_24;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = &alarmConfig_8(D)->alarmTime;
+  _2 = RTC_DRV_IsTimeDateCorrectFormat (_1);
+  if (_2 != 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 3>; [67.00%]
+
+  <bb 3> [local count: 956811341]:
+  goto <bb 8>; [100.00%]
+
+  <bb 4> [local count: 354334800]:
+  RTC_DRV_ConvertTimeDateToSeconds (_1, &alarmTime);
+  tmp_10 ={v} MEM[(const struct RTC_Type *)1073991680B].TSR;
+  alarmTime.13_3 = alarmTime;
+  if (alarmTime.13_3 > tmp_10)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 3>; [67.00%]
+
+  <bb 5> [local count: 116930483]:
+  INT_SYS_DisableIRQ (46);
+  g_rtcRuntimeConfig[instance_13(D)].alarmConfig = alarmConfig_8(D);
+  alarmTime.14_4 = alarmTime;
+  MEM[(struct RTC_Type *)1073991680B].TAR ={v} alarmTime.14_4;
+  _5 = alarmConfig_8(D)->alarmIntEnable;
+  tmp_17 ={v} MEM[(struct RTC_Type *)1073991680B].IER;
+  tmp_18 = tmp_17 & 4294967291;
+  if (_5 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 58465242]:
+  _23 = tmp_18 | 4;
+
+  <bb 7> [local count: 116930483]:
+  # prephitmp_24 = PHI <_23(6), tmp_18(5)>
+  MEM[(struct RTC_Type *)1073991680B].IER ={v} prephitmp_24;
+  INT_SYS_EnableIRQ (46);
+
+  <bb 8> [local count: 1073741824]:
+  # statusCode_6 = PHI <1(3), 0(7)>
+  alarmTime ={v} {CLOBBER};
+  return statusCode_6;
+
+}
+
+
+
+;; Function RTC_DRV_GetAlarmConfig (RTC_DRV_GetAlarmConfig, funcdef_no=49, decl_uid=6429, cgraph_uid=50, symbol_order=56)
+
+RTC_DRV_GetAlarmConfig (uint32_t instance, struct rtc_alarm_config_t * alarmConfig)
+{
+  struct rtc_alarm_config_t * _1;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = g_rtcRuntimeConfig[instance_3(D)].alarmConfig;
+  *alarmConfig_4(D) = *_1;
+  return;
+
+}
+
+
+
+;; Function RTC_DRV_IsAlarmPending (RTC_DRV_IsAlarmPending, funcdef_no=50, decl_uid=6431, cgraph_uid=51, symbol_order=57)
+
+RTC_DRV_IsAlarmPending (uint32_t instance)
+{
+  uint32_t tmp;
+  long unsigned int _3;
+  _Bool _4;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_2 ={v} MEM[(const struct RTC_Type *)1073991680B].SR;
+  _3 = tmp_2 >> 2;
+  _4 = (_Bool) _3;
+  return _4;
+
+}
+
+
+
+;; Function RTC_DRV_GetNextAlarmTime (RTC_DRV_GetNextAlarmTime, funcdef_no=51, decl_uid=6444, cgraph_uid=52, symbol_order=58)
+
+Removing basic block 5
+RTC_DRV_GetNextAlarmTime (uint32_t instance, struct rtc_timedate_t * const alarmTime)
+{
+  uint32_t tmp;
+  uint32_t alarmInSec;
+  status_t statusCode;
+  _Bool _1;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = g_rtcRuntimeConfig[instance_5(D)].isAlarmTimeNew;
+  if (_1 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  tmp_10 ={v} MEM[(const struct RTC_Type *)1073991680B].TAR;
+  alarmInSec = tmp_10;
+  RTC_DRV_ConvertSecondsToTimeDate (&alarmInSec, alarmTime_7(D));
+
+  <bb 4> [local count: 1073741824]:
+  # statusCode_2 = PHI <0(3), 1(2)>
+  alarmInSec ={v} {CLOBBER};
+  return statusCode_2;
+
+}
+
+

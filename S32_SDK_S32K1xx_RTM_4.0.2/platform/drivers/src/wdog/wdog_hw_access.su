@@ -1,0 +1,4 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_hw_access.c:38:6:WDOG_Deinit	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_hw_access.c:65:6:WDOG_SetInt	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_hw_access.c:89:10:WDOG_Config	32	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_hw_access.c:170:20:WDOG_GetConfig	28	static

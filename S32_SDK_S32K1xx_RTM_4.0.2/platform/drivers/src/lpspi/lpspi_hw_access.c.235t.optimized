@@ -1,0 +1,613 @@
+
+;; Function LPSPI_Init (LPSPI_Init, funcdef_no=29, decl_uid=7666, cgraph_uid=30, symbol_order=30)
+
+LPSPI_Init (struct LPSPI_Type * base)
+{
+  <bb 2> [local count: 1073741824]:
+  base_2(D)->CR ={v} 2;
+  base_2(D)->CR ={v} 0;
+  return;
+
+}
+
+
+
+;; Function LPSPI_Disable (LPSPI_Disable, funcdef_no=30, decl_uid=7671, cgraph_uid=31, symbol_order=31)
+
+Removing basic block 5
+LPSPI_Disable (struct LPSPI_Type * base)
+{
+  uint32_t lpspi_tmp;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  status_t _4;
+
+  <bb 2> [local count: 1073741824]:
+  lpspi_tmp_8 ={v} base_7(D)->SR;
+  _1 = lpspi_tmp_8 >> 24;
+  lpspi_tmp_9 = _1 & 1;
+  if (lpspi_tmp_9 != 0)
+    goto <bb 4>; [35.00%]
+  else
+    goto <bb 3>; [65.00%]
+
+  <bb 3> [local count: 697932185]:
+  _2 ={v} base_7(D)->CR;
+  _3 = _2 & 4294967294;
+  base_7(D)->CR ={v} _3;
+
+  <bb 4> [local count: 1073741824]:
+  # _4 = PHI <0(3), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function LPSPI_SetMasterSlaveMode (LPSPI_SetMasterSlaveMode, funcdef_no=31, decl_uid=7674, cgraph_uid=32, symbol_order=32)
+
+LPSPI_SetMasterSlaveMode (struct LPSPI_Type * base, lpspi_master_slave_mode_t mode)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_6(D)->CFGR1;
+  _2 = _1 & 4294967294;
+  _3 = (long unsigned int) mode_7(D);
+  _4 = _2 | _3;
+  base_6(D)->CFGR1 ={v} _4;
+  return 0;
+
+}
+
+
+
+;; Function LPSPI_SetFlushFifoCmd (LPSPI_SetFlushFifoCmd, funcdef_no=32, decl_uid=7685, cgraph_uid=33, symbol_order=33)
+
+LPSPI_SetFlushFifoCmd (struct LPSPI_Type * base, _Bool flushTxFifo, _Bool flushRxFifo)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _13;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (long unsigned int) flushTxFifo_7(D);
+  _2 = _1 << 8;
+  _3 = (long unsigned int) flushRxFifo_8(D);
+  _4 = _3 << 9;
+  _5 ={v} base_11(D)->CR;
+  _13 = _4 | _5;
+  _6 = _2 | _13;
+  base_11(D)->CR ={v} _6;
+  return;
+
+}
+
+
+
+;; Function LPSPI_ClearStatusFlag (LPSPI_ClearStatusFlag, funcdef_no=33, decl_uid=7702, cgraph_uid=34, symbol_order=34)
+
+LPSPI_ClearStatusFlag (struct LPSPI_Type * base, lpspi_status_flag_t statusFlag)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  if (statusFlag_8(D) == 16128)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  _1 ={v} base_10(D)->SR;
+  _2 = _1 | 16128;
+  base_10(D)->SR ={v} _2;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 708669601]:
+  _3 ={v} base_10(D)->SR;
+  _4 = (long unsigned int) statusFlag_8(D);
+  _5 = 1 << _4;
+  _6 = _3 | _5;
+  base_10(D)->SR ={v} _6;
+
+  <bb 5> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function LPSPI_SetPcsPolarityMode (LPSPI_SetPcsPolarityMode, funcdef_no=34, decl_uid=7729, cgraph_uid=35, symbol_order=35)
+
+LPSPI_SetPcsPolarityMode (struct LPSPI_Type * base, lpspi_which_pcs_t whichPcs, lpspi_signal_polarity_t pcsPolarity)
+{
+  uint32_t cfgr1Value;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_9(D)->CFGR1;
+  _2 = (long unsigned int) whichPcs_10(D);
+  _3 = _2 + 8;
+  _4 = 1 << _3;
+  _5 = ~_4;
+  cfgr1Value_11 = _1 & _5;
+  _6 = (long unsigned int) pcsPolarity_12(D);
+  _7 = _6 << _3;
+  cfgr1Value_13 = _7 | cfgr1Value_11;
+  base_9(D)->CFGR1 ={v} cfgr1Value_13;
+  return 0;
+
+}
+
+
+
+;; Function LPSPI_SetPinConfigMode (LPSPI_SetPinConfigMode, funcdef_no=35, decl_uid=7734, cgraph_uid=36, symbol_order=36)
+
+LPSPI_SetPinConfigMode (struct LPSPI_Type * base, lpspi_pin_config_t pinCfg, lpspi_data_out_config_t dataOutConfig, _Bool pcs3and2Enable)
+{
+  uint32_t cfgr1Value;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  _Bool _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _19;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_12(D)->CFGR1;
+  cfgr1Value_13 = _1 & 4043309055;
+  _2 = (long unsigned int) pinCfg_14(D);
+  _3 = _2 << 24;
+  _4 = (long unsigned int) dataOutConfig_15(D);
+  _5 = _4 << 26;
+  _7 = ~pcs3and2Enable_16(D);
+  _8 = (long unsigned int) _7;
+  _9 = _8 << 27;
+  _19 = _5 | _9;
+  _10 = _3 | _19;
+  cfgr1Value_17 = _10 | cfgr1Value_13;
+  base_12(D)->CFGR1 ={v} cfgr1Value_17;
+  return 0;
+
+}
+
+
+
+;; Function LPSPI_SetBaudRate (LPSPI_SetBaudRate, funcdef_no=37, decl_uid=7739, cgraph_uid=38, symbol_order=38)
+
+Removing basic block 9
+Removing basic block 11
+Removing basic block 20
+Removing basic block 27
+Removing basic block 32
+Removing basic block 36
+Removing basic block 37
+Removing basic block 39
+Removing basic block 40
+Removing basic block 41
+LPSPI_SetBaudRate (struct LPSPI_Type * base, uint32_t bitsPerSec, uint32_t sourceClockInHz, uint32_t * tcrPrescaleValue)
+{
+  unsigned int ivtmp.54;
+  unsigned int ivtmp.38;
+  uint32_t ccrValue;
+  uint32_t ccrValue;
+  uint32_t ccrValue;
+  uint32_t lpspi_tmp;
+  uint32_t tempBestScaler;
+  uint32_t tempBestFreq;
+  uint32_t high;
+  uint32_t low;
+  uint32_t freq2;
+  uint32_t freq1;
+  uint32_t bestPrescaler;
+  uint32_t bestScaler;
+  uint32_t bestFreq;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  void * _18;
+  long unsigned int prephitmp_21;
+  long unsigned int pretmp_24;
+  long unsigned int _36;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _47;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  long unsigned int _65;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _70;
+  long unsigned int _72;
+  long unsigned int _74;
+  long unsigned int _76;
+  long unsigned int _78;
+  long unsigned int _80;
+  long unsigned int _82;
+
+  <bb 2> [local count: 21258427]:
+  ivtmp.54_126 = (unsigned int) &MEM <const uint32_t[8]> [(void *)&s_baudratePrescaler + 4B];
+
+  <bb 3> [local count: 118111600]:
+  # bestFreq_130 = PHI <4294967295(2), bestFreq_51(30)>
+  # bestScaler_131 = PHI <0(2), bestScaler_120(30)>
+  # bestPrescaler_132 = PHI <0(2), bestPrescaler_3(30)>
+  # prephitmp_21 = PHI <1(2), pretmp_24(30)>
+  # ivtmp.38_9 = PHI <0(2), ivtmp.38_8(30)>
+  # ivtmp.54_121 = PHI <ivtmp.54_126(2), ivtmp.54_119(30)>
+
+  <bb 4> [local count: 1073741824]:
+  # bestFreq_15 = PHI <bestFreq_130(3), bestFreq_128(12)>
+  # low_27 = PHI <0(3), low_28(12)>
+  # high_29 = PHI <256(3), high_30(12)>
+  _1 = low_27 + high_29;
+  _2 = _1 >> 1;
+  _36 = _2 & 255;
+  _5 = _36 + 2;
+  _6 = _5 * prephitmp_21;
+  freq1_41 = sourceClockInHz_40(D) / _6;
+  if (bestFreq_15 < bitsPerSec_42(D))
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  _47 = bitsPerSec_42(D) - bestFreq_15;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 536870913]:
+  _44 = bestFreq_15 - bitsPerSec_42(D);
+
+  <bb 7> [local count: 1073741824]:
+  # _43 = PHI <_47(5), _44(6)>
+  if (freq1_41 < bitsPerSec_42(D))
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 8> [local count: 536870913]:
+  _50 = bitsPerSec_42(D) - freq1_41;
+  if (_43 > _50)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [local count: 268435457]:
+  goto <bb 12>; [100.00%]
+
+  <bb 10> [local count: 536870913]:
+  _49 = freq1_41 - bitsPerSec_42(D);
+  if (_43 > _49)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 11> [local count: 268435457]:
+
+  <bb 12> [local count: 1073741824]:
+  # low_28 = PHI <low_27(9), _36(10), low_27(8), _36(11)>
+  # high_30 = PHI <_36(9), high_29(10), _36(8), high_29(11)>
+  # bestFreq_128 = PHI <bestFreq_15(9), freq1_41(10), freq1_41(8), bestFreq_15(11)>
+  _7 = high_30 - low_28;
+  if (_7 > 1)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 13>; [11.00%]
+
+  <bb 13> [local count: 118111600]:
+  _10 = low_28 + 2;
+  _11 = _10 * prephitmp_21;
+  freq1_45 = sourceClockInHz_40(D) / _11;
+  _12 = high_30 + 2;
+  _13 = _12 * prephitmp_21;
+  freq2_46 = sourceClockInHz_40(D) / _13;
+  if (bitsPerSec_42(D) > freq1_45)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 59055800]:
+  _59 = bitsPerSec_42(D) - freq1_45;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [local count: 59055800]:
+  _60 = freq1_45 - bitsPerSec_42(D);
+
+  <bb 16> [local count: 118111600]:
+  # _61 = PHI <_59(14), _60(15)>
+  if (bitsPerSec_42(D) > freq2_46)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 17> [local count: 59055800]:
+  _56 = bitsPerSec_42(D) - freq2_46;
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [local count: 59055800]:
+  _57 = freq2_46 - bitsPerSec_42(D);
+
+  <bb 19> [local count: 118111600]:
+  # _58 = PHI <_56(17), _57(18)>
+  if (_58 < _61)
+    goto <bb 21>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 20> [local count: 59055800]:
+
+  <bb 21> [local count: 118111600]:
+  # tempBestFreq_31 = PHI <freq2_46(19), freq1_45(20)>
+  # tempBestScaler_32 = PHI <high_30(19), low_28(20)>
+  if (bitsPerSec_42(D) > bestFreq_128)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 22> [local count: 59055800]:
+  _65 = bitsPerSec_42(D) - bestFreq_128;
+  goto <bb 24>; [100.00%]
+
+  <bb 23> [local count: 59055800]:
+  _66 = bestFreq_128 - bitsPerSec_42(D);
+
+  <bb 24> [local count: 118111600]:
+  # _67 = PHI <_65(22), _66(23)>
+  if (tempBestFreq_31 < bitsPerSec_42(D))
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 25> [local count: 59055800]:
+  _62 = bitsPerSec_42(D) - tempBestFreq_31;
+  if (_62 <= _67)
+    goto <bb 29>; [50.00%]
+  else
+    goto <bb 28>; [50.00%]
+
+  <bb 26> [local count: 59055800]:
+  _63 = tempBestFreq_31 - bitsPerSec_42(D);
+  if (_63 <= _67)
+    goto <bb 28>; [50.00%]
+  else
+    goto <bb 27>; [50.00%]
+
+  <bb 27> [local count: 29527900]:
+
+  <bb 28> [local count: 88583700]:
+  # bestFreq_17 = PHI <tempBestFreq_31(26), bestFreq_128(25), bestFreq_128(27)>
+  # bestScaler_20 = PHI <tempBestScaler_32(26), bestScaler_131(25), bestScaler_131(27)>
+  # bestPrescaler_23 = PHI <ivtmp.38_9(26), bestPrescaler_132(25), bestPrescaler_132(27)>
+  if (bestFreq_17 == bitsPerSec_42(D))
+    goto <bb 31>; [7.33%]
+  else
+    goto <bb 29>; [92.67%]
+
+  <bb 29> [local count: 111615463]:
+  # bestFreq_51 = PHI <tempBestFreq_31(25), bestFreq_17(28)>
+  # bestScaler_120 = PHI <tempBestScaler_32(25), bestScaler_20(28)>
+  # bestPrescaler_3 = PHI <ivtmp.38_9(25), bestPrescaler_23(28)>
+  if (ivtmp.38_9 != 7)
+    goto <bb 30>; [86.77%]
+  else
+    goto <bb 31>; [13.23%]
+
+  <bb 30> [local count: 96853173]:
+  _18 = (void *) ivtmp.54_121;
+  pretmp_24 = MEM[base: _18, offset: 0B];
+  ivtmp.54_119 = ivtmp.54_121 + 4;
+  ivtmp.38_8 = ivtmp.38_9 + 1;
+  goto <bb 3>; [100.00%]
+
+  <bb 31> [local count: 21258428]:
+  # bestFreq_129 = PHI <bestFreq_17(28), bestFreq_51(29)>
+  # bestScaler_38 = PHI <bestScaler_20(28), bestScaler_120(29)>
+  # bestPrescaler_127 = PHI <bestPrescaler_23(28), bestPrescaler_3(29)>
+  _14 = bestScaler_38 >> 2;
+  _80 ={v} base_53(D)->CCR;
+  ccrValue_81 = _80 & 16777215;
+  _82 = _14 << 24;
+  ccrValue_83 = ccrValue_81 | _82;
+  base_53(D)->CCR ={v} ccrValue_83;
+  _76 ={v} base_53(D)->CCR;
+  ccrValue_77 = _76 & 4278255615;
+  _78 = _14 << 16;
+  ccrValue_79 = ccrValue_77 | _78;
+  base_53(D)->CCR ={v} ccrValue_79;
+  _72 ={v} base_53(D)->CCR;
+  ccrValue_73 = _72 & 4294902015;
+  _74 = _14 << 8;
+  ccrValue_75 = ccrValue_73 | _74;
+  base_53(D)->CCR ={v} ccrValue_75;
+  lpspi_tmp_68 ={v} base_53(D)->CCR;
+  lpspi_tmp_69 = lpspi_tmp_68 & 4294967040;
+  _70 = bestScaler_38 & 255;
+  lpspi_tmp_71 = lpspi_tmp_69 | _70;
+  base_53(D)->CCR ={v} lpspi_tmp_71;
+  *tcrPrescaleValue_54(D) = bestPrescaler_127;
+  return bestFreq_129;
+
+}
+
+
+
+;; Function LPSPI_SetBaudRateDivisor (LPSPI_SetBaudRateDivisor, funcdef_no=38, decl_uid=7742, cgraph_uid=39, symbol_order=39)
+
+LPSPI_SetBaudRateDivisor (struct LPSPI_Type * base, uint32_t divisor)
+{
+  uint32_t lpspi_tmp;
+  long unsigned int _1;
+
+  <bb 2> [local count: 1073741824]:
+  lpspi_tmp_4 ={v} base_3(D)->CCR;
+  lpspi_tmp_5 = lpspi_tmp_4 & 4294967040;
+  _1 = divisor_6(D) & 255;
+  lpspi_tmp_7 = _1 | lpspi_tmp_5;
+  base_3(D)->CCR ={v} lpspi_tmp_7;
+  return 0;
+
+}
+
+
+
+;; Function LPSPI_SetTxCommandReg (LPSPI_SetTxCommandReg, funcdef_no=39, decl_uid=7748, cgraph_uid=40, symbol_order=40)
+
+LPSPI_SetTxCommandReg (struct LPSPI_Type * base, const struct lpspi_tx_cmd_config_t * txCmdCfgSet)
+{
+  <unnamed type> _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  <unnamed type> _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _8;
+  long unsigned int _9;
+  <unnamed type> _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  _Bool _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  _Bool _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  _Bool _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  _Bool _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  _Bool _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  _Bool _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  <unnamed type> _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = txCmdCfgSet_47(D)->clkPolarity;
+  _2 = (long unsigned int) _1;
+  _3 = _2 << 31;
+  _4 = txCmdCfgSet_47(D)->clkPhase;
+  _5 = (long unsigned int) _4;
+  _6 = _5 << 30;
+  _8 = txCmdCfgSet_47(D)->preDiv;
+  _9 = _8 << 27;
+  _11 = txCmdCfgSet_47(D)->whichPcs;
+  _12 = (long unsigned int) _11;
+  _13 = _12 << 24;
+  _15 = txCmdCfgSet_47(D)->lsbFirst;
+  _16 = (long unsigned int) _15;
+  _17 = _16 << 23;
+  _19 = txCmdCfgSet_47(D)->byteSwap;
+  _20 = (long unsigned int) _19;
+  _21 = _20 << 22;
+  _23 = txCmdCfgSet_47(D)->contTransfer;
+  _24 = (long unsigned int) _23;
+  _25 = _24 << 21;
+  _27 = txCmdCfgSet_47(D)->contCmd;
+  _28 = (long unsigned int) _27;
+  _29 = _28 << 20;
+  _31 = txCmdCfgSet_47(D)->rxMask;
+  _32 = (long unsigned int) _31;
+  _33 = _32 << 19;
+  _35 = txCmdCfgSet_47(D)->txMask;
+  _36 = (long unsigned int) _35;
+  _37 = _36 << 18;
+  _39 = txCmdCfgSet_47(D)->width;
+  _40 = (long unsigned int) _39;
+  _41 = _40 << 16;
+  _43 = txCmdCfgSet_47(D)->frameSize;
+  _44 = _43 + 4294967295;
+  _50 = _9 | _44;
+  _51 = _3 | _50;
+  _52 = _6 | _51;
+  _53 = _13 | _52;
+  _54 = _17 | _53;
+  _55 = _21 | _54;
+  _56 = _25 | _55;
+  _57 = _29 | _56;
+  _58 = _33 | _57;
+  _59 = _37 | _58;
+  _45 = _41 | _59;
+  base_48(D)->TCR ={v} _45;
+  return;
+
+}
+
+
+
+;; Function LPSPI_SetPcs (LPSPI_SetPcs, funcdef_no=40, decl_uid=7745, cgraph_uid=41, symbol_order=41)
+
+LPSPI_SetPcs (struct LPSPI_Type * base, lpspi_which_pcs_t whichPcs)
+{
+  uint32_t regVal;
+  long unsigned int _1;
+  long unsigned int _2;
+
+  <bb 2> [local count: 1073741824]:
+  regVal_5 ={v} base_4(D)->TCR;
+  regVal_6 = regVal_5 & 4244635647;
+  _1 = (long unsigned int) whichPcs_7(D);
+  _2 = _1 << 24;
+  regVal_8 = _2 | regVal_6;
+  base_4(D)->TCR ={v} regVal_8;
+  return;
+
+}
+
+

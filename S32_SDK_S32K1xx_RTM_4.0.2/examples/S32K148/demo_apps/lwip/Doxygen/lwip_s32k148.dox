@@ -1,0 +1,85 @@
+/*!
+    @page lwip_s32k148_group lwIP TCP/IP stack
+    @brief Basic application that presents the lwIP usage with S32 SDK
+
+    ## Application description ##
+    _____
+    The purpose of this demo is to provide the user with an out-of-the box
+    example application for S32K148 platform, using S32 SDK.
+    The demo uses lwIP stack and supports more scenarios, which can be enabled
+    or disabled by modifying the settings from the Applications tab of the tcpip
+    component.
+
+    Basic functionality can be checked by pinging the board from the host PC:
+        ping 192.168.0.200
+
+    Please note that a prior setting of the IP on your PC might be needed. On Windows, this can be done from:
+
+    <b>Control Panel</b> > <b>Network and Internet</b> > <b>Network and Sharing Center</b> > <b>Change adapter settings</b> > <b>Network adapter that connects to the board</b>
+
+    Select <b>Internet Protocol Version 4</b> and click <b>Properties</b>; select <b>Use the following IP address</b> and configure the IP address and subnet mask.
+    Configuration example: IP - 192.168.0.10, subnet mask - 255.255.255.0.
+
+    ## Prerequisites ##
+    _____
+    To run the example you will need to have the following items:
+    - 1 S32K148 EVB
+    - 1 TJA1100 daughter card
+    - 1 Power Adapter 12V
+    - 1 Personal Computer
+    - 1 Jlink Lite Debugger/ PEmicro Debugger (optional, users can use Open SDA)
+    - 1 BroadR-Reach Media Converter (if the transceiver on the board is a BroadR-Reach PHY)
+
+    The board should be powered by 12V power supply. Jumper settings on the board for 12V power supply as following:
+      J18:1-2, J7:2-3, J8:1-2
+
+    ## Boards supported ##
+    _____
+    The following boards are supported by this application:
+    - S32K148EVB-Q176 Rev C
+
+    ## How to run ##
+    _____
+    #### 1. Importing the project into the workspace ####
+    After opening S32 Design Studio, go to \b File -> \b New -> \b S32DS \b Project \b From \bExample and select \b lwip_s32k148. Then click on \b Finish. \n
+    The project should now be copied into you current workspace.
+    Wait for the S32 Configuration was initialized and ready.
+
+    #### 2. Generating the S32 configuration ####
+    The example will run without an active configuration, however if any changes are required, a configuration needs to be generated.
+    The initial configuration will have the same settings as the default example settings.
+    Left click on the current project, then click "Open S32 Configuration" (it has blue chip symbol on the top of the tool-bar).
+    In S32 Configuration menu, click on the desired configuration (Pins, Clock, Peripherals, etc.). Clicking on any one of those will generate all the components.
+    Pay attention to any error and warning message. If any configured value is invalid, they will be shown for user.
+    Make the desired changes (if any) then click "Update Code".
+
+    #### 3. Building the project ####
+    Select the configuration to be built \b FLASH (Debug_FLASH) or \b RAM (Debug_RAM) by left clicking on the downward arrow corresponding to the \b build button(@image hammer.png).
+    Wait for the build action to be completed before continuing to the next step.
+
+    #### 4. Running the project ####
+    Go to \b Run and select \b Debug \b Configurations. There will be four debug configurations for this project:
+     Configuration Name | Description
+     -------------------|------------
+     \b lwip_s32k148_debug_ram_jlink | Debug the RAM configuration using Segger Jlink debuggers
+     \b lwip_s32k148_debug_flash_jlink | Debug the FLASH configuration using Segger Jlink debuggers
+     \b lwip_s32k148_debug_ram_pemicro | Debug the RAM configuration using PEMicro debuggers
+     \b lwip_s32k148_debug_flash_pemicro | Debug the FLASH configuration using PEMicro debuggers
+    \n Select the desired debug configuration and click on \b Launch. Now the perspective will change to the \b Debug \b Perspective. \n
+    Use the controls to control the program flow.
+
+    #### 5. Expected results after running the tests:
+    After executing "ping 192.168.0.200" cmd, ping should be successfully executed.
+    The command windows will display something similar like this :
+        Pinging 192.168.0.200 with 32 bytes of data:
+        Reply from 192.168.0.200: bytes=32 time<1ms TTL=128
+        Reply from 192.168.0.200: bytes=32 time<1ms TTL=128
+        Reply from 192.168.0.200: bytes=32 time<1ms TTL=128
+        Reply from 192.168.0.200: bytes=32 time<1ms TTL=128
+        Ping statistics for 192.168.0.200:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+        Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    @note For more detailed information related to S32 Design Studio usage please consult the available documentation.
+*/
+

@@ -1,0 +1,8 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pdb/pdb_hw_access.c:24:6:PDB_Init	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pdb/pdb_hw_access.c:62:6:PDB_ConfigTimer	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pdb/pdb_hw_access.c:109:6:PDB_SetAdcPreTriggerBackToBackEnable	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pdb/pdb_hw_access.c:136:6:PDB_SetAdcPreTriggerOutputEnable	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pdb/pdb_hw_access.c:163:6:PDB_SetAdcPreTriggerEnable	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pdb/pdb_hw_access.c:191:6:PDB_ClearAdcPreTriggerFlags	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pdb/pdb_hw_access.c:211:6:PDB_ClearAdcPreTriggerSeqErrFlags	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pdb/pdb_hw_access.c:237:6:PDB_SetCmpPulseOutEnable	0	static

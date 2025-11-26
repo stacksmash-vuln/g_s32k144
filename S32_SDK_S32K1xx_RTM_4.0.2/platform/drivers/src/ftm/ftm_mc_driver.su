@@ -1,0 +1,5 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_mc_driver.c:52:10:FTM_DRV_InitCounter	12	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_mc_driver.c:111:10:FTM_DRV_CounterStart	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_mc_driver.c:132:10:FTM_DRV_CounterStop	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_mc_driver.c:150:10:FTM_DRV_CounterRead	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_mc_driver.c:166:6:FTM_MC_DRV_GetDefaultConfig	0	static

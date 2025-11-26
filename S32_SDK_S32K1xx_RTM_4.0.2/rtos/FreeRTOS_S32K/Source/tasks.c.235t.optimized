@@ -1,0 +1,4588 @@
+
+;; Function prvSearchForNameWithinSingleList (prvSearchForNameWithinSingleList, funcdef_no=27, decl_uid=6464, cgraph_uid=28, symbol_order=48)
+
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+prvSearchForNameWithinSingleList (struct List_t * pxList, const char * pcNameToQuery)
+{
+  unsigned int ivtmp.223;
+  unsigned int ivtmp.220;
+  char cNextChar;
+  struct TCB_t * pxReturn;
+  struct TCB_t * pxFirstTCB;
+  struct TCB_t * pxNextTCB;
+  long unsigned int _1;
+  struct ListItem_t * _2;
+  struct xLIST_ITEM * _3;
+  struct MiniListItem_t * _4;
+  struct xLIST_ITEM * _5;
+  struct xLIST_ITEM * _8;
+  struct xLIST_ITEM * _9;
+  char _12;
+  void * _13;
+  const char * _14;
+  struct ListItem_t * prephitmp_15;
+  void * _33;
+  struct ListItem_t * prephitmp_36;
+  unsigned int _38;
+  char * _40;
+  struct ListItem_t * prephitmp_44;
+  unsigned int _46;
+
+  <bb 2> [local count: 23172402]:
+  _1 ={v} pxList_23(D)->uxNumberOfItems;
+  if (_1 != 0)
+    goto <bb 3>; [71.00%]
+  else
+    goto <bb 12>; [29.00%]
+
+  <bb 3> [local count: 16452405]:
+  _2 = pxList_23(D)->pxIndex;
+  _3 = _2->pxNext;
+  _4 = &pxList_23(D)->xListEnd;
+  if (_3 == _4)
+    goto <bb 4>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 4> [local count: 4935722]:
+  _5 = MEM[(struct ListItem_t *)pxList_23(D) + 8B].pxNext;
+
+  <bb 5> [local count: 16452405]:
+  # prephitmp_44 = PHI <_5(4), _3(3)>
+  pxFirstTCB_26 = prephitmp_44->pvOwner;
+
+  <bb 6> [local count: 153796736]:
+  # prephitmp_15 = PHI <prephitmp_44(5), prephitmp_36(14)>
+  _8 = prephitmp_15->pxNext;
+  pxList_23(D)->pxIndex = _8;
+  if (_4 == _8)
+    goto <bb 7>; [30.00%]
+  else
+    goto <bb 8>; [70.00%]
+
+  <bb 7> [local count: 46139020]:
+  _9 = MEM[(struct ListItem_t *)_8].pxNext;
+  pxList_23(D)->pxIndex = _9;
+
+  <bb 8> [local count: 153796736]:
+  # prephitmp_36 = PHI <_9(7), _8(6)>
+  pxNextTCB_29 = prephitmp_36->pvOwner;
+  _40 = pxNextTCB_29 + 51;
+  ivtmp.220_7 = (unsigned int) _40;
+  _14 = pcNameToQuery_31(D) + 4294967295;
+  ivtmp.223_39 = (unsigned int) _14;
+  _38 = (unsigned int) pxNextTCB_29;
+  _46 = _38 + 63;
+
+  <bb 9> [local count: 991171080]:
+  # ivtmp.220_35 = PHI <ivtmp.220_7(8), ivtmp.220_6(11)>
+  # ivtmp.223_37 = PHI <ivtmp.223_39(8), ivtmp.223_34(11)>
+  ivtmp.220_6 = ivtmp.220_35 + 1;
+  _13 = (void *) ivtmp.220_6;
+  cNextChar_30 = MEM[base: _13, offset: 0B];
+  ivtmp.223_34 = ivtmp.223_37 + 1;
+  _33 = (void *) ivtmp.223_34;
+  _12 = MEM[base: _33, offset: 0B];
+  if (_12 != cNextChar_30)
+    goto <bb 14>; [3.66%]
+  else
+    goto <bb 10>; [96.34%]
+
+  <bb 10> [local count: 954894218]:
+  if (cNextChar_30 == 0)
+    goto <bb 13>; [3.66%]
+  else
+    goto <bb 11>; [96.34%]
+
+  <bb 11> [local count: 919945088]:
+  if (ivtmp.220_6 != _46)
+    goto <bb 9>; [91.02%]
+  else
+    goto <bb 14>; [8.98%]
+
+  <bb 12> [local count: 14713582]:
+
+  <bb 13> [local count: 23172402]:
+  # pxReturn_16 = PHI <0B(12), pxNextTCB_29(10)>
+  return pxReturn_16;
+
+  <bb 14> [local count: 145337916]:
+  if (pxFirstTCB_26 != pxNextTCB_29)
+    goto <bb 6>; [94.50%]
+  else
+    goto <bb 12>; [5.50%]
+
+}
+
+
+
+;; Function prvAddCurrentTaskToDelayedList (prvAddCurrentTaskToDelayedList, funcdef_no=61, decl_uid=6461, cgraph_uid=62, symbol_order=82)
+
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+prvAddCurrentTaskToDelayedList (TickType_t xTicksToWait, const BaseType_t xCanBlockIndefinitely)
+{
+  const TickType_t xConstTickCount;
+  TickType_t xTimeToWake;
+  struct TCB_t * pxCurrentTCB.23_1;
+  struct TCB_t * pxCurrentTCB.24_2;
+  struct ListItem_t * _3;
+  long unsigned int _4;
+  struct TCB_t * pxCurrentTCB.25_5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int uxTopReadyPriority.26_8;
+  long unsigned int _9;
+  struct TCB_t * pxCurrentTCB.27_10;
+  struct ListItem_t * _11;
+  struct TCB_t * pxCurrentTCB.28_12;
+  struct List_t * pxOverflowDelayedTaskList.29_13;
+  struct TCB_t * pxCurrentTCB.30_14;
+  struct ListItem_t * _15;
+  struct List_t * pxDelayedTaskList.31_16;
+  struct TCB_t * pxCurrentTCB.32_17;
+  struct ListItem_t * _18;
+  long unsigned int xNextTaskUnblockTime.33_19;
+  long unsigned int _26;
+  __complex__ long unsigned int _36;
+  long unsigned int _37;
+
+  <bb 2> [local count: 1073741823]:
+  xConstTickCount_23 ={v} xTickCount;
+  pxCurrentTCB.23_1 ={v} pxCurrentTCB;
+  pxCurrentTCB.23_1->ucDelayAborted = 0;
+  pxCurrentTCB.24_2 ={v} pxCurrentTCB;
+  _3 = &pxCurrentTCB.24_2->xStateListItem;
+  _4 = uxListRemove (_3);
+  if (_4 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  pxCurrentTCB.25_5 ={v} pxCurrentTCB;
+  _6 = pxCurrentTCB.25_5->uxPriority;
+  _7 = 1 << _6;
+  _26 = ~_7;
+  uxTopReadyPriority.26_8 ={v} uxTopReadyPriority;
+  _9 = uxTopReadyPriority.26_8 & _26;
+  uxTopReadyPriority ={v} _9;
+
+  <bb 4> [local count: 1073741823]:
+  if (xTicksToWait_28(D) == 4294967295)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 7>; [66.00%]
+
+  <bb 5> [local count: 365072224]:
+  if (xCanBlockIndefinitely_29(D) != 0)
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 7>; [67.00%]
+
+  <bb 6> [local count: 120473833]:
+  pxCurrentTCB.27_10 ={v} pxCurrentTCB;
+  _11 = &pxCurrentTCB.27_10->xStateListItem;
+  vListInsertEnd (&xSuspendedTaskList, _11); [tail call]
+  goto <bb 11>; [100.00%]
+
+  <bb 7> [local count: 953267990]:
+  _36 = .ADD_OVERFLOW (xConstTickCount_23, xTicksToWait_28(D));
+  xTimeToWake_31 = REALPART_EXPR <_36>;
+  _37 = IMAGPART_EXPR <_36>;
+  pxCurrentTCB.28_12 ={v} pxCurrentTCB;
+  pxCurrentTCB.28_12->xStateListItem.xItemValue = xTimeToWake_31;
+  if (_37 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 476633995]:
+  pxOverflowDelayedTaskList.29_13 ={v} pxOverflowDelayedTaskList;
+  pxCurrentTCB.30_14 ={v} pxCurrentTCB;
+  _15 = &pxCurrentTCB.30_14->xStateListItem;
+  vListInsert (pxOverflowDelayedTaskList.29_13, _15); [tail call]
+  goto <bb 11>; [100.00%]
+
+  <bb 9> [local count: 476633995]:
+  pxDelayedTaskList.31_16 ={v} pxDelayedTaskList;
+  pxCurrentTCB.32_17 ={v} pxCurrentTCB;
+  _18 = &pxCurrentTCB.32_17->xStateListItem;
+  vListInsert (pxDelayedTaskList.31_16, _18);
+  xNextTaskUnblockTime.33_19 ={v} xNextTaskUnblockTime;
+  if (xNextTaskUnblockTime.33_19 > xTimeToWake_31)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 238316997]:
+  xNextTaskUnblockTime ={v} xTimeToWake_31;
+
+  <bb 11> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function prvIdleTask (prvIdleTask, funcdef_no=41, decl_uid=6454, cgraph_uid=42, symbol_order=62) (executed once)
+
+Removing basic block 8
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+prvIdleTask (void * pvParameters)
+{
+  struct TCB_t * pxTCB;
+  long unsigned int _1;
+  struct xLIST_ITEM * _10;
+  struct ListItem_t * _12;
+  long unsigned int uxCurrentNumberOfTasks.57_13;
+  long unsigned int _14;
+  long unsigned int uxDeletedTasksWaitingCleanUp.58_15;
+  long unsigned int _16;
+  long unsigned int uxDeletedTasksWaitingCleanUp.59_17;
+  StackType_t * _18;
+  long unsigned int uxDeletedTasksWaitingCleanUp.59_27;
+
+  <bb 2> [local count: 10631108]:
+
+  <bb 3> [local count: 1073741708]:
+  uxDeletedTasksWaitingCleanUp.59_27 ={v} uxDeletedTasksWaitingCleanUp;
+  if (uxDeletedTasksWaitingCleanUp.59_27 != 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 4> [local count: 8687546599]:
+  vPortEnterCritical ();
+  _10 = xTasksWaitingTermination.xListEnd.pxNext;
+  pxTCB_11 = _10->pvOwner;
+  _12 = &pxTCB_11->xStateListItem;
+  uxListRemove (_12);
+  uxCurrentNumberOfTasks.57_13 ={v} uxCurrentNumberOfTasks;
+  _14 = uxCurrentNumberOfTasks.57_13 + 4294967295;
+  uxCurrentNumberOfTasks ={v} _14;
+  uxDeletedTasksWaitingCleanUp.58_15 ={v} uxDeletedTasksWaitingCleanUp;
+  _16 = uxDeletedTasksWaitingCleanUp.58_15 + 4294967295;
+  uxDeletedTasksWaitingCleanUp ={v} _16;
+  vPortExitCritical ();
+  _18 = pxTCB_11->pxStack;
+  vPortFree (_18);
+  vPortFree (pxTCB_11);
+  uxDeletedTasksWaitingCleanUp.59_17 ={v} uxDeletedTasksWaitingCleanUp;
+  if (uxDeletedTasksWaitingCleanUp.59_17 != 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 1073741708]:
+  _1 ={v} pxReadyTasksLists[0].uxNumberOfItems;
+  if (_1 > 1)
+    goto <bb 6>; [74.50%]
+  else
+    goto <bb 7>; [25.50%]
+
+  <bb 6> [local count: 799937572]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 7> [local count: 1073741708]:
+  vApplicationIdleHook ();
+  goto <bb 3>; [100.00%]
+
+}
+
+
+
+;; Function xTaskCreate (xTaskCreate, funcdef_no=5, decl_uid=6217, cgraph_uid=6, symbol_order=26)
+
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+xTaskCreate (void (*TaskFunction_t) (void *) pxTaskCode, const char * const pcName, const uint16_t usStackDepth, void * const pvParameters, UBaseType_t uxPriority, struct tskTaskControlBlock * * const pxCreatedTask)
+{
+  unsigned int ivtmp.252;
+  unsigned int ivtmp.248;
+  unsigned int ivtmp.241;
+  StackType_t * pxTopOfStack;
+  UBaseType_t uxPriority;
+  StackType_t * pxStack;
+  BaseType_t xReturn;
+  struct TCB_t * pxNewTCB;
+  unsigned int _1;
+  unsigned int _2;
+  char * _19;
+  long unsigned int pretmp_20;
+  long unsigned int uxCurrentNumberOfTasks.2_21;
+  long unsigned int _22;
+  struct TCB_t * pxCurrentTCB.3_23;
+  long unsigned int uxCurrentNumberOfTasks.4_24;
+  long int xSchedulerRunning.5_25;
+  struct TCB_t * pxCurrentTCB.6_26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int uxTaskNumber.7_29;
+  long unsigned int _30;
+  long unsigned int _32;
+  long unsigned int uxTopReadyPriority.8_33;
+  long unsigned int _34;
+  struct List_t * _35;
+  void * _36;
+  long int xSchedulerRunning.9_37;
+  struct TCB_t * pxCurrentTCB.10_38;
+  long unsigned int _39;
+  long unsigned int _40;
+  StackType_t * _43;
+  sizetype _45;
+  long unsigned int pxTopOfStack.0_47;
+  long unsigned int _48;
+  char _52;
+  struct ListItem_t * _56;
+  struct ListItem_t * _57;
+  long unsigned int _58;
+  StackType_t * _59;
+  unsigned int _60;
+  struct List_t * _61;
+  void * _64;
+  long unsigned int pretmp_107;
+  long unsigned int pretmp_108;
+  const char * _111;
+  long unsigned int prephitmp_113;
+  sizetype _119;
+  unsigned int _125;
+  unsigned int _126;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (unsigned int) usStackDepth_6(D);
+  _2 = _1 * 4;
+  pxStack_9 = pvPortMalloc (_2);
+  if (pxStack_9 != 0B)
+    goto <bb 3>; [53.47%]
+  else
+    goto <bb 26>; [46.53%]
+
+  <bb 3> [local count: 574129752]:
+  pxNewTCB_11 = pvPortMalloc (80);
+  if (pxNewTCB_11 != 0B)
+    goto <bb 4>; [82.57%]
+  else
+    goto <bb 5>; [17.43%]
+
+  <bb 4> [local count: 474058935]:
+  pxNewTCB_11->pxStack = pxStack_9;
+  memset (pxStack_9, 165, _2);
+  _43 = pxNewTCB_11->pxStack;
+  if (pcName_15(D) != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 5> [local count: 100070815]:
+  vPortFree (pxStack_9);
+  goto <bb 26>; [100.00%]
+
+  <bb 6> [local count: 331841256]:
+  _111 = pcName_15(D) + 4294967295;
+  ivtmp.248_114 = (unsigned int) _111;
+  _19 = pxNewTCB_11 + 51;
+  ivtmp.252_112 = (unsigned int) _19;
+  _125 = (unsigned int) pcName_15(D);
+  _126 = _125 + 11;
+
+  <bb 7> [local count: 1553733330]:
+  # ivtmp.248_50 = PHI <ivtmp.248_114(6), ivtmp.248_109(8)>
+  # ivtmp.252_4 = PHI <ivtmp.252_112(6), ivtmp.252_31(8)>
+  ivtmp.248_109 = ivtmp.248_50 + 1;
+  _36 = (void *) ivtmp.248_109;
+  _52 = MEM[base: _36, offset: 0B];
+  ivtmp.252_31 = ivtmp.252_4 + 1;
+  _64 = (void *) ivtmp.252_31;
+  MEM[base: _64, offset: 0B] = _52;
+  if (_52 == 0)
+    goto <bb 9>; [5.50%]
+  else
+    goto <bb 8>; [94.50%]
+
+  <bb 8> [local count: 1468277998]:
+  if (ivtmp.248_109 != _126)
+    goto <bb 7>; [91.18%]
+  else
+    goto <bb 9>; [8.82%]
+
+  <bb 9> [local count: 214891027]:
+  pxNewTCB_11->pcTaskName[11] = 0;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 92096153]:
+  pxNewTCB_11->pcTaskName[0] = 0;
+
+  <bb 11> [local count: 306987179]:
+  uxPriority_55 = MIN_EXPR <uxPriority_17(D), 7>;
+  pxNewTCB_11->uxPriority = uxPriority_55;
+  pxNewTCB_11->uxBasePriority = uxPriority_55;
+  pxNewTCB_11->uxMutexesHeld = 0;
+  _56 = &pxNewTCB_11->xStateListItem;
+  vListInitialiseItem (_56);
+  _57 = &pxNewTCB_11->xEventListItem;
+  vListInitialiseItem (_57);
+  pxNewTCB_11->xStateListItem.pvOwner = pxNewTCB_11;
+  _58 = 8 - uxPriority_55;
+  pxNewTCB_11->xEventListItem.xItemValue = _58;
+  pxNewTCB_11->xEventListItem.pvOwner = pxNewTCB_11;
+  pxNewTCB_11->ulNotifiedValue ={v} 0;
+  pxNewTCB_11->ucNotifyState ={v} 0;
+  pxNewTCB_11->ucDelayAborted = 0;
+  _45 = _2 + 4294967292;
+  pxTopOfStack_46 = _43 + _45;
+  pxTopOfStack.0_47 = (long unsigned int) pxTopOfStack_46;
+  _48 = pxTopOfStack.0_47 & 4294967288;
+  pxTopOfStack_49 = (StackType_t *) _48;
+  _59 = pxPortInitialiseStack (pxTopOfStack_49, pxTaskCode_14(D), pvParameters_16(D));
+  pxNewTCB_11->pxTopOfStack = _59;
+  if (pxCreatedTask_18(D) != 0B)
+    goto <bb 12>; [70.00%]
+  else
+    goto <bb 13>; [30.00%]
+
+  <bb 12> [local count: 214891027]:
+  *pxCreatedTask_18(D) = pxNewTCB_11;
+
+  <bb 13> [local count: 306987179]:
+  vPortEnterCritical ();
+  uxCurrentNumberOfTasks.2_21 ={v} uxCurrentNumberOfTasks;
+  _22 = uxCurrentNumberOfTasks.2_21 + 1;
+  uxCurrentNumberOfTasks ={v} _22;
+  pxCurrentTCB.3_23 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.3_23 == 0B)
+    goto <bb 14>; [30.00%]
+  else
+    goto <bb 19>; [70.00%]
+
+  <bb 14> [local count: 92096153]:
+  pxCurrentTCB ={v} pxNewTCB_11;
+  uxCurrentNumberOfTasks.4_24 ={v} uxCurrentNumberOfTasks;
+  if (uxCurrentNumberOfTasks.4_24 == 1)
+    goto <bb 16>; [20.24%]
+  else
+    goto <bb 15>; [79.76%]
+
+  <bb 15> [local count: 73455892]:
+  pretmp_107 = pxNewTCB_11->uxPriority;
+  goto <bb 23>; [100.00%]
+
+  <bb 16> [local count: 18640261]:
+  ivtmp.241_66 = (unsigned int) &pxReadyTasksLists;
+  _60 = ivtmp.241_66 + 160;
+
+  <bb 17> [local count: 149138864]:
+  # ivtmp.241_115 = PHI <ivtmp.241_66(16), ivtmp.241_69(17)>
+  _61 = (struct List_t *) ivtmp.241_115;
+  vListInitialise (_61);
+  ivtmp.241_69 = ivtmp.241_115 + 20;
+  if (_60 != ivtmp.241_69)
+    goto <bb 17>; [87.50%]
+  else
+    goto <bb 18>; [12.50%]
+
+  <bb 18> [local count: 18640262]:
+  vListInitialise (&xDelayedTaskList1);
+  vListInitialise (&xDelayedTaskList2);
+  vListInitialise (&xPendingReadyList);
+  vListInitialise (&xTasksWaitingTermination);
+  vListInitialise (&xSuspendedTaskList);
+  pxDelayedTaskList ={v} &xDelayedTaskList1;
+  pxOverflowDelayedTaskList ={v} &xDelayedTaskList2;
+  pretmp_108 = pxNewTCB_11->uxPriority;
+  goto <bb 23>; [100.00%]
+
+  <bb 19> [local count: 214891027]:
+  xSchedulerRunning.5_25 ={v} xSchedulerRunning;
+  if (xSchedulerRunning.5_25 == 0)
+    goto <bb 21>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 20> [local count: 107445514]:
+  pretmp_20 = pxNewTCB_11->uxPriority;
+  goto <bb 23>; [100.00%]
+
+  <bb 21> [local count: 107445512]:
+  pxCurrentTCB.6_26 ={v} pxCurrentTCB;
+  _27 = pxCurrentTCB.6_26->uxPriority;
+  _28 = pxNewTCB_11->uxPriority;
+  if (_27 <= _28)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 22> [local count: 53722756]:
+  pxCurrentTCB ={v} pxNewTCB_11;
+
+  <bb 23> [local count: 306987179]:
+  # prephitmp_113 = PHI <_28(22), pretmp_108(18), pretmp_107(15), pretmp_20(20), _28(21)>
+  uxTaskNumber.7_29 = uxTaskNumber;
+  _30 = uxTaskNumber.7_29 + 1;
+  uxTaskNumber = _30;
+  _32 = 1 << prephitmp_113;
+  uxTopReadyPriority.8_33 ={v} uxTopReadyPriority;
+  _34 = _32 | uxTopReadyPriority.8_33;
+  uxTopReadyPriority ={v} _34;
+  _119 = prephitmp_113 * 20;
+  _35 = &pxReadyTasksLists + _119;
+  vListInsertEnd (_35, _56);
+  vPortExitCritical ();
+  xSchedulerRunning.9_37 ={v} xSchedulerRunning;
+  if (xSchedulerRunning.9_37 != 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 24> [local count: 153493590]:
+  pxCurrentTCB.10_38 ={v} pxCurrentTCB;
+  _39 = pxCurrentTCB.10_38->uxPriority;
+  _40 = pxNewTCB_11->uxPriority;
+  if (_39 < _40)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 25> [local count: 76746795]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 26> [local count: 1073741829]:
+  # xReturn_3 = PHI <1(23), -1(5), 1(25), -1(2), 1(24)>
+  return xReturn_3;
+
+}
+
+
+
+;; Function vTaskDelete (vTaskDelete, funcdef_no=8, decl_uid=6222, cgraph_uid=9, symbol_order=29)
+
+Merging blocks 18 and 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+vTaskDelete (struct tskTaskControlBlock * xTaskToDelete)
+{
+  struct TCB_t * pxTCB;
+  uint32_t ulNewBASEPRI;
+  struct ListItem_t * _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int uxTopReadyPriority.12_7;
+  long unsigned int _8;
+  struct xLIST * _9;
+  struct ListItem_t * _10;
+  long unsigned int uxTaskNumber.13_11;
+  long unsigned int _12;
+  struct TCB_t * pxCurrentTCB.14_13;
+  long unsigned int uxDeletedTasksWaitingCleanUp.15_14;
+  long unsigned int _15;
+  long unsigned int uxCurrentNumberOfTasks.16_16;
+  long unsigned int _17;
+  long int xSchedulerRunning.17_18;
+  struct TCB_t * pxCurrentTCB.18_19;
+  long unsigned int uxSchedulerSuspended.19_20;
+  struct TCB_t * iftmp.11_21;
+  struct TCB_t * iftmp.11_29;
+  struct List_t * pxDelayedTaskList.20_45;
+  long unsigned int _46;
+  StackType_t * _47;
+  struct List_t * pxDelayedTaskList.21_48;
+  struct xLIST_ITEM * _49;
+  long unsigned int _51;
+
+  <bb 2> [local count: 141748108]:
+  vPortEnterCritical ();
+  if (xTaskToDelete_28(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 4>; [70.00%]
+
+  <bb 3> [local count: 42524432]:
+  iftmp.11_29 ={v} pxCurrentTCB;
+
+  <bb 4> [local count: 141748108]:
+  # iftmp.11_21 = PHI <iftmp.11_29(3), xTaskToDelete_28(D)(2)>
+  _1 = &iftmp.11_21->xStateListItem;
+  _2 = uxListRemove (_1);
+  if (_2 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 70874054]:
+  _3 = iftmp.11_21->uxPriority;
+  _4 ={v} pxReadyTasksLists[_3].uxNumberOfItems;
+  if (_4 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 35437027]:
+  _5 = 1 << _3;
+  _6 = ~_5;
+  uxTopReadyPriority.12_7 ={v} uxTopReadyPriority;
+  _8 = _6 & uxTopReadyPriority.12_7;
+  uxTopReadyPriority ={v} _8;
+
+  <bb 7> [local count: 141748108]:
+  _9 = iftmp.11_21->xEventListItem.pvContainer;
+  if (_9 != 0B)
+    goto <bb 8>; [53.47%]
+  else
+    goto <bb 9>; [46.53%]
+
+  <bb 8> [local count: 75792713]:
+  _10 = &iftmp.11_21->xEventListItem;
+  uxListRemove (_10);
+
+  <bb 9> [local count: 141748108]:
+  uxTaskNumber.13_11 = uxTaskNumber;
+  _12 = uxTaskNumber.13_11 + 1;
+  uxTaskNumber = _12;
+  pxCurrentTCB.14_13 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.14_13 == iftmp.11_21)
+    goto <bb 10>; [30.00%]
+  else
+    goto <bb 11>; [70.00%]
+
+  <bb 10> [local count: 42524432]:
+  vListInsertEnd (&xTasksWaitingTermination, _1);
+  uxDeletedTasksWaitingCleanUp.15_14 ={v} uxDeletedTasksWaitingCleanUp;
+  _15 = uxDeletedTasksWaitingCleanUp.15_14 + 1;
+  uxDeletedTasksWaitingCleanUp ={v} _15;
+  goto <bb 14>; [100.00%]
+
+  <bb 11> [local count: 99223676]:
+  uxCurrentNumberOfTasks.16_16 ={v} uxCurrentNumberOfTasks;
+  _17 = uxCurrentNumberOfTasks.16_16 + 4294967295;
+  uxCurrentNumberOfTasks ={v} _17;
+  _47 = iftmp.11_21->pxStack;
+  vPortFree (_47);
+  vPortFree (iftmp.11_21);
+  pxDelayedTaskList.20_45 ={v} pxDelayedTaskList;
+  _46 ={v} pxDelayedTaskList.20_45->uxNumberOfItems;
+  if (_46 == 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 49611838]:
+  xNextTaskUnblockTime ={v} 4294967295;
+  goto <bb 14>; [100.00%]
+
+  <bb 13> [local count: 49611838]:
+  pxDelayedTaskList.21_48 ={v} pxDelayedTaskList;
+  _49 = pxDelayedTaskList.21_48->xListEnd.pxNext;
+  pxTCB_50 = _49->pvOwner;
+  _51 = pxTCB_50->xStateListItem.xItemValue;
+  xNextTaskUnblockTime ={v} _51;
+
+  <bb 14> [local count: 141748108]:
+  vPortExitCritical ();
+  xSchedulerRunning.17_18 ={v} xSchedulerRunning;
+  if (xSchedulerRunning.17_18 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 15> [local count: 70874054]:
+  pxCurrentTCB.18_19 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.18_19 == iftmp.11_21)
+    goto <bb 16>; [30.00%]
+  else
+    goto <bb 20>; [70.00%]
+
+  <bb 16> [local count: 21262216]:
+  uxSchedulerSuspended.19_20 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.19_20 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 17> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_43 : "i" 16 : "memory");
+
+  <bb 18> [local count: 1073741824]:
+  goto <bb 18>; [100.00%]
+
+  <bb 19> [local count: 10631108]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 20> [local count: 131117000]:
+  return;
+
+}
+
+
+
+;; Function eTaskGetState (eTaskGetState, funcdef_no=11, decl_uid=6235, cgraph_uid=12, symbol_order=32)
+
+Merging blocks 4 and 16
+Removing basic block 11
+Removing basic block 14
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 22
+eTaskGetState (struct tskTaskControlBlock * xTask)
+{
+  const struct List_t * pxOverflowedDelayedList;
+  const struct List_t * pxDelayedList;
+  const struct List_t * pxStateList;
+  uint32_t ulNewBASEPRI;
+  eTaskState eReturn;
+  struct TCB_t * pxCurrentTCB.35_1;
+  struct xLIST * _13;
+  unsigned char _14;
+
+  <bb 2> [local count: 35437027]:
+  if (xTask_3(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  pxCurrentTCB.35_1 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.35_1 == xTask_3(D))
+    goto <bb 15>; [46.53%]
+  else
+    goto <bb 6>; [53.47%]
+
+  <bb 6> [local count: 13263725]:
+  vPortEnterCritical ();
+  pxStateList_10 = MEM[(const struct TCB_t *)xTask_3(D)].xStateListItem.pvContainer;
+  pxDelayedList_11 ={v} pxDelayedTaskList;
+  pxOverflowedDelayedList_12 ={v} pxOverflowDelayedTaskList;
+  vPortExitCritical ();
+  if (pxStateList_10 == pxDelayedList_11)
+    goto <bb 15>; [18.75%]
+  else
+    goto <bb 7>; [81.25%]
+
+  <bb 7> [local count: 10776776]:
+  if (pxStateList_10 == pxOverflowedDelayedList_12)
+    goto <bb 15>; [18.75%]
+  else
+    goto <bb 8>; [81.25%]
+
+  <bb 8> [local count: 8756131]:
+  if (pxStateList_10 == &xSuspendedTaskList)
+    goto <bb 9>; [30.00%]
+  else
+    goto <bb 12>; [70.00%]
+
+  <bb 9> [local count: 2626839]:
+  _13 = MEM[(const struct TCB_t *)xTask_3(D)].xEventListItem.pvContainer;
+  if (_13 == 0B)
+    goto <bb 10>; [44.32%]
+  else
+    goto <bb 15>; [55.68%]
+
+  <bb 10> [local count: 1164215]:
+  _14 ={v} MEM[(const struct TCB_t *)xTask_3(D)].ucNotifyState;
+  if (_14 == 1)
+    goto <bb 15>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 11> [local count: 768382]:
+  goto <bb 15>; [100.00%]
+
+  <bb 12> [local count: 6129292]:
+  if (pxStateList_10 == &xTasksWaitingTermination)
+    goto <bb 15>; [18.75%]
+  else
+    goto <bb 13>; [81.25%]
+
+  <bb 13> [local count: 4980049]:
+  if (pxStateList_10 == 0B)
+    goto <bb 15>; [18.75%]
+  else
+    goto <bb 14>; [81.25%]
+
+  <bb 14> [local count: 4046290]:
+
+  <bb 15> [local count: 24805919]:
+  # eReturn_2 = PHI <2(9), 0(5), 3(11), 4(12), 4(13), 2(7), 2(10), 2(6), 1(14)>
+  return eReturn_2;
+
+}
+
+
+
+;; Function uxTaskPriorityGet (uxTaskPriorityGet, funcdef_no=12, decl_uid=6231, cgraph_uid=13, symbol_order=33)
+
+Removing basic block 5
+uxTaskPriorityGet (struct tskTaskControlBlock * const xTask)
+{
+  UBaseType_t uxReturn;
+  const struct TCB_t * iftmp.36_1;
+  const struct TCB_t * iftmp.36_5;
+
+  <bb 2> [local count: 1073741824]:
+  vPortEnterCritical ();
+  if (xTask_4(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 4>; [70.00%]
+
+  <bb 3> [local count: 322122544]:
+  iftmp.36_5 ={v} pxCurrentTCB;
+
+  <bb 4> [local count: 1073741824]:
+  # iftmp.36_1 = PHI <iftmp.36_5(3), xTask_4(D)(2)>
+  uxReturn_6 = iftmp.36_1->uxPriority;
+  vPortExitCritical ();
+  return uxReturn_6;
+
+}
+
+
+
+;; Function uxTaskPriorityGetFromISR (uxTaskPriorityGetFromISR, funcdef_no=13, decl_uid=6233, cgraph_uid=14, symbol_order=34)
+
+Removing basic block 5
+uxTaskPriorityGetFromISR (struct tskTaskControlBlock * const xTask)
+{
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  UBaseType_t uxReturn;
+  const struct TCB_t * iftmp.37_1;
+  const struct TCB_t * iftmp.37_5;
+
+  <bb 2> [local count: 1073741824]:
+  vPortValidateInterruptPriority ();
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_7, "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+  if (xTask_4(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 4>; [70.00%]
+
+  <bb 3> [local count: 322122544]:
+  iftmp.37_5 ={v} pxCurrentTCB;
+
+  <bb 4> [local count: 1073741824]:
+  # iftmp.37_1 = PHI <iftmp.37_5(3), xTask_4(D)(2)>
+  uxReturn_6 = iftmp.37_1->uxPriority;
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_7 : "memory");
+  return uxReturn_6;
+
+}
+
+
+
+;; Function vTaskPrioritySet (vTaskPrioritySet, funcdef_no=14, decl_uid=6243, cgraph_uid=15, symbol_order=35)
+
+Merging blocks 4 and 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+vTaskPrioritySet (struct tskTaskControlBlock * xTask, UBaseType_t uxNewPriority)
+{
+  uint32_t ulNewBASEPRI;
+  BaseType_t xYieldRequired;
+  UBaseType_t uxPriorityUsedOnEntry;
+  UBaseType_t uxCurrentBasePriority;
+  struct TCB_t * pxCurrentTCB.39_1;
+  struct TCB_t * pxCurrentTCB.40_2;
+  long unsigned int _3;
+  struct TCB_t * pxCurrentTCB.41_4;
+  long unsigned int _5;
+  signed int _6;
+  long unsigned int _7;
+  struct xLIST * _8;
+  struct List_t * _9;
+  struct ListItem_t * _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int uxTopReadyPriority.42_14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int uxTopReadyPriority.43_18;
+  long unsigned int _19;
+  struct List_t * _20;
+  struct TCB_t * iftmp.38_22;
+  struct TCB_t * iftmp.38_32;
+  sizetype _49;
+  sizetype _51;
+  long int _53;
+  _Bool _54;
+  _Bool _66;
+  long int _67;
+
+  <bb 2> [local count: 15867325]:
+  if (uxNewPriority_28(D) > 7)
+    goto <bb 3>; [67.00%]
+  else
+    goto <bb 5>; [33.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_46 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 5236217]:
+  vPortEnterCritical ();
+  if (xTask_31(D) == 0B)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 7>; [70.00%]
+
+  <bb 6> [local count: 1570865]:
+  iftmp.38_32 ={v} pxCurrentTCB;
+
+  <bb 7> [local count: 5236217]:
+  # iftmp.38_22 = PHI <iftmp.38_32(6), xTask_31(D)(5)>
+  uxCurrentBasePriority_33 = iftmp.38_22->uxBasePriority;
+  if (uxNewPriority_28(D) != uxCurrentBasePriority_33)
+    goto <bb 9>; [66.00%]
+  else
+    goto <bb 8>; [34.00%]
+
+  <bb 8> [local count: 3508266]:
+  goto <bb 23>; [100.00%]
+
+  <bb 9> [local count: 3455903]:
+  if (uxNewPriority_28(D) > uxCurrentBasePriority_33)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 10> [local count: 1727952]:
+  pxCurrentTCB.39_1 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.39_1 != iftmp.38_22)
+    goto <bb 11>; [70.00%]
+  else
+    goto <bb 13>; [30.00%]
+
+  <bb 11> [local count: 1209566]:
+  pxCurrentTCB.40_2 ={v} pxCurrentTCB;
+  _3 = pxCurrentTCB.40_2->uxPriority;
+  _66 = _3 <= uxNewPriority_28(D);
+  _67 = (long int) _66;
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [local count: 1727952]:
+  pxCurrentTCB.41_4 ={v} pxCurrentTCB;
+  _54 = pxCurrentTCB.41_4 == iftmp.38_22;
+  _53 = (long int) _54;
+
+  <bb 13> [local count: 3455903]:
+  # xYieldRequired_21 = PHI <_67(11), _53(12), 0(10)>
+  uxPriorityUsedOnEntry_34 = iftmp.38_22->uxPriority;
+  if (uxCurrentBasePriority_33 == uxPriorityUsedOnEntry_34)
+    goto <bb 14>; [34.00%]
+  else
+    goto <bb 15>; [66.00%]
+
+  <bb 14> [local count: 1175007]:
+  iftmp.38_22->uxPriority = uxNewPriority_28(D);
+
+  <bb 15> [local count: 3455903]:
+  iftmp.38_22->uxBasePriority = uxNewPriority_28(D);
+  _5 = iftmp.38_22->xEventListItem.xItemValue;
+  _6 = (signed int) _5;
+  if (_6 >= 0)
+    goto <bb 16>; [59.00%]
+  else
+    goto <bb 17>; [41.00%]
+
+  <bb 16> [local count: 2038983]:
+  _7 = 8 - uxNewPriority_28(D);
+  iftmp.38_22->xEventListItem.xItemValue = _7;
+
+  <bb 17> [local count: 3455903]:
+  _8 = iftmp.38_22->xStateListItem.pvContainer;
+  _49 = uxPriorityUsedOnEntry_34 * 20;
+  _9 = &pxReadyTasksLists + _49;
+  if (_8 == _9)
+    goto <bb 18>; [17.43%]
+  else
+    goto <bb 21>; [82.57%]
+
+  <bb 18> [local count: 602364]:
+  _10 = &iftmp.38_22->xStateListItem;
+  _11 = uxListRemove (_10);
+  if (_11 == 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 19> [local count: 301182]:
+  _12 = 1 << uxPriorityUsedOnEntry_34;
+  _13 = ~_12;
+  uxTopReadyPriority.42_14 ={v} uxTopReadyPriority;
+  _15 = _13 & uxTopReadyPriority.42_14;
+  uxTopReadyPriority ={v} _15;
+
+  <bb 20> [local count: 602364]:
+  _16 = iftmp.38_22->uxPriority;
+  _17 = 1 << _16;
+  uxTopReadyPriority.43_18 ={v} uxTopReadyPriority;
+  _19 = _17 | uxTopReadyPriority.43_18;
+  uxTopReadyPriority ={v} _19;
+  _51 = _16 * 20;
+  _20 = &pxReadyTasksLists + _51;
+  vListInsertEnd (_20, _10);
+
+  <bb 21> [local count: 3455903]:
+  if (xYieldRequired_21 != 0)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 22> [local count: 1727952]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 23> [local count: 5236217]:
+  vPortExitCritical (); [tail call]
+  return;
+
+}
+
+
+
+;; Function vTaskResume (vTaskResume, funcdef_no=17, decl_uid=6247, cgraph_uid=18, symbol_order=38)
+
+Merging blocks 4 and 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+vTaskResume (struct tskTaskControlBlock * xTaskToResume)
+{
+  uint32_t ulNewBASEPRI;
+  struct TCB_t * pxCurrentTCB.51_1;
+  struct ListItem_t * _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int uxTopReadyPriority.52_6;
+  long unsigned int _7;
+  struct List_t * _8;
+  long unsigned int _9;
+  struct TCB_t * pxCurrentTCB.53_10;
+  long unsigned int _11;
+  struct xLIST * _28;
+  struct xLIST * _31;
+  sizetype _34;
+
+  <bb 2> [local count: 35437027]:
+  if (xTaskToResume_14(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_25 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  pxCurrentTCB.51_1 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.51_1 != xTaskToResume_14(D))
+    goto <bb 6>; [53.47%]
+  else
+    goto <bb 13>; [46.53%]
+
+  <bb 6> [local count: 13263725]:
+  vPortEnterCritical ();
+  _28 = MEM[(const struct TCB_t *)xTaskToResume_14(D)].xStateListItem.pvContainer;
+  if (_28 == &xSuspendedTaskList)
+    goto <bb 8>; [30.00%]
+  else
+    goto <bb 7>; [70.00%]
+
+  <bb 7> [local count: 13017021]:
+  goto <bb 12>; [100.00%]
+
+  <bb 8> [local count: 2785382]:
+  _31 = MEM[(const struct TCB_t *)xTaskToResume_14(D)].xEventListItem.pvContainer;
+  if (_31 != &xPendingReadyList)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 9> [local count: 1949768]:
+  if (_31 == 0B)
+    goto <bb 10>; [30.00%]
+  else
+    goto <bb 7>; [70.00%]
+
+  <bb 10> [local count: 3063920]:
+  _3 = &MEM[(struct TCB_t *)xTaskToResume_14(D)].xStateListItem;
+  uxListRemove (_3);
+  _4 = MEM[(struct TCB_t *)xTaskToResume_14(D)].uxPriority;
+  _5 = 1 << _4;
+  uxTopReadyPriority.52_6 ={v} uxTopReadyPriority;
+  _7 = _5 | uxTopReadyPriority.52_6;
+  uxTopReadyPriority ={v} _7;
+  _34 = _4 * 20;
+  _8 = &pxReadyTasksLists + _34;
+  vListInsertEnd (_8, _3);
+  _9 = MEM[(struct TCB_t *)xTaskToResume_14(D)].uxPriority;
+  pxCurrentTCB.53_10 ={v} pxCurrentTCB;
+  _11 = pxCurrentTCB.53_10->uxPriority;
+  if (_9 >= _11)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 11> [local count: 1531960]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 12> [local count: 9284607]:
+  vPortExitCritical (); [tail call]
+
+  <bb 13> [local count: 20826802]:
+  return;
+
+}
+
+
+
+;; Function xTaskResumeFromISR (xTaskResumeFromISR, funcdef_no=18, decl_uid=6249, cgraph_uid=19, symbol_order=39)
+
+Merging blocks 4 and 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+xTaskResumeFromISR (struct tskTaskControlBlock * xTaskToResume)
+{
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  BaseType_t xYieldRequired;
+  long unsigned int uxSchedulerSuspended.54_2;
+  long unsigned int _3;
+  struct TCB_t * pxCurrentTCB.55_4;
+  long unsigned int _5;
+  struct ListItem_t * _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int uxTopReadyPriority.56_9;
+  long unsigned int _10;
+  struct List_t * _11;
+  struct ListItem_t * _12;
+  sizetype _13;
+  struct xLIST * _31;
+  _Bool _32;
+  long int _33;
+  struct xLIST * _34;
+
+  <bb 2> [local count: 22847857]:
+  if (xTaskToResume_16(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_24 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortValidateInterruptPriority ();
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_25, "=r" ulNewBASEPRI_26 : "i" 16 : "memory");
+  _31 = MEM[(const struct TCB_t *)xTaskToResume_16(D)].xStateListItem.pvContainer;
+  if (_31 == &xSuspendedTaskList)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 11>; [70.00%]
+
+  <bb 6> [local count: 2565517]:
+  _34 = MEM[(const struct TCB_t *)xTaskToResume_16(D)].xEventListItem.pvContainer;
+  if (_34 != &xPendingReadyList)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 11>; [30.00%]
+
+  <bb 7> [local count: 1795862]:
+  if (_34 == 0B)
+    goto <bb 8>; [30.00%]
+  else
+    goto <bb 11>; [70.00%]
+
+  <bb 8> [local count: 4275862]:
+  uxSchedulerSuspended.54_2 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.54_2 == 0)
+    goto <bb 9>; [67.00%]
+  else
+    goto <bb 10>; [33.00%]
+
+  <bb 9> [local count: 2864828]:
+  _3 = MEM[(struct TCB_t *)xTaskToResume_16(D)].uxPriority;
+  pxCurrentTCB.55_4 ={v} pxCurrentTCB;
+  _5 = pxCurrentTCB.55_4->uxPriority;
+  _32 = _3 >= _5;
+  _33 = (long int) _32;
+  _6 = &MEM[(struct TCB_t *)xTaskToResume_16(D)].xStateListItem;
+  uxListRemove (_6);
+  _7 = MEM[(struct TCB_t *)xTaskToResume_16(D)].uxPriority;
+  _8 = 1 << _7;
+  uxTopReadyPriority.56_9 ={v} uxTopReadyPriority;
+  _10 = _8 | uxTopReadyPriority.56_9;
+  uxTopReadyPriority ={v} _10;
+  _13 = _7 * 20;
+  _11 = &pxReadyTasksLists + _13;
+  vListInsertEnd (_11, _6);
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 1411035]:
+  _12 = &MEM[(struct TCB_t *)xTaskToResume_16(D)].xEventListItem;
+  vListInsertEnd (&xPendingReadyList, _12);
+
+  <bb 11> [local count: 8551725]:
+  # xYieldRequired_14 = PHI <0(6), 0(10), _33(9), 0(5), 0(7)>
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_25 : "memory");
+  return xYieldRequired_14;
+
+}
+
+
+
+;; Function vTaskStartScheduler (vTaskStartScheduler, funcdef_no=19, decl_uid=6251, cgraph_uid=20, symbol_order=40)
+
+Merging blocks 7 and 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+vTaskStartScheduler ()
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+
+  <bb 2> [local count: 39202563]:
+  xReturn_6 = xTaskCreate (prvIdleTask, "IDLE", 200, 0B, 0, &xIdleTaskHandle);
+  if (xReturn_6 == 1)
+    goto <bb 3>; [20.24%]
+  else
+    goto <bb 5>; [79.76%]
+
+  <bb 3> [local count: 7934599]:
+  xReturn_8 = xTimerCreateTimerTask ();
+  if (xReturn_8 == 1)
+    goto <bb 4>; [100.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [local count: 7934599]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_13 : "i" 16 : "memory");
+  xNextTaskUnblockTime ={v} 4294967295;
+  xSchedulerRunning ={v} 1;
+  xTickCount ={v} 0;
+  xPortStartScheduler (); [tail call]
+  goto <bb 8>; [100.00%]
+
+  <bb 5> [local count: 31267964]:
+  # xReturn_22 = PHI <xReturn_6(2), xReturn_8(3)>
+  if (xReturn_22 == -1)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_14 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 28571455]:
+  return;
+
+}
+
+
+
+;; Function vTaskEndScheduler (vTaskEndScheduler, funcdef_no=20, decl_uid=6253, cgraph_uid=21, symbol_order=41)
+
+vTaskEndScheduler ()
+{
+  uint32_t ulNewBASEPRI;
+
+  <bb 2> [local count: 1073741824]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_4 : "i" 16 : "memory");
+  xSchedulerRunning ={v} 0;
+  vPortEndScheduler (); [tail call]
+  return;
+
+}
+
+
+
+;; Function vTaskSuspendAll (vTaskSuspendAll, funcdef_no=21, decl_uid=6255, cgraph_uid=22, symbol_order=42)
+
+vTaskSuspendAll ()
+{
+  long unsigned int uxSchedulerSuspended.60_1;
+  long unsigned int _2;
+
+  <bb 2> [local count: 1073741824]:
+  uxSchedulerSuspended.60_1 ={v} uxSchedulerSuspended;
+  _2 = uxSchedulerSuspended.60_1 + 1;
+  uxSchedulerSuspended ={v} _2;
+  __asm__ __volatile__("" :  :  : "memory");
+  return;
+
+}
+
+
+
+;; Function xTaskGetTickCount (xTaskGetTickCount, funcdef_no=23, decl_uid=6259, cgraph_uid=24, symbol_order=44)
+
+xTaskGetTickCount ()
+{
+  TickType_t xTicks;
+
+  <bb 2> [local count: 1073741824]:
+  xTicks_2 ={v} xTickCount;
+  return xTicks_2;
+
+}
+
+
+
+;; Function xTaskGetTickCountFromISR (xTaskGetTickCountFromISR, funcdef_no=24, decl_uid=6261, cgraph_uid=25, symbol_order=45)
+
+xTaskGetTickCountFromISR ()
+{
+  TickType_t xReturn;
+
+  <bb 2> [local count: 1073741824]:
+  vPortValidateInterruptPriority ();
+  xReturn_3 ={v} xTickCount;
+  return xReturn_3;
+
+}
+
+
+
+;; Function uxTaskGetNumberOfTasks (uxTaskGetNumberOfTasks, funcdef_no=25, decl_uid=6263, cgraph_uid=26, symbol_order=46)
+
+uxTaskGetNumberOfTasks ()
+{
+  UBaseType_t _2;
+
+  <bb 2> [local count: 1073741824]:
+  _2 ={v} uxCurrentNumberOfTasks;
+  return _2;
+
+}
+
+
+
+;; Function pcTaskGetName (pcTaskGetName, funcdef_no=26, decl_uid=6265, cgraph_uid=27, symbol_order=47)
+
+Merging blocks 5 and 7
+Removing basic block 8
+Removing basic block 9
+pcTaskGetName (struct tskTaskControlBlock * xTaskToQuery)
+{
+  uint32_t ulNewBASEPRI;
+  struct TCB_t * iftmp.68_4;
+  char * _5;
+  struct TCB_t * iftmp.68_12;
+
+  <bb 2> [local count: 35437027]:
+  if (xTaskToQuery_2(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 6>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  iftmp.68_4 ={v} pxCurrentTCB;
+  if (iftmp.68_4 == 0B)
+    goto <bb 4>; [100.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 4> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+
+  <bb 5> [local count: 1073741824]:
+  goto <bb 5>; [100.00%]
+
+  <bb 6> [local count: 24805919]:
+  # iftmp.68_12 = PHI <xTaskToQuery_2(D)(2), iftmp.68_4(3)>
+  _5 = &iftmp.68_12->pcTaskName[0];
+  return _5;
+
+}
+
+
+
+;; Function xTaskIncrementTick (xTaskIncrementTick, funcdef_no=30, decl_uid=6312, cgraph_uid=31, symbol_order=51)
+
+Merging blocks 6 and 29
+Removing basic block 12
+Removing basic block 21
+Removing basic block 26
+Removing basic block 28
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 38
+xTaskIncrementTick ()
+{
+  struct TCB_t * pxTCB;
+  uint32_t ulNewBASEPRI;
+  struct List_t * pxTemp;
+  const TickType_t xConstTickCount;
+  BaseType_t xSwitchRequired;
+  TickType_t xItemValue;
+  struct TCB_t * pxTCB;
+  long unsigned int uxSchedulerSuspended.73_1;
+  long unsigned int xTickCount.74_2;
+  struct List_t * pxDelayedTaskList.75_3;
+  long unsigned int _4;
+  struct List_t * pxOverflowDelayedTaskList.76_5;
+  long int xNumOfOverflows.77_6;
+  long int _7;
+  long unsigned int xNextTaskUnblockTime.78_8;
+  struct List_t * pxDelayedTaskList.79_9;
+  long unsigned int _10;
+  struct List_t * pxDelayedTaskList.80_11;
+  struct xLIST_ITEM * _12;
+  struct ListItem_t * _13;
+  struct xLIST * _14;
+  struct ListItem_t * _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int uxTopReadyPriority.81_18;
+  long unsigned int _19;
+  struct List_t * _20;
+  struct List_t * pxDelayedTaskList.79_21;
+  long unsigned int _22;
+  struct TCB_t * pxCurrentTCB.82_23;
+  long unsigned int _24;
+  struct TCB_t * pxCurrentTCB.83_25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int uxPendedTicks.84_28;
+  long unsigned int uxPendedTicks.85_29;
+  long unsigned int _30;
+  long int xYieldPending.86_31;
+  sizetype _63;
+  struct List_t * pxDelayedTaskList.20_66;
+  long unsigned int _67;
+  struct List_t * pxDelayedTaskList.21_68;
+  struct xLIST_ITEM * _69;
+  long unsigned int _71;
+  long unsigned int _78;
+
+  <bb 2> [local count: 47365150]:
+  uxSchedulerSuspended.73_1 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.73_1 == 0)
+    goto <bb 3>; [67.00%]
+  else
+    goto <bb 24>; [33.00%]
+
+  <bb 3> [local count: 31734651]:
+  xTickCount.74_2 ={v} xTickCount;
+  xConstTickCount_46 = xTickCount.74_2 + 1;
+  xTickCount ={v} xConstTickCount_46;
+  if (xConstTickCount_46 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 4> [local count: 15867325]:
+  pxDelayedTaskList.75_3 ={v} pxDelayedTaskList;
+  _4 ={v} pxDelayedTaskList.75_3->uxNumberOfItems;
+  if (_4 != 0)
+    goto <bb 5>; [67.00%]
+  else
+    goto <bb 7>; [33.00%]
+
+  <bb 5> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_64 : "i" 16 : "memory");
+
+  <bb 6> [local count: 1073741824]:
+  goto <bb 6>; [100.00%]
+
+  <bb 7> [local count: 5236217]:
+  pxTemp_48 ={v} pxDelayedTaskList;
+  pxOverflowDelayedTaskList.76_5 ={v} pxOverflowDelayedTaskList;
+  pxDelayedTaskList ={v} pxOverflowDelayedTaskList.76_5;
+  pxOverflowDelayedTaskList ={v} pxTemp_48;
+  xNumOfOverflows.77_6 ={v} xNumOfOverflows;
+  _7 = xNumOfOverflows.77_6 + 1;
+  xNumOfOverflows ={v} _7;
+  pxDelayedTaskList.20_66 ={v} pxDelayedTaskList;
+  _67 ={v} pxDelayedTaskList.20_66->uxNumberOfItems;
+  if (_67 == 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 2618109]:
+  xNextTaskUnblockTime ={v} 4294967295;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 2618109]:
+  pxDelayedTaskList.21_68 ={v} pxDelayedTaskList;
+  _69 = pxDelayedTaskList.21_68->xListEnd.pxNext;
+  pxTCB_70 = _69->pvOwner;
+  _71 = pxTCB_70->xStateListItem.xItemValue;
+  xNextTaskUnblockTime ={v} _71;
+
+  <bb 10> [local count: 21103543]:
+  xNextTaskUnblockTime.78_8 ={v} xNextTaskUnblockTime;
+  if (xNextTaskUnblockTime.78_8 <= xConstTickCount_46)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 11> [local count: 10551772]:
+  pxDelayedTaskList.79_21 ={v} pxDelayedTaskList;
+  _78 ={v} pxDelayedTaskList.79_21->uxNumberOfItems;
+  if (_78 == 0)
+    goto <bb 13>; [5.50%]
+  else
+    goto <bb 14>; [94.50%]
+
+  <bb 12> [local count: 88085962]:
+  # xSwitchRequired_72 = PHI <xSwitchRequired_76(18), 1(19)>
+  pxDelayedTaskList.79_9 ={v} pxDelayedTaskList;
+  _10 ={v} pxDelayedTaskList.79_9->uxNumberOfItems;
+  if (_10 == 0)
+    goto <bb 13>; [5.50%]
+  else
+    goto <bb 14>; [94.50%]
+
+  <bb 13> [local count: 5425075]:
+  # xSwitchRequired_77 = PHI <0(11), xSwitchRequired_72(12)>
+  xNextTaskUnblockTime ={v} 4294967295;
+  goto <bb 20>; [100.00%]
+
+  <bb 14> [local count: 93212658]:
+  # xSwitchRequired_76 = PHI <0(11), xSwitchRequired_72(12)>
+  pxDelayedTaskList.80_11 ={v} pxDelayedTaskList;
+  _12 = pxDelayedTaskList.80_11->xListEnd.pxNext;
+  pxTCB_53 = _12->pvOwner;
+  xItemValue_54 = pxTCB_53->xStateListItem.xItemValue;
+  if (xConstTickCount_46 < xItemValue_54)
+    goto <bb 15>; [5.50%]
+  else
+    goto <bb 16>; [94.50%]
+
+  <bb 15> [local count: 5126696]:
+  xNextTaskUnblockTime ={v} xItemValue_54;
+  goto <bb 20>; [100.00%]
+
+  <bb 16> [local count: 88085962]:
+  _13 = &pxTCB_53->xStateListItem;
+  uxListRemove (_13);
+  _14 = pxTCB_53->xEventListItem.pvContainer;
+  if (_14 != 0B)
+    goto <bb 17>; [53.47%]
+  else
+    goto <bb 18>; [46.53%]
+
+  <bb 17> [local count: 47099564]:
+  _15 = &pxTCB_53->xEventListItem;
+  uxListRemove (_15);
+
+  <bb 18> [local count: 88085962]:
+  _16 = pxTCB_53->uxPriority;
+  _17 = 1 << _16;
+  uxTopReadyPriority.81_18 ={v} uxTopReadyPriority;
+  _19 = _17 | uxTopReadyPriority.81_18;
+  uxTopReadyPriority ={v} _19;
+  _63 = _16 * 20;
+  _20 = &pxReadyTasksLists + _63;
+  vListInsertEnd (_20, _13);
+  _22 = pxTCB_53->uxPriority;
+  pxCurrentTCB.82_23 ={v} pxCurrentTCB;
+  _24 = pxCurrentTCB.82_23->uxPriority;
+  if (_22 >= _24)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 19> [local count: 44042981]:
+  goto <bb 12>; [100.00%]
+
+  <bb 20> [local count: 21103543]:
+  # xSwitchRequired_33 = PHI <xSwitchRequired_76(15), xSwitchRequired_77(13), 0(10)>
+  pxCurrentTCB.83_25 ={v} pxCurrentTCB;
+  _26 = pxCurrentTCB.83_25->uxPriority;
+  _27 ={v} pxReadyTasksLists[_26].uxNumberOfItems;
+  if (_27 > 1)
+    goto <bb 21>; [59.00%]
+  else
+    goto <bb 22>; [41.00%]
+
+  <bb 21> [local count: 12451090]:
+
+  <bb 22> [local count: 21103543]:
+  # xSwitchRequired_34 = PHI <xSwitchRequired_33(20), 1(21)>
+  uxPendedTicks.84_28 ={v} uxPendedTicks;
+  if (uxPendedTicks.84_28 == 0)
+    goto <bb 23>; [33.00%]
+  else
+    goto <bb 25>; [67.00%]
+
+  <bb 23> [local count: 6964169]:
+  vApplicationTickHook ();
+  goto <bb 25>; [100.00%]
+
+  <bb 24> [local count: 15630499]:
+  uxPendedTicks.85_29 ={v} uxPendedTicks;
+  _30 = uxPendedTicks.85_29 + 1;
+  uxPendedTicks ={v} _30;
+  vApplicationTickHook ();
+
+  <bb 25> [local count: 36734042]:
+  # xSwitchRequired_35 = PHI <xSwitchRequired_34(23), 0(24), xSwitchRequired_34(22)>
+  xYieldPending.86_31 ={v} xYieldPending;
+  if (xYieldPending.86_31 != 0)
+    goto <bb 26>; [50.00%]
+  else
+    goto <bb 27>; [50.00%]
+
+  <bb 26> [local count: 18367021]:
+
+  <bb 27> [local count: 36734042]:
+  # xSwitchRequired_36 = PHI <xSwitchRequired_35(25), 1(26)>
+  return xSwitchRequired_36;
+
+}
+
+
+
+;; Function xTaskResumeAll.part.0 (xTaskResumeAll.part.0, funcdef_no=65, decl_uid=7634, cgraph_uid=101, symbol_order=121)
+
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+xTaskResumeAll.part.0 ()
+{
+  struct TCB_t * pxTCB;
+  struct TCB_t * pxTCB;
+  BaseType_t xAlreadyYielded;
+  UBaseType_t uxPendedCounts;
+  long unsigned int uxSchedulerSuspended.62_1;
+  long unsigned int _2;
+  long unsigned int uxSchedulerSuspended.63_3;
+  long unsigned int uxCurrentNumberOfTasks.64_4;
+  struct xLIST_ITEM * _5;
+  struct ListItem_t * _7;
+  struct ListItem_t * _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int uxTopReadyPriority.65_11;
+  long unsigned int _12;
+  struct List_t * _13;
+  long unsigned int _14;
+  struct TCB_t * pxCurrentTCB.66_15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long int _20;
+  long int xYieldPending.67_23;
+  sizetype _28;
+  long unsigned int _37;
+  struct List_t * pxDelayedTaskList.20_50;
+  long unsigned int _51;
+  struct List_t * pxDelayedTaskList.21_52;
+  struct xLIST_ITEM * _53;
+  long unsigned int _55;
+
+  <bb 2> [local count: 472446400]:
+  vPortEnterCritical ();
+  uxSchedulerSuspended.62_1 ={v} uxSchedulerSuspended;
+  _2 = uxSchedulerSuspended.62_1 + 4294967295;
+  uxSchedulerSuspended ={v} _2;
+  uxSchedulerSuspended.63_3 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.63_3 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 413390600]:
+  goto <bb 19>; [100.00%]
+
+  <bb 4> [local count: 236223200]:
+  uxCurrentNumberOfTasks.64_4 ={v} uxCurrentNumberOfTasks;
+  if (uxCurrentNumberOfTasks.64_4 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 5> [local count: 118111600]:
+  _37 ={v} xPendingReadyList.uxNumberOfItems;
+  if (_37 != 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 12>; [11.00%]
+
+  <bb 6> [local count: 955630225]:
+  _5 = xPendingReadyList.xListEnd.pxNext;
+  pxTCB_6 = _5->pvOwner;
+  _7 = &pxTCB_6->xEventListItem;
+  uxListRemove (_7);
+  _8 = &pxTCB_6->xStateListItem;
+  uxListRemove (_8);
+  _9 = pxTCB_6->uxPriority;
+  _10 = 1 << _9;
+  uxTopReadyPriority.65_11 ={v} uxTopReadyPriority;
+  _12 = _10 | uxTopReadyPriority.65_11;
+  uxTopReadyPriority ={v} _12;
+  _28 = _9 * 20;
+  _13 = &pxReadyTasksLists + _28;
+  vListInsertEnd (_13, _8);
+  _14 = pxTCB_6->uxPriority;
+  pxCurrentTCB.66_15 ={v} pxCurrentTCB;
+  _16 = pxCurrentTCB.66_15->uxPriority;
+  if (_14 >= _16)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 477815112]:
+  xYieldPending ={v} 1;
+
+  <bb 8> [local count: 955630225]:
+  _17 ={v} xPendingReadyList.uxNumberOfItems;
+  if (_17 != 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 9>; [11.00%]
+
+  <bb 9> [local count: 105119324]:
+  pxDelayedTaskList.20_50 ={v} pxDelayedTaskList;
+  _51 ={v} pxDelayedTaskList.20_50->uxNumberOfItems;
+  if (_51 == 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 31577136]:
+  xNextTaskUnblockTime ={v} 4294967295;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 31577136]:
+  pxDelayedTaskList.21_52 ={v} pxDelayedTaskList;
+  _53 = pxDelayedTaskList.21_52->xListEnd.pxNext;
+  pxTCB_54 = _53->pvOwner;
+  _55 = pxTCB_54->xStateListItem.xItemValue;
+  xNextTaskUnblockTime ={v} _55;
+
+  <bb 12> [local count: 118111600]:
+  uxPendedCounts_19 ={v} uxPendedTicks;
+  if (uxPendedCounts_19 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 13> [local count: 536870913]:
+  # uxPendedCounts_21 = PHI <uxPendedCounts_19(12), uxPendedCounts_22(15)>
+  _20 = xTaskIncrementTick ();
+  if (_20 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 268435456]:
+  xYieldPending ={v} 1;
+
+  <bb 15> [local count: 536870913]:
+  uxPendedCounts_22 = uxPendedCounts_21 + 4294967295;
+  if (uxPendedCounts_22 != 0)
+    goto <bb 13>; [89.00%]
+  else
+    goto <bb 16>; [11.00%]
+
+  <bb 16> [local count: 59055800]:
+  uxPendedTicks ={v} 0;
+
+  <bb 17> [local count: 118111600]:
+  xYieldPending.67_23 ={v} xYieldPending;
+  if (xYieldPending.67_23 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 18> [local count: 59055800]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 19> [local count: 472446400]:
+  # xAlreadyYielded_24 = PHI <1(18), 0(3)>
+  vPortExitCritical ();
+  return xAlreadyYielded_24;
+
+}
+
+
+
+;; Function xTaskResumeAll (xTaskResumeAll, funcdef_no=22, decl_uid=6257, cgraph_uid=23, symbol_order=43)
+
+Merging blocks 4 and 6
+xTaskResumeAll ()
+{
+  BaseType_t D.7641;
+  uint32_t ulNewBASEPRI;
+  long unsigned int uxSchedulerSuspended.61_1;
+
+  <bb 2> [local count: 15867325]:
+  uxSchedulerSuspended.61_1 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.61_1 == 0)
+    goto <bb 3>; [67.00%]
+  else
+    goto <bb 5>; [33.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_5 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 5236217]:
+  _2 = xTaskResumeAll.part.0 (); [tail call]
+  return _2;
+
+}
+
+
+
+;; Function xTaskAbortDelay (xTaskAbortDelay, funcdef_no=29, decl_uid=6229, cgraph_uid=30, symbol_order=50)
+
+Merging blocks 4 and 14
+Merging blocks 12 and 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+xTaskAbortDelay (struct tskTaskControlBlock * xTask)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  <unnamed type> _1;
+  struct ListItem_t * _2;
+  struct xLIST * _3;
+  struct ListItem_t * _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int uxTopReadyPriority.71_7;
+  long unsigned int _8;
+  struct List_t * _9;
+  long unsigned int _10;
+  struct TCB_t * pxCurrentTCB.72_11;
+  long unsigned int _12;
+  long unsigned int uxSchedulerSuspended.60_29;
+  long unsigned int _30;
+  long unsigned int uxSchedulerSuspended.61_34;
+  sizetype _36;
+
+  <bb 2> [local count: 22847857]:
+  if (xTask_16(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_28 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  uxSchedulerSuspended.60_29 ={v} uxSchedulerSuspended;
+  _30 = uxSchedulerSuspended.60_29 + 1;
+  uxSchedulerSuspended ={v} _30;
+  __asm__ __volatile__("" :  :  : "memory");
+  _1 = eTaskGetState (xTask_16(D));
+  if (_1 == 2)
+    goto <bb 6>; [20.24%]
+  else
+    goto <bb 10>; [79.76%]
+
+  <bb 6> [local count: 2472670]:
+  _2 = &MEM[(struct TCB_t *)xTask_16(D)].xStateListItem;
+  uxListRemove (_2);
+  vPortEnterCritical ();
+  _3 = MEM[(struct TCB_t *)xTask_16(D)].xEventListItem.pvContainer;
+  if (_3 != 0B)
+    goto <bb 7>; [53.47%]
+  else
+    goto <bb 8>; [46.53%]
+
+  <bb 7> [local count: 1322137]:
+  _4 = &MEM[(struct TCB_t *)xTask_16(D)].xEventListItem;
+  uxListRemove (_4);
+  MEM[(struct TCB_t *)xTask_16(D)].ucDelayAborted = 1;
+
+  <bb 8> [local count: 2472670]:
+  vPortExitCritical ();
+  _5 = MEM[(struct TCB_t *)xTask_16(D)].uxPriority;
+  _6 = 1 << _5;
+  uxTopReadyPriority.71_7 ={v} uxTopReadyPriority;
+  _8 = _6 | uxTopReadyPriority.71_7;
+  uxTopReadyPriority ={v} _8;
+  _36 = _5 * 20;
+  _9 = &pxReadyTasksLists + _36;
+  vListInsertEnd (_9, _2);
+  _10 = MEM[(struct TCB_t *)xTask_16(D)].uxPriority;
+  pxCurrentTCB.72_11 ={v} pxCurrentTCB;
+  _12 = pxCurrentTCB.72_11->uxPriority;
+  if (_10 > _12)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 1236335]:
+  xYieldPending ={v} 1;
+
+  <bb 10> [local count: 12216749]:
+  # xReturn_13 = PHI <1(9), 0(5), 1(8)>
+  uxSchedulerSuspended.61_34 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.61_34 == 0)
+    goto <bb 11>; [67.00%]
+  else
+    goto <bb 13>; [33.00%]
+
+  <bb 11> [local count: 8185222]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_35 : "i" 16 : "memory");
+
+  <bb 12> [local count: 826707360]:
+  goto <bb 12>; [100.00%]
+
+  <bb 13> [local count: 4031527]:
+  xTaskResumeAll.part.0 ();
+  return xReturn_13;
+
+}
+
+
+
+;; Function xTaskGetHandle (xTaskGetHandle, funcdef_no=28, decl_uid=6267, cgraph_uid=29, symbol_order=49)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+xTaskGetHandle (const char * pcNameToQuery)
+{
+  unsigned int ivtmp.321;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  struct TCB_t * pxTCB;
+  unsigned int _1;
+  struct List_t * _2;
+  struct List_t * pxDelayedTaskList.69_3;
+  struct List_t * pxOverflowDelayedTaskList.70_4;
+  long unsigned int uxSchedulerSuspended.60_32;
+  long unsigned int _33;
+  long unsigned int uxSchedulerSuspended.61_37;
+  unsigned int _58;
+
+  <bb 2> [local count: 21262216]:
+  _1 = strlen (pcNameToQuery_17(D));
+  if (_1 > 11)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_31 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 10631108]:
+  uxSchedulerSuspended.60_32 ={v} uxSchedulerSuspended;
+  _33 = uxSchedulerSuspended.60_32 + 1;
+  uxSchedulerSuspended ={v} _33;
+  __asm__ __volatile__("" :  :  : "memory");
+  ivtmp.321_59 = (unsigned int) &MEM <struct List_t[8]> [(void *)&pxReadyTasksLists + 140B];
+  _58 = (unsigned int) &pxReadyTasksLists;
+
+  <bb 6> [local count: 61407122]:
+  # ivtmp.321_65 = PHI <ivtmp.321_59(5), ivtmp.321_62(7)>
+  _2 = (struct List_t *) ivtmp.321_65;
+  pxTCB_21 = prvSearchForNameWithinSingleList (_2, pcNameToQuery_17(D));
+  if (pxTCB_21 != 0B)
+    goto <bb 11>; [5.50%]
+  else
+    goto <bb 7>; [94.50%]
+
+  <bb 7> [local count: 58029731]:
+  ivtmp.321_62 = ivtmp.321_65 + 4294967276;
+  if (_58 != ivtmp.321_65)
+    goto <bb 6>; [87.50%]
+  else
+    goto <bb 15>; [12.50%]
+
+  <bb 8> [local count: 1853002]:
+  pxOverflowDelayedTaskList.70_4 ={v} pxOverflowDelayedTaskList;
+  pxTCB_25 = prvSearchForNameWithinSingleList (pxOverflowDelayedTaskList.70_4, pcNameToQuery_17(D));
+  if (pxTCB_25 == 0B)
+    goto <bb 9>; [100.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 9> [local count: 1853002]:
+  pxTCB_27 = prvSearchForNameWithinSingleList (&xSuspendedTaskList, pcNameToQuery_17(D));
+  if (pxTCB_27 == 0B)
+    goto <bb 10>; [100.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 10> [local count: 1853002]:
+  pxTCB_29 = prvSearchForNameWithinSingleList (&xTasksWaitingTermination, pcNameToQuery_17(D));
+
+  <bb 11> [local count: 10631108]:
+  # pxTCB_9 = PHI <pxTCB_29(10), pxTCB_21(6), pxTCB_27(9), pxTCB_25(8), pxTCB_23(15)>
+  uxSchedulerSuspended.61_37 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.61_37 == 0)
+    goto <bb 12>; [67.00%]
+  else
+    goto <bb 14>; [33.00%]
+
+  <bb 12> [local count: 7122842]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_38 : "i" 16 : "memory");
+
+  <bb 13> [local count: 719407029]:
+  goto <bb 13>; [100.00%]
+
+  <bb 14> [local count: 3508266]:
+  xTaskResumeAll.part.0 ();
+  return pxTCB_9;
+
+  <bb 15> [local count: 1853002]:
+  pxDelayedTaskList.69_3 ={v} pxDelayedTaskList;
+  pxTCB_23 = prvSearchForNameWithinSingleList (pxDelayedTaskList.69_3, pcNameToQuery_17(D));
+  if (pxTCB_23 == 0B)
+    goto <bb 8>; [100.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+}
+
+
+
+;; Function vTaskDelay (vTaskDelay, funcdef_no=10, decl_uid=6224, cgraph_uid=11, symbol_order=31)
+
+Merging blocks 6 and 12
+Merging blocks 9 and 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+vTaskDelay (const TickType_t xTicksToDelay)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  long unsigned int uxSchedulerSuspended.34_1;
+  long unsigned int uxSchedulerSuspended.60_13;
+  long unsigned int _14;
+  long unsigned int uxSchedulerSuspended.61_18;
+  long int _20;
+
+  <bb 2> [local count: 31734651]:
+  if (xTicksToDelay_3(D) != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 16731302]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+  goto <bb 11>; [100.00%]
+
+  <bb 4> [local count: 15867325]:
+  uxSchedulerSuspended.34_1 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.34_1 != 0)
+    goto <bb 5>; [67.00%]
+  else
+    goto <bb 7>; [33.00%]
+
+  <bb 5> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_12 : "i" 16 : "memory");
+
+  <bb 6> [local count: 1073741824]:
+  goto <bb 6>; [100.00%]
+
+  <bb 7> [local count: 5236217]:
+  uxSchedulerSuspended.60_13 ={v} uxSchedulerSuspended;
+  _14 = uxSchedulerSuspended.60_13 + 1;
+  uxSchedulerSuspended ={v} _14;
+  __asm__ __volatile__("" :  :  : "memory");
+  prvAddCurrentTaskToDelayedList (xTicksToDelay_3(D), 0);
+  uxSchedulerSuspended.61_18 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.61_18 == 0)
+    goto <bb 8>; [67.00%]
+  else
+    goto <bb 10>; [33.00%]
+
+  <bb 8> [local count: 3508266]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_19 : "i" 16 : "memory");
+
+  <bb 9> [local count: 354334801]:
+  goto <bb 9>; [100.00%]
+
+  <bb 10> [local count: 1727952]:
+  _20 = xTaskResumeAll.part.0 ();
+  if (_20 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 11> [local count: 17595277]:
+  return;
+
+}
+
+
+
+;; Function vTaskDelayUntil (vTaskDelayUntil, funcdef_no=9, decl_uid=6227, cgraph_uid=10, symbol_order=30)
+
+Merging blocks 4 and 28
+Merging blocks 7 and 29
+Merging blocks 10 and 30
+Merging blocks 24 and 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+vTaskDelayUntil (TickType_t * const pxPreviousWakeTime, const TickType_t xTimeIncrement)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  const TickType_t xConstTickCount;
+  TickType_t xTimeToWake;
+  long unsigned int uxSchedulerSuspended.22_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  __complex__ long unsigned int _14;
+  long unsigned int uxSchedulerSuspended.60_24;
+  long unsigned int _25;
+  long unsigned int uxSchedulerSuspended.61_33;
+  long int _35;
+  long unsigned int _39;
+
+  <bb 2> [local count: 30374594]:
+  if (pxPreviousWakeTime_7(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 9112378]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_21 : "i" 16 : "memory");
+
+  <bb 4> [local count: 920350123]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 21262216]:
+  if (xTimeIncrement_8(D) == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_22 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 10631108]:
+  uxSchedulerSuspended.22_1 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.22_1 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 9> [local count: 5315554]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_23 : "i" 16 : "memory");
+
+  <bb 10> [local count: 536870913]:
+  goto <bb 10>; [100.00%]
+
+  <bb 11> [local count: 5315554]:
+  uxSchedulerSuspended.60_24 ={v} uxSchedulerSuspended;
+  _25 = uxSchedulerSuspended.60_24 + 1;
+  uxSchedulerSuspended ={v} _25;
+  __asm__ __volatile__("" :  :  : "memory");
+  xConstTickCount_10 ={v} xTickCount;
+  _2 = *pxPreviousWakeTime_7(D);
+  _14 = .ADD_OVERFLOW (_2, xTimeIncrement_8(D));
+  xTimeToWake_11 = REALPART_EXPR <_14>;
+  _39 = IMAGPART_EXPR <_14>;
+  if (_2 > xConstTickCount_10)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 12> [local count: 2657777]:
+  if (_39 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 13> [local count: 1328889]:
+  *pxPreviousWakeTime_7(D) = xTimeToWake_11;
+  goto <bb 22>; [100.00%]
+
+  <bb 14> [local count: 1328889]:
+  if (xConstTickCount_10 < xTimeToWake_11)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 15> [local count: 664444]:
+  *pxPreviousWakeTime_7(D) = xTimeToWake_11;
+  goto <bb 22>; [100.00%]
+
+  <bb 16> [local count: 664444]:
+  *pxPreviousWakeTime_7(D) = xTimeToWake_11;
+  goto <bb 21>; [100.00%]
+
+  <bb 17> [local count: 2657777]:
+  if (_39 != 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 18> [local count: 1328889]:
+  if (xConstTickCount_10 < xTimeToWake_11)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 19> [local count: 1993333]:
+  *pxPreviousWakeTime_7(D) = xTimeToWake_11;
+  goto <bb 21>; [100.00%]
+
+  <bb 20> [local count: 664444]:
+  *pxPreviousWakeTime_7(D) = xTimeToWake_11;
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 2657777]:
+  _3 = xTimeToWake_11 - xConstTickCount_10;
+  prvAddCurrentTaskToDelayedList (_3, 0);
+
+  <bb 22> [local count: 5315554]:
+  uxSchedulerSuspended.61_33 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.61_33 == 0)
+    goto <bb 23>; [67.00%]
+  else
+    goto <bb 25>; [33.00%]
+
+  <bb 23> [local count: 3561421]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_34 : "i" 16 : "memory");
+
+  <bb 24> [local count: 359703512]:
+  goto <bb 24>; [100.00%]
+
+  <bb 25> [local count: 1754133]:
+  _35 = xTaskResumeAll.part.0 ();
+  if (_35 == 0)
+    goto <bb 26>; [50.00%]
+  else
+    goto <bb 27>; [50.00%]
+
+  <bb 26> [local count: 877066]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 27> [local count: 1754133]:
+  return;
+
+}
+
+
+
+;; Function vTaskSwitchContext (vTaskSwitchContext, funcdef_no=31, decl_uid=6330, cgraph_uid=32, symbol_order=52)
+
+Merging blocks 6 and 11
+Removing basic block 12
+vTaskSwitchContext ()
+{
+  uint32_t ulNewBASEPRI;
+  uint8_t ucReturn;
+  UBaseType_t uxTopPriority;
+  long unsigned int uxSchedulerSuspended.87_1;
+  long unsigned int uxTopReadyPriority.88_2;
+  long unsigned int _3;
+  long unsigned int _4;
+  struct ListItem_t * _5;
+  struct xLIST_ITEM * _6;
+  sizetype _7;
+  struct MiniListItem_t * _8;
+  struct xLIST_ITEM * _9;
+  void * _11;
+  sizetype _25;
+  struct ListItem_t * prephitmp_26;
+
+  <bb 2> [local count: 42524432]:
+  uxSchedulerSuspended.87_1 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.87_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 21262216]:
+  xYieldPending ={v} 1;
+  goto <bb 10>; [100.00%]
+
+  <bb 4> [local count: 21262216]:
+  xYieldPending ={v} 0;
+  uxTopReadyPriority.88_2 ={v} uxTopReadyPriority;
+  __asm__ __volatile__("clz %0, %1" : "=r" ucReturn_21 : "r" uxTopReadyPriority.88_2 : "memory");
+  _3 = (long unsigned int) ucReturn_21;
+  uxTopPriority_15 = 31 - _3;
+  _4 ={v} pxReadyTasksLists[uxTopPriority_15].uxNumberOfItems;
+  if (_4 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_23 : "i" 16 : "memory");
+
+  <bb 6> [local count: 1073741824]:
+  goto <bb 6>; [100.00%]
+
+  <bb 7> [local count: 10631108]:
+  _5 = MEM <struct List_t[8]> [(struct List_t *)&pxReadyTasksLists][uxTopPriority_15].pxIndex;
+  _6 = _5->pxNext;
+  MEM <struct List_t[8]> [(struct List_t *)&pxReadyTasksLists][uxTopPriority_15].pxIndex = _6;
+  _7 = uxTopPriority_15 * 20;
+  _25 = _7 + 8;
+  _8 = &pxReadyTasksLists + _25;
+  if (_6 == _8)
+    goto <bb 8>; [30.00%]
+  else
+    goto <bb 9>; [70.00%]
+
+  <bb 8> [local count: 3189332]:
+  _9 = MEM[(struct ListItem_t *)_6].pxNext;
+  MEM <struct List_t[8]> [(struct List_t *)&pxReadyTasksLists][uxTopPriority_15].pxIndex = _9;
+
+  <bb 9> [local count: 10631108]:
+  # prephitmp_26 = PHI <_9(8), _6(7)>
+  _11 = prephitmp_26->pvOwner;
+  pxCurrentTCB ={v} _11;
+
+  <bb 10> [local count: 31893324]:
+  return;
+
+}
+
+
+
+;; Function vTaskSuspend (vTaskSuspend, funcdef_no=15, decl_uid=6245, cgraph_uid=16, symbol_order=36)
+
+Merging blocks 20 and 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+vTaskSuspend (struct tskTaskControlBlock * xTaskToSuspend)
+{
+  struct TCB_t * pxTCB;
+  uint32_t ulNewBASEPRI;
+  struct ListItem_t * _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int uxTopReadyPriority.45_7;
+  long unsigned int _8;
+  struct xLIST * _9;
+  struct ListItem_t * _10;
+  unsigned char _11;
+  long int xSchedulerRunning.46_12;
+  struct TCB_t * pxCurrentTCB.47_13;
+  long int xSchedulerRunning.48_14;
+  long unsigned int uxSchedulerSuspended.49_15;
+  long unsigned int _16;
+  long unsigned int uxCurrentNumberOfTasks.50_17;
+  struct TCB_t * iftmp.44_18;
+  struct TCB_t * iftmp.44_27;
+  struct List_t * pxDelayedTaskList.20_44;
+  long unsigned int _45;
+  struct List_t * pxDelayedTaskList.21_46;
+  struct xLIST_ITEM * _47;
+  long unsigned int _49;
+
+  <bb 2> [local count: 141748108]:
+  vPortEnterCritical ();
+  if (xTaskToSuspend_26(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 4>; [70.00%]
+
+  <bb 3> [local count: 42524432]:
+  iftmp.44_27 ={v} pxCurrentTCB;
+
+  <bb 4> [local count: 141748108]:
+  # iftmp.44_18 = PHI <iftmp.44_27(3), xTaskToSuspend_26(D)(2)>
+  _1 = &iftmp.44_18->xStateListItem;
+  _2 = uxListRemove (_1);
+  if (_2 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 70874054]:
+  _3 = iftmp.44_18->uxPriority;
+  _4 ={v} pxReadyTasksLists[_3].uxNumberOfItems;
+  if (_4 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 35437027]:
+  _5 = 1 << _3;
+  _6 = ~_5;
+  uxTopReadyPriority.45_7 ={v} uxTopReadyPriority;
+  _8 = _6 & uxTopReadyPriority.45_7;
+  uxTopReadyPriority ={v} _8;
+
+  <bb 7> [local count: 141748108]:
+  _9 = iftmp.44_18->xEventListItem.pvContainer;
+  if (_9 != 0B)
+    goto <bb 8>; [53.47%]
+  else
+    goto <bb 9>; [46.53%]
+
+  <bb 8> [local count: 75792713]:
+  _10 = &iftmp.44_18->xEventListItem;
+  uxListRemove (_10);
+
+  <bb 9> [local count: 141748108]:
+  vListInsertEnd (&xSuspendedTaskList, _1);
+  _11 ={v} iftmp.44_18->ucNotifyState;
+  if (_11 == 1)
+    goto <bb 10>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 10> [local count: 48194357]:
+  iftmp.44_18->ucNotifyState ={v} 0;
+
+  <bb 11> [local count: 141748108]:
+  vPortExitCritical ();
+  xSchedulerRunning.46_12 ={v} xSchedulerRunning;
+  if (xSchedulerRunning.46_12 != 0)
+    goto <bb 12>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 12> [local count: 46776875]:
+  vPortEnterCritical ();
+  pxDelayedTaskList.20_44 ={v} pxDelayedTaskList;
+  _45 ={v} pxDelayedTaskList.20_44->uxNumberOfItems;
+  if (_45 == 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 13> [local count: 23388438]:
+  xNextTaskUnblockTime ={v} 4294967295;
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [local count: 23388438]:
+  pxDelayedTaskList.21_46 ={v} pxDelayedTaskList;
+  _47 = pxDelayedTaskList.21_46->xListEnd.pxNext;
+  pxTCB_48 = _47->pvOwner;
+  _49 = pxTCB_48->xStateListItem.xItemValue;
+  xNextTaskUnblockTime ={v} _49;
+
+  <bb 15> [local count: 46776875]:
+  vPortExitCritical ();
+
+  <bb 16> [local count: 141748108]:
+  pxCurrentTCB.47_13 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.47_13 == iftmp.44_18)
+    goto <bb 17>; [30.00%]
+  else
+    goto <bb 25>; [70.00%]
+
+  <bb 17> [local count: 42524432]:
+  xSchedulerRunning.48_14 ={v} xSchedulerRunning;
+  if (xSchedulerRunning.48_14 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 22>; [50.00%]
+
+  <bb 18> [local count: 21262216]:
+  uxSchedulerSuspended.49_15 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.49_15 != 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 19> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_42 : "i" 16 : "memory");
+
+  <bb 20> [local count: 1073741824]:
+  goto <bb 20>; [100.00%]
+
+  <bb 21> [local count: 10631108]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+  goto <bb 25>; [100.00%]
+
+  <bb 22> [local count: 21262216]:
+  _16 ={v} xSuspendedTaskList.uxNumberOfItems;
+  uxCurrentNumberOfTasks.50_17 ={v} uxCurrentNumberOfTasks;
+  if (_16 == uxCurrentNumberOfTasks.50_17)
+    goto <bb 23>; [51.12%]
+  else
+    goto <bb 24>; [48.88%]
+
+  <bb 23> [local count: 10869245]:
+  pxCurrentTCB ={v} 0B;
+  goto <bb 25>; [100.00%]
+
+  <bb 24> [local count: 10392971]:
+  vTaskSwitchContext (); [tail call]
+
+  <bb 25> [local count: 131117000]:
+  return;
+
+}
+
+
+
+;; Function vTaskPlaceOnEventList (vTaskPlaceOnEventList, funcdef_no=32, decl_uid=6315, cgraph_uid=33, symbol_order=53)
+
+Merging blocks 4 and 6
+vTaskPlaceOnEventList (struct List_t * const pxEventList, const TickType_t xTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  struct TCB_t * pxCurrentTCB.89_1;
+  struct ListItem_t * _2;
+
+  <bb 2> [local count: 22847857]:
+  if (pxEventList_3(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  pxCurrentTCB.89_1 ={v} pxCurrentTCB;
+  _2 = &pxCurrentTCB.89_1->xEventListItem;
+  vListInsert (pxEventList_3(D), _2);
+  prvAddCurrentTaskToDelayedList (xTicksToWait_6(D), 1); [tail call]
+  return;
+
+}
+
+
+
+;; Function vTaskPlaceOnUnorderedEventList (vTaskPlaceOnUnorderedEventList, funcdef_no=33, decl_uid=6319, cgraph_uid=34, symbol_order=54)
+
+Merging blocks 4 and 9
+Merging blocks 7 and 10
+vTaskPlaceOnUnorderedEventList (struct List_t * pxEventList, const TickType_t xItemValue, const TickType_t xTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  long unsigned int uxSchedulerSuspended.90_1;
+  struct TCB_t * pxCurrentTCB.91_2;
+  long unsigned int _3;
+  struct TCB_t * pxCurrentTCB.92_4;
+  struct ListItem_t * _5;
+
+  <bb 2> [local count: 22667608]:
+  if (pxEventList_6(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 6800282]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_13 : "i" 16 : "memory");
+
+  <bb 4> [local count: 686828449]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 15867325]:
+  uxSchedulerSuspended.90_1 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.90_1 == 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 8>; [33.00%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_14 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 5236217]:
+  pxCurrentTCB.91_2 ={v} pxCurrentTCB;
+  _3 = xItemValue_8(D) | 2147483648;
+  pxCurrentTCB.91_2->xEventListItem.xItemValue = _3;
+  pxCurrentTCB.92_4 ={v} pxCurrentTCB;
+  _5 = &pxCurrentTCB.92_4->xEventListItem;
+  vListInsertEnd (pxEventList_6(D), _5);
+  prvAddCurrentTaskToDelayedList (xTicksToWait_11(D), 1); [tail call]
+  return;
+
+}
+
+
+
+;; Function vTaskPlaceOnEventListRestricted (vTaskPlaceOnEventListRestricted, funcdef_no=34, decl_uid=6323, cgraph_uid=35, symbol_order=55)
+
+Merging blocks 4 and 8
+Removing basic block 6
+vTaskPlaceOnEventListRestricted (struct List_t * const pxEventList, TickType_t xTicksToWait, const BaseType_t xWaitIndefinitely)
+{
+  uint32_t ulNewBASEPRI;
+  struct TCB_t * pxCurrentTCB.93_1;
+  struct ListItem_t * _2;
+
+  <bb 2> [local count: 22847857]:
+  if (pxEventList_4(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_10 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  pxCurrentTCB.93_1 ={v} pxCurrentTCB;
+  _2 = &pxCurrentTCB.93_1->xEventListItem;
+  vListInsertEnd (pxEventList_4(D), _2);
+  if (xWaitIndefinitely_7(D) != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 6108375]:
+
+  <bb 7> [local count: 12216749]:
+  # xTicksToWait_3 = PHI <xTicksToWait_8(D)(5), 4294967295(6)>
+  prvAddCurrentTaskToDelayedList (xTicksToWait_3, xWaitIndefinitely_7(D)); [tail call]
+  return;
+
+}
+
+
+
+;; Function xTaskRemoveFromEventList (xTaskRemoveFromEventList, funcdef_no=35, decl_uid=6325, cgraph_uid=36, symbol_order=56)
+
+Merging blocks 4 and 11
+Removing basic block 12
+xTaskRemoveFromEventList (const struct List_t * const pxEventList)
+{
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  struct TCB_t * pxUnblockedTCB;
+  struct xLIST_ITEM * _1;
+  struct ListItem_t * _2;
+  long unsigned int uxSchedulerSuspended.94_3;
+  struct ListItem_t * _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int uxTopReadyPriority.95_7;
+  long unsigned int _8;
+  struct List_t * _9;
+  long unsigned int _10;
+  struct TCB_t * pxCurrentTCB.96_11;
+  long unsigned int _12;
+  sizetype _27;
+
+  <bb 2> [local count: 22847857]:
+  _1 = pxEventList_17(D)->xListEnd.pxNext;
+  pxUnblockedTCB_18 = _1->pvOwner;
+  if (pxUnblockedTCB_18 == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_25 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  _2 = &pxUnblockedTCB_18->xEventListItem;
+  uxListRemove (_2);
+  uxSchedulerSuspended.94_3 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.94_3 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 6108375]:
+  _4 = &pxUnblockedTCB_18->xStateListItem;
+  uxListRemove (_4);
+  _5 = pxUnblockedTCB_18->uxPriority;
+  _6 = 1 << _5;
+  uxTopReadyPriority.95_7 ={v} uxTopReadyPriority;
+  _8 = _6 | uxTopReadyPriority.95_7;
+  uxTopReadyPriority ={v} _8;
+  _27 = _5 * 20;
+  _9 = &pxReadyTasksLists + _27;
+  vListInsertEnd (_9, _4);
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 6108375]:
+  vListInsertEnd (&xPendingReadyList, _2);
+
+  <bb 8> [local count: 12216749]:
+  _10 = pxUnblockedTCB_18->uxPriority;
+  pxCurrentTCB.96_11 ={v} pxCurrentTCB;
+  _12 = pxCurrentTCB.96_11->uxPriority;
+  if (_10 > _12)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 6108375]:
+  xYieldPending ={v} 1;
+
+  <bb 10> [local count: 12216749]:
+  # xReturn_13 = PHI <1(9), 0(8)>
+  return xReturn_13;
+
+}
+
+
+
+;; Function vTaskRemoveFromUnorderedEventList (vTaskRemoveFromUnorderedEventList, funcdef_no=36, decl_uid=6328, cgraph_uid=37, symbol_order=57)
+
+Merging blocks 4 and 11
+Merging blocks 7 and 12
+Removing basic block 13
+vTaskRemoveFromUnorderedEventList (struct ListItem_t * pxEventListItem, const TickType_t xItemValue)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  struct TCB_t * pxUnblockedTCB;
+  long unsigned int uxSchedulerSuspended.97_1;
+  long unsigned int _2;
+  struct ListItem_t * _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int uxTopReadyPriority.98_6;
+  long unsigned int _7;
+  struct List_t * _8;
+  long unsigned int _9;
+  struct TCB_t * pxCurrentTCB.99_10;
+  long unsigned int _11;
+  sizetype _28;
+
+  <bb 2> [local count: 21262216]:
+  uxSchedulerSuspended.97_1 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.97_1 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_23 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 10631108]:
+  _2 = xItemValue_14(D) | 2147483648;
+  pxEventListItem_15(D)->xItemValue = _2;
+  pxUnblockedTCB_17 = pxEventListItem_15(D)->pvOwner;
+  if (pxUnblockedTCB_17 == 0B)
+    goto <bb 6>; [46.53%]
+  else
+    goto <bb 8>; [53.47%]
+
+  <bb 6> [local count: 4946655]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_24 : "i" 16 : "memory");
+
+  <bb 7> [local count: 499612072]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 5684453]:
+  uxListRemove (pxEventListItem_15(D));
+  _3 = &pxUnblockedTCB_17->xStateListItem;
+  uxListRemove (_3);
+  _4 = pxUnblockedTCB_17->uxPriority;
+  _5 = 1 << _4;
+  uxTopReadyPriority.98_6 ={v} uxTopReadyPriority;
+  _7 = _5 | uxTopReadyPriority.98_6;
+  uxTopReadyPriority ={v} _7;
+  _28 = _4 * 20;
+  _8 = &pxReadyTasksLists + _28;
+  vListInsertEnd (_8, _3);
+  _9 = pxUnblockedTCB_17->uxPriority;
+  pxCurrentTCB.99_10 ={v} pxCurrentTCB;
+  _11 = pxCurrentTCB.99_10->uxPriority;
+  if (_9 > _11)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 2842227]:
+  xYieldPending ={v} 1;
+
+  <bb 10> [local count: 5684453]:
+  return;
+
+}
+
+
+
+;; Function vTaskSetTimeOutState (vTaskSetTimeOutState, funcdef_no=37, decl_uid=6336, cgraph_uid=38, symbol_order=58)
+
+Merging blocks 4 and 6
+vTaskSetTimeOutState (struct TimeOut_t * const pxTimeOut)
+{
+  uint32_t ulNewBASEPRI;
+  long int xNumOfOverflows.100_1;
+  long unsigned int xTickCount.101_2;
+
+  <bb 2> [local count: 22847857]:
+  if (pxTimeOut_3(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_9 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  xNumOfOverflows.100_1 ={v} xNumOfOverflows;
+  pxTimeOut_3(D)->xOverflowCount = xNumOfOverflows.100_1;
+  xTickCount.101_2 ={v} xTickCount;
+  pxTimeOut_3(D)->xTimeOnEntering = xTickCount.101_2;
+  vPortExitCritical (); [tail call]
+  return;
+
+}
+
+
+
+;; Function vTaskInternalSetTimeOutState (vTaskInternalSetTimeOutState, funcdef_no=38, decl_uid=6363, cgraph_uid=39, symbol_order=59)
+
+vTaskInternalSetTimeOutState (struct TimeOut_t * const pxTimeOut)
+{
+  long int xNumOfOverflows.102_1;
+  long unsigned int xTickCount.103_2;
+
+  <bb 2> [local count: 1073741824]:
+  xNumOfOverflows.102_1 ={v} xNumOfOverflows;
+  pxTimeOut_4(D)->xOverflowCount = xNumOfOverflows.102_1;
+  xTickCount.103_2 ={v} xTickCount;
+  pxTimeOut_4(D)->xTimeOnEntering = xTickCount.103_2;
+  return;
+
+}
+
+
+
+;; Function xTaskCheckForTimeOut (xTaskCheckForTimeOut, funcdef_no=39, decl_uid=6339, cgraph_uid=40, symbol_order=60)
+
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+xTaskCheckForTimeOut (struct TimeOut_t * const pxTimeOut, TickType_t * const pxTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  const TickType_t xElapsedTime;
+  const TickType_t xConstTickCount;
+  BaseType_t xReturn;
+  long unsigned int _1;
+  struct TCB_t * pxCurrentTCB.104_2;
+  unsigned char _3;
+  struct TCB_t * pxCurrentTCB.105_4;
+  long unsigned int _5;
+  long int _6;
+  long int xNumOfOverflows.106_7;
+  long unsigned int _8;
+  long int xNumOfOverflows.102_24;
+  long unsigned int xTickCount.103_25;
+  long unsigned int _35;
+
+  <bb 2> [local count: 32639796]:
+  if (pxTimeOut_11(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 9791939]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_22 : "i" 16 : "memory");
+
+  <bb 4> [local count: 988985730]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 22847857]:
+  if (pxTicksToWait_12(D) == 0B)
+    goto <bb 6>; [46.53%]
+  else
+    goto <bb 8>; [53.47%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_23 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 12216749]:
+  vPortEnterCritical ();
+  xConstTickCount_15 ={v} xTickCount;
+  pxCurrentTCB.104_2 ={v} pxCurrentTCB;
+  _3 = pxCurrentTCB.104_2->ucDelayAborted;
+  if (_3 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 6108375]:
+  pxCurrentTCB.105_4 ={v} pxCurrentTCB;
+  pxCurrentTCB.105_4->ucDelayAborted = 0;
+  goto <bb 16>; [100.00%]
+
+  <bb 10> [local count: 6108375]:
+  _5 = *pxTicksToWait_12(D);
+  if (_5 == 4294967295)
+    goto <bb 16>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 11> [local count: 4031527]:
+  _1 = pxTimeOut_11(D)->xTimeOnEntering;
+  _6 = pxTimeOut_11(D)->xOverflowCount;
+  xNumOfOverflows.106_7 ={v} xNumOfOverflows;
+  if (_6 != xNumOfOverflows.106_7)
+    goto <bb 12>; [66.00%]
+  else
+    goto <bb 13>; [34.00%]
+
+  <bb 12> [local count: 2660808]:
+  if (_1 <= xConstTickCount_15)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 13> [local count: 2701123]:
+  xElapsedTime_16 = xConstTickCount_15 - _1;
+  if (_5 > xElapsedTime_16)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 1350562]:
+  _35 = _5 - xConstTickCount_15;
+  _8 = _1 + _35;
+  *pxTicksToWait_12(D) = _8;
+  xNumOfOverflows.102_24 ={v} xNumOfOverflows;
+  pxTimeOut_11(D)->xOverflowCount = xNumOfOverflows.102_24;
+  xTickCount.103_25 ={v} xTickCount;
+  pxTimeOut_11(D)->xTimeOnEntering = xTickCount.103_25;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [local count: 1350562]:
+  *pxTicksToWait_12(D) = 0;
+
+  <bb 16> [local count: 12216749]:
+  # xReturn_9 = PHI <1(9), 1(15), 0(10), 0(14), 1(12)>
+  vPortExitCritical ();
+  return xReturn_9;
+
+}
+
+
+
+;; Function vTaskMissedYield (vTaskMissedYield, funcdef_no=40, decl_uid=6341, cgraph_uid=41, symbol_order=61)
+
+vTaskMissedYield ()
+{
+  <bb 2> [local count: 1073741824]:
+  xYieldPending ={v} 1;
+  return;
+
+}
+
+
+
+;; Function uxTaskGetStackHighWaterMark (uxTaskGetStackHighWaterMark, funcdef_no=45, decl_uid=6269, cgraph_uid=46, symbol_order=66)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+uxTaskGetStackHighWaterMark (struct tskTaskControlBlock * xTask)
+{
+  unsigned int ivtmp.371;
+  uint8_t * pucEndOfStack;
+  struct TCB_t * iftmp.107_1;
+  struct TCB_t * iftmp.107_5;
+  unsigned char _11;
+  void * _13;
+  unsigned char _14;
+  long unsigned int _15;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int prephitmp_23;
+
+  <bb 2> [local count: 118111600]:
+  if (xTask_2(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 4>; [70.00%]
+
+  <bb 3> [local count: 35433480]:
+  iftmp.107_5 ={v} pxCurrentTCB;
+
+  <bb 4> [local count: 118111600]:
+  # iftmp.107_1 = PHI <iftmp.107_5(3), xTask_2(D)(2)>
+  pucEndOfStack_6 = iftmp.107_1->pxStack;
+  _14 = MEM[(const uint8_t *)pucEndOfStack_6];
+  if (_14 == 165)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 5> [local count: 105119324]:
+  ivtmp.371_12 = (unsigned int) pucEndOfStack_6;
+
+  <bb 6> [local count: 955630225]:
+  # ivtmp.371_19 = PHI <ivtmp.371_12(5), ivtmp.371_16(6)>
+  _15 = 1 - ivtmp.371_12;
+  _20 = _15 + ivtmp.371_19;
+  ivtmp.371_16 = ivtmp.371_19 + 1;
+  _13 = (void *) ivtmp.371_16;
+  _11 = MEM[base: _13, offset: 0B];
+  if (_11 == 165)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 105119324]:
+  _21 = _20 >> 2;
+  _22 = _21 & 65535;
+
+  <bb 8> [local count: 118111600]:
+  # prephitmp_23 = PHI <_22(7), 0(4)>
+  return prephitmp_23;
+
+}
+
+
+
+;; Function xTaskGetCurrentTaskHandle (xTaskGetCurrentTaskHandle, funcdef_no=48, decl_uid=6334, cgraph_uid=49, symbol_order=69)
+
+xTaskGetCurrentTaskHandle ()
+{
+  struct tskTaskControlBlock * xReturn;
+
+  <bb 2> [local count: 1073741824]:
+  xReturn_2 ={v} pxCurrentTCB;
+  return xReturn_2;
+
+}
+
+
+
+;; Function xTaskGetSchedulerState (xTaskGetSchedulerState, funcdef_no=49, decl_uid=6343, cgraph_uid=50, symbol_order=70)
+
+Removing basic block 4
+Removing basic block 6
+xTaskGetSchedulerState ()
+{
+  BaseType_t xReturn;
+  long int xSchedulerRunning.108_1;
+  long unsigned int uxSchedulerSuspended.109_2;
+
+  <bb 2> [local count: 1073741824]:
+  xSchedulerRunning.108_1 ={v} xSchedulerRunning;
+  if (xSchedulerRunning.108_1 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  uxSchedulerSuspended.109_2 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.109_2 == 0)
+    goto <bb 5>; [35.00%]
+  else
+    goto <bb 4>; [65.00%]
+
+  <bb 4> [local count: 348966093]:
+
+  <bb 5> [local count: 1073741824]:
+  # xReturn_3 = PHI <1(2), 2(3), 0(4)>
+  return xReturn_3;
+
+}
+
+
+
+;; Function xTaskPriorityInherit (xTaskPriorityInherit, funcdef_no=50, decl_uid=6345, cgraph_uid=51, symbol_order=71)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+xTaskPriorityInherit (struct tskTaskControlBlock * const pxMutexHolder)
+{
+  BaseType_t xReturn;
+  long unsigned int _1;
+  struct TCB_t * pxCurrentTCB.110_2;
+  long unsigned int _3;
+  long unsigned int _4;
+  signed int _5;
+  struct TCB_t * pxCurrentTCB.111_6;
+  long unsigned int _7;
+  long unsigned int _8;
+  struct xLIST * _9;
+  struct List_t * _10;
+  struct ListItem_t * _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int uxTopReadyPriority.112_17;
+  long unsigned int _18;
+  struct TCB_t * pxCurrentTCB.113_19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int uxTopReadyPriority.114_22;
+  long unsigned int _23;
+  struct List_t * _24;
+  struct TCB_t * pxCurrentTCB.115_25;
+  long unsigned int _26;
+  long unsigned int _27;
+  struct TCB_t * pxCurrentTCB.116_28;
+  long unsigned int _29;
+  long int _43;
+  sizetype _44;
+  _Bool _45;
+  sizetype _46;
+
+  <bb 2> [local count: 1073741824]:
+  if (pxMutexHolder_34(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 13>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _1 = MEM[(struct TCB_t *)pxMutexHolder_34(D)].uxPriority;
+  pxCurrentTCB.110_2 ={v} pxCurrentTCB;
+  _3 = pxCurrentTCB.110_2->uxPriority;
+  if (_1 < _3)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 4> [local count: 375809640]:
+  _4 = MEM[(struct TCB_t *)pxMutexHolder_34(D)].xEventListItem.xItemValue;
+  _5 = (signed int) _4;
+  if (_5 >= 0)
+    goto <bb 5>; [59.00%]
+  else
+    goto <bb 6>; [41.00%]
+
+  <bb 5> [local count: 221727689]:
+  pxCurrentTCB.111_6 ={v} pxCurrentTCB;
+  _7 = pxCurrentTCB.111_6->uxPriority;
+  _8 = 8 - _7;
+  MEM[(struct TCB_t *)pxMutexHolder_34(D)].xEventListItem.xItemValue = _8;
+
+  <bb 6> [local count: 375809640]:
+  _9 = MEM[(struct TCB_t *)pxMutexHolder_34(D)].xStateListItem.pvContainer;
+  _44 = _1 * 20;
+  _10 = &pxReadyTasksLists + _44;
+  if (_9 == _10)
+    goto <bb 7>; [17.43%]
+  else
+    goto <bb 11>; [82.57%]
+
+  <bb 7> [local count: 65503620]:
+  _11 = &MEM[(struct TCB_t *)pxMutexHolder_34(D)].xStateListItem;
+  _12 = uxListRemove (_11);
+  if (_12 == 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 8> [local count: 32751810]:
+  _13 = MEM[(struct TCB_t *)pxMutexHolder_34(D)].uxPriority;
+  _14 ={v} pxReadyTasksLists[_13].uxNumberOfItems;
+  if (_14 == 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 16375905]:
+  _15 = 1 << _13;
+  _16 = ~_15;
+  uxTopReadyPriority.112_17 ={v} uxTopReadyPriority;
+  _18 = _16 & uxTopReadyPriority.112_17;
+  uxTopReadyPriority ={v} _18;
+
+  <bb 10> [local count: 65503620]:
+  pxCurrentTCB.113_19 ={v} pxCurrentTCB;
+  _20 = pxCurrentTCB.113_19->uxPriority;
+  MEM[(struct TCB_t *)pxMutexHolder_34(D)].uxPriority = _20;
+  _21 = 1 << _20;
+  uxTopReadyPriority.114_22 ={v} uxTopReadyPriority;
+  _23 = _21 | uxTopReadyPriority.114_22;
+  uxTopReadyPriority ={v} _23;
+  _46 = _20 * 20;
+  _24 = &pxReadyTasksLists + _46;
+  vListInsertEnd (_24, _11);
+  goto <bb 13>; [100.00%]
+
+  <bb 11> [local count: 310306020]:
+  pxCurrentTCB.115_25 ={v} pxCurrentTCB;
+  _26 = pxCurrentTCB.115_25->uxPriority;
+  MEM[(struct TCB_t *)pxMutexHolder_34(D)].uxPriority = _26;
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [local count: 375809640]:
+  _27 = MEM[(struct TCB_t *)pxMutexHolder_34(D)].uxBasePriority;
+  pxCurrentTCB.116_28 ={v} pxCurrentTCB;
+  _29 = pxCurrentTCB.116_28->uxPriority;
+  _45 = _27 < _29;
+  _43 = (long int) _45;
+
+  <bb 13> [local count: 1073741824]:
+  # xReturn_30 = PHI <1(10), _43(12), 1(11), 0(2)>
+  return xReturn_30;
+
+}
+
+
+
+;; Function xTaskPriorityDisinherit (xTaskPriorityDisinherit, funcdef_no=51, decl_uid=6347, cgraph_uid=52, symbol_order=72)
+
+Merging blocks 6 and 17
+Merging blocks 9 and 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+xTaskPriorityDisinherit (struct tskTaskControlBlock * const pxMutexHolder)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  struct TCB_t * pxCurrentTCB.117_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  struct ListItem_t * _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int uxTopReadyPriority.118_12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int uxTopReadyPriority.119_17;
+  long unsigned int _18;
+  struct List_t * _19;
+  sizetype _39;
+
+  <bb 2> [local count: 21696139]:
+  if (pxMutexHolder_23(D) != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 3>; [30.00%]
+
+  <bb 3> [local count: 8290767]:
+  goto <bb 16>; [100.00%]
+
+  <bb 4> [local count: 15187297]:
+  pxCurrentTCB.117_1 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.117_1 != pxMutexHolder_23(D))
+    goto <bb 5>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 5> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_32 : "i" 16 : "memory");
+
+  <bb 6> [local count: 1073741824]:
+  goto <bb 6>; [100.00%]
+
+  <bb 7> [local count: 4556189]:
+  _2 = MEM[(struct TCB_t *)pxMutexHolder_23(D)].uxMutexesHeld;
+  if (_2 == 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 8> [local count: 2278095]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_33 : "i" 16 : "memory");
+
+  <bb 9> [local count: 230087531]:
+  goto <bb 9>; [100.00%]
+
+  <bb 10> [local count: 2278095]:
+  _3 = _2 + 4294967295;
+  MEM[(struct TCB_t *)pxMutexHolder_23(D)].uxMutexesHeld = _3;
+  _4 = MEM[(struct TCB_t *)pxMutexHolder_23(D)].uxPriority;
+  _5 = MEM[(struct TCB_t *)pxMutexHolder_23(D)].uxBasePriority;
+  if (_4 != _5)
+    goto <bb 11>; [66.00%]
+  else
+    goto <bb 3>; [34.00%]
+
+  <bb 11> [local count: 1503542]:
+  if (_3 == 0)
+    goto <bb 12>; [33.00%]
+  else
+    goto <bb 3>; [67.00%]
+
+  <bb 12> [local count: 496169]:
+  _6 = &MEM[(struct TCB_t *)pxMutexHolder_23(D)].xStateListItem;
+  _7 = uxListRemove (_6);
+  if (_7 == 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 13> [local count: 248084]:
+  _8 = MEM[(struct TCB_t *)pxMutexHolder_23(D)].uxPriority;
+  _9 ={v} pxReadyTasksLists[_8].uxNumberOfItems;
+  if (_9 == 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 124042]:
+  _10 = 1 << _8;
+  _11 = ~_10;
+  uxTopReadyPriority.118_12 ={v} uxTopReadyPriority;
+  _13 = _11 & uxTopReadyPriority.118_12;
+  uxTopReadyPriority ={v} _13;
+
+  <bb 15> [local count: 496169]:
+  _14 = MEM[(struct TCB_t *)pxMutexHolder_23(D)].uxBasePriority;
+  MEM[(struct TCB_t *)pxMutexHolder_23(D)].uxPriority = _14;
+  _15 = 8 - _14;
+  MEM[(struct TCB_t *)pxMutexHolder_23(D)].xEventListItem.xItemValue = _15;
+  _16 = 1 << _14;
+  uxTopReadyPriority.119_17 ={v} uxTopReadyPriority;
+  _18 = _16 | uxTopReadyPriority.119_17;
+  uxTopReadyPriority ={v} _18;
+  _39 = _14 * 20;
+  _19 = &pxReadyTasksLists + _39;
+  vListInsertEnd (_19, _6);
+
+  <bb 16> [local count: 8786936]:
+  # xReturn_20 = PHI <0(3), 1(15)>
+  return xReturn_20;
+
+}
+
+
+
+;; Function vTaskPriorityDisinheritAfterTimeout (vTaskPriorityDisinheritAfterTimeout, funcdef_no=52, decl_uid=6350, cgraph_uid=53, symbol_order=73)
+
+Merging blocks 6 and 22
+Merging blocks 11 and 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+vTaskPriorityDisinheritAfterTimeout (struct tskTaskControlBlock * const pxMutexHolder, UBaseType_t uxHighestPriorityWaitingTask)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  UBaseType_t uxPriorityToUse;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  struct TCB_t * pxCurrentTCB.120_4;
+  long unsigned int _5;
+  signed int _6;
+  long unsigned int _7;
+  struct xLIST * _8;
+  struct List_t * _9;
+  struct ListItem_t * _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int uxTopReadyPriority.121_16;
+  long unsigned int _17;
+  long unsigned int uxTopReadyPriority.122_20;
+  long unsigned int _21;
+  struct List_t * _22;
+  long unsigned int _40;
+  long unsigned int prephitmp_41;
+  long unsigned int _42;
+  sizetype _43;
+  sizetype _44;
+  long unsigned int pretmp_45;
+  long unsigned int prephitmp_46;
+
+  <bb 2> [local count: 30374594]:
+  if (pxMutexHolder_26(D) != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 3>; [30.00%]
+
+  <bb 3> [local count: 18736730]:
+  goto <bb 21>; [100.00%]
+
+  <bb 4> [local count: 21262216]:
+  _1 = MEM[(struct TCB_t *)pxMutexHolder_26(D)].uxMutexesHeld;
+  if (_1 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_36 : "i" 16 : "memory");
+
+  <bb 6> [local count: 1073741824]:
+  goto <bb 6>; [100.00%]
+
+  <bb 7> [local count: 10631108]:
+  _2 = MEM[(struct TCB_t *)pxMutexHolder_26(D)].uxBasePriority;
+  uxPriorityToUse_29 = MAX_EXPR <_2, uxHighestPriorityWaitingTask_28(D)>;
+  _3 = MEM[(struct TCB_t *)pxMutexHolder_26(D)].uxPriority;
+  if (_3 != uxPriorityToUse_29)
+    goto <bb 8>; [66.00%]
+  else
+    goto <bb 3>; [34.00%]
+
+  <bb 8> [local count: 7016531]:
+  if (_1 == 1)
+    goto <bb 9>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 9> [local count: 2385621]:
+  pxCurrentTCB.120_4 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.120_4 == pxMutexHolder_26(D))
+    goto <bb 10>; [30.00%]
+  else
+    goto <bb 12>; [70.00%]
+
+  <bb 10> [local count: 715686]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_37 : "i" 16 : "memory");
+
+  <bb 11> [local count: 72284299]:
+  goto <bb 11>; [100.00%]
+
+  <bb 12> [local count: 1669934]:
+  MEM[(struct TCB_t *)pxMutexHolder_26(D)].uxPriority = uxPriorityToUse_29;
+  _5 = MEM[(struct TCB_t *)pxMutexHolder_26(D)].xEventListItem.xItemValue;
+  _6 = (signed int) _5;
+  if (_6 >= 0)
+    goto <bb 13>; [59.00%]
+  else
+    goto <bb 14>; [41.00%]
+
+  <bb 13> [local count: 985261]:
+  _7 = 8 - uxPriorityToUse_29;
+  MEM[(struct TCB_t *)pxMutexHolder_26(D)].xEventListItem.xItemValue = _7;
+
+  <bb 14> [local count: 1669934]:
+  _8 = MEM[(struct TCB_t *)pxMutexHolder_26(D)].xStateListItem.pvContainer;
+  _44 = _3 * 20;
+  _9 = &pxReadyTasksLists + _44;
+  if (_8 == _9)
+    goto <bb 15>; [17.43%]
+  else
+    goto <bb 3>; [82.57%]
+
+  <bb 15> [local count: 291070]:
+  _10 = &MEM[(struct TCB_t *)pxMutexHolder_26(D)].xStateListItem;
+  _11 = uxListRemove (_10);
+  if (_11 == 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 16> [local count: 145535]:
+  pretmp_45 = MEM[(struct TCB_t *)pxMutexHolder_26(D)].uxPriority;
+  _40 = 1 << pretmp_45;
+  goto <bb 20>; [100.00%]
+
+  <bb 17> [local count: 145535]:
+  _12 = MEM[(struct TCB_t *)pxMutexHolder_26(D)].uxPriority;
+  _13 ={v} pxReadyTasksLists[_12].uxNumberOfItems;
+  if (_13 == 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 18> [local count: 72768]:
+  _42 = 1 << _12;
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 72767]:
+  _14 = 1 << _12;
+  _15 = ~_14;
+  uxTopReadyPriority.121_16 ={v} uxTopReadyPriority;
+  _17 = _15 & uxTopReadyPriority.121_16;
+  uxTopReadyPriority ={v} _17;
+
+  <bb 20> [local count: 291070]:
+  # prephitmp_41 = PHI <pretmp_45(16), _12(19), _12(18)>
+  # prephitmp_46 = PHI <_40(16), _14(19), _42(18)>
+  uxTopReadyPriority.122_20 ={v} uxTopReadyPriority;
+  _21 = uxTopReadyPriority.122_20 | prephitmp_46;
+  uxTopReadyPriority ={v} _21;
+  _43 = prephitmp_41 * 20;
+  _22 = &pxReadyTasksLists + _43;
+  vListInsertEnd (_22, _10); [tail call]
+
+  <bb 21> [local count: 19027800]:
+  return;
+
+}
+
+
+
+;; Function uxTaskResetEventItemValue (uxTaskResetEventItemValue, funcdef_no=53, decl_uid=6332, cgraph_uid=54, symbol_order=74)
+
+uxTaskResetEventItemValue ()
+{
+  TickType_t uxReturn;
+  struct TCB_t * pxCurrentTCB.123_1;
+  struct TCB_t * pxCurrentTCB.124_2;
+  long unsigned int _3;
+  struct TCB_t * pxCurrentTCB.125_4;
+  long unsigned int _5;
+
+  <bb 2> [local count: 1073741824]:
+  pxCurrentTCB.123_1 ={v} pxCurrentTCB;
+  uxReturn_7 = pxCurrentTCB.123_1->xEventListItem.xItemValue;
+  pxCurrentTCB.124_2 ={v} pxCurrentTCB;
+  _3 = pxCurrentTCB.124_2->uxPriority;
+  pxCurrentTCB.125_4 ={v} pxCurrentTCB;
+  _5 = 8 - _3;
+  pxCurrentTCB.125_4->xEventListItem.xItemValue = _5;
+  return uxReturn_7;
+
+}
+
+
+
+;; Function pvTaskIncrementMutexHeldCount (pvTaskIncrementMutexHeldCount, funcdef_no=54, decl_uid=6361, cgraph_uid=55, symbol_order=75)
+
+Removing basic block 5
+pvTaskIncrementMutexHeldCount ()
+{
+  struct TCB_t * pxCurrentTCB.126_1;
+  struct TCB_t * pxCurrentTCB.127_2;
+  long unsigned int _3;
+  long unsigned int _4;
+  struct tskTaskControlBlock * _8;
+
+  <bb 2> [local count: 1073741824]:
+  pxCurrentTCB.126_1 ={v} pxCurrentTCB;
+  if (pxCurrentTCB.126_1 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  pxCurrentTCB.127_2 ={v} pxCurrentTCB;
+  _3 = pxCurrentTCB.127_2->uxMutexesHeld;
+  _4 = _3 + 1;
+  pxCurrentTCB.127_2->uxMutexesHeld = _4;
+
+  <bb 4> [local count: 1073741824]:
+  _8 ={v} pxCurrentTCB;
+  return _8;
+
+}
+
+
+
+;; Function ulTaskNotifyTake (ulTaskNotifyTake, funcdef_no=55, decl_uid=6308, cgraph_uid=56, symbol_order=76)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+ulTaskNotifyTake (BaseType_t xClearCountOnExit, TickType_t xTicksToWait)
+{
+  uint32_t ulReturn;
+  struct TCB_t * pxCurrentTCB.128_1;
+  long unsigned int _2;
+  struct TCB_t * pxCurrentTCB.129_3;
+  struct TCB_t * pxCurrentTCB.130_4;
+  struct TCB_t * pxCurrentTCB.131_5;
+  struct TCB_t * pxCurrentTCB.132_6;
+  long unsigned int _7;
+  struct TCB_t * pxCurrentTCB.133_8;
+
+  <bb 2> [local count: 1073741824]:
+  vPortEnterCritical ();
+  pxCurrentTCB.128_1 ={v} pxCurrentTCB;
+  _2 ={v} pxCurrentTCB.128_1->ulNotifiedValue;
+  if (_2 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 896574425]:
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  pxCurrentTCB.129_3 ={v} pxCurrentTCB;
+  pxCurrentTCB.129_3->ucNotifyState ={v} 1;
+  if (xTicksToWait_14(D) != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 3>; [67.00%]
+
+  <bb 5> [local count: 177167400]:
+  prvAddCurrentTaskToDelayedList (xTicksToWait_14(D), 1);
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 6> [local count: 1073741824]:
+  vPortExitCritical ();
+  vPortEnterCritical ();
+  pxCurrentTCB.130_4 ={v} pxCurrentTCB;
+  ulReturn_21 ={v} pxCurrentTCB.130_4->ulNotifiedValue;
+  if (ulReturn_21 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 7> [local count: 536870913]:
+  if (xClearCountOnExit_22(D) != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 268435456]:
+  pxCurrentTCB.131_5 ={v} pxCurrentTCB;
+  pxCurrentTCB.131_5->ulNotifiedValue ={v} 0;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 268435456]:
+  pxCurrentTCB.132_6 ={v} pxCurrentTCB;
+  _7 = ulReturn_21 + 4294967295;
+  pxCurrentTCB.132_6->ulNotifiedValue ={v} _7;
+
+  <bb 10> [local count: 1073741824]:
+  pxCurrentTCB.133_8 ={v} pxCurrentTCB;
+  pxCurrentTCB.133_8->ucNotifyState ={v} 0;
+  vPortExitCritical ();
+  return ulReturn_21;
+
+}
+
+
+
+;; Function xTaskNotifyWait (xTaskNotifyWait, funcdef_no=56, decl_uid=6302, cgraph_uid=57, symbol_order=77)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+xTaskNotifyWait (uint32_t ulBitsToClearOnEntry, uint32_t ulBitsToClearOnExit, uint32_t * pulNotificationValue, TickType_t xTicksToWait)
+{
+  BaseType_t xReturn;
+  struct TCB_t * pxCurrentTCB.134_1;
+  unsigned char _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  struct TCB_t * pxCurrentTCB.136_6;
+  struct TCB_t * pxCurrentTCB.137_7;
+  long unsigned int _8;
+  struct TCB_t * pxCurrentTCB.138_9;
+  unsigned char _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  struct TCB_t * pxCurrentTCB.140_14;
+  struct TCB_t * pxCurrentTCB.135_21;
+  struct TCB_t * pxCurrentTCB.139_34;
+
+  <bb 2> [local count: 1073741823]:
+  vPortEnterCritical ();
+  pxCurrentTCB.134_1 ={v} pxCurrentTCB;
+  _2 ={v} pxCurrentTCB.134_1->ucNotifyState;
+  if (_2 != 2)
+    goto <bb 4>; [66.00%]
+  else
+    goto <bb 3>; [34.00%]
+
+  <bb 3> [local count: 839880857]:
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 708669600]:
+  pxCurrentTCB.135_21 ={v} pxCurrentTCB;
+  _3 ={v} pxCurrentTCB.135_21->ulNotifiedValue;
+  _4 = ~ulBitsToClearOnEntry_22(D);
+  _5 = _3 & _4;
+  pxCurrentTCB.135_21->ulNotifiedValue ={v} _5;
+  pxCurrentTCB.136_6 ={v} pxCurrentTCB;
+  pxCurrentTCB.136_6->ucNotifyState ={v} 1;
+  if (xTicksToWait_25(D) != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 3>; [67.00%]
+
+  <bb 5> [local count: 233860966]:
+  prvAddCurrentTaskToDelayedList (xTicksToWait_25(D), 1);
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 6> [local count: 1073741824]:
+  vPortExitCritical ();
+  vPortEnterCritical ();
+  if (pulNotificationValue_32(D) != 0B)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 8>; [30.00%]
+
+  <bb 7> [local count: 751619281]:
+  pxCurrentTCB.137_7 ={v} pxCurrentTCB;
+  _8 ={v} pxCurrentTCB.137_7->ulNotifiedValue;
+  *pulNotificationValue_32(D) = _8;
+
+  <bb 8> [local count: 1073741824]:
+  pxCurrentTCB.138_9 ={v} pxCurrentTCB;
+  _10 ={v} pxCurrentTCB.138_9->ucNotifyState;
+  if (_10 != 2)
+    goto <bb 10>; [66.00%]
+  else
+    goto <bb 9>; [34.00%]
+
+  <bb 9> [local count: 365072224]:
+  pxCurrentTCB.139_34 ={v} pxCurrentTCB;
+  _11 ={v} pxCurrentTCB.139_34->ulNotifiedValue;
+  _12 = ~ulBitsToClearOnExit_35(D);
+  _13 = _11 & _12;
+  pxCurrentTCB.139_34->ulNotifiedValue ={v} _13;
+
+  <bb 10> [local count: 1073741824]:
+  # xReturn_15 = PHI <1(9), 0(8)>
+  pxCurrentTCB.140_14 ={v} pxCurrentTCB;
+  pxCurrentTCB.140_14->ucNotifyState ={v} 0;
+  vPortExitCritical ();
+  return xReturn_15;
+
+}
+
+
+
+;; Function xTaskGenericNotify (xTaskGenericNotify, funcdef_no=57, decl_uid=6291, cgraph_uid=58, symbol_order=78)
+
+Merging blocks 4 and 24
+Merging blocks 15 and 25
+Merging blocks 20 and 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+xTaskGenericNotify (struct tskTaskControlBlock * xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t * pulPreviousNotificationValue)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint8_t ucOriginalNotifyState;
+  BaseType_t xReturn;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  struct ListItem_t * _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int uxTopReadyPriority.141_10;
+  long unsigned int _11;
+  struct List_t * _12;
+  struct xLIST * _13;
+  long unsigned int _14;
+  struct TCB_t * pxCurrentTCB.142_15;
+  long unsigned int _16;
+  sizetype _57;
+
+  <bb 2> [local count: 22847857]:
+  if (xTaskToNotify_21(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_41 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  if (pulPreviousNotificationValue_24(D) != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 6> [local count: 8551725]:
+  _1 ={v} MEM[(struct TCB_t *)xTaskToNotify_21(D)].ulNotifiedValue;
+  *pulPreviousNotificationValue_24(D) = _1;
+
+  <bb 7> [local count: 12216749]:
+  ucOriginalNotifyState_26 ={v} MEM[(struct TCB_t *)xTaskToNotify_21(D)].ucNotifyState;
+  MEM[(struct TCB_t *)xTaskToNotify_21(D)].ucNotifyState ={v} 2;
+  switch (eAction_28(D)) <default: <L13> [0.00%], case 0: <L28> [20.00%], case 1: <L5> [20.00%], case 2: <L6> [20.00%], case 3: <L7> [20.00%], case 4: <L8> [20.00%]>
+
+  <bb 8> [local count: 2036125]:
+<L5>:
+  _2 ={v} MEM[(struct TCB_t *)xTaskToNotify_21(D)].ulNotifiedValue;
+  _3 = _2 | ulValue_29(D);
+  MEM[(struct TCB_t *)xTaskToNotify_21(D)].ulNotifiedValue ={v} _3;
+  goto <bb 16>; [100.00%]
+
+  <bb 9> [local count: 2036125]:
+<L6>:
+  _4 ={v} MEM[(struct TCB_t *)xTaskToNotify_21(D)].ulNotifiedValue;
+  _5 = _4 + 1;
+  MEM[(struct TCB_t *)xTaskToNotify_21(D)].ulNotifiedValue ={v} _5;
+  goto <bb 16>; [100.00%]
+
+  <bb 10> [local count: 2036125]:
+<L7>:
+  MEM[(struct TCB_t *)xTaskToNotify_21(D)].ulNotifiedValue ={v} ulValue_29(D);
+  goto <bb 16>; [100.00%]
+
+  <bb 11> [local count: 2036125]:
+<L8>:
+  if (ucOriginalNotifyState_26 != 2)
+    goto <bb 12>; [66.00%]
+  else
+    goto <bb 23>; [34.00%]
+
+  <bb 12> [local count: 1343842]:
+  MEM[(struct TCB_t *)xTaskToNotify_21(D)].ulNotifiedValue ={v} ulValue_29(D);
+  goto <bb 16>; [100.00%]
+
+  <bb 13> [local count: 2036125]:
+<L13>:
+  _6 ={v} MEM[(struct TCB_t *)xTaskToNotify_21(D)].ulNotifiedValue;
+  if (_6 != 4294967295)
+    goto <bb 14>; [66.00%]
+  else
+    goto <bb 16>; [34.00%]
+
+  <bb 14> [local count: 1343842]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_42 : "i" 16 : "memory");
+
+  <bb 15> [local count: 135728071]:
+  goto <bb 15>; [100.00%]
+
+  <bb 16> [local count: 10180624]:
+<L28>:
+  if (ucOriginalNotifyState_26 == 1)
+    goto <bb 18>; [36.31%]
+  else
+    goto <bb 17>; [63.69%]
+
+  <bb 17> [local count: 7038354]:
+  goto <bb 23>; [100.00%]
+
+  <bb 18> [local count: 3696788]:
+  _7 = &MEM[(struct TCB_t *)xTaskToNotify_21(D)].xStateListItem;
+  uxListRemove (_7);
+  _8 = MEM[(struct TCB_t *)xTaskToNotify_21(D)].uxPriority;
+  _9 = 1 << _8;
+  uxTopReadyPriority.141_10 ={v} uxTopReadyPriority;
+  _11 = _9 | uxTopReadyPriority.141_10;
+  uxTopReadyPriority ={v} _11;
+  _57 = _8 * 20;
+  _12 = &pxReadyTasksLists + _57;
+  vListInsertEnd (_12, _7);
+  _13 = MEM[(struct TCB_t *)xTaskToNotify_21(D)].xEventListItem.pvContainer;
+  if (_13 != 0B)
+    goto <bb 19>; [70.00%]
+  else
+    goto <bb 21>; [30.00%]
+
+  <bb 19> [local count: 2587752]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_43 : "i" 16 : "memory");
+
+  <bb 20> [local count: 261362914]:
+  goto <bb 20>; [100.00%]
+
+  <bb 21> [local count: 1109036]:
+  _14 = MEM[(struct TCB_t *)xTaskToNotify_21(D)].uxPriority;
+  pxCurrentTCB.142_15 ={v} pxCurrentTCB;
+  _16 = pxCurrentTCB.142_15->uxPriority;
+  if (_14 > _16)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 22> [local count: 554518]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 23> [local count: 8285155]:
+  # xReturn_59 = PHI <1(17), 1(22), 0(11)>
+  vPortExitCritical ();
+  return xReturn_59;
+
+}
+
+
+
+;; Function xTaskGenericNotifyFromISR (xTaskGenericNotifyFromISR, funcdef_no=58, decl_uid=6297, cgraph_uid=59, symbol_order=79)
+
+Merging blocks 4 and 29
+Merging blocks 15 and 30
+Merging blocks 20 and 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+xTaskGenericNotifyFromISR (struct tskTaskControlBlock * xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t * pulPreviousNotificationValue, BaseType_t * pxHigherPriorityTaskWoken)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  uint8_t ucOriginalNotifyState;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  struct xLIST * _7;
+  long unsigned int uxSchedulerSuspended.143_8;
+  struct ListItem_t * _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int uxTopReadyPriority.144_12;
+  long unsigned int _13;
+  struct List_t * _14;
+  struct ListItem_t * _15;
+  long unsigned int _16;
+  struct TCB_t * pxCurrentTCB.145_17;
+  long unsigned int _18;
+  sizetype _66;
+
+  <bb 2> [local count: 22847857]:
+  if (xTaskToNotify_25(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_45 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortValidateInterruptPriority ();
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_46, "=r" ulNewBASEPRI_47 : "i" 16 : "memory");
+  if (pulPreviousNotificationValue_28(D) != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 6> [local count: 8551725]:
+  _1 ={v} MEM[(struct TCB_t *)xTaskToNotify_25(D)].ulNotifiedValue;
+  *pulPreviousNotificationValue_28(D) = _1;
+
+  <bb 7> [local count: 12216749]:
+  ucOriginalNotifyState_30 ={v} MEM[(struct TCB_t *)xTaskToNotify_25(D)].ucNotifyState;
+  MEM[(struct TCB_t *)xTaskToNotify_25(D)].ucNotifyState ={v} 2;
+  switch (eAction_32(D)) <default: <L13> [0.00%], case 0: <L32> [20.00%], case 1: <L5> [20.00%], case 2: <L6> [20.00%], case 3: <L7> [20.00%], case 4: <L8> [20.00%]>
+
+  <bb 8> [local count: 2036125]:
+<L5>:
+  _2 ={v} MEM[(struct TCB_t *)xTaskToNotify_25(D)].ulNotifiedValue;
+  _3 = _2 | ulValue_33(D);
+  MEM[(struct TCB_t *)xTaskToNotify_25(D)].ulNotifiedValue ={v} _3;
+  goto <bb 16>; [100.00%]
+
+  <bb 9> [local count: 2036125]:
+<L6>:
+  _4 ={v} MEM[(struct TCB_t *)xTaskToNotify_25(D)].ulNotifiedValue;
+  _5 = _4 + 1;
+  MEM[(struct TCB_t *)xTaskToNotify_25(D)].ulNotifiedValue ={v} _5;
+  goto <bb 16>; [100.00%]
+
+  <bb 10> [local count: 2036125]:
+<L7>:
+  MEM[(struct TCB_t *)xTaskToNotify_25(D)].ulNotifiedValue ={v} ulValue_33(D);
+  goto <bb 16>; [100.00%]
+
+  <bb 11> [local count: 2036125]:
+<L8>:
+  if (ucOriginalNotifyState_30 != 2)
+    goto <bb 12>; [66.00%]
+  else
+    goto <bb 28>; [34.00%]
+
+  <bb 12> [local count: 1343842]:
+  MEM[(struct TCB_t *)xTaskToNotify_25(D)].ulNotifiedValue ={v} ulValue_33(D);
+  goto <bb 16>; [100.00%]
+
+  <bb 13> [local count: 2036125]:
+<L13>:
+  _6 ={v} MEM[(struct TCB_t *)xTaskToNotify_25(D)].ulNotifiedValue;
+  if (_6 != 4294967295)
+    goto <bb 14>; [66.00%]
+  else
+    goto <bb 16>; [34.00%]
+
+  <bb 14> [local count: 1343842]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_48 : "i" 16 : "memory");
+
+  <bb 15> [local count: 135728071]:
+  goto <bb 15>; [100.00%]
+
+  <bb 16> [local count: 10180624]:
+<L32>:
+  if (ucOriginalNotifyState_30 == 1)
+    goto <bb 18>; [36.31%]
+  else
+    goto <bb 17>; [63.69%]
+
+  <bb 17> [local count: 7038354]:
+  goto <bb 28>; [100.00%]
+
+  <bb 18> [local count: 3696788]:
+  _7 = MEM[(struct TCB_t *)xTaskToNotify_25(D)].xEventListItem.pvContainer;
+  if (_7 != 0B)
+    goto <bb 19>; [70.00%]
+  else
+    goto <bb 21>; [30.00%]
+
+  <bb 19> [local count: 2587752]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_49 : "i" 16 : "memory");
+
+  <bb 20> [local count: 261362914]:
+  goto <bb 20>; [100.00%]
+
+  <bb 21> [local count: 1109036]:
+  uxSchedulerSuspended.143_8 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.143_8 == 0)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 22> [local count: 554518]:
+  _9 = &MEM[(struct TCB_t *)xTaskToNotify_25(D)].xStateListItem;
+  uxListRemove (_9);
+  _10 = MEM[(struct TCB_t *)xTaskToNotify_25(D)].uxPriority;
+  _11 = 1 << _10;
+  uxTopReadyPriority.144_12 ={v} uxTopReadyPriority;
+  _13 = _11 | uxTopReadyPriority.144_12;
+  uxTopReadyPriority ={v} _13;
+  _66 = _10 * 20;
+  _14 = &pxReadyTasksLists + _66;
+  vListInsertEnd (_14, _9);
+  goto <bb 24>; [100.00%]
+
+  <bb 23> [local count: 554518]:
+  _15 = &MEM[(struct TCB_t *)xTaskToNotify_25(D)].xEventListItem;
+  vListInsertEnd (&xPendingReadyList, _15);
+
+  <bb 24> [local count: 1109036]:
+  _16 = MEM[(struct TCB_t *)xTaskToNotify_25(D)].uxPriority;
+  pxCurrentTCB.145_17 ={v} pxCurrentTCB;
+  _18 = pxCurrentTCB.145_17->uxPriority;
+  if (_16 > _18)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 25> [local count: 554518]:
+  if (pxHigherPriorityTaskWoken_42(D) != 0B)
+    goto <bb 26>; [70.00%]
+  else
+    goto <bb 27>; [30.00%]
+
+  <bb 26> [local count: 388163]:
+  *pxHigherPriorityTaskWoken_42(D) = 1;
+
+  <bb 27> [local count: 554518]:
+  xYieldPending ={v} 1;
+
+  <bb 28> [local count: 8285155]:
+  # xReturn_68 = PHI <1(27), 1(17), 0(11)>
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_46 : "memory");
+  return xReturn_68;
+
+}
+
+
+
+;; Function vTaskNotifyGiveFromISR (vTaskNotifyGiveFromISR, funcdef_no=59, decl_uid=6305, cgraph_uid=60, symbol_order=80)
+
+Merging blocks 4 and 18
+Merging blocks 9 and 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+vTaskNotifyGiveFromISR (struct tskTaskControlBlock * xTaskToNotify, BaseType_t * pxHigherPriorityTaskWoken)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint8_t ucOriginalNotifyState;
+  long unsigned int _1;
+  long unsigned int _2;
+  struct xLIST * _3;
+  long unsigned int uxSchedulerSuspended.146_4;
+  struct ListItem_t * _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int uxTopReadyPriority.147_8;
+  long unsigned int _9;
+  struct List_t * _10;
+  struct ListItem_t * _11;
+  long unsigned int _12;
+  struct TCB_t * pxCurrentTCB.148_13;
+  long unsigned int _14;
+  sizetype _40;
+
+  <bb 2> [local count: 22847857]:
+  if (xTaskToNotify_18(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_31 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortValidateInterruptPriority ();
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_32, "=r" ulNewBASEPRI_33 : "i" 16 : "memory");
+  ucOriginalNotifyState_21 ={v} MEM[(struct TCB_t *)xTaskToNotify_18(D)].ucNotifyState;
+  MEM[(struct TCB_t *)xTaskToNotify_18(D)].ucNotifyState ={v} 2;
+  _1 ={v} MEM[(struct TCB_t *)xTaskToNotify_18(D)].ulNotifiedValue;
+  _2 = _1 + 1;
+  MEM[(struct TCB_t *)xTaskToNotify_18(D)].ulNotifiedValue ={v} _2;
+  if (ucOriginalNotifyState_21 == 1)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 6> [local count: 8686108]:
+  goto <bb 17>; [100.00%]
+
+  <bb 7> [local count: 4153695]:
+  _3 = MEM[(struct TCB_t *)xTaskToNotify_18(D)].xEventListItem.pvContainer;
+  if (_3 != 0B)
+    goto <bb 8>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 8> [local count: 2907586]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_34 : "i" 16 : "memory");
+
+  <bb 9> [local count: 293666200]:
+  goto <bb 9>; [100.00%]
+
+  <bb 10> [local count: 1246108]:
+  uxSchedulerSuspended.146_4 ={v} uxSchedulerSuspended;
+  if (uxSchedulerSuspended.146_4 == 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 623054]:
+  _5 = &MEM[(struct TCB_t *)xTaskToNotify_18(D)].xStateListItem;
+  uxListRemove (_5);
+  _6 = MEM[(struct TCB_t *)xTaskToNotify_18(D)].uxPriority;
+  _7 = 1 << _6;
+  uxTopReadyPriority.147_8 ={v} uxTopReadyPriority;
+  _9 = _7 | uxTopReadyPriority.147_8;
+  uxTopReadyPriority ={v} _9;
+  _40 = _6 * 20;
+  _10 = &pxReadyTasksLists + _40;
+  vListInsertEnd (_10, _5);
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [local count: 623054]:
+  _11 = &MEM[(struct TCB_t *)xTaskToNotify_18(D)].xEventListItem;
+  vListInsertEnd (&xPendingReadyList, _11);
+
+  <bb 13> [local count: 1246108]:
+  _12 = MEM[(struct TCB_t *)xTaskToNotify_18(D)].uxPriority;
+  pxCurrentTCB.148_13 ={v} pxCurrentTCB;
+  _14 = pxCurrentTCB.148_13->uxPriority;
+  if (_12 > _14)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 14> [local count: 623054]:
+  if (pxHigherPriorityTaskWoken_28(D) != 0B)
+    goto <bb 15>; [70.00%]
+  else
+    goto <bb 16>; [30.00%]
+
+  <bb 15> [local count: 436138]:
+  *pxHigherPriorityTaskWoken_28(D) = 1;
+
+  <bb 16> [local count: 623054]:
+  xYieldPending ={v} 1;
+
+  <bb 17> [local count: 9309163]:
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_32 : "memory");
+  return;
+
+}
+
+
+
+;; Function xTaskNotifyStateClear (xTaskNotifyStateClear, funcdef_no=60, decl_uid=6310, cgraph_uid=61, symbol_order=81)
+
+Removing basic block 7
+Removing basic block 8
+xTaskNotifyStateClear (struct tskTaskControlBlock * xTask)
+{
+  BaseType_t xReturn;
+  unsigned char _1;
+  struct TCB_t * iftmp.149_3;
+  struct TCB_t * iftmp.149_7;
+
+  <bb 2> [local count: 1073741824]:
+  if (xTask_5(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 4>; [70.00%]
+
+  <bb 3> [local count: 322122544]:
+  iftmp.149_7 ={v} pxCurrentTCB;
+
+  <bb 4> [local count: 1073741824]:
+  # iftmp.149_3 = PHI <iftmp.149_7(3), xTask_5(D)(2)>
+  vPortEnterCritical ();
+  _1 ={v} iftmp.149_3->ucNotifyState;
+  if (_1 == 2)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [local count: 365072224]:
+  iftmp.149_3->ucNotifyState ={v} 0;
+
+  <bb 6> [local count: 1073741824]:
+  # xReturn_2 = PHI <1(5), 0(4)>
+  vPortExitCritical ();
+  return xReturn_2;
+
+}
+
+

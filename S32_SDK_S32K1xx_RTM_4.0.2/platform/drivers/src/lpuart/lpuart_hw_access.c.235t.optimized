@@ -1,0 +1,710 @@
+
+;; Function LPUART_Init (LPUART_Init, funcdef_no=18, decl_uid=7307, cgraph_uid=19, symbol_order=18)
+
+LPUART_Init (struct LPUART_Type * base)
+{
+  <bb 2> [local count: 1073741824]:
+  base_2(D)->BAUD ={v} 251658244;
+  base_2(D)->STAT ={v} 3223306240;
+  base_2(D)->CTRL ={v} 0;
+  base_2(D)->MATCH ={v} 0;
+  base_2(D)->MODIR ={v} 0;
+  base_2(D)->FIFO ={v} 245760;
+  base_2(D)->WATER ={v} 0;
+  return;
+
+}
+
+
+
+;; Function LPUART_SetBitCountPerChar (LPUART_SetBitCountPerChar, funcdef_no=19, decl_uid=7344, cgraph_uid=20, symbol_order=19)
+
+Removing basic block 8
+LPUART_SetBitCountPerChar (struct LPUART_Type * base, lpuart_bit_count_per_char_t bitCountPerChar, _Bool parity)
+{
+  uint32_t tmpBitCountPerChar;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+
+  <bb 2> [local count: 1073741824]:
+  tmpBitCountPerChar_12 = (uint32_t) bitCountPerChar_11(D);
+  if (parity_13(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmpBitCountPerChar_14 = tmpBitCountPerChar_12 + 1;
+
+  <bb 4> [local count: 1073741824]:
+  # tmpBitCountPerChar_9 = PHI <tmpBitCountPerChar_14(3), tmpBitCountPerChar_12(2)>
+  if (tmpBitCountPerChar_9 == 2)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [local count: 365072224]:
+  _1 ={v} base_16(D)->BAUD;
+  _2 = _1 | 536870912;
+  base_16(D)->BAUD ={v} _2;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 708669601]:
+  _3 ={v} base_16(D)->CTRL;
+  _4 = _3 & 4294967279;
+  _5 = tmpBitCountPerChar_9 << 4;
+  _6 = _4 | _5;
+  base_16(D)->CTRL ={v} _6;
+  _7 ={v} base_16(D)->BAUD;
+  _8 = _7 & 3758096383;
+  base_16(D)->BAUD ={v} _8;
+
+  <bb 7> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPUART_SetParityMode (LPUART_SetParityMode, funcdef_no=20, decl_uid=7347, cgraph_uid=21, symbol_order=20)
+
+LPUART_SetParityMode (struct LPUART_Type * base, lpuart_parity_mode_t parityModeType)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  <unnamed type> _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  <unnamed type> _16;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_12(D)->CTRL;
+  _2 = _1 & 4294967293;
+  _3 = parityModeType_13(D) >> 1;
+  _4 = (long unsigned int) _3;
+  _5 = _4 << 1;
+  _6 = _2 | _5;
+  base_12(D)->CTRL ={v} _6;
+  _7 ={v} base_12(D)->CTRL;
+  _8 = _7 & 4294967294;
+  _16 = parityModeType_13(D) & 1;
+  _9 = (long unsigned int) _16;
+  _10 = _8 | _9;
+  base_12(D)->CTRL ={v} _10;
+  return;
+
+}
+
+
+
+;; Function LPUART_Putchar9 (LPUART_Putchar9, funcdef_no=21, decl_uid=7374, cgraph_uid=22, symbol_order=21)
+
+LPUART_Putchar9 (struct LPUART_Type * base, uint16_t data)
+{
+  uint8_t ninthDataBit;
+  short unsigned int _1;
+  unsigned char _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  unsigned char _8;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = data_10(D) >> 8;
+  _2 = (unsigned char) _1;
+  ninthDataBit_11 = _2 & 1;
+  _3 ={v} base_9(D)->CTRL;
+  _4 = _3 & 3221225471;
+  _5 = (long unsigned int) ninthDataBit_11;
+  _6 = _5 << 30;
+  _7 = _4 | _6;
+  base_9(D)->CTRL ={v} _7;
+  _8 = (unsigned char) data_10(D);
+  MEM[(volatile uint8_t *)base_9(D) + 28B] ={v} _8;
+  return;
+
+}
+
+
+
+;; Function LPUART_Putchar10 (LPUART_Putchar10, funcdef_no=22, decl_uid=7377, cgraph_uid=23, symbol_order=22)
+
+LPUART_Putchar10 (struct LPUART_Type * base, uint16_t data)
+{
+  uint32_t ctrlRegVal;
+  uint8_t tenthDataBit;
+  uint8_t ninthDataBit;
+  short unsigned int _1;
+  unsigned char _2;
+  short unsigned int _3;
+  unsigned char _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  unsigned char _11;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = data_13(D) >> 8;
+  _2 = (unsigned char) _1;
+  ninthDataBit_14 = _2 & 1;
+  _3 = data_13(D) >> 9;
+  _4 = (unsigned char) _3;
+  tenthDataBit_15 = _4 & 1;
+  ctrlRegVal_17 ={v} base_12(D)->CTRL;
+  _5 = ctrlRegVal_17 & 3221225471;
+  _6 = (long unsigned int) ninthDataBit_14;
+  _7 = _6 << 30;
+  ctrlRegVal_18 = _5 | _7;
+  _8 = ctrlRegVal_18 & 2147483647;
+  _9 = (long unsigned int) tenthDataBit_15;
+  _10 = _9 << 31;
+  ctrlRegVal_19 = _8 | _10;
+  base_12(D)->CTRL ={v} ctrlRegVal_19;
+  _11 = (unsigned char) data_13(D);
+  MEM[(volatile uint8_t *)base_12(D) + 28B] ={v} _11;
+  return;
+
+}
+
+
+
+;; Function LPUART_Getchar9 (LPUART_Getchar9, funcdef_no=23, decl_uid=7384, cgraph_uid=24, symbol_order=23)
+
+LPUART_Getchar9 (const struct LPUART_Type * base, uint16_t * readData)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  long unsigned int _5;
+  short unsigned int _6;
+  short unsigned int _7;
+  unsigned char _11;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_9(D)->CTRL;
+  _2 = _1 >> 31;
+  _3 = (short unsigned int) _2;
+  _4 = _3 << 8;
+  _5 ={v} base_9(D)->DATA;
+  _11 = (unsigned char) _5;
+  _6 = (short unsigned int) _11;
+  _7 = _4 | _6;
+  *readData_10(D) = _7;
+  return;
+
+}
+
+
+
+;; Function LPUART_Getchar10 (LPUART_Getchar10, funcdef_no=24, decl_uid=7387, cgraph_uid=25, symbol_order=24)
+
+LPUART_Getchar10 (const struct LPUART_Type * base, uint16_t * readData)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  short unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  short unsigned int _8;
+  short unsigned int _9;
+  long unsigned int _11;
+  short unsigned int _12;
+  short unsigned int _13;
+  unsigned char _17;
+  short unsigned int _19;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_15(D)->CTRL;
+  _2 = _1 >> 30;
+  _3 = (short unsigned int) _2;
+  _4 = _3 << 9;
+  _5 = _4 & 512;
+  _6 ={v} base_15(D)->CTRL;
+  _7 = _6 >> 31;
+  _8 = (short unsigned int) _7;
+  _9 = _8 << 8;
+  _11 ={v} base_15(D)->DATA;
+  _17 = (unsigned char) _11;
+  _12 = (short unsigned int) _17;
+  _19 = _9 | _12;
+  _13 = _5 | _19;
+  *readData_16(D) = _13;
+  return;
+
+}
+
+
+
+;; Function LPUART_SetIntMode (LPUART_SetIntMode, funcdef_no=25, decl_uid=7355, cgraph_uid=26, symbol_order=25)
+
+Removing basic block 8
+LPUART_SetIntMode (struct LPUART_Type * base, lpuart_interrupt_t intSrc, _Bool enable)
+{
+  uint32_t reg;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  unsigned int _24;
+  long unsigned int _25;
+  <unnamed type> _36;
+  unsigned int _41;
+  unsigned int _42;
+  unsigned int _43;
+  unsigned int _44;
+
+  <bb 2> [local count: 1073741809]:
+  reg_32 = intSrc_31(D) >> 16;
+  _36 = intSrc_31(D) & 65535;
+  switch (reg_32) <default: <L18> [42.86%], case 1: <L0> [14.29%], case 3: <L4> [14.29%], case 6: <L8> [14.29%], case 7: <L12> [14.29%]>
+
+  <bb 3> [local count: 214748365]:
+<L0>:
+  _1 ={v} base_34(D)->BAUD;
+  _2 = 1 << _36;
+  _3 = ~_2;
+  _4 = _1 & _3;
+  _41 = (unsigned int) enable_35(D);
+  _5 = _41 << _36;
+  _6 = _4 | _5;
+  base_34(D)->BAUD ={v} _6;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 214748365]:
+<L4>:
+  _7 ={v} base_34(D)->CTRL;
+  _8 = 1 << _36;
+  _9 = ~_8;
+  _10 = _7 & _9;
+  _42 = (unsigned int) enable_35(D);
+  _11 = _42 << _36;
+  _12 = _10 | _11;
+  base_34(D)->CTRL ={v} _12;
+  goto <bb 7>; [100.00%]
+
+  <bb 5> [local count: 214748365]:
+<L8>:
+  _13 ={v} base_34(D)->MODIR;
+  _14 = 1 << _36;
+  _15 = ~_14;
+  _16 = _13 & _15;
+  _43 = (unsigned int) enable_35(D);
+  _17 = _43 << _36;
+  _18 = _16 | _17;
+  base_34(D)->MODIR ={v} _18;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 214748365]:
+<L12>:
+  _19 ={v} base_34(D)->FIFO;
+  _20 = 1 << _36;
+  _21 = ~_20;
+  _22 = _19 & _21;
+  _23 = _22 & 4294770687;
+  _44 = (unsigned int) enable_35(D);
+  _24 = _44 << _36;
+  _25 = _23 | _24;
+  base_34(D)->FIFO ={v} _25;
+
+  <bb 7> [local count: 1073741824]:
+<L18>:
+  return;
+
+}
+
+
+
+;; Function LPUART_GetIntMode (LPUART_GetIntMode, funcdef_no=26, decl_uid=7358, cgraph_uid=27, symbol_order=26)
+
+Removing basic block 8
+LPUART_GetIntMode (const struct LPUART_Type * base, lpuart_interrupt_t intSrc)
+{
+  _Bool retVal;
+  uint32_t reg;
+  long unsigned int _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  int _11;
+  long unsigned int _12;
+  <unnamed type> _16;
+  <unnamed type> _23;
+  <unnamed type> _24;
+  <unnamed type> _25;
+
+  <bb 2> [local count: 1073741809]:
+  reg_15 = intSrc_14(D) >> 16;
+  switch (reg_15) <default: <L7> [42.86%], case 1: <L0> [14.29%], case 3: <L1> [14.29%], case 6: <L2> [14.29%], case 7: <L3> [14.29%]>
+
+  <bb 3> [local count: 214748365]:
+<L0>:
+  _1 ={v} base_18(D)->BAUD;
+  _25 = intSrc_14(D) & 65535;
+  _2 = (int) _25;
+  _3 = _1 >> _2;
+  retVal_22 = (_Bool) _3;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 214748365]:
+<L1>:
+  _4 ={v} base_18(D)->CTRL;
+  _24 = intSrc_14(D) & 65535;
+  _5 = (int) _24;
+  _6 = _4 >> _5;
+  retVal_21 = (_Bool) _6;
+  goto <bb 7>; [100.00%]
+
+  <bb 5> [local count: 214748365]:
+<L2>:
+  _7 ={v} base_18(D)->MODIR;
+  _23 = intSrc_14(D) & 65535;
+  _8 = (int) _23;
+  _9 = _7 >> _8;
+  retVal_20 = (_Bool) _9;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 214748365]:
+<L3>:
+  _10 ={v} base_18(D)->FIFO;
+  _16 = intSrc_14(D) & 65535;
+  _11 = (int) _16;
+  _12 = _10 >> _11;
+  retVal_19 = (_Bool) _12;
+
+  <bb 7> [local count: 1073741824]:
+  # retVal_13 = PHI <retVal_22(3), retVal_21(4), retVal_20(5), retVal_19(6), 0(2)>
+<L7>:
+  return retVal_13;
+
+}
+
+
+
+;; Function LPUART_GetStatusFlag (LPUART_GetStatusFlag, funcdef_no=27, decl_uid=7390, cgraph_uid=28, symbol_order=27)
+
+Removing basic block 8
+LPUART_GetStatusFlag (const struct LPUART_Type * base, lpuart_status_flag_t statusFlag)
+{
+  _Bool retVal;
+  uint32_t reg;
+  long unsigned int _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  int _11;
+  long unsigned int _12;
+  <unnamed type> _16;
+  <unnamed type> _23;
+  <unnamed type> _24;
+  <unnamed type> _25;
+
+  <bb 2> [local count: 1073741809]:
+  reg_15 = statusFlag_14(D) >> 16;
+  switch (reg_15) <default: <L7> [33.33%], case 2: <L0> [16.67%], case 4: <L1> [16.67%], case 6: <L2> [16.67%], case 7: <L3> [16.67%]>
+
+  <bb 3> [local count: 214748365]:
+<L0>:
+  _1 ={v} base_18(D)->STAT;
+  _25 = statusFlag_14(D) & 65535;
+  _2 = (int) _25;
+  _3 = _1 >> _2;
+  retVal_22 = (_Bool) _3;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 214748365]:
+<L1>:
+  _4 ={v} base_18(D)->DATA;
+  _24 = statusFlag_14(D) & 65535;
+  _5 = (int) _24;
+  _6 = _4 >> _5;
+  retVal_21 = (_Bool) _6;
+  goto <bb 7>; [100.00%]
+
+  <bb 5> [local count: 214748365]:
+<L2>:
+  _7 ={v} base_18(D)->MODIR;
+  _23 = statusFlag_14(D) & 65535;
+  _8 = (int) _23;
+  _9 = _7 >> _8;
+  retVal_20 = (_Bool) _9;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 214748365]:
+<L3>:
+  _10 ={v} base_18(D)->FIFO;
+  _16 = statusFlag_14(D) & 65535;
+  _11 = (int) _16;
+  _12 = _10 >> _11;
+  retVal_19 = (_Bool) _12;
+
+  <bb 7> [local count: 1073741824]:
+  # retVal_13 = PHI <retVal_22(3), retVal_21(4), retVal_20(5), retVal_19(6), 0(2)>
+<L7>:
+  return retVal_13;
+
+}
+
+
+
+;; Function LPUART_ClearStatusFlag (LPUART_ClearStatusFlag, funcdef_no=28, decl_uid=7393, cgraph_uid=29, symbol_order=28)
+
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+LPUART_ClearStatusFlag (struct LPUART_Type * base, lpuart_status_flag_t statusFlag)
+{
+  status_t returnCode;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+
+  <bb 2> [local count: 1073741793]:
+  if (statusFlag_36(D) > 131103)
+    goto <bb 5>; [20.83%]
+  else
+    goto <bb 3>; [79.17%]
+
+  <bb 3> [local count: 1073741793]:
+  if (statusFlag_36(D) > 131085)
+    goto <bb 4>; [78.26%]
+  else
+    goto <bb 18>; [21.74%]
+
+  <bb 4> [local count: 1073741793]:
+  switch (statusFlag_36(D)) <default: <L20> [50.00%], case 131086: <L14> [5.56%], case 131087: <L13> [5.56%], case 131088: <L10> [5.56%], case 131089: <L9> [5.56%], case 131090: <L8> [5.56%], case 131091: <L7> [5.56%], case 131092: <L6> [5.56%], case 131102: <L12> [5.56%], case 131103: <L11> [5.56%]>
+
+  <bb 5> [local count: 1073741793]:
+  if (statusFlag_36(D) == 458768)
+    goto <bb 17>; [40.00%]
+  else
+    goto <bb 6>; [60.00%]
+
+  <bb 6> [local count: 1073741793]:
+  if (statusFlag_36(D) == 458769)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 7> [local count: 89478485]:
+<L6>:
+  _1 ={v} base_38(D)->STAT;
+  _2 = _1 & 1071661055;
+  _3 = _2 | 1048576;
+  base_38(D)->STAT ={v} _3;
+  goto <bb 18>; [100.00%]
+
+  <bb 8> [local count: 89478485]:
+<L7>:
+  _4 ={v} base_38(D)->STAT;
+  _5 = _4 & 1071661055;
+  _6 = _5 | 524288;
+  base_38(D)->STAT ={v} _6;
+  goto <bb 18>; [100.00%]
+
+  <bb 9> [local count: 89478485]:
+<L8>:
+  _7 ={v} base_38(D)->STAT;
+  _8 = _7 & 1071661055;
+  _9 = _8 | 262144;
+  base_38(D)->STAT ={v} _9;
+  goto <bb 18>; [100.00%]
+
+  <bb 10> [local count: 89478485]:
+<L9>:
+  _10 ={v} base_38(D)->STAT;
+  _11 = _10 & 1071661055;
+  _12 = _11 | 131072;
+  base_38(D)->STAT ={v} _12;
+  goto <bb 18>; [100.00%]
+
+  <bb 11> [local count: 89478485]:
+<L10>:
+  _13 ={v} base_38(D)->STAT;
+  _14 = _13 & 1071661055;
+  _15 = _14 | 65536;
+  base_38(D)->STAT ={v} _15;
+  goto <bb 18>; [100.00%]
+
+  <bb 12> [local count: 89478485]:
+<L11>:
+  _16 ={v} base_38(D)->STAT;
+  _17 = _16 & 1071661055;
+  _18 = _17 | 2147483648;
+  base_38(D)->STAT ={v} _18;
+  goto <bb 18>; [100.00%]
+
+  <bb 13> [local count: 89478485]:
+<L12>:
+  _19 ={v} base_38(D)->STAT;
+  _20 = _19 & 1071661055;
+  _21 = _20 | 1073741824;
+  base_38(D)->STAT ={v} _21;
+  goto <bb 18>; [100.00%]
+
+  <bb 14> [local count: 89478485]:
+<L13>:
+  _22 ={v} base_38(D)->STAT;
+  _23 = _22 & 1071661055;
+  _24 = _23 | 32768;
+  base_38(D)->STAT ={v} _24;
+  goto <bb 18>; [100.00%]
+
+  <bb 15> [local count: 89478485]:
+<L14>:
+  _25 ={v} base_38(D)->STAT;
+  _26 = _25 & 1071661055;
+  _27 = _26 | 16384;
+  base_38(D)->STAT ={v} _27;
+  goto <bb 18>; [100.00%]
+
+  <bb 16> [local count: 89478485]:
+  _28 ={v} base_38(D)->FIFO;
+  _29 = _28 & 4294770687;
+  _30 = _29 | 131072;
+  base_38(D)->FIFO ={v} _30;
+  goto <bb 18>; [100.00%]
+
+  <bb 17> [local count: 89478485]:
+  _31 ={v} base_38(D)->FIFO;
+  _32 = _31 & 4294770687;
+  _33 = _32 | 65536;
+  base_38(D)->FIFO ={v} _33;
+
+  <bb 18> [local count: 1073741824]:
+  # returnCode_34 = PHI <0(17), 0(7), 0(8), 0(9), 0(10), 0(11), 0(12), 0(13), 0(14), 0(15), 0(16), 1(4), 1(3), 1(6)>
+<L20>:
+  return returnCode_34;
+
+}
+
+
+
+;; Function LPUART_SetErrorInterrupts (LPUART_SetErrorInterrupts, funcdef_no=29, decl_uid=7396, cgraph_uid=30, symbol_order=29)
+
+LPUART_SetErrorInterrupts (struct LPUART_Type * base, _Bool enable)
+{
+  long unsigned int _4;
+  long unsigned int _5;
+  unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  unsigned int _19;
+  long unsigned int _20;
+  unsigned int _25;
+
+  <bb 2> [local count: 1073741824]:
+  _16 ={v} base_2(D)->CTRL;
+  _17 = _16 & 4160749567;
+  _25 = (unsigned int) enable_3(D);
+  _19 = _25 << 27;
+  _20 = _17 | _19;
+  base_2(D)->CTRL ={v} _20;
+  _12 ={v} base_2(D)->CTRL;
+  _13 = _12 & 4278190079;
+  _14 = _25 << 24;
+  _15 = _13 | _14;
+  base_2(D)->CTRL ={v} _15;
+  _8 ={v} base_2(D)->CTRL;
+  _9 = _8 & 4227858431;
+  _10 = _25 << 26;
+  _11 = _9 | _10;
+  base_2(D)->CTRL ={v} _11;
+  _4 ={v} base_2(D)->CTRL;
+  _5 = _4 & 4261412863;
+  _6 = _25 << 25;
+  _7 = _5 | _6;
+  base_2(D)->CTRL ={v} _7;
+  return;
+
+}
+
+

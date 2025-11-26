@@ -1,0 +1,2069 @@
+
+;; Function FTM_DRV_DeinitPwm (FTM_DRV_DeinitPwm, funcdef_no=145, decl_uid=6814, cgraph_uid=146, symbol_order=145)
+
+Removing basic block 5
+FTM_DRV_DeinitPwm (uint32_t instance)
+{
+  unsigned int ivtmp.67;
+  uint32_t regValue;
+  struct ftm_state_t * state;
+  uint8_t chnlPairNum;
+  struct FTM_Type * ftmBase;
+  sizetype _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  struct FTM_Type * _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _66;
+  unsigned int _68;
+  long unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  unsigned char _79;
+  unsigned int _81;
+  unsigned int _82;
+  long unsigned int _83;
+  long unsigned int _84;
+  signed short _86;
+  long unsigned int _87;
+  long unsigned int _88;
+  long unsigned int _89;
+  long unsigned int _90;
+  unsigned int _92;
+  long unsigned int _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  signed short _97;
+  long unsigned int _98;
+  long unsigned int _99;
+  long unsigned int _100;
+
+  <bb 2> [local count: 119292720]:
+  ftmBase_5 = g_ftmBase[instance_4(D)];
+  state_6 = ftmStatePtr[instance_4(D)];
+  _10 ={v} ftmBase_5->SC;
+  _11 = _10 & 4294967271;
+  ftmBase_5->SC ={v} _11;
+
+  <bb 3> [local count: 954449105]:
+  # ivtmp.67_85 = PHI <0(2), ivtmp.67_80(3)>
+  _79 = (unsigned char) ivtmp.67_85;
+  chnlPairNum_8 = _79 >> 1;
+  _28 = (int) ivtmp.67_85;
+  _9 = ivtmp.67_85 * 8;
+  _23 = ftmBase_5 + _9;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_23 + 16B] ={v} 0;
+  _24 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_23 + 12B];
+  _25 = _24 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_23 + 12B] ={v} _25;
+  _26 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_23 + 12B];
+  _27 = _26 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_23 + 12B] ={v} _27;
+  _19 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_23 + 12B];
+  _20 = _19 & 4294967279;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_23 + 12B] ={v} _20;
+  _21 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_23 + 12B];
+  _22 = _21 & 4294967263;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_23 + 12B] ={v} _22;
+  _17 ={v} ftmBase_5->SC;
+  _18 = _17 & 4294967263;
+  ftmBase_5->SC ={v} _18;
+  _96 ={v} ftmBase_5->POL;
+  _98 = 1 << _28;
+  _99 = ~_98;
+  _100 = _96 & _99;
+  ftmBase_5->POL ={v} _100;
+  regValue_12 ={v} ftmBase_5->SC;
+  _68 = ivtmp.67_85 + 16;
+  _14 = 1 << _68;
+  _15 = ~_14;
+  regValue_16 = regValue_12 & _15;
+  ftmBase_5->SC ={v} regValue_16;
+  _90 ={v} ftmBase_5->COMBINE;
+  _86 = (signed short) chnlPairNum_8;
+  _97 = (signed short) 8;
+  _92 = _86 w* _97;
+  _93 = 32 << _92;
+  _94 = ~_93;
+  _95 = _90 & _94;
+  ftmBase_5->COMBINE ={v} _95;
+  _84 ={v} ftmBase_5->COMBINE;
+  _87 = 128 << _92;
+  _88 = ~_87;
+  _89 = _84 & _88;
+  ftmBase_5->COMBINE ={v} _89;
+  _78 ={v} ftmBase_5->COMBINE;
+  _81 = 1 << _92;
+  _82 = ~_81;
+  _83 = _78 & _82;
+  ftmBase_5->COMBINE ={v} _83;
+  _72 ={v} ftmBase_5->COMBINE;
+  _75 = 16 << _92;
+  _76 = ~_75;
+  _77 = _72 & _76;
+  ftmBase_5->COMBINE ={v} _77;
+  _66 ={v} ftmBase_5->COMBINE;
+  _69 = 64 << _92;
+  _70 = ~_69;
+  _71 = _66 & _70;
+  ftmBase_5->COMBINE ={v} _71;
+  ivtmp.67_80 = ivtmp.67_85 + 1;
+  if (ivtmp.67_80 != 8)
+    goto <bb 3>; [87.50%]
+  else
+    goto <bb 4>; [12.50%]
+
+  <bb 4> [local count: 119292720]:
+  _42 ={v} ftmBase_5->DEADTIME;
+  _43 = _42 & 4293984255;
+  ftmBase_5->DEADTIME ={v} _43;
+  _39 ={v} ftmBase_5->DEADTIME;
+  _40 = _39 & 4294967103;
+  _41 = _40 | 64;
+  ftmBase_5->DEADTIME ={v} _41;
+  _37 ={v} ftmBase_5->DEADTIME;
+  _38 = _37 & 4294967232;
+  ftmBase_5->DEADTIME ={v} _38;
+  ftmBase_5->FLTCTRL ={v} 0;
+  _35 ={v} ftmBase_5->MODE;
+  _36 = _35 & 4294967167;
+  ftmBase_5->MODE ={v} _36;
+  _33 ={v} ftmBase_5->MODE;
+  _34 = _33 & 4294967199;
+  ftmBase_5->MODE ={v} _34;
+  _31 ={v} ftmBase_5->MOD;
+  _32 = _31 & 4294901760;
+  ftmBase_5->MOD ={v} _32;
+  _29 ={v} ftmBase_5->CNT;
+  _30 = _29 & 4294901760;
+  ftmBase_5->CNT ={v} _30;
+  state_6->ftmMode = 0;
+  return 0;
+
+}
+
+
+
+;; Function FTM_DRV_UpdatePwmChannel (FTM_DRV_UpdatePwmChannel, funcdef_no=146, decl_uid=6824, cgraph_uid=147, symbol_order=146)
+
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+FTM_DRV_UpdatePwmChannel (uint32_t instance, uint8_t channel, ftm_pwm_update_option_t typeOfUpdate, uint16_t firstEdge, uint16_t secondEdge, _Bool softwareTrigger)
+{
+  status_t retStatus;
+  struct ftm_state_t * state;
+  struct FTM_Type * ftmBase;
+  uint8_t chnlPairNum;
+  uint16_t ftmPeriod;
+  uint16_t hwSecondEdge;
+  uint16_t hwFirstEdge;
+  <unnamed type> _1;
+  int _2;
+  int _3;
+  int _4;
+  int _5;
+  int _6;
+  int _7;
+  int _8;
+  unsigned char _9;
+  unsigned char _10;
+  unsigned char _12;
+  short unsigned int _13;
+  unsigned char _18;
+  long unsigned int _38;
+  short unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _42;
+  unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  unsigned char _50;
+  unsigned char _51;
+  int _52;
+  long unsigned int _53;
+  int _54;
+  long unsigned int _55;
+  int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  int _60;
+  long unsigned int _61;
+  int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long unsigned int _65;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  signed short _88;
+  unsigned char prephitmp_96;
+  signed short _103;
+
+  <bb 2> [local count: 1073741821]:
+  ftmBase_26 = g_ftmBase[instance_25(D)];
+  state_27 = ftmStatePtr[instance_25(D)];
+  _38 ={v} MEM[(const struct FTM_Type *)ftmBase_26].MOD;
+  _39 = (short unsigned int) _38;
+  _1 = state_27->ftmMode;
+  if (_1 == 4)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072223]:
+  ftmPeriod_29 = _39 << 1;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 708669598]:
+  if (_1 == 3)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 5> [local count: 467721932]:
+  if (_1 == 8)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 7>; [66.00%]
+
+  <bb 6> [local count: 399973124]:
+  ftmPeriod_28 = _39 + 1;
+
+  <bb 7> [local count: 1073741823]:
+  # ftmPeriod_16 = PHI <ftmPeriod_29(3), ftmPeriod_28(6), _39(5)>
+  # retStatus_17 = PHI <0(3), 0(6), 1(5)>
+  if (typeOfUpdate_30(D) == 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 8> [local count: 536870911]:
+  if (firstEdge_31(D) <= 32768)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 9> [local count: 268435456]:
+  if (secondEdge_32(D) <= 32768)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 10> [local count: 134217728]:
+  _2 = (int) ftmPeriod_16;
+  _3 = (int) firstEdge_31(D);
+  _4 = _2 * _3;
+  _5 = _4 >> 15;
+  hwFirstEdge_33 = (uint16_t) _5;
+  _6 = (int) secondEdge_32(D);
+  _7 = _2 * _6;
+  _8 = _7 >> 15;
+  hwSecondEdge_34 = (uint16_t) _8;
+  if (firstEdge_31(D) == 32768)
+    goto <bb 11>; [34.00%]
+  else
+    goto <bb 14>; [66.00%]
+
+  <bb 11> [local count: 45634028]:
+  hwFirstEdge_35 = hwFirstEdge_33 + 1;
+  goto <bb 14>; [100.00%]
+
+  <bb 12> [local count: 536870911]:
+  if (ftmPeriod_16 >= firstEdge_31(D))
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 13> [local count: 268435456]:
+  if (ftmPeriod_16 >= secondEdge_32(D))
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 14> [local count: 268435456]:
+  # hwFirstEdge_14 = PHI <hwFirstEdge_35(11), hwFirstEdge_33(10), firstEdge_31(D)(13)>
+  # hwSecondEdge_15 = PHI <hwSecondEdge_34(11), hwSecondEdge_34(10), secondEdge_32(D)(13)>
+  if (retStatus_17 == 0)
+    goto <bb 15>; [99.29%]
+  else
+    goto <bb 26>; [0.71%]
+
+  <bb 15> [local count: 536870913]:
+  chnlPairNum_23 = channel_22(D) >> 1;
+  _40 ={v} MEM[(const struct FTM_Type *)ftmBase_26].COMBINE;
+  _88 = (signed short) chnlPairNum_23;
+  _103 = (signed short) 8;
+  _42 = _88 w* _103;
+  _43 = 1 << _42;
+  _44 = _40 & _43;
+  if (_44 != 0)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 22>; [50.00%]
+
+  <bb 16> [local count: 268435456]:
+  _45 ={v} MEM[(const struct FTM_Type *)ftmBase_26].COMBINE;
+  _46 = 128 << _42;
+  _47 = _45 & _46;
+  if (_47 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 17> [local count: 134217728]:
+  _48 ={v} MEM[(const struct FTM_Type *)ftmBase_26].SC;
+  _49 = _48 >> 3;
+  _50 = (unsigned char) _49;
+  _51 = _50 & 3;
+  if (_51 == 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 18> [local count: 67108864]:
+  _18 = chnlPairNum_23 * 2;
+  goto <bb 21>; [100.00%]
+
+  <bb 19> [local count: 67108864]:
+  _9 = chnlPairNum_23 * 2;
+  _52 = (int) _9;
+  _53 = (long unsigned int) hwFirstEdge_14;
+  ftmBase_26->CONTROLS[_52].CnV ={v} _53;
+  goto <bb 21>; [100.00%]
+
+  <bb 20> [local count: 134217728]:
+  _10 = chnlPairNum_23 * 2;
+  _54 = (int) _10;
+  _55 = (long unsigned int) hwFirstEdge_14;
+  ftmBase_26->CONTROLS[_54].CnV ={v} _55;
+
+  <bb 21> [local count: 268435456]:
+  # prephitmp_96 = PHI <_9(19), _10(20), _18(18)>
+  _12 = prephitmp_96 + 1;
+  _56 = (int) _12;
+  _57 = (long unsigned int) hwSecondEdge_15;
+  ftmBase_26->CONTROLS[_56].CnV ={v} _57;
+  goto <bb 25>; [100.00%]
+
+  <bb 22> [local count: 268435456]:
+  _58 ={v} MEM[(const struct FTM_Type *)ftmBase_26].SC;
+  _59 = _58 & 32;
+  if (_59 != 0)
+    goto <bb 23>; [50.00%]
+  else
+    goto <bb 24>; [50.00%]
+
+  <bb 23> [local count: 134217728]:
+  _13 = hwFirstEdge_14 >> 1;
+  _60 = (int) channel_22(D);
+  _61 = (long unsigned int) _13;
+  ftmBase_26->CONTROLS[_60].CnV ={v} _61;
+  goto <bb 25>; [100.00%]
+
+  <bb 24> [local count: 134217728]:
+  _62 = (int) channel_22(D);
+  _63 = (long unsigned int) hwFirstEdge_14;
+  ftmBase_26->CONTROLS[_62].CnV ={v} _63;
+
+  <bb 25> [local count: 536870913]:
+  _64 ={v} ftmBase_26->SYNC;
+  _65 = _64 & 4294967167;
+  _66 = (long unsigned int) softwareTrigger_36(D);
+  _67 = _66 << 7;
+  _68 = _65 | _67;
+  ftmBase_26->SYNC ={v} _68;
+  state_27->ftmPeriod = ftmPeriod_16;
+
+  <bb 26> [local count: 1073741824]:
+  # retStatus_84 = PHI <1(13), retStatus_17(25), 1(8), 1(12), 1(9), retStatus_17(14)>
+  return retStatus_84;
+
+}
+
+
+
+;; Function FTM_DRV_InitPwm (FTM_DRV_InitPwm, funcdef_no=144, decl_uid=6817, cgraph_uid=145, symbol_order=144)
+
+Removing basic block 64
+Removing basic block 91
+Removing basic block 92
+Removing basic block 93
+Removing basic block 94
+Removing basic block 95
+Removing basic block 96
+Removing basic block 97
+Removing basic block 98
+Removing basic block 99
+Removing basic block 100
+Removing basic block 101
+Removing basic block 102
+Removing basic block 104
+Removing basic block 105
+Removing basic block 106
+Removing basic block 107
+Removing basic block 108
+Removing basic block 109
+Removing basic block 110
+Removing basic block 111
+Removing basic block 112
+Removing basic block 113
+Removing basic block 114
+Removing basic block 115
+Removing basic block 116
+Removing basic block 117
+Removing basic block 118
+FTM_DRV_InitPwm (uint32_t instance, const struct ftm_pwm_param_t * param)
+{
+  unsigned int ivtmp.102;
+  unsigned int ivtmp.99;
+  unsigned int ivtmp.97;
+  unsigned int ivtmp.95;
+  unsigned int ivtmp.88;
+  unsigned int ivtmp.85;
+  uint8_t index;
+  uint8_t hwChannel;
+  status_t retVal;
+  uint8_t index;
+  uint8_t channelId;
+  uint8_t chnlPairNum;
+  uint8_t index;
+  uint8_t channelId;
+  uint8_t chnlPairNum;
+  struct FTM_Type * ftmBase;
+  struct ftm_state_t * state;
+  uint8_t faultChnNum;
+  status_t retVal;
+  <unnamed type> _1;
+  <unnamed type> _2;
+  struct ftm_pwm_fault_param_t * _3;
+  <unnamed type> _4;
+  _Bool _5;
+  unsigned char _6;
+  long unsigned int _7;
+  _Bool _10;
+  _Bool _11;
+  <unnamed type> _13;
+  _Bool _15;
+  long unsigned int _17;
+  <unnamed type> _18;
+  _Bool _19;
+  long unsigned int _20;
+  short unsigned int _21;
+  <unnamed type> _22;
+  short unsigned int _23;
+  short unsigned int _24;
+  unsigned char _25;
+  <unnamed type> _26;
+  <unnamed type> _27;
+  unsigned char _29;
+  struct FTM_Type * _43;
+  sizetype _44;
+  sizetype _45;
+  struct FTM_Type * _46;
+  sizetype _50;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int vol.1_59;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long unsigned int _65;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  long unsigned int _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  long unsigned int _79;
+  long unsigned int _80;
+  long unsigned int _81;
+  long unsigned int _82;
+  long unsigned int _83;
+  long unsigned int _84;
+  long unsigned int _85;
+  long unsigned int _86;
+  long unsigned int _87;
+  long unsigned int _88;
+  long unsigned int _89;
+  long unsigned int _90;
+  long unsigned int _91;
+  long unsigned int _92;
+  long unsigned int _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  long unsigned int _97;
+  long unsigned int _98;
+  long unsigned int _99;
+  long unsigned int _100;
+  long unsigned int _101;
+  long unsigned int _102;
+  long unsigned int _103;
+  long unsigned int _104;
+  long unsigned int _105;
+  long unsigned int _106;
+  long unsigned int _107;
+  long unsigned int _108;
+  long unsigned int _109;
+  long unsigned int _110;
+  long unsigned int _111;
+  long unsigned int _112;
+  long unsigned int _113;
+  long unsigned int _114;
+  long unsigned int _115;
+  long unsigned int _116;
+  long unsigned int _117;
+  long unsigned int _118;
+  long unsigned int _119;
+  long unsigned int _120;
+  long unsigned int _121;
+  unsigned char _122;
+  long unsigned int _123;
+  long unsigned int _124;
+  sizetype _147;
+  struct ftm_combined_ch_param_t * _148;
+  signed short _150;
+  unsigned int _151;
+  struct ftm_combined_ch_param_t * _152;
+  <unnamed type> _155;
+  <unnamed type> _160;
+  long unsigned int _162;
+  long unsigned int _163;
+  long unsigned int _164;
+  long unsigned int _165;
+  long unsigned int _166;
+  long unsigned int _168;
+  long unsigned int _169;
+  long unsigned int _170;
+  long unsigned int _171;
+  long unsigned int _172;
+  long unsigned int _174;
+  long unsigned int _175;
+  long unsigned int _176;
+  long unsigned int _177;
+  long unsigned int _178;
+  long unsigned int _179;
+  unsigned int _180;
+  unsigned int _181;
+  long unsigned int _182;
+  long unsigned int _183;
+  long unsigned int _184;
+  _Bool _187;
+  <unnamed type> _189;
+  unsigned int _190;
+  long unsigned int _192;
+  long unsigned int _193;
+  long unsigned int _194;
+  long unsigned int _195;
+  long unsigned int _196;
+  struct FTM_Type * _200;
+  <unnamed type> _201;
+  long unsigned int _202;
+  sizetype _203;
+  sizetype _204;
+  unsigned int _205;
+  long unsigned int _206;
+  <unnamed type> _207;
+  long unsigned int _208;
+  unsigned int _211;
+  long unsigned int _212;
+  unsigned int _213;
+  unsigned int _214;
+  long unsigned int _215;
+  long unsigned int _216;
+  long unsigned int _217;
+  struct ftm_pwm_fault_param_t * _218;
+  <unnamed type> _219;
+  long unsigned int _221;
+  long unsigned int _224;
+  long unsigned int _225;
+  long unsigned int _226;
+  unsigned int _227;
+  long unsigned int _228;
+  _Bool _231;
+  _Bool _234;
+  signed short _236;
+  _Bool _238;
+  struct ftm_combined_ch_param_t * _240;
+  struct ftm_combined_ch_param_t * _241;
+  _Bool _242;
+  unsigned char _244;
+  struct FTM_Type * _245;
+  unsigned char _247;
+  signed short _248;
+  unsigned int _249;
+  struct ftm_independent_ch_param_t * _250;
+  <unnamed type> _253;
+  unsigned char _254;
+  sizetype _255;
+  unsigned char _256;
+  unsigned int _257;
+  <unnamed type> _258;
+  long unsigned int _260;
+  long unsigned int _261;
+  long unsigned int _262;
+  long unsigned int _263;
+  long unsigned int _264;
+  unsigned int _265;
+  long unsigned int _266;
+  long unsigned int _267;
+  long unsigned int _268;
+  long unsigned int _269;
+  long unsigned int _270;
+  _Bool _271;
+  _Bool _272;
+  unsigned char _273;
+  int _274;
+  long unsigned int _275;
+  long unsigned int _276;
+  long unsigned int _277;
+  long unsigned int _278;
+  long unsigned int _279;
+  long unsigned int _280;
+  unsigned int _283;
+  long unsigned int _284;
+  signed short _285;
+  <unnamed type> _287;
+  unsigned int _288;
+  sizetype _289;
+  unsigned char _290;
+  long unsigned int _293;
+  long unsigned int _294;
+  long unsigned int _295;
+  long unsigned int _296;
+  long unsigned int _297;
+  long unsigned int _298;
+  struct ftm_pwm_fault_param_t * _299;
+  <unnamed type> _300;
+  long unsigned int _302;
+  long unsigned int _305;
+  long unsigned int _306;
+  _Bool _309;
+  unsigned int _310;
+  unsigned int _311;
+  long unsigned int _312;
+  long unsigned int _313;
+  long unsigned int _314;
+  struct ftm_independent_ch_param_t * _315;
+  struct ftm_independent_ch_param_t * _316;
+  _Bool _317;
+  unsigned char _318;
+  unsigned int _319;
+  unsigned int _320;
+  long unsigned int _321;
+  long unsigned int _322;
+  long unsigned int _323;
+  unsigned char _325;
+  long unsigned int _326;
+  int _327;
+  long unsigned int _328;
+  long unsigned int _329;
+  long unsigned int _330;
+  int _331;
+  long unsigned int _332;
+  long unsigned int _333;
+  long unsigned int _334;
+  long unsigned int _335;
+  unsigned int _337;
+  long unsigned int _338;
+  long unsigned int _339;
+  long unsigned int _340;
+  unsigned int _342;
+  long unsigned int _343;
+  long unsigned int _344;
+  long unsigned int _345;
+  long unsigned int _346;
+  long unsigned int _348;
+  long unsigned int _349;
+  long unsigned int _350;
+  long unsigned int _352;
+  long unsigned int _353;
+  long unsigned int _354;
+  long unsigned int _355;
+  long unsigned int _357;
+  long unsigned int _358;
+  long unsigned int _359;
+  long unsigned int _361;
+  long unsigned int _362;
+  long unsigned int _363;
+  long unsigned int _364;
+  long unsigned int _366;
+  unsigned int _367;
+  unsigned int _368;
+  long unsigned int _369;
+  long unsigned int _370;
+  struct FTM_Type * _371;
+  sizetype _372;
+  long unsigned int _373;
+  long unsigned int _374;
+  long unsigned int _375;
+  sizetype _376;
+  long unsigned int _378;
+  long unsigned int _379;
+  long unsigned int _380;
+  long unsigned int _381;
+  unsigned char _382;
+  unsigned int _384;
+  unsigned int _385;
+  long unsigned int _386;
+  long unsigned int _387;
+  long unsigned int _390;
+  long unsigned int _391;
+  long unsigned int _392;
+  long unsigned int _393;
+  long unsigned int _396;
+  long unsigned int _397;
+  long unsigned int _398;
+  long unsigned int _399;
+  int _400;
+  long unsigned int _401;
+  long unsigned int _402;
+  long unsigned int _403;
+  int _404;
+  long unsigned int _405;
+  long unsigned int _406;
+  long unsigned int _407;
+  long unsigned int _408;
+  unsigned int _410;
+  long unsigned int _411;
+  long unsigned int _412;
+  long unsigned int _413;
+  long unsigned int _414;
+  int _415;
+  long unsigned int _416;
+  long unsigned int _417;
+  long unsigned int _418;
+  int _419;
+  long unsigned int _420;
+  long unsigned int _421;
+  long unsigned int _422;
+  long unsigned int _423;
+  unsigned int _426;
+  unsigned int _427;
+  long unsigned int _428;
+  long unsigned int _429;
+  unsigned int _432;
+  unsigned int _433;
+  long unsigned int _434;
+  long unsigned int _435;
+  long unsigned int _438;
+  long unsigned int _439;
+  long unsigned int _440;
+  struct FTM_Type * _442;
+  long unsigned int _443;
+  long unsigned int _444;
+  long unsigned int _445;
+  sizetype _446;
+  long unsigned int _448;
+  long unsigned int _449;
+  long unsigned int _450;
+  long unsigned int _453;
+  long unsigned int _454;
+  long unsigned int _455;
+  long unsigned int _456;
+  long unsigned int _459;
+  long unsigned int _460;
+  long unsigned int _461;
+  long unsigned int _462;
+  long unsigned int _465;
+  long unsigned int _466;
+  long unsigned int _467;
+  long unsigned int _468;
+  long unsigned int _471;
+  long unsigned int _472;
+  long unsigned int _473;
+  long unsigned int _476;
+  long unsigned int _477;
+  long unsigned int _478;
+  struct ftm_independent_ch_param_t * _479;
+  signed short _481;
+  unsigned int _482;
+  struct ftm_independent_ch_param_t * _483;
+  short unsigned int _485;
+  unsigned char _488;
+  struct ftm_combined_ch_param_t * _489;
+  struct FTM_Type * _490;
+  signed short _491;
+  unsigned int _492;
+  struct ftm_combined_ch_param_t * _493;
+  short unsigned int _495;
+  short unsigned int _496;
+  unsigned char _499;
+  sizetype _500;
+  sizetype _501;
+  unsigned char _506;
+  unsigned char _523;
+  signed short _526;
+  signed short _589;
+  int _592;
+  unsigned int _593;
+  unsigned int _594;
+  signed short _595;
+  void * _598;
+  signed short _605;
+  struct ftm_independent_ch_param_t * pretmp_609;
+  struct ftm_independent_ch_param_t * prephitmp_610;
+  int prephitmp_615;
+  long unsigned int prephitmp_617;
+  long unsigned int prephitmp_619;
+  struct FTM_Type * _622;
+  int prephitmp_623;
+  int prephitmp_624;
+  sizetype _625;
+  sizetype _626;
+
+  <bb 2> [local count: 1073741823]:
+  state_39 = ftmStatePtr[instance_37(D)];
+  if (state_39 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 90>; [30.00%]
+
+  <bb 3> [local count: 751619279]:
+  _1 = state_39->ftmMode;
+  if (_1 == 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 90>; [67.00%]
+
+  <bb 4> [local count: 248034362]:
+  ftmBase_40 = g_ftmBase[instance_37(D)];
+  _60 ={v} ftmBase_40->SC;
+  _61 = _60 & 4294967271;
+  ftmBase_40->SC ={v} _61;
+  _57 ={v} ftmBase_40->SC;
+  _58 = _57 & 4294966783;
+  ftmBase_40->SC ={v} _58;
+  vol.1_59 ={v} ftmBase_40->SC;
+  _55 ={v} ftmBase_40->MODE;
+  _56 = _55 | 4;
+  ftmBase_40->MODE ={v} _56;
+  _2 = param_41(D)->mode;
+  state_39->ftmMode = _2;
+  _290 = param_41(D)->nNumIndependentPwmChannels;
+  if (_290 != 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 248034361]:
+  _254 = param_41(D)->nNumCombinedPwmChannels;
+  if (_254 != 0)
+    goto <bb 32>; [89.00%]
+  else
+    goto <bb 31>; [11.00%]
+
+  <bb 6> [local count: 220750582]:
+  pretmp_609 = param_41(D)->pwmIndependentChannelConfig;
+
+  <bb 7> [local count: 2006823475]:
+  # prephitmp_610 = PHI <pretmp_609(6), _315(30)>
+  # ivtmp.102_587 = PHI <0(6), ivtmp.102_586(30)>
+  _257 = ivtmp.102_587 & 255;
+  _249 = _257 * 10;
+  _250 = prephitmp_610 + _249;
+  channelId_251 = _250->hwChannelId;
+  chnlPairNum_252 = channelId_251 >> 1;
+  _253 = _250->safeState;
+  if (_253 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 8> [local count: 1003411738]:
+  _330 ={v} ftmBase_40->POL;
+  _331 = (int) channelId_251;
+  _332 = 1 << _331;
+  _333 = ~_332;
+  _334 = _330 & _333;
+  ftmBase_40->POL ={v} _334;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 1003411738]:
+  _326 ={v} ftmBase_40->POL;
+  _327 = (int) channelId_251;
+  _328 = 1 << _327;
+  _329 = _326 | _328;
+  ftmBase_40->POL ={v} _329;
+
+  <bb 10> [local count: 2006823475]:
+  # prephitmp_615 = PHI <_331(8), _327(9)>
+  _258 = _250->polarity;
+  if (_253 == _258)
+    goto <bb 11>; [34.00%]
+  else
+    goto <bb 12>; [66.00%]
+
+  <bb 11> [local count: 682319989]:
+  _501 = (sizetype) prephitmp_615;
+  _500 = _501 * 8;
+  _490 = ftmBase_40 + _500;
+  _260 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_490 + 12B];
+  _261 = _260 & 4294967291;
+  _262 = _261 | 4;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_490 + 12B] ={v} _262;
+  _263 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_490 + 12B];
+  _264 = _263 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_490 + 12B] ={v} _264;
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [local count: 1324503488]:
+  _44 = (sizetype) prephitmp_615;
+  _45 = _44 * 8;
+  _46 = ftmBase_40 + _45;
+  _266 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_46 + 12B];
+  _267 = _266 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_46 + 12B] ={v} _267;
+  _268 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_46 + 12B];
+  _269 = _268 & 4294967287;
+  _270 = _269 | 8;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_46 + 12B] ={v} _270;
+
+  <bb 13> [local count: 2006823475]:
+  _271 = _250->enableSecondChannelOutput;
+  if (_271 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 24>; [50.00%]
+
+  <bb 14> [local count: 1003411738]:
+  _272 = _250->deadTime;
+  if (_272 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [local count: 501705869]:
+  _335 ={v} ftmBase_40->COMBINE;
+  _595 = (signed short) chnlPairNum_252;
+  _248 = (signed short) 8;
+  _337 = _595 w* _248;
+  _338 = 16 << _337;
+  _339 = _335 | _338;
+  ftmBase_40->COMBINE ={v} _339;
+  goto <bb 17>; [100.00%]
+
+  <bb 16> [local count: 501705869]:
+  _340 ={v} ftmBase_40->COMBINE;
+  _605 = (signed short) chnlPairNum_252;
+  _236 = (signed short) 8;
+  _342 = _605 w* _236;
+  _343 = 16 << _342;
+  _344 = ~_343;
+  _345 = _340 & _344;
+  ftmBase_40->COMBINE ={v} _345;
+
+  <bb 17> [local count: 1003411738]:
+  # prephitmp_617 = PHI <_337(15), _342(16)>
+  _273 = channelId_251 + 1;
+  _274 = (int) _273;
+  _150 = (signed short) _273;
+  _481 = (signed short) 8;
+  _446 = _150 w* _481;
+  _442 = ftmBase_40 + _446;
+  _275 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_442 + 12B];
+  _276 = _275 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_442 + 12B] ={v} _276;
+  _277 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_442 + 12B];
+  _278 = _277 & 4294967287;
+  _279 = _278 | 8;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_442 + 12B] ={v} _279;
+  _280 ={v} ftmBase_40->COMBINE;
+  _283 = 2 << prephitmp_617;
+  _284 = _280 | _283;
+  ftmBase_40->COMBINE ={v} _284;
+  _287 = _250->secondChannelPolarity;
+  if (_287 == 1)
+    goto <bb 18>; [34.00%]
+  else
+    goto <bb 21>; [66.00%]
+
+  <bb 18> [local count: 341159994]:
+  if (_253 != 0)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 19> [local count: 170579997]:
+  _350 ={v} ftmBase_40->POL;
+  _352 = 1 << _274;
+  _353 = ~_352;
+  _354 = _350 & _353;
+  ftmBase_40->POL ={v} _354;
+  goto <bb 25>; [100.00%]
+
+  <bb 20> [local count: 170579997]:
+  _346 ={v} ftmBase_40->POL;
+  _348 = 1 << _274;
+  _349 = _346 | _348;
+  ftmBase_40->POL ={v} _349;
+  goto <bb 25>; [100.00%]
+
+  <bb 21> [local count: 662251744]:
+  if (_253 == 0)
+    goto <bb 23>; [50.00%]
+  else
+    goto <bb 22>; [50.00%]
+
+  <bb 22> [local count: 331125872]:
+  _359 ={v} ftmBase_40->POL;
+  _361 = 1 << _274;
+  _362 = ~_361;
+  _363 = _359 & _362;
+  ftmBase_40->POL ={v} _363;
+  goto <bb 25>; [100.00%]
+
+  <bb 23> [local count: 331125872]:
+  _355 ={v} ftmBase_40->POL;
+  _357 = 1 << _274;
+  _358 = _355 | _357;
+  ftmBase_40->POL ={v} _358;
+  goto <bb 25>; [100.00%]
+
+  <bb 24> [local count: 1003411738]:
+  _364 ={v} ftmBase_40->COMBINE;
+  _526 = (signed short) chnlPairNum_252;
+  _589 = (signed short) 8;
+  _366 = _526 w* _589;
+  _367 = 2 << _366;
+  _368 = ~_367;
+  _369 = _364 & _368;
+  ftmBase_40->COMBINE ={v} _369;
+
+  <bb 25> [local count: 2006823475]:
+  # prephitmp_619 = PHI <prephitmp_617(20), prephitmp_617(23), _366(24), prephitmp_617(22), prephitmp_617(19)>
+  _387 ={v} ftmBase_40->COMBINE;
+  _390 = 4 << prephitmp_619;
+  _391 = ~_390;
+  _392 = _387 & _391;
+  ftmBase_40->COMBINE ={v} _392;
+  _381 ={v} ftmBase_40->COMBINE;
+  _384 = 1 << prephitmp_619;
+  _385 = ~_384;
+  _386 = _381 & _385;
+  ftmBase_40->COMBINE ={v} _386;
+  _375 ={v} ftmBase_40->COMBINE;
+  _378 = 128 << prephitmp_619;
+  _379 = ~_378;
+  _380 = _375 & _379;
+  ftmBase_40->COMBINE ={v} _380;
+  _376 = (sizetype) prephitmp_615;
+  _372 = _376 * 8;
+  _371 = ftmBase_40 + _372;
+  _293 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_371 + 12B];
+  _294 = _293 & 4294967279;
+  _295 = _294 | 16;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_371 + 12B] ={v} _295;
+  _296 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_371 + 12B];
+  _297 = _296 & 4294967263;
+  _298 = _297 | 32;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_371 + 12B] ={v} _298;
+  _299 = param_41(D)->faultConfig;
+  _300 = _299->faultMode;
+  if (_300 != 0)
+    goto <bb 26>; [50.00%]
+  else
+    goto <bb 27>; [50.00%]
+
+  <bb 26> [local count: 1003411738]:
+  _370 ={v} ftmBase_40->COMBINE;
+  _373 = 64 << prephitmp_619;
+  _374 = _370 | _373;
+  ftmBase_40->COMBINE ={v} _374;
+  goto <bb 28>; [100.00%]
+
+  <bb 27> [local count: 1003411738]:
+  _393 ={v} ftmBase_40->COMBINE;
+  _396 = 64 << prephitmp_619;
+  _397 = ~_396;
+  _398 = _393 & _397;
+  ftmBase_40->COMBINE ={v} _398;
+
+  <bb 28> [local count: 2006823475]:
+  _302 ={v} ftmBase_40->COMBINE;
+  _305 = 32 << prephitmp_619;
+  _306 = _302 | _305;
+  ftmBase_40->COMBINE ={v} _306;
+  _309 = _250->enableExternalTrigger;
+  FTM_DRV_SetChnTriggerCmd (ftmBase_40, channelId_251, _309);
+  _310 = (unsigned int) channelId_251;
+  _311 = _310 + 16;
+  _312 = 1 << _311;
+  _313 ={v} ftmBase_40->SC;
+  _314 = _312 | _313;
+  ftmBase_40->SC ={v} _314;
+  _315 = param_41(D)->pwmIndependentChannelConfig;
+  _316 = _315 + _249;
+  _317 = _316->enableSecondChannelOutput;
+  if (_317 != 0)
+    goto <bb 29>; [50.00%]
+  else
+    goto <bb 30>; [50.00%]
+
+  <bb 29> [local count: 1003411738]:
+  _318 = channelId_251 + 1;
+  _319 = (unsigned int) _318;
+  _320 = _319 + 16;
+  _321 = 1 << _320;
+  _322 ={v} ftmBase_40->SC;
+  _323 = _321 | _322;
+  ftmBase_40->SC ={v} _323;
+
+  <bb 30> [local count: 2006823475]:
+  _325 = param_41(D)->nNumIndependentPwmChannels;
+  ivtmp.102_586 = ivtmp.102_587 + 1;
+  index_522 = (uint8_t) ivtmp.102_586;
+  if (_325 > index_522)
+    goto <bb 7>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 31> [local count: 248034365]:
+  _52 ={v} ftmBase_40->MODE;
+  _53 = _52 & 4294967293;
+  _54 = _53 | 2;
+  ftmBase_40->MODE ={v} _54;
+  _3 = param_41(D)->faultConfig;
+  _4 = _3->faultMode;
+  if (_4 != 0)
+    goto <bb 60>; [50.00%]
+  else
+    goto <bb 77>; [50.00%]
+
+  <bb 32> [local count: 2006823509]:
+  # ivtmp.99_591 = PHI <0(5), ivtmp.99_590(59)>
+  _148 = param_41(D)->pwmCombinedChannelConfig;
+  _288 = ivtmp.99_591 & 255;
+  _151 = _288 * 16;
+  _152 = _148 + _151;
+  channelId_153 = _152->hwChannelId;
+  chnlPairNum_154 = channelId_153 >> 1;
+  _155 = _152->mainChannelSafeState;
+  if (_155 != 0)
+    goto <bb 34>; [50.00%]
+  else
+    goto <bb 33>; [50.00%]
+
+  <bb 33> [local count: 1003411755]:
+  _403 ={v} ftmBase_40->POL;
+  _404 = (int) channelId_153;
+  _405 = 1 << _404;
+  _406 = ~_405;
+  _407 = _403 & _406;
+  ftmBase_40->POL ={v} _407;
+  goto <bb 35>; [100.00%]
+
+  <bb 34> [local count: 1003411755]:
+  _399 ={v} ftmBase_40->POL;
+  _400 = (int) channelId_153;
+  _401 = 1 << _400;
+  _402 = _399 | _401;
+  ftmBase_40->POL ={v} _402;
+
+  <bb 35> [local count: 2006823509]:
+  # prephitmp_623 = PHI <_404(33), _400(34)>
+  _160 = _152->mainChannelPolarity;
+  if (_155 == _160)
+    goto <bb 36>; [34.00%]
+  else
+    goto <bb 37>; [66.00%]
+
+  <bb 36> [local count: 682320000]:
+  _204 = (sizetype) prephitmp_623;
+  _203 = _204 * 8;
+  _200 = ftmBase_40 + _203;
+  _162 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_200 + 12B];
+  _163 = _162 & 4294967291;
+  _164 = _163 | 4;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_200 + 12B] ={v} _164;
+  _165 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_200 + 12B];
+  _166 = _165 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_200 + 12B] ={v} _166;
+  goto <bb 38>; [100.00%]
+
+  <bb 37> [local count: 1324503509]:
+  _289 = (sizetype) prephitmp_623;
+  _255 = _289 * 8;
+  _245 = ftmBase_40 + _255;
+  _168 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_245 + 12B];
+  _169 = _168 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_245 + 12B] ={v} _169;
+  _170 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_245 + 12B];
+  _171 = _170 & 4294967287;
+  _172 = _171 | 8;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_245 + 12B] ={v} _172;
+
+  <bb 38> [local count: 2006823511]:
+  _408 ={v} ftmBase_40->COMBINE;
+  _285 = (signed short) chnlPairNum_154;
+  _491 = (signed short) 8;
+  _410 = _285 w* _491;
+  _411 = 4 << _410;
+  _412 = ~_411;
+  _413 = _408 & _412;
+  ftmBase_40->COMBINE ={v} _413;
+  _147 = (sizetype) prephitmp_623;
+  _50 = _147 * 8;
+  _43 = ftmBase_40 + _50;
+  _174 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_43 + 12B];
+  _175 = _174 & 4294967279;
+  _176 = _175 | 16;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_43 + 12B] ={v} _176;
+  _177 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_43 + 12B];
+  _178 = _177 & 4294967263;
+  _179 = _178 | 32;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_43 + 12B] ={v} _179;
+  _180 = (unsigned int) channelId_153;
+  _181 = _180 + 16;
+  _182 = 1 << _181;
+  _183 ={v} ftmBase_40->SC;
+  _184 = _182 | _183;
+  ftmBase_40->SC ={v} _184;
+  _187 = _152->enableSecondChannelOutput;
+  if (_187 != 0)
+    goto <bb 39>; [33.00%]
+  else
+    goto <bb 50>; [67.00%]
+
+  <bb 39> [local count: 662251755]:
+  channelId_188 = channelId_153 + 1;
+  _189 = _152->secondChannelSafeState;
+  if (_189 != 0)
+    goto <bb 41>; [50.00%]
+  else
+    goto <bb 40>; [50.00%]
+
+  <bb 40> [local count: 331125876]:
+  _418 ={v} ftmBase_40->POL;
+  _419 = (int) channelId_188;
+  _420 = 1 << _419;
+  _421 = ~_420;
+  _422 = _418 & _421;
+  ftmBase_40->POL ={v} _422;
+  goto <bb 42>; [100.00%]
+
+  <bb 41> [local count: 331125876]:
+  _414 ={v} ftmBase_40->POL;
+  _415 = (int) channelId_188;
+  _416 = 1 << _415;
+  _417 = _414 | _416;
+  ftmBase_40->POL ={v} _417;
+
+  <bb 42> [local count: 662251755]:
+  # prephitmp_624 = PHI <_419(40), _415(41)>
+  _626 = (sizetype) prephitmp_624;
+  _625 = _626 * 8;
+  _622 = ftmBase_40 + _625;
+  _192 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_622 + 12B];
+  _193 = _192 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_622 + 12B] ={v} _193;
+  _194 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_622 + 12B];
+  _195 = _194 & 4294967287;
+  _196 = _195 | 8;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_622 + 12B] ={v} _196;
+  if (_155 == _189)
+    goto <bb 43>; [34.00%]
+  else
+    goto <bb 46>; [66.00%]
+
+  <bb 43> [local count: 225165598]:
+  _201 = _152->secondChannelPolarity;
+  if (_201 == 0)
+    goto <bb 44>; [33.00%]
+  else
+    goto <bb 45>; [67.00%]
+
+  <bb 44> [local count: 74304646]:
+  _423 ={v} ftmBase_40->COMBINE;
+  _426 = 2 << _410;
+  _427 = ~_426;
+  _428 = _423 & _427;
+  ftmBase_40->COMBINE ={v} _428;
+  goto <bb 49>; [100.00%]
+
+  <bb 45> [local count: 150860952]:
+  _202 ={v} ftmBase_40->COMBINE;
+  _205 = 2 << _410;
+  _206 = _202 | _205;
+  ftmBase_40->COMBINE ={v} _206;
+  goto <bb 49>; [100.00%]
+
+  <bb 46> [local count: 437086156]:
+  _207 = _152->secondChannelPolarity;
+  if (_207 == 0)
+    goto <bb 47>; [67.00%]
+  else
+    goto <bb 48>; [33.00%]
+
+  <bb 47> [local count: 292847724]:
+  _208 ={v} ftmBase_40->COMBINE;
+  _211 = 2 << _410;
+  _212 = _208 | _211;
+  ftmBase_40->COMBINE ={v} _212;
+  goto <bb 49>; [100.00%]
+
+  <bb 48> [local count: 144238430]:
+  _429 ={v} ftmBase_40->COMBINE;
+  _432 = 2 << _410;
+  _433 = ~_432;
+  _434 = _429 & _433;
+  ftmBase_40->COMBINE ={v} _434;
+
+  <bb 49> [local count: 662251755]:
+  _213 = (unsigned int) channelId_188;
+  _214 = _213 + 16;
+  _215 = 1 << _214;
+  _216 ={v} ftmBase_40->SC;
+  _217 = _215 | _216;
+  ftmBase_40->SC ={v} _217;
+
+  <bb 50> [local count: 2006823511]:
+  _218 = param_41(D)->faultConfig;
+  _219 = _218->faultMode;
+  if (_219 != 0)
+    goto <bb 51>; [50.00%]
+  else
+    goto <bb 52>; [50.00%]
+
+  <bb 51> [local count: 1003411755]:
+  _445 ={v} ftmBase_40->COMBINE;
+  _448 = 64 << _410;
+  _449 = _445 | _448;
+  ftmBase_40->COMBINE ={v} _449;
+  goto <bb 53>; [100.00%]
+
+  <bb 52> [local count: 1003411755]:
+  _450 ={v} ftmBase_40->COMBINE;
+  _453 = 64 << _410;
+  _454 = ~_453;
+  _455 = _450 & _454;
+  ftmBase_40->COMBINE ={v} _455;
+
+  <bb 53> [local count: 2006823511]:
+  _221 ={v} ftmBase_40->COMBINE;
+  _224 = 32 << _410;
+  _225 = _221 | _224;
+  ftmBase_40->COMBINE ={v} _225;
+  _226 ={v} ftmBase_40->COMBINE;
+  _227 = 1 << _410;
+  _228 = _226 | _227;
+  ftmBase_40->COMBINE ={v} _228;
+  _231 = _152->enableModifiedCombine;
+  if (_231 != 0)
+    goto <bb 54>; [50.00%]
+  else
+    goto <bb 55>; [50.00%]
+
+  <bb 54> [local count: 1003411755]:
+  _440 ={v} ftmBase_40->COMBINE;
+  _443 = 128 << _410;
+  _444 = _440 | _443;
+  ftmBase_40->COMBINE ={v} _444;
+  goto <bb 56>; [100.00%]
+
+  <bb 55> [local count: 1003411755]:
+  _456 ={v} ftmBase_40->COMBINE;
+  _459 = 128 << _410;
+  _460 = ~_459;
+  _461 = _456 & _460;
+  ftmBase_40->COMBINE ={v} _461;
+
+  <bb 56> [local count: 2006823511]:
+  _234 = _152->deadTime;
+  if (_234 != 0)
+    goto <bb 57>; [50.00%]
+  else
+    goto <bb 58>; [50.00%]
+
+  <bb 57> [local count: 1003411755]:
+  _435 ={v} ftmBase_40->COMBINE;
+  _438 = 16 << _410;
+  _439 = _435 | _438;
+  ftmBase_40->COMBINE ={v} _439;
+  goto <bb 59>; [100.00%]
+
+  <bb 58> [local count: 1003411755]:
+  _462 ={v} ftmBase_40->COMBINE;
+  _465 = 16 << _410;
+  _466 = ~_465;
+  _467 = _462 & _466;
+  ftmBase_40->COMBINE ={v} _467;
+
+  <bb 59> [local count: 2006823512]:
+  channelId_235 = channelId_153 & 254;
+  _238 = _152->enableExternalTrigger;
+  FTM_DRV_SetChnTriggerCmd (ftmBase_40, channelId_235, _238);
+  channelId_239 = channelId_235 + 1;
+  _240 = param_41(D)->pwmCombinedChannelConfig;
+  _241 = _240 + _151;
+  _242 = _241->enableExternalTriggerOnNextChn;
+  FTM_DRV_SetChnTriggerCmd (ftmBase_40, channelId_239, _242);
+  _244 = param_41(D)->nNumCombinedPwmChannels;
+  ivtmp.99_590 = ivtmp.99_591 + 1;
+  index_588 = (uint8_t) ivtmp.99_590;
+  if (_244 > index_588)
+    goto <bb 32>; [89.00%]
+  else
+    goto <bb 31>; [11.00%]
+
+  <bb 60> [local count: 124017183]:
+  _5 = _3->pwmOutputStateOnFault;
+  if (_5 != 0)
+    goto <bb 61>; [50.00%]
+  else
+    goto <bb 62>; [50.00%]
+
+  <bb 61> [local count: 62008591]:
+  _67 ={v} ftmBase_40->FLTCTRL;
+  _68 = _67 | 32768;
+  ftmBase_40->FLTCTRL ={v} _68;
+  goto <bb 63>; [100.00%]
+
+  <bb 62> [local count: 62008591]:
+  _69 ={v} ftmBase_40->FLTCTRL;
+  _70 = _69 & 4294934527;
+  ftmBase_40->FLTCTRL ={v} _70;
+
+  <bb 63> [local count: 124017183]:
+  _6 = _3->faultFilterValue;
+  _7 = (long unsigned int) _6;
+  _62 ={v} ftmBase_40->FLTCTRL;
+  _63 = _62 & 4294963455;
+  _64 = _7 << 8;
+  _65 = _64 & 3840;
+  _66 = _63 | _65;
+  ftmBase_40->FLTCTRL ={v} _66;
+  if (instance_37(D) <= 3)
+    goto <bb 65>; [50.00%]
+  else
+    goto <bb 64>; [50.00%]
+
+  <bb 64> [local count: 62008592]:
+
+  <bb 65> [local count: 124017183]:
+  # faultChnNum_30 = PHI <4(63), 2(64)>
+  ivtmp.95_601 = (unsigned int) _3;
+  _256 = faultChnNum_30 + 4;
+  _594 = (unsigned int) _256;
+
+  <bb 66> [local count: 496068725]:
+  # ivtmp.95_603 = PHI <ivtmp.95_601(65), ivtmp.95_602(73)>
+  # ivtmp.97_600 = PHI <4(65), ivtmp.97_599(73)>
+  _593 = ivtmp.97_600 + 4294967292;
+  _592 = (int) _593;
+  _598 = (void *) ivtmp.95_603;
+  _10 = MEM[base: _598, offset: 4B];
+  if (_10 != 0)
+    goto <bb 67>; [33.00%]
+  else
+    goto <bb 73>; [67.00%]
+
+  <bb 67> [local count: 163702679]:
+  _76 ={v} ftmBase_40->FLTCTRL;
+  _77 = 1 << _592;
+  _78 = _76 | _77;
+  ftmBase_40->FLTCTRL ={v} _78;
+  _11 = MEM[base: _598, offset: 5B];
+  if (_11 != 0)
+    goto <bb 68>; [50.00%]
+  else
+    goto <bb 69>; [50.00%]
+
+  <bb 68> [local count: 81851339]:
+  _468 ={v} ftmBase_40->FLTCTRL;
+  _471 = 1 << ivtmp.97_600;
+  _472 = _468 | _471;
+  ftmBase_40->FLTCTRL ={v} _472;
+  goto <bb 70>; [100.00%]
+
+  <bb 69> [local count: 81851339]:
+  _473 ={v} ftmBase_40->FLTCTRL;
+  _476 = 1 << ivtmp.97_600;
+  _477 = ~_476;
+  _478 = _473 & _477;
+  ftmBase_40->FLTCTRL ={v} _478;
+
+  <bb 70> [local count: 163702679]:
+  _13 = MEM[base: _598, offset: 6B];
+  if (_13 == 1)
+    goto <bb 71>; [50.00%]
+  else
+    goto <bb 72>; [50.00%]
+
+  <bb 71> [local count: 81851339]:
+  _71 ={v} ftmBase_40->FLTPOL;
+  _72 = ~_77;
+  _73 = _71 & _72;
+  ftmBase_40->FLTPOL ={v} _73;
+  goto <bb 73>; [100.00%]
+
+  <bb 72> [local count: 81851339]:
+  _74 ={v} ftmBase_40->FLTPOL;
+  _75 = _74 | _77;
+  ftmBase_40->FLTPOL ={v} _75;
+
+  <bb 73> [local count: 496068725]:
+  ivtmp.95_602 = ivtmp.95_603 + 3;
+  ivtmp.97_599 = ivtmp.97_600 + 1;
+  if (_594 != ivtmp.97_599)
+    goto <bb 66>; [75.00%]
+  else
+    goto <bb 74>; [25.00%]
+
+  <bb 74> [local count: 124017183]:
+  _15 = _3->pwmFaultInterrupt;
+  if (_15 != 0)
+    goto <bb 75>; [50.00%]
+  else
+    goto <bb 76>; [50.00%]
+
+  <bb 75> [local count: 62008591]:
+  _79 ={v} ftmBase_40->MODE;
+  _80 = _79 & 4294967167;
+  _81 = _80 | 128;
+  ftmBase_40->MODE ={v} _81;
+
+  <bb 76> [local count: 124017183]:
+  _17 = (long unsigned int) _4;
+  _82 ={v} ftmBase_40->MODE;
+  _83 = _82 & 4294967199;
+  _84 = _17 << 5;
+  _85 = _84 & 96;
+  _86 = _83 | _85;
+  ftmBase_40->MODE ={v} _86;
+
+  <bb 77> [local count: 248034366]:
+  _18 = param_41(D)->mode;
+  _19 = _18 == 4;
+  _89 ={v} ftmBase_40->SC;
+  _90 = _89 & 4294967263;
+  _91 = (long unsigned int) _19;
+  _92 = _91 << 5;
+  _93 = _90 | _92;
+  ftmBase_40->SC ={v} _93;
+  _20 = param_41(D)->uFrequencyHZ;
+  _21 = FTM_DRV_ConvertFreqToPeriodTicks (instance_37(D), _20);
+  state_39->ftmPeriod = _21;
+  _87 ={v} ftmBase_40->CNTIN;
+  _88 = _87 & 4294901760;
+  ftmBase_40->CNTIN ={v} _88;
+  _22 = param_41(D)->mode;
+  if (_22 == 4)
+    goto <bb 78>; [34.00%]
+  else
+    goto <bb 82>; [66.00%]
+
+  <bb 78> [local count: 84331684]:
+  _23 = _21 >> 1;
+  _94 ={v} ftmBase_40->MOD;
+  _95 = _94 & 4294901760;
+  _96 = (long unsigned int) _23;
+  _97 = _95 | _96;
+  ftmBase_40->MOD ={v} _97;
+  _523 = param_41(D)->nNumIndependentPwmChannels;
+  if (_523 != 0)
+    goto <bb 84>; [89.00%]
+  else
+    goto <bb 79>; [11.00%]
+
+  <bb 79> [local count: 9276485]:
+  _382 = param_41(D)->nNumCombinedPwmChannels;
+  if (_382 != 0)
+    goto <bb 81>; [89.00%]
+  else
+    goto <bb 80>; [11.00%]
+
+  <bb 80> [local count: 124017183]:
+  _25 = param_41(D)->deadTimeValue;
+  _120 ={v} ftmBase_40->DEADTIME;
+  _121 = _120 & 4294967232;
+  _122 = _25 & 63;
+  _123 = (long unsigned int) _122;
+  _124 = _121 | _123;
+  ftmBase_40->DEADTIME ={v} _124;
+  _26 = param_41(D)->deadTimePrescaler;
+  _114 ={v} ftmBase_40->DEADTIME;
+  _115 = _114 & 4294967103;
+  _116 = (long unsigned int) _26;
+  _117 = _116 << 6;
+  _118 = _117 & 255;
+  _119 = _115 | _118;
+  ftmBase_40->DEADTIME ={v} _119;
+  _111 ={v} ftmBase_40->MODE;
+  _112 = _111 & 4294967294;
+  _113 = _112 | 1;
+  ftmBase_40->MODE ={v} _113;
+  _108 ={v} ftmBase_40->MODE;
+  _109 = _108 & 4294967287;
+  _110 = _109 | 8;
+  ftmBase_40->MODE ={v} _110;
+  _27 = state_39->ftmClockSource;
+  _102 ={v} ftmBase_40->SC;
+  _103 = _102 & 4294967271;
+  _104 = (long unsigned int) _27;
+  _105 = _104 << 3;
+  _106 = _105 & 24;
+  _107 = _103 | _106;
+  ftmBase_40->SC ={v} _107;
+  goto <bb 90>; [100.00%]
+
+  <bb 81> [local count: 220750587]:
+  goto <bb 87>; [100.00%]
+
+  <bb 82> [local count: 163702681]:
+  _24 = _21 + 65535;
+  _98 ={v} ftmBase_40->MOD;
+  _99 = _98 & 4294901760;
+  _100 = (long unsigned int) _24;
+  _101 = _99 | _100;
+  ftmBase_40->MOD ={v} _101;
+  _506 = param_41(D)->nNumIndependentPwmChannels;
+  if (_506 != 0)
+    goto <bb 84>; [89.00%]
+  else
+    goto <bb 83>; [11.00%]
+
+  <bb 83> [local count: 18007295]:
+  _247 = param_41(D)->nNumCombinedPwmChannels;
+  if (_247 != 0)
+    goto <bb 81>; [89.00%]
+  else
+    goto <bb 80>; [11.00%]
+
+  <bb 84> [local count: 220750585]:
+
+  <bb 85> [local count: 2006823520]:
+  # ivtmp.88_607 = PHI <0(84), ivtmp.88_606(85)>
+  _479 = param_41(D)->pwmIndependentChannelConfig;
+  _190 = ivtmp.88_607 & 255;
+  _482 = _190 * 10;
+  _483 = _479 + _482;
+  hwChannel_484 = _483->hwChannelId;
+  _485 = _483->uDutyCyclePercent;
+  retVal_486 = FTM_DRV_UpdatePwmChannel (instance_37(D), hwChannel_484, 0, _485, 0, 0);
+  _488 = param_41(D)->nNumIndependentPwmChannels;
+  ivtmp.88_606 = ivtmp.88_607 + 1;
+  index_604 = (uint8_t) ivtmp.88_606;
+  if (_488 > index_604)
+    goto <bb 85>; [89.00%]
+  else
+    goto <bb 86>; [11.00%]
+
+  <bb 86> [local count: 220750586]:
+  _29 = param_41(D)->nNumCombinedPwmChannels;
+  if (_29 != 0)
+    goto <bb 81>; [89.00%]
+  else
+    goto <bb 88>; [11.00%]
+
+  <bb 87> [local count: 2006823520]:
+  # ivtmp.85_436 = PHI <0(81), ivtmp.85_12(87)>
+  _489 = param_41(D)->pwmCombinedChannelConfig;
+  _265 = ivtmp.85_436 & 255;
+  _492 = _265 * 16;
+  _493 = _489 + _492;
+  hwChannel_494 = _493->hwChannelId;
+  _495 = _493->firstEdge;
+  _496 = _493->secondEdge;
+  retVal_497 = FTM_DRV_UpdatePwmChannel (instance_37(D), hwChannel_494, 0, _495, _496, 0);
+  _499 = param_41(D)->nNumCombinedPwmChannels;
+  ivtmp.85_12 = ivtmp.85_436 + 1;
+  index_608 = (uint8_t) ivtmp.85_12;
+  if (_499 > index_608)
+    goto <bb 87>; [89.00%]
+  else
+    goto <bb 88>; [11.00%]
+
+  <bb 88> [local count: 245033151]:
+  # retVal_237 = PHI <retVal_486(86), retVal_497(87)>
+  if (retVal_237 == 0)
+    goto <bb 80>; [49.38%]
+  else
+    goto <bb 89>; [50.62%]
+
+  <bb 89> [local count: 124017183]:
+  state_39->ftmMode = 0;
+
+  <bb 90> [local count: 1073741829]:
+  # retVal_28 = PHI <retVal_237(89), 1(2), 0(80), 1(3)>
+  return retVal_28;
+
+}
+
+
+
+;; Function FTM_DRV_UpdatePwmPeriod (FTM_DRV_UpdatePwmPeriod, funcdef_no=147, decl_uid=6835, cgraph_uid=148, symbol_order=147)
+
+Removing basic block 10
+Removing basic block 11
+FTM_DRV_UpdatePwmPeriod (uint32_t instance, ftm_pwm_update_option_t typeOfUpdate, uint32_t newValue, _Bool softwareTrigger)
+{
+  status_t retStatus;
+  struct ftm_state_t * state;
+  struct FTM_Type * ftmBase;
+  uint32_t ftmPeriod;
+  long unsigned int _1;
+  short unsigned int _2;
+  <unnamed type> _3;
+  short unsigned int _4;
+  long unsigned int _7;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+
+  <bb 2> [local count: 1073741823]:
+  ftmBase_10 = g_ftmBase[instance_9(D)];
+  state_11 = ftmStatePtr[instance_9(D)];
+  if (typeOfUpdate_12(D) == 1)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669600]:
+  _1 = state_11->ftmSourceClockFrequency;
+  if (_1 >= newValue_13(D))
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 4> [local count: 233860966]:
+  _2 = FTM_DRV_ConvertFreqToPeriodTicks (instance_9(D), newValue_13(D));
+  ftmPeriod_15 = (uint32_t) _2;
+
+  <bb 5> [local count: 598933191]:
+  # ftmPeriod_30 = PHI <ftmPeriod_15(4), newValue_13(D)(2)>
+  _3 = state_11->ftmMode;
+  if (_3 == 4)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 7>; [66.00%]
+
+  <bb 6> [local count: 203637287]:
+  ftmPeriod_17 = ftmPeriod_30 >> 1;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 395295904]:
+  ftmPeriod_16 = ftmPeriod_30 + 4294967295;
+
+  <bb 8> [local count: 598933191]:
+  # ftmPeriod_5 = PHI <ftmPeriod_17(6), ftmPeriod_16(7)>
+  _4 = (short unsigned int) ftmPeriod_5;
+  _25 ={v} ftmBase_10->MOD;
+  _26 = _25 & 4294901760;
+  _7 = ftmPeriod_5 & 65535;
+  _27 = _7 | _26;
+  ftmBase_10->MOD ={v} _27;
+  _20 ={v} ftmBase_10->SYNC;
+  _21 = _20 & 4294967167;
+  _22 = (long unsigned int) softwareTrigger_18(D);
+  _23 = _22 << 7;
+  _24 = _21 | _23;
+  ftmBase_10->SYNC ={v} _24;
+  state_11->ftmPeriod = _4;
+
+  <bb 9> [local count: 1073741824]:
+  # retStatus_31 = PHI <0(8), 1(3)>
+  return retStatus_31;
+
+}
+
+
+
+;; Function FTM_DRV_FastUpdatePwmChannels (FTM_DRV_FastUpdatePwmChannels, funcdef_no=148, decl_uid=6830, cgraph_uid=149, symbol_order=148)
+
+Removing basic block 8
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+FTM_DRV_FastUpdatePwmChannels (uint32_t instance, uint8_t numberOfChannels, const uint8_t * channels, const uint16_t * duty, _Bool softwareTrigger)
+{
+  unsigned int ivtmp.119;
+  unsigned int ivtmp.116;
+  struct FTM_Type * ftmBase;
+  unsigned int _2;
+  signed short _3;
+  short unsigned int _4;
+  unsigned char _6;
+  int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  void * _11;
+  const uint8_t * _12;
+  signed short _26;
+  const uint16_t * _30;
+  unsigned char _33;
+  void * _37;
+  unsigned int _39;
+
+  <bb 2> [local count: 118111600]:
+  ftmBase_16 = g_ftmBase[instance_15(D)];
+  if (numberOfChannels_17(D) != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 3> [local count: 105119324]:
+  _30 = duty_20(D) + 4294967294;
+  ivtmp.116_31 = (unsigned int) _30;
+  _12 = channels_21(D) + 4294967295;
+  ivtmp.119_24 = (unsigned int) _12;
+  _33 = numberOfChannels_17(D) + 255;
+  _3 = (signed short) 2;
+  _26 = (signed short) _33;
+  _2 = (unsigned int) duty_20(D);
+  _39 = WIDEN_MULT_PLUS_EXPR <_3, _26, _2>;
+
+  <bb 4> [local count: 955630225]:
+  # ivtmp.116_28 = PHI <ivtmp.116_31(3), ivtmp.116_32(4)>
+  # ivtmp.119_29 = PHI <ivtmp.119_24(3), ivtmp.119_25(4)>
+  ivtmp.116_32 = ivtmp.116_28 + 2;
+  _11 = (void *) ivtmp.116_32;
+  _4 = MEM[base: _11, offset: 0B];
+  ivtmp.119_25 = ivtmp.119_29 + 1;
+  _37 = (void *) ivtmp.119_25;
+  _6 = MEM[base: _37, offset: 0B];
+  _7 = (int) _6;
+  _8 = (long unsigned int) _4;
+  ftmBase_16->CONTROLS[_7].CnV ={v} _8;
+  if (ivtmp.116_32 != _39)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  if (softwareTrigger_18(D) != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 59055800]:
+  _9 ={v} ftmBase_16->SYNC;
+  _10 = _9 | 128;
+  ftmBase_16->SYNC ={v} _10;
+
+  <bb 7> [local count: 118111600]:
+  return 0;
+
+}
+
+
+
+;; Function FTM_DRV_ControlChannelOutput (FTM_DRV_ControlChannelOutput, funcdef_no=149, decl_uid=6839, cgraph_uid=150, symbol_order=149)
+
+FTM_DRV_ControlChannelOutput (uint32_t instance, uint8_t channel, _Bool enableChannelOutput)
+{
+  uint32_t regValue;
+  struct FTM_Type * ftmBase;
+  unsigned int _7;
+  unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  unsigned int _13;
+  unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+
+  <bb 2> [local count: 1073741824]:
+  ftmBase_4 = g_ftmBase[instance_3(D)];
+  if (enableChannelOutput_5(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _7 = (unsigned int) channel_6(D);
+  _8 = _7 + 16;
+  _9 = 1 << _8;
+  _10 ={v} ftmBase_4->SC;
+  _11 = _9 | _10;
+  ftmBase_4->SC ={v} _11;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  regValue_12 ={v} ftmBase_4->SC;
+  _13 = (unsigned int) channel_6(D);
+  _14 = _13 + 16;
+  _15 = 1 << _14;
+  _16 = ~_15;
+  regValue_17 = regValue_12 & _16;
+  ftmBase_4->SC ={v} regValue_17;
+
+  <bb 5> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function FTM_PWM_DRV_IrqHandler (FTM_PWM_DRV_IrqHandler, funcdef_no=150, decl_uid=6842, cgraph_uid=151, symbol_order=150)
+
+Removing basic block 7
+FTM_PWM_DRV_IrqHandler (uint32_t instance, uint32_t chnOutCtrlVal)
+{
+  struct FTM_Type * ftmBase;
+  _Bool faultDetection.8_1;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int vol.1_14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int vol.1_17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int vol.9_46;
+
+  <bb 2> [local count: 1073741824]:
+  ftmBase_5 = g_ftmBase[instance_4(D)];
+  _10 ={v} MEM[(const struct FTM_Type *)ftmBase_5].FMS;
+  _11 = _10 & 128;
+  if (_11 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  faultDetection = 1;
+  ftmBase_5->OUTMASK ={v} chnOutCtrlVal_6(D);
+  _38 ={v} ftmBase_5->FMS;
+  _39 = _38 & 4294967166;
+  ftmBase_5->FMS ={v} _39;
+  _40 ={v} ftmBase_5->FMS;
+  _41 = _40 & 4294967165;
+  ftmBase_5->FMS ={v} _41;
+  _42 ={v} ftmBase_5->FMS;
+  _43 = _42 & 4294967163;
+  ftmBase_5->FMS ={v} _43;
+  _44 ={v} ftmBase_5->FMS;
+  _45 = _44 & 4294967159;
+  ftmBase_5->FMS ={v} _45;
+  vol.9_46 ={v} ftmBase_5->FMS;
+  _12 ={v} ftmBase_5->SC;
+  _13 = _12 & 4294966783;
+  ftmBase_5->SC ={v} _13;
+  vol.1_14 ={v} ftmBase_5->SC;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 719407025]:
+  faultDetection.8_1 = faultDetection;
+  if (faultDetection.8_1 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 359703512]:
+  _27 ={v} ftmBase_5->SWOCTRL;
+  _28 = _27 & 4294967040;
+  ftmBase_5->SWOCTRL ={v} _28;
+  _25 ={v} ftmBase_5->SWOCTRL;
+  _26 = _25 & 4294902015;
+  ftmBase_5->SWOCTRL ={v} _26;
+  _22 ={v} ftmBase_5->SWOCTRL;
+  _23 = _22 & 4294967040;
+  _29 = chnOutCtrlVal_6(D) & 255;
+  _24 = _23 | _29;
+  ftmBase_5->SWOCTRL ={v} _24;
+  _18 ={v} ftmBase_5->SWOCTRL;
+  _19 = _18 & 4294902015;
+  _20 = _29 << 8;
+  _21 = _19 | _20;
+  ftmBase_5->SWOCTRL ={v} _21;
+  ftmBase_5->OUTMASK ={v} 0;
+  faultDetection = 0;
+  _15 ={v} ftmBase_5->SC;
+  _16 = _15 & 4294966783;
+  ftmBase_5->SC ={v} _16;
+  vol.1_17 ={v} ftmBase_5->SC;
+
+  <bb 6> [local count: 1073741824]:
+  return;
+
+}
+
+

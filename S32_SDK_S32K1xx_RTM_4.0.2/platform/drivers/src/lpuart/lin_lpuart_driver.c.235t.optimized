@@ -1,0 +1,2614 @@
+
+;; Function LIN_LPUART_DRV_WaitComplete (LIN_LPUART_DRV_WaitComplete, funcdef_no=44, decl_uid=8046, cgraph_uid=45, symbol_order=53)
+
+Removing basic block 7
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+LIN_LPUART_DRV_WaitComplete (uint32_t instance, uint32_t timeoutMSec)
+{
+  status_t retVal;
+  struct lin_state_t * linCurrentState;
+  _Bool _1;
+  struct QueueDefinition * * _2;
+  <unnamed type> _3;
+  _Bool _4;
+  struct QueueDefinition * * _5;
+  <unnamed type> _6;
+
+  <bb 2> [local count: 1073741824]:
+  linCurrentState_13 = g_linStatePtr[instance_12(D)];
+  _1 ={v} linCurrentState_13->isTxBlocking;
+  if (_1 != 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 3>; [67.00%]
+
+  <bb 3> [local count: 953267991]:
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 354334800]:
+  _2 = &linCurrentState_13->txCompleted;
+  _3 = OSIF_SemaWait (_2, timeoutMSec_14(D));
+  if (_3 == 3)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 5> [local count: 1073741824]:
+  # retVal_7 = PHI <0(3), _3(4)>
+  _4 ={v} linCurrentState_13->isRxBlocking;
+  if (_4 != 0)
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 6> [local count: 354334800]:
+  _5 = &linCurrentState_13->rxCompleted;
+  _6 = OSIF_SemaWait (_5, timeoutMSec_14(D));
+  if (_6 == 3)
+    goto <bb 7>; [21.72%]
+  else
+    goto <bb 8>; [78.28%]
+
+  <bb 7> [local count: 76961520]:
+
+  <bb 8> [local count: 1073741824]:
+  # retVal_8 = PHI <retVal_7(5), retVal_7(6), _6(7)>
+  return retVal_8;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_Init (LIN_LPUART_DRV_Init, funcdef_no=23, decl_uid=7976, cgraph_uid=24, symbol_order=32)
+
+Removing basic block 12
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+LIN_LPUART_DRV_Init (uint32_t instance, struct lin_user_config_t * linUserConfig, struct lin_state_t * linCurrentState)
+{
+  struct LPUART_Type * base;
+  status_t retVal;
+  uint32_t linSourceClockFreq;
+  <unnamed type> _1;
+  long unsigned int linSourceClockFreq.0_2;
+  struct QueueDefinition * * _3;
+  <unnamed type> _4;
+  struct QueueDefinition * * _5;
+  <unnamed type> _6;
+  _Bool _7;
+  _Bool _8;
+  _Bool _10;
+  <unnamed type> _11;
+  void (*<T606>) (void) _12;
+  long unsigned int _13;
+  _Bool _14;
+  _Bool _15;
+  long unsigned int pretmp_19;
+  long unsigned int prephitmp_57;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long unsigned int _65;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  long unsigned int _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  unsigned char cstore_83;
+
+  <bb 2> [local count: 954437178]:
+  linSourceClockFreq = 0;
+  base_24 = g_linLpuartBase[instance_23(D)];
+  _1 = s_linLpuartClkName[instance_23(D)];
+  CLOCK_SYS_GetFreq (_1, &linSourceClockFreq);
+  g_linStatePtr[instance_23(D)] = linCurrentState_26(D);
+  g_linUserconfigPtr[instance_23(D)] = linUserConfig_28(D);
+  linSourceClockFreq.0_2 = linSourceClockFreq;
+  linCurrentState_26(D)->linSourceClockFreq = linSourceClockFreq.0_2;
+  LPUART_Init (base_24);
+  _3 = &linCurrentState_26(D)->txCompleted;
+  _4 = OSIF_SemaCreate (_3, 0);
+  if (_4 != 0)
+    goto <bb 3>; [67.00%]
+  else
+    goto <bb 4>; [33.00%]
+
+  <bb 3> [local count: 796955045]:
+  goto <bb 20>; [100.00%]
+
+  <bb 4> [local count: 314964267]:
+  _5 = &linCurrentState_26(D)->rxCompleted;
+  _6 = OSIF_SemaCreate (_5, 0);
+  if (_6 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 157482133]:
+  _7 = linUserConfig_28(D)->autobaudEnable;
+  if (_7 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 118111601]:
+  pretmp_19 = linUserConfig_28(D)->baudRate;
+  goto <bb 9>; [100.00%]
+
+  <bb 7> [local count: 78741067]:
+  _8 = linUserConfig_28(D)->nodeFunction;
+  if (_8 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 8> [local count: 39370533]:
+  linUserConfig_28(D)->baudRate = 19200;
+  linCurrentState_26(D)->fallingEdgeInterruptCount ={v} 0;
+  linCurrentState_26(D)->baudrateEvalEnable ={v} 1;
+  s_previousTwoBitTimeLength[instance_23(D)] = 0;
+  s_countMeasure[instance_23(D)] = 0;
+  s_timeMeasure[instance_23(D)] = 0;
+
+  <bb 9> [local count: 157482133]:
+  # prephitmp_57 = PHI <19200(8), pretmp_19(6)>
+  LPUART_DRV_SetBaudRate (instance_23(D), prephitmp_57);
+  LPUART_SetBitCountPerChar (base_24, 0, 0);
+  LPUART_SetParityMode (base_24, 0);
+  _59 ={v} base_24->BAUD;
+  _60 = _59 & 4294959103;
+  base_24->BAUD ={v} _60;
+  _10 = linUserConfig_28(D)->nodeFunction;
+  if (_10 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 78741067]:
+  _61 ={v} base_24->STAT;
+  _62 = _61 & 1004552191;
+  _63 = _62 | 67108864;
+  base_24->STAT ={v} _63;
+
+  <bb 11> [local count: 157482133]:
+  _64 ={v} base_24->STAT;
+  _65 = _64 & 1038106623;
+  _66 = _65 | 33554432;
+  base_24->STAT ={v} _66;
+  LPUART_SetIntMode (base_24, 196629, 1);
+  LPUART_SetIntMode (base_24, 196633, 1);
+  LPUART_SetIntMode (base_24, 65551, 1);
+  _11 = g_linLpuartRxTxIrqId[instance_23(D)];
+  _12 = g_linLpuartIsrs[instance_23(D)];
+  INT_SYS_InstallHandler (_11, _12, 0B);
+  INT_SYS_EnableIRQ (_11);
+  linCurrentState_26(D)->currentNodeState ={v} 2;
+  linCurrentState_26(D)->isTxBusy ={v} 0;
+  linCurrentState_26(D)->isRxBusy ={v} 0;
+  linCurrentState_26(D)->isBusBusy ={v} 0;
+  linCurrentState_26(D)->isRxBlocking ={v} 0;
+  linCurrentState_26(D)->isTxBlocking ={v} 0;
+  linCurrentState_26(D)->timeoutCounterFlag ={v} 0;
+  linCurrentState_26(D)->timeoutCounter ={v} 0;
+  _13 = linUserConfig_28(D)->baudRate;
+  if (_13 > 10000)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 12> [local count: 78741067]:
+
+  <bb 13> [local count: 157482133]:
+  # cstore_83 = PHI <128(11), 248(12)>
+  s_wakeupSignal[instance_23(D)] = cstore_83;
+  _14 = linUserConfig_28(D)->autobaudEnable;
+  if (_14 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 14> [local count: 78741067]:
+  _15 = linUserConfig_28(D)->nodeFunction;
+  if (_15 != 0)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 15> [local count: 157482134]:
+  goto <bb 20>; [100.00%]
+
+  <bb 16> [local count: 118111600]:
+  _72 ={v} base_24->CTRL;
+  _73 = _72 & 4294443007;
+  _74 = _73 | 524288;
+  base_24->CTRL ={v} _74;
+
+  <bb 17> [local count: 1073741824]:
+  _75 ={v} base_24->CTRL;
+  _76 = _75 & 524288;
+  if (_76 == 0)
+    goto <bb 17>; [89.00%]
+  else
+    goto <bb 18>; [11.00%]
+
+  <bb 18> [local count: 118111600]:
+  _67 ={v} base_24->CTRL;
+  _68 = _67 & 4294705151;
+  _69 = _68 | 262144;
+  base_24->CTRL ={v} _69;
+
+  <bb 19> [local count: 1073741824]:
+  _70 ={v} base_24->CTRL;
+  _71 = _70 & 262144;
+  if (_71 == 0)
+    goto <bb 19>; [89.00%]
+  else
+    goto <bb 15>; [11.00%]
+
+  <bb 20> [local count: 954437178]:
+  # retVal_16 = PHI <1(3), _6(15)>
+  linSourceClockFreq ={v} {CLOBBER};
+  return retVal_16;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_Deinit (LIN_LPUART_DRV_Deinit, funcdef_no=24, decl_uid=7978, cgraph_uid=25, symbol_order=33)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+LIN_LPUART_DRV_Deinit (uint32_t instance)
+{
+  struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  _Bool _1;
+  struct QueueDefinition * * _2;
+  struct QueueDefinition * * _3;
+  <unnamed type> _4;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+
+  <bb 2> [local count: 118111600]:
+  base_8 = g_linLpuartBase[instance_7(D)];
+  linCurrentState_9 = g_linStatePtr[instance_7(D)];
+
+  <bb 3> [local count: 1073741824]:
+  _1 = LPUART_GetStatusFlag (base_8, 131094);
+  if (_1 != 0)
+    goto <bb 4>; [11.00%]
+  else
+    goto <bb 3>; [89.00%]
+
+  <bb 4> [local count: 118111600]:
+  _20 ={v} base_8->CTRL;
+  _21 = _20 & 4294443007;
+  base_8->CTRL ={v} _21;
+
+  <bb 5> [local count: 1073741824]:
+  _22 ={v} base_8->CTRL;
+  _23 = _22 & 524288;
+  if (_23 != 0)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 6>; [11.00%]
+
+  <bb 6> [local count: 118111600]:
+  _16 ={v} base_8->CTRL;
+  _17 = _16 & 4294705151;
+  base_8->CTRL ={v} _17;
+
+  <bb 7> [local count: 1073741824]:
+  _18 ={v} base_8->CTRL;
+  _19 = _18 & 262144;
+  if (_19 != 0)
+    goto <bb 7>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 8> [local count: 118111600]:
+  _2 = &linCurrentState_9->txCompleted;
+  OSIF_SemaDestroy (_2);
+  _3 = &linCurrentState_9->rxCompleted;
+  OSIF_SemaDestroy (_3);
+  _4 = g_linLpuartRxTxIrqId[instance_7(D)];
+  INT_SYS_DisableIRQ (_4);
+  linCurrentState_9->currentNodeState ={v} 0;
+  g_linStatePtr[instance_7(D)] = 0B;
+  return;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_GetDefaultConfig (LIN_LPUART_DRV_GetDefaultConfig, funcdef_no=25, decl_uid=7981, cgraph_uid=26, symbol_order=34)
+
+LIN_LPUART_DRV_GetDefaultConfig (_Bool isMaster, struct lin_user_config_t * linUserConfig)
+{
+  <bb 2> [local count: 1073741824]:
+  linUserConfig_3(D)->baudRate = 19200;
+  linUserConfig_3(D)->autobaudEnable = 0;
+  linUserConfig_3(D)->timerGetTimeIntervalCallback = 0B;
+  linUserConfig_3(D)->nodeFunction = isMaster_7(D);
+  return;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_InstallCallback (LIN_LPUART_DRV_InstallCallback, funcdef_no=26, decl_uid=7984, cgraph_uid=27, symbol_order=35)
+
+LIN_LPUART_DRV_InstallCallback (uint32_t instance, void (*lin_callback_t) (uint32_t, void *) function)
+{
+  void (*lin_callback_t) (uint32_t, void *) currentCallback;
+  struct lin_state_t * linCurrentState;
+
+  <bb 2> [local count: 1073741824]:
+  linCurrentState_3 = g_linStatePtr[instance_2(D)];
+  currentCallback_4 = linCurrentState_3->Callback;
+  linCurrentState_3->Callback = function_5(D);
+  return currentCallback_4;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_SendFrameData (LIN_LPUART_DRV_SendFrameData, funcdef_no=29, decl_uid=7993, cgraph_uid=30, symbol_order=38)
+
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+LIN_LPUART_DRV_SendFrameData (uint32_t instance, const uint8_t * txBuff, uint8_t txSize)
+{
+  unsigned int ivtmp.76;
+  const uint8_t * classicPID;
+  const uint8_t numOfClassicPID;
+  uint8_t checkSum;
+  uint8_t retVal;
+  struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  status_t retVal;
+  <unnamed type> _1;
+  unsigned char _2;
+  _Bool _3;
+  unsigned char _4;
+  unsigned char _6;
+  unsigned char _7;
+  unsigned int _16;
+  long unsigned int _25;
+  long unsigned int _26;
+  struct lin_user_config_t * _29;
+  unsigned char _35;
+  unsigned int _41;
+  unsigned char _42;
+  const uint8_t * _43;
+  void * _44;
+  unsigned int _46;
+
+  <bb 2> [local count: 1073741823]:
+  linCurrentState_13 = g_linStatePtr[instance_11(D)];
+  _1 ={v} linCurrentState_13->currentNodeState;
+  _2 = txSize_14(D) + 255;
+  if (_2 > 7)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  if (_1 == 1)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 4> [local count: 354334800]:
+  _3 ={v} linCurrentState_13->isBusBusy;
+  if (_3 != 0)
+    goto <bb 12>; [52.23%]
+  else
+    goto <bb 5>; [47.77%]
+
+  <bb 5> [local count: 169265735]:
+  _29 = g_linUserconfigPtr[instance_11(D)];
+  numOfClassicPID_31 = _29->numOfClassicPID;
+  if (numOfClassicPID_31 == 255)
+    goto <bb 11>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 6> [local count: 111715384]:
+  _4 = linCurrentState_13->currentPid;
+  classicPID_30 = _29->classicPID;
+  if (classicPID_30 != 0B)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 11>; [30.00%]
+
+  <bb 7> [local count: 78200769]:
+  if (numOfClassicPID_31 != 0)
+    goto <bb 8>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 8> [local count: 73899727]:
+  _43 = classicPID_30 + 4294967295;
+  ivtmp.76_45 = (unsigned int) _43;
+  _42 = numOfClassicPID_31 + 255;
+  _41 = (unsigned int) _42;
+  _16 = (unsigned int) classicPID_30;
+  _46 = _16 + _41;
+
+  <bb 9> [local count: 690813070]:
+  # ivtmp.76_32 = PHI <ivtmp.76_45(8), ivtmp.76_5(10)>
+  ivtmp.76_5 = ivtmp.76_32 + 1;
+  _44 = (void *) ivtmp.76_5;
+  _35 = MEM[base: _44, offset: 0B];
+  if (_4 == _35)
+    goto <bb 11>; [5.50%]
+  else
+    goto <bb 10>; [94.50%]
+
+  <bb 10> [local count: 652818352]:
+  if (ivtmp.76_5 != _46)
+    goto <bb 9>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 11> [local count: 169265736]:
+  # checkSum_37 = PHI <0(5), _4(7), 0(9), _4(6), _4(10)>
+  base_12 = g_linLpuartBase[instance_11(D)];
+  retVal_38 = LIN_DRV_MakeChecksumByte (txBuff_15(D), txSize_14(D), checkSum_37);
+  linCurrentState_13->checkSum = retVal_38;
+  linCurrentState_13->txBuff = txBuff_15(D);
+  _6 = txSize_14(D) + 1;
+  linCurrentState_13->txSize ={v} _6;
+  linCurrentState_13->cntByte = 0;
+  linCurrentState_13->currentNodeState ={v} 9;
+  linCurrentState_13->currentEventId ={v} 0;
+  linCurrentState_13->isBusBusy ={v} 1;
+  linCurrentState_13->isTxBusy ={v} 1;
+  _25 ={v} base_12->STAT;
+  _26 = _25 & 1038106623;
+  base_12->STAT ={v} _26;
+  _7 = *txBuff_15(D);
+  MEM[(volatile uint8_t *)base_12 + 28B] ={v} _7;
+
+  <bb 12> [local count: 1073741824]:
+  # retVal_8 = PHI <1(2), 1(3), 0(11), 2(4)>
+  return retVal_8;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_GetTransmitStatus (LIN_LPUART_DRV_GetTransmitStatus, funcdef_no=30, decl_uid=7996, cgraph_uid=31, symbol_order=39)
+
+Removing basic block 5
+Removing basic block 7
+Removing basic block 8
+LIN_LPUART_DRV_GetTransmitStatus (uint32_t instance, uint8_t * bytesRemaining)
+{
+  const struct lin_state_t * linCurrentState;
+  status_t retVal;
+  unsigned char _1;
+  unsigned char _2;
+  unsigned char _3;
+  <unnamed type> _4;
+  _Bool _5;
+
+  <bb 2> [local count: 1073741824]:
+  linCurrentState_9 = g_linStatePtr[instance_8(D)];
+  _1 ={v} linCurrentState_9->txSize;
+  _2 = linCurrentState_9->cntByte;
+  _3 = _1 - _2;
+  *bytesRemaining_10(D) = _3;
+  _4 ={v} linCurrentState_9->currentEventId;
+  if (_4 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (_3 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _5 ={v} linCurrentState_9->timeoutCounterFlag;
+  if (_5 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 134217728]:
+
+  <bb 6> [local count: 1073741824]:
+  # retVal_6 = PHI <0(3), 0(2), 2(4), 3(5)>
+  return retVal_6;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_RecvFrmDataBlocking (LIN_LPUART_DRV_RecvFrmDataBlocking, funcdef_no=31, decl_uid=8001, cgraph_uid=32, symbol_order=40)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+LIN_LPUART_DRV_RecvFrmDataBlocking (uint32_t instance, uint8_t * rxBuff, uint8_t rxSize, uint32_t timeoutMSec)
+{
+  status_t retVal;
+  struct lin_state_t * linCurrentState;
+  <unnamed type> _1;
+  unsigned char _2;
+  _Bool _3;
+  unsigned char _4;
+  <unnamed type> _5;
+
+  <bb 2> [local count: 1073741823]:
+  linCurrentState_11 = g_linStatePtr[instance_10(D)];
+  _1 ={v} linCurrentState_11->currentNodeState;
+  _2 = rxSize_12(D) + 255;
+  if (_2 > 7)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  if (_1 == 1)
+    goto <bb 8>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 4> [local count: 354334800]:
+  _3 ={v} linCurrentState_11->isRxBusy;
+  if (_3 != 0)
+    goto <bb 8>; [52.23%]
+  else
+    goto <bb 5>; [47.77%]
+
+  <bb 5> [local count: 169265735]:
+  linCurrentState_11->rxBuff = rxBuff_13(D);
+  _4 = rxSize_12(D) + 1;
+  linCurrentState_11->rxSize ={v} _4;
+  linCurrentState_11->cntByte = 0;
+  linCurrentState_11->currentEventId ={v} 0;
+  linCurrentState_11->isRxBlocking ={v} 1;
+  retVal_21 = LIN_LPUART_DRV_WaitComplete (instance_10(D), timeoutMSec_19(D));
+  _5 ={v} linCurrentState_11->currentNodeState;
+  if (_5 != 1)
+    goto <bb 6>; [66.00%]
+  else
+    goto <bb 7>; [34.00%]
+
+  <bb 6> [local count: 111715384]:
+  linCurrentState_11->currentNodeState ={v} 2;
+
+  <bb 7> [local count: 169265735]:
+  linCurrentState_11->isRxBlocking ={v} 0;
+  linCurrentState_11->isBusBusy ={v} 0;
+  linCurrentState_11->isRxBusy ={v} 0;
+
+  <bb 8> [local count: 1073741824]:
+  # retVal_6 = PHI <1(2), 1(3), retVal_21(7), 2(4)>
+  return retVal_6;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_RecvFrmData (LIN_LPUART_DRV_RecvFrmData, funcdef_no=32, decl_uid=8005, cgraph_uid=33, symbol_order=41)
+
+Removing basic block 7
+Removing basic block 8
+Removing basic block 9
+LIN_LPUART_DRV_RecvFrmData (uint32_t instance, uint8_t * rxBuff, uint8_t rxSize)
+{
+  struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  status_t retVal;
+  <unnamed type> _1;
+  unsigned char _2;
+  _Bool _3;
+  unsigned char _4;
+  long unsigned int _21;
+  long unsigned int _22;
+
+  <bb 2> [local count: 1073741824]:
+  linCurrentState_10 = g_linStatePtr[instance_8(D)];
+  _1 ={v} linCurrentState_10->currentNodeState;
+  _2 = rxSize_11(D) + 255;
+  if (_2 > 7)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (_1 == 1)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 4> [local count: 354334800]:
+  _3 ={v} linCurrentState_10->isBusBusy;
+  if (_3 != 0)
+    goto <bb 6>; [35.00%]
+  else
+    goto <bb 5>; [65.00%]
+
+  <bb 5> [local count: 230317620]:
+  base_9 = g_linLpuartBase[instance_8(D)];
+  linCurrentState_10->rxBuff = rxBuff_12(D);
+  _4 = rxSize_11(D) + 1;
+  linCurrentState_10->rxSize ={v} _4;
+  linCurrentState_10->cntByte = 0;
+  linCurrentState_10->currentNodeState ={v} 7;
+  linCurrentState_10->currentEventId ={v} 0;
+  linCurrentState_10->isBusBusy ={v} 1;
+  linCurrentState_10->isRxBusy ={v} 1;
+  linCurrentState_10->isRxBlocking ={v} 0;
+  _21 ={v} base_9->STAT;
+  _22 = _21 & 1038106623;
+  base_9->STAT ={v} _22;
+
+  <bb 6> [local count: 1073741824]:
+  # retVal_5 = PHI <1(2), 1(3), 0(5), 2(4)>
+  return retVal_5;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_GetReceiveStatus (LIN_LPUART_DRV_GetReceiveStatus, funcdef_no=34, decl_uid=8010, cgraph_uid=35, symbol_order=43)
+
+Removing basic block 5
+Removing basic block 7
+Removing basic block 8
+LIN_LPUART_DRV_GetReceiveStatus (uint32_t instance, uint8_t * bytesRemaining)
+{
+  const struct lin_state_t * linCurrentState;
+  status_t retVal;
+  unsigned char _1;
+  unsigned char _2;
+  unsigned char _3;
+  <unnamed type> _4;
+  _Bool _5;
+
+  <bb 2> [local count: 1073741824]:
+  linCurrentState_9 = g_linStatePtr[instance_8(D)];
+  _1 ={v} linCurrentState_9->rxSize;
+  _2 = linCurrentState_9->cntByte;
+  _3 = _1 - _2;
+  *bytesRemaining_10(D) = _3;
+  _4 ={v} linCurrentState_9->currentEventId;
+  if (_4 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (_3 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _5 ={v} linCurrentState_9->timeoutCounterFlag;
+  if (_5 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 134217728]:
+
+  <bb 6> [local count: 1073741824]:
+  # retVal_6 = PHI <0(3), 0(2), 2(4), 3(5)>
+  return retVal_6;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_GoToSleepMode (LIN_LPUART_DRV_GoToSleepMode, funcdef_no=35, decl_uid=8012, cgraph_uid=36, symbol_order=44)
+
+LIN_LPUART_DRV_GoToSleepMode (uint32_t instance)
+{
+  struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  long unsigned int _14;
+  long unsigned int _15;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = g_linLpuartBase[instance_2(D)];
+  linCurrentState_4 = g_linStatePtr[instance_2(D)];
+  linCurrentState_4->currentNodeState ={v} 1;
+  linCurrentState_4->isTxBusy ={v} 0;
+  linCurrentState_4->isRxBusy ={v} 0;
+  linCurrentState_4->isBusBusy ={v} 0;
+  LPUART_ClearStatusFlag (base_3, 131102);
+  _14 ={v} base_3->STAT;
+  _15 = _14 & 803225599;
+  base_3->STAT ={v} _15;
+  LPUART_SetIntMode (base_3, 196629, 0);
+  LPUART_SetIntMode (base_3, 65550, 1);
+  LPUART_SetIntMode (base_3, 196633, 0);
+  LPUART_SetIntMode (base_3, 65551, 0);
+  return 0;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_SendWakeupSignal (LIN_LPUART_DRV_SendWakeupSignal, funcdef_no=36, decl_uid=8016, cgraph_uid=37, symbol_order=45)
+
+Removing basic block 5
+LIN_LPUART_DRV_SendWakeupSignal (uint32_t instance)
+{
+  status_t retVal;
+  const struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  _Bool _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  linCurrentState_8 = g_linStatePtr[instance_6(D)];
+  _1 ={v} linCurrentState_8->isBusBusy;
+  if (_1 != 0)
+    goto <bb 4>; [35.00%]
+  else
+    goto <bb 3>; [65.00%]
+
+  <bb 3> [local count: 697932185]:
+  base_7 = g_linLpuartBase[instance_6(D)];
+  _2 = s_wakeupSignal[instance_6(D)];
+  MEM[(volatile uint8_t *)base_7 + 28B] ={v} _2;
+
+  <bb 4> [local count: 1073741824]:
+  # retVal_3 = PHI <0(3), 2(2)>
+  return retVal_3;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_GetCurrentNodeState (LIN_LPUART_DRV_GetCurrentNodeState, funcdef_no=37, decl_uid=8018, cgraph_uid=38, symbol_order=46)
+
+Removing basic block 5
+LIN_LPUART_DRV_GetCurrentNodeState (uint32_t instance)
+{
+  const struct lin_state_t * linCurrentState;
+  lin_node_state_t retVal;
+
+  <bb 2> [local count: 1073741824]:
+  linCurrentState_4 = g_linStatePtr[instance_3(D)];
+  if (linCurrentState_4 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  retVal_5 ={v} linCurrentState_4->currentNodeState;
+
+  <bb 4> [local count: 1073741824]:
+  # retVal_1 = PHI <retVal_5(3), 0(2)>
+  return retVal_1;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_SetTimeoutCounter (LIN_LPUART_DRV_SetTimeoutCounter, funcdef_no=39, decl_uid=8023, cgraph_uid=40, symbol_order=48)
+
+LIN_LPUART_DRV_SetTimeoutCounter (uint32_t instance, uint32_t timeoutValue)
+{
+  struct lin_state_t * linCurrentState;
+
+  <bb 2> [local count: 1073741824]:
+  linCurrentState_3 = g_linStatePtr[instance_2(D)];
+  linCurrentState_3->timeoutCounterFlag ={v} 0;
+  linCurrentState_3->timeoutCounter ={v} timeoutValue_5(D);
+  return;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_MasterSendHeader (LIN_LPUART_DRV_MasterSendHeader, funcdef_no=40, decl_uid=8026, cgraph_uid=41, symbol_order=49)
+
+Removing basic block 8
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+LIN_LPUART_DRV_MasterSendHeader (uint32_t instance, uint8_t id)
+{
+  struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  const struct lin_user_config_t * linUserConfig;
+  status_t retVal;
+  <unnamed type> _1;
+  _Bool _2;
+  _Bool _3;
+  unsigned char _4;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+
+  <bb 2> [local count: 1073741824]:
+  linUserConfig_9 = g_linUserconfigPtr[instance_8(D)];
+  linCurrentState_11 = g_linStatePtr[instance_8(D)];
+  _1 ={v} linCurrentState_11->currentNodeState;
+  _2 = linUserConfig_9->nodeFunction;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (id_12(D) > 63)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  if (_1 == 1)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 5> [local count: 177167400]:
+  _3 ={v} linCurrentState_11->isBusBusy;
+  if (_3 != 0)
+    goto <bb 7>; [52.23%]
+  else
+    goto <bb 6>; [47.77%]
+
+  <bb 6> [local count: 84632867]:
+  base_10 = g_linLpuartBase[instance_8(D)];
+  linCurrentState_11->currentId = id_12(D);
+  _4 = LIN_DRV_ProcessParity (id_12(D), 0);
+  linCurrentState_11->currentPid = _4;
+  linCurrentState_11->currentNodeState ={v} 3;
+  linCurrentState_11->currentEventId ={v} 0;
+  linCurrentState_11->isBusBusy ={v} 1;
+  _20 ={v} base_10->STAT;
+  _21 = _20 & 1038106623;
+  _22 = _21 | 33554432;
+  base_10->STAT ={v} _22;
+  LPUART_SetIntMode (base_10, 65551, 1);
+  base_10->DATA ={v} 8192;
+
+  <bb 7> [local count: 1073741824]:
+  # retVal_5 = PHI <1(3), 1(4), 0(6), 1(2), 2(5)>
+  return retVal_5;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_EnableIRQ (LIN_LPUART_DRV_EnableIRQ, funcdef_no=41, decl_uid=8028, cgraph_uid=42, symbol_order=50)
+
+LIN_LPUART_DRV_EnableIRQ (uint32_t instance)
+{
+  const struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  <unnamed type> _1;
+  <unnamed type> _2;
+
+  <bb 2> [local count: 1073741824]:
+  base_6 = g_linLpuartBase[instance_5(D)];
+  linCurrentState_7 = g_linStatePtr[instance_5(D)];
+  _1 ={v} linCurrentState_7->currentNodeState;
+  if (_1 == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  LPUART_SetIntMode (base_6, 65550, 1);
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 708669601]:
+  LPUART_SetIntMode (base_6, 196629, 1);
+  LPUART_SetIntMode (base_6, 196633, 1);
+  LPUART_SetIntMode (base_6, 65551, 1);
+
+  <bb 5> [local count: 1073741824]:
+  _2 = g_linLpuartRxTxIrqId[instance_5(D)];
+  INT_SYS_EnableIRQ (_2);
+  return 0;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_DisableIRQ (LIN_LPUART_DRV_DisableIRQ, funcdef_no=42, decl_uid=8030, cgraph_uid=43, symbol_order=51)
+
+LIN_LPUART_DRV_DisableIRQ (uint32_t instance)
+{
+  const struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  <unnamed type> _1;
+  <unnamed type> _2;
+
+  <bb 2> [local count: 1073741824]:
+  base_6 = g_linLpuartBase[instance_5(D)];
+  linCurrentState_7 = g_linStatePtr[instance_5(D)];
+  _1 ={v} linCurrentState_7->currentNodeState;
+  if (_1 == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  LPUART_SetIntMode (base_6, 65550, 0);
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 708669601]:
+  LPUART_SetIntMode (base_6, 196629, 0);
+  LPUART_SetIntMode (base_6, 196633, 0);
+  LPUART_SetIntMode (base_6, 65551, 0);
+
+  <bb 5> [local count: 1073741824]:
+  _2 = g_linLpuartRxTxIrqId[instance_5(D)];
+  INT_SYS_DisableIRQ (_2);
+  return 0;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_GotoIdleState (LIN_LPUART_DRV_GotoIdleState, funcdef_no=43, decl_uid=8014, cgraph_uid=44, symbol_order=52)
+
+LIN_LPUART_DRV_GotoIdleState (uint32_t instance)
+{
+  struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = g_linLpuartBase[instance_2(D)];
+  linCurrentState_4 = g_linStatePtr[instance_2(D)];
+  linCurrentState_4->currentEventId ={v} 0;
+  _14 ={v} base_3->STAT;
+  _15 = _14 & 1038106623;
+  _16 = _15 | 33554432;
+  base_3->STAT ={v} _16;
+  _12 ={v} base_3->STAT;
+  _13 = _12 & 803225599;
+  base_3->STAT ={v} _13;
+  LPUART_SetIntMode (base_3, 196629, 1);
+  LPUART_SetIntMode (base_3, 65550, 0);
+  LPUART_SetIntMode (base_3, 196633, 1);
+  LPUART_SetIntMode (base_3, 65551, 1);
+  linCurrentState_4->currentNodeState ={v} 2;
+  linCurrentState_4->isBusBusy ={v} 0;
+  return 0;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_SendFrameDataBlocking (LIN_LPUART_DRV_SendFrameDataBlocking, funcdef_no=28, decl_uid=7989, cgraph_uid=29, symbol_order=37)
+
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+LIN_LPUART_DRV_SendFrameDataBlocking (uint32_t instance, const uint8_t * txBuff, uint8_t txSize, uint32_t timeoutMSec)
+{
+  unsigned int ivtmp.124;
+  const uint8_t * classicPID;
+  const uint8_t numOfClassicPID;
+  uint8_t checkSum;
+  uint8_t retVal;
+  status_t retVal;
+  struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  <unnamed type> _1;
+  unsigned char _2;
+  _Bool _3;
+  unsigned char _4;
+  unsigned char _6;
+  unsigned char _7;
+  unsigned int _16;
+  long unsigned int _32;
+  long unsigned int _33;
+  struct lin_user_config_t * _36;
+  unsigned char _42;
+  unsigned int _48;
+  unsigned char _49;
+  const uint8_t * _50;
+  void * _51;
+  unsigned int _53;
+
+  <bb 2> [local count: 1073741823]:
+  linCurrentState_13 = g_linStatePtr[instance_11(D)];
+  _1 ={v} linCurrentState_13->currentNodeState;
+  _2 = txSize_14(D) + 255;
+  if (_2 > 7)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  if (_1 == 1)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 4> [local count: 354334800]:
+  _3 ={v} linCurrentState_13->isBusBusy;
+  if (_3 != 0)
+    goto <bb 12>; [52.23%]
+  else
+    goto <bb 5>; [47.77%]
+
+  <bb 5> [local count: 169265735]:
+  _36 = g_linUserconfigPtr[instance_11(D)];
+  numOfClassicPID_38 = _36->numOfClassicPID;
+  if (numOfClassicPID_38 == 255)
+    goto <bb 11>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 6> [local count: 111715384]:
+  _4 = linCurrentState_13->currentPid;
+  classicPID_37 = _36->classicPID;
+  if (classicPID_37 != 0B)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 11>; [30.00%]
+
+  <bb 7> [local count: 78200769]:
+  if (numOfClassicPID_38 != 0)
+    goto <bb 8>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 8> [local count: 73899727]:
+  _50 = classicPID_37 + 4294967295;
+  ivtmp.124_52 = (unsigned int) _50;
+  _49 = numOfClassicPID_38 + 255;
+  _48 = (unsigned int) _49;
+  _16 = (unsigned int) classicPID_37;
+  _53 = _16 + _48;
+
+  <bb 9> [local count: 690813070]:
+  # ivtmp.124_39 = PHI <ivtmp.124_52(8), ivtmp.124_5(10)>
+  ivtmp.124_5 = ivtmp.124_39 + 1;
+  _51 = (void *) ivtmp.124_5;
+  _42 = MEM[base: _51, offset: 0B];
+  if (_4 == _42)
+    goto <bb 11>; [5.50%]
+  else
+    goto <bb 10>; [94.50%]
+
+  <bb 10> [local count: 652818352]:
+  if (ivtmp.124_5 != _53)
+    goto <bb 9>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 11> [local count: 169265736]:
+  # checkSum_44 = PHI <0(5), _4(7), 0(9), _4(6), _4(10)>
+  base_12 = g_linLpuartBase[instance_11(D)];
+  retVal_45 = LIN_DRV_MakeChecksumByte (txBuff_15(D), txSize_14(D), checkSum_44);
+  linCurrentState_13->checkSum = retVal_45;
+  linCurrentState_13->txBuff = txBuff_15(D);
+  _6 = txSize_14(D) + 1;
+  linCurrentState_13->txSize ={v} _6;
+  linCurrentState_13->cntByte = 0;
+  linCurrentState_13->currentEventId ={v} 0;
+  linCurrentState_13->isBusBusy ={v} 1;
+  linCurrentState_13->isTxBusy ={v} 1;
+  linCurrentState_13->isTxBlocking ={v} 1;
+  _32 ={v} base_12->STAT;
+  _33 = _32 & 1038106623;
+  base_12->STAT ={v} _33;
+  linCurrentState_13->currentNodeState ={v} 9;
+  _7 = *txBuff_15(D);
+  MEM[(volatile uint8_t *)base_12 + 28B] ={v} _7;
+  retVal_28 = LIN_LPUART_DRV_WaitComplete (instance_11(D), timeoutMSec_26(D));
+  linCurrentState_13->isTxBlocking ={v} 0;
+  linCurrentState_13->isTxBusy ={v} 0;
+  LIN_LPUART_DRV_GotoIdleState (instance_11(D));
+
+  <bb 12> [local count: 1073741824]:
+  # retVal_8 = PHI <1(2), 1(3), retVal_28(11), 2(4)>
+  return retVal_8;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_AbortTransferData (LIN_LPUART_DRV_AbortTransferData, funcdef_no=33, decl_uid=8007, cgraph_uid=34, symbol_order=42)
+
+LIN_LPUART_DRV_AbortTransferData (uint32_t instance)
+{
+  struct lin_state_t * linCurrentState;
+
+  <bb 2> [local count: 1073741824]:
+  linCurrentState_3 = g_linStatePtr[instance_2(D)];
+  LIN_LPUART_DRV_GotoIdleState (instance_2(D));
+  linCurrentState_3->isTxBusy ={v} 0;
+  linCurrentState_3->isRxBusy ={v} 0;
+  return 0;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_TimeoutService (LIN_LPUART_DRV_TimeoutService, funcdef_no=38, decl_uid=8020, cgraph_uid=39, symbol_order=47)
+
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+LIN_LPUART_DRV_TimeoutService (uint32_t instance)
+{
+  lin_node_state_t state;
+  struct lin_state_t * linCurrentState;
+  long unsigned int _1;
+  _Bool _2;
+  void (*<T821>) (uint32_t, void *) _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  _Bool _7;
+  void (*<T821>) (uint32_t, void *) _8;
+  long unsigned int _9;
+  long unsigned int _10;
+
+  <bb 2> [local count: 1073741817]:
+  linCurrentState_16 = g_linStatePtr[instance_15(D)];
+  state_17 ={v} linCurrentState_16->currentNodeState;
+  if (state_17 == 7)
+    goto <bb 11>; [33.33%]
+  else
+    goto <bb 3>; [66.67%]
+
+  <bb 3> [local count: 1073741817]:
+  if (state_17 == 9)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 4> [local count: 357913942]:
+  _1 ={v} linCurrentState_16->timeoutCounter;
+  if (_1 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 5> [local count: 178956971]:
+  linCurrentState_16->timeoutCounterFlag ={v} 1;
+  _2 ={v} linCurrentState_16->isTxBlocking;
+  if (_2 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 178956972]:
+  goto <bb 17>; [100.00%]
+
+  <bb 7> [local count: 89478485]:
+  _3 = linCurrentState_16->Callback;
+  if (_3 != 0B)
+    goto <bb 8>; [70.00%]
+  else
+    goto <bb 9>; [30.00%]
+
+  <bb 8> [local count: 62634940]:
+  _3 (instance_15(D), linCurrentState_16);
+
+  <bb 9> [local count: 89478485]:
+  linCurrentState_16->isTxBusy ={v} 0;
+  LIN_LPUART_DRV_GotoIdleState (instance_15(D)); [tail call]
+  goto <bb 17>; [100.00%]
+
+  <bb 10> [local count: 178956971]:
+  _4 ={v} linCurrentState_16->timeoutCounter;
+  _5 = _4 + 4294967295;
+  linCurrentState_16->timeoutCounter ={v} _5;
+  goto <bb 17>; [100.00%]
+
+  <bb 11> [local count: 357913942]:
+  _6 ={v} linCurrentState_16->timeoutCounter;
+  if (_6 == 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 12> [local count: 178956971]:
+  linCurrentState_16->timeoutCounterFlag ={v} 1;
+  _7 ={v} linCurrentState_16->isRxBlocking;
+  if (_7 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 13> [local count: 89478485]:
+  _8 = linCurrentState_16->Callback;
+  if (_8 != 0B)
+    goto <bb 14>; [70.00%]
+  else
+    goto <bb 15>; [30.00%]
+
+  <bb 14> [local count: 62634940]:
+  _8 (instance_15(D), linCurrentState_16);
+
+  <bb 15> [local count: 89478485]:
+  linCurrentState_16->isRxBusy ={v} 0;
+  LIN_LPUART_DRV_GotoIdleState (instance_15(D)); [tail call]
+  goto <bb 17>; [100.00%]
+
+  <bb 16> [local count: 178956971]:
+  _9 ={v} linCurrentState_16->timeoutCounter;
+  _10 = _9 + 4294967295;
+  linCurrentState_16->timeoutCounter ={v} _10;
+
+  <bb 17> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_IRQHandler (LIN_LPUART_DRV_IRQHandler, funcdef_no=45, decl_uid=8032, cgraph_uid=46, symbol_order=54)
+
+Removing basic block 105
+Removing basic block 106
+Removing basic block 107
+Removing basic block 108
+Removing basic block 109
+Removing basic block 110
+Removing basic block 111
+Removing basic block 112
+Removing basic block 113
+Removing basic block 114
+Removing basic block 115
+Removing basic block 116
+Removing basic block 117
+Removing basic block 118
+Removing basic block 119
+Removing basic block 120
+Removing basic block 121
+Removing basic block 122
+Removing basic block 123
+Removing basic block 124
+Removing basic block 125
+Removing basic block 126
+Removing basic block 127
+Removing basic block 128
+Removing basic block 129
+Removing basic block 130
+Removing basic block 131
+Removing basic block 132
+Removing basic block 133
+Removing basic block 134
+Removing basic block 135
+Removing basic block 136
+Removing basic block 137
+Removing basic block 138
+Removing basic block 139
+Removing basic block 140
+Removing basic block 141
+Removing basic block 142
+Removing basic block 143
+Removing basic block 144
+Removing basic block 145
+Removing basic block 146
+Removing basic block 147
+Removing basic block 148
+LIN_LPUART_DRV_IRQHandler (uint32_t instance)
+{
+  unsigned int ivtmp.141;
+  uint8_t tmpSize;
+  const uint8_t * classicPID;
+  const uint8_t numOfClassicPID;
+  uint8_t checkSum;
+  uint8_t retVal;
+  const struct lin_user_config_t * linUserConfig;
+  const struct lin_state_t * linCurrentState;
+  uint32_t wakeupSignalLength;
+  const struct lin_user_config_t * linUserConfig;
+  struct lin_state_t * linCurrentState;
+  const struct lin_user_config_t * linUserConfig;
+  struct lin_state_t * linCurrentState;
+  _Bool activeEdgeIntState;
+  struct lin_state_t * linCurrentState;
+  struct LPUART_Type * base;
+  _Bool _1;
+  _Bool _2;
+  _Bool _3;
+  <unnamed type> _4;
+  void (*<T821>) (uint32_t, void *) _5;
+  <unnamed type> _6;
+  void (*<T821>) (uint32_t, void *) _7;
+  _Bool _8;
+  _Bool _9;
+  void (*<T821>) (uint32_t, void *) _10;
+  long unsigned int _37;
+  long unsigned int _38;
+  unsigned char _39;
+  long unsigned int _43;
+  long unsigned int _44;
+  _Bool _45;
+  <unnamed type> _46;
+  void (*<T821>) (uint32_t, void *) _47;
+  long unsigned int _51;
+  long unsigned int _52;
+  _Bool _53;
+  uint32_t (*<T945>) (uint32_t *) _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  uint32_t (*<T945>) (uint32_t *) _60;
+  long unsigned int wakeupSignalLength.6_61;
+  void (*<T821>) (uint32_t, void *) _62;
+  <unnamed type> _64;
+  <unnamed type> _68;
+  void (*<T821>) (uint32_t, void *) _69;
+  unsigned char _70;
+  void (*<T821>) (uint32_t, void *) _71;
+  _Bool _72;
+  unsigned char _73;
+  _Bool _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  void (*<T821>) (uint32_t, void *) _77;
+  void (*<T821>) (uint32_t, void *) _78;
+  unsigned char _79;
+  _Bool _80;
+  long unsigned int _81;
+  long unsigned int _82;
+  void (*<T821>) (uint32_t, void *) _83;
+  void (*<T821>) (uint32_t, void *) _84;
+  unsigned char _86;
+  unsigned int _87;
+  unsigned char _88;
+  unsigned int _89;
+  unsigned int _90;
+  uint8_t * _91;
+  uint8_t * _92;
+  uint8_t * _93;
+  unsigned char _94;
+  int _95;
+  int _96;
+  int _97;
+  unsigned char _99;
+  unsigned char _100;
+  unsigned char _101;
+  unsigned int _102;
+  uint8_t * _103;
+  sizetype _104;
+  uint8_t * _105;
+  unsigned char _106;
+  unsigned char _107;
+  unsigned char _108;
+  unsigned char _110;
+  void (*<T821>) (uint32_t, void *) _111;
+  _Bool _112;
+  <unnamed type> _113;
+  struct QueueDefinition * * _114;
+  void (*<T821>) (uint32_t, void *) _115;
+  struct lin_user_config_t * _116;
+  unsigned char _122;
+  const uint8_t * _123;
+  _Bool _128;
+  void (*<T821>) (uint32_t, void *) _129;
+  _Bool _130;
+  unsigned char _131;
+  unsigned char _132;
+  unsigned char _134;
+  unsigned char prephitmp_137;
+  unsigned char pretmp_138;
+  const uint8_t * _139;
+  void (*<T821>) (uint32_t, void *) _141;
+  _Bool _142;
+  const uint8_t * _143;
+  unsigned char _144;
+  unsigned char _145;
+  unsigned char _146;
+  int _147;
+  int _148;
+  int _149;
+  unsigned char _150;
+  unsigned char _151;
+  void (*<T821>) (uint32_t, void *) _152;
+  _Bool _153;
+  <unnamed type> _154;
+  struct QueueDefinition * * _155;
+  unsigned int _161;
+  unsigned char _162;
+  unsigned char _167;
+  const uint8_t * _190;
+  void * _218;
+  unsigned int _224;
+  unsigned int _251;
+  const uint8_t * _309;
+  unsigned char _310;
+
+  <bb 2> [local count: 1073741824]:
+  base_16 = g_linLpuartBase[instance_15(D)];
+  linCurrentState_17 = g_linStatePtr[instance_15(D)];
+  activeEdgeIntState_19 = LPUART_GetIntMode (base_16, 65550);
+  _1 = LPUART_GetStatusFlag (base_16, 131103);
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  linUserConfig_40 = g_linUserconfigPtr[instance_15(D)];
+  linCurrentState_42 = g_linStatePtr[instance_15(D)];
+  LPUART_ClearStatusFlag (base_16, 131103);
+  _43 ={v} base_16->STAT;
+  _44 = _43 & 1038106623;
+  base_16->STAT ={v} _44;
+  LPUART_SetIntMode (base_16, 65551, 0);
+  _45 = linUserConfig_40->nodeFunction;
+  if (_45 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _46 ={v} linCurrentState_42->currentNodeState;
+  if (_46 == 3)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 5> [local count: 343489034]:
+  goto <bb 99>; [100.00%]
+
+  <bb 6> [local count: 91268056]:
+  linCurrentState_42->isBusBusy ={v} 1;
+  linCurrentState_42->currentNodeState ={v} 5;
+  MEM[(volatile uint8_t *)base_16 + 28B] ={v} 85;
+  goto <bb 99>; [100.00%]
+
+  <bb 7> [local count: 268435456]:
+  linCurrentState_42->isBusBusy ={v} 1;
+  linCurrentState_42->currentEventId ={v} 3;
+  _47 = linCurrentState_42->Callback;
+  if (_47 != 0B)
+    goto <bb 8>; [70.00%]
+  else
+    goto <bb 9>; [30.00%]
+
+  <bb 8> [local count: 187904820]:
+  _47 (instance_15(D), linCurrentState_42);
+
+  <bb 9> [local count: 268435456]:
+  linCurrentState_42->currentNodeState ={v} 4;
+  goto <bb 99>; [100.00%]
+
+  <bb 10> [local count: 536870911]:
+  _2 = LPUART_GetStatusFlag (base_16, 131102);
+  if (_2 != 0)
+    goto <bb 11>; [67.00%]
+  else
+    goto <bb 19>; [33.00%]
+
+  <bb 11> [local count: 359703512]:
+  if (activeEdgeIntState_19 != 0)
+    goto <bb 12>; [33.00%]
+  else
+    goto <bb 19>; [67.00%]
+
+  <bb 12> [local count: 118702158]:
+  LPUART_ClearStatusFlag (base_16, 131102);
+  wakeupSignalLength = 0;
+  linUserConfig_48 = g_linUserconfigPtr[instance_15(D)];
+  _51 ={v} MEM[(const struct LPUART_Type *)base_16].STAT;
+  _52 = _51 >> 28;
+  _53 = (_Bool) _52;
+  if (_53 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 13> [local count: 59351079]:
+  _54 = linUserConfig_48->timerGetTimeIntervalCallback;
+  _54 (&wakeupSignalLength);
+  _55 ={v} base_16->STAT;
+  _56 = _55 & 803225599;
+  _57 = _56 | 268435456;
+  base_16->STAT ={v} _57;
+  goto <bb 18>; [100.00%]
+
+  <bb 14> [local count: 59351079]:
+  linCurrentState_50 = g_linStatePtr[instance_15(D)];
+  _58 ={v} base_16->STAT;
+  _59 = _58 & 803225599;
+  base_16->STAT ={v} _59;
+  _60 = linUserConfig_48->timerGetTimeIntervalCallback;
+  _60 (&wakeupSignalLength);
+  wakeupSignalLength.6_61 = wakeupSignalLength;
+  if (wakeupSignalLength.6_61 > 149999)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 15> [local count: 29675540]:
+  linCurrentState_50->currentEventId ={v} 1;
+  _62 = linCurrentState_50->Callback;
+  if (_62 != 0B)
+    goto <bb 16>; [70.00%]
+  else
+    goto <bb 17>; [30.00%]
+
+  <bb 16> [local count: 20772878]:
+  _62 (instance_15(D), linCurrentState_50);
+
+  <bb 17> [local count: 29675540]:
+  LIN_LPUART_DRV_GotoIdleState (instance_15(D));
+
+  <bb 18> [local count: 118702158]:
+  wakeupSignalLength ={v} {CLOBBER};
+  goto <bb 99>; [100.00%]
+
+  <bb 19> [local count: 418168753]:
+  _3 = LPUART_GetStatusFlag (base_16, 131089);
+  if (_3 != 0)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 28>; [50.00%]
+
+  <bb 20> [local count: 209084377]:
+  LPUART_ClearStatusFlag (base_16, 131089);
+  _37 ={v} MEM[(const struct LPUART_Type *)base_16].DATA;
+  linCurrentState_17->currentEventId ={v} 8;
+  _4 ={v} linCurrentState_17->currentNodeState;
+  if (_4 == 9)
+    goto <bb 21>; [34.00%]
+  else
+    goto <bb 24>; [66.00%]
+
+  <bb 21> [local count: 71088689]:
+  _5 = linCurrentState_17->Callback;
+  if (_5 != 0B)
+    goto <bb 23>; [70.00%]
+  else
+    goto <bb 22>; [30.00%]
+
+  <bb 22> [local count: 127478322]:
+  goto <bb 27>; [100.00%]
+
+  <bb 23> [local count: 49762082]:
+  _5 (instance_15(D), linCurrentState_17);
+  goto <bb 27>; [100.00%]
+
+  <bb 24> [local count: 137995688]:
+  _6 ={v} linCurrentState_17->currentNodeState;
+  if (_6 == 7)
+    goto <bb 25>; [34.00%]
+  else
+    goto <bb 22>; [66.00%]
+
+  <bb 25> [local count: 46918534]:
+  _7 = linCurrentState_17->Callback;
+  if (_7 != 0B)
+    goto <bb 26>; [70.00%]
+  else
+    goto <bb 22>; [30.00%]
+
+  <bb 26> [local count: 32842974]:
+  _7 (instance_15(D), linCurrentState_17);
+
+  <bb 27> [local count: 213036162]:
+  LIN_LPUART_DRV_GotoIdleState (instance_15(D));
+  goto <bb 99>; [100.00%]
+
+  <bb 28> [local count: 209084377]:
+  _8 = LPUART_GetStatusFlag (base_16, 131093);
+  if (_8 != 0)
+    goto <bb 29>; [33.00%]
+  else
+    goto <bb 5>; [67.00%]
+
+  <bb 29> [local count: 68997844]:
+  _38 ={v} MEM[(const struct LPUART_Type *)base_16].DATA;
+  _39 = (unsigned char) _38;
+  linCurrentState_63 = g_linStatePtr[instance_15(D)];
+  _64 ={v} linCurrentState_63->currentNodeState;
+  if (_64 == 7)
+    goto <bb 59>; [25.00%]
+  else
+    goto <bb 30>; [75.00%]
+
+  <bb 30> [local count: 68997844]:
+  if (_64 > 7)
+    goto <bb 32>; [50.00%]
+  else
+    goto <bb 31>; [50.00%]
+
+  <bb 31> [local count: 68997844]:
+  _310 = _64 + 252;
+  if (_310 > 2)
+    goto <bb 99>; [33.33%]
+  else
+    goto <bb 33>; [66.67%]
+
+  <bb 32> [local count: 68997844]:
+  if (_64 == 9)
+    goto <bb 79>; [66.67%]
+  else
+    goto <bb 99>; [33.33%]
+
+  <bb 33> [local count: 17249461]:
+  _68 ={v} MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState;
+  if (_68 == 5)
+    goto <bb 40>; [25.00%]
+  else
+    goto <bb 34>; [75.00%]
+
+  <bb 34> [local count: 17249461]:
+  if (_68 == 6)
+    goto <bb 44>; [33.33%]
+  else
+    goto <bb 35>; [66.67%]
+
+  <bb 35> [local count: 17249461]:
+  if (_68 == 4)
+    goto <bb 36>; [33.33%]
+  else
+    goto <bb 99>; [66.67%]
+
+  <bb 36> [local count: 4312365]:
+  if (_39 == 85)
+    goto <bb 37>; [34.00%]
+  else
+    goto <bb 38>; [66.00%]
+
+  <bb 37> [local count: 1466204]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 4;
+  MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState ={v} 6;
+  goto <bb 99>; [100.00%]
+
+  <bb 38> [local count: 2846161]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 5;
+  _69 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_69 != 0B)
+    goto <bb 39>; [70.00%]
+  else
+    goto <bb 22>; [30.00%]
+
+  <bb 39> [local count: 1992313]:
+  _69 (instance_15(D), linCurrentState_63);
+  goto <bb 27>; [100.00%]
+
+  <bb 40> [local count: 4312365]:
+  if (_39 == 85)
+    goto <bb 41>; [34.00%]
+  else
+    goto <bb 42>; [66.00%]
+
+  <bb 41> [local count: 1466204]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState ={v} 6;
+  _70 = MEM[(struct lin_state_t *)linCurrentState_63].currentPid;
+  MEM[(volatile uint8_t *)base_16 + 28B] ={v} _70;
+  goto <bb 99>; [100.00%]
+
+  <bb 42> [local count: 2846161]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 5;
+  MEM[(struct lin_state_t *)linCurrentState_63].isBusBusy ={v} 0;
+  MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState ={v} 2;
+  _71 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_71 != 0B)
+    goto <bb 43>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 43> [local count: 1992313]:
+  _71 (instance_15(D), linCurrentState_63);
+  goto <bb 99>; [100.00%]
+
+  <bb 44> [local count: 4312365]:
+  linUserConfig_66 = g_linUserconfigPtr[instance_15(D)];
+  _72 = linUserConfig_66->nodeFunction;
+  if (_72 != 0)
+    goto <bb 45>; [67.00%]
+  else
+    goto <bb 52>; [33.00%]
+
+  <bb 45> [local count: 2889285]:
+  _73 = MEM[(struct lin_state_t *)linCurrentState_63].currentPid;
+  if (_39 == _73)
+    goto <bb 46>; [34.00%]
+  else
+    goto <bb 50>; [66.00%]
+
+  <bb 46> [local count: 982357]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 6;
+  _74 ={v} MEM[(struct lin_state_t *)linCurrentState_63].isRxBlocking;
+  if (_74 != 0)
+    goto <bb 47>; [50.00%]
+  else
+    goto <bb 48>; [50.00%]
+
+  <bb 47> [local count: 491178]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState ={v} 7;
+  MEM[(struct lin_state_t *)linCurrentState_63].isBusBusy ={v} 1;
+  MEM[(struct lin_state_t *)linCurrentState_63].isRxBusy ={v} 1;
+  _75 ={v} base_16->STAT;
+  _76 = _75 & 1038106623;
+  base_16->STAT ={v} _76;
+  goto <bb 99>; [100.00%]
+
+  <bb 48> [local count: 491178]:
+  MEM[(struct lin_state_t *)linCurrentState_63].isBusBusy ={v} 0;
+  _77 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_77 != 0B)
+    goto <bb 49>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 49> [local count: 343825]:
+  _77 (instance_15(D), linCurrentState_63);
+  goto <bb 99>; [100.00%]
+
+  <bb 50> [local count: 1906928]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 7;
+  MEM[(struct lin_state_t *)linCurrentState_63].isBusBusy ={v} 0;
+  MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState ={v} 2;
+  _78 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_78 != 0B)
+    goto <bb 51>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 51> [local count: 1334850]:
+  _78 (instance_15(D), linCurrentState_63);
+  goto <bb 99>; [100.00%]
+
+  <bb 52> [local count: 1423081]:
+  _79 = LIN_DRV_ProcessParity (_39, 1);
+  MEM[(struct lin_state_t *)linCurrentState_63].currentId = _79;
+  MEM[(struct lin_state_t *)linCurrentState_63].currentPid = _39;
+  if (_79 != 255)
+    goto <bb 53>; [66.00%]
+  else
+    goto <bb 57>; [34.00%]
+
+  <bb 53> [local count: 939233]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 6;
+  _80 ={v} MEM[(struct lin_state_t *)linCurrentState_63].isRxBlocking;
+  if (_80 != 0)
+    goto <bb 54>; [50.00%]
+  else
+    goto <bb 55>; [50.00%]
+
+  <bb 54> [local count: 469617]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState ={v} 7;
+  MEM[(struct lin_state_t *)linCurrentState_63].isBusBusy ={v} 1;
+  MEM[(struct lin_state_t *)linCurrentState_63].isRxBusy ={v} 1;
+  _81 ={v} base_16->STAT;
+  _82 = _81 & 1038106623;
+  base_16->STAT ={v} _82;
+  goto <bb 99>; [100.00%]
+
+  <bb 55> [local count: 469617]:
+  MEM[(struct lin_state_t *)linCurrentState_63].isBusBusy ={v} 0;
+  _83 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_83 != 0B)
+    goto <bb 56>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 56> [local count: 328732]:
+  _83 (instance_15(D), linCurrentState_63);
+  goto <bb 99>; [100.00%]
+
+  <bb 57> [local count: 483847]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 7;
+  _84 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_84 != 0B)
+    goto <bb 58>; [70.00%]
+  else
+    goto <bb 22>; [30.00%]
+
+  <bb 58> [local count: 338693]:
+  _84 (instance_15(D), linCurrentState_63);
+  goto <bb 27>; [100.00%]
+
+  <bb 59> [local count: 17249461]:
+  _86 ={v} MEM[(struct lin_state_t *)linCurrentState_63].rxSize;
+  _87 = (unsigned int) _86;
+  _88 = MEM[(struct lin_state_t *)linCurrentState_63].cntByte;
+  _89 = (unsigned int) _88;
+  _90 = _89 + 1;
+  if (_87 > _90)
+    goto <bb 60>; [50.00%]
+  else
+    goto <bb 61>; [50.00%]
+
+  <bb 60> [local count: 8624730]:
+  _91 = MEM[(struct lin_state_t *)linCurrentState_63].rxBuff;
+  *_91 = _39;
+  _92 = MEM[(struct lin_state_t *)linCurrentState_63].rxBuff;
+  _93 = _92 + 1;
+  MEM[(struct lin_state_t *)linCurrentState_63].rxBuff = _93;
+  pretmp_138 = MEM[(struct lin_state_t *)linCurrentState_63].cntByte;
+  goto <bb 63>; [100.00%]
+
+  <bb 61> [local count: 8624730]:
+  _94 ={v} MEM[(struct lin_state_t *)linCurrentState_63].rxSize;
+  _95 = (int) _94;
+  _96 = (int) _88;
+  _97 = _95 - _96;
+  if (_97 == 1)
+    goto <bb 62>; [34.00%]
+  else
+    goto <bb 63>; [66.00%]
+
+  <bb 62> [local count: 2932408]:
+  MEM[(struct lin_state_t *)linCurrentState_63].checkSum = _39;
+
+  <bb 63> [local count: 17249461]:
+  # prephitmp_137 = PHI <pretmp_138(60), _88(62), _88(61)>
+  _99 = prephitmp_137 + 1;
+  MEM[(struct lin_state_t *)linCurrentState_63].cntByte = _99;
+  _100 ={v} MEM[(struct lin_state_t *)linCurrentState_63].rxSize;
+  if (_99 == _100)
+    goto <bb 64>; [20.24%]
+  else
+    goto <bb 5>; [79.76%]
+
+  <bb 64> [local count: 3491291]:
+  _101 ={v} MEM[(struct lin_state_t *)linCurrentState_63].rxSize;
+  _102 = (unsigned int) _101;
+  _103 = MEM[(struct lin_state_t *)linCurrentState_63].rxBuff;
+  _104 = 1 - _102;
+  _105 = _103 + _104;
+  MEM[(struct lin_state_t *)linCurrentState_63].rxBuff = _105;
+  _106 ={v} MEM[(struct lin_state_t *)linCurrentState_63].rxSize;
+  _107 = _106 + 255;
+  _116 = g_linUserconfigPtr[instance_15(D)];
+  numOfClassicPID_118 = _116->numOfClassicPID;
+  if (numOfClassicPID_118 == 255)
+    goto <bb 70>; [34.00%]
+  else
+    goto <bb 65>; [66.00%]
+
+  <bb 65> [local count: 2304252]:
+  _108 = MEM[(struct lin_state_t *)linCurrentState_63].currentPid;
+  classicPID_117 = _116->classicPID;
+  if (classicPID_117 != 0B)
+    goto <bb 66>; [70.00%]
+  else
+    goto <bb 70>; [30.00%]
+
+  <bb 66> [local count: 1612976]:
+  if (numOfClassicPID_118 != 0)
+    goto <bb 67>; [94.50%]
+  else
+    goto <bb 70>; [5.50%]
+
+  <bb 67> [local count: 1524262]:
+  _190 = classicPID_117 + 4294967295;
+  ivtmp.141_119 = (unsigned int) _190;
+  _162 = numOfClassicPID_118 + 255;
+  _224 = (unsigned int) _162;
+  _161 = (unsigned int) classicPID_117;
+  _251 = _161 + _224;
+
+  <bb 68> [local count: 14248775]:
+  # ivtmp.141_311 = PHI <ivtmp.141_119(67), ivtmp.141_140(69)>
+  ivtmp.141_140 = ivtmp.141_311 + 1;
+  _218 = (void *) ivtmp.141_140;
+  _122 = MEM[base: _218, offset: 0B];
+  if (_108 == _122)
+    goto <bb 70>; [5.50%]
+  else
+    goto <bb 69>; [94.50%]
+
+  <bb 69> [local count: 13465093]:
+  if (ivtmp.141_140 != _251)
+    goto <bb 68>; [94.50%]
+  else
+    goto <bb 70>; [5.50%]
+
+  <bb 70> [local count: 3491291]:
+  # checkSum_124 = PHI <_108(65), 0(68), 0(64), _108(66), _108(69)>
+  retVal_125 = LIN_DRV_MakeChecksumByte (_105, _107, checkSum_124);
+  _110 = MEM[(struct lin_state_t *)linCurrentState_63].checkSum;
+  if (_110 == retVal_125)
+    goto <bb 71>; [34.00%]
+  else
+    goto <bb 76>; [66.00%]
+
+  <bb 71> [local count: 1187039]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 12;
+  MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState ={v} 8;
+  _111 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_111 != 0B)
+    goto <bb 72>; [70.00%]
+  else
+    goto <bb 73>; [30.00%]
+
+  <bb 72> [local count: 830927]:
+  _111 (instance_15(D), linCurrentState_63);
+
+  <bb 73> [local count: 1187039]:
+  _112 ={v} MEM[(struct lin_state_t *)linCurrentState_63].isRxBlocking;
+  if (_112 != 0)
+    goto <bb 75>; [33.00%]
+  else
+    goto <bb 74>; [67.00%]
+
+  <bb 74> [local count: 795316]:
+  MEM[(struct lin_state_t *)linCurrentState_63].isBusBusy ={v} 0;
+  MEM[(struct lin_state_t *)linCurrentState_63].isRxBusy ={v} 0;
+  _113 ={v} MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState;
+  if (_113 != 1)
+    goto <bb 27>; [48.88%]
+  else
+    goto <bb 5>; [51.12%]
+
+  <bb 75> [local count: 391723]:
+  _114 = &MEM[(struct lin_state_t *)linCurrentState_63].rxCompleted;
+  OSIF_SemaPost (_114);
+  goto <bb 99>; [100.00%]
+
+  <bb 76> [local count: 2304252]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 10;
+  _115 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_115 != 0B)
+    goto <bb 77>; [70.00%]
+  else
+    goto <bb 78>; [30.00%]
+
+  <bb 77> [local count: 1612976]:
+  _115 (instance_15(D), linCurrentState_63);
+
+  <bb 78> [local count: 2304252]:
+  MEM[(struct lin_state_t *)linCurrentState_63].isRxBusy ={v} 0;
+  LIN_LPUART_DRV_GotoIdleState (instance_15(D));
+  goto <bb 99>; [100.00%]
+
+  <bb 79> [local count: 17249461]:
+  _128 = LPUART_GetStatusFlag (base_16, 131095);
+  if (_128 != 0)
+    goto <bb 84>; [50.00%]
+  else
+    goto <bb 80>; [50.00%]
+
+  <bb 80> [local count: 8624730]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 9;
+  _129 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_129 != 0B)
+    goto <bb 81>; [70.00%]
+  else
+    goto <bb 82>; [30.00%]
+
+  <bb 81> [local count: 6037311]:
+  _129 (instance_15(D), linCurrentState_63);
+
+  <bb 82> [local count: 8624730]:
+  _130 ={v} MEM[(struct lin_state_t *)linCurrentState_63].isTxBlocking;
+  if (_130 != 0)
+    goto <bb 5>; [67.00%]
+  else
+    goto <bb 83>; [33.00%]
+
+  <bb 83> [local count: 2846161]:
+  MEM[(struct lin_state_t *)linCurrentState_63].isTxBusy ={v} 0;
+  LIN_LPUART_DRV_GotoIdleState (instance_15(D));
+  goto <bb 99>; [100.00%]
+
+  <bb 84> [local count: 8624730]:
+  _131 ={v} MEM[(struct lin_state_t *)linCurrentState_63].txSize;
+  _132 = MEM[(struct lin_state_t *)linCurrentState_63].cntByte;
+  tmpSize_133 = _131 - _132;
+  if (tmpSize_133 == 1)
+    goto <bb 85>; [34.00%]
+  else
+    goto <bb 104>; [66.00%]
+
+  <bb 85> [local count: 2932408]:
+  _134 = MEM[(struct lin_state_t *)linCurrentState_63].checkSum;
+  _309 = MEM[(struct lin_state_t *)linCurrentState_63].txBuff;
+  if (_39 != _134)
+    goto <bb 86>; [80.00%]
+  else
+    goto <bb 90>; [20.00%]
+
+  <bb 86> [local count: 6468548]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 9;
+  _141 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_141 != 0B)
+    goto <bb 87>; [70.00%]
+  else
+    goto <bb 88>; [30.00%]
+
+  <bb 87> [local count: 4527984]:
+  _141 (instance_15(D), linCurrentState_63);
+
+  <bb 88> [local count: 6468548]:
+  _142 ={v} MEM[(struct lin_state_t *)linCurrentState_63].isTxBlocking;
+  if (_142 != 0)
+    goto <bb 5>; [67.00%]
+  else
+    goto <bb 89>; [33.00%]
+
+  <bb 89> [local count: 2134621]:
+  MEM[(struct lin_state_t *)linCurrentState_63].isTxBusy ={v} 0;
+  LIN_LPUART_DRV_GotoIdleState (instance_15(D));
+  goto <bb 99>; [100.00%]
+
+  <bb 90> [local count: 2156183]:
+  # _123 = PHI <_309(85), _139(104)>
+  _143 = _123 + 1;
+  MEM[(struct lin_state_t *)linCurrentState_63].txBuff = _143;
+  _144 = _132 + 1;
+  MEM[(struct lin_state_t *)linCurrentState_63].cntByte = _144;
+  _145 ={v} MEM[(struct lin_state_t *)linCurrentState_63].txSize;
+  if (_144 < _145)
+    goto <bb 91>; [67.00%]
+  else
+    goto <bb 94>; [33.00%]
+
+  <bb 91> [local count: 1444642]:
+  _146 ={v} MEM[(struct lin_state_t *)linCurrentState_63].txSize;
+  _147 = (int) _146;
+  _148 = (int) _144;
+  _149 = _147 - _148;
+  if (_149 == 1)
+    goto <bb 92>; [34.00%]
+  else
+    goto <bb 93>; [66.00%]
+
+  <bb 92> [local count: 491178]:
+  _150 = MEM[(struct lin_state_t *)linCurrentState_63].checkSum;
+  MEM[(volatile uint8_t *)base_16 + 28B] ={v} _150;
+  goto <bb 99>; [100.00%]
+
+  <bb 93> [local count: 953464]:
+  _151 = MEM[(const uint8_t *)_123 + 1B];
+  MEM[(volatile uint8_t *)base_16 + 28B] ={v} _151;
+  goto <bb 99>; [100.00%]
+
+  <bb 94> [local count: 711540]:
+  MEM[(struct lin_state_t *)linCurrentState_63].currentEventId ={v} 11;
+  MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState ={v} 10;
+  LPUART_SetIntMode (base_16, 196629, 0);
+  _152 = MEM[(struct lin_state_t *)linCurrentState_63].Callback;
+  if (_152 != 0B)
+    goto <bb 95>; [70.00%]
+  else
+    goto <bb 96>; [30.00%]
+
+  <bb 95> [local count: 498078]:
+  _152 (instance_15(D), linCurrentState_63);
+
+  <bb 96> [local count: 711540]:
+  _153 ={v} MEM[(struct lin_state_t *)linCurrentState_63].isTxBlocking;
+  if (_153 != 0)
+    goto <bb 98>; [33.00%]
+  else
+    goto <bb 97>; [67.00%]
+
+  <bb 97> [local count: 476732]:
+  MEM[(struct lin_state_t *)linCurrentState_63].isTxBusy ={v} 0;
+  _154 ={v} MEM[(struct lin_state_t *)linCurrentState_63].currentNodeState;
+  if (_154 != 1)
+    goto <bb 27>; [48.88%]
+  else
+    goto <bb 5>; [51.12%]
+
+  <bb 98> [local count: 234808]:
+  _155 = &MEM[(struct lin_state_t *)linCurrentState_63].txCompleted;
+  OSIF_SemaPost (_155);
+
+  <bb 99> [local count: 1073741825]:
+  _9 = LPUART_GetStatusFlag (base_16, 131091);
+  if (_9 != 0)
+    goto <bb 101>; [33.00%]
+  else
+    goto <bb 100>; [67.00%]
+
+  <bb 100> [local count: 825707464]:
+  goto <bb 103>; [100.00%]
+
+  <bb 101> [local count: 354334800]:
+  LPUART_ClearStatusFlag (base_16, 131091);
+  linCurrentState_17->currentEventId ={v} 13;
+  _10 = linCurrentState_17->Callback;
+  if (_10 != 0B)
+    goto <bb 102>; [70.00%]
+  else
+    goto <bb 100>; [30.00%]
+
+  <bb 102> [local count: 248034361]:
+  _10 (instance_15(D), linCurrentState_17); [tail call]
+
+  <bb 103> [local count: 1073741825]:
+  return;
+
+  <bb 104> [local count: 5692322]:
+  _139 = MEM[(struct lin_state_t *)linCurrentState_63].txBuff;
+  _167 = *_139;
+  if (_39 != _167)
+    goto <bb 86>; [66.00%]
+  else
+    goto <bb 90>; [34.00%]
+
+}
+
+
+
+;; Function LIN_LPUART_DRV_AutoBaudCapture (LIN_LPUART_DRV_AutoBaudCapture, funcdef_no=54, decl_uid=8034, cgraph_uid=55, symbol_order=63)
+
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+Removing basic block 57
+Removing basic block 58
+Removing basic block 59
+Removing basic block 60
+Removing basic block 61
+Removing basic block 62
+Removing basic block 63
+Removing basic block 64
+Removing basic block 65
+Removing basic block 66
+Removing basic block 67
+Removing basic block 68
+Removing basic block 69
+Removing basic block 70
+Removing basic block 71
+Removing basic block 72
+Removing basic block 73
+Removing basic block 74
+Removing basic block 75
+Removing basic block 76
+Removing basic block 77
+Removing basic block 78
+Removing basic block 79
+Removing basic block 80
+Removing basic block 81
+LIN_LPUART_DRV_AutoBaudCapture (uint32_t instance)
+{
+  uint32_t MasterBaudRate;
+  struct lin_user_config_t * linUserConfig;
+  struct lin_state_t * linCurrentState;
+  uint32_t tmpTime;
+  status_t retVal;
+  struct lin_state_t * linCurrentState;
+  const struct lin_user_config_t * linUserConfig;
+  struct LPUART_Type * base;
+  _Bool _1;
+  uint32_t (*<T945>) (uint32_t *) _2;
+  long unsigned int _3;
+  long unsigned int tmpTime.9_4;
+  long unsigned int _5;
+  unsigned char _6;
+  unsigned char _7;
+  <unnamed type> _8;
+  void (*<T821>) (uint32_t, void *) _9;
+  void (*<T821>) (uint32_t, void *) _10;
+  <unnamed type> _11;
+  unsigned char _12;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  <unnamed type> _62;
+  unsigned char _63;
+  long unsigned int _64;
+  long unsigned int _65;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  long unsigned int _71;
+  void (*<T821>) (uint32_t, void *) _72;
+  unsigned char _74;
+  unsigned char _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  long unsigned int _79;
+  unsigned char _80;
+  long unsigned int _81;
+  long unsigned int _82;
+  long unsigned int _83;
+  long unsigned int _84;
+  long unsigned int _85;
+  unsigned char _86;
+  unsigned char _87;
+  long unsigned int _129;
+
+  <bb 2> [local count: 472446400]:
+  base_21 = g_linLpuartBase[instance_20(D)];
+  linUserConfig_22 = g_linUserconfigPtr[instance_20(D)];
+  linCurrentState_23 = g_linStatePtr[instance_20(D)];
+  tmpTime = 0;
+  _1 ={v} linCurrentState_23->baudrateEvalEnable;
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 45>; [50.00%]
+
+  <bb 3> [local count: 236223200]:
+  _2 = linUserConfig_22->timerGetTimeIntervalCallback;
+  _2 (&tmpTime);
+  _3 = s_timeMeasure[instance_20(D)];
+  tmpTime.9_4 = tmpTime;
+  _5 = _3 + tmpTime.9_4;
+  s_timeMeasure[instance_20(D)] = _5;
+  _6 = s_countMeasure[instance_20(D)];
+  _7 = _6 + 1;
+  s_countMeasure[instance_20(D)] = _7;
+  if (_7 > 1)
+    goto <bb 5>; [72.77%]
+  else
+    goto <bb 4>; [27.23%]
+
+  <bb 4> [local count: 93609543]:
+  goto <bb 51>; [100.00%]
+
+  <bb 5> [local count: 171899623]:
+  _8 ={v} linCurrentState_23->currentNodeState;
+  if (_8 == 1)
+    goto <bb 7>; [33.33%]
+  else
+    goto <bb 6>; [66.67%]
+
+  <bb 6> [local count: 171899623]:
+  if (_8 == 2)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 7> [local count: 57299875]:
+  if (tmpTime.9_4 > 149999)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 8> [local count: 28649937]:
+  linCurrentState_23->currentEventId ={v} 1;
+  _9 = linCurrentState_23->Callback;
+  if (_9 != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 9> [local count: 20054956]:
+  _9 (instance_20(D), linCurrentState_23);
+
+  <bb 10> [local count: 28649937]:
+  LIN_LPUART_DRV_GotoIdleState (instance_20(D));
+
+  <bb 11> [local count: 57299875]:
+  # retVal_13 = PHI <2(10), 1(7)>
+  s_countMeasure[instance_20(D)] = 0;
+  goto <bb 51>; [100.00%]
+
+  <bb 12> [local count: 57299875]:
+  if (tmpTime.9_4 > 663532)
+    goto <bb 13>; [20.96%]
+  else
+    goto <bb 16>; [79.04%]
+
+  <bb 13> [local count: 12010054]:
+  _45 ={v} base_21->STAT;
+  _46 = _45 & 1038106623;
+  base_21->STAT ={v} _46;
+  LPUART_SetIntMode (base_21, 65551, 0);
+  linCurrentState_23->isBusBusy ={v} 1;
+  linCurrentState_23->currentEventId ={v} 3;
+  _10 = linCurrentState_23->Callback;
+  if (_10 != 0B)
+    goto <bb 14>; [70.00%]
+  else
+    goto <bb 15>; [30.00%]
+
+  <bb 14> [local count: 8407038]:
+  _10 (instance_20(D), linCurrentState_23);
+
+  <bb 15> [local count: 12010054]:
+  linCurrentState_23->currentNodeState ={v} 4;
+  linCurrentState_23->fallingEdgeInterruptCount ={v} 0;
+  s_countMeasure[instance_20(D)] = 1;
+  goto <bb 51>; [100.00%]
+
+  <bb 16> [local count: 45289821]:
+  s_countMeasure[instance_20(D)] = 0;
+  goto <bb 51>; [100.00%]
+
+  <bb 17> [local count: 57299875]:
+  linUserConfig_60 = g_linUserconfigPtr[instance_20(D)];
+  linCurrentState_61 = g_linStatePtr[instance_20(D)];
+  _62 ={v} linCurrentState_61->currentNodeState;
+  _74 ={v} linCurrentState_61->fallingEdgeInterruptCount;
+  if (_74 <= 4)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 30>; [50.00%]
+
+  <bb 18> [local count: 28649937]:
+  _75 ={v} linCurrentState_61->fallingEdgeInterruptCount;
+  if (_75 != 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 30>; [50.00%]
+
+  <bb 19> [local count: 14324969]:
+  _129 = _5 + 4294865214;
+  if (_129 > 747918)
+    goto <bb 24>; [33.00%]
+  else
+    goto <bb 20>; [67.00%]
+
+  <bb 20> [local count: 9597729]:
+  _76 = _5 + 4294861045;
+  if (_76 <= 29858)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 21> [local count: 4798865]:
+  _77 = _5 + 4294825629;
+  if (_77 <= 62498)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 22>; [50.00%]
+
+  <bb 22> [local count: 2399432]:
+  _78 = _5 + 4294754795;
+  if (_78 <= 195830)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 23> [local count: 1199716]:
+  _79 = _5 + 4294542295;
+  if (_79 <= 391664)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 24> [local count: 14025040]:
+  LIN_LPUART_DRV_GotoIdleState (instance_20(D));
+  linCurrentState_61->fallingEdgeInterruptCount ={v} 0;
+  goto <bb 29>; [100.00%]
+
+  <bb 25> [local count: 299929]:
+  _80 ={v} linCurrentState_61->fallingEdgeInterruptCount;
+  if (_80 > 1)
+    goto <bb 26>; [59.00%]
+  else
+    goto <bb 29>; [41.00%]
+
+  <bb 26> [local count: 176958]:
+  _81 = s_previousTwoBitTimeLength[instance_20(D)];
+  _82 = _81 * 86;
+  _83 = _82 / 100;
+  if (_5 < _83)
+    goto <bb 28>; [33.00%]
+  else
+    goto <bb 27>; [67.00%]
+
+  <bb 27> [local count: 118562]:
+  _84 = _81 * 114;
+  _85 = _84 / 100;
+  if (_5 > _85)
+    goto <bb 28>; [50.00%]
+  else
+    goto <bb 29>; [50.00%]
+
+  <bb 28> [local count: 117677]:
+  LIN_LPUART_DRV_GotoIdleState (instance_20(D));
+  linCurrentState_61->fallingEdgeInterruptCount ={v} 0;
+
+  <bb 29> [local count: 14324969]:
+  s_previousTwoBitTimeLength[instance_20(D)] = _5;
+
+  <bb 30> [local count: 57299875]:
+  _86 ={v} linCurrentState_61->fallingEdgeInterruptCount;
+  _87 = _86 + 1;
+  linCurrentState_61->fallingEdgeInterruptCount ={v} _87;
+  _63 ={v} linCurrentState_61->fallingEdgeInterruptCount;
+  if (_63 > 4)
+    goto <bb 31>; [50.00%]
+  else
+    goto <bb 44>; [50.00%]
+
+  <bb 31> [local count: 28649937]:
+  if (_62 == 4)
+    goto <bb 32>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 32> [local count: 9740979]:
+  _64 = _5 + 4294865214;
+  if (_64 <= 4168)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 33>; [50.00%]
+
+  <bb 33> [local count: 4870489]:
+  _65 = _5 + 4294831186;
+  if (_65 <= 5556)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 34>; [50.00%]
+
+  <bb 34> [local count: 2435245]:
+  _66 = _5 + 4294763130;
+  if (_66 <= 8334)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 35>; [50.00%]
+
+  <bb 35> [local count: 1217622]:
+  _67 = _5 + 4294558964;
+  if (_67 <= 16668)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 36>; [50.00%]
+
+  <bb 36> [local count: 608811]:
+  _68 = _5 + 4294150630;
+  if (_68 <= 33334)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 41>; [50.00%]
+
+  <bb 37> [local count: 9436573]:
+  # MasterBaudRate_70 = PHI <9600(34), 4800(35), 19200(32), 14400(33), 2400(36)>
+  _69 = linUserConfig_60->baudRate;
+  if (_69 != MasterBaudRate_70)
+    goto <bb 38>; [48.88%]
+  else
+    goto <bb 41>; [51.12%]
+
+  <bb 38> [local count: 4612597]:
+  linUserConfig_60->baudRate = MasterBaudRate_70;
+  LPUART_DRV_SetBaudRate (instance_20(D), MasterBaudRate_70);
+  _71 = linUserConfig_60->baudRate;
+  if (_71 > 10000)
+    goto <bb 39>; [50.00%]
+  else
+    goto <bb 40>; [50.00%]
+
+  <bb 39> [local count: 2306298]:
+  s_wakeupSignal[instance_20(D)] = 128;
+  goto <bb 41>; [100.00%]
+
+  <bb 40> [local count: 2306298]:
+  s_wakeupSignal[instance_20(D)] = 248;
+
+  <bb 41> [local count: 9740979]:
+  linCurrentState_61->currentEventId ={v} 2;
+  linCurrentState_61->baudrateEvalEnable ={v} 0;
+  _72 = linCurrentState_61->Callback;
+  if (_72 != 0B)
+    goto <bb 42>; [70.00%]
+  else
+    goto <bb 43>; [30.00%]
+
+  <bb 42> [local count: 6818685]:
+  _72 (instance_20(D), linCurrentState_61);
+
+  <bb 43> [local count: 9740979]:
+  linCurrentState_61->currentNodeState ={v} 6;
+  linCurrentState_61->currentEventId ={v} 4;
+
+  <bb 44> [local count: 57299875]:
+  s_countMeasure[instance_20(D)] = 0;
+  s_timeMeasure[instance_20(D)] = 0;
+  _11 ={v} linCurrentState_23->currentNodeState;
+  if (_11 == 2)
+    goto <bb 51>; [48.89%]
+  else
+    goto <bb 4>; [51.11%]
+
+  <bb 45> [local count: 236223200]:
+  _12 ={v} linCurrentState_23->fallingEdgeInterruptCount;
+  if (_12 > 4)
+    goto <bb 46>; [50.00%]
+  else
+    goto <bb 51>; [50.00%]
+
+  <bb 46> [local count: 118111600]:
+  _52 ={v} base_21->CTRL;
+  _53 = _52 & 4294443007;
+  _54 = _53 | 524288;
+  base_21->CTRL ={v} _54;
+
+  <bb 47> [local count: 1073741824]:
+  _55 ={v} base_21->CTRL;
+  _56 = _55 & 524288;
+  if (_56 == 0)
+    goto <bb 47>; [89.00%]
+  else
+    goto <bb 48>; [11.00%]
+
+  <bb 48> [local count: 118111600]:
+  _47 ={v} base_21->CTRL;
+  _48 = _47 & 4294705151;
+  _49 = _48 | 262144;
+  base_21->CTRL ={v} _49;
+
+  <bb 49> [local count: 1073741824]:
+  _50 ={v} base_21->CTRL;
+  _51 = _50 & 262144;
+  if (_51 == 0)
+    goto <bb 49>; [89.00%]
+  else
+    goto <bb 50>; [11.00%]
+
+  <bb 50> [local count: 118111600]:
+  linCurrentState_23->fallingEdgeInterruptCount ={v} 0;
+
+  <bb 51> [local count: 472446402]:
+  # retVal_14 = PHI <retVal_13(11), 0(50), 1(44), 2(4), 2(15), 1(16), 0(45)>
+  tmpTime ={v} {CLOBBER};
+  return retVal_14;
+
+}
+
+

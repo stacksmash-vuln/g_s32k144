@@ -1,0 +1,1422 @@
+
+;; Function ADC_DRV_InitConverterStruct (ADC_DRV_InitConverterStruct, funcdef_no=47, decl_uid=6317, cgraph_uid=48, symbol_order=48)
+
+ADC_DRV_InitConverterStruct (struct adc_converter_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->clockDivide = 0;
+  config_2(D)->sampleTime = 12;
+  config_2(D)->resolution = 0;
+  config_2(D)->inputClock = 0;
+  config_2(D)->trigger = 0;
+  config_2(D)->pretriggerSel = 0;
+  config_2(D)->triggerSel = 0;
+  config_2(D)->dmaEnable = 0;
+  config_2(D)->voltageRef = 0;
+  config_2(D)->continuousConvEnable = 0;
+  config_2(D)->supplyMonitoringEnable = 0;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_ConfigConverter (ADC_DRV_ConfigConverter, funcdef_no=48, decl_uid=6320, cgraph_uid=49, symbol_order=49)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+ADC_DRV_ConfigConverter (const uint32_t instance, const struct adc_converter_config_t * const config)
+{
+  uint32_t mask[2];
+  uint32_t intermVal;
+  uint32_t mask[2];
+  uint32_t intermVal;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t adc_freq;
+  clock_names_t adc_clocks[2];
+  struct ADC_Type * const base;
+  <unnamed type> _1;
+  long unsigned int adc_freq.0_2;
+  <unnamed type> _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  unsigned char _6;
+  <unnamed type> _7;
+  <unnamed type> _8;
+  <unnamed type> _9;
+  <unnamed type> _10;
+  _Bool _12;
+  <unnamed type> _13;
+  _Bool _14;
+  _Bool _15;
+  <unnamed type> _36;
+  long unsigned int _37;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  <unnamed type> _51;
+  long unsigned int _52;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  unsigned char iftmp.1_60;
+  long unsigned int _63;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  <unnamed type> _88;
+  long unsigned int _89;
+  long unsigned int _91;
+  long unsigned int _92;
+  long unsigned int _93;
+  long unsigned int _96;
+  long unsigned int _97;
+  long unsigned int _98;
+  long unsigned int _100;
+  long unsigned int _101;
+  long unsigned int _102;
+  long unsigned int _104;
+  long unsigned int _105;
+  long unsigned int _106;
+  <unnamed type> _126;
+  long unsigned int _127;
+  long unsigned int prephitmp_128;
+  long unsigned int _129;
+  long unsigned int _139;
+  long unsigned int _140;
+  long unsigned int _141;
+  <unnamed type> _146;
+  long unsigned int _147;
+  long unsigned int prephitmp_148;
+  long unsigned int _149;
+
+  <bb 2> [local count: 1073741824]:
+  base_19 = s_adcBase[instance_18(D)];
+  MEM <unsigned char> [(clock_names_t[2] *)&adc_clocks] = 65;
+  MEM <unsigned char> [(clock_names_t[2] *)&adc_clocks + 1B] = 66;
+  adc_freq = 0;
+  _1 = adc_clocks[instance_18(D)];
+  CLOCK_SYS_GetFreq (_1, &adc_freq);
+  adc_freq.0_2 = adc_freq;
+  _3 = config_22(D)->clockDivide;
+  _4 = (long unsigned int) _3;
+  _5 = adc_freq.0_2 >> _4;
+  adc_freq = _5;
+  tmp_65 ={v} base_19->CFG1;
+  tmp_66 = tmp_65 & 4294967199;
+  _67 = _4 << 5;
+  _68 = _67 & 96;
+  tmp_69 = tmp_66 | _68;
+  base_19->CFG1 ={v} tmp_69;
+  _6 = config_22(D)->sampleTime;
+  iftmp.1_60 = MAX_EXPR <_6, 1>;
+  tmp_61 ={v} base_19->CFG2;
+  tmp_62 = tmp_61 & 4294967040;
+  _63 = (long unsigned int) iftmp.1_60;
+  tmp_64 = tmp_62 | _63;
+  base_19->CFG2 ={v} tmp_64;
+  _7 = config_22(D)->resolution;
+  tmp_54 ={v} base_19->CFG1;
+  tmp_55 = tmp_54 & 4294967283;
+  _56 = (long unsigned int) _7;
+  _57 = _56 << 2;
+  _58 = _57 & 12;
+  tmp_59 = tmp_55 | _58;
+  base_19->CFG1 ={v} tmp_59;
+  _8 = config_22(D)->inputClock;
+  tmp_49 ={v} base_19->CFG1;
+  tmp_50 = tmp_49 & 4294967292;
+  _51 = _8 & 3;
+  _52 = (long unsigned int) _51;
+  tmp_53 = tmp_50 | _52;
+  base_19->CFG1 ={v} tmp_53;
+  _9 = config_22(D)->trigger;
+  tmp_43 ={v} base_19->SC2;
+  tmp_44 = tmp_43 & 4294967231;
+  _45 = (long unsigned int) _9;
+  _46 = _45 << 6;
+  _47 = _46 & 64;
+  tmp_48 = tmp_44 | _47;
+  base_19->SC2 ={v} tmp_48;
+  _10 = config_22(D)->pretriggerSel;
+  mask[0] = 48;
+  mask[1] = 12288;
+  _96 ={v} MEM[(struct SIM_Type *)1074036736B].ADCOPT;
+  _97 = mask[instance_18(D)];
+  _98 = ~_97;
+  intermVal_99 = _96 & _98;
+  if (instance_18(D) == 0)
+    goto <bb 4>; [33.33%]
+  else
+    goto <bb 3>; [66.67%]
+
+  <bb 3> [local count: 1073741824]:
+  if (instance_18(D) == 1)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 4> [local count: 357913946]:
+  _100 = (long unsigned int) _10;
+  _101 = _100 << 4;
+  _102 = _101 & 48;
+  intermVal_103 = intermVal_99 | _102;
+  MEM[(struct SIM_Type *)1074036736B].ADCOPT ={v} intermVal_103;
+  mask ={v} {CLOBBER};
+  _146 = config_22(D)->triggerSel;
+  _149 ={v} MEM[(struct SIM_Type *)1074036736B].ADCOPT;
+  intermVal_152 = _149 & 4294967294;
+  _88 = _146 & 1;
+  _89 = (long unsigned int) _88;
+  intermVal_90 = _89 | intermVal_152;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 357913946]:
+  _104 = (long unsigned int) _10;
+  _105 = _104 << 12;
+  _106 = _105 & 12288;
+  intermVal_107 = intermVal_99 | _106;
+  MEM[(struct SIM_Type *)1074036736B].ADCOPT ={v} intermVal_107;
+  mask ={v} {CLOBBER};
+  _126 = config_22(D)->triggerSel;
+  _129 ={v} MEM[(struct SIM_Type *)1074036736B].ADCOPT;
+  intermVal_132 = _129 & 4294967039;
+  _91 = (long unsigned int) _126;
+  _92 = _91 << 8;
+  _93 = _92 & 256;
+  intermVal_94 = _93 | intermVal_132;
+
+  <bb 6> [local count: 1073741839]:
+  # intermVal_95 = PHI <intermVal_94(5), intermVal_90(4), intermVal_142(15)>
+  MEM[(struct SIM_Type *)1074036736B].ADCOPT ={v} intermVal_95;
+  mask ={v} {CLOBBER};
+  _12 = config_22(D)->dmaEnable;
+  tmp_39 ={v} base_19->SC2;
+  tmp_40 = tmp_39 & 4294967291;
+  if (_12 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 536870920]:
+  _127 = tmp_40 | 4;
+
+  <bb 8> [local count: 1073741839]:
+  # prephitmp_128 = PHI <_127(7), tmp_40(6)>
+  base_19->SC2 ={v} prephitmp_128;
+  _13 = config_22(D)->voltageRef;
+  tmp_34 ={v} base_19->SC2;
+  tmp_35 = tmp_34 & 4294967292;
+  _36 = _13 & 3;
+  _37 = (long unsigned int) _36;
+  tmp_38 = tmp_35 | _37;
+  base_19->SC2 ={v} tmp_38;
+  _14 = config_22(D)->continuousConvEnable;
+  tmp_30 ={v} base_19->SC3;
+  tmp_31 = tmp_30 & 4294967287;
+  if (_14 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 536870920]:
+  _147 = tmp_31 | 8;
+
+  <bb 10> [local count: 1073741839]:
+  # prephitmp_148 = PHI <_147(9), tmp_31(8)>
+  base_19->SC3 ={v} prephitmp_148;
+  if (instance_18(D) == 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 11> [local count: 536870921]:
+  _15 = config_22(D)->supplyMonitoringEnable;
+  if (_15 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 268435460]:
+  _70 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _71 = _70 | 524288;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _71;
+  goto <bb 14>; [100.00%]
+
+  <bb 13> [local count: 268435460]:
+  _72 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _73 = _72 & 4294443007;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _73;
+
+  <bb 14> [local count: 1073741839]:
+  adc_clocks ={v} {CLOBBER};
+  adc_freq ={v} {CLOBBER};
+  return;
+
+  <bb 15> [local count: 357913944]:
+  MEM[(struct SIM_Type *)1074036736B].ADCOPT ={v} intermVal_99;
+  mask ={v} {CLOBBER};
+  mask[0] = 1;
+  mask[1] = 256;
+  _139 ={v} MEM[(struct SIM_Type *)1074036736B].ADCOPT;
+  _140 = mask[instance_18(D)];
+  _141 = ~_140;
+  intermVal_142 = _139 & _141;
+  goto <bb 6>; [100.00%]
+
+}
+
+
+
+;; Function ADC_DRV_GetConverterConfig (ADC_DRV_GetConverterConfig, funcdef_no=49, decl_uid=6323, cgraph_uid=50, symbol_order=50)
+
+Removing basic block 4
+Removing basic block 7
+Removing basic block 11
+Removing basic block 13
+Removing basic block 15
+ADC_DRV_GetConverterConfig (const uint32_t instance, struct adc_converter_config_t * const config)
+{
+  uint32_t currentVal;
+  uint32_t mask[2];
+  uint32_t shift[2];
+  uint32_t currentVal;
+  adc_pretrigger_sel_t returnVal;
+  uint32_t mask[2];
+  uint32_t shift[2];
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  adc_resolution_t retValue;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  const struct ADC_Type * const base;
+  _Bool cstore_1;
+  long unsigned int _3;
+  long unsigned int _4;
+  _Bool _5;
+  _Bool _23;
+  <unnamed type> _24;
+  long unsigned int _26;
+  _Bool _27;
+  <unnamed type> _30;
+  long unsigned int _32;
+  _Bool _33;
+  long unsigned int _35;
+  <unnamed type> _37;
+  <unnamed type> _40;
+  long unsigned int _42;
+  unsigned char _46;
+  long unsigned int _48;
+  <unnamed type> _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _60;
+
+  <bb 2> [local count: 1073741817]:
+  base_9 = s_adcBase[instance_8(D)];
+  tmp_47 ={v} base_9->CFG1;
+  _48 = tmp_47 >> 5;
+  tmp_49 = _48 & 3;
+  _50 = (<unnamed type>) tmp_49;
+  config_10(D)->clockDivide = _50;
+  tmp_45 ={v} base_9->CFG2;
+  _46 = (unsigned char) tmp_45;
+  config_10(D)->sampleTime = _46;
+  tmp_41 ={v} base_9->CFG1;
+  _42 = tmp_41 >> 2;
+  tmp_43 = _42 & 3;
+  if (tmp_43 == 1)
+    goto <bb 5>; [33.33%]
+  else
+    goto <bb 3>; [66.67%]
+
+  <bb 3> [local count: 1073741817]:
+  if (tmp_43 == 2)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 536870909]:
+
+  <bb 5> [local count: 1073741825]:
+  # retValue_44 = PHI <1(2), 0(3), 2(4)>
+  config_10(D)->resolution = retValue_44;
+  tmp_38 ={v} base_9->CFG1;
+  tmp_39 = tmp_38 & 3;
+  _40 = (<unnamed type>) tmp_39;
+  config_10(D)->inputClock = _40;
+  tmp_34 ={v} base_9->SC2;
+  _35 = tmp_34 >> 6;
+  tmp_36 = _35 & 1;
+  _37 = (<unnamed type>) tmp_36;
+  config_10(D)->trigger = _37;
+  MEM <char[4]> [(uint32_t[2] *)&shift] = {};
+  mask[0] = 1;
+  mask[1] = 256;
+  shift[1] = 8;
+  _57 ={v} MEM[(const struct SIM_Type *)1074036736B].ADCOPT;
+  _58 = mask[instance_8(D)];
+  _59 = _57 & _58;
+  _60 = shift[instance_8(D)];
+  currentVal_61 = _59 >> _60;
+  _23 = currentVal_61 == 1;
+  _24 = (<unnamed type>) _23;
+  mask ={v} {CLOBBER};
+  shift ={v} {CLOBBER};
+  config_10(D)->triggerSel = _24;
+  mask[0] = 48;
+  mask[1] = 12288;
+  shift[0] = 4;
+  shift[1] = 12;
+  _51 ={v} MEM[(const struct SIM_Type *)1074036736B].ADCOPT;
+  _52 = mask[instance_8(D)];
+  _53 = _51 & _52;
+  _54 = shift[instance_8(D)];
+  currentVal_55 = _53 >> _54;
+  if (currentVal_55 == 1)
+    goto <bb 8>; [33.33%]
+  else
+    goto <bb 6>; [66.67%]
+
+  <bb 6> [local count: 1073741825]:
+  if (currentVal_55 == 2)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 536870913]:
+
+  <bb 8> [local count: 1073741832]:
+  # returnVal_56 = PHI <1(5), 0(6), 2(7)>
+  mask ={v} {CLOBBER};
+  shift ={v} {CLOBBER};
+  config_10(D)->pretriggerSel = returnVal_56;
+  tmp_31 ={v} base_9->SC2;
+  _32 = tmp_31 >> 2;
+  _33 = (_Bool) _32;
+  config_10(D)->dmaEnable = _33;
+  tmp_28 ={v} base_9->SC2;
+  tmp_29 = tmp_28 & 3;
+  _30 = (<unnamed type>) tmp_29;
+  config_10(D)->voltageRef = _30;
+  tmp_25 ={v} base_9->SC3;
+  _26 = tmp_25 >> 3;
+  _27 = (_Bool) _26;
+  config_10(D)->continuousConvEnable = _27;
+  if (instance_8(D) == 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 536870917]:
+  _3 ={v} MEM[(const struct SIM_Type *)1074036736B].CHIPCTL;
+  _4 = _3 & 524288;
+  _5 = _4 != 0;
+
+  <bb 10> [local count: 1073741832]:
+  # cstore_1 = PHI <_5(9), 0(8)>
+  config_10(D)->supplyMonitoringEnable = cstore_1;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_Reset (ADC_DRV_Reset, funcdef_no=50, decl_uid=6354, cgraph_uid=51, symbol_order=51)
+
+Removing basic block 7
+Removing basic block 8
+ADC_DRV_Reset (const uint32_t instance)
+{
+  unsigned int ivtmp.103;
+  uint32_t mask[2];
+  uint32_t intermVal;
+  uint32_t mask[2];
+  uint32_t intermVal;
+  uint32_t intermValue;
+  uint32_t mask[2];
+  struct ADC_Type * const baseAddr;
+  int _1;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+
+  <bb 2> [local count: 63136016]:
+  baseAddr_12 = s_adcBase[instance_11(D)];
+
+  <bb 3> [local count: 1010605809]:
+  # ivtmp.103_50 = PHI <0(2), ivtmp.103_62(3)>
+  _1 = (int) ivtmp.103_50;
+  baseAddr_12->SC1[_1] ={v} 31;
+  ivtmp.103_62 = ivtmp.103_50 + 1;
+  if (ivtmp.103_62 != 16)
+    goto <bb 3>; [93.75%]
+  else
+    goto <bb 4>; [6.25%]
+
+  <bb 4> [local count: 63136018]:
+  baseAddr_12->CFG1 ={v} 0;
+  baseAddr_12->CFG2 ={v} 12;
+  baseAddr_12->CV[0] ={v} 0;
+  baseAddr_12->CV[1] ={v} 0;
+  baseAddr_12->SC2 ={v} 0;
+  baseAddr_12->SC3 ={v} 0;
+  baseAddr_12->USR_OFS ={v} 0;
+  baseAddr_12->UG ={v} 4;
+  mask[0] = 48;
+  mask[1] = 12288;
+  _55 ={v} MEM[(struct SIM_Type *)1074036736B].ADCOPT;
+  _56 = mask[instance_11(D)];
+  _57 = ~_56;
+  intermVal_58 = _55 & _57;
+  MEM[(struct SIM_Type *)1074036736B].ADCOPT ={v} intermVal_58;
+  mask ={v} {CLOBBER};
+  mask[0] = 1;
+  mask[1] = 256;
+  _43 ={v} MEM[(struct SIM_Type *)1074036736B].ADCOPT;
+  _44 = mask[instance_11(D)];
+  _45 = ~_44;
+  intermVal_46 = _43 & _45;
+  MEM[(struct SIM_Type *)1074036736B].ADCOPT ={v} intermVal_46;
+  mask ={v} {CLOBBER};
+  mask[0] = 14;
+  mask[1] = 3584;
+  _30 ={v} MEM[(struct SIM_Type *)1074036736B].ADCOPT;
+  _31 = mask[instance_11(D)];
+  _32 = ~_31;
+  intermValue_33 = _30 & _32;
+  MEM[(struct SIM_Type *)1074036736B].ADCOPT ={v} intermValue_33;
+  mask ={v} {CLOBBER};
+  if (instance_11(D) == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 31568009]:
+  _27 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _28 = _27 & 4294443007;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _28;
+  _3 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _4 = _3 & 4294508543;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _4;
+
+  <bb 6> [local count: 63136018]:
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_InitHwCompareStruct (ADC_DRV_InitHwCompareStruct, funcdef_no=51, decl_uid=6325, cgraph_uid=52, symbol_order=52)
+
+ADC_DRV_InitHwCompareStruct (struct adc_compare_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  MEM <unsigned short> [(_Bool *)config_2(D)] = 0;
+  config_2(D)->compareRangeFuncEnable = 0;
+  config_2(D)->compVal1 = 0;
+  config_2(D)->compVal2 = 0;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_ConfigHwCompare (ADC_DRV_ConfigHwCompare, funcdef_no=52, decl_uid=6328, cgraph_uid=53, symbol_order=53)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+ADC_DRV_ConfigHwCompare (const uint32_t instance, const struct adc_compare_config_t * const config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  struct ADC_Type * const base;
+  _Bool _1;
+  _Bool _2;
+  _Bool _3;
+  short unsigned int _4;
+  short unsigned int _5;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _29;
+  long unsigned int prephitmp_30;
+  long unsigned int _31;
+  long unsigned int prephitmp_32;
+  long unsigned int _33;
+  long unsigned int prephitmp_34;
+
+  <bb 2> [local count: 1073741824]:
+  base_8 = s_adcBase[instance_7(D)];
+  _1 = config_9(D)->compareEnable;
+  tmp_20 ={v} base_8->SC2;
+  tmp_21 = tmp_20 & 4294967263;
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _29 = tmp_21 | 32;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_30 = PHI <_29(3), tmp_21(2)>
+  base_8->SC2 ={v} prephitmp_30;
+  _2 = config_9(D)->compareGreaterThanEnable;
+  tmp_16 ={v} base_8->SC2;
+  tmp_17 = tmp_16 & 4294967279;
+  if (_2 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870912]:
+  _31 = tmp_17 | 16;
+
+  <bb 6> [local count: 1073741824]:
+  # prephitmp_32 = PHI <_31(5), tmp_17(4)>
+  base_8->SC2 ={v} prephitmp_32;
+  _3 = config_9(D)->compareRangeFuncEnable;
+  tmp_12 ={v} base_8->SC2;
+  tmp_13 = tmp_12 & 4294967287;
+  if (_3 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 536870912]:
+  _33 = tmp_13 | 8;
+
+  <bb 8> [local count: 1073741824]:
+  # prephitmp_34 = PHI <_33(7), tmp_13(6)>
+  base_8->SC2 ={v} prephitmp_34;
+  _4 = config_9(D)->compVal1;
+  _11 = (long unsigned int) _4;
+  base_8->CV[0] ={v} _11;
+  _5 = config_9(D)->compVal2;
+  _10 = (long unsigned int) _5;
+  base_8->CV[1] ={v} _10;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_GetHwCompareConfig (ADC_DRV_GetHwCompareConfig, funcdef_no=53, decl_uid=6331, cgraph_uid=54, symbol_order=54)
+
+ADC_DRV_GetHwCompareConfig (const uint32_t instance, struct adc_compare_config_t * const config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  const struct ADC_Type * const base;
+  long unsigned int _10;
+  short unsigned int _11;
+  long unsigned int _12;
+  short unsigned int _13;
+  long unsigned int _15;
+  _Bool _16;
+  long unsigned int _18;
+  _Bool _19;
+  long unsigned int _21;
+  _Bool _22;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_adcBase[instance_2(D)];
+  tmp_20 ={v} base_3->SC2;
+  _21 = tmp_20 >> 5;
+  _22 = (_Bool) _21;
+  config_4(D)->compareEnable = _22;
+  tmp_17 ={v} base_3->SC2;
+  _18 = tmp_17 >> 4;
+  _19 = (_Bool) _18;
+  config_4(D)->compareGreaterThanEnable = _19;
+  tmp_14 ={v} base_3->SC2;
+  _15 = tmp_14 >> 3;
+  _16 = (_Bool) _15;
+  config_4(D)->compareRangeFuncEnable = _16;
+  _12 ={v} base_3->CV[0];
+  _13 = (short unsigned int) _12;
+  config_4(D)->compVal1 = _13;
+  _10 ={v} base_3->CV[1];
+  _11 = (short unsigned int) _10;
+  config_4(D)->compVal2 = _11;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_InitHwAverageStruct (ADC_DRV_InitHwAverageStruct, funcdef_no=54, decl_uid=6333, cgraph_uid=55, symbol_order=55)
+
+ADC_DRV_InitHwAverageStruct (struct adc_average_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->hwAvgEnable = 0;
+  config_2(D)->hwAverage = 0;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_ConfigHwAverage (ADC_DRV_ConfigHwAverage, funcdef_no=55, decl_uid=6336, cgraph_uid=56, symbol_order=56)
+
+Removing basic block 5
+ADC_DRV_ConfigHwAverage (const uint32_t instance, const struct adc_average_config_t * const config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  struct ADC_Type * const base;
+  _Bool _1;
+  <unnamed type> _2;
+  <unnamed type> _9;
+  long unsigned int _10;
+  long unsigned int _18;
+  long unsigned int prephitmp_19;
+
+  <bb 2> [local count: 1073741824]:
+  base_5 = s_adcBase[instance_4(D)];
+  _1 = config_6(D)->hwAvgEnable;
+  tmp_12 ={v} base_5->SC3;
+  tmp_13 = tmp_12 & 4294967291;
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _18 = tmp_13 | 4;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_19 = PHI <_18(3), tmp_13(2)>
+  base_5->SC3 ={v} prephitmp_19;
+  _2 = config_6(D)->hwAverage;
+  tmp_7 ={v} base_5->SC3;
+  tmp_8 = tmp_7 & 4294967292;
+  _9 = _2 & 3;
+  _10 = (long unsigned int) _9;
+  tmp_11 = tmp_8 | _10;
+  base_5->SC3 ={v} tmp_11;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_GetHwAverageConfig (ADC_DRV_GetHwAverageConfig, funcdef_no=56, decl_uid=6339, cgraph_uid=57, symbol_order=57)
+
+ADC_DRV_GetHwAverageConfig (const uint32_t instance, struct adc_average_config_t * const config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  const struct ADC_Type * const base;
+  <unnamed type> _9;
+  long unsigned int _11;
+  _Bool _12;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_adcBase[instance_2(D)];
+  tmp_10 ={v} base_3->SC3;
+  _11 = tmp_10 >> 2;
+  _12 = (_Bool) _11;
+  config_4(D)->hwAvgEnable = _12;
+  tmp_7 ={v} base_3->SC3;
+  tmp_8 = tmp_7 & 3;
+  _9 = (<unnamed type>) tmp_8;
+  config_4(D)->hwAverage = _9;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_InitChanStruct (ADC_DRV_InitChanStruct, funcdef_no=57, decl_uid=6341, cgraph_uid=58, symbol_order=58)
+
+ADC_DRV_InitChanStruct (struct adc_chan_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->interruptEnable = 0;
+  config_2(D)->channel = 31;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_ConfigChan (ADC_DRV_ConfigChan, funcdef_no=58, decl_uid=6345, cgraph_uid=59, symbol_order=59)
+
+Removing basic block 8
+ADC_DRV_ConfigChan (const uint32_t instance, const uint8_t chanIndex, const struct adc_chan_config_t * const config)
+{
+  uint32_t tmp;
+  const uint32_t supplyMonitorIdx;
+  struct ADC_Type * const base;
+  <unnamed type> _1;
+  _Bool _2;
+  short unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  <unnamed type> _16;
+  long unsigned int _17;
+  int _18;
+  long unsigned int _33;
+  long unsigned int prephitmp_34;
+  long unsigned int _35;
+  long unsigned int prephitmp_36;
+
+  <bb 2> [local count: 1073741824]:
+  base_5 = s_adcBase[instance_4(D)];
+  _1 = config_6(D)->channel;
+  _2 = config_6(D)->interruptEnable;
+  _9 = _1 + 61696;
+  if (_9 <= 5)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _16 = _1 & 31;
+  _33 = (long unsigned int) _16;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _10 = (long unsigned int) _1;
+  supplyMonitorIdx_11 = _10 + 4294963456;
+  _12 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _13 = _12 & 4294508543;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _13;
+  _14 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _15 = supplyMonitorIdx_11 << 16;
+  _17 = _14 | _15;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _17;
+
+  <bb 5> [local count: 1073741824]:
+  # prephitmp_34 = PHI <21(4), _33(3)>
+  _18 = (int) chanIndex_7(D);
+  tmp_19 ={v} base_5->SC1[_18];
+  tmp_20 = tmp_19 & 4294967264;
+  tmp_24 = tmp_20 | prephitmp_34;
+  tmp_25 = tmp_24 & 4294967231;
+  if (_2 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 536870912]:
+  _35 = tmp_25 | 64;
+
+  <bb 7> [local count: 1073741824]:
+  # prephitmp_36 = PHI <_35(6), tmp_25(5)>
+  base_5->SC1[_18] ={v} prephitmp_36;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_GetChanConfig (ADC_DRV_GetChanConfig, funcdef_no=59, decl_uid=6349, cgraph_uid=60, symbol_order=60)
+
+Removing basic block 7
+ADC_DRV_GetChanConfig (const uint32_t instance, const uint8_t chanIndex, struct adc_chan_config_t * const config)
+{
+  uint32_t tmp;
+  uint32_t supplyen;
+  uint32_t tmp;
+  const struct ADC_Type * const base;
+  <unnamed type> _1;
+  <unnamed type> _8;
+  int _10;
+  long unsigned int _12;
+  _Bool _13;
+  long unsigned int _18;
+  long unsigned int _21;
+  <unnamed type> prephitmp_26;
+
+  <bb 2> [local count: 1073741824]:
+  base_4 = s_adcBase[instance_3(D)];
+  _10 = (int) chanIndex_5(D);
+  tmp_11 ={v} base_4->SC1[_10];
+  _12 = tmp_11 >> 6;
+  _13 = (_Bool) _12;
+  config_6(D)->interruptEnable = _13;
+  tmp_15 ={v} base_4->SC1[_10];
+  tmp_16 = tmp_15 & 31;
+  supplyen_17 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  if (tmp_16 == 21)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669600]:
+  _8 = (<unnamed type>) tmp_16;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 365072224]:
+  _18 = supplyen_17 >> 19;
+  supplyen_19 = _18 & 1;
+  if (supplyen_19 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 182536112]:
+  tmp_20 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _21 = tmp_20 >> 16;
+  tmp_22 = _21 & 7;
+  tmp_23 = tmp_22 + 3840;
+  _1 = (<unnamed type>) tmp_23;
+
+  <bb 6> [local count: 1073741824]:
+  # prephitmp_26 = PHI <_1(5), _8(3), 21(4)>
+  config_6(D)->channel = prephitmp_26;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_SetSwPretrigger (ADC_DRV_SetSwPretrigger, funcdef_no=60, decl_uid=6352, cgraph_uid=61, symbol_order=61)
+
+Removing basic block 7
+ADC_DRV_SetSwPretrigger (const uint32_t instance, const adc_sw_pretrigger_t swPretrigger)
+{
+  uint32_t mask[2];
+  uint32_t intermValue;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+
+  <bb 2> [local count: 1073741817]:
+  mask[0] = 14;
+  mask[1] = 3584;
+  _1 ={v} MEM[(struct SIM_Type *)1074036736B].ADCOPT;
+  _2 = mask[instance_14(D)];
+  _3 = ~_2;
+  intermValue_15 = _1 & _3;
+  if (instance_14(D) == 0)
+    goto <bb 4>; [33.33%]
+  else
+    goto <bb 3>; [66.67%]
+
+  <bb 3> [local count: 1073741817]:
+  if (instance_14(D) == 1)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 357913942]:
+  _4 = (long unsigned int) swPretrigger_16(D);
+  _5 = _4 << 1;
+  _6 = _5 & 14;
+  intermValue_18 = _6 | intermValue_15;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 357913942]:
+  _7 = (long unsigned int) swPretrigger_16(D);
+  _8 = _7 << 9;
+  _9 = _8 & 3584;
+  intermValue_17 = _9 | intermValue_15;
+
+  <bb 6> [local count: 1073741824]:
+  # intermValue_10 = PHI <intermValue_18(4), intermValue_17(5), intermValue_15(3)>
+  MEM[(struct SIM_Type *)1074036736B].ADCOPT ={v} intermValue_10;
+  mask ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_WaitConvDone (ADC_DRV_WaitConvDone, funcdef_no=61, decl_uid=6356, cgraph_uid=62, symbol_order=62)
+
+Removing basic block 5
+ADC_DRV_WaitConvDone (const uint32_t instance)
+{
+  uint32_t tmp;
+  const struct ADC_Type * const base;
+  long unsigned int _6;
+  _Bool _7;
+
+  <bb 2> [local count: 118111600]:
+  base_4 = s_adcBase[instance_3(D)];
+
+  <bb 3> [local count: 1073741824]:
+  tmp_5 ={v} base_4->SC2;
+  _6 = tmp_5 >> 7;
+  _7 = (_Bool) _6;
+  if (_7 != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_GetConvCompleteFlag (ADC_DRV_GetConvCompleteFlag, funcdef_no=62, decl_uid=6359, cgraph_uid=63, symbol_order=63)
+
+ADC_DRV_GetConvCompleteFlag (const uint32_t instance, const uint8_t chanIndex)
+{
+  uint32_t tmp;
+  const struct ADC_Type * const base;
+  int _1;
+  long unsigned int _2;
+  _Bool _8;
+
+  <bb 2> [local count: 1073741824]:
+  base_5 = s_adcBase[instance_4(D)];
+  _1 = (int) chanIndex_6(D);
+  tmp_7 ={v} base_5->SC1[_1];
+  _2 = tmp_7 >> 7;
+  _8 = (_Bool) _2;
+  return _8;
+
+}
+
+
+
+;; Function ADC_DRV_GetChanResult (ADC_DRV_GetChanResult, funcdef_no=63, decl_uid=6363, cgraph_uid=64, symbol_order=64)
+
+ADC_DRV_GetChanResult (const uint32_t instance, const uint8_t chanIndex, uint16_t * const result)
+{
+  uint32_t tmp;
+  const struct ADC_Type * const base;
+  int _1;
+  short unsigned int _2;
+
+  <bb 2> [local count: 1073741824]:
+  base_5 = s_adcBase[instance_4(D)];
+  _1 = (int) chanIndex_6(D);
+  tmp_7 ={v} base_5->R[_1];
+  tmp_8 = tmp_7 & 4095;
+  _2 = (short unsigned int) tmp_8;
+  *result_9(D) = _2;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_AutoCalibration (ADC_DRV_AutoCalibration, funcdef_no=64, decl_uid=6365, cgraph_uid=65, symbol_order=65)
+
+Removing basic block 6
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 18
+ADC_DRV_AutoCalibration (const uint32_t instance)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t adc_freq;
+  clock_names_t adc_clocks[2];
+  struct ADC_Type * const base;
+  <unnamed type> _1;
+  long unsigned int adc_freq.11_2;
+  long unsigned int _3;
+  long unsigned int _23;
+  unsigned char _37;
+  long unsigned int prephitmp_39;
+  long unsigned int _40;
+  long unsigned int _44;
+  _Bool _45;
+  long unsigned int _55;
+  _Bool _56;
+  unsigned char iftmp.1_57;
+  long unsigned int _60;
+  long unsigned int _64;
+  long unsigned int _75;
+  long unsigned int prephitmp_89;
+
+  <bb 2> [local count: 118111600]:
+  base_9 = s_adcBase[instance_8(D)];
+  tmp_43 ={v} MEM[(const struct ADC_Type *)base_9].SC3;
+  _44 = tmp_43 >> 2;
+  _45 = (_Bool) _44;
+  tmp_41 ={v} MEM[(const struct ADC_Type *)base_9].SC3;
+  tmp_42 = tmp_41 & 3;
+  tmp_38 ={v} MEM[(const struct ADC_Type *)base_9].SC2;
+  tmp_36 ={v} MEM[(const struct ADC_Type *)base_9].CFG2;
+  _37 = (unsigned char) tmp_36;
+  tmp_33 ={v} base_9->SC3;
+  tmp_34 = tmp_33 & 4294967292;
+  tmp_35 = tmp_34 | 3;
+  base_9->SC3 ={v} tmp_35;
+  tmp_30 ={v} base_9->SC3;
+  tmp_31 = tmp_30 & 4294967291;
+  tmp_32 = tmp_31 | 4;
+  base_9->SC3 ={v} tmp_32;
+  tmp_28 ={v} base_9->SC2;
+  tmp_29 = tmp_28 & 4294967231;
+  base_9->SC2 ={v} tmp_29;
+  tmp_25 ={v} base_9->CFG2;
+  tmp_26 = tmp_25 & 4294967040;
+  tmp_27 = tmp_26 | 12;
+  base_9->CFG2 ={v} tmp_27;
+  base_9->CLPS ={v} 0;
+  base_9->CLP3 ={v} 0;
+  base_9->CLP2 ={v} 0;
+  base_9->CLP1 ={v} 0;
+  base_9->CLP0 ={v} 0;
+  base_9->CLPX ={v} 0;
+  base_9->CLP9 ={v} 0;
+  MEM <unsigned char> [(clock_names_t[2] *)&adc_clocks] = 65;
+  MEM <unsigned char> [(clock_names_t[2] *)&adc_clocks + 1B] = 66;
+  adc_freq = 0;
+  tmp_22 ={v} MEM[(const struct ADC_Type *)base_9].CFG1;
+  _23 = tmp_22 >> 5;
+  tmp_24 = _23 & 3;
+  _1 = adc_clocks[instance_8(D)];
+  CLOCK_SYS_GetFreq (_1, &adc_freq);
+  adc_freq.11_2 = adc_freq;
+  _3 = adc_freq.11_2 >> tmp_24;
+  if (_3 <= 25000000)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 59055800]:
+  if (adc_freq.11_2 <= 50000001)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 4> [local count: 29527900]:
+  if (adc_freq.11_2 <= 100000003)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 14763950]:
+  if (adc_freq.11_2 <= 200000007)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 7381975]:
+
+  <bb 7> [local count: 59055800]:
+  # prephitmp_39 = PHI <0(5), 32(3), 64(4), 96(6)>
+  tmp_46 ={v} base_9->CFG1;
+  tmp_47 = tmp_46 & 4294967199;
+  tmp_50 = prephitmp_39 | tmp_47;
+  base_9->CFG1 ={v} tmp_50;
+
+  <bb 8> [local count: 118111600]:
+  tmp_51 ={v} base_9->SC3;
+  tmp_52 = tmp_51 & 4294967167;
+  tmp_53 = tmp_52 | 128;
+  base_9->SC3 ={v} tmp_53;
+
+  <bb 9> [local count: 1073741824]:
+  tmp_54 ={v} MEM[(const struct ADC_Type *)base_9].SC3;
+  _55 = tmp_54 >> 7;
+  _56 = (_Bool) _55;
+  if (_56 != 0)
+    goto <bb 9>; [89.00%]
+  else
+    goto <bb 10>; [11.00%]
+
+  <bb 10> [local count: 118111600]:
+  tmp_73 ={v} base_9->CFG1;
+  tmp_74 = tmp_73 & 4294967199;
+  _75 = tmp_24 << 5;
+  tmp_76 = tmp_74 | _75;
+  base_9->CFG1 ={v} tmp_76;
+  tmp_69 ={v} base_9->SC3;
+  tmp_70 = tmp_69 & 4294967291;
+  if (_45 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 59055800]:
+  _40 = tmp_70 | 4;
+
+  <bb 12> [local count: 118111600]:
+  # prephitmp_89 = PHI <_40(11), tmp_70(10)>
+  base_9->SC3 ={v} prephitmp_89;
+  tmp_66 ={v} base_9->SC3;
+  tmp_67 = tmp_66 & 4294967292;
+  tmp_68 = tmp_42 | tmp_67;
+  base_9->SC3 ={v} tmp_68;
+  tmp_62 ={v} base_9->SC2;
+  tmp_63 = tmp_62 & 4294967231;
+  _64 = tmp_38 & 64;
+  tmp_65 = tmp_63 | _64;
+  base_9->SC2 ={v} tmp_65;
+  iftmp.1_57 = MAX_EXPR <_37, 1>;
+  tmp_58 ={v} base_9->CFG2;
+  tmp_59 = tmp_58 & 4294967040;
+  _60 = (long unsigned int) iftmp.1_57;
+  tmp_61 = tmp_59 | _60;
+  base_9->CFG2 ={v} tmp_61;
+  adc_clocks ={v} {CLOBBER};
+  adc_freq ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_InitUserCalibrationStruct (ADC_DRV_InitUserCalibrationStruct, funcdef_no=65, decl_uid=6367, cgraph_uid=66, symbol_order=66)
+
+ADC_DRV_InitUserCalibrationStruct (struct adc_calibration_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->userGain = 4;
+  config_2(D)->userOffset = 0;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_ConfigUserCalibration (ADC_DRV_ConfigUserCalibration, funcdef_no=66, decl_uid=6370, cgraph_uid=67, symbol_order=67)
+
+ADC_DRV_ConfigUserCalibration (const uint32_t instance, const struct adc_calibration_t * const config)
+{
+  uint16_t clp0;
+  uint16_t clp1;
+  uint16_t clp2;
+  uint16_t clp3;
+  uint16_t clps;
+  uint16_t sum;
+  uint16_t temp;
+  struct ADC_Type * const base;
+  short unsigned int _1;
+  short unsigned int _2;
+  short unsigned int _7;
+  short unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _11;
+  long unsigned int _13;
+  long unsigned int _15;
+  long unsigned int _17;
+  long unsigned int _19;
+  short unsigned int _22;
+  short unsigned int _23;
+  short unsigned int _24;
+  long unsigned int _27;
+  short unsigned int _28;
+  long unsigned int _29;
+  _Bool _33;
+  short unsigned int _34;
+
+  <bb 2> [local count: 1073741824]:
+  base_5 = s_adcBase[instance_4(D)];
+  _1 = config_6(D)->userGain;
+  _11 ={v} base_5->CLP0;
+  clp0_12 = (uint16_t) _11;
+  _13 ={v} base_5->CLP1;
+  clp1_14 = (uint16_t) _13;
+  _15 ={v} base_5->CLP2;
+  clp2_16 = (uint16_t) _15;
+  _17 ={v} base_5->CLP3;
+  clp3_18 = (uint16_t) _17;
+  _19 ={v} base_5->CLPS;
+  clps_20 = (uint16_t) _19;
+  _28 = clp0_12 + clp1_14;
+  _22 = _1 + _28;
+  _23 = clp2_16 + _22;
+  _24 = clp3_18 + _23;
+  sum_25 = clps_20 + _24;
+  temp_26 = sum_25 & 63488;
+  _33 = temp_26 != 0;
+  _34 = (short unsigned int) _33;
+  _7 = -_34;
+  _27 = (long unsigned int) _1;
+  base_5->UG ={v} _27;
+  _29 = (long unsigned int) _7;
+  base_5->G ={v} _29;
+  _2 = config_6(D)->userOffset;
+  _8 = _2 & 255;
+  _9 = (long unsigned int) _8;
+  base_5->USR_OFS ={v} _9;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_GetUserCalibration (ADC_DRV_GetUserCalibration, funcdef_no=67, decl_uid=6373, cgraph_uid=68, symbol_order=68)
+
+ADC_DRV_GetUserCalibration (const uint32_t instance, struct adc_calibration_t * const config)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  const struct ADC_Type * const base;
+  short unsigned int _9;
+  short unsigned int _12;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = s_adcBase[instance_2(D)];
+  tmp_10 ={v} base_3->UG;
+  tmp_11 = tmp_10 & 1023;
+  _12 = (short unsigned int) tmp_11;
+  config_4(D)->userGain = _12;
+  tmp_7 ={v} base_3->USR_OFS;
+  tmp_8 = tmp_7 & 255;
+  _9 = (short unsigned int) tmp_8;
+  config_4(D)->userOffset = _9;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_GetInterruptNumber (ADC_DRV_GetInterruptNumber, funcdef_no=68, decl_uid=6375, cgraph_uid=69, symbol_order=69)
+
+ADC_DRV_GetInterruptNumber (const uint32_t instance)
+{
+  IRQn_Type irqId;
+  static const IRQn_Type adcIrqId[2] = {39, 40};
+
+  <bb 2> [local count: 1073741824]:
+  irqId_3 = adcIrqId[instance_2(D)];
+  return irqId_3;
+
+}
+
+
+
+;; Function ADC_DRV_ClearLatchedTriggers (ADC_DRV_ClearLatchedTriggers, funcdef_no=69, decl_uid=6378, cgraph_uid=70, symbol_order=70)
+
+Removing basic block 7
+Removing basic block 8
+ADC_DRV_ClearLatchedTriggers (const uint32_t instance, const adc_latch_clear_t clearMode)
+{
+  uint32_t tmp;
+  struct ADC_Type * const base;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _9;
+
+  <bb 2> [local count: 118111600]:
+  base_4 = s_adcBase[instance_3(D)];
+  if (clearMode_5(D) == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 40157944]:
+  _6 ={v} base_4->CFG1;
+  _7 = _6 | 256;
+  base_4->CFG1 ={v} _7;
+
+  <bb 4> [local count: 118111600]:
+
+  <bb 5> [local count: 1073741824]:
+  tmp_8 ={v} MEM[(const struct ADC_Type *)base_4].SC2;
+  _9 = tmp_8 >> 16;
+  tmp_10 = _9 & 15;
+  if (tmp_10 != 0)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 6>; [11.00%]
+
+  <bb 6> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_ClearTriggerErrors (ADC_DRV_ClearTriggerErrors, funcdef_no=70, decl_uid=6380, cgraph_uid=71, symbol_order=71)
+
+ADC_DRV_ClearTriggerErrors (const uint32_t instance)
+{
+  struct ADC_Type * const base;
+  long unsigned int _1;
+  long unsigned int _2;
+
+  <bb 2> [local count: 1073741824]:
+  base_5 = s_adcBase[instance_4(D)];
+  _1 ={v} base_5->SC2;
+  _2 = _1 | 251658240;
+  base_5->SC2 ={v} _2;
+  return;
+
+}
+
+
+
+;; Function ADC_DRV_GetTriggerErrorFlags (ADC_DRV_GetTriggerErrorFlags, funcdef_no=71, decl_uid=6382, cgraph_uid=72, symbol_order=72)
+
+ADC_DRV_GetTriggerErrorFlags (const uint32_t instance)
+{
+  uint32_t trig_errors;
+  const struct ADC_Type * const base;
+  long unsigned int _1;
+  long unsigned int _2;
+
+  <bb 2> [local count: 1073741824]:
+  base_5 = s_adcBase[instance_4(D)];
+  _1 ={v} base_5->SC2;
+  _2 = _1 >> 24;
+  trig_errors_6 = _2 & 15;
+  return trig_errors_6;
+
+}
+
+

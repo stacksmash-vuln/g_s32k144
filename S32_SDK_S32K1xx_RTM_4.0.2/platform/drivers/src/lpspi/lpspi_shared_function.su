@@ -1,0 +1,4 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_shared_function.c:100:6:LPSPI_DRV_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_shared_function.c:123:6:LPSPI_DRV_FillupTxBuffer	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_shared_function.c:192:6:LPSPI_DRV_ReadRXBuffer	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_shared_function.c:235:6:LPSPI_DRV_DisableTEIEInterrupts	8	static

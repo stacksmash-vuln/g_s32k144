@@ -1,0 +1,1198 @@
+
+;; Function LPSPI_DRV_MasterStartTransfer (LPSPI_DRV_MasterStartTransfer, funcdef_no=39, decl_uid=8304, cgraph_uid=40, symbol_order=40)
+
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+LPSPI_DRV_MasterStartTransfer (uint32_t instance, const uint8_t * sendBuffer, uint8_t * receiveBuffer, uint16_t transferByteCount)
+{
+  uint32_t lpspi_tmp;
+  uint32_t lpspi_tmp;
+  edma_transfer_size_t dmaTransferSize;
+  struct LPSPI_Type * base;
+  struct lpspi_state_t * lpspiState;
+  short unsigned int _1;
+  short unsigned int _2;
+  _Bool _3;
+  <unnamed type> _4;
+  _Bool _5;
+  short unsigned int _6;
+  short unsigned int _7;
+  short unsigned int _8;
+  short unsigned int _9;
+  unsigned char _10;
+  long unsigned int sendBuffer.1_11;
+  volatile uint32_t * _12;
+  long unsigned int _13;
+  long unsigned int _16;
+  long unsigned int _18;
+  unsigned char _19;
+  uint32_t * _20;
+  long unsigned int _21;
+  volatile uint32_t * _22;
+  long unsigned int _23;
+  long unsigned int _26;
+  <unnamed type> _27;
+  long unsigned int _28;
+  unsigned char _29;
+  const uint32_t * _30;
+  long unsigned int _31;
+  long unsigned int receiveBuffer.2_32;
+  long unsigned int _35;
+  long unsigned int _36;
+  unsigned char _37;
+  void * instance.3_38;
+  unsigned char _39;
+  status_t _44;
+  long unsigned int _83;
+  long unsigned int _84;
+  _Bool _85;
+  long unsigned int _86;
+  long unsigned int _87;
+  _Bool _88;
+  long unsigned int _89;
+  long unsigned int _90;
+  long unsigned int _91;
+  long unsigned int _92;
+  long unsigned int _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  long unsigned int _97;
+  long unsigned int _98;
+  long unsigned int _104;
+  long unsigned int _105;
+  long unsigned int _106;
+  long unsigned int _107;
+  long unsigned int _108;
+  long unsigned int _109;
+  long unsigned int _110;
+  long unsigned int _111;
+  long unsigned int _112;
+  long unsigned int _113;
+  long unsigned int _146;
+  unsigned char _147;
+  unsigned char _150;
+  int prephitmp_153;
+  unsigned char _154;
+  void * instance.4_155;
+  unsigned char _157;
+  int _160;
+  long unsigned int prephitmp_161;
+
+  <bb 2> [local count: 1073741824]:
+  base_58 = g_lpspiBase[instance_56(D)];
+  _83 ={v} MEM[(const struct LPSPI_Type *)base_58].SR;
+  _84 = _83 >> 24;
+  _85 = (_Bool) _84;
+  if (_85 != 0)
+    goto <bb 23>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 840525097]:
+  _86 ={v} MEM[(const struct LPSPI_Type *)base_58].SR;
+  _87 = _86 >> 24;
+  _88 = (_Bool) _87;
+  if (_88 != 0)
+    goto <bb 23>; [21.72%]
+  else
+    goto <bb 4>; [78.28%]
+
+  <bb 4> [local count: 657963043]:
+  lpspiState_57 = g_lpspiStatePtr[instance_56(D)];
+  _1 = lpspiState_57->bytesPerFrame;
+  _2 = transferByteCount_59(D) % _1;
+  if (_2 != 0)
+    goto <bb 23>; [51.12%]
+  else
+    goto <bb 5>; [48.88%]
+
+  <bb 5> [local count: 321612333]:
+  LPSPI_SetFlushFifoCmd (base_58, 1, 1);
+  LPSPI_SetFlushFifoCmd (base_58, 1, 1);
+  _3 = lpspiState_57->isPcsContinuous;
+  if (_3 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 160806166]:
+  _89 ={v} base_58->TCR;
+  _90 = _89 | 1048576;
+  base_58->TCR ={v} _90;
+
+  <bb 7> [local count: 321612333]:
+  lpspiState_57->status = 0;
+  LPSPI_ClearStatusFlag (base_58, 16128);
+  _91 ={v} base_58->IER;
+  _92 = _91 | 2048;
+  base_58->IER ={v} _92;
+  if (receiveBuffer_64(D) != 0B)
+    goto <bb 8>; [70.00%]
+  else
+    goto <bb 25>; [30.00%]
+
+  <bb 8> [local count: 225128634]:
+  _93 ={v} base_58->IER;
+  _94 = _93 | 4096;
+  base_58->IER ={v} _94;
+  lpspiState_57->rxCount ={v} transferByteCount_59(D);
+  _97 ={v} base_58->TCR;
+  _98 = _97 & 4294443007;
+  base_58->TCR ={v} _98;
+
+  <bb 9> [local count: 321612333]:
+  lpspi_tmp_102 ={v} base_58->FCR;
+  lpspi_tmp_103 = lpspi_tmp_102 & 4294770687;
+  base_58->FCR ={v} lpspi_tmp_103;
+  lpspi_tmp_99 ={v} base_58->FCR;
+  lpspi_tmp_100 = lpspi_tmp_99 & 4294967292;
+  lpspi_tmp_101 = lpspi_tmp_100 | 2;
+  base_58->FCR ={v} lpspi_tmp_101;
+  _4 = lpspiState_57->transferType;
+  if (_4 == 1)
+    goto <bb 10>; [34.00%]
+  else
+    goto <bb 15>; [66.00%]
+
+  <bb 10> [local count: 109348194]:
+  lpspiState_57->txBuff = sendBuffer_67(D);
+  lpspiState_57->rxBuff = receiveBuffer_64(D);
+  lpspiState_57->txFrameCnt ={v} 0;
+  lpspiState_57->rxFrameCnt ={v} 0;
+  lpspiState_57->txCount ={v} transferByteCount_59(D);
+  _5 = lpspiState_57->isPcsContinuous;
+  if (_5 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 54674097]:
+  _6 ={v} lpspiState_57->txCount;
+  _7 = _6 + 1;
+  lpspiState_57->txCount ={v} _7;
+
+  <bb 12> [local count: 109348194]:
+  lpspiState_57->isTransferInProgress ={v} 1;
+  if (receiveBuffer_64(D) != 0B)
+    goto <bb 13>; [70.00%]
+  else
+    goto <bb 14>; [30.00%]
+
+  <bb 13> [local count: 76543736]:
+  _104 ={v} base_58->IER;
+  _105 = _104 | 2;
+  base_58->IER ={v} _105;
+
+  <bb 14> [local count: 109348194]:
+  _106 ={v} base_58->IER;
+  _107 = _106 | 1;
+  base_58->IER ={v} _107;
+  goto <bb 23>; [100.00%]
+
+  <bb 15> [local count: 212264138]:
+  _8 = lpspiState_57->bytesPerFrame;
+  _9 = _8 + 65535;
+  if (_9 <= 3)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 16> [local count: 106132069]:
+  _27 = CSWTCH.21[_9];
+  _160 = (int) _27;
+  _146 = 1 << _160;
+
+  <bb 17> [local count: 212264138]:
+  # dmaTransferSize_43 = PHI <_27(16), 2(15)>
+  # prephitmp_153 = PHI <_160(16), 2(15)>
+  # prephitmp_161 = PHI <_146(16), 4(15)>
+  if (sendBuffer_67(D) != 0B)
+    goto <bb 18>; [70.00%]
+  else
+    goto <bb 19>; [30.00%]
+
+  <bb 18> [local count: 148584898]:
+  _10 = lpspiState_57->txDMAChannel;
+  sendBuffer.1_11 = (long unsigned int) sendBuffer_67(D);
+  _12 = &base_58->TDR;
+  _13 = (long unsigned int) _12;
+  _16 = (long unsigned int) transferByteCount_59(D);
+  _18 = _16 >> prephitmp_153;
+  EDMA_DRV_ConfigMultiBlockTransfer (_10, 1, sendBuffer.1_11, _13, dmaTransferSize_43, prephitmp_161, _18, 1);
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 63679241]:
+  _19 = lpspiState_57->txDMAChannel;
+  _20 = &lpspiState_57->dummy;
+  _21 = (long unsigned int) _20;
+  _22 = &base_58->TDR;
+  _23 = (long unsigned int) _22;
+  _26 = (long unsigned int) transferByteCount_59(D);
+  _28 = _26 >> prephitmp_153;
+  EDMA_DRV_ConfigMultiBlockTransfer (_19, 3, _21, _23, dmaTransferSize_43, prephitmp_161, _28, 1);
+
+  <bb 20> [local count: 212264138]:
+  if (receiveBuffer_64(D) != 0B)
+    goto <bb 21>; [53.47%]
+  else
+    goto <bb 24>; [46.53%]
+
+  <bb 21> [local count: 148584898]:
+  _29 = lpspiState_57->rxDMAChannel;
+  _30 = &base_58->RDR;
+  _31 = (long unsigned int) _30;
+  receiveBuffer.2_32 = (long unsigned int) receiveBuffer_64(D);
+  _35 = (long unsigned int) transferByteCount_59(D);
+  _36 = _35 >> prephitmp_153;
+  EDMA_DRV_ConfigMultiBlockTransfer (_29, 0, _31, receiveBuffer.2_32, dmaTransferSize_43, prephitmp_161, _36, 1);
+  _37 = lpspiState_57->rxDMAChannel;
+  instance.3_38 = (void *) instance_56(D);
+  EDMA_DRV_InstallCallback (_37, LPSPI_DRV_MasterCompleteRX, instance.3_38);
+  _39 = lpspiState_57->rxDMAChannel;
+  EDMA_DRV_StartChannel (_39);
+  _147 = lpspiState_57->txDMAChannel;
+  EDMA_DRV_InstallCallback (_147, LPSPI_DRV_MasterCompleteDMATransfer, instance.3_38);
+  _150 = lpspiState_57->txDMAChannel;
+  EDMA_DRV_StartChannel (_150);
+  lpspiState_57->isTransferInProgress ={v} 1;
+  _108 ={v} base_58->DER;
+  _109 = _108 & 4294967293;
+  _110 = _109 | 2;
+  base_58->DER ={v} _110;
+
+  <bb 22> [local count: 212264138]:
+  _111 ={v} base_58->DER;
+  _112 = _111 & 4294967294;
+  _113 = _112 | 1;
+  base_58->DER ={v} _113;
+
+  <bb 23> [local count: 1073741824]:
+  # _44 = PHI <_2(14), 2(2), 2(3), _2(22), 1(4)>
+  return _44;
+
+  <bb 24> [local count: 63679241]:
+  _154 = lpspiState_57->txDMAChannel;
+  instance.4_155 = (void *) instance_56(D);
+  EDMA_DRV_InstallCallback (_154, LPSPI_DRV_MasterCompleteDMATransfer, instance.4_155);
+  _157 = lpspiState_57->txDMAChannel;
+  EDMA_DRV_StartChannel (_157);
+  lpspiState_57->isTransferInProgress ={v} 1;
+  goto <bb 22>; [100.00%]
+
+  <bb 25> [local count: 96483699]:
+  lpspiState_57->rxCount ={v} 0;
+  _95 ={v} base_58->TCR;
+  _96 = _95 | 524288;
+  base_58->TCR ={v} _96;
+  goto <bb 9>; [100.00%]
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterCompleteTransfer (LPSPI_DRV_MasterCompleteTransfer, funcdef_no=40, decl_uid=8306, cgraph_uid=41, symbol_order=41)
+
+Removing basic block 10
+Removing basic block 11
+LPSPI_DRV_MasterCompleteTransfer (uint32_t instance)
+{
+  struct LPSPI_Type * base;
+  struct lpspi_state_t * lpspiState;
+  <unnamed type> _1;
+  _Bool _2;
+  struct QueueDefinition * * _3;
+  void (*<T940>) (void *, spi_event_t, void *) _4;
+  void * _5;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _28;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _45;
+
+  <bb 2> [local count: 1073741824]:
+  lpspiState_11 = g_lpspiStatePtr[instance_10(D)];
+  base_12 = g_lpspiBase[instance_10(D)];
+  lpspiState_11->isTransferInProgress ={v} 0;
+  _1 = lpspiState_11->transferType;
+  if (_1 == 0)
+    goto <bb 3>; [67.00%]
+  else
+    goto <bb 4>; [33.00%]
+
+  <bb 3> [local count: 719407025]:
+  _21 ={v} base_12->DER;
+  _22 = _21 & 4294967293;
+  base_12->DER ={v} _22;
+  _19 ={v} base_12->DER;
+  _20 = _19 & 4294967294;
+  base_12->DER ={v} _20;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 354334800]:
+  _34 ={v} base_12->IER;
+  _39 = _34 & 4294967293;
+  base_12->IER ={v} _39;
+  _28 ={v} base_12->IER;
+  _33 = _28 & 4294967294;
+  base_12->IER ={v} _33;
+
+  <bb 5> [local count: 1073741824]:
+  LPSPI_DRV_DisableTEIEInterrupts (instance_10(D));
+  _40 ={v} base_12->IER;
+  _45 = _40 & 4294966271;
+  base_12->IER ={v} _45;
+  LPSPI_ClearStatusFlag (base_12, 10);
+  _2 = lpspiState_11->isBlocking;
+  if (_2 != 0)
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 7>; [67.00%]
+
+  <bb 6> [local count: 354334800]:
+  _3 = &lpspiState_11->lpspiSemaphore;
+  OSIF_SemaPost (_3);
+  lpspiState_11->isBlocking = 0;
+
+  <bb 7> [local count: 1073741824]:
+  _4 = lpspiState_11->callback;
+  if (_4 != 0B)
+    goto <bb 8>; [70.00%]
+  else
+    goto <bb 9>; [30.00%]
+
+  <bb 8> [local count: 751619281]:
+  _5 = lpspiState_11->callbackParam;
+  _4 (lpspiState_11, 0, _5); [tail call]
+
+  <bb 9> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterCompleteRX (LPSPI_DRV_MasterCompleteRX, funcdef_no=42, decl_uid=8312, cgraph_uid=43, symbol_order=43)
+
+Removing basic block 5
+LPSPI_DRV_MasterCompleteRX (void * parameter, edma_chn_status_t status)
+{
+  struct LPSPI_Type * base;
+  struct lpspi_state_t * lpspiState;
+  uint32_t instance;
+
+  <bb 2> [local count: 1073741824]:
+  if (status_6(D) == 1)
+    goto <bb 3>; [20.24%]
+  else
+    goto <bb 4>; [79.76%]
+
+  <bb 3> [local count: 217325344]:
+  instance_3 = (uint32_t) parameter_2(D);
+  lpspiState_5 = g_lpspiStatePtr[instance_3];
+  base_9 = g_lpspiBase[instance_3];
+  LPSPI_DRV_MasterCompleteTransfer (instance_3);
+  LPSPI_SetFlushFifoCmd (base_9, 1, 1);
+  LPSPI_SetFlushFifoCmd (base_9, 1, 1);
+  lpspiState_5->status = 1;
+
+  <bb 4> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterCompleteDMATransfer (LPSPI_DRV_MasterCompleteDMATransfer, funcdef_no=41, decl_uid=8309, cgraph_uid=42, symbol_order=42)
+
+Removing basic block 8
+LPSPI_DRV_MasterCompleteDMATransfer (void * parameter, edma_chn_status_t status)
+{
+  struct LPSPI_Type * base;
+  struct lpspi_state_t * lpspiState;
+  uint32_t instance;
+  _Bool _1;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+
+  <bb 2> [local count: 1073741824]:
+  instance_5 = (uint32_t) parameter_4(D);
+  lpspiState_7 = g_lpspiStatePtr[instance_5];
+  base_8 = g_lpspiBase[instance_5];
+  if (status_9(D) == 1)
+    goto <bb 3>; [20.24%]
+  else
+    goto <bb 4>; [79.76%]
+
+  <bb 3> [local count: 217325344]:
+  LPSPI_DRV_MasterCompleteTransfer (instance_5);
+  LPSPI_SetFlushFifoCmd (base_8, 1, 1);
+  LPSPI_SetFlushFifoCmd (base_8, 1, 1);
+  lpspiState_7->status = 1;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 856416481]:
+  _1 = lpspiState_7->isPcsContinuous;
+  if (_1 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 428208240]:
+  _14 ={v} base_8->TCR;
+  _15 = _14 & 4293918719;
+  base_8->TCR ={v} _15;
+
+  <bb 6> [local count: 856416481]:
+  lpspiState_7->txCount ={v} 0;
+  lpspiState_7->rxCount ={v} 0;
+  _16 ={v} base_8->IER;
+  _17 = _16 | 1024;
+  base_8->IER ={v} _17;
+
+  <bb 7> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterGetDefaultConfig (LPSPI_DRV_MasterGetDefaultConfig, funcdef_no=29, decl_uid=8037, cgraph_uid=30, symbol_order=30)
+
+LPSPI_DRV_MasterGetDefaultConfig (struct lpspi_master_config_t * spiConfig)
+{
+  <bb 2> [local count: 1073741824]:
+  spiConfig_2(D)->bitsPerSec = 50000;
+  MEM <unsigned short> [(void *)spiConfig_2(D) + 4B] = 0;
+  spiConfig_2(D)->isPcsContinuous = 0;
+  spiConfig_2(D)->bitcount = 8;
+  spiConfig_2(D)->lpspiSrcClk = 8000000;
+  MEM <unsigned int> [(void *)spiConfig_2(D) + 16B] = 16777216;
+  MEM <unsigned short> [(unsigned char *)spiConfig_2(D) + 20B] = 0;
+  spiConfig_2(D)->callback = 0B;
+  spiConfig_2(D)->callbackParam = 0B;
+  return;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterDeinit (LPSPI_DRV_MasterDeinit, funcdef_no=31, decl_uid=8043, cgraph_uid=32, symbol_order=32)
+
+LPSPI_DRV_MasterDeinit (uint32_t instance)
+{
+  status_t errorCode;
+  struct LPSPI_Type * base;
+  const struct lpspi_state_t * lpspiState;
+  <unnamed type> _1;
+  struct QueueDefinition * const * _2;
+
+  <bb 2> [local count: 1073741824]:
+  lpspiState_5 = g_lpspiStatePtr[instance_4(D)];
+  base_6 = g_lpspiBase[instance_4(D)];
+  LPSPI_Init (base_6);
+  _1 = g_lpspiIrqId[instance_4(D)];
+  INT_SYS_DisableIRQ (_1);
+  g_lpspiStatePtr[instance_4(D)] = 0B;
+  _2 = &lpspiState_5->lpspiSemaphore;
+  errorCode_11 = OSIF_SemaDestroy (_2); [tail call]
+  return errorCode_11;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterSetDelay (LPSPI_DRV_MasterSetDelay, funcdef_no=32, decl_uid=8048, cgraph_uid=33, symbol_order=33)
+
+Removing basic block 5
+LPSPI_DRV_MasterSetDelay (uint32_t instance, uint32_t delayBetwenTransfers, uint32_t delaySCKtoPCS, uint32_t delayPCStoSCK)
+{
+  uint32_t ccrValue;
+  uint32_t ccrValue;
+  uint32_t ccrValue;
+  status_t errorCode;
+  struct LPSPI_Type * base;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _14;
+  long unsigned int _16;
+  long unsigned int _18;
+  long unsigned int _20;
+  long unsigned int _22;
+
+  <bb 2> [local count: 1073741824]:
+  base_4 = g_lpspiBase[instance_3(D)];
+  errorCode_6 = LPSPI_Disable (base_4);
+  if (errorCode_6 != 0)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669601]:
+  _20 ={v} base_4->CCR;
+  ccrValue_21 = _20 & 16777215;
+  _22 = delaySCKtoPCS_7(D) << 24;
+  ccrValue_23 = ccrValue_21 | _22;
+  base_4->CCR ={v} ccrValue_23;
+  _16 ={v} base_4->CCR;
+  ccrValue_17 = _16 & 4278255615;
+  _18 = delayPCStoSCK_8(D) << 16;
+  ccrValue_19 = ccrValue_17 | _18;
+  base_4->CCR ={v} ccrValue_19;
+  _12 ={v} base_4->CCR;
+  ccrValue_13 = _12 & 4294902015;
+  _14 = delayBetwenTransfers_9(D) << 8;
+  ccrValue_15 = ccrValue_13 | _14;
+  base_4->CCR ={v} ccrValue_15;
+  _10 ={v} base_4->CR;
+  _11 = _10 | 1;
+  base_4->CR ={v} _11;
+
+  <bb 4> [local count: 1073741824]:
+  return errorCode_6;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterConfigureBus (LPSPI_DRV_MasterConfigureBus, funcdef_no=33, decl_uid=8052, cgraph_uid=34, symbol_order=34)
+
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+LPSPI_DRV_MasterConfigureBus (uint32_t instance, const struct lpspi_master_config_t * spiConfig, uint32_t * calculatedBaudRate)
+{
+  uint32_t lpspi_tmp;
+  struct lpspi_tx_cmd_config_t txCmdCfg;
+  uint32_t tcrPrescaleValue;
+  uint32_t baudRate;
+  struct LPSPI_Type * base;
+  struct lpspi_state_t * lpspiState;
+  <unnamed type> _1;
+  short unsigned int _2;
+  short unsigned int _3;
+  long unsigned int _4;
+  _Bool _5;
+  _Bool _6;
+  <unnamed type> _7;
+  unsigned int _9;
+  unsigned int _10;
+  short unsigned int _11;
+  unsigned int _14;
+  unsigned int _15;
+  unsigned int _16;
+  short unsigned int _17;
+  short unsigned int _18;
+  unsigned char _19;
+  unsigned char _20;
+  void (*<T940>) (void *, spi_event_t, void *) _21;
+  void * _22;
+  <unnamed type> _23;
+  <unnamed type> _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  short unsigned int _27;
+  long unsigned int _28;
+  _Bool _29;
+  _Bool _30;
+  <unnamed type> _31;
+  long unsigned int tcrPrescaleValue.0_32;
+  status_t _35;
+  long unsigned int _80;
+  long unsigned int _81;
+  short unsigned int _96;
+  unsigned short _97;
+
+  <bb 2> [local count: 1073741823]:
+  lpspiState_42 = g_lpspiStatePtr[instance_41(D)];
+  base_43 = g_lpspiBase[instance_41(D)];
+  _1 = LPSPI_Disable (base_43);
+  if (_1 != 0)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 765045350]:
+  goto <bb 14>; [100.00%]
+
+  <bb 4> [local count: 708669600]:
+  _2 = spiConfig_45(D)->bitcount;
+  _3 = _2 + 65528;
+  if (_3 > 4088)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 5> [local count: 467721933]:
+  lpspiState_42->bitsPerFrame = _2;
+  _4 = spiConfig_45(D)->lpspiSrcClk;
+  lpspiState_42->lpspiSrcClk = _4;
+  _5 = spiConfig_45(D)->isPcsContinuous;
+  lpspiState_42->isPcsContinuous = _5;
+  _6 = spiConfig_45(D)->lsbFirst;
+  lpspiState_42->lsb ={v} _6;
+  _7 = spiConfig_45(D)->transferType;
+  lpspiState_42->transferType = _7;
+  lpspiState_42->isTransferInProgress ={v} 0;
+  lpspiState_42->isBlocking = 0;
+  _96 = _2 + 7;
+  _9 = (unsigned int) _96;
+  _10 = _9 >> 3;
+  if (_10 == 3)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 7>; [66.00%]
+
+  <bb 6> [local count: 159025459]:
+  lpspiState_42->bytesPerFrame = 4;
+  goto <bb 10>; [100.00%]
+
+  <bb 7> [local count: 308696474]:
+  _11 = (short unsigned int) _10;
+  if (_10 > 4)
+    goto <bb 9>; [75.76%]
+  else
+    goto <bb 8>; [24.24%]
+
+  <bb 8> [local count: 74835509]:
+  lpspiState_42->bytesPerFrame = _11;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 233860966]:
+  _14 = _10 + 4294967295;
+  _15 = _14 >> 2;
+  _16 = _15 + 1;
+  _17 = (short unsigned int) _16;
+  _18 = _17 * 4;
+  lpspiState_42->bytesPerFrame = _18;
+
+  <bb 10> [local count: 467721933]:
+  _19 = spiConfig_45(D)->rxDMAChannel;
+  lpspiState_42->rxDMAChannel = _19;
+  _20 = spiConfig_45(D)->txDMAChannel;
+  lpspiState_42->txDMAChannel = _20;
+  _21 = spiConfig_45(D)->callback;
+  lpspiState_42->callback = _21;
+  _22 = spiConfig_45(D)->callbackParam;
+  lpspiState_42->callbackParam = _22;
+  _23 = spiConfig_45(D)->whichPcs;
+  _24 = spiConfig_45(D)->pcsPolarity;
+  LPSPI_SetPcsPolarityMode (base_43, _23, _24);
+  _25 = spiConfig_45(D)->bitsPerSec;
+  _26 = spiConfig_45(D)->lpspiSrcClk;
+  baudRate_62 = LPSPI_SetBaudRate (base_43, _25, _26, &tcrPrescaleValue);
+  lpspi_tmp_82 ={v} base_43->CFGR1;
+  lpspi_tmp_83 = lpspi_tmp_82 & 4294967293;
+  lpspi_tmp_84 = lpspi_tmp_83 | 2;
+  base_43->CFGR1 ={v} lpspi_tmp_84;
+  _80 ={v} base_43->CR;
+  _81 = _80 | 1;
+  base_43->CR ={v} _81;
+  if (baudRate_62 == 0)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 11> [local count: 308696474]:
+  if (calculatedBaudRate_63(D) != 0B)
+    goto <bb 12>; [70.00%]
+  else
+    goto <bb 13>; [30.00%]
+
+  <bb 12> [local count: 216087533]:
+  *calculatedBaudRate_63(D) = baudRate_62;
+
+  <bb 13> [local count: 308696474]:
+  _27 = lpspiState_42->bitsPerFrame;
+  _28 = (long unsigned int) _27;
+  txCmdCfg.frameSize = _28;
+  MEM <unsigned int> [(void *)&txCmdCfg + 4B] = 0;
+  _29 = spiConfig_45(D)->isPcsContinuous;
+  txCmdCfg.contTransfer = _29;
+  txCmdCfg.byteSwap = 0;
+  _30 = spiConfig_45(D)->lsbFirst;
+  txCmdCfg.lsbFirst = _30;
+  _31 = spiConfig_45(D)->whichPcs;
+  txCmdCfg.whichPcs = _31;
+  tcrPrescaleValue.0_32 = tcrPrescaleValue;
+  txCmdCfg.preDiv = tcrPrescaleValue.0_32;
+  _97 = MEM <unsigned short> [(void *)spiConfig_45(D) + 16B];
+  MEM <unsigned short> [(void *)&txCmdCfg + 16B] = _97;
+  LPSPI_SetTxCommandReg (base_43, &txCmdCfg);
+
+  <bb 14> [local count: 1073741824]:
+  # _35 = PHI <_1(13), 1(3)>
+  tcrPrescaleValue ={v} {CLOBBER};
+  txCmdCfg ={v} {CLOBBER};
+  return _35;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterInit (LPSPI_DRV_MasterInit, funcdef_no=30, decl_uid=8041, cgraph_uid=31, symbol_order=31)
+
+Removing basic block 5
+LPSPI_DRV_MasterInit (uint32_t instance, struct lpspi_state_t * lpspiState, const struct lpspi_master_config_t * spiConfig)
+{
+  status_t errorCode;
+  struct LPSPI_Type * base;
+  struct QueueDefinition * * _1;
+  <unnamed type> _2;
+  status_t _3;
+  long unsigned int _20;
+  long unsigned int _21;
+  unsigned int _22;
+  unsigned char _23;
+  long unsigned int _24;
+  long unsigned int _25;
+
+  <bb 2> [local count: 1073741824]:
+  base_7 = g_lpspiBase[instance_6(D)];
+  g_lpspiStatePtr[instance_6(D)] = lpspiState_8(D);
+  LPSPI_Init (base_7);
+  LPSPI_SetMasterSlaveMode (base_7, 1);
+  LPSPI_SetPinConfigMode (base_7, 0, 0, 1);
+  _20 ={v} MEM[(const struct LPSPI_Type *)base_7].PARAM;
+  _21 = _20 & 255;
+  _22 = 1 << _21;
+  _23 = (unsigned char) _22;
+  MEM[(uint8_t *)lpspiState_8(D) + 33B] = _23;
+  errorCode_15 = LPSPI_DRV_MasterConfigureBus (instance_6(D), spiConfig_13(D), 0B);
+  if (errorCode_15 != 0)
+    goto <bb 4>; [51.12%]
+  else
+    goto <bb 3>; [48.88%]
+
+  <bb 3> [local count: 524845000]:
+  lpspiState_8(D)->dummy = 0;
+  _1 = &lpspiState_8(D)->lpspiSemaphore;
+  errorCode_18 = OSIF_SemaCreate (_1, 0);
+  _2 = g_lpspiIrqId[instance_6(D)];
+  INT_SYS_EnableIRQ (_2);
+  _24 ={v} base_7->CR;
+  _25 = _24 | 1;
+  base_7->CR ={v} _25;
+
+  <bb 4> [local count: 1073741824]:
+  # _3 = PHI <errorCode_18(3), errorCode_15(2)>
+  return _3;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterTransferBlocking (LPSPI_DRV_MasterTransferBlocking, funcdef_no=34, decl_uid=8062, cgraph_uid=35, symbol_order=35)
+
+Removing basic block 10
+Removing basic block 11
+LPSPI_DRV_MasterTransferBlocking (uint32_t instance, const uint8_t * sendBuffer, uint8_t * receiveBuffer, uint16_t transferByteCount, uint32_t timeout)
+{
+  status_t osifError;
+  status_t error;
+  struct LPSPI_Type * base;
+  struct lpspi_state_t * lpspiState;
+  struct QueueDefinition * * _1;
+  status_t _2;
+  long unsigned int _25;
+  long unsigned int _26;
+  _Bool _27;
+  long unsigned int _32;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _55;
+
+  <bb 2> [local count: 1073741824]:
+  if (transferByteCount_8(D) == 0)
+    goto <bb 9>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669601]:
+  base_7 = g_lpspiBase[instance_5(D)];
+  _25 ={v} MEM[(const struct LPSPI_Type *)base_7].SR;
+  _26 = _25 >> 24;
+  _27 = (_Bool) _26;
+  if (_27 != 0)
+    goto <bb 9>; [36.03%]
+  else
+    goto <bb 4>; [63.97%]
+
+  <bb 4> [local count: 453335945]:
+  lpspiState_6 = g_lpspiStatePtr[instance_5(D)];
+  _1 = &lpspiState_6->lpspiSemaphore;
+  OSIF_SemaWait (_1, 0);
+  lpspiState_6->isBlocking = 1;
+  error_14 = LPSPI_DRV_MasterStartTransfer (instance_5(D), sendBuffer_11(D), receiveBuffer_12(D), transferByteCount_8(D));
+  if (error_14 != 0)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [local count: 154134223]:
+  _44 ={v} base_7->IER;
+  _49 = _44 & 4294967294;
+  base_7->IER ={v} _49;
+  _38 ={v} base_7->IER;
+  _43 = _38 & 4294967293;
+  base_7->IER ={v} _43;
+  LPSPI_DRV_DisableTEIEInterrupts (instance_5(D));
+  _32 ={v} base_7->IER;
+  _37 = _32 & 4294966271;
+  base_7->IER ={v} _37;
+  LPSPI_ClearStatusFlag (base_7, 10);
+  lpspiState_6->isBlocking = 0;
+  goto <bb 9>; [100.00%]
+
+  <bb 6> [local count: 299201722]:
+  osifError_17 = OSIF_SemaWait (_1, timeout_15(D));
+  if (osifError_17 == 3)
+    goto <bb 7>; [12.50%]
+  else
+    goto <bb 8>; [87.50%]
+
+  <bb 7> [local count: 37400215]:
+  lpspiState_6->isBlocking = 0;
+  LPSPI_DRV_MasterCompleteTransfer (instance_5(D));
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 261801507]:
+  LPSPI_DRV_DisableTEIEInterrupts (instance_5(D));
+  _50 ={v} base_7->IER;
+  _55 = _50 & 4294966271;
+  base_7->IER ={v} _55;
+  LPSPI_ClearStatusFlag (base_7, 10);
+
+  <bb 9> [local count: 1073741824]:
+  # _2 = PHI <error_14(8), transferByteCount_8(D)(2), error_14(5), osifError_17(7), 2(3)>
+  return _2;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterTransfer (LPSPI_DRV_MasterTransfer, funcdef_no=35, decl_uid=8067, cgraph_uid=36, symbol_order=36)
+
+Removing basic block 5
+LPSPI_DRV_MasterTransfer (uint32_t instance, const uint8_t * sendBuffer, uint8_t * receiveBuffer, uint16_t transferByteCount)
+{
+  status_t error;
+  status_t _1;
+
+  <bb 2> [local count: 1073741824]:
+  if (transferByteCount_4(D) == 0)
+    goto <bb 4>; [51.12%]
+  else
+    goto <bb 3>; [48.88%]
+
+  <bb 3> [local count: 524845000]:
+  error_10 = LPSPI_DRV_MasterStartTransfer (instance_6(D), sendBuffer_7(D), receiveBuffer_8(D), transferByteCount_4(D)); [tail call]
+
+  <bb 4> [local count: 1073741824]:
+  # _1 = PHI <error_10(3), transferByteCount_4(D)(2)>
+  return _1;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterGetTransferStatus (LPSPI_DRV_MasterGetTransferStatus, funcdef_no=36, decl_uid=8070, cgraph_uid=37, symbol_order=37)
+
+Removing basic block 6
+Removing basic block 8
+Removing basic block 9
+LPSPI_DRV_MasterGetTransferStatus (uint32_t instance, uint32_t * bytesRemained)
+{
+  const struct lpspi_state_t * lpspiState;
+  short unsigned int _1;
+  long unsigned int _2;
+  <unnamed type> _3;
+  _Bool _4;
+  status_t _5;
+
+  <bb 2> [local count: 1073741824]:
+  lpspiState_10 = g_lpspiStatePtr[instance_9(D)];
+  if (bytesRemained_11(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _1 ={v} lpspiState_10->rxCount;
+  _2 = (long unsigned int) _1;
+  *bytesRemained_11(D) = _2;
+
+  <bb 4> [local count: 1073741824]:
+  _3 = lpspiState_10->status;
+  if (_3 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  _4 ={v} lpspiState_10->isTransferInProgress;
+  if (_4 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 268435457]:
+
+  <bb 7> [local count: 1073741824]:
+  # _5 = PHI <1(4), 2(5), 0(6)>
+  return _5;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterAbortTransfer (LPSPI_DRV_MasterAbortTransfer, funcdef_no=37, decl_uid=8072, cgraph_uid=38, symbol_order=38)
+
+LPSPI_DRV_MasterAbortTransfer (uint32_t instance)
+{
+  struct LPSPI_Type * base;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = g_lpspiBase[instance_2(D)];
+  LPSPI_DRV_MasterCompleteTransfer (instance_2(D));
+  LPSPI_SetFlushFifoCmd (base_3, 1, 1);
+  LPSPI_SetFlushFifoCmd (base_3, 1, 1);
+  return 0;
+
+}
+
+
+
+;; Function LPSPI_DRV_SetPcs (LPSPI_DRV_SetPcs, funcdef_no=38, decl_uid=8056, cgraph_uid=39, symbol_order=39)
+
+Removing basic block 7
+Removing basic block 8
+LPSPI_DRV_SetPcs (uint32_t instance, lpspi_which_pcs_t whichPcs, lpspi_signal_polarity_t polarity)
+{
+  status_t result;
+  struct LPSPI_Type * base;
+  <unnamed type> _1;
+  status_t _2;
+  long unsigned int _13;
+  long unsigned int _14;
+
+  <bb 2> [local count: 1073741824]:
+  base_6 = g_lpspiBase[instance_5(D)];
+  _1 = LPSPI_Disable (base_6);
+  if (_1 != 0)
+    goto <bb 3>; [51.12%]
+  else
+    goto <bb 4>; [48.88%]
+
+  <bb 3> [local count: 817197590]:
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 524845000]:
+  result_11 = LPSPI_SetPcsPolarityMode (base_6, whichPcs_8(D), polarity_9(D));
+  if (result_11 != 0)
+    goto <bb 3>; [51.12%]
+  else
+    goto <bb 5>; [48.88%]
+
+  <bb 5> [local count: 256544234]:
+  _13 ={v} base_6->CR;
+  _14 = _13 | 1;
+  base_6->CR ={v} _14;
+  LPSPI_SetPcs (base_6, whichPcs_8(D));
+
+  <bb 6> [local count: 1073741824]:
+  # _2 = PHI <result_11(5), 1(3)>
+  return _2;
+
+}
+
+
+
+;; Function LPSPI_DRV_MasterIRQHandler (LPSPI_DRV_MasterIRQHandler, funcdef_no=43, decl_uid=7955, cgraph_uid=44, symbol_order=44)
+
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+LPSPI_DRV_MasterIRQHandler (uint32_t instance)
+{
+  struct LPSPI_Type * base;
+  struct lpspi_state_t * lpspiState;
+  const uint8_t * _1;
+  uint8_t * _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  short unsigned int _5;
+  short unsigned int _6;
+  long unsigned int _23;
+  long unsigned int _24;
+  _Bool _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  _Bool _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  _Bool _31;
+  long unsigned int _32;
+  _Bool _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  _Bool _38;
+  long unsigned int _43;
+  long unsigned int _48;
+
+  <bb 2> [local count: 1073741821]:
+  lpspiState_12 = g_lpspiStatePtr[instance_11(D)];
+  base_13 = g_lpspiBase[instance_11(D)];
+  _23 ={v} MEM[(const struct LPSPI_Type *)base_13].SR;
+  _24 = _23 >> 11;
+  _25 = (_Bool) _24;
+  if (_25 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 536870910]:
+  _1 = lpspiState_12->txBuff;
+  if (_1 != 0B)
+    goto <bb 4>; [37.19%]
+  else
+    goto <bb 5>; [62.81%]
+
+  <bb 4> [local count: 199662291]:
+  LPSPI_DRV_MasterCompleteTransfer (instance_11(D));
+  LPSPI_SetFlushFifoCmd (base_13, 1, 1);
+  LPSPI_SetFlushFifoCmd (base_13, 1, 1);
+  LPSPI_ClearStatusFlag (base_13, 11);
+  lpspiState_12->status = 1;
+  goto <bb 19>; [100.00%]
+
+  <bb 5> [local count: 874079530]:
+  _26 ={v} MEM[(const struct LPSPI_Type *)base_13].SR;
+  _27 = _26 >> 12;
+  _28 = (_Bool) _27;
+  if (_28 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 6> [local count: 437039765]:
+  _2 = lpspiState_12->rxBuff;
+  if (_2 != 0B)
+    goto <bb 7>; [37.19%]
+  else
+    goto <bb 8>; [62.81%]
+
+  <bb 7> [local count: 162535088]:
+  LPSPI_DRV_MasterCompleteTransfer (instance_11(D));
+  LPSPI_SetFlushFifoCmd (base_13, 1, 1);
+  LPSPI_SetFlushFifoCmd (base_13, 1, 1);
+  LPSPI_ClearStatusFlag (base_13, 12);
+  lpspiState_12->status = 2;
+  goto <bb 19>; [100.00%]
+
+  <bb 8> [local count: 711544441]:
+  _29 ={v} MEM[(const struct LPSPI_Type *)base_13].SR;
+  _30 = _29 >> 1;
+  _31 = (_Bool) _30;
+  if (_31 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 9> [local count: 355772220]:
+  _3 ={v} lpspiState_12->rxCount;
+  if (_3 != 0)
+    goto <bb 10>; [33.00%]
+  else
+    goto <bb 11>; [67.00%]
+
+  <bb 10> [local count: 117404832]:
+  LPSPI_DRV_ReadRXBuffer (instance_11(D));
+
+  <bb 11> [local count: 711544442]:
+  _32 ={v} MEM[(const struct LPSPI_Type *)base_13].SR;
+  _33 = (_Bool) _32;
+  if (_33 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 12> [local count: 355772221]:
+  _4 ={v} lpspiState_12->txCount;
+  if (_4 != 0)
+    goto <bb 13>; [33.00%]
+  else
+    goto <bb 14>; [67.00%]
+
+  <bb 13> [local count: 117404832]:
+  LPSPI_DRV_FillupTxBuffer (instance_11(D));
+
+  <bb 14> [local count: 711544443]:
+  _5 ={v} lpspiState_12->txCount;
+  if (_5 == 0)
+    goto <bb 16>; [33.00%]
+  else
+    goto <bb 15>; [67.00%]
+
+  <bb 15> [local count: 672800849]:
+  goto <bb 19>; [100.00%]
+
+  <bb 16> [local count: 234809665]:
+  _43 ={v} base_13->IER;
+  _48 = _43 & 4294967294;
+  base_13->IER ={v} _48;
+  _34 ={v} base_13->IER;
+  _35 = _34 | 1024;
+  base_13->IER ={v} _35;
+  _6 ={v} lpspiState_12->rxCount;
+  if (_6 == 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 17> [local count: 117404832]:
+  _36 ={v} MEM[(const struct LPSPI_Type *)base_13].SR;
+  _37 = _36 >> 10;
+  _38 = (_Bool) _37;
+  if (_38 != 0)
+    goto <bb 18>; [33.00%]
+  else
+    goto <bb 15>; [67.00%]
+
+  <bb 18> [local count: 38743595]:
+  LPSPI_DRV_MasterCompleteTransfer (instance_11(D)); [tail call]
+
+  <bb 19> [local count: 1073741824]:
+  return;
+
+}
+
+

@@ -1,0 +1,2 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/rtc/rtc_irq.c:34:6:RTC_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/rtc/rtc_irq.c:39:6:RTC_Seconds_IRQHandler	0	static

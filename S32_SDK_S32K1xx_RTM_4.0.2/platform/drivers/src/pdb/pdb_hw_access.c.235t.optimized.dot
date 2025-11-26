@@ -1,0 +1,374 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pdb/pdb_hw_access.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_PDB_Init" {
+	style="dashed";
+	color="black";
+	label="PDB_Init ()";
+	fn_16_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_16_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_16_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59637414\<bb\ 2\>:\l\
+|base_8(D)-\>SC\ =\{v\}\ 0;\l\
+|_18\ =\{v\}\ base_8(D)-\>SC;\l\
+|_19\ =\ _18\ \|\ 128;\l\
+|base_8(D)-\>SC\ =\{v\}\ _19;\l\
+|base_8(D)-\>MOD\ =\{v\}\ 65535;\l\
+|base_8(D)-\>IDLY\ =\{v\}\ 65535;\l\
+|base_8(D)-\>CH[0].C1\ =\{v\}\ 0;\l\
+|base_8(D)-\>CH[0].S\ =\{v\}\ 0;\l\
+|base_8(D)-\>CH[0].DLY[0]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 28B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 32B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 36B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 40B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 44B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 48B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 52B]\ =\{v\}\ 0;\l\
+|base_8(D)-\>CH[1].C1\ =\{v\}\ 0;\l\
+|base_8(D)-\>CH[1].S\ =\{v\}\ 0;\l\
+|base_8(D)-\>CH[1].DLY[0]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 68B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 72B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 76B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 80B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 84B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 88B]\ =\{v\}\ 0;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ PDB_Type\ *)base_8(D)\ +\ 92B]\ =\{v\}\ 0;\l\
+|base_8(D)-\>POEN\ =\{v\}\ 0;\l\
+|base_8(D)-\>POnDLY[0].PODLY\ =\{v\}\ 0;\l\
+|_22\ =\{v\}\ base_8(D)-\>SC;\l\
+|_23\ =\ _22\ \|\ 1;\l\
+|base_8(D)-\>SC\ =\{v\}\ _23;\l\
+|_20\ =\{v\}\ base_8(D)-\>SC;\l\
+|_21\ =\ _20\ &\ 4294967167;\l\
+|base_8(D)-\>SC\ =\{v\}\ _21;\l\
+|return;\l\
+}"];
+
+	fn_16_basic_block_0:s -> fn_16_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_16_basic_block_2:s -> fn_16_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_16_basic_block_0:s -> fn_16_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PDB_ConfigTimer" {
+	style="dashed";
+	color="black";
+	label="PDB_ConfigTimer ()";
+	fn_17_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_17_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_17_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|sc_27\ =\{v\}\ base_26(D)-\>SC;\l\
+|sc_28\ =\ sc_27\ &\ 4293984465;\l\
+|_1\ =\ configPtr_29(D)-\>loadValueMode;\l\
+|_2\ =\ (long\ unsigned\ int)\ _1;\l\
+|_3\ =\ _2\ \<\<\ 18;\l\
+|_4\ =\ _3\ &\ 786432;\l\
+|sc_30\ =\ _4\ \|\ sc_28;\l\
+|_5\ =\ configPtr_29(D)-\>seqErrIntEnable;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_17_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|sc_31\ =\ sc_30\ \|\ 131072;\l\
+}"];
+
+	fn_17_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ sc_21\ =\ PHI\ \<sc_31(3),\ sc_30(2)\>\l\
+|_6\ =\ configPtr_29(D)-\>clkPreDiv;\l\
+|_7\ =\ (long\ unsigned\ int)\ _6;\l\
+|_8\ =\ _7\ \<\<\ 12;\l\
+|_9\ =\ _8\ &\ 28672;\l\
+|_10\ =\ configPtr_29(D)-\>triggerInput;\l\
+|_11\ =\ (long\ unsigned\ int)\ _10;\l\
+|_12\ =\ _11\ \<\<\ 8;\l\
+|_13\ =\ _12\ &\ 3840;\l\
+|_40\ =\ _9\ \|\ _13;\l\
+|_14\ =\ configPtr_29(D)-\>clkPreMultFactor;\l\
+|_15\ =\ (long\ unsigned\ int)\ _14;\l\
+|_16\ =\ _15\ \<\<\ 2;\l\
+|_17\ =\ _16\ &\ 12;\l\
+|_39\ =\ _17\ \|\ _40;\l\
+|sc_34\ =\ sc_21\ \|\ _39;\l\
+|_18\ =\ configPtr_29(D)-\>continuousModeEnable;\l\
+|if\ (_18\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_17_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 5\>:\l\
+|sc_35\ =\ sc_34\ \|\ 2;\l\
+}"];
+
+	fn_17_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ sc_22\ =\ PHI\ \<sc_35(5),\ sc_34(4)\>\l\
+|_19\ =\ configPtr_29(D)-\>dmaEnable;\l\
+|if\ (_19\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_17_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 7\>:\l\
+|sc_36\ =\ sc_22\ \|\ 32768;\l\
+}"];
+
+	fn_17_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ sc_23\ =\ PHI\ \<sc_36(7),\ sc_22(6)\>\l\
+|_20\ =\ configPtr_29(D)-\>intEnable;\l\
+|if\ (_20\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_17_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 9\>:\l\
+|sc_37\ =\ sc_23\ \|\ 32;\l\
+}"];
+
+	fn_17_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|#\ sc_24\ =\ PHI\ \<sc_37(9),\ sc_23(8)\>\l\
+|base_26(D)-\>SC\ =\{v\}\ sc_24;\l\
+|return;\l\
+}"];
+
+	fn_17_basic_block_0:s -> fn_17_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_2:s -> fn_17_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_2:s -> fn_17_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_3:s -> fn_17_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_4:s -> fn_17_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_4:s -> fn_17_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_5:s -> fn_17_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_6:s -> fn_17_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_6:s -> fn_17_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_7:s -> fn_17_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_8:s -> fn_17_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_8:s -> fn_17_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_9:s -> fn_17_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_10:s -> fn_17_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_17_basic_block_0:s -> fn_17_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PDB_SetAdcPreTriggerBackToBackEnable" {
+	style="dashed";
+	color="black";
+	label="PDB_SetAdcPreTriggerBackToBackEnable ()";
+	fn_18_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_18_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_18_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|c1_10\ =\{v\}\ base_8(D)-\>CH[chn_9(D)].C1;\l\
+|if\ (enable_11(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_18_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_1\ =\ preChnMask_12(D)\ \<\<\ 16;\l\
+|_2\ =\ _1\ &\ 16711680;\l\
+|c1_14\ =\ _2\ \|\ c1_10;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_18_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_3\ =\ preChnMask_12(D)\ \<\<\ 16;\l\
+|_4\ =\ _3\ &\ 16711680;\l\
+|_5\ =\ ~_4;\l\
+|c1_13\ =\ _5\ &\ c1_10;\l\
+}"];
+
+	fn_18_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ c1_6\ =\ PHI\ \<c1_14(3),\ c1_13(4)\>\l\
+|base_8(D)-\>CH[chn_9(D)].C1\ =\{v\}\ c1_6;\l\
+|return;\l\
+}"];
+
+	fn_18_basic_block_0:s -> fn_18_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_18_basic_block_2:s -> fn_18_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_18_basic_block_2:s -> fn_18_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_18_basic_block_3:s -> fn_18_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_18_basic_block_4:s -> fn_18_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_18_basic_block_5:s -> fn_18_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_18_basic_block_0:s -> fn_18_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PDB_SetAdcPreTriggerOutputEnable" {
+	style="dashed";
+	color="black";
+	label="PDB_SetAdcPreTriggerOutputEnable ()";
+	fn_19_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_19_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_19_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|c1_10\ =\{v\}\ base_8(D)-\>CH[chn_9(D)].C1;\l\
+|if\ (enable_11(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_19_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_1\ =\ preChnMask_12(D)\ \<\<\ 8;\l\
+|_2\ =\ _1\ &\ 65535;\l\
+|c1_14\ =\ _2\ \|\ c1_10;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_19_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_3\ =\ preChnMask_12(D)\ \<\<\ 8;\l\
+|_4\ =\ _3\ &\ 65535;\l\
+|_5\ =\ ~_4;\l\
+|c1_13\ =\ _5\ &\ c1_10;\l\
+}"];
+
+	fn_19_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ c1_6\ =\ PHI\ \<c1_14(3),\ c1_13(4)\>\l\
+|base_8(D)-\>CH[chn_9(D)].C1\ =\{v\}\ c1_6;\l\
+|return;\l\
+}"];
+
+	fn_19_basic_block_0:s -> fn_19_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_2:s -> fn_19_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_2:s -> fn_19_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_3:s -> fn_19_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_4:s -> fn_19_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_5:s -> fn_19_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_19_basic_block_0:s -> fn_19_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PDB_SetAdcPreTriggerEnable" {
+	style="dashed";
+	color="black";
+	label="PDB_SetAdcPreTriggerEnable ()";
+	fn_20_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_20_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_20_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|c1_8\ =\{v\}\ base_6(D)-\>CH[chn_7(D)].C1;\l\
+|if\ (enable_9(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_20_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_1\ =\ preChnMask_10(D)\ &\ 255;\l\
+|c1_12\ =\ _1\ \|\ c1_8;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_20_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_2\ =\ preChnMask_10(D)\ &\ 255;\l\
+|_3\ =\ ~_2;\l\
+|c1_11\ =\ _3\ &\ c1_8;\l\
+}"];
+
+	fn_20_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ c1_4\ =\ PHI\ \<c1_12(3),\ c1_11(4)\>\l\
+|base_6(D)-\>CH[chn_7(D)].C1\ =\{v\}\ c1_4;\l\
+|return;\l\
+}"];
+
+	fn_20_basic_block_0:s -> fn_20_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_20_basic_block_2:s -> fn_20_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_20_basic_block_2:s -> fn_20_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_20_basic_block_3:s -> fn_20_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_20_basic_block_4:s -> fn_20_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_20_basic_block_5:s -> fn_20_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_20_basic_block_0:s -> fn_20_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PDB_ClearAdcPreTriggerFlags" {
+	style="dashed";
+	color="black";
+	label="PDB_ClearAdcPreTriggerFlags ()";
+	fn_21_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_21_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_21_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|s_7\ =\{v\}\ base_5(D)-\>CH[chn_6(D)].S;\l\
+|_1\ =\ preChnMask_8(D)\ \<\<\ 16;\l\
+|_2\ =\ _1\ &\ 16711680;\l\
+|_3\ =\ ~_2;\l\
+|s_9\ =\ _3\ &\ s_7;\l\
+|base_5(D)-\>CH[chn_6(D)].S\ =\{v\}\ s_9;\l\
+|return;\l\
+}"];
+
+	fn_21_basic_block_0:s -> fn_21_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_2:s -> fn_21_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_21_basic_block_0:s -> fn_21_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PDB_ClearAdcPreTriggerSeqErrFlags" {
+	style="dashed";
+	color="black";
+	label="PDB_ClearAdcPreTriggerSeqErrFlags ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|s_7\ =\{v\}\ base_5(D)-\>CH[chn_6(D)].S;\l\
+|_1\ =\ preChnMask_8(D)\ &\ 255;\l\
+|_2\ =\ ~_1;\l\
+|s_9\ =\ _2\ &\ s_7;\l\
+|base_5(D)-\>CH[chn_6(D)].S\ =\{v\}\ s_9;\l\
+|_3\ =\{v\}\ base_5(D)-\>CH[chn_6(D)].S;\l\
+|dummy_read\ =\{v\}\ _3;\l\
+|vol.0_12\ =\{v\}\ dummy_read;\l\
+|return;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_2:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PDB_SetCmpPulseOutEnable" {
+	style="dashed";
+	color="black";
+	label="PDB_SetCmpPulseOutEnable ()";
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|poen_7\ =\{v\}\ base_6(D)-\>POEN;\l\
+|if\ (enable_8(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_23_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_1\ =\ pulseChnMask_9(D)\ &\ 255;\l\
+|poen_11\ =\ _1\ \|\ poen_7;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_23_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_2\ =\ pulseChnMask_9(D)\ &\ 255;\l\
+|_3\ =\ ~_2;\l\
+|poen_10\ =\ _3\ &\ poen_7;\l\
+}"];
+
+	fn_23_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ poen_4\ =\ PHI\ \<poen_11(3),\ poen_10(4)\>\l\
+|base_6(D)-\>POEN\ =\{v\}\ poen_4;\l\
+|return;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_2:s -> fn_23_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_23_basic_block_2:s -> fn_23_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_23_basic_block_3:s -> fn_23_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_4:s -> fn_23_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_5:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+}

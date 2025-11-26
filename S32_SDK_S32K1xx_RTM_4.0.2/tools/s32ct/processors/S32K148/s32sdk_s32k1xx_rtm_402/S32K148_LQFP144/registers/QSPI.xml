@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<regs:peripheral xmlns:regs="http://swtools.freescale.net/XSD/registers/3.0/regsPeripheral.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://swtools.freescale.net/XSD/registers/3.0/regsPeripheral.xsd http://swtools.freescale.net/XSD/registers/3.0/regsPeripheral.xsd">
+  <register offset="0" width="32" name="MCR" description="MCR register">
+    <alias type="CMSIS" value="MCR"/>
+    <reserved_bit_field offset="0" width="24" reset_value="0"/>
+    <bit_field offset="24" width="1" name="SCLKCFG_0" access="RW" reset_value="0" description="Reference Loopback clock selection for DQS for Flash-A">
+      <alias type="CMSIS" value="QSPI_MCR_SCLKCFG_0(x)"/>
+    </bit_field>
+    <bit_field offset="25" width="1" name="SCLKCFG_1" access="RW" reset_value="0" description="Reference clock selection for DQS for Flash-A">
+      <alias type="CMSIS" value="QSPI_MCR_SCLKCFG_1(x)"/>
+    </bit_field>
+    <bit_field offset="26" width="1" name="SCLKCFG_2" access="RW" reset_value="0" description="Reference Loopback clock selection for DQS for Flash-A">
+      <alias type="CMSIS" value="QSPI_MCR_SCLKCFG_2(x)"/>
+    </bit_field>
+    <bit_field offset="27" width="1" name="SCLKCFG_3" access="RW" reset_value="0" description="Reference clock selection for DQS for Flash-A">
+      <alias type="CMSIS" value="QSPI_MCR_SCLKCFG_3(x)"/>
+    </bit_field>
+    <bit_field offset="28" width="1" name="SCLKCFG_4" access="RW" reset_value="0" description="Internal reference clock (async clock domain) source selection for Quadspi">
+      <alias type="CMSIS" value="QSPI_MCR_SCLKCFG_4(x)"/>
+    </bit_field>
+    <bit_field offset="29" width="1" name="SCLKCFG_5" access="RW" reset_value="1" description="HyperRAM selection for Flash B - Reference clock selection for DQS for Flash-B">
+      <alias type="CMSIS" value="QSPI_MCR_SCLKCFG_5(x)"/>
+    </bit_field>
+    <bit_field offset="30" width="1" name="SCLKCFG_6" access="RW" reset_value="0" description="Quadspi Clocking mode selection">
+      <alias type="CMSIS" value="QSPI_MCR_SCLKCFG_6(x)"/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="SCLKCFG_7" access="RW" reset_value="0" description="HyperRAM selection for Flash B - Reference clock selection for DQS for Flash-B">
+      <alias type="CMSIS" value="QSPI_MCR_SCLKCFG_7(x)"/>
+    </bit_field>
+  </register>
+  <register offset="24" width="32" name="SOCCR" description="SOCCR register">
+    <alias type="CMSIS" value="MCR"/>
+    <reserved_bit_field offset="0" width="24" reset_value="0"/>
+    <bit_field offset="24" width="8" name="SOCCFG" access="RW" reset_value="0" description="Programmable divider configuration selection">
+      <alias type="CMSIS" value="QSPI_SOCCR_SOCCFG(x)"/>
+    </bit_field>
+  </register>
+</regs:peripheral>

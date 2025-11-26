@@ -1,0 +1,664 @@
+
+;; Function WDOG_DRV_Init (WDOG_DRV_Init, funcdef_no=13, decl_uid=6350, cgraph_uid=14, symbol_order=15)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+WDOG_DRV_Init (uint32_t instance, const struct wdog_user_config_t * userConfigPtr)
+{
+  status_t status;
+  _Bool _1;
+  short unsigned int _2;
+  short unsigned int _3;
+  short unsigned int pretmp_14;
+  short unsigned int prephitmp_15;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = userConfigPtr_8(D)->winEnable;
+  if (_1 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  pretmp_14 = userConfigPtr_8(D)->timeoutValue;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _2 = userConfigPtr_8(D)->windowValue;
+  _3 = userConfigPtr_8(D)->timeoutValue;
+  if (_2 >= _3)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 805306369]:
+  # prephitmp_15 = PHI <pretmp_14(3), _3(4)>
+  if (prephitmp_15 == 0)
+    goto <bb 8>; [67.00%]
+  else
+    goto <bb 6>; [33.00%]
+
+  <bb 6> [local count: 265751100]:
+  status_10 = WDOG_Config (1074077696B, userConfigPtr_8(D));
+  if (status_10 == 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 7> [local count: 87697863]:
+  INT_SYS_EnableIRQ (22);
+
+  <bb 8> [local count: 1073741824]:
+  # status_6 = PHI <status_10(7), 1(5), 1(4), status_10(6)>
+  return status_6;
+
+}
+
+
+
+;; Function WDOG_DRV_Deinit (WDOG_DRV_Deinit, funcdef_no=14, decl_uid=6352, cgraph_uid=15, symbol_order=16)
+
+Removing basic block 5
+WDOG_DRV_Deinit (uint32_t instance)
+{
+  status_t status;
+  long unsigned int _8;
+  long unsigned int _9;
+
+  <bb 2> [local count: 1073741824]:
+  INT_SYS_DisableIRQGlobal ();
+  _8 ={v} MEM[(const struct WDOG_Type *)1074077696B].CS;
+  _9 = _8 & 32;
+  if (_9 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  INT_SYS_DisableIRQ (22);
+  WDOG_Deinit (1074077696B);
+
+  <bb 4> [local count: 1073741824]:
+  # status_1 = PHI <0(3), 1(2)>
+  INT_SYS_EnableIRQGlobal ();
+  return status_1;
+
+}
+
+
+
+;; Function WDOG_DRV_GetConfig (WDOG_DRV_GetConfig, funcdef_no=15, decl_uid=6355, cgraph_uid=16, symbol_order=17)
+
+WDOG_DRV_GetConfig (uint32_t instance, struct wdog_user_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  *config_2(D) = WDOG_GetConfig (1074077696B);
+  return;
+
+}
+
+
+
+;; Function WDOG_DRV_GetDefaultConfig (WDOG_DRV_GetDefaultConfig, funcdef_no=16, decl_uid=6357, cgraph_uid=17, symbol_order=18)
+
+WDOG_DRV_GetDefaultConfig (struct wdog_user_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->prescalerEnable = 0;
+  MEM <unsigned short> [(void *)config_2(D)] = 1;
+  MEM <unsigned short> [(_Bool *)config_2(D) + 2B] = 0;
+  MEM <unsigned short> [(_Bool *)config_2(D) + 4B] = 1;
+  config_2(D)->winEnable = 0;
+  config_2(D)->timeoutValue = 1024;
+  config_2(D)->windowValue = 0;
+  return;
+
+}
+
+
+
+;; Function WDOG_DRV_SetInt (WDOG_DRV_SetInt, funcdef_no=17, decl_uid=6360, cgraph_uid=18, symbol_order=19)
+
+Removing basic block 5
+WDOG_DRV_SetInt (uint32_t instance, _Bool enable)
+{
+  status_t status;
+  long unsigned int _8;
+  long unsigned int _9;
+
+  <bb 2> [local count: 1073741824]:
+  _8 ={v} MEM[(const struct WDOG_Type *)1074077696B].CS;
+  _9 = _8 & 32;
+  if (_9 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  INT_SYS_DisableIRQGlobal ();
+  WDOG_SetInt (1074077696B, enable_5(D));
+  INT_SYS_EnableIRQGlobal ();
+
+  <bb 4> [local count: 1073741824]:
+  # status_1 = PHI <0(3), 1(2)>
+  return status_1;
+
+}
+
+
+
+;; Function WDOG_DRV_ClearIntFlag (WDOG_DRV_ClearIntFlag, funcdef_no=18, decl_uid=6362, cgraph_uid=19, symbol_order=20)
+
+WDOG_DRV_ClearIntFlag (uint32_t instance)
+{
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int vol.0_5;
+  long unsigned int vol.1_6;
+  long unsigned int vol.2_7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int vol.3_10;
+
+  <bb 2> [local count: 1073741824]:
+  _3 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _4 = _3 & 8192;
+  if (_4 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 3643327776;
+  vol.0_5 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 50464;
+  vol.1_6 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 55592;
+  vol.2_7 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+
+  <bb 5> [local count: 1073741824]:
+  _8 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _9 = _8 | 16384;
+  MEM[(struct WDOG_Type *)1074077696B].CS ={v} _9;
+  vol.3_10 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  return;
+
+}
+
+
+
+;; Function WDOG_DRV_Trigger (WDOG_DRV_Trigger, funcdef_no=19, decl_uid=6364, cgraph_uid=20, symbol_order=21)
+
+WDOG_DRV_Trigger (uint32_t instance)
+{
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int vol.4_4;
+
+  <bb 2> [local count: 1073741824]:
+  _2 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _3 = _2 & 8192;
+  if (_3 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 3028329986;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 42498;
+  vol.4_4 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 46208;
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function WDOG_DRV_GetCounter (WDOG_DRV_GetCounter, funcdef_no=20, decl_uid=6366, cgraph_uid=21, symbol_order=22)
+
+WDOG_DRV_GetCounter (uint32_t instance)
+{
+  long unsigned int _1;
+  uint16_t _3;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(const struct WDOG_Type *)1074077696B].CNT;
+  _3 = (uint16_t) _1;
+  return _3;
+
+}
+
+
+
+;; Function WDOG_DRV_SetWindow (WDOG_DRV_SetWindow, funcdef_no=21, decl_uid=6370, cgraph_uid=22, symbol_order=23)
+
+Removing basic block 13
+WDOG_DRV_SetWindow (uint32_t instance, _Bool enable, uint16_t windowvalue)
+{
+  status_t status;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int vol.9_11;
+  long unsigned int vol.10_12;
+  long unsigned int vol.11_13;
+  long unsigned int _14;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int vol.5_22;
+  long unsigned int vol.6_23;
+  long unsigned int vol.7_24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _36;
+
+  <bb 2> [local count: 1073741824]:
+  _7 ={v} MEM[(const struct WDOG_Type *)1074077696B].CS;
+  _8 = _7 & 32;
+  if (_8 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 10>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  _20 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _21 = _20 & 8192;
+  if (_21 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 177167400]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 3643327776;
+  vol.5_22 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 177167400]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 50464;
+  vol.6_23 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 55592;
+  vol.7_24 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+
+  <bb 6> [local count: 354334800]:
+  _25 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _26 = _25 & 4294934527;
+  if (enable_4(D) != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 7> [local count: 88583700]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 3643327776;
+  vol.9_11 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 88583700]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 50464;
+  vol.10_12 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 55592;
+  vol.11_13 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+
+  <bb 9> [local count: 177167400]:
+  _14 = (long unsigned int) windowvalue_6(D);
+  MEM[(struct WDOG_Type *)1074077696B].WIN ={v} _14;
+
+  <bb 10> [local count: 1073741824]:
+  # status_1 = PHI <0(9), 0(12), 1(2)>
+  return status_1;
+
+  <bb 11> [local count: 177167400]:
+  _36 = _26 | 32768;
+  MEM[(struct WDOG_Type *)1074077696B].CS ={v} _36;
+  _9 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _10 = _9 & 8192;
+  if (_10 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 12> [local count: 177167400]:
+  MEM[(struct WDOG_Type *)1074077696B].CS ={v} _26;
+  goto <bb 10>; [100.00%]
+
+}
+
+
+
+;; Function WDOG_DRV_SetMode (WDOG_DRV_SetMode, funcdef_no=22, decl_uid=6374, cgraph_uid=23, symbol_order=24)
+
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+WDOG_DRV_SetMode (uint32_t instance, _Bool enable, wdog_set_mode_t Setmode)
+{
+  status_t status;
+  long unsigned int prephitmp_6;
+  long unsigned int _7;
+  long unsigned int prephitmp_8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int vol.12_13;
+  long unsigned int vol.13_14;
+  long unsigned int vol.14_15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int vol.16_22;
+  long unsigned int vol.17_23;
+  long unsigned int vol.18_24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int vol.20_31;
+  long unsigned int vol.21_32;
+  long unsigned int vol.22_33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _41;
+
+  <bb 2> [local count: 1073741824]:
+  _9 ={v} MEM[(const struct WDOG_Type *)1074077696B].CS;
+  _10 = _9 & 32;
+  if (_10 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 24>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  if (Setmode_4(D) == 1)
+    goto <bb 12>; [25.00%]
+  else
+    goto <bb 4>; [75.00%]
+
+  <bb 4> [local count: 536870913]:
+  if (Setmode_4(D) == 2)
+    goto <bb 18>; [33.33%]
+  else
+    goto <bb 5>; [66.67%]
+
+  <bb 5> [local count: 536870913]:
+  if (Setmode_4(D) == 0)
+    goto <bb 6>; [33.33%]
+  else
+    goto <bb 24>; [66.67%]
+
+  <bb 6> [local count: 134217728]:
+  _11 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _12 = _11 & 8192;
+  if (_12 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 67108864]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 3643327776;
+  vol.12_13 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 67108864]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 50464;
+  vol.13_14 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 55592;
+  vol.14_15 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+
+  <bb 9> [local count: 134217728]:
+  _16 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _17 = _16 & 4294967291;
+  if (enable_5(D) != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 67108864]:
+  _7 = _17 | 4;
+
+  <bb 11> [local count: 134217728]:
+  # prephitmp_8 = PHI <_7(10), _17(9)>
+  MEM[(struct WDOG_Type *)1074077696B].CS ={v} prephitmp_8;
+  goto <bb 24>; [100.00%]
+
+  <bb 12> [local count: 134217728]:
+  _20 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _21 = _20 & 8192;
+  if (_21 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 13> [local count: 67108864]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 3643327776;
+  vol.16_22 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [local count: 67108864]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 50464;
+  vol.17_23 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 55592;
+  vol.18_24 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+
+  <bb 15> [local count: 134217728]:
+  _25 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _26 = _25 & 4294967293;
+  if (enable_5(D) != 0)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 16> [local count: 67108864]:
+  _41 = _26 | 2;
+
+  <bb 17> [local count: 134217728]:
+  # prephitmp_6 = PHI <_41(16), _26(15)>
+  MEM[(struct WDOG_Type *)1074077696B].CS ={v} prephitmp_6;
+  goto <bb 24>; [100.00%]
+
+  <bb 18> [local count: 134217728]:
+  _29 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _30 = _29 & 8192;
+  if (_30 != 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 19> [local count: 67108864]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 3643327776;
+  vol.20_31 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  goto <bb 21>; [100.00%]
+
+  <bb 20> [local count: 67108864]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 50464;
+  vol.21_32 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 55592;
+  vol.22_33 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+
+  <bb 21> [local count: 134217728]:
+  if (enable_5(D) != 0)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 22> [local count: 67108864]:
+  _34 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _35 = _34 | 1;
+  MEM[(struct WDOG_Type *)1074077696B].CS ={v} _35;
+  goto <bb 24>; [100.00%]
+
+  <bb 23> [local count: 67108864]:
+  _36 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _37 = _36 & 4294967294;
+  MEM[(struct WDOG_Type *)1074077696B].CS ={v} _37;
+
+  <bb 24> [local count: 1073741824]:
+  # status_1 = PHI <0(17), 0(22), 0(11), 1(2), 0(23), 0(5)>
+  return status_1;
+
+}
+
+
+
+;; Function WDOG_DRV_SetTimeout (WDOG_DRV_SetTimeout, funcdef_no=23, decl_uid=6377, cgraph_uid=24, symbol_order=25)
+
+Removing basic block 8
+WDOG_DRV_SetTimeout (uint32_t instance, uint16_t timeout)
+{
+  status_t status;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int vol.24_9;
+  long unsigned int vol.25_11;
+  long unsigned int vol.23_13;
+  long unsigned int _16;
+  long unsigned int _17;
+
+  <bb 2> [local count: 1073741824]:
+  _16 ={v} MEM[(const struct WDOG_Type *)1074077696B].CS;
+  _17 = _16 & 32;
+  if (_17 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _1 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _2 = _1 & 8192;
+  if (_2 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 3643327776;
+  vol.23_13 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 268435456]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 50464;
+  vol.24_9 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 55592;
+  vol.25_11 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+
+  <bb 6> [local count: 536870913]:
+  _3 = (long unsigned int) timeout_14(D);
+  MEM[(struct WDOG_Type *)1074077696B].TOVAL ={v} _3;
+
+  <bb 7> [local count: 1073741824]:
+  # status_4 = PHI <0(6), 1(2)>
+  return status_4;
+
+}
+
+
+
+;; Function WDOG_DRV_SetTestMode (WDOG_DRV_SetTestMode, funcdef_no=24, decl_uid=6380, cgraph_uid=25, symbol_order=26)
+
+Removing basic block 8
+WDOG_DRV_SetTestMode (uint32_t instance, wdog_test_mode_t testMode)
+{
+  status_t status;
+  uint32_t regValue;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int vol.27_15;
+  long unsigned int vol.28_17;
+  long unsigned int vol.26_19;
+  long unsigned int _21;
+  long unsigned int _22;
+
+  <bb 2> [local count: 1073741824]:
+  regValue_10 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _21 ={v} MEM[(const struct WDOG_Type *)1074077696B].CS;
+  _22 = _21 & 32;
+  if (_22 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  regValue_11 = regValue_10 & 4294967271;
+  _1 = (long unsigned int) testMode_12(D);
+  _2 = _1 << 3;
+  _3 = _2 & 24;
+  regValue_13 = _3 | regValue_11;
+  _4 ={v} MEM[(struct WDOG_Type *)1074077696B].CS;
+  _5 = _4 & 8192;
+  if (_5 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 3643327776;
+  vol.26_19 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 268435456]:
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 50464;
+  vol.27_15 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+  MEM[(struct WDOG_Type *)1074077696B].CNT ={v} 55592;
+  vol.28_17 ={v} MEM[(struct WDOG_Type *)1074077696B].CNT;
+
+  <bb 6> [local count: 536870913]:
+  MEM[(struct WDOG_Type *)1074077696B].CS ={v} regValue_13;
+
+  <bb 7> [local count: 1073741824]:
+  # status_6 = PHI <0(6), 1(2)>
+  return status_6;
+
+}
+
+
+
+;; Function WDOG_DRV_GetTestMode (WDOG_DRV_GetTestMode, funcdef_no=25, decl_uid=6382, cgraph_uid=26, symbol_order=27)
+
+Removing basic block 5
+WDOG_DRV_GetTestMode (uint32_t instance)
+{
+  wdog_test_mode_t testMode;
+  unsigned char _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  unsigned int _9;
+
+  <bb 2> [local count: 1073741824]:
+  _6 ={v} MEM[(const struct WDOG_Type *)1074077696B].CS;
+  _7 = _6 >> 3;
+  _8 = _7 & 3;
+  _9 = _8 + 4294967295;
+  if (_9 <= 2)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _5 = (unsigned char) _8;
+
+  <bb 4> [local count: 1073741824]:
+  # testMode_2 = PHI <_5(3), 0(2)>
+  return testMode_2;
+
+}
+
+

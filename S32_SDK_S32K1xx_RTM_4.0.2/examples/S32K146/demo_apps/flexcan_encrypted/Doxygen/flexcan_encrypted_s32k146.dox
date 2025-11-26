@@ -1,0 +1,82 @@
+/*!
+    @page flexcan_encrypted_s32k146_group FlexCAN Encrypted
+    @brief Demo application showing the FlexCAN functionalities
+
+    @note <b>If running the encrypted communication:</b> The encryption uses the first non-volatile user key, which needs to be configured by running the <b>CSEc Key Configuration</b> in the driver examples folder.
+    @note <b>Encrypted communication works only for CSEc enabled parts.</b> SIM_SDID indicates whether CSEc is available on your device.
+    @note <b>If one of the user keys was loaded using the CSEc Key Configuration, any further full erase of the Flash requires a Challenge-Authentication process.</b> This can be done by running the CSEc Key Configuration example again and setting the ERASE_ALL_KEYS macro to 1.
+    
+    ## Application description ##
+    _____
+    The purpose of this demo application is to show you the usage of the FlexCAN module configured to use Flexible Data Rate and the CSEc module from the S32K146 CPU using the S32 SDK API.
+     - In the first part, the application will setup the board clocks, pins and other system functions.
+     - Then it will configure the FlexCAN module features such as FD, Bitrate and Message buffers
+     - The application will wait for frames to be received on the configured message buffer or for an event raised by pressing one of the two buttons which will trigger a frame send to the recipient.
+     - The frames are sent in plain text by default, but the encrypted mode can be enabled by holding one of the buttons pressed and pressing the other. This event is signaled by the BLUE led being ON.
+     - Pressing BUTTON 1 will toggle the GREEN_LED, pressing BUTTON 2 will toggle the RED_LED
+    
+    ## Prerequisites ##
+    _____
+    To run the example you will need to have the following items:
+    - 1 S32K146 board
+    - 1 Power Adapter 12V
+    - 3 Dupont female to female cable
+    - 1 Personal Computer
+    - 1 PEMicro Debugger / 1 Jlink Lite Debugger (optional, users can use Open SDA)
+
+    ## Boards supported ##
+    _____
+    The following boards are supported by this application:
+    - S32K14xCVD-Q144 with S32K146 chip
+    - S32K146EVB-Q144 with S32K146 chip
+    
+    ## Hardware Wiring ##
+    _____
+    The following connections must be done to for this example application to work:
+    
+    PIN FUNCTION         |   S32K14xCVD-Q144           |   S32K146EVB-Q144
+    ---------------------|-----------------------------|--------------------------------
+    CAN HIGH (\b *)      |  CAN HIGH - J60.2           |  CAN HIGH - J13.1               
+    CAN LOW (\b *)       |  CAN LOW - J60.3            |  CAN LOW - J13.2                
+    BUTTON 2 (\b PTC12)	 |  BTN3 - wired on the board  |  SW3 - wired on the board      
+    BUTTON 1 (\b PTC13)	 |  BTN2 - wired on the board  |  SW2  - wired on the board     
+    RED_LED (\b PTD15)   |  J12.17 - J11.31            |  RGB_RED - wired on the board  
+    GREEN_LED (\b PTD16) |  J12.16 - J11.30            |  RGB_GREEN - wired on the board
+    BLUE_LED (\b PTD0)   |  J12.18 - J11.32            |  RGB_BLUE - wired on the board
+    GND	(\b GND)         |  J6 - Slave GND             |  CAN GND - J13.4
+ 
+    <b>(*) Those lines must be modulated using a transceiver, if it is not specified the boards already include the CAN transceiver
+           The CAN transceiver should be in Forced Normal Mode operation (default mode).
+           To reset the CAN transceiver to default mode connect the SBC transceiver in next configuration with the board S32K146EVB-Q144 power off :
+               • pin RSTN from SBC is held LOW 
+               • CANH(J13.1) is pulled up to VBAT(J11.2) 
+               • CANL(J13.2) is pulled down to GND(J13.4) 
+           Power on the board with external supply 12V (J16)</b>
+    
+    ## How to run ##
+    _____
+    #### 1. Importing the project into the workspace ####
+    After opening S32 Design Studio, go to \b File -> \b New \b S32DS \b Project \b From... and select \b flexcan_encrypted_s32k146. Then click on \b Finish. \n
+    The project should now be copied into you current workspace.
+    #### 2. Generating the S32CT configuration ####
+    First go to \b Project \b Explorer View in S32 DS and select the current project(\b flexcan_encrypted_s32k146). Then go to \b Project and click on \b Generate \b Processor \b Expert \b Code \n
+    Wait for the code generation to be completed before continuing to the next step.
+    #### 3. Building the project ####
+    Select the configuration to be built \b FLASH (Debug_FLASH) or \b RAM (Debug_RAM) by left clicking on the downward arrow corresponding to the \b build button(@image hammer.png). 
+    Wait for the build action to be completed before continuing to the next step.
+    #### 4. Running the project ####
+    Go to \b Run and select \b Debug \b Configurations. There will be four debug configurations for this project:
+     Configuration Name | Description
+     -------------------|------------
+     \b flexcan_encrypted_s32k146_debug_flash_pemicro | Debug the FLASH configuration using PEMicro debuggers 
+     \b flexcan_encrypted_s32k146_debug_ram_pemicro | Debug the RAM configuration using PEMicro debuggers 
+     \b flexcan_encrypted_s32k146_debug_flash_jlink | Debug the FLASH configuration using Segger J-Link debuggers 
+     \b flexcan_encrypted_s32k146_debug_ram_jlink | Debug the RAM configuration using Segger J-Link debuggers 
+    \n Select the desired debug configuration and click on \b Launch. Now the perspective will change to the \b Debug \b Perspective. \n
+    Use the controls to control the program flow.
+    
+    @note For more detailed information related to S32 Design Studio usage please consult the available documentation.
+    
+
+*/
+

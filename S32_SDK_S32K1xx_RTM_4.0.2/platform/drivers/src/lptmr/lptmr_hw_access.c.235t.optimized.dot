@@ -1,0 +1,25 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_hw_access.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_LPTMR_Init" {
+	style="dashed";
+	color="black";
+	label="LPTMR_Init ()";
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_3\ =\{v\}\ base_2(D)-\>CSR;\l\
+|tmp_4\ =\ tmp_3\ &\ 4294967166;\l\
+|base_2(D)-\>CSR\ =\{v\}\ tmp_4;\l\
+|base_2(D)-\>CSR\ =\{v\}\ 0;\l\
+|base_2(D)-\>PSR\ =\{v\}\ 0;\l\
+|base_2(D)-\>CMR\ =\{v\}\ 0;\l\
+|return;\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_2:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+}

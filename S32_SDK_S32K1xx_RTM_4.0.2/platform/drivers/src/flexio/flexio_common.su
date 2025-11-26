@@ -1,0 +1,6 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexio/flexio_common.c:86:10:FLEXIO_DRV_InitDevice	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexio/flexio_common.c:125:10:FLEXIO_DRV_DeinitDevice	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexio/flexio_common.c:150:10:FLEXIO_DRV_Reset	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexio/flexio_common.c:266:10:FLEXIO_DRV_InitDriver	32	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexio/flexio_common.c:311:10:FLEXIO_DRV_DeinitDriver	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexio/flexio_common.c:346:6:FLEXIO_IRQHandler	24	static

@@ -1,0 +1,3041 @@
+
+;; Function prvCopyDataToQueue (prvCopyDataToQueue, funcdef_no=28, decl_uid=6524, cgraph_uid=29, symbol_order=29)
+
+Removing basic block 16
+prvCopyDataToQueue (struct Queue_t * const pxQueue, const void * pvItemToQueue, const BaseType_t xPosition)
+{
+  UBaseType_t uxMessagesWaiting;
+  BaseType_t xReturn;
+  long unsigned int _1;
+  int8_t * _2;
+  struct tskTaskControlBlock * _3;
+  int8_t * _4;
+  int8_t * _5;
+  long unsigned int _6;
+  int8_t * _7;
+  int8_t * _8;
+  int8_t * _9;
+  int8_t * _10;
+  int8_t * _11;
+  long unsigned int _12;
+  sizetype _13;
+  int8_t * _14;
+  int8_t * _15;
+  int8_t * _16;
+  int8_t * _17;
+  long unsigned int prephitmp_39;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+
+  <bb 2> [local count: 1073741824]:
+  uxMessagesWaiting_25 ={v} pxQueue_24(D)->uxMessagesWaiting;
+  _1 = pxQueue_24(D)->uxItemSize;
+  if (_1 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _2 = pxQueue_24(D)->pcHead;
+  if (_2 == 0B)
+    goto <bb 5>; [17.43%]
+  else
+    goto <bb 4>; [82.57%]
+
+  <bb 4> [local count: 443294313]:
+  _41 = uxMessagesWaiting_25 + 1;
+  goto <bb 15>; [100.00%]
+
+  <bb 5> [local count: 93576600]:
+  _3 = pxQueue_24(D)->u.xSemaphore.xMutexHolder;
+  xReturn_36 = xTaskPriorityDisinherit (_3);
+  pxQueue_24(D)->u.xSemaphore.xMutexHolder = 0B;
+  _43 = uxMessagesWaiting_25 + 1;
+  goto <bb 15>; [100.00%]
+
+  <bb 6> [local count: 536870913]:
+  if (xPosition_26(D) == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 7> [local count: 268435456]:
+  _4 = pxQueue_24(D)->pcWriteTo;
+  memcpy (_4, pvItemToQueue_27(D), _1);
+  _5 = pxQueue_24(D)->pcWriteTo;
+  _6 = pxQueue_24(D)->uxItemSize;
+  _7 = _5 + _6;
+  pxQueue_24(D)->pcWriteTo = _7;
+  _8 = pxQueue_24(D)->u.xQueue.pcTail;
+  if (_7 >= _8)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 8> [local count: 134217728]:
+  _42 = uxMessagesWaiting_25 + 1;
+  goto <bb 15>; [100.00%]
+
+  <bb 9> [local count: 134217728]:
+  _9 = pxQueue_24(D)->pcHead;
+  pxQueue_24(D)->pcWriteTo = _9;
+  _44 = uxMessagesWaiting_25 + 1;
+  goto <bb 15>; [100.00%]
+
+  <bb 10> [local count: 268435456]:
+  _10 = pxQueue_24(D)->u.xQueue.pcReadFrom;
+  memcpy (_10, pvItemToQueue_27(D), _1);
+  _11 = pxQueue_24(D)->u.xQueue.pcReadFrom;
+  _12 = pxQueue_24(D)->uxItemSize;
+  _13 = -_12;
+  _14 = _11 + _13;
+  pxQueue_24(D)->u.xQueue.pcReadFrom = _14;
+  _15 = pxQueue_24(D)->pcHead;
+  if (_14 < _15)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 134217728]:
+  _16 = pxQueue_24(D)->u.xQueue.pcTail;
+  _17 = _16 + _13;
+  pxQueue_24(D)->u.xQueue.pcReadFrom = _17;
+
+  <bb 12> [local count: 268435456]:
+  if (xPosition_26(D) == 2)
+    goto <bb 14>; [34.00%]
+  else
+    goto <bb 13>; [66.00%]
+
+  <bb 13> [local count: 177167400]:
+  _45 = uxMessagesWaiting_25 + 1;
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [local count: 91268056]:
+  _46 = MAX_EXPR <uxMessagesWaiting_25, 1>;
+
+  <bb 15> [local count: 1073741824]:
+  # xReturn_19 = PHI <xReturn_36(5), xPosition_26(D)(9), xPosition_26(D)(8), 0(14), 0(13), 0(4)>
+  # prephitmp_39 = PHI <_43(5), _44(9), _42(8), _46(14), _45(13), _41(4)>
+  pxQueue_24(D)->uxMessagesWaiting ={v} prephitmp_39;
+  return xReturn_19;
+
+}
+
+
+
+;; Function prvUnlockQueue (prvUnlockQueue, funcdef_no=30, decl_uid=6516, cgraph_uid=31, symbol_order=31)
+
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+prvUnlockQueue (struct Queue_t * const pxQueue)
+{
+  int8_t cRxLock;
+  int8_t cTxLock;
+  long unsigned int _1;
+  struct List_t * _2;
+  long int _3;
+  long unsigned int _6;
+  struct List_t * _7;
+  long int _8;
+  signed char _11;
+  unsigned char _14;
+  unsigned char _34;
+  signed char _36;
+  unsigned char _40;
+  unsigned char _42;
+
+  <bb 2> [local count: 114863529]:
+  vPortEnterCritical ();
+  cTxLock_20 ={v} pxQueue_19(D)->cTxLock;
+  if (cTxLock_20 > 0)
+    goto <bb 3>; [94.50%]
+  else
+    goto <bb 7>; [5.50%]
+
+  <bb 3> [local count: 1014686014]:
+  # cTxLock_37 = PHI <cTxLock_20(2), _11(6)>
+  _1 ={v} pxQueue_19(D)->xTasksWaitingToReceive.uxNumberOfItems;
+  if (_1 != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 7>; [5.50%]
+
+  <bb 4> [local count: 958878284]:
+  _2 = &pxQueue_19(D)->xTasksWaitingToReceive;
+  _3 = xTaskRemoveFromEventList (_2);
+  if (_3 != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 316429832]:
+  vTaskMissedYield ();
+
+  <bb 6> [local count: 958878284]:
+  _34 = (unsigned char) cTxLock_37;
+  _14 = _34 + 255;
+  _11 = (signed char) _14;
+  if (_14 != 0)
+    goto <bb 3>; [94.50%]
+  else
+    goto <bb 7>; [5.50%]
+
+  <bb 7> [local count: 114863530]:
+  pxQueue_19(D)->cTxLock ={v} -1;
+  vPortExitCritical ();
+  vPortEnterCritical ();
+  cRxLock_27 ={v} pxQueue_19(D)->cRxLock;
+  if (cRxLock_27 > 0)
+    goto <bb 8>; [94.50%]
+  else
+    goto <bb 12>; [5.50%]
+
+  <bb 8> [local count: 1014686024]:
+  # cRxLock_38 = PHI <cRxLock_27(7), _36(11)>
+  _6 ={v} pxQueue_19(D)->xTasksWaitingToSend.uxNumberOfItems;
+  if (_6 != 0)
+    goto <bb 9>; [94.50%]
+  else
+    goto <bb 12>; [5.50%]
+
+  <bb 9> [local count: 958878293]:
+  _7 = &pxQueue_19(D)->xTasksWaitingToSend;
+  _8 = xTaskRemoveFromEventList (_7);
+  if (_8 != 0)
+    goto <bb 10>; [33.00%]
+  else
+    goto <bb 11>; [67.00%]
+
+  <bb 10> [local count: 316429835]:
+  vTaskMissedYield ();
+
+  <bb 11> [local count: 958878294]:
+  _40 = (unsigned char) cRxLock_38;
+  _42 = _40 + 255;
+  _36 = (signed char) _42;
+  if (_42 != 0)
+    goto <bb 8>; [94.50%]
+  else
+    goto <bb 12>; [5.50%]
+
+  <bb 12> [local count: 114863531]:
+  pxQueue_19(D)->cRxLock ={v} -1;
+  vPortExitCritical (); [tail call]
+  return;
+
+}
+
+
+
+;; Function xQueueGenericReset (xQueueGenericReset, funcdef_no=5, decl_uid=6478, cgraph_uid=6, symbol_order=6)
+
+Removing basic block 12
+Removing basic block 13
+xQueueGenericReset (struct QueueDefinition * xQueue, BaseType_t xNewQueue)
+{
+  uint32_t ulNewBASEPRI;
+  int8_t * _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  int8_t * _12;
+  int8_t * _15;
+  long unsigned int _16;
+  struct List_t * _17;
+  long int _18;
+  struct List_t * _19;
+  struct List_t * _20;
+  long unsigned int _37;
+
+  <bb 2> [local count: 22847857]:
+  if (xQueue_3(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  _8 = MEM[(struct Queue_t *)xQueue_3(D)].pcHead;
+  _9 = MEM[(struct Queue_t *)xQueue_3(D)].uxLength;
+  _10 = MEM[(struct Queue_t *)xQueue_3(D)].uxItemSize;
+  _11 = _9 * _10;
+  _12 = _8 + _11;
+  MEM[(struct Queue_t *)xQueue_3(D)].u.xQueue.pcTail = _12;
+  MEM[(struct Queue_t *)xQueue_3(D)].uxMessagesWaiting ={v} 0;
+  MEM[(struct Queue_t *)xQueue_3(D)].pcWriteTo = _8;
+  _37 = _11 - _10;
+  _15 = _8 + _37;
+  MEM[(struct Queue_t *)xQueue_3(D)].u.xQueue.pcReadFrom = _15;
+  MEM[(struct Queue_t *)xQueue_3(D)].cRxLock ={v} -1;
+  MEM[(struct Queue_t *)xQueue_3(D)].cTxLock ={v} -1;
+  if (xNewQueue_5(D) == 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 10>; [33.00%]
+
+  <bb 6> [local count: 8185222]:
+  _16 ={v} MEM[(struct Queue_t *)xQueue_3(D)].xTasksWaitingToSend.uxNumberOfItems;
+  if (_16 != 0)
+    goto <bb 8>; [33.00%]
+  else
+    goto <bb 7>; [67.00%]
+
+  <bb 7> [local count: 6834661]:
+  goto <bb 11>; [100.00%]
+
+  <bb 8> [local count: 2701123]:
+  _17 = &MEM[(struct Queue_t *)xQueue_3(D)].xTasksWaitingToSend;
+  _18 = xTaskRemoveFromEventList (_17);
+  if (_18 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 9> [local count: 1350562]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 4031527]:
+  _19 = &MEM[(struct Queue_t *)xQueue_3(D)].xTasksWaitingToSend;
+  vListInitialise (_19);
+  _20 = &MEM[(struct Queue_t *)xQueue_3(D)].xTasksWaitingToReceive;
+  vListInitialise (_20);
+
+  <bb 11> [local count: 12216749]:
+  vPortExitCritical ();
+  return 1;
+
+}
+
+
+
+;; Function xQueueGenericCreate (xQueueGenericCreate, funcdef_no=6, decl_uid=6458, cgraph_uid=7, symbol_order=7)
+
+Merging blocks 4 and 13
+Removing basic block 14
+Removing basic block 15
+xQueueGenericCreate (const UBaseType_t uxQueueLength, const UBaseType_t uxItemSize, const uint8_t ucQueueType)
+{
+  uint8_t * pucQueueStorage;
+  size_t xQueueSizeInBytes;
+  struct Queue_t * pxNewQueue;
+  uint32_t ulNewBASEPRI;
+  unsigned int _36;
+
+  <bb 2> [local count: 21262216]:
+  if (uxQueueLength_1(D) == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_7 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 10631108]:
+  if (uxItemSize_2(D) == 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 5315554]:
+  xQueueSizeInBytes_9 = uxQueueLength_1(D) * uxItemSize_2(D);
+  _36 = xQueueSizeInBytes_9 + 72;
+  pxNewQueue_38 = pvPortMalloc (_36);
+  if (pxNewQueue_38 != 0B)
+    goto <bb 12>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 7> [local count: 3189332]:
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 7441776]:
+  # pxNewQueue_39 = PHI <pxNewQueue_33(10), pxNewQueue_38(12)>
+  pxNewQueue_39->uxLength = uxQueueLength_1(D);
+  pxNewQueue_39->uxItemSize = uxItemSize_2(D);
+  xQueueGenericReset (pxNewQueue_39, 1);
+
+  <bb 9> [local count: 10631108]:
+  # pxNewQueue_40 = PHI <pxNewQueue_39(8), 0B(7)>
+  return pxNewQueue_40;
+
+  <bb 10> [local count: 3720888]:
+  pxNewQueue_33->pcHead = pxNewQueue_33;
+  goto <bb 8>; [100.00%]
+
+  <bb 11> [local count: 5315554]:
+  pxNewQueue_33 = pvPortMalloc (72);
+  if (pxNewQueue_33 != 0B)
+    goto <bb 10>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 12> [local count: 3720888]:
+  pucQueueStorage_34 = pxNewQueue_38 + 72;
+  pxNewQueue_38->pcHead = pucQueueStorage_34;
+  goto <bb 8>; [100.00%]
+
+}
+
+
+
+;; Function xQueueGetMutexHolder (xQueueGetMutexHolder, funcdef_no=10, decl_uid=6440, cgraph_uid=11, symbol_order=11)
+
+Removing basic block 5
+xQueueGetMutexHolder (struct QueueDefinition * xSemaphore)
+{
+  struct tskTaskControlBlock * pxReturn;
+  int8_t * _1;
+
+  <bb 2> [local count: 1073741824]:
+  vPortEnterCritical ();
+  _1 = MEM[(struct Queue_t *)xSemaphore_3(D)].pcHead;
+  if (_1 == 0B)
+    goto <bb 3>; [51.20%]
+  else
+    goto <bb 4>; [48.80%]
+
+  <bb 3> [local count: 549755817]:
+  pxReturn_6 = MEM[(struct Queue_t *)xSemaphore_3(D)].u.xSemaphore.xMutexHolder;
+
+  <bb 4> [local count: 1073741824]:
+  # pxReturn_2 = PHI <pxReturn_6(3), 0B(2)>
+  vPortExitCritical ();
+  return pxReturn_2;
+
+}
+
+
+
+;; Function xQueueGetMutexHolderFromISR (xQueueGetMutexHolderFromISR, funcdef_no=11, decl_uid=6442, cgraph_uid=12, symbol_order=12)
+
+Merging blocks 4 and 8
+Removing basic block 9
+xQueueGetMutexHolderFromISR (struct QueueDefinition * xSemaphore)
+{
+  uint32_t ulNewBASEPRI;
+  struct tskTaskControlBlock * pxReturn;
+  int8_t * _1;
+
+  <bb 2> [local count: 35437027]:
+  if (xSemaphore_3(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _1 = MEM[(struct Queue_t *)xSemaphore_3(D)].pcHead;
+  if (_1 == 0B)
+    goto <bb 6>; [51.20%]
+  else
+    goto <bb 7>; [48.80%]
+
+  <bb 6> [local count: 12700631]:
+  pxReturn_5 = MEM[(struct Queue_t *)xSemaphore_3(D)].u.xSemaphore.xMutexHolder;
+
+  <bb 7> [local count: 24805919]:
+  # pxReturn_2 = PHI <pxReturn_5(6), 0B(5)>
+  return pxReturn_2;
+
+}
+
+
+
+;; Function xQueueCreateCountingSemaphore (xQueueCreateCountingSemaphore, funcdef_no=14, decl_uid=6431, cgraph_uid=15, symbol_order=15)
+
+Merging blocks 4 and 11
+Merging blocks 7 and 12
+Removing basic block 13
+xQueueCreateCountingSemaphore (const UBaseType_t uxMaxCount, const UBaseType_t uxInitialCount)
+{
+  struct Queue_t * pxNewQueue;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+
+  <bb 2> [local count: 21262216]:
+  if (uxMaxCount_2(D) == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 10631108]:
+  if (uxMaxCount_2(D) < uxInitialCount_3(D))
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 8>; [33.00%]
+
+  <bb 6> [local count: 7122842]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_9 : "i" 16 : "memory");
+
+  <bb 7> [local count: 719407024]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 1754133]:
+  pxNewQueue_17 = pvPortMalloc (72);
+  if (pxNewQueue_17 != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 9> [local count: 1227893]:
+  pxNewQueue_17->pcHead = pxNewQueue_17;
+  pxNewQueue_17->uxLength = uxMaxCount_2(D);
+  pxNewQueue_17->uxItemSize = 0;
+  xQueueGenericReset (pxNewQueue_17, 1);
+  pxNewQueue_17->uxMessagesWaiting ={v} uxInitialCount_3(D);
+
+  <bb 10> [local count: 1754133]:
+  return pxNewQueue_17;
+
+}
+
+
+
+;; Function xQueueGenericSend (xQueueGenericSend, funcdef_no=15, decl_uid=6372, cgraph_uid=16, symbol_order=16)
+
+Removing basic block 42
+Removing basic block 43
+Removing basic block 44
+Removing basic block 45
+Removing basic block 46
+Removing basic block 47
+Removing basic block 48
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+xQueueGenericSend (struct QueueDefinition * xQueue, const void * const pvItemToQueue, TickType_t xTicksToWait, const BaseType_t xCopyPosition)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  struct TimeOut_t xTimeOut;
+  BaseType_t xYieldRequired;
+  BaseType_t xEntryTimeSet;
+  long unsigned int _1;
+  long unsigned int _2;
+  long int _3;
+  long unsigned int xTicksToWait.3_4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  struct List_t * _8;
+  long int _9;
+  long unsigned int xTicksToWait.4_11;
+  signed char _12;
+  signed char _13;
+  long int _14;
+  struct List_t * _15;
+  long unsigned int xTicksToWait.5_16;
+  long int _17;
+  BaseType_t _21;
+  long unsigned int _70;
+  long unsigned int _71;
+
+  <bb 2> [local count: 35437027]:
+  if (xQueue_29(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_66 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  if (pvItemToQueue_30(D) != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 6>; [30.00%]
+
+  <bb 6> [local count: 7441776]:
+  _1 = MEM[(struct Queue_t *)xQueue_29(D)].uxItemSize;
+  if (_1 == 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 3720888]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_67 : "i" 16 : "memory");
+
+  <bb 8> [local count: 375809640]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 21085031]:
+  if (xCopyPosition_33(D) != 2)
+    goto <bb 13>; [48.88%]
+  else
+    goto <bb 10>; [51.12%]
+
+  <bb 10> [local count: 10778668]:
+  _2 = MEM[(struct Queue_t *)xQueue_29(D)].uxLength;
+  if (_2 == 1)
+    goto <bb 13>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 11> [local count: 7113921]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_68 : "i" 16 : "memory");
+
+  <bb 12> [local count: 718505950]:
+  goto <bb 12>; [100.00%]
+
+  <bb 13> [local count: 13971110]:
+  _3 = xTaskGetSchedulerState ();
+  if (_3 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 14> [local count: 6985555]:
+  xTicksToWait.3_4 = xTicksToWait;
+  if (xTicksToWait.3_4 == 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 15> [local count: 3492778]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_69 : "i" 16 : "memory");
+
+  <bb 16> [local count: 352770509]:
+  goto <bb 16>; [100.00%]
+
+  <bb 17> [local count: 88799891]:
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [local count: 10478333]:
+  # xEntryTimeSet_86 = PHI <0(13), _3(14)>
+
+  <bb 19> [local count: 99278223]:
+  # xEntryTimeSet_19 = PHI <xEntryTimeSet_86(18), 1(17)>
+  vPortEnterCritical ();
+  _5 ={v} MEM[(struct Queue_t *)xQueue_29(D)].uxMessagesWaiting;
+  _6 = MEM[(struct Queue_t *)xQueue_29(D)].uxLength;
+  if (_5 < _6)
+    goto <bb 21>; [2.75%]
+  else
+    goto <bb 20>; [97.25%]
+
+  <bb 20> [local count: 96548072]:
+  if (xCopyPosition_33(D) == 2)
+    goto <bb 21>; [2.75%]
+  else
+    goto <bb 28>; [97.25%]
+
+  <bb 21> [local count: 5385224]:
+  xYieldRequired_56 = prvCopyDataToQueue (xQueue_29(D), pvItemToQueue_30(D), xCopyPosition_33(D));
+  _7 ={v} MEM[(struct Queue_t *)xQueue_29(D)].xTasksWaitingToReceive.uxNumberOfItems;
+  if (_7 != 0)
+    goto <bb 22>; [33.00%]
+  else
+    goto <bb 25>; [67.00%]
+
+  <bb 22> [local count: 1777124]:
+  _8 = &MEM[(struct Queue_t *)xQueue_29(D)].xTasksWaitingToReceive;
+  _9 = xTaskRemoveFromEventList (_8);
+  if (_9 != 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 23> [local count: 2692612]:
+  goto <bb 27>; [100.00%]
+
+  <bb 24> [local count: 888562]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+  goto <bb 27>; [100.00%]
+
+  <bb 25> [local count: 3608100]:
+  if (xYieldRequired_56 != 0)
+    goto <bb 26>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 26> [local count: 1804050]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 27> [local count: 5385224]:
+  vPortExitCritical ();
+  goto <bb 42>; [100.00%]
+
+  <bb 28> [local count: 93893000]:
+  xTicksToWait.4_11 = xTicksToWait;
+  if (xTicksToWait.4_11 == 0)
+    goto <bb 29>; [2.75%]
+  else
+    goto <bb 30>; [97.25%]
+
+  <bb 29> [local count: 2582058]:
+  vPortExitCritical ();
+  goto <bb 42>; [100.00%]
+
+  <bb 30> [local count: 91310942]:
+  if (xEntryTimeSet_19 == 0)
+    goto <bb 31>; [33.00%]
+  else
+    goto <bb 32>; [67.00%]
+
+  <bb 31> [local count: 30132611]:
+  vTaskInternalSetTimeOutState (&xTimeOut);
+
+  <bb 32> [local count: 91310942]:
+  vPortExitCritical ();
+  vTaskSuspendAll ();
+  vPortEnterCritical ();
+  _12 ={v} MEM[(struct Queue_t *)xQueue_29(D)].cRxLock;
+  if (_12 == -1)
+    goto <bb 33>; [34.00%]
+  else
+    goto <bb 34>; [66.00%]
+
+  <bb 33> [local count: 31045721]:
+  MEM[(struct Queue_t *)xQueue_29(D)].cRxLock ={v} 0;
+
+  <bb 34> [local count: 91310942]:
+  _13 ={v} MEM[(struct Queue_t *)xQueue_29(D)].cTxLock;
+  if (_13 == -1)
+    goto <bb 35>; [34.00%]
+  else
+    goto <bb 36>; [66.00%]
+
+  <bb 35> [local count: 31045721]:
+  MEM[(struct Queue_t *)xQueue_29(D)].cTxLock ={v} 0;
+
+  <bb 36> [local count: 91310942]:
+  vPortExitCritical ();
+  _14 = xTaskCheckForTimeOut (&xTimeOut, &xTicksToWait);
+  if (_14 == 0)
+    goto <bb 37>; [97.25%]
+  else
+    goto <bb 41>; [2.75%]
+
+  <bb 37> [local count: 88799891]:
+  vPortEnterCritical ();
+  _70 ={v} MEM[(const struct Queue_t *)xQueue_29(D)].uxMessagesWaiting;
+  _71 = MEM[(const struct Queue_t *)xQueue_29(D)].uxLength;
+  if (_70 == _71)
+    goto <bb 39>; [34.00%]
+  else
+    goto <bb 38>; [66.00%]
+
+  <bb 38> [local count: 58607927]:
+  vPortExitCritical ();
+  prvUnlockQueue (xQueue_29(D));
+  xTaskResumeAll ();
+  goto <bb 17>; [100.00%]
+
+  <bb 39> [local count: 30191963]:
+  vPortExitCritical ();
+  _15 = &MEM[(struct Queue_t *)xQueue_29(D)].xTasksWaitingToSend;
+  xTicksToWait.5_16 = xTicksToWait;
+  vTaskPlaceOnEventList (_15, xTicksToWait.5_16);
+  prvUnlockQueue (xQueue_29(D));
+  _17 = xTaskResumeAll ();
+  if (_17 == 0)
+    goto <bb 40>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 40> [local count: 15095982]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+  goto <bb 17>; [100.00%]
+
+  <bb 41> [local count: 2511051]:
+  prvUnlockQueue (xQueue_29(D));
+  xTaskResumeAll ();
+
+  <bb 42> [local count: 10478333]:
+  # _21 = PHI <1(27), 0(29), 0(41)>
+  xTimeOut ={v} {CLOBBER};
+  return _21;
+
+}
+
+
+
+;; Function xQueueCreateMutex (xQueueCreateMutex, funcdef_no=9, decl_uid=6425, cgraph_uid=10, symbol_order=10)
+
+Removing basic block 5
+xQueueCreateMutex (const uint8_t ucQueueType)
+{
+  struct Queue_t * pxNewQueue;
+
+  <bb 2> [local count: 1073741824]:
+  pxNewQueue_9 = pvPortMalloc (72);
+  if (pxNewQueue_9 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  pxNewQueue_9->pcHead = pxNewQueue_9;
+  pxNewQueue_9->uxLength = 1;
+  pxNewQueue_9->uxItemSize = 0;
+  xQueueGenericReset (pxNewQueue_9, 1);
+  pxNewQueue_9->u.xSemaphore.xMutexHolder = 0B;
+  pxNewQueue_9->pcHead = 0B;
+  pxNewQueue_9->u.xSemaphore.uxRecursiveCallCount = 0;
+  xQueueGenericSend (pxNewQueue_9, 0B, 0, 0);
+
+  <bb 4> [local count: 1073741824]:
+  return pxNewQueue_9;
+
+}
+
+
+
+;; Function xQueueGiveMutexRecursive (xQueueGiveMutexRecursive, funcdef_no=12, decl_uid=6447, cgraph_uid=13, symbol_order=13)
+
+Merging blocks 4 and 9
+Removing basic block 10
+Removing basic block 11
+xQueueGiveMutexRecursive (struct QueueDefinition * xMutex)
+{
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  struct tskTaskControlBlock * _1;
+  struct tskTaskControlBlock * _2;
+  long unsigned int _3;
+  long unsigned int _4;
+
+  <bb 2> [local count: 22847857]:
+  if (xMutex_7(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_12 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  _1 = MEM[(struct Queue_t *)xMutex_7(D)].u.xSemaphore.xMutexHolder;
+  _2 = xTaskGetCurrentTaskHandle ();
+  if (_1 == _2)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 8>; [70.00%]
+
+  <bb 6> [local count: 3665025]:
+  _3 = MEM[(struct Queue_t *)xMutex_7(D)].u.xSemaphore.uxRecursiveCallCount;
+  _4 = _3 + 4294967295;
+  MEM[(struct Queue_t *)xMutex_7(D)].u.xSemaphore.uxRecursiveCallCount = _4;
+  if (_4 == 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 7> [local count: 1209458]:
+  xQueueGenericSend (xMutex_7(D), 0B, 0, 0);
+
+  <bb 8> [local count: 12216749]:
+  # xReturn_5 = PHI <1(7), 0(5), 1(6)>
+  return xReturn_5;
+
+}
+
+
+
+;; Function xQueueGenericSendFromISR (xQueueGenericSendFromISR, funcdef_no=16, decl_uid=6394, cgraph_uid=17, symbol_order=17)
+
+Merging blocks 4 and 23
+Merging blocks 8 and 25
+Merging blocks 12 and 24
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+xQueueGenericSendFromISR (struct QueueDefinition * xQueue, const void * const pvItemToQueue, BaseType_t * const pxHigherPriorityTaskWoken, const BaseType_t xCopyPosition)
+{
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  const int8_t cTxLock;
+  BaseType_t xReturn;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  struct List_t * _6;
+  long int _7;
+  unsigned char cTxLock.10_8;
+  unsigned char _9;
+  signed char _10;
+
+  <bb 2> [local count: 35437027]:
+  if (xQueue_13(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_24 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  if (pvItemToQueue_14(D) != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 6>; [30.00%]
+
+  <bb 6> [local count: 7441776]:
+  _1 = MEM[(struct Queue_t *)xQueue_13(D)].uxItemSize;
+  if (_1 == 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 3720888]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_25 : "i" 16 : "memory");
+
+  <bb 8> [local count: 375809640]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 21085031]:
+  if (xCopyPosition_16(D) != 2)
+    goto <bb 13>; [48.88%]
+  else
+    goto <bb 10>; [51.12%]
+
+  <bb 10> [local count: 10778668]:
+  _2 = MEM[(struct Queue_t *)xQueue_13(D)].uxLength;
+  if (_2 == 1)
+    goto <bb 13>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 11> [local count: 7113921]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_26 : "i" 16 : "memory");
+
+  <bb 12> [local count: 718505950]:
+  goto <bb 12>; [100.00%]
+
+  <bb 13> [local count: 13971110]:
+  vPortValidateInterruptPriority ();
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_27, "=r" ulNewBASEPRI_28 : "i" 16 : "memory");
+  _3 ={v} MEM[(struct Queue_t *)xQueue_13(D)].uxMessagesWaiting;
+  _4 = MEM[(struct Queue_t *)xQueue_13(D)].uxLength;
+  if (_3 < _4)
+    goto <bb 15>; [33.00%]
+  else
+    goto <bb 14>; [67.00%]
+
+  <bb 14> [local count: 9360644]:
+  if (xCopyPosition_16(D) == 2)
+    goto <bb 15>; [34.00%]
+  else
+    goto <bb 22>; [66.00%]
+
+  <bb 15> [local count: 7793085]:
+  cTxLock_18 ={v} MEM[(struct Queue_t *)xQueue_13(D)].cTxLock;
+  prvCopyDataToQueue (xQueue_13(D), pvItemToQueue_14(D), xCopyPosition_16(D));
+  if (cTxLock_18 == -1)
+    goto <bb 16>; [34.00%]
+  else
+    goto <bb 21>; [66.00%]
+
+  <bb 16> [local count: 2649649]:
+  _5 ={v} MEM[(struct Queue_t *)xQueue_13(D)].xTasksWaitingToReceive.uxNumberOfItems;
+  if (_5 != 0)
+    goto <bb 18>; [33.00%]
+  else
+    goto <bb 17>; [67.00%]
+
+  <bb 17> [local count: 2343615]:
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 874384]:
+  _6 = &MEM[(struct Queue_t *)xQueue_13(D)].xTasksWaitingToReceive;
+  _7 = xTaskRemoveFromEventList (_6);
+  if (_7 != 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 19> [local count: 437192]:
+  if (pxHigherPriorityTaskWoken_22(D) != 0B)
+    goto <bb 20>; [70.00%]
+  else
+    goto <bb 17>; [30.00%]
+
+  <bb 20> [local count: 306034]:
+  *pxHigherPriorityTaskWoken_22(D) = 1;
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 5143436]:
+  cTxLock.10_8 = (unsigned char) cTxLock_18;
+  _9 = cTxLock.10_8 + 1;
+  _10 = (signed char) _9;
+  MEM[(struct Queue_t *)xQueue_13(D)].cTxLock ={v} _10;
+
+  <bb 22> [local count: 13971110]:
+  # xReturn_11 = PHI <1(21), 1(17), 1(20), 0(14)>
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_27 : "memory");
+  return xReturn_11;
+
+}
+
+
+
+;; Function xQueueGiveFromISR (xQueueGiveFromISR, funcdef_no=17, decl_uid=6397, cgraph_uid=18, symbol_order=18)
+
+Merging blocks 4 and 21
+Merging blocks 7 and 22
+Merging blocks 11 and 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+xQueueGiveFromISR (struct QueueDefinition * xQueue, BaseType_t * const pxHigherPriorityTaskWoken)
+{
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  const int8_t cTxLock;
+  const UBaseType_t uxMessagesWaiting;
+  BaseType_t xReturn;
+  long unsigned int _1;
+  int8_t * _2;
+  struct tskTaskControlBlock * _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  struct List_t * _7;
+  long int _8;
+  unsigned char cTxLock.12_9;
+  unsigned char _10;
+  signed char _11;
+
+  <bb 2> [local count: 30374594]:
+  if (xQueue_14(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 9112378]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_24 : "i" 16 : "memory");
+
+  <bb 4> [local count: 920350123]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 21262216]:
+  _1 = MEM[(struct Queue_t *)xQueue_14(D)].uxItemSize;
+  if (_1 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_25 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 10631108]:
+  _2 = MEM[(struct Queue_t *)xQueue_14(D)].pcHead;
+  if (_2 != 0B)
+    goto <bb 12>; [53.47%]
+  else
+    goto <bb 9>; [46.53%]
+
+  <bb 9> [local count: 4946655]:
+  _3 = MEM[(struct Queue_t *)xQueue_14(D)].u.xSemaphore.xMutexHolder;
+  if (_3 == 0B)
+    goto <bb 12>; [30.00%]
+  else
+    goto <bb 10>; [70.00%]
+
+  <bb 10> [local count: 3462658]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_26 : "i" 16 : "memory");
+
+  <bb 11> [local count: 349728452]:
+  goto <bb 11>; [100.00%]
+
+  <bb 12> [local count: 7168450]:
+  vPortValidateInterruptPriority ();
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_27, "=r" ulNewBASEPRI_28 : "i" 16 : "memory");
+  uxMessagesWaiting_17 ={v} MEM[(struct Queue_t *)xQueue_14(D)].uxMessagesWaiting;
+  _4 = MEM[(struct Queue_t *)xQueue_14(D)].uxLength;
+  if (_4 > uxMessagesWaiting_17)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 13> [local count: 3584225]:
+  cTxLock_18 ={v} MEM[(struct Queue_t *)xQueue_14(D)].cTxLock;
+  _5 = uxMessagesWaiting_17 + 1;
+  MEM[(struct Queue_t *)xQueue_14(D)].uxMessagesWaiting ={v} _5;
+  if (cTxLock_18 == -1)
+    goto <bb 14>; [34.00%]
+  else
+    goto <bb 19>; [66.00%]
+
+  <bb 14> [local count: 1218636]:
+  _6 ={v} MEM[(struct Queue_t *)xQueue_14(D)].xTasksWaitingToReceive.uxNumberOfItems;
+  if (_6 != 0)
+    goto <bb 16>; [33.00%]
+  else
+    goto <bb 15>; [67.00%]
+
+  <bb 15> [local count: 1077883]:
+  goto <bb 20>; [100.00%]
+
+  <bb 16> [local count: 402150]:
+  _7 = &MEM[(struct Queue_t *)xQueue_14(D)].xTasksWaitingToReceive;
+  _8 = xTaskRemoveFromEventList (_7);
+  if (_8 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 17> [local count: 201075]:
+  if (pxHigherPriorityTaskWoken_22(D) != 0B)
+    goto <bb 18>; [70.00%]
+  else
+    goto <bb 15>; [30.00%]
+
+  <bb 18> [local count: 140753]:
+  *pxHigherPriorityTaskWoken_22(D) = 1;
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 2365588]:
+  cTxLock.12_9 = (unsigned char) cTxLock_18;
+  _10 = cTxLock.12_9 + 1;
+  _11 = (signed char) _10;
+  MEM[(struct Queue_t *)xQueue_14(D)].cTxLock ={v} _11;
+
+  <bb 20> [local count: 7168450]:
+  # xReturn_12 = PHI <1(19), 1(15), 1(18), 0(12)>
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_27 : "memory");
+  return xReturn_12;
+
+}
+
+
+
+;; Function xQueueReceive (xQueueReceive, funcdef_no=18, decl_uid=6383, cgraph_uid=19, symbol_order=19)
+
+Merging blocks 4 and 45
+Merging blocks 8 and 47
+Merging blocks 13 and 46
+Removing basic block 48
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+Removing basic block 57
+Removing basic block 58
+Removing basic block 59
+Removing basic block 60
+Removing basic block 61
+Removing basic block 62
+Removing basic block 63
+Removing basic block 64
+Removing basic block 65
+Removing basic block 66
+Removing basic block 67
+Removing basic block 68
+Removing basic block 69
+Removing basic block 70
+Removing basic block 71
+Removing basic block 72
+xQueueReceive (struct QueueDefinition * xQueue, void * const pvBuffer, TickType_t xTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  const UBaseType_t uxMessagesWaiting;
+  struct TimeOut_t xTimeOut;
+  long unsigned int _1;
+  long int _2;
+  long unsigned int xTicksToWait.15_3;
+  long unsigned int _4;
+  long unsigned int _5;
+  struct List_t * _6;
+  long int _7;
+  long unsigned int xTicksToWait.16_8;
+  signed char _9;
+  signed char _10;
+  long int _11;
+  struct List_t * _12;
+  long unsigned int xTicksToWait.17_13;
+  long int _14;
+  long unsigned int xTicksToWait.16_17;
+  BaseType_t _18;
+  int8_t * prephitmp_61;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _75;
+  int8_t * _76;
+  int8_t * _77;
+  int8_t * _78;
+  int8_t * _79;
+  long unsigned int xTicksToWait.16_98;
+  long unsigned int xTicksToWait.16_104;
+  long unsigned int xTicksToWait.16_111;
+
+  <bb 2> [local count: 35437027]:
+  if (xQueue_26(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_63 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  if (pvBuffer_27(D) != 0B)
+    goto <bb 9>; [53.47%]
+  else
+    goto <bb 6>; [46.53%]
+
+  <bb 6> [local count: 11542194]:
+  _1 = MEM[(struct Queue_t *)xQueue_26(D)].uxItemSize;
+  if (_1 == 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 5771097]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_64 : "i" 16 : "memory");
+
+  <bb 8> [local count: 582880760]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 19034822]:
+  _2 = xTaskGetSchedulerState ();
+  if (_2 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 14276117]:
+  vPortEnterCritical ();
+  uxMessagesWaiting_33 ={v} MEM[(struct Queue_t *)xQueue_26(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_33 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 29>; [96.34%]
+
+  <bb 11> [local count: 9517411]:
+  xTicksToWait.15_3 = xTicksToWait;
+  if (xTicksToWait.15_3 == 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 12> [local count: 4758705]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_65 : "i" 16 : "memory");
+
+  <bb 13> [local count: 480629216]:
+  goto <bb 13>; [100.00%]
+
+  <bb 14> [local count: 5250685]:
+  xTicksToWait.16_98 = xTicksToWait;
+  if (xTicksToWait.16_98 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 32>; [96.34%]
+
+  <bb 15> [local count: 1656432]:
+  goto <bb 30>; [100.00%]
+
+  <bb 16> [local count: 5450161]:
+  vPortEnterCritical ();
+  uxMessagesWaiting_53 ={v} MEM[(struct Queue_t *)xQueue_26(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_53 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 17>; [96.34%]
+
+  <bb 17> [local count: 5250685]:
+  xTicksToWait.16_17 = xTicksToWait;
+  if (xTicksToWait.16_17 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 32>; [96.34%]
+
+  <bb 18> [local count: 10501370]:
+  xTicksToWait.16_104 = xTicksToWait;
+  if (xTicksToWait.16_104 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 32>; [96.34%]
+
+  <bb 19> [local count: 10501370]:
+  xTicksToWait.16_111 = xTicksToWait;
+  if (xTicksToWait.16_111 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 32>; [96.34%]
+
+  <bb 20> [local count: 1719361]:
+  # uxMessagesWaiting_114 = PHI <uxMessagesWaiting_53(16), uxMessagesWaiting_110(39), uxMessagesWaiting_33(10), uxMessagesWaiting_90(41), uxMessagesWaiting_103(43)>
+  _75 = MEM[(struct Queue_t *)xQueue_26(D)].uxItemSize;
+  if (_75 != 0)
+    goto <bb 21>; [50.00%]
+  else
+    goto <bb 24>; [50.00%]
+
+  <bb 21> [local count: 859681]:
+  _76 = MEM[(struct Queue_t *)xQueue_26(D)].u.xQueue.pcReadFrom;
+  _77 = _76 + _75;
+  MEM[(struct Queue_t *)xQueue_26(D)].u.xQueue.pcReadFrom = _77;
+  _78 = MEM[(struct Queue_t *)xQueue_26(D)].u.xQueue.pcTail;
+  if (_77 >= _78)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 22> [local count: 429840]:
+  _79 = MEM[(struct Queue_t *)xQueue_26(D)].pcHead;
+  MEM[(struct Queue_t *)xQueue_26(D)].u.xQueue.pcReadFrom = _79;
+
+  <bb 23> [local count: 859681]:
+  # prephitmp_61 = PHI <_79(22), _77(21)>
+  memcpy (pvBuffer_27(D), prephitmp_61, _75);
+
+  <bb 24> [local count: 1719361]:
+  _4 = uxMessagesWaiting_114 + 4294967295;
+  MEM[(struct Queue_t *)xQueue_26(D)].uxMessagesWaiting ={v} _4;
+  _5 ={v} MEM[(struct Queue_t *)xQueue_26(D)].xTasksWaitingToSend.uxNumberOfItems;
+  if (_5 != 0)
+    goto <bb 26>; [33.00%]
+  else
+    goto <bb 25>; [67.00%]
+
+  <bb 25> [local count: 1435667]:
+  goto <bb 28>; [100.00%]
+
+  <bb 26> [local count: 567389]:
+  _6 = &MEM[(struct Queue_t *)xQueue_26(D)].xTasksWaitingToSend;
+  _7 = xTaskRemoveFromEventList (_6);
+  if (_7 != 0)
+    goto <bb 27>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 27> [local count: 283695]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 28> [local count: 1719361]:
+  vPortExitCritical ();
+  goto <bb 44>; [100.00%]
+
+  <bb 29> [local count: 13753613]:
+  xTicksToWait.16_8 = xTicksToWait;
+  if (xTicksToWait.16_8 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 31>; [96.34%]
+
+  <bb 30> [local count: 12556755]:
+  vPortExitCritical ();
+  goto <bb 44>; [100.00%]
+
+  <bb 31> [local count: 15218337]:
+  vTaskInternalSetTimeOutState (&xTimeOut);
+  goto <bb 33>; [100.00%]
+
+  <bb 32> [local count: 30351060]:
+
+  <bb 33> [local count: 43601290]:
+  vPortExitCritical ();
+  vTaskSuspendAll ();
+  vPortEnterCritical ();
+  _9 ={v} MEM[(struct Queue_t *)xQueue_26(D)].cRxLock;
+  if (_9 == -1)
+    goto <bb 34>; [34.00%]
+  else
+    goto <bb 35>; [66.00%]
+
+  <bb 34> [local count: 14824439]:
+  MEM[(struct Queue_t *)xQueue_26(D)].cRxLock ={v} 0;
+
+  <bb 35> [local count: 43601290]:
+  _10 ={v} MEM[(struct Queue_t *)xQueue_26(D)].cTxLock;
+  if (_10 == -1)
+    goto <bb 36>; [34.00%]
+  else
+    goto <bb 37>; [66.00%]
+
+  <bb 36> [local count: 14824439]:
+  MEM[(struct Queue_t *)xQueue_26(D)].cTxLock ={v} 0;
+
+  <bb 37> [local count: 43601290]:
+  vPortExitCritical ();
+  _11 = xTaskCheckForTimeOut (&xTimeOut, &xTicksToWait);
+  if (_11 == 0)
+    goto <bb 38>; [50.00%]
+  else
+    goto <bb 42>; [50.00%]
+
+  <bb 38> [local count: 21800645]:
+  vPortEnterCritical ();
+  _66 ={v} MEM[(const struct Queue_t *)xQueue_26(D)].uxMessagesWaiting;
+  if (_66 == 0)
+    goto <bb 40>; [50.00%]
+  else
+    goto <bb 39>; [50.00%]
+
+  <bb 39> [local count: 10900322]:
+  vPortExitCritical ();
+  prvUnlockQueue (xQueue_26(D));
+  xTaskResumeAll ();
+  vPortEnterCritical ();
+  uxMessagesWaiting_110 ={v} MEM[(struct Queue_t *)xQueue_26(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_110 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 19>; [96.34%]
+
+  <bb 40> [local count: 10900322]:
+  vPortExitCritical ();
+  _12 = &MEM[(struct Queue_t *)xQueue_26(D)].xTasksWaitingToReceive;
+  xTicksToWait.17_13 = xTicksToWait;
+  vTaskPlaceOnEventList (_12, xTicksToWait.17_13);
+  prvUnlockQueue (xQueue_26(D));
+  _14 = xTaskResumeAll ();
+  if (_14 == 0)
+    goto <bb 41>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 41> [local count: 5450161]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+  vPortEnterCritical ();
+  uxMessagesWaiting_90 ={v} MEM[(struct Queue_t *)xQueue_26(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_90 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 14>; [96.34%]
+
+  <bb 42> [local count: 21800645]:
+  prvUnlockQueue (xQueue_26(D));
+  xTaskResumeAll ();
+  vPortEnterCritical ();
+  _67 ={v} MEM[(const struct Queue_t *)xQueue_26(D)].uxMessagesWaiting;
+  if (_67 == 0)
+    goto <bb 30>; [50.00%]
+  else
+    goto <bb 43>; [50.00%]
+
+  <bb 43> [local count: 10900322]:
+  vPortExitCritical ();
+  vPortEnterCritical ();
+  uxMessagesWaiting_103 ={v} MEM[(struct Queue_t *)xQueue_26(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_103 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 18>; [96.34%]
+
+  <bb 44> [local count: 14276117]:
+  # _18 = PHI <1(28), 0(30)>
+  xTimeOut ={v} {CLOBBER};
+  return _18;
+
+}
+
+
+
+;; Function xQueueSemaphoreTake (xQueueSemaphoreTake, funcdef_no=19, decl_uid=6438, cgraph_uid=20, symbol_order=20)
+
+Removing basic block 46
+Removing basic block 47
+Removing basic block 48
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+Removing basic block 57
+xQueueSemaphoreTake (struct QueueDefinition * xQueue, TickType_t xTicksToWait)
+{
+  UBaseType_t uxHighestPriorityOfWaitingTasks;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  const UBaseType_t uxSemaphoreCount;
+  BaseType_t xInheritanceOccurred;
+  struct TimeOut_t xTimeOut;
+  BaseType_t xEntryTimeSet;
+  long unsigned int _1;
+  long int _2;
+  long unsigned int xTicksToWait.19_3;
+  long unsigned int _4;
+  int8_t * _5;
+  struct tskTaskControlBlock * _6;
+  long unsigned int _7;
+  struct List_t * _8;
+  long int _9;
+  long unsigned int xTicksToWait.20_10;
+  signed char _11;
+  signed char _12;
+  long int _13;
+  int8_t * _15;
+  struct tskTaskControlBlock * _16;
+  struct List_t * _17;
+  long unsigned int xTicksToWait.21_18;
+  long int _19;
+  struct tskTaskControlBlock * _22;
+  BaseType_t _27;
+  long unsigned int _87;
+  long unsigned int _88;
+  long unsigned int _89;
+  struct xLIST_ITEM * _90;
+  long unsigned int _91;
+
+  <bb 2> [local count: 22667608]:
+  if (xQueue_38(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 6800282]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_83 : "i" 16 : "memory");
+
+  <bb 4> [local count: 686828449]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 15867325]:
+  _1 = MEM[(struct Queue_t *)xQueue_38(D)].uxItemSize;
+  if (_1 != 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 8>; [33.00%]
+
+  <bb 6> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_84 : "i" 16 : "memory");
+
+  <bb 7> [local count: 1073741824]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 5236217]:
+  _2 = xTaskGetSchedulerState ();
+  if (_2 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [local count: 2618109]:
+  xTicksToWait.19_3 = xTicksToWait;
+  if (xTicksToWait.19_3 == 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 10> [local count: 1309054]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_85 : "i" 16 : "memory");
+
+  <bb 11> [local count: 132214477]:
+  goto <bb 11>; [100.00%]
+
+  <bb 12> [local count: 8995587]:
+  # xInheritanceOccurred_46 = PHI <xInheritanceOccurred_26(39), xInheritanceOccurred_25(35), xInheritanceOccurred_25(41), xInheritanceOccurred_26(38)>
+  goto <bb 14>; [100.00%]
+
+  <bb 13> [local count: 3927164]:
+  # xEntryTimeSet_57 = PHI <0(8), _2(9)>
+  # xInheritanceOccurred_110 = PHI <0(8), _2(9)>
+
+  <bb 14> [local count: 12922749]:
+  # xEntryTimeSet_23 = PHI <xEntryTimeSet_57(13), 1(12)>
+  # xInheritanceOccurred_25 = PHI <xInheritanceOccurred_110(13), xInheritanceOccurred_46(12)>
+  vPortEnterCritical ();
+  uxSemaphoreCount_44 ={v} MEM[(struct Queue_t *)xQueue_38(D)].uxMessagesWaiting;
+  if (uxSemaphoreCount_44 != 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 22>; [96.34%]
+
+  <bb 15> [local count: 472973]:
+  _4 = uxSemaphoreCount_44 + 4294967295;
+  MEM[(struct Queue_t *)xQueue_38(D)].uxMessagesWaiting ={v} _4;
+  _5 = MEM[(struct Queue_t *)xQueue_38(D)].pcHead;
+  if (_5 == 0B)
+    goto <bb 16>; [17.43%]
+  else
+    goto <bb 17>; [82.57%]
+
+  <bb 16> [local count: 82439]:
+  _6 = pvTaskIncrementMutexHeldCount ();
+  MEM[(struct Queue_t *)xQueue_38(D)].u.xSemaphore.xMutexHolder = _6;
+
+  <bb 17> [local count: 472973]:
+  _7 ={v} MEM[(struct Queue_t *)xQueue_38(D)].xTasksWaitingToSend.uxNumberOfItems;
+  if (_7 != 0)
+    goto <bb 19>; [33.00%]
+  else
+    goto <bb 18>; [67.00%]
+
+  <bb 18> [local count: 394933]:
+  goto <bb 21>; [100.00%]
+
+  <bb 19> [local count: 156081]:
+  _8 = &MEM[(struct Queue_t *)xQueue_38(D)].xTasksWaitingToSend;
+  _9 = xTaskRemoveFromEventList (_8);
+  if (_9 != 0)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 20> [local count: 78040]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 21> [local count: 472973]:
+  vPortExitCritical ();
+  goto <bb 46>; [100.00%]
+
+  <bb 22> [local count: 12449776]:
+  xTicksToWait.20_10 = xTicksToWait;
+  if (xTicksToWait.20_10 == 0)
+    goto <bb 23>; [3.66%]
+  else
+    goto <bb 27>; [96.34%]
+
+  <bb 23> [local count: 455662]:
+  if (xInheritanceOccurred_25 != 0)
+    goto <bb 24>; [79.76%]
+  else
+    goto <bb 26>; [20.24%]
+
+  <bb 24> [local count: 363436]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_86 : "i" 16 : "memory");
+
+  <bb 25> [local count: 36707020]:
+  goto <bb 25>; [100.00%]
+
+  <bb 26> [local count: 92226]:
+  vPortExitCritical ();
+  goto <bb 46>; [100.00%]
+
+  <bb 27> [local count: 11994114]:
+  if (xEntryTimeSet_23 == 0)
+    goto <bb 28>; [33.00%]
+  else
+    goto <bb 29>; [67.00%]
+
+  <bb 28> [local count: 3958058]:
+  vTaskInternalSetTimeOutState (&xTimeOut);
+
+  <bb 29> [local count: 11994114]:
+  vPortExitCritical ();
+  vTaskSuspendAll ();
+  vPortEnterCritical ();
+  _11 ={v} MEM[(struct Queue_t *)xQueue_38(D)].cRxLock;
+  if (_11 == -1)
+    goto <bb 30>; [34.00%]
+  else
+    goto <bb 31>; [66.00%]
+
+  <bb 30> [local count: 4077999]:
+  MEM[(struct Queue_t *)xQueue_38(D)].cRxLock ={v} 0;
+
+  <bb 31> [local count: 11994114]:
+  _12 ={v} MEM[(struct Queue_t *)xQueue_38(D)].cTxLock;
+  if (_12 == -1)
+    goto <bb 32>; [34.00%]
+  else
+    goto <bb 33>; [66.00%]
+
+  <bb 32> [local count: 4077999]:
+  MEM[(struct Queue_t *)xQueue_38(D)].cTxLock ={v} 0;
+
+  <bb 33> [local count: 11994114]:
+  vPortExitCritical ();
+  _13 = xTaskCheckForTimeOut (&xTimeOut, &xTicksToWait);
+  if (_13 == 0)
+    goto <bb 34>; [50.00%]
+  else
+    goto <bb 40>; [50.00%]
+
+  <bb 34> [local count: 5997057]:
+  vPortEnterCritical ();
+  _87 ={v} MEM[(const struct Queue_t *)xQueue_38(D)].uxMessagesWaiting;
+  if (_87 == 0)
+    goto <bb 36>; [50.00%]
+  else
+    goto <bb 35>; [50.00%]
+
+  <bb 35> [local count: 2998529]:
+  vPortExitCritical ();
+  prvUnlockQueue (xQueue_38(D));
+  xTaskResumeAll ();
+  goto <bb 12>; [100.00%]
+
+  <bb 36> [local count: 2998529]:
+  vPortExitCritical ();
+  _15 = MEM[(struct Queue_t *)xQueue_38(D)].pcHead;
+  if (_15 == 0B)
+    goto <bb 37>; [17.43%]
+  else
+    goto <bb 38>; [82.57%]
+
+  <bb 37> [local count: 522644]:
+  vPortEnterCritical ();
+  _16 = MEM[(struct Queue_t *)xQueue_38(D)].u.xSemaphore.xMutexHolder;
+  xInheritanceOccurred_65 = xTaskPriorityInherit (_16);
+  vPortExitCritical ();
+
+  <bb 38> [local count: 2998529]:
+  # xInheritanceOccurred_26 = PHI <xInheritanceOccurred_65(37), xInheritanceOccurred_25(36)>
+  _17 = &MEM[(struct Queue_t *)xQueue_38(D)].xTasksWaitingToReceive;
+  xTicksToWait.21_18 = xTicksToWait;
+  vTaskPlaceOnEventList (_17, xTicksToWait.21_18);
+  prvUnlockQueue (xQueue_38(D));
+  _19 = xTaskResumeAll ();
+  if (_19 == 0)
+    goto <bb 39>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 39> [local count: 1499264]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+  goto <bb 12>; [100.00%]
+
+  <bb 40> [local count: 5997057]:
+  prvUnlockQueue (xQueue_38(D));
+  xTaskResumeAll ();
+  vPortEnterCritical ();
+  _88 ={v} MEM[(const struct Queue_t *)xQueue_38(D)].uxMessagesWaiting;
+  if (_88 == 0)
+    goto <bb 42>; [50.00%]
+  else
+    goto <bb 41>; [50.00%]
+
+  <bb 41> [local count: 2998529]:
+  vPortExitCritical ();
+  goto <bb 12>; [100.00%]
+
+  <bb 42> [local count: 2998529]:
+  vPortExitCritical ();
+  if (xInheritanceOccurred_25 != 0)
+    goto <bb 43>; [33.00%]
+  else
+    goto <bb 46>; [67.00%]
+
+  <bb 43> [local count: 989514]:
+  vPortEnterCritical ();
+  _89 ={v} MEM[(const struct Queue_t *)xQueue_38(D)].xTasksWaitingToReceive.uxNumberOfItems;
+  if (_89 != 0)
+    goto <bb 44>; [50.00%]
+  else
+    goto <bb 45>; [50.00%]
+
+  <bb 44> [local count: 494757]:
+  _90 = MEM[(const struct Queue_t *)xQueue_38(D)].xTasksWaitingToReceive.xListEnd.pxNext;
+  _91 = _90->xItemValue;
+  uxHighestPriorityOfWaitingTasks_92 = 8 - _91;
+
+  <bb 45> [local count: 989514]:
+  # uxHighestPriorityOfWaitingTasks_93 = PHI <uxHighestPriorityOfWaitingTasks_92(44), _89(43)>
+  _22 = MEM[(struct Queue_t *)xQueue_38(D)].u.xSemaphore.xMutexHolder;
+  vTaskPriorityDisinheritAfterTimeout (_22, uxHighestPriorityOfWaitingTasks_93);
+  vPortExitCritical ();
+
+  <bb 46> [local count: 3563727]:
+  # _27 = PHI <1(21), xInheritanceOccurred_25(26), 0(45), xInheritanceOccurred_25(42)>
+  xTimeOut ={v} {CLOBBER};
+  return _27;
+
+}
+
+
+
+;; Function xQueueTakeMutexRecursive (xQueueTakeMutexRecursive, funcdef_no=13, decl_uid=6445, cgraph_uid=14, symbol_order=14)
+
+Merging blocks 4 and 10
+Removing basic block 11
+xQueueTakeMutexRecursive (struct QueueDefinition * xMutex, TickType_t xTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  struct tskTaskControlBlock * _1;
+  struct tskTaskControlBlock * _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 22847857]:
+  if (xMutex_9(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_17 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  _1 = MEM[(struct Queue_t *)xMutex_9(D)].u.xSemaphore.xMutexHolder;
+  _2 = xTaskGetCurrentTaskHandle ();
+  if (_1 == _2)
+    goto <bb 6>; [46.53%]
+  else
+    goto <bb 7>; [53.47%]
+
+  <bb 6> [local count: 5684453]:
+  _3 = MEM[(struct Queue_t *)xMutex_9(D)].u.xSemaphore.uxRecursiveCallCount;
+  _4 = _3 + 1;
+  MEM[(struct Queue_t *)xMutex_9(D)].u.xSemaphore.uxRecursiveCallCount = _4;
+  goto <bb 9>; [100.00%]
+
+  <bb 7> [local count: 6532296]:
+  xReturn_14 = xQueueSemaphoreTake (xMutex_9(D), xTicksToWait_12(D));
+  if (xReturn_14 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 3266148]:
+  _5 = MEM[(struct Queue_t *)xMutex_9(D)].u.xSemaphore.uxRecursiveCallCount;
+  _6 = _5 + 1;
+  MEM[(struct Queue_t *)xMutex_9(D)].u.xSemaphore.uxRecursiveCallCount = _6;
+
+  <bb 9> [local count: 12216749]:
+  # xReturn_7 = PHI <1(6), xReturn_14(8), xReturn_14(7)>
+  return xReturn_7;
+
+}
+
+
+
+;; Function xQueuePeek (xQueuePeek, funcdef_no=20, decl_uid=6376, cgraph_uid=21, symbol_order=21)
+
+Merging blocks 4 and 45
+Merging blocks 8 and 47
+Merging blocks 13 and 46
+Removing basic block 48
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+Removing basic block 57
+Removing basic block 58
+Removing basic block 59
+Removing basic block 60
+Removing basic block 61
+Removing basic block 62
+Removing basic block 63
+Removing basic block 64
+Removing basic block 65
+Removing basic block 66
+Removing basic block 67
+Removing basic block 68
+Removing basic block 69
+Removing basic block 70
+Removing basic block 71
+Removing basic block 72
+xQueuePeek (struct QueueDefinition * xQueue, void * const pvBuffer, TickType_t xTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  const UBaseType_t uxMessagesWaiting;
+  int8_t * pcOriginalReadPosition;
+  struct TimeOut_t xTimeOut;
+  long unsigned int _1;
+  long int _2;
+  long unsigned int xTicksToWait.24_3;
+  long unsigned int _4;
+  struct List_t * _5;
+  long int _6;
+  long unsigned int xTicksToWait.25_7;
+  signed char _8;
+  signed char _9;
+  long int _10;
+  struct List_t * _11;
+  long unsigned int xTicksToWait.26_12;
+  long int _13;
+  BaseType_t _16;
+  int8_t * prephitmp_51;
+  long unsigned int _65;
+  long unsigned int _66;
+  long unsigned int _74;
+  int8_t * _76;
+  int8_t * _77;
+  int8_t * _78;
+  long unsigned int xTicksToWait.25_94;
+  long unsigned int xTicksToWait.25_96;
+  long unsigned int xTicksToWait.25_103;
+  long unsigned int xTicksToWait.25_110;
+
+  <bb 2> [local count: 35437027]:
+  if (xQueue_24(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_62 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  if (pvBuffer_25(D) != 0B)
+    goto <bb 9>; [53.47%]
+  else
+    goto <bb 6>; [46.53%]
+
+  <bb 6> [local count: 11542194]:
+  _1 = MEM[(struct Queue_t *)xQueue_24(D)].uxItemSize;
+  if (_1 == 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 5771097]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_63 : "i" 16 : "memory");
+
+  <bb 8> [local count: 582880760]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 19034822]:
+  _2 = xTaskGetSchedulerState ();
+  if (_2 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 14276117]:
+  vPortEnterCritical ();
+  uxMessagesWaiting_31 ={v} MEM[(struct Queue_t *)xQueue_24(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_31 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 29>; [96.34%]
+
+  <bb 11> [local count: 9517411]:
+  xTicksToWait.24_3 = xTicksToWait;
+  if (xTicksToWait.24_3 == 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 12> [local count: 4758705]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_64 : "i" 16 : "memory");
+
+  <bb 13> [local count: 480629216]:
+  goto <bb 13>; [100.00%]
+
+  <bb 14> [local count: 5250685]:
+  xTicksToWait.25_94 = xTicksToWait;
+  if (xTicksToWait.25_94 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 32>; [96.34%]
+
+  <bb 15> [local count: 1656432]:
+  goto <bb 30>; [100.00%]
+
+  <bb 16> [local count: 5450161]:
+  vPortEnterCritical ();
+  uxMessagesWaiting_53 ={v} MEM[(struct Queue_t *)xQueue_24(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_53 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 17>; [96.34%]
+
+  <bb 17> [local count: 5250685]:
+  xTicksToWait.25_96 = xTicksToWait;
+  if (xTicksToWait.25_96 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 32>; [96.34%]
+
+  <bb 18> [local count: 10501370]:
+  xTicksToWait.25_103 = xTicksToWait;
+  if (xTicksToWait.25_103 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 32>; [96.34%]
+
+  <bb 19> [local count: 10501370]:
+  xTicksToWait.25_110 = xTicksToWait;
+  if (xTicksToWait.25_110 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 32>; [96.34%]
+
+  <bb 20> [local count: 1719362]:
+  pcOriginalReadPosition_52 = MEM[(struct Queue_t *)xQueue_24(D)].u.xQueue.pcReadFrom;
+  _74 = MEM[(struct Queue_t *)xQueue_24(D)].uxItemSize;
+  if (_74 != 0)
+    goto <bb 21>; [50.00%]
+  else
+    goto <bb 24>; [50.00%]
+
+  <bb 21> [local count: 859681]:
+  _76 = pcOriginalReadPosition_52 + _74;
+  MEM[(struct Queue_t *)xQueue_24(D)].u.xQueue.pcReadFrom = _76;
+  _77 = MEM[(struct Queue_t *)xQueue_24(D)].u.xQueue.pcTail;
+  if (_76 >= _77)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 22> [local count: 429840]:
+  _78 = MEM[(struct Queue_t *)xQueue_24(D)].pcHead;
+  MEM[(struct Queue_t *)xQueue_24(D)].u.xQueue.pcReadFrom = _78;
+
+  <bb 23> [local count: 859681]:
+  # prephitmp_51 = PHI <_78(22), _76(21)>
+  memcpy (pvBuffer_25(D), prephitmp_51, _74);
+
+  <bb 24> [local count: 1719361]:
+  MEM[(struct Queue_t *)xQueue_24(D)].u.xQueue.pcReadFrom = pcOriginalReadPosition_52;
+  _4 ={v} MEM[(struct Queue_t *)xQueue_24(D)].xTasksWaitingToReceive.uxNumberOfItems;
+  if (_4 != 0)
+    goto <bb 26>; [33.00%]
+  else
+    goto <bb 25>; [67.00%]
+
+  <bb 25> [local count: 1435667]:
+  goto <bb 28>; [100.00%]
+
+  <bb 26> [local count: 567389]:
+  _5 = &MEM[(struct Queue_t *)xQueue_24(D)].xTasksWaitingToReceive;
+  _6 = xTaskRemoveFromEventList (_5);
+  if (_6 != 0)
+    goto <bb 27>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 27> [local count: 283695]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 28> [local count: 1719361]:
+  vPortExitCritical ();
+  goto <bb 44>; [100.00%]
+
+  <bb 29> [local count: 13753613]:
+  xTicksToWait.25_7 = xTicksToWait;
+  if (xTicksToWait.25_7 == 0)
+    goto <bb 15>; [3.66%]
+  else
+    goto <bb 31>; [96.34%]
+
+  <bb 30> [local count: 12556755]:
+  vPortExitCritical ();
+  goto <bb 44>; [100.00%]
+
+  <bb 31> [local count: 15218337]:
+  vTaskInternalSetTimeOutState (&xTimeOut);
+  goto <bb 33>; [100.00%]
+
+  <bb 32> [local count: 30351060]:
+
+  <bb 33> [local count: 43601290]:
+  vPortExitCritical ();
+  vTaskSuspendAll ();
+  vPortEnterCritical ();
+  _8 ={v} MEM[(struct Queue_t *)xQueue_24(D)].cRxLock;
+  if (_8 == -1)
+    goto <bb 34>; [34.00%]
+  else
+    goto <bb 35>; [66.00%]
+
+  <bb 34> [local count: 14824439]:
+  MEM[(struct Queue_t *)xQueue_24(D)].cRxLock ={v} 0;
+
+  <bb 35> [local count: 43601290]:
+  _9 ={v} MEM[(struct Queue_t *)xQueue_24(D)].cTxLock;
+  if (_9 == -1)
+    goto <bb 36>; [34.00%]
+  else
+    goto <bb 37>; [66.00%]
+
+  <bb 36> [local count: 14824439]:
+  MEM[(struct Queue_t *)xQueue_24(D)].cTxLock ={v} 0;
+
+  <bb 37> [local count: 43601290]:
+  vPortExitCritical ();
+  _10 = xTaskCheckForTimeOut (&xTimeOut, &xTicksToWait);
+  if (_10 == 0)
+    goto <bb 38>; [50.00%]
+  else
+    goto <bb 42>; [50.00%]
+
+  <bb 38> [local count: 21800645]:
+  vPortEnterCritical ();
+  _65 ={v} MEM[(const struct Queue_t *)xQueue_24(D)].uxMessagesWaiting;
+  if (_65 == 0)
+    goto <bb 40>; [50.00%]
+  else
+    goto <bb 39>; [50.00%]
+
+  <bb 39> [local count: 10900322]:
+  vPortExitCritical ();
+  prvUnlockQueue (xQueue_24(D));
+  xTaskResumeAll ();
+  vPortEnterCritical ();
+  uxMessagesWaiting_109 ={v} MEM[(struct Queue_t *)xQueue_24(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_109 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 19>; [96.34%]
+
+  <bb 40> [local count: 10900322]:
+  vPortExitCritical ();
+  _11 = &MEM[(struct Queue_t *)xQueue_24(D)].xTasksWaitingToReceive;
+  xTicksToWait.26_12 = xTicksToWait;
+  vTaskPlaceOnEventList (_11, xTicksToWait.26_12);
+  prvUnlockQueue (xQueue_24(D));
+  _13 = xTaskResumeAll ();
+  if (_13 == 0)
+    goto <bb 41>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 41> [local count: 5450161]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+  vPortEnterCritical ();
+  uxMessagesWaiting_95 ={v} MEM[(struct Queue_t *)xQueue_24(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_95 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 14>; [96.34%]
+
+  <bb 42> [local count: 21800645]:
+  prvUnlockQueue (xQueue_24(D));
+  xTaskResumeAll ();
+  vPortEnterCritical ();
+  _66 ={v} MEM[(const struct Queue_t *)xQueue_24(D)].uxMessagesWaiting;
+  if (_66 == 0)
+    goto <bb 30>; [50.00%]
+  else
+    goto <bb 43>; [50.00%]
+
+  <bb 43> [local count: 10900322]:
+  vPortExitCritical ();
+  vPortEnterCritical ();
+  uxMessagesWaiting_102 ={v} MEM[(struct Queue_t *)xQueue_24(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_102 != 0)
+    goto <bb 20>; [3.66%]
+  else
+    goto <bb 18>; [96.34%]
+
+  <bb 44> [local count: 14276117]:
+  # _16 = PHI <1(28), 0(30)>
+  xTimeOut ={v} {CLOBBER};
+  return _16;
+
+}
+
+
+
+;; Function xQueueReceiveFromISR (xQueueReceiveFromISR, funcdef_no=21, decl_uid=6401, cgraph_uid=22, symbol_order=22)
+
+Merging blocks 4 and 22
+Merging blocks 8 and 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+xQueueReceiveFromISR (struct QueueDefinition * xQueue, void * const pvBuffer, BaseType_t * const pxHigherPriorityTaskWoken)
+{
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  const int8_t cRxLock;
+  const UBaseType_t uxMessagesWaiting;
+  BaseType_t xReturn;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  struct List_t * _4;
+  long int _5;
+  unsigned char cRxLock.28_6;
+  unsigned char _7;
+  signed char _8;
+  long unsigned int _31;
+  int8_t * _32;
+  int8_t * _33;
+  int8_t * _34;
+  int8_t * _35;
+  int8_t * prephitmp_48;
+
+  <bb 2> [local count: 35437027]:
+  if (xQueue_11(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_23 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  if (pvBuffer_12(D) != 0B)
+    goto <bb 9>; [53.47%]
+  else
+    goto <bb 6>; [46.53%]
+
+  <bb 6> [local count: 11542194]:
+  _1 = MEM[(struct Queue_t *)xQueue_11(D)].uxItemSize;
+  if (_1 == 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 5771097]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_24 : "i" 16 : "memory");
+
+  <bb 8> [local count: 582880760]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 19034822]:
+  vPortValidateInterruptPriority ();
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_25, "=r" ulNewBASEPRI_26 : "i" 16 : "memory");
+  uxMessagesWaiting_15 ={v} MEM[(struct Queue_t *)xQueue_11(D)].uxMessagesWaiting;
+  if (uxMessagesWaiting_15 != 0)
+    goto <bb 10>; [33.00%]
+  else
+    goto <bb 21>; [67.00%]
+
+  <bb 10> [local count: 6281491]:
+  cRxLock_16 ={v} MEM[(struct Queue_t *)xQueue_11(D)].cRxLock;
+  _31 = MEM[(struct Queue_t *)xQueue_11(D)].uxItemSize;
+  if (_31 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 11> [local count: 3140746]:
+  _32 = MEM[(struct Queue_t *)xQueue_11(D)].u.xQueue.pcReadFrom;
+  _33 = _32 + _31;
+  MEM[(struct Queue_t *)xQueue_11(D)].u.xQueue.pcReadFrom = _33;
+  _34 = MEM[(struct Queue_t *)xQueue_11(D)].u.xQueue.pcTail;
+  if (_33 >= _34)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 1570373]:
+  _35 = MEM[(struct Queue_t *)xQueue_11(D)].pcHead;
+  MEM[(struct Queue_t *)xQueue_11(D)].u.xQueue.pcReadFrom = _35;
+
+  <bb 13> [local count: 3140746]:
+  # prephitmp_48 = PHI <_35(12), _33(11)>
+  memcpy (pvBuffer_12(D), prephitmp_48, _31);
+
+  <bb 14> [local count: 6281491]:
+  _2 = uxMessagesWaiting_15 + 4294967295;
+  MEM[(struct Queue_t *)xQueue_11(D)].uxMessagesWaiting ={v} _2;
+  if (cRxLock_16 == -1)
+    goto <bb 15>; [34.00%]
+  else
+    goto <bb 20>; [66.00%]
+
+  <bb 15> [local count: 2135707]:
+  _3 ={v} MEM[(struct Queue_t *)xQueue_11(D)].xTasksWaitingToSend.uxNumberOfItems;
+  if (_3 != 0)
+    goto <bb 17>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 16> [local count: 1889034]:
+  goto <bb 21>; [100.00%]
+
+  <bb 17> [local count: 704783]:
+  _4 = &MEM[(struct Queue_t *)xQueue_11(D)].xTasksWaitingToSend;
+  _5 = xTaskRemoveFromEventList (_4);
+  if (_5 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 18> [local count: 352392]:
+  if (pxHigherPriorityTaskWoken_21(D) != 0B)
+    goto <bb 19>; [70.00%]
+  else
+    goto <bb 16>; [30.00%]
+
+  <bb 19> [local count: 246674]:
+  *pxHigherPriorityTaskWoken_21(D) = 1;
+  goto <bb 21>; [100.00%]
+
+  <bb 20> [local count: 4145784]:
+  cRxLock.28_6 = (unsigned char) cRxLock_16;
+  _7 = cRxLock.28_6 + 1;
+  _8 = (signed char) _7;
+  MEM[(struct Queue_t *)xQueue_11(D)].cRxLock ={v} _8;
+
+  <bb 21> [local count: 19034822]:
+  # xReturn_9 = PHI <1(20), 1(16), 1(19), 0(9)>
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_25 : "memory");
+  return xReturn_9;
+
+}
+
+
+
+;; Function xQueuePeekFromISR (xQueuePeekFromISR, funcdef_no=22, decl_uid=6379, cgraph_uid=23, symbol_order=23)
+
+Merging blocks 4 and 19
+Merging blocks 8 and 21
+Merging blocks 11 and 20
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+xQueuePeekFromISR (struct QueueDefinition * xQueue, void * const pvBuffer)
+{
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  int8_t * pcOriginalReadPosition;
+  BaseType_t xReturn;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _23;
+  int8_t * _25;
+  int8_t * _26;
+  int8_t * _27;
+  int8_t * prephitmp_34;
+
+  <bb 2> [local count: 26667774]:
+  if (xQueue_6(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 8000332]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_13 : "i" 16 : "memory");
+
+  <bb 4> [local count: 808033467]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 18667442]:
+  if (pvBuffer_7(D) != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 6>; [30.00%]
+
+  <bb 6> [local count: 5600232]:
+  _1 = MEM[(struct Queue_t *)xQueue_6(D)].uxItemSize;
+  if (_1 == 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 2800116]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_14 : "i" 16 : "memory");
+
+  <bb 8> [local count: 282811714]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 13067209]:
+  _2 = MEM[(struct Queue_t *)xQueue_6(D)].uxItemSize;
+  if (_2 == 0)
+    goto <bb 10>; [59.93%]
+  else
+    goto <bb 12>; [40.07%]
+
+  <bb 10> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_15 : "i" 16 : "memory");
+
+  <bb 11> [local count: 1073741824]:
+  goto <bb 11>; [100.00%]
+
+  <bb 12> [local count: 5236217]:
+  vPortValidateInterruptPriority ();
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_16, "=r" ulNewBASEPRI_17 : "i" 16 : "memory");
+  _3 ={v} MEM[(struct Queue_t *)xQueue_6(D)].uxMessagesWaiting;
+  if (_3 != 0)
+    goto <bb 13>; [33.00%]
+  else
+    goto <bb 18>; [67.00%]
+
+  <bb 13> [local count: 1727952]:
+  pcOriginalReadPosition_10 = MEM[(struct Queue_t *)xQueue_6(D)].u.xQueue.pcReadFrom;
+  _23 = MEM[(struct Queue_t *)xQueue_6(D)].uxItemSize;
+  if (_23 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 14> [local count: 863976]:
+  _25 = pcOriginalReadPosition_10 + _23;
+  MEM[(struct Queue_t *)xQueue_6(D)].u.xQueue.pcReadFrom = _25;
+  _26 = MEM[(struct Queue_t *)xQueue_6(D)].u.xQueue.pcTail;
+  if (_25 >= _26)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [local count: 431988]:
+  _27 = MEM[(struct Queue_t *)xQueue_6(D)].pcHead;
+  MEM[(struct Queue_t *)xQueue_6(D)].u.xQueue.pcReadFrom = _27;
+
+  <bb 16> [local count: 863976]:
+  # prephitmp_34 = PHI <_27(15), _25(14)>
+  memcpy (pvBuffer_7(D), prephitmp_34, _23);
+
+  <bb 17> [local count: 1727952]:
+  MEM[(struct Queue_t *)xQueue_6(D)].u.xQueue.pcReadFrom = pcOriginalReadPosition_10;
+
+  <bb 18> [local count: 5236217]:
+  # xReturn_4 = PHI <1(17), 0(12)>
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_16 : "memory");
+  return xReturn_4;
+
+}
+
+
+
+;; Function uxQueueMessagesWaiting (uxQueueMessagesWaiting, funcdef_no=23, decl_uid=6385, cgraph_uid=24, symbol_order=24)
+
+Merging blocks 4 and 6
+uxQueueMessagesWaiting (struct QueueDefinition * const xQueue)
+{
+  uint32_t ulNewBASEPRI;
+  UBaseType_t uxReturn;
+
+  <bb 2> [local count: 22847857]:
+  if (xQueue_1(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  uxReturn_4 ={v} MEM[(struct Queue_t *)xQueue_1(D)].uxMessagesWaiting;
+  vPortExitCritical ();
+  return uxReturn_4;
+
+}
+
+
+
+;; Function uxQueueSpacesAvailable (uxQueueSpacesAvailable, funcdef_no=24, decl_uid=6387, cgraph_uid=25, symbol_order=25)
+
+Merging blocks 4 and 6
+uxQueueSpacesAvailable (struct QueueDefinition * const xQueue)
+{
+  uint32_t ulNewBASEPRI;
+  UBaseType_t uxReturn;
+  long unsigned int _1;
+  long unsigned int _2;
+
+  <bb 2> [local count: 22847857]:
+  if (xQueue_3(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  _1 = MEM[(struct Queue_t *)xQueue_3(D)].uxLength;
+  _2 ={v} MEM[(struct Queue_t *)xQueue_3(D)].uxMessagesWaiting;
+  uxReturn_6 = _1 - _2;
+  vPortExitCritical ();
+  return uxReturn_6;
+
+}
+
+
+
+;; Function uxQueueMessagesWaitingFromISR (uxQueueMessagesWaitingFromISR, funcdef_no=25, decl_uid=6407, cgraph_uid=26, symbol_order=26)
+
+Merging blocks 4 and 6
+uxQueueMessagesWaitingFromISR (struct QueueDefinition * const xQueue)
+{
+  uint32_t ulNewBASEPRI;
+  UBaseType_t uxReturn;
+
+  <bb 2> [local count: 35437027]:
+  if (xQueue_1(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_4 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  uxReturn_3 ={v} MEM[(struct Queue_t *)xQueue_1(D)].uxMessagesWaiting;
+  return uxReturn_3;
+
+}
+
+
+
+;; Function vQueueDelete (vQueueDelete, funcdef_no=26, decl_uid=6389, cgraph_uid=27, symbol_order=27)
+
+Merging blocks 6 and 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+vQueueDelete (struct QueueDefinition * xQueue)
+{
+  UBaseType_t ux;
+  uint32_t ulNewBASEPRI;
+  struct QueueDefinition * _14;
+  struct QueueDefinition * _17;
+
+  <bb 2> [local count: 22847857]:
+  if (xQueue_1(D) == 0B)
+    goto <bb 5>; [46.53%]
+  else
+    goto <bb 3>; [53.47%]
+
+  <bb 3> [local count: 12216749]:
+  _14 = xQueueRegistry[0].xHandle;
+  if (xQueue_1(D) == _14)
+    goto <bb 7>; [5.50%]
+  else
+    goto <bb 4>; [94.50%]
+
+  <bb 4> [local count: 11768779]:
+  _17 = xQueueRegistry[1].xHandle;
+  if (xQueue_1(D) == _17)
+    goto <bb 7>; [5.50%]
+  else
+    goto <bb 8>; [94.50%]
+
+  <bb 5> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_5 : "i" 16 : "memory");
+
+  <bb 6> [local count: 1073741824]:
+  goto <bb 6>; [100.00%]
+
+  <bb 7> [local count: 1210832]:
+  # ux_9 = PHI <0(3), 1(4)>
+  xQueueRegistry[ux_9].pcQueueName = 0B;
+  xQueueRegistry[ux_9].xHandle = 0B;
+
+  <bb 8> [local count: 12216749]:
+  vPortFree (xQueue_1(D)); [tail call]
+  return;
+
+}
+
+
+
+;; Function xQueueIsQueueEmptyFromISR (xQueueIsQueueEmptyFromISR, funcdef_no=32, decl_uid=6403, cgraph_uid=33, symbol_order=33)
+
+Merging blocks 4 and 6
+xQueueIsQueueEmptyFromISR (struct QueueDefinition * const xQueue)
+{
+  uint32_t ulNewBASEPRI;
+  long unsigned int _1;
+  _Bool _7;
+  long int _8;
+
+  <bb 2> [local count: 35437027]:
+  if (xQueue_3(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_5 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _1 ={v} MEM[(struct Queue_t *)xQueue_3(D)].uxMessagesWaiting;
+  _7 = _1 == 0;
+  _8 = (long int) _7;
+  return _8;
+
+}
+
+
+
+;; Function xQueueIsQueueFullFromISR (xQueueIsQueueFullFromISR, funcdef_no=34, decl_uid=6405, cgraph_uid=35, symbol_order=35)
+
+Merging blocks 4 and 6
+xQueueIsQueueFullFromISR (struct QueueDefinition * const xQueue)
+{
+  uint32_t ulNewBASEPRI;
+  long unsigned int _1;
+  long unsigned int _2;
+  _Bool _8;
+  long int _9;
+
+  <bb 2> [local count: 35437027]:
+  if (xQueue_4(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _1 ={v} MEM[(struct Queue_t *)xQueue_4(D)].uxMessagesWaiting;
+  _2 = MEM[(struct Queue_t *)xQueue_4(D)].uxLength;
+  _8 = _1 == _2;
+  _9 = (long int) _8;
+  return _9;
+
+}
+
+
+
+;; Function vQueueAddToRegistry (vQueueAddToRegistry, funcdef_no=35, decl_uid=6450, cgraph_uid=36, symbol_order=36)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+vQueueAddToRegistry (struct QueueDefinition * xQueue, const char * pcQueueName)
+{
+  UBaseType_t ux;
+  const char * _12;
+  const char * _15;
+
+  <bb 2> [local count: 397250656]:
+  _12 = xQueueRegistry[0].pcQueueName;
+  if (_12 == 0B)
+    goto <bb 4>; [5.50%]
+  else
+    goto <bb 3>; [94.50%]
+
+  <bb 3> [local count: 382684072]:
+  _15 = xQueueRegistry[1].pcQueueName;
+  if (_15 == 0B)
+    goto <bb 4>; [5.50%]
+  else
+    goto <bb 5>; [94.50%]
+
+  <bb 4> [local count: 39372502]:
+  # ux_4 = PHI <0(2), 1(3)>
+  xQueueRegistry[ux_4].pcQueueName = pcQueueName_7(D);
+  xQueueRegistry[ux_4].xHandle = xQueue_9(D);
+
+  <bb 5> [local count: 397250654]:
+  return;
+
+}
+
+
+
+;; Function pcQueueGetName (pcQueueGetName, funcdef_no=36, decl_uid=6454, cgraph_uid=37, symbol_order=37)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+pcQueueGetName (struct QueueDefinition * xQueue)
+{
+  const char * pcReturn;
+  UBaseType_t ux;
+  struct QueueDefinition * _10;
+  struct QueueDefinition * _13;
+
+  <bb 2> [local count: 397250656]:
+  _10 = xQueueRegistry[0].xHandle;
+  if (xQueue_6(D) == _10)
+    goto <bb 4>; [5.50%]
+  else
+    goto <bb 3>; [94.50%]
+
+  <bb 3> [local count: 382684072]:
+  _13 = xQueueRegistry[1].xHandle;
+  if (xQueue_6(D) == _13)
+    goto <bb 4>; [5.50%]
+  else
+    goto <bb 5>; [94.50%]
+
+  <bb 4> [local count: 39372502]:
+  # ux_4 = PHI <0(2), 1(3)>
+  pcReturn_8 = xQueueRegistry[ux_4].pcQueueName;
+
+  <bb 5> [local count: 397250654]:
+  # pcReturn_3 = PHI <pcReturn_8(4), 0B(3)>
+  return pcReturn_3;
+
+}
+
+
+
+;; Function vQueueUnregisterQueue (vQueueUnregisterQueue, funcdef_no=37, decl_uid=6452, cgraph_uid=38, symbol_order=38)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+vQueueUnregisterQueue (struct QueueDefinition * xQueue)
+{
+  UBaseType_t ux;
+  struct QueueDefinition * _11;
+  struct QueueDefinition * _14;
+
+  <bb 2> [local count: 397250656]:
+  _11 = xQueueRegistry[0].xHandle;
+  if (xQueue_6(D) == _11)
+    goto <bb 4>; [5.50%]
+  else
+    goto <bb 3>; [94.50%]
+
+  <bb 3> [local count: 382684072]:
+  _14 = xQueueRegistry[1].xHandle;
+  if (xQueue_6(D) == _14)
+    goto <bb 4>; [5.50%]
+  else
+    goto <bb 5>; [94.50%]
+
+  <bb 4> [local count: 39372502]:
+  # ux_4 = PHI <0(2), 1(3)>
+  xQueueRegistry[ux_4].pcQueueName = 0B;
+  xQueueRegistry[ux_4].xHandle = 0B;
+
+  <bb 5> [local count: 397250654]:
+  return;
+
+}
+
+
+
+;; Function vQueueWaitForMessageRestricted (vQueueWaitForMessageRestricted, funcdef_no=38, decl_uid=6475, cgraph_uid=39, symbol_order=39)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+vQueueWaitForMessageRestricted (struct QueueDefinition * xQueue, TickType_t xTicksToWait, const BaseType_t xWaitIndefinitely)
+{
+  signed char _1;
+  signed char _2;
+  long unsigned int _3;
+  struct List_t * _4;
+
+  <bb 2> [local count: 1073741824]:
+  vPortEnterCritical ();
+  _1 ={v} MEM[(struct Queue_t *)xQueue_8(D)].cRxLock;
+  if (_1 == -1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  MEM[(struct Queue_t *)xQueue_8(D)].cRxLock ={v} 0;
+
+  <bb 4> [local count: 1073741824]:
+  _2 ={v} MEM[(struct Queue_t *)xQueue_8(D)].cTxLock;
+  if (_2 == -1)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [local count: 365072224]:
+  MEM[(struct Queue_t *)xQueue_8(D)].cTxLock ={v} 0;
+
+  <bb 6> [local count: 1073741824]:
+  vPortExitCritical ();
+  _3 ={v} MEM[(struct Queue_t *)xQueue_8(D)].uxMessagesWaiting;
+  if (_3 == 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 7> [local count: 354334800]:
+  _4 = &MEM[(struct Queue_t *)xQueue_8(D)].xTasksWaitingToReceive;
+  vTaskPlaceOnEventListRestricted (_4, xTicksToWait_14(D), xWaitIndefinitely_15(D));
+
+  <bb 8> [local count: 1073741824]:
+  prvUnlockQueue (xQueue_8(D)); [tail call]
+  return;
+
+}
+
+

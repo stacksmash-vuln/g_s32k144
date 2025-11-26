@@ -1,0 +1,597 @@
+
+;; Function prvPortStartFirstTask (prvPortStartFirstTask, funcdef_no=8, decl_uid=5537, cgraph_uid=9, symbol_order=12)
+
+__attribute__((naked, noinline, noclone))
+prvPortStartFirstTask ()
+{
+  <bb 2> [local count: 1073741824]:
+  __asm__ __volatile__(" ldr r0, =0xE000ED08 	
+ ldr r0, [r0] 			
+ ldr r0, [r0] 			
+ msr msp, r0			
+ mov r0, #0			
+ msr control, r0		
+ cpsie i				
+ cpsie f				
+ dsb					
+ isb					
+ svc 0					
+ nop					
+");
+  return;
+
+}
+
+
+
+;; Function vPortEnableVFP (vPortEnableVFP, funcdef_no=16, decl_uid=5539, cgraph_uid=17, symbol_order=20)
+
+__attribute__((naked, noinline, noclone))
+vPortEnableVFP ()
+{
+  <bb 2> [local count: 1073741824]:
+  __asm__ __volatile__("	ldr.w r0, =0xE000ED88		
+	ldr r1, [r0]				
+								
+	orr r1, r1, #( 0xf << 20 )	
+	str r1, [r0]				
+	bx r14						");
+  return;
+
+}
+
+
+
+;; Function prvTaskExitError (prvTaskExitError, funcdef_no=6, decl_uid=5541, cgraph_uid=7, symbol_order=10)
+
+Merging blocks 4 and 8
+Removing basic block 9
+prvTaskExitError ()
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  volatile uint32_t ulDummy;
+  long unsigned int uxCriticalNesting.3_1;
+  long unsigned int ulDummy.4_2;
+
+  <bb 2> [local count: 16107739]:
+  ulDummy ={v} 0;
+  uxCriticalNesting.3_1 = uxCriticalNesting;
+  if (uxCriticalNesting.3_1 != 4294967295)
+    goto <bb 3>; [66.00%]
+  else
+    goto <bb 5>; [34.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 5476631]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+
+  <bb 6> [local count: 49787559]:
+  ulDummy.4_2 ={v} ulDummy;
+  if (ulDummy.4_2 == 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 5476631]:
+  return;
+
+}
+
+
+
+;; Function pxPortInitialiseStack (pxPortInitialiseStack, funcdef_no=5, decl_uid=5219, cgraph_uid=6, symbol_order=9)
+
+pxPortInitialiseStack (StackType_t * pxTopOfStack, void (*TaskFunction_t) (void *) pxCode, void * pvParameters)
+{
+  long unsigned int pxCode.0_1;
+  long unsigned int _2;
+  long unsigned int prvTaskExitError.1_3;
+  long unsigned int pvParameters.2_4;
+
+  <bb 2> [local count: 1073741824]:
+  MEM[(StackType_t *)pxTopOfStack_5(D) + 4294967292B] = 16777216;
+  pxCode.0_1 = (long unsigned int) pxCode_8(D);
+  _2 = pxCode.0_1 & 4294967294;
+  MEM[(StackType_t *)pxTopOfStack_5(D) + 4294967288B] = _2;
+  prvTaskExitError.1_3 = (long unsigned int) prvTaskExitError;
+  MEM[(StackType_t *)pxTopOfStack_5(D) + 4294967284B] = prvTaskExitError.1_3;
+  pvParameters.2_4 = (long unsigned int) pvParameters_11(D);
+  MEM[(StackType_t *)pxTopOfStack_5(D) + 4294967264B] = pvParameters.2_4;
+  MEM[(StackType_t *)pxTopOfStack_5(D) + 4294967260B] = 4294967293;
+  pxTopOfStack_14 = &MEM <StackType_t> [(void *)pxTopOfStack_5(D) + 4294967228B];
+  return pxTopOfStack_14;
+
+}
+
+
+
+;; Function SVC_Handler (SVC_Handler, funcdef_no=7, decl_uid=5535, cgraph_uid=8, symbol_order=11)
+
+__attribute__((naked, noinline, noclone))
+SVC_Handler ()
+{
+  <bb 2> [local count: 1073741824]:
+  __asm__ __volatile__("	ldr	r3, pxCurrentTCBConst2		
+	ldr r1, [r3]					
+	ldr r0, [r1]					
+	ldmia r0!, {r4-r11, r14}		
+	msr psp, r0						
+	isb								
+	mov r0, #0 						
+	msr	basepri, r0					
+	bx r14							
+									
+	.align 4						
+pxCurrentTCBConst2: .word pxCurrentTCB				
+");
+  return;
+
+}
+
+
+
+;; Function vPortEndScheduler (vPortEndScheduler, funcdef_no=10, decl_uid=5239, cgraph_uid=11, symbol_order=14)
+
+Merging blocks 4 and 6
+vPortEndScheduler ()
+{
+  uint32_t ulNewBASEPRI;
+  long unsigned int uxCriticalNesting.13_1;
+
+  <bb 2> [local count: 16107739]:
+  uxCriticalNesting.13_1 = uxCriticalNesting;
+  if (uxCriticalNesting.13_1 != 1000)
+    goto <bb 3>; [66.00%]
+  else
+    goto <bb 5>; [34.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_3 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 5476631]:
+  return;
+
+}
+
+
+
+;; Function vPortEnterCritical (vPortEnterCritical, funcdef_no=11, decl_uid=5188, cgraph_uid=12, symbol_order=15)
+
+Merging blocks 5 and 7
+Removing basic block 8
+Removing basic block 9
+vPortEnterCritical ()
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  long unsigned int uxCriticalNesting.14_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+
+  <bb 2> [local count: 62535929]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_7 : "i" 16 : "memory");
+  uxCriticalNesting.14_1 = uxCriticalNesting;
+  _2 = uxCriticalNesting.14_1 + 1;
+  uxCriticalNesting = _2;
+  if (_2 == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 3> [local count: 21262216]:
+  _3 ={v} MEM[(volatile uint32_t *)3758157060B];
+  _4 = _3 & 255;
+  if (_4 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 5> [local count: 1073741824]:
+  goto <bb 5>; [100.00%]
+
+  <bb 6> [local count: 51904821]:
+  return;
+
+}
+
+
+
+;; Function vPortExitCritical (vPortExitCritical, funcdef_no=12, decl_uid=5190, cgraph_uid=13, symbol_order=16)
+
+Merging blocks 4 and 8
+Removing basic block 9
+vPortExitCritical ()
+{
+  uint32_t ulNewBASEPRI;
+  long unsigned int uxCriticalNesting.16_1;
+  long unsigned int _2;
+
+  <bb 2> [local count: 21262216]:
+  uxCriticalNesting.16_1 = uxCriticalNesting;
+  if (uxCriticalNesting.16_1 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 10631108]:
+  _2 = uxCriticalNesting.16_1 + 4294967295;
+  uxCriticalNesting = _2;
+  if (_2 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 5315554]:
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" 0 : "memory");
+
+  <bb 7> [local count: 10631108]:
+  return;
+
+}
+
+
+
+;; Function PendSV_Handler (PendSV_Handler, funcdef_no=13, decl_uid=5531, cgraph_uid=14, symbol_order=17)
+
+__attribute__((naked, noinline, noclone))
+PendSV_Handler ()
+{
+  <bb 2> [local count: 1073741824]:
+  __asm__ __volatile__("	mrs r0, psp							
+	isb									
+										
+	ldr	r3, pxCurrentTCBConst			
+	ldr	r2, [r3]						
+										
+	tst r14, #0x10						
+	it eq								
+	vstmdbeq r0!, {s16-s31}				
+										
+	stmdb r0!, {r4-r11, r14}			
+	str r0, [r2]						
+										
+	stmdb sp!, {r0, r3}					
+	mov r0, %0 							
+	msr basepri, r0						
+	dsb									
+	isb									
+	bl vTaskSwitchContext				
+	mov r0, #0							
+	msr basepri, r0						
+	ldmia sp!, {r0, r3}					
+										
+	ldr r1, [r3]						
+	ldr r0, [r1]						
+										
+	ldmia r0!, {r4-r11, r14}			
+										
+	tst r14, #0x10						
+	it eq								
+	vldmiaeq r0!, {s16-s31}				
+										
+	msr psp, r0							
+	isb									
+										
+										
+	bx r14								
+										
+	.align 4							
+pxCurrentTCBConst: .word pxCurrentTCB	
+" :  : "i" 16);
+  return;
+
+}
+
+
+
+;; Function SysTick_Handler (SysTick_Handler, funcdef_no=14, decl_uid=5533, cgraph_uid=15, symbol_order=18)
+
+Removing basic block 5
+SysTick_Handler ()
+{
+  uint32_t ulNewBASEPRI;
+  long int _1;
+
+  <bb 2> [local count: 1073741824]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+  _1 = xTaskIncrementTick ();
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+
+  <bb 4> [local count: 1073741824]:
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" 0 : "memory");
+  return;
+
+}
+
+
+
+;; Function vPortSetupTimerInterrupt (vPortSetupTimerInterrupt, funcdef_no=15, decl_uid=5529, cgraph_uid=16, symbol_order=19)
+
+__attribute__((weak))
+vPortSetupTimerInterrupt ()
+{
+  <bb 2> [local count: 1073741824]:
+  MEM[(volatile uint32_t *)3758153744B] ={v} 0;
+  MEM[(volatile uint32_t *)3758153752B] ={v} 0;
+  MEM[(volatile uint32_t *)3758153748B] ={v} 4799;
+  MEM[(volatile uint32_t *)3758153744B] ={v} 7;
+  return;
+
+}
+
+
+
+;; Function xPortStartScheduler (xPortStartScheduler, funcdef_no=9, decl_uid=5237, cgraph_uid=10, symbol_order=13)
+
+Merging blocks 4 and 16
+Merging blocks 7 and 17
+Merging blocks 13 and 18
+Removing basic block 15
+Removing basic block 19
+Removing basic block 20
+xPortStartScheduler ()
+{
+  long unsigned int ivtmp.74;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  volatile uint8_t ucMaxPriorityValue;
+  volatile uint32_t ulOriginalPriority;
+  long unsigned int _1;
+  signed char _2;
+  long unsigned int _3;
+  unsigned char _4;
+  long unsigned int _5;
+  unsigned char _6;
+  unsigned char ucMaxPriorityValue.5_7;
+  unsigned char _8;
+  unsigned char ucMaxPriorityValue.7_11;
+  unsigned char _12;
+  unsigned char ucMaxPriorityValue.8_13;
+  long unsigned int _15;
+  long unsigned int ulOriginalPriority.12_18;
+  unsigned char _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  unsigned char ucMaxPriorityValue.8_53;
+  signed char _54;
+
+  <bb 2> [local count: 30598879]:
+  _1 ={v} MEM[(volatile uint32_t *)3758157056B];
+  if (_1 == 1091551857)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 3> [local count: 10403619]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_46 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1050765437]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 20195260]:
+  _3 ={v} MEM[(volatile uint32_t *)3758157056B];
+  if (_3 == 1091551856)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 6> [local count: 6866389]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_47 : "i" 16 : "memory");
+
+  <bb 7> [local count: 693505186]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 13328872]:
+  _4 ={v} MEM[(volatile uint8_t *)3758154752B];
+  _5 = (long unsigned int) _4;
+  ulOriginalPriority ={v} _5;
+  MEM[(volatile uint8_t *)3758154752B] ={v} 255;
+  _6 ={v} MEM[(volatile uint8_t *)3758154752B];
+  ucMaxPriorityValue ={v} _6;
+  ucMaxPriorityValue.5_7 ={v} ucMaxPriorityValue;
+  _8 = ucMaxPriorityValue.5_7 & 16;
+  ucMaxSysCallPriority = _8;
+  ulMaxPRIGROUPValue = 7;
+  ucMaxPriorityValue.8_53 ={v} ucMaxPriorityValue;
+  _54 = (signed char) ucMaxPriorityValue.8_53;
+  if (_54 < 0)
+    goto <bb 10>; [89.00%]
+  else
+    goto <bb 9>; [11.00%]
+
+  <bb 9> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_48 : "i" 16 : "memory");
+  goto <bb 13>; [100.00%]
+
+  <bb 10> [local count: 107842689]:
+  # ivtmp.74_44 = PHI <6(8), ivtmp.74_17(10)>
+  ucMaxPriorityValue.7_11 ={v} ucMaxPriorityValue;
+  _12 = ucMaxPriorityValue.7_11 << 1;
+  ucMaxPriorityValue ={v} _12;
+  ucMaxPriorityValue.8_13 ={v} ucMaxPriorityValue;
+  _2 = (signed char) ucMaxPriorityValue.8_13;
+  ivtmp.74_17 = ivtmp.74_44 + 4294967295;
+  if (_2 < 0)
+    goto <bb 10>; [89.00%]
+  else
+    goto <bb 11>; [11.00%]
+
+  <bb 11> [local count: 11862696]:
+  _15 = 7 - ivtmp.74_44;
+  if (_15 != 4)
+    goto <bb 12>; [77.26%]
+  else
+    goto <bb 14>; [22.74%]
+
+  <bb 12> [local count: 9164932]:
+  ulMaxPRIGROUPValue = ivtmp.74_44;
+  goto <bb 9>; [100.00%]
+
+  <bb 13> [local count: 1073741824]:
+  goto <bb 13>; [100.00%]
+
+  <bb 14> [local count: 2697764]:
+  ulMaxPRIGROUPValue = 768;
+  ulOriginalPriority.12_18 ={v} ulOriginalPriority;
+  _19 = (unsigned char) ulOriginalPriority.12_18;
+  MEM[(volatile uint8_t *)3758154752B] ={v} _19;
+  _20 ={v} MEM[(volatile uint32_t *)3758157088B];
+  _21 = _20 | 15728640;
+  MEM[(volatile uint32_t *)3758157088B] ={v} _21;
+  _22 ={v} MEM[(volatile uint32_t *)3758157088B];
+  _23 = _22 | 4026531840;
+  MEM[(volatile uint32_t *)3758157088B] ={v} _23;
+  vPortSetupTimerInterrupt ();
+  uxCriticalNesting = 0;
+  vPortEnableVFP ();
+  _24 ={v} MEM[(volatile uint32_t *)3758157620B];
+  _25 = _24 | 3221225472;
+  MEM[(volatile uint32_t *)3758157620B] ={v} _25;
+  prvPortStartFirstTask ();
+  vTaskSwitchContext ();
+  prvTaskExitError ();
+  return 0;
+
+}
+
+
+
+;; Function vPortValidateInterruptPriority (vPortValidateInterruptPriority, funcdef_no=17, decl_uid=5198, cgraph_uid=18, symbol_order=21)
+
+Merging blocks 5 and 10
+Merging blocks 8 and 11
+Removing basic block 12
+Removing basic block 13
+vPortValidateInterruptPriority ()
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint8_t ucCurrentPriority;
+  uint32_t ulCurrentInterrupt;
+  const uint8_t * _1;
+  unsigned char ucMaxSysCallPriority.19_2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int ulMaxPRIGROUPValue.20_5;
+
+  <bb 2> [local count: 28349621]:
+  __asm__ __volatile__("mrs %0, ipsr" : "=r" ulCurrentInterrupt_8 :  : "memory");
+  if (ulCurrentInterrupt_8 > 15)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 3> [local count: 14174811]:
+  _1 = 3758154736B + ulCurrentInterrupt_8;
+  ucCurrentPriority_9 ={v} *_1;
+  ucMaxSysCallPriority.19_2 = ucMaxSysCallPriority;
+  if (ucMaxSysCallPriority.19_2 > ucCurrentPriority_9)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 7087405]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_10 : "i" 16 : "memory");
+
+  <bb 5> [local count: 715827884]:
+  goto <bb 5>; [100.00%]
+
+  <bb 6> [local count: 21262216]:
+  _3 ={v} MEM[(volatile uint32_t *)3758157068B];
+  _4 = _3 & 1792;
+  ulMaxPRIGROUPValue.20_5 = ulMaxPRIGROUPValue;
+  if (_4 > ulMaxPRIGROUPValue.20_5)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 7> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_11 : "i" 16 : "memory");
+
+  <bb 8> [local count: 1073741824]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 10631108]:
+  return;
+
+}
+
+

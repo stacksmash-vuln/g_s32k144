@@ -1,0 +1,576 @@
+
+;; Function CSEC_WriteCmdAndWait (CSEC_WriteCmdAndWait, funcdef_no=12, decl_uid=7308, cgraph_uid=6, symbol_order=5)
+
+Removing basic block 5
+__attribute__((section (".code_ram")))
+CSEC_WriteCmdAndWait (csec_cmd_t funcId, csec_func_format_t funcFormat, csec_call_sequence_t callSeq, csec_key_id_t keyId)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _9;
+  long unsigned int _10;
+  unsigned char _11;
+  signed char _12;
+  long unsigned int _19;
+  long unsigned int _20;
+
+  <bb 2> [local count: 118111600]:
+  _1 = (long unsigned int) funcId_13(D);
+  _2 = _1 << 24;
+  _3 = (long unsigned int) funcFormat_14(D);
+  _4 = _3 << 16;
+  _6 = (long unsigned int) callSeq_15(D);
+  _7 = _6 << 8;
+  _9 = (long unsigned int) keyId_16(D);
+  _19 = _7 | _9;
+  _20 = _4 | _19;
+  _10 = _2 | _20;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} _10;
+
+  <bb 3> [local count: 1073741824]:
+  _11 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _12 = (signed char) _11;
+  if (_12 >= 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function CSEC_WriteCommandHalfWord (CSEC_WriteCommandHalfWord, funcdef_no=7, decl_uid=7261, cgraph_uid=9, symbol_order=8)
+
+CSEC_WriteCommandHalfWord (uint8_t offset, uint16_t halfWord)
+{
+  uint32_t tmp;
+  unsigned char _1;
+  unsigned char _2;
+  int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = offset_8(D) >> 2;
+  _3 = (int) _2;
+  tmp_10 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[_3].DATA_32;
+  _1 = offset_8(D) & 2;
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_14 = tmp_10 & 4294901760;
+  _4 = (long unsigned int) halfWord_12(D);
+  tmp_15 = _4 | tmp_14;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  tmp_11 = tmp_10 & 65535;
+  _5 = (long unsigned int) halfWord_12(D);
+  _6 = _5 << 16;
+  tmp_13 = _6 | tmp_11;
+
+  <bb 5> [local count: 1073741824]:
+  # tmp_7 = PHI <tmp_15(3), tmp_13(4)>
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[_3].DATA_32 ={v} tmp_7;
+  return;
+
+}
+
+
+
+;; Function CSEC_WriteCommandByte (CSEC_WriteCommandByte, funcdef_no=8, decl_uid=7264, cgraph_uid=10, symbol_order=9)
+
+CSEC_WriteCommandByte (uint8_t offset, uint8_t byte)
+{
+  uint32_t temp;
+  unsigned char _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  unsigned char _11;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = offset_12(D) >> 2;
+  _2 = (int) _1;
+  temp_14 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[_2].DATA_32;
+  _11 = offset_12(D) & 3;
+  if (_11 == 2)
+    goto <bb 7>; [25.00%]
+  else
+    goto <bb 3>; [75.00%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_11 == 3)
+    goto <bb 8>; [33.33%]
+  else
+    goto <bb 4>; [66.67%]
+
+  <bb 4> [local count: 1073741824]:
+  if (_11 == 1)
+    goto <bb 6>; [33.33%]
+  else
+    goto <bb 5>; [66.67%]
+
+  <bb 5> [local count: 268435456]:
+  temp_22 = temp_14 & 16777215;
+  _3 = (long unsigned int) byte_16(D);
+  _4 = _3 << 24;
+  temp_23 = _4 | temp_22;
+  goto <bb 9>; [100.00%]
+
+  <bb 6> [local count: 268435456]:
+  temp_20 = temp_14 & 4278255615;
+  _5 = (long unsigned int) byte_16(D);
+  _6 = _5 << 16;
+  temp_21 = _6 | temp_20;
+  goto <bb 9>; [100.00%]
+
+  <bb 7> [local count: 268435456]:
+  temp_18 = temp_14 & 4294902015;
+  _7 = (long unsigned int) byte_16(D);
+  _8 = _7 << 8;
+  temp_19 = _8 | temp_18;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 268435456]:
+  temp_15 = temp_14 & 4294967040;
+  _9 = (long unsigned int) byte_16(D);
+  temp_17 = _9 | temp_15;
+
+  <bb 9> [local count: 1073741824]:
+  # temp_10 = PHI <temp_23(5), temp_21(6), temp_19(7), temp_17(8)>
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[_2].DATA_32 ={v} temp_10;
+  return;
+
+}
+
+
+
+;; Function CSEC_WriteCommandBytes (CSEC_WriteCommandBytes, funcdef_no=6, decl_uid=7258, cgraph_uid=8, symbol_order=7)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+CSEC_WriteCommandBytes (uint8_t offset, const uint8_t * bytes, uint8_t numBytes)
+{
+  unsigned char ivtmp.30;
+  unsigned int ivtmp.29;
+  uint8_t i;
+  const uint8_t * _1;
+  unsigned char _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  sizetype _5;
+  const uint8_t * _6;
+  unsigned char _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  sizetype _11;
+  const uint8_t * _12;
+  unsigned char _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  const uint8_t * _17;
+  unsigned char _18;
+  long unsigned int _19;
+  int _21;
+  int _22;
+  int _23;
+  long unsigned int _24;
+  unsigned int _25;
+  unsigned int _26;
+  long unsigned int _27;
+  unsigned char _31;
+  long unsigned int _46;
+  unsigned int _50;
+  unsigned int _51;
+  unsigned int _52;
+  unsigned char _83;
+  void * _84;
+  const uint8_t * _88;
+  sizetype _89;
+  int _96;
+
+  <bb 2> [local count: 118111600]:
+  _50 = (unsigned int) numBytes_37(D);
+  if (_50 > 3)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 3> [local count: 105119324]:
+  _96 = (int) offset_38(D);
+
+  <bb 4> [local count: 955630225]:
+  # _51 = PHI <0(3), _25(4)>
+  # _52 = PHI <3(3), _26(4)>
+  # i_53 = PHI <0(3), i_43(4)>
+  _1 = bytes_39(D) + _51;
+  _2 = *_1;
+  _3 = (long unsigned int) _2;
+  _4 = _3 << 24;
+  _5 = _51 + 1;
+  _6 = bytes_39(D) + _5;
+  _7 = *_6;
+  _8 = (long unsigned int) _7;
+  _9 = _8 << 16;
+  _11 = _51 + 2;
+  _12 = bytes_39(D) + _11;
+  _13 = *_12;
+  _14 = (long unsigned int) _13;
+  _15 = _14 << 8;
+  _17 = bytes_39(D) + _52;
+  _18 = *_17;
+  _19 = (long unsigned int) _18;
+  _27 = _4 | _19;
+  _46 = _9 | _27;
+  _21 = (int) i_53;
+  _22 = _21 + _96;
+  _23 = _22 >> 2;
+  _24 = _15 | _46;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[_23].DATA_32 ={v} _24;
+  i_43 = i_53 + 4;
+  _25 = (unsigned int) i_43;
+  _26 = _25 + 3;
+  if (_26 < _50)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  # i_54 = PHI <0(2), i_43(4)>
+  if (numBytes_37(D) > i_54)
+    goto <bb 7>; [89.00%]
+  else
+    goto <bb 6>; [11.00%]
+
+  <bb 6> [local count: 118111600]:
+  return;
+
+  <bb 7> [local count: 105119324]:
+  _89 = (sizetype) i_54;
+  _88 = bytes_39(D) + _89;
+  ivtmp.29_90 = (unsigned int) _88;
+  ivtmp.30_85 = offset_38(D) + i_54;
+  _83 = numBytes_37(D) + offset_38(D);
+
+  <bb 8> [local count: 955630225]:
+  # ivtmp.29_92 = PHI <ivtmp.29_90(7), ivtmp.29_91(8)>
+  # ivtmp.30_87 = PHI <ivtmp.30_85(7), ivtmp.30_86(8)>
+  _84 = (void *) ivtmp.29_92;
+  _31 = MEM[base: _84, offset: 0B];
+  ivtmp.29_91 = ivtmp.29_92 + 1;
+  CSEC_WriteCommandByte (ivtmp.30_87, _31);
+  ivtmp.30_86 = ivtmp.30_87 + 1;
+  if (_83 != ivtmp.30_86)
+    goto <bb 8>; [89.00%]
+  else
+    goto <bb 6>; [11.00%]
+
+}
+
+
+
+;; Function CSEC_WriteCommandWords (CSEC_WriteCommandWords, funcdef_no=9, decl_uid=7268, cgraph_uid=11, symbol_order=10)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+CSEC_WriteCommandWords (uint8_t offset, const uint32_t * words, uint8_t numWords)
+{
+  unsigned int ivtmp.45;
+  unsigned int ivtmp.43;
+  uint8_t alignedOffset;
+  signed short _1;
+  unsigned int _2;
+  int _6;
+  long unsigned int _7;
+  const uint32_t * _9;
+  signed short _19;
+  unsigned char _22;
+  void * _27;
+  unsigned int _30;
+
+  <bb 2> [local count: 118111600]:
+  alignedOffset_11 = offset_10(D) >> 2;
+  if (numWords_13(D) != 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 3>; [11.00%]
+
+  <bb 3> [local count: 118111600]:
+  return;
+
+  <bb 4> [local count: 105119324]:
+  _9 = words_14(D) + 4294967292;
+  ivtmp.43_17 = (unsigned int) _9;
+  ivtmp.45_26 = (unsigned int) alignedOffset_11;
+  _22 = numWords_13(D) + 255;
+  _1 = (signed short) 4;
+  _19 = (signed short) _22;
+  _2 = (unsigned int) words_14(D);
+  _30 = WIDEN_MULT_PLUS_EXPR <_1, _19, _2>;
+
+  <bb 5> [local count: 955630225]:
+  # ivtmp.43_21 = PHI <ivtmp.43_17(4), ivtmp.43_18(5)>
+  # ivtmp.45_8 = PHI <ivtmp.45_26(4), ivtmp.45_28(5)>
+  _6 = (int) ivtmp.45_8;
+  ivtmp.43_18 = ivtmp.43_21 + 4;
+  _27 = (void *) ivtmp.43_18;
+  _7 = MEM[base: _27, offset: 0B];
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[_6].DATA_32 ={v} _7;
+  ivtmp.45_28 = ivtmp.45_8 + 1;
+  if (ivtmp.43_18 != _30)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 3>; [11.00%]
+
+}
+
+
+
+;; Function CSEC_ReadCommandBytes (CSEC_ReadCommandBytes, funcdef_no=10, decl_uid=7272, cgraph_uid=12, symbol_order=11)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+CSEC_ReadCommandBytes (uint8_t offset, uint8_t * bytes, uint8_t numBytes)
+{
+  unsigned int ivtmp.58;
+  unsigned char ivtmp.55;
+  uint8_t byte;
+  uint32_t temp;
+  uint32_t tmp;
+  uint8_t i;
+  int _2;
+  int _3;
+  int _4;
+  long unsigned int _5;
+  uint8_t * _6;
+  unsigned char _7;
+  long unsigned int _8;
+  sizetype _9;
+  uint8_t * _10;
+  unsigned char _11;
+  long unsigned int _12;
+  sizetype _13;
+  uint8_t * _14;
+  unsigned char _15;
+  uint8_t * _16;
+  unsigned char _17;
+  unsigned int _18;
+  unsigned int _19;
+  unsigned char _26;
+  void * _27;
+  uint8_t * _28;
+  sizetype _33;
+  unsigned char _42;
+  int _43;
+  unsigned char _45;
+  long unsigned int _46;
+  long unsigned int _48;
+  long unsigned int _50;
+  unsigned int _58;
+  unsigned int _59;
+  unsigned int _60;
+  int _70;
+
+  <bb 2> [local count: 118111600]:
+  _58 = (unsigned int) numBytes_30(D);
+  if (_58 > 3)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 3> [local count: 105119324]:
+  _70 = (int) offset_31(D);
+
+  <bb 4> [local count: 955630225]:
+  # _59 = PHI <0(3), _18(4)>
+  # _60 = PHI <3(3), _19(4)>
+  # i_61 = PHI <0(3), i_41(4)>
+  _2 = (int) i_61;
+  _3 = _2 + _70;
+  _4 = _3 >> 2;
+  tmp_36 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[_4].DATA_32;
+  _5 = tmp_36 >> 24;
+  _6 = bytes_32(D) + _59;
+  _7 = (unsigned char) _5;
+  *_6 = _7;
+  _8 = tmp_36 >> 16;
+  _9 = _59 + 1;
+  _10 = bytes_32(D) + _9;
+  _11 = (unsigned char) _8;
+  *_10 = _11;
+  _12 = tmp_36 >> 8;
+  _13 = _59 + 2;
+  _14 = bytes_32(D) + _13;
+  _15 = (unsigned char) _12;
+  *_14 = _15;
+  _16 = bytes_32(D) + _60;
+  _17 = (unsigned char) tmp_36;
+  *_16 = _17;
+  i_41 = i_61 + 4;
+  _18 = (unsigned int) i_41;
+  _19 = _18 + 3;
+  if (_19 < _58)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  # i_62 = PHI <0(2), i_41(4)>
+  if (numBytes_30(D) > i_62)
+    goto <bb 7>; [89.00%]
+  else
+    goto <bb 6>; [11.00%]
+
+  <bb 6> [local count: 118111600]:
+  return;
+
+  <bb 7> [local count: 105119324]:
+  ivtmp.55_57 = offset_31(D) + i_62;
+  _33 = (sizetype) i_62;
+  _28 = bytes_32(D) + _33;
+  ivtmp.58_54 = (unsigned int) _28;
+  _26 = numBytes_30(D) + offset_31(D);
+
+  <bb 8> [local count: 955630225]:
+  # ivtmp.55_69 = PHI <ivtmp.55_57(7), ivtmp.55_68(15)>
+  # ivtmp.58_56 = PHI <ivtmp.58_54(7), ivtmp.58_55(15)>
+  _42 = ivtmp.55_69 >> 2;
+  _43 = (int) _42;
+  temp_44 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[_43].DATA_32;
+  _45 = ivtmp.55_69 & 3;
+  if (_45 == 2)
+    goto <bb 13>; [25.00%]
+  else
+    goto <bb 9>; [75.00%]
+
+  <bb 9> [local count: 955630225]:
+  if (_45 == 3)
+    goto <bb 14>; [33.33%]
+  else
+    goto <bb 10>; [66.67%]
+
+  <bb 10> [local count: 955630225]:
+  if (_45 == 1)
+    goto <bb 12>; [33.33%]
+  else
+    goto <bb 11>; [66.67%]
+
+  <bb 11> [local count: 238907556]:
+  _46 = temp_44 >> 24;
+  byte_47 = (uint8_t) _46;
+  goto <bb 15>; [100.00%]
+
+  <bb 12> [local count: 238907556]:
+  _48 = temp_44 >> 16;
+  byte_49 = (uint8_t) _48;
+  goto <bb 15>; [100.00%]
+
+  <bb 13> [local count: 238907556]:
+  _50 = temp_44 >> 8;
+  byte_51 = (uint8_t) _50;
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [local count: 238907556]:
+  byte_52 = (uint8_t) temp_44;
+
+  <bb 15> [local count: 955630227]:
+  # byte_53 = PHI <byte_47(11), byte_49(12), byte_51(13), byte_52(14)>
+  _27 = (void *) ivtmp.58_56;
+  MEM[base: _27, offset: 0B] = byte_53;
+  ivtmp.58_55 = ivtmp.58_56 + 1;
+  ivtmp.55_68 = ivtmp.55_69 + 1;
+  if (_26 != ivtmp.55_68)
+    goto <bb 8>; [89.00%]
+  else
+    goto <bb 6>; [11.00%]
+
+}
+
+
+
+;; Function CSEC_ReadCommandByte (CSEC_ReadCommandByte, funcdef_no=11, decl_uid=7274, cgraph_uid=13, symbol_order=12)
+
+CSEC_ReadCommandByte (uint8_t offset)
+{
+  uint32_t temp;
+  uint8_t byte;
+  unsigned char _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  unsigned char _7;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = offset_8(D) >> 2;
+  _2 = (int) _1;
+  temp_10 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[_2].DATA_32;
+  _7 = offset_8(D) & 3;
+  if (_7 == 2)
+    goto <bb 7>; [25.00%]
+  else
+    goto <bb 3>; [75.00%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_7 == 3)
+    goto <bb 8>; [33.33%]
+  else
+    goto <bb 4>; [66.67%]
+
+  <bb 4> [local count: 1073741824]:
+  if (_7 == 1)
+    goto <bb 6>; [33.33%]
+  else
+    goto <bb 5>; [66.67%]
+
+  <bb 5> [local count: 268435456]:
+  _3 = temp_10 >> 24;
+  byte_14 = (uint8_t) _3;
+  goto <bb 9>; [100.00%]
+
+  <bb 6> [local count: 268435456]:
+  _4 = temp_10 >> 16;
+  byte_13 = (uint8_t) _4;
+  goto <bb 9>; [100.00%]
+
+  <bb 7> [local count: 268435456]:
+  _5 = temp_10 >> 8;
+  byte_12 = (uint8_t) _5;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 268435456]:
+  byte_11 = (uint8_t) temp_10;
+
+  <bb 9> [local count: 1073741824]:
+  # byte_6 = PHI <byte_14(5), byte_13(6), byte_12(7), byte_11(8)>
+  return byte_6;
+
+}
+
+

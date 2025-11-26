@@ -1,0 +1,211 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/trgmux/trgmux_hw_access.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_TRGMUX_Init" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_Init ()";
+	subgraph cluster_0_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_0_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1053877601\<bb\ 7\>:\l\
+|#\ prephitmp_47\ =\ PHI\ \<pretmp_32(8),\ 0(6)\>\l\
+|#\ ivtmp.25_38\ =\ PHI\ \<ivtmp.25_37(8),\ ivtmp.44_52(6)\>\l\
+|_5\ =\ prephitmp_47\ \>\>\ 2;\l\
+|_6\ =\ (int)\ _5;\l\
+|_7\ =\{v\}\ base_23(D)-\>TRGMUXn[_6];\l\
+|_21\ =\ prephitmp_47\ &\ 3;\l\
+|_9\ =\ (unsigned\ int)\ _21;\l\
+|_10\ =\ _9\ *\ 8;\l\
+|_11\ =\ 63\ \<\<\ _10;\l\
+|_12\ =\ ~_11;\l\
+|_13\ =\ _7\ &\ _12;\l\
+|base_23(D)-\>TRGMUXn[_6]\ =\{v\}\ _13;\l\
+|if\ (ivtmp.25_38\ !=\ ivtmp.44_50)\l\
+\ \ goto\ \<bb\ 8\>;\ [98.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [1.88%]\l\
+}"];
+
+	fn_0_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1034013376\<bb\ 8\>:\l\
+|ivtmp.25_37\ =\ ivtmp.25_38\ +\ 1;\l\
+|_55\ =\ (void\ *)\ ivtmp.25_37;\l\
+|pretmp_32\ =\ MEM[base:\ _55,\ offset:\ 0B];\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_0_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_0_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:508382450\<bb\ 3\>:\l\
+|#\ prephitmp_40\ =\ PHI\ \<0(2),\ pretmp_41(5)\>\l\
+|#\ ivtmp.44_50\ =\ PHI\ \<ivtmp.44_52(2),\ ivtmp.44_51(5)\>\l\
+|_27\ =\ prephitmp_40\ \>\>\ 2;\l\
+|_28\ =\ (int)\ _27;\l\
+|_29\ =\{v\}\ MEM[(const\ struct\ TRGMUX_Type\ *)base_23(D)].TRGMUXn[_28];\l\
+|_30\ =\ _29\ \>\>\ 31;\l\
+|lock_31\ =\ (_Bool)\ _30;\l\
+|if\ (_49\ !=\ ivtmp.44_50)\l\
+\ \ goto\ \<bb\ 4\>;\ [98.01%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [1.99%]\l\
+}"];
+
+	fn_0_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:498242398\<bb\ 4\>:\l\
+|if\ (_30\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [5.94%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [94.06%]\l\
+}"];
+
+	fn_0_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:468654001\<bb\ 5\>:\l\
+|ivtmp.44_51\ =\ ivtmp.44_50\ +\ 1;\l\
+|_39\ =\ (void\ *)\ ivtmp.44_51;\l\
+|pretmp_41\ =\ MEM[base:\ _39,\ offset:\ 0B];\l\
+goto\ \<bb\ 3\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_0_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_0_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_0_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:39728448\<bb\ 2\>:\l\
+|ivtmp.44_52\ =\ (unsigned\ int)\ &MEM\ \<const\ trgmux_target_module_t[53]\>\ [(void\ *)&s_trgmuxTargetModule];\l\
+|_49\ =\ ivtmp.44_52\ +\ 52;\l\
+}"];
+
+	fn_0_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19864224\<bb\ 6\>:\l\
+|if\ (lock_31\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [0.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_0_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:39728448\<bb\ 9\>:\l\
+|#\ status_17\ =\ PHI\ \<1(4),\ 1(6),\ 0(7)\>\l\
+|return\ status_17;\l\
+}"];
+
+	fn_0_basic_block_0:s -> fn_0_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_2:s -> fn_0_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_3:s -> fn_0_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[98%]"];
+	fn_0_basic_block_3:s -> fn_0_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[1%]"];
+	fn_0_basic_block_4:s -> fn_0_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_0_basic_block_4:s -> fn_0_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_0_basic_block_5:s -> fn_0_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_0_basic_block_6:s -> fn_0_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_0_basic_block_6:s -> fn_0_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_0_basic_block_7:s -> fn_0_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[98%]"];
+	fn_0_basic_block_7:s -> fn_0_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[1%]"];
+	fn_0_basic_block_8:s -> fn_0_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_0_basic_block_9:s -> fn_0_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_0_basic_block_0:s -> fn_0_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_SetTrigSourceForTargetModule" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_SetTrigSourceForTargetModule ()";
+	fn_1_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ targetModule_11(D)\ \>\>\ 2;\l\
+|_2\ =\ (int)\ _1;\l\
+|tmpReg_14\ =\{v\}\ base_13(D)-\>TRGMUXn[_2];\l\
+|_19\ =\ targetModule_11(D)\ &\ 3;\l\
+|_3\ =\ (unsigned\ int)\ _19;\l\
+|_4\ =\ _3\ *\ 8;\l\
+|_5\ =\ 63\ \<\<\ _4;\l\
+|_6\ =\ ~_5;\l\
+|tmpReg_15\ =\ _6\ &\ tmpReg_14;\l\
+|_7\ =\ (long\ unsigned\ int)\ triggerSource_16(D);\l\
+|_8\ =\ _19\ *\ 8;\l\
+|_9\ =\ (int)\ _8;\l\
+|_10\ =\ _7\ \<\<\ _9;\l\
+|tmpReg_17\ =\ _10\ \|\ tmpReg_15;\l\
+|base_13(D)-\>TRGMUXn[_2]\ =\{v\}\ tmpReg_17;\l\
+|return;\l\
+}"];
+
+	fn_1_basic_block_0:s -> fn_1_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_1_basic_block_2:s -> fn_1_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_1_basic_block_0:s -> fn_1_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_GetTrigSourceForTargetModule" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_GetTrigSourceForTargetModule ()";
+	fn_2_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_2_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_2_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ targetModule_7(D)\ \>\>\ 2;\l\
+|_2\ =\ (int)\ _1;\l\
+|_3\ =\{v\}\ base_9(D)-\>TRGMUXn[_2];\l\
+|_12\ =\ targetModule_7(D)\ &\ 3;\l\
+|_4\ =\ (unsigned\ int)\ _12;\l\
+|_5\ =\ _4\ *\ 8;\l\
+|_6\ =\ _3\ \>\>\ _5;\l\
+|trigSource_10\ =\ _6\ &\ 63;\l\
+|_11\ =\ (trgmux_trigger_source_t)\ trigSource_10;\l\
+|return\ _11;\l\
+}"];
+
+	fn_2_basic_block_0:s -> fn_2_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_2_basic_block_2:s -> fn_2_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_2_basic_block_0:s -> fn_2_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_SetLockForTargetModule" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_SetLockForTargetModule ()";
+	fn_3_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_3_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_3_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ targetModule_5(D)\ \>\>\ 2;\l\
+|_2\ =\ (int)\ _1;\l\
+|_3\ =\{v\}\ base_7(D)-\>TRGMUXn[_2];\l\
+|_4\ =\ _3\ \|\ 2147483648;\l\
+|base_7(D)-\>TRGMUXn[_2]\ =\{v\}\ _4;\l\
+|return;\l\
+}"];
+
+	fn_3_basic_block_0:s -> fn_3_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_3_basic_block_2:s -> fn_3_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_3_basic_block_0:s -> fn_3_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_GetLockForTargetModule" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_GetLockForTargetModule ()";
+	fn_4_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_4_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_4_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ targetModule_5(D)\ \>\>\ 2;\l\
+|_2\ =\ (int)\ _1;\l\
+|_3\ =\{v\}\ base_7(D)-\>TRGMUXn[_2];\l\
+|_4\ =\ _3\ \>\>\ 31;\l\
+|lock_8\ =\ (_Bool)\ _4;\l\
+|return\ lock_8;\l\
+}"];
+
+	fn_4_basic_block_0:s -> fn_4_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_4_basic_block_2:s -> fn_4_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_4_basic_block_0:s -> fn_4_basic_block_1:n [style="invis",constraint=true];
+}
+}

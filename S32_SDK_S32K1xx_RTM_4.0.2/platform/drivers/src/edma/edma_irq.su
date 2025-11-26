@@ -1,0 +1,17 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:248:6:DMA0_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:254:6:DMA1_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:260:6:DMA2_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:266:6:DMA3_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:272:6:DMA4_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:278:6:DMA5_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:284:6:DMA6_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:290:6:DMA7_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:297:6:DMA8_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:303:6:DMA9_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:309:6:DMA10_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:315:6:DMA11_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:321:6:DMA12_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:327:6:DMA13_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:333:6:DMA14_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:339:6:DMA15_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_irq.c:498:6:DMA_Error_IRQHandler	16	static

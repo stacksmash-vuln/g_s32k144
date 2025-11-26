@@ -1,0 +1,1091 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/event_groups.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_xEventGroupCreate" {
+	style="dashed";
+	color="black";
+	label="xEventGroupCreate ()";
+	fn_5_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_5_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_5_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|pxEventBits_5\ =\ pvPortMalloc\ (24);\l\
+|if\ (pxEventBits_5\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [53.47%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [46.53%]\l\
+}"];
+
+	fn_5_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:574129753\<bb\ 3\>:\l\
+|pxEventBits_5-\>uxEventBits\ =\ 0;\l\
+|_1\ =\ &pxEventBits_5-\>xTasksWaitingForBits;\l\
+|vListInitialise\ (_1);\l\
+}"];
+
+	fn_5_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|return\ pxEventBits_5;\l\
+}"];
+
+	fn_5_basic_block_0:s -> fn_5_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_2:s -> fn_5_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[53%]"];
+	fn_5_basic_block_2:s -> fn_5_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[46%]"];
+	fn_5_basic_block_3:s -> fn_5_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_4:s -> fn_5_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_5_basic_block_0:s -> fn_5_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_xEventGroupWaitBits" {
+	style="dashed";
+	color="black";
+	label="xEventGroupWaitBits ()";
+	subgraph cluster_7_4 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 4";
+	labeljust=l;
+	penwidth=2;
+	fn_7_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:920350123\<bb\ 4\>:\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_7_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_7_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_7_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_7_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:719407025\<bb\ 10\>:\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_7_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_7_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118702158\<bb\ 14\>:\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_7_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_7_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_7_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:30374594\<bb\ 2\>:\l\
+|if\ (xEventGroup_21(D)\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [30.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [70.00%]\l\
+}"];
+
+	fn_7_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9112378\<bb\ 3\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_43\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_7_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:21262216\<bb\ 5\>:\l\
+|_1\ =\ uxBitsToWaitFor_22(D)\ &\ 4278190080;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 6\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_29\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_7_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 8\>:\l\
+|if\ (uxBitsToWaitFor_22(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [33.00%]\l\
+}"];
+
+	fn_7_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:7122842\<bb\ 9\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_47\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_7_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:3508266\<bb\ 11\>:\l\
+|_2\ =\ xTaskGetSchedulerState\ ();\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 15\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [67.00%]\l\
+}"];
+
+	fn_7_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2350538\<bb\ 12\>:\l\
+|if\ (xTicksToWait_25(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1175269\<bb\ 13\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_48\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_7_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2332997\<bb\ 15\>:\l\
+|vTaskSuspendAll\ ();\l\
+|uxCurrentEventBits_27\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_21(D)].uxEventBits;\l\
+|if\ (xWaitForAllBits_28(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1166498\<bb\ 16\>:\l\
+|_49\ =\ uxBitsToWaitFor_22(D)\ &\ uxCurrentEventBits_27;\l\
+|if\ (_49\ !=\ 0)\l\
+\ \ goto\ \<bb\ 18\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1166498\<bb\ 17\>:\l\
+|_50\ =\ uxBitsToWaitFor_22(D)\ &\ uxCurrentEventBits_27;\l\
+|if\ (uxBitsToWaitFor_22(D)\ ==\ _50)\l\
+\ \ goto\ \<bb\ 18\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [66.00%]\l\
+}"];
+
+	fn_7_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:979859\<bb\ 18\>:\l\
+|if\ (xClearOnExit_30(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 20\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:489930\<bb\ 19\>:\l\
+|xTaskResumeAll\ ();\l\
+goto\ \<bb\ 36\>;\ [100.00%]\l\
+}"];
+
+	fn_7_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:489929\<bb\ 20\>:\l\
+|_3\ =\ ~uxBitsToWaitFor_22(D);\l\
+|_4\ =\ _3\ &\ uxCurrentEventBits_27;\l\
+|MEM[(struct\ EventGroup_t\ *)xEventGroup_21(D)].uxEventBits\ =\ _4;\l\
+|xTaskResumeAll\ ();\l\
+goto\ \<bb\ 36\>;\ [100.00%]\l\
+}"];
+
+	fn_7_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1353138\<bb\ 21\>:\l\
+|if\ (xTicksToWait_25(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 37\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:676569\<bb\ 22\>:\l\
+|if\ (xClearOnExit_30(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 23\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:338285\<bb\ 23\>:\l\
+}"];
+
+	fn_7_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:676569\<bb\ 24\>:\l\
+|#\ uxControlBits_14\ =\ PHI\ \<_1(22),\ 16777216(23)\>\l\
+|if\ (xWaitForAllBits_28(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 25\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 26\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:338285\<bb\ 25\>:\l\
+|uxControlBits_31\ =\ uxControlBits_14\ \|\ 67108864;\l\
+}"];
+
+	fn_7_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1166498\<bb\ 26\>:\l\
+|#\ uxControlBits_15\ =\ PHI\ \<uxControlBits_31(25),\ uxControlBits_14(24)\>\l\
+|_5\ =\ &MEM[(struct\ EventGroup_t\ *)xEventGroup_21(D)].xTasksWaitingForBits;\l\
+|_6\ =\ uxControlBits_15\ \|\ uxBitsToWaitFor_22(D);\l\
+|vTaskPlaceOnUnorderedEventList\ (_5,\ _6,\ xTicksToWait_25(D));\l\
+|xAlreadyYielded_89\ =\ xTaskResumeAll\ ();\l\
+|if\ (xAlreadyYielded_89\ ==\ 0)\l\
+\ \ goto\ \<bb\ 27\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:583249\<bb\ 27\>:\l\
+|MEM[(volatile\ uint32_t\ *)3758157060B]\ =\{v\}\ 268435456;\l\
+|__asm__\ __volatile__(\"dsb\"\ :\ \ :\ \ :\ \"memory\");\l\
+|__asm__\ __volatile__(\"isb\");\l\
+}"];
+
+	fn_7_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1166498\<bb\ 28\>:\l\
+|uxReturn_40\ =\ uxTaskResetEventItemValue\ ();\l\
+|_7\ =\ uxReturn_40\ &\ 33554432;\l\
+|if\ (_7\ ==\ 0)\l\
+\ \ goto\ \<bb\ 29\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 35\>;\ [67.00%]\l\
+}"];
+
+	fn_7_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:384944\<bb\ 29\>:\l\
+|vPortEnterCritical\ ();\l\
+|uxReturn_42\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_21(D)].uxEventBits;\l\
+|if\ (xWaitForAllBits_28(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 30\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 31\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:192472\<bb\ 30\>:\l\
+|_51\ =\ uxBitsToWaitFor_22(D)\ &\ uxReturn_42;\l\
+|if\ (_51\ !=\ 0)\l\
+\ \ goto\ \<bb\ 32\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 34\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:192472\<bb\ 31\>:\l\
+|_52\ =\ uxBitsToWaitFor_22(D)\ &\ uxReturn_42;\l\
+|if\ (uxBitsToWaitFor_22(D)\ ==\ _52)\l\
+\ \ goto\ \<bb\ 32\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 34\>;\ [66.00%]\l\
+}"];
+
+	fn_7_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:161677\<bb\ 32\>:\l\
+|if\ (xClearOnExit_30(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 33\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 34\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:80838\<bb\ 33\>:\l\
+|_8\ =\ ~uxBitsToWaitFor_22(D);\l\
+|_9\ =\ _8\ &\ uxReturn_42;\l\
+|MEM[(struct\ EventGroup_t\ *)xEventGroup_21(D)].uxEventBits\ =\ _9;\l\
+}"];
+
+	fn_7_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:384944\<bb\ 34\>:\l\
+|vPortExitCritical\ ();\l\
+}"];
+
+	fn_7_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1166498\<bb\ 35\>:\l\
+|#\ uxReturn_12\ =\ PHI\ \<uxReturn_42(34),\ uxReturn_40(28)\>\l\
+|uxReturn_46\ =\ uxReturn_12\ &\ 16777215;\l\
+}"];
+
+	fn_7_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2332997\<bb\ 36\>:\l\
+|#\ uxReturn_13\ =\ PHI\ \<uxCurrentEventBits_27(37),\ uxReturn_46(35),\ uxCurrentEventBits_27(20),\ uxCurrentEventBits_27(19)\>\l\
+|return\ uxReturn_13;\l\
+}"];
+
+	fn_7_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:141830\<bb\ 37\>:\l\
+|xTaskResumeAll\ ();\l\
+goto\ \<bb\ 36\>;\ [100.00%]\l\
+}"];
+
+	fn_7_basic_block_0:s -> fn_7_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_7_basic_block_3:s -> fn_7_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_4:s -> fn_7_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_7_basic_block_5:s -> fn_7_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_5:s -> fn_7_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_6:s -> fn_7_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_7:s -> fn_7_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_7_basic_block_8:s -> fn_7_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_7_basic_block_8:s -> fn_7_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_7_basic_block_9:s -> fn_7_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_10:s -> fn_7_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_7_basic_block_11:s -> fn_7_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_7_basic_block_11:s -> fn_7_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_7_basic_block_12:s -> fn_7_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_12:s -> fn_7_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_13:s -> fn_7_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_14:s -> fn_7_basic_block_14:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_7_basic_block_15:s -> fn_7_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_15:s -> fn_7_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_16:s -> fn_7_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_16:s -> fn_7_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_17:s -> fn_7_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_7_basic_block_17:s -> fn_7_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_7_basic_block_18:s -> fn_7_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_18:s -> fn_7_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_19:s -> fn_7_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_20:s -> fn_7_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_21:s -> fn_7_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_21:s -> fn_7_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_22:s -> fn_7_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_22:s -> fn_7_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_23:s -> fn_7_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_24:s -> fn_7_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_24:s -> fn_7_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_25:s -> fn_7_basic_block_26:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_26:s -> fn_7_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_26:s -> fn_7_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_27:s -> fn_7_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_28:s -> fn_7_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_7_basic_block_28:s -> fn_7_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_7_basic_block_29:s -> fn_7_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_29:s -> fn_7_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_30:s -> fn_7_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_30:s -> fn_7_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_31:s -> fn_7_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_7_basic_block_31:s -> fn_7_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_7_basic_block_32:s -> fn_7_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_32:s -> fn_7_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_33:s -> fn_7_basic_block_34:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_34:s -> fn_7_basic_block_35:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_35:s -> fn_7_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_36:s -> fn_7_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_7_basic_block_37:s -> fn_7_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_0:s -> fn_7_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_xEventGroupClearBits" {
+	style="dashed";
+	color="black";
+	label="xEventGroupClearBits ()";
+	subgraph cluster_8_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_8_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686828449\<bb\ 4\>:\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_8_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_8_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22667608\<bb\ 2\>:\l\
+|if\ (xEventGroup_3(D)\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [30.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [70.00%]\l\
+}"];
+
+	fn_8_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:6800282\<bb\ 3\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_7\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_8_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:15867325\<bb\ 5\>:\l\
+|_1\ =\ uxBitsToClear_5(D)\ &\ 4278190080;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [33.00%]\l\
+}"];
+
+	fn_8_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 6\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_8\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_8_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:5236217\<bb\ 8\>:\l\
+|vPortEnterCritical\ ();\l\
+|uxReturn_11\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_3(D)].uxEventBits;\l\
+|_12\ =\ ~uxBitsToClear_5(D);\l\
+|_13\ =\ uxReturn_11\ &\ _12;\l\
+|MEM[(struct\ EventGroup_t\ *)xEventGroup_3(D)].uxEventBits\ =\ _13;\l\
+|vPortExitCritical\ ();\l\
+|return\ uxReturn_11;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_8_basic_block_3:s -> fn_8_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_4:s -> fn_8_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_8_basic_block_5:s -> fn_8_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_8_basic_block_5:s -> fn_8_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_8_basic_block_6:s -> fn_8_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_7:s -> fn_8_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_8_basic_block_8:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_xEventGroupGetBitsFromISR" {
+	style="dashed";
+	color="black";
+	label="xEventGroupGetBitsFromISR ()";
+	fn_9_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_9_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_9_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|__asm__\ __volatile__(\"	mrs\ %0,\ basepri											\l\
+	mov\ %1,\ %2												\l\
+	msr\ basepri,\ %1											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulOriginalBASEPRI_4,\ \"=r\"\ ulNewBASEPRI_5\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+|uxReturn_3\ =\ MEM[(const\ struct\ EventGroup_t\ *)xEventGroup_1(D)].uxEventBits;\l\
+|__asm__\ __volatile__(\"	msr\ basepri,\ %0	\"\ :\ \ :\ \"r\"\ ulOriginalBASEPRI_4\ :\ \"memory\");\l\
+|return\ uxReturn_3;\l\
+}"];
+
+	fn_9_basic_block_0:s -> fn_9_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_9_basic_block_0:s -> fn_9_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_xEventGroupSetBits" {
+	style="dashed";
+	color="black";
+	label="xEventGroupSetBits ()";
+	subgraph cluster_10_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_10_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686828449\<bb\ 4\>:\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_10_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_10_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_10_4 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 4";
+	labeljust=l;
+	penwidth=2;
+	fn_10_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:42365759\<bb\ 9\>:\l\
+|#\ pxListItem_35\ =\ PHI\ \<pxListItem_12(8),\ pxNext_16(15)\>\l\
+|#\ uxBitsToClear_50\ =\ PHI\ \<_1(8),\ uxBitsToClear_36(15)\>\l\
+|#\ prephitmp_6\ =\ PHI\ \<_14(8),\ prephitmp_54(15)\>\l\
+|pxNext_16\ =\ pxListItem_35-\>pxNext;\l\
+|uxBitsWaitedFor_17\ =\ pxListItem_35-\>xItemValue;\l\
+|uxBitsWaitedFor_18\ =\ uxBitsWaitedFor_17\ &\ 16777215;\l\
+|_19\ =\ uxBitsWaitedFor_17\ &\ 67108864;\l\
+|if\ (_19\ ==\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_10_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:21182879\<bb\ 10\>:\l\
+|_21\ =\ prephitmp_6\ &\ uxBitsWaitedFor_18;\l\
+|if\ (_21\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+}"];
+
+	fn_10_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:21182879\<bb\ 11\>:\l\
+|_23\ =\ prephitmp_6\ &\ uxBitsWaitedFor_18;\l\
+|if\ (uxBitsWaitedFor_18\ ==\ _23)\l\
+\ \ goto\ \<bb\ 12\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [66.00%]\l\
+}"];
+
+	fn_10_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:17793619\<bb\ 12\>:\l\
+|_24\ =\ uxBitsWaitedFor_17\ &\ 16777216;\l\
+|if\ (_24\ !=\ 0)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+}"];
+
+	fn_10_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:42365759\<bb\ 15\>:\l\
+|#\ uxBitsToClear_36\ =\ PHI\ \<uxBitsToClear_50(10),\ uxBitsToClear_34(14),\ uxBitsToClear_50(11)\>\l\
+|#\ prephitmp_54\ =\ PHI\ \<prephitmp_6(10),\ pretmp_53(14),\ prephitmp_6(11)\>\l\
+|if\ (pxListEnd_11\ !=\ pxNext_16)\l\
+\ \ goto\ \<bb\ 9\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [11.00%]\l\
+}"];
+
+	fn_10_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:8896809\<bb\ 13\>:\l\
+|uxBitsToClear_26\ =\ uxBitsWaitedFor_18\ \|\ uxBitsToClear_50;\l\
+}"];
+
+	fn_10_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:17793619\<bb\ 14\>:\l\
+|#\ uxBitsToClear_34\ =\ PHI\ \<uxBitsToClear_26(13),\ uxBitsToClear_50(12)\>\l\
+|_28\ =\ prephitmp_6\ \|\ 33554432;\l\
+|vTaskRemoveFromUnorderedEventList\ (pxListItem_35,\ _28);\l\
+|pretmp_53\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_3(D)].uxEventBits;\l\
+}"];
+
+	}
+	fn_10_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_10_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_10_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22667608\<bb\ 2\>:\l\
+|if\ (xEventGroup_3(D)\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [30.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [70.00%]\l\
+}"];
+
+	fn_10_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:6800282\<bb\ 3\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_7\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_10_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:15867325\<bb\ 5\>:\l\
+|_1\ =\ uxBitsToSet_4(D)\ &\ 4278190080;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [33.00%]\l\
+}"];
+
+	fn_10_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 6\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_8\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_10_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:5236217\<bb\ 8\>:\l\
+|pxListEnd_11\ =\ &MEM[(const\ struct\ List_t\ *)xEventGroup_3(D)\ +\ 4B].xListEnd;\l\
+|vTaskSuspendAll\ ();\l\
+|pxListItem_12\ =\ MEM[(const\ struct\ List_t\ *)xEventGroup_3(D)\ +\ 4B].xListEnd.pxNext;\l\
+|_13\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_3(D)].uxEventBits;\l\
+|_14\ =\ uxBitsToSet_4(D)\ \|\ _13;\l\
+|MEM[(struct\ EventGroup_t\ *)xEventGroup_3(D)].uxEventBits\ =\ _14;\l\
+|if\ (pxListEnd_11\ !=\ pxListItem_12)\l\
+\ \ goto\ \<bb\ 9\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [11.00%]\l\
+}"];
+
+	fn_10_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:4660233\<bb\ 16\>:\l\
+|_56\ =\ ~uxBitsToClear_36;\l\
+|_58\ =\ prephitmp_54\ &\ _56;\l\
+}"];
+
+	fn_10_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:5236217\<bb\ 17\>:\l\
+|#\ prephitmp_59\ =\ PHI\ \<_58(16),\ _14(8)\>\l\
+|MEM[(struct\ EventGroup_t\ *)xEventGroup_3(D)].uxEventBits\ =\ prephitmp_59;\l\
+|xTaskResumeAll\ ();\l\
+|_33\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_3(D)].uxEventBits;\l\
+|return\ _33;\l\
+}"];
+
+	fn_10_basic_block_0:s -> fn_10_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_10_basic_block_3:s -> fn_10_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_4:s -> fn_10_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_10_basic_block_5:s -> fn_10_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_10_basic_block_5:s -> fn_10_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_10_basic_block_6:s -> fn_10_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_7:s -> fn_10_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_10_basic_block_8:s -> fn_10_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_10_basic_block_8:s -> fn_10_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_10_basic_block_9:s -> fn_10_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_9:s -> fn_10_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_10:s -> fn_10_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_10:s -> fn_10_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_11:s -> fn_10_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_10_basic_block_11:s -> fn_10_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_10_basic_block_12:s -> fn_10_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_12:s -> fn_10_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_13:s -> fn_10_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_14:s -> fn_10_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_15:s -> fn_10_basic_block_9:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_10_basic_block_15:s -> fn_10_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_10_basic_block_16:s -> fn_10_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_17:s -> fn_10_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_10_basic_block_0:s -> fn_10_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_xEventGroupSync" {
+	style="dashed";
+	color="black";
+	label="xEventGroupSync ()";
+	subgraph cluster_6_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_6_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_6_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_6_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:719407024\<bb\ 7\>:\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_6_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_6_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118702158\<bb\ 11\>:\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_6_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_6_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_6_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:21262216\<bb\ 2\>:\l\
+|_1\ =\ uxBitsToWaitFor_24(D)\ &\ 4278190080;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_6_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 3\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_47\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_6_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 5\>:\l\
+|if\ (uxBitsToWaitFor_24(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [33.00%]\l\
+}"];
+
+	fn_6_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:7122842\<bb\ 6\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_48\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_6_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:3508266\<bb\ 8\>:\l\
+|_2\ =\ xTaskGetSchedulerState\ ();\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [67.00%]\l\
+}"];
+
+	fn_6_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2350538\<bb\ 9\>:\l\
+|if\ (xTicksToWait_27(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 24\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_6_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1175269\<bb\ 10\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_49\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_6_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1157728\<bb\ 12\>:\l\
+|vTaskSuspendAll\ ();\l\
+|uxOriginalBitValue_29\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_23(D)].uxEventBits;\l\
+|xEventGroupSetBits\ (xEventGroup_23(D),\ uxBitsToSet_30(D));\l\
+|_3\ =\ uxOriginalBitValue_29\ \|\ uxBitsToSet_30(D);\l\
+|_4\ =\ _3\ &\ uxBitsToWaitFor_24(D);\l\
+|if\ (_4\ ==\ uxBitsToWaitFor_24(D))\l\
+\ \ goto\ \<bb\ 13\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [66.00%]\l\
+}"];
+
+	fn_6_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:793219\<bb\ 13\>:\l\
+|#\ _71\ =\ PHI\ \<_3(12),\ _69(24)\>\l\
+|_5\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_23(D)].uxEventBits;\l\
+|_6\ =\ ~uxBitsToWaitFor_24(D);\l\
+|_7\ =\ _5\ &\ _6;\l\
+|MEM[(struct\ EventGroup_t\ *)xEventGroup_23(D)].uxEventBits\ =\ _7;\l\
+|xTaskResumeAll\ ();\l\
+goto\ \<bb\ 23\>;\ [100.00%]\l\
+}"];
+
+	fn_6_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:764100\<bb\ 14\>:\l\
+|if\ (xTicksToWait_27(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 15\>;\ [66.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [33.50%]\l\
+}"];
+
+	fn_6_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1166498\<bb\ 15\>:\l\
+|_8\ =\ &MEM[(struct\ EventGroup_t\ *)xEventGroup_23(D)].xTasksWaitingForBits;\l\
+|_9\ =\ uxBitsToWaitFor_24(D)\ \|\ 83886080;\l\
+|vTaskPlaceOnUnorderedEventList\ (_8,\ _9,\ xTicksToWait_27(D));\l\
+|xAlreadyYielded_36\ =\ xTaskResumeAll\ ();\l\
+|if\ (xAlreadyYielded_36\ ==\ 0)\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [50.00%]\l\
+}"];
+
+	fn_6_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1031651\<bb\ 16\>:\l\
+|uxReturn_32\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_23(D)].uxEventBits;\l\
+|xTaskResumeAll\ ();\l\
+goto\ \<bb\ 23\>;\ [100.00%]\l\
+}"];
+
+	fn_6_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:583249\<bb\ 17\>:\l\
+|MEM[(volatile\ uint32_t\ *)3758157060B]\ =\{v\}\ 268435456;\l\
+|__asm__\ __volatile__(\"dsb\"\ :\ \ :\ \ :\ \"memory\");\l\
+|__asm__\ __volatile__(\"isb\");\l\
+}"];
+
+	fn_6_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1166498\<bb\ 18\>:\l\
+|uxReturn_41\ =\ uxTaskResetEventItemValue\ ();\l\
+|_10\ =\ uxReturn_41\ &\ 33554432;\l\
+|if\ (_10\ ==\ 0)\l\
+\ \ goto\ \<bb\ 19\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [67.00%]\l\
+}"];
+
+	fn_6_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:384944\<bb\ 19\>:\l\
+|vPortEnterCritical\ ();\l\
+|uxReturn_43\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_23(D)].uxEventBits;\l\
+|_11\ =\ uxBitsToWaitFor_24(D)\ &\ uxReturn_43;\l\
+|if\ (_11\ ==\ uxBitsToWaitFor_24(D))\l\
+\ \ goto\ \<bb\ 20\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [66.00%]\l\
+}"];
+
+	fn_6_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:130881\<bb\ 20\>:\l\
+|_12\ =\ ~uxBitsToWaitFor_24(D);\l\
+|_13\ =\ _12\ &\ uxReturn_43;\l\
+|MEM[(struct\ EventGroup_t\ *)xEventGroup_23(D)].uxEventBits\ =\ _13;\l\
+}"];
+
+	fn_6_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:384944\<bb\ 21\>:\l\
+|vPortExitCritical\ ();\l\
+}"];
+
+	fn_6_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1166498\<bb\ 22\>:\l\
+|#\ uxReturn_16\ =\ PHI\ \<uxReturn_43(21),\ uxReturn_41(18)\>\l\
+|uxReturn_46\ =\ uxReturn_16\ &\ 16777215;\l\
+}"];
+
+	fn_6_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2332997\<bb\ 23\>:\l\
+|#\ uxReturn_17\ =\ PHI\ \<uxReturn_32(16),\ uxReturn_46(22),\ _71(13)\>\l\
+|return\ uxReturn_17;\l\
+}"];
+
+	fn_6_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1175269\<bb\ 24\>:\l\
+|vTaskSuspendAll\ ();\l\
+|uxOriginalBitValue_67\ =\ MEM[(struct\ EventGroup_t\ *)xEventGroup_23(D)].uxEventBits;\l\
+|xEventGroupSetBits\ (xEventGroup_23(D),\ uxBitsToSet_30(D));\l\
+|_69\ =\ uxBitsToSet_30(D)\ \|\ uxOriginalBitValue_67;\l\
+|_70\ =\ uxBitsToWaitFor_24(D)\ &\ _69;\l\
+|if\ (uxBitsToWaitFor_24(D)\ ==\ _70)\l\
+\ \ goto\ \<bb\ 13\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [66.00%]\l\
+}"];
+
+	fn_6_basic_block_0:s -> fn_6_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_3:s -> fn_6_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_4:s -> fn_6_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_6_basic_block_5:s -> fn_6_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_6_basic_block_5:s -> fn_6_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_6_basic_block_6:s -> fn_6_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_7:s -> fn_6_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_6_basic_block_8:s -> fn_6_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_6_basic_block_8:s -> fn_6_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_6_basic_block_9:s -> fn_6_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_9:s -> fn_6_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_10:s -> fn_6_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_11:s -> fn_6_basic_block_11:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_6_basic_block_12:s -> fn_6_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_6_basic_block_12:s -> fn_6_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_6_basic_block_13:s -> fn_6_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_14:s -> fn_6_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_6_basic_block_14:s -> fn_6_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_6_basic_block_15:s -> fn_6_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_15:s -> fn_6_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_6_basic_block_16:s -> fn_6_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_17:s -> fn_6_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_18:s -> fn_6_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_6_basic_block_18:s -> fn_6_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_6_basic_block_19:s -> fn_6_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_6_basic_block_19:s -> fn_6_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_6_basic_block_20:s -> fn_6_basic_block_21:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_21:s -> fn_6_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_22:s -> fn_6_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_23:s -> fn_6_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_6_basic_block_24:s -> fn_6_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_6_basic_block_24:s -> fn_6_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_6_basic_block_0:s -> fn_6_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_vEventGroupDelete" {
+	style="dashed";
+	color="black";
+	label="vEventGroupDelete ()";
+	subgraph cluster_11_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_11_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_11_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_11_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:193292874\<bb\ 5\>:\l\
+|_1\ =\ MEM[(const\ struct\ List_t\ *)xEventGroup_5(D)\ +\ 4B].xListEnd.pxNext;\l\
+|if\ (_1\ ==\ pretmp_4)\l\
+\ \ goto\ \<bb\ 6\>;\ [5.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [94.50%]\l\
+}"];
+
+	fn_11_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182661766\<bb\ 8\>:\l\
+|vTaskRemoveFromUnorderedEventList\ (_1,\ 33554432);\l\
+|_3\ =\{v\}\ MEM[(const\ struct\ List_t\ *)xEventGroup_5(D)\ +\ 4B].uxNumberOfItems;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [5.50%]\l\
+}"];
+
+	}
+	fn_11_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_11_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_11_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:21880958\<bb\ 2\>:\l\
+|vTaskSuspendAll\ ();\l\
+|_13\ =\{v\}\ MEM[(const\ struct\ List_t\ *)xEventGroup_5(D)\ +\ 4B].uxNumberOfItems;\l\
+|if\ (_13\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [5.50%]\l\
+}"];
+
+	fn_11_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:11249850\<bb\ 3\>:\l\
+|vPortFree\ (xEventGroup_5(D));\l\
+|xTaskResumeAll\ ();\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_11_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:20677505\<bb\ 4\>:\l\
+|pretmp_4\ =\ &MEM[(const\ struct\ List_t\ *)xEventGroup_5(D)\ +\ 4B].xListEnd;\l\
+}"];
+
+	fn_11_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 6\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_11\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_11_basic_block_0:s -> fn_11_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_11_basic_block_2:s -> fn_11_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_11_basic_block_2:s -> fn_11_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_11_basic_block_3:s -> fn_11_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_11_basic_block_4:s -> fn_11_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_11_basic_block_5:s -> fn_11_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_11_basic_block_5:s -> fn_11_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_11_basic_block_6:s -> fn_11_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_11_basic_block_7:s -> fn_11_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_11_basic_block_8:s -> fn_11_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[94%]"];
+	fn_11_basic_block_8:s -> fn_11_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_11_basic_block_0:s -> fn_11_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_vEventGroupSetBitsCallback" {
+	style="dashed";
+	color="black";
+	label="vEventGroupSetBitsCallback ()";
+	fn_12_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_12_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_12_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|xEventGroupSetBits\ (pvEventGroup_2(D),\ ulBitsToSet_3(D));\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_12_basic_block_0:s -> fn_12_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_12_basic_block_2:s -> fn_12_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_12_basic_block_0:s -> fn_12_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_vEventGroupClearBitsCallback" {
+	style="dashed";
+	color="black";
+	label="vEventGroupClearBitsCallback ()";
+	subgraph cluster_13_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_13_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:32534373790\<bb\ 4\>:\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_13_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_13_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:50862071755\<bb\ 7\>:\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_13_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_13_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_13_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (pvEventGroup_2(D)\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [30.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [70.00%]\l\
+}"];
+
+	fn_13_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:322122528\<bb\ 3\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_5\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_13_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619248\<bb\ 5\>:\l\
+|_6\ =\ ulBitsToClear_3(D)\ &\ 4278190080;\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [33.00%]\l\
+}"];
+
+	fn_13_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:503584908\<bb\ 6\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_7\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_13_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:248034340\<bb\ 8\>:\l\
+|vPortEnterCritical\ ();\l\
+|uxReturn_9\ =\ MEM[(struct\ EventGroup_t\ *)pvEventGroup_2(D)].uxEventBits;\l\
+|_10\ =\ ~ulBitsToClear_3(D);\l\
+|_11\ =\ uxReturn_9\ &\ _10;\l\
+|MEM[(struct\ EventGroup_t\ *)pvEventGroup_2(D)].uxEventBits\ =\ _11;\l\
+|vPortExitCritical\ ();\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_13_basic_block_0:s -> fn_13_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_13_basic_block_2:s -> fn_13_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_13_basic_block_2:s -> fn_13_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_13_basic_block_3:s -> fn_13_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_13_basic_block_4:s -> fn_13_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_13_basic_block_5:s -> fn_13_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_13_basic_block_5:s -> fn_13_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_13_basic_block_6:s -> fn_13_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_13_basic_block_7:s -> fn_13_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_13_basic_block_8:s -> fn_13_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_13_basic_block_0:s -> fn_13_basic_block_1:n [style="invis",constraint=true];
+}
+}

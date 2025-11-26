@@ -1,0 +1,390 @@
+
+;; Function LPSPI_DRV_IRQHandler (LPSPI_DRV_IRQHandler, funcdef_no=29, decl_uid=7600, cgraph_uid=30, symbol_order=33)
+
+Removing basic block 7
+LPSPI_DRV_IRQHandler (uint32_t instance)
+{
+  const struct LPSPI_Type * base;
+  long unsigned int _7;
+  _Bool _8;
+
+  <bb 2> [local count: 1073741824]:
+  if (instance_2(D) <= 2)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  base_4 = g_lpspiBase[instance_2(D)];
+  _7 ={v} base_4->CFGR1;
+  _8 = (_Bool) _7;
+  if (_8 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  LPSPI_DRV_MasterIRQHandler (instance_2(D)); [tail call]
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 268435456]:
+  LPSPI_DRV_SlaveIRQHandler (instance_2(D)); [tail call]
+
+  <bb 6> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPSPI_DRV_FillupTxBuffer (LPSPI_DRV_FillupTxBuffer, funcdef_no=30, decl_uid=7602, cgraph_uid=31, symbol_order=34)
+
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+LPSPI_DRV_FillupTxBuffer (uint32_t instance)
+{
+  uint8_t availableSpace;
+  uint16_t numOfBytes;
+  uint32_t wordToSend;
+  struct LPSPI_Type * base;
+  struct lpspi_state_t * lpspiState;
+  unsigned char _1;
+  unsigned char _2;
+  _Bool _3;
+  short unsigned int _4;
+  short unsigned int _5;
+  int _6;
+  short unsigned int _7;
+  int _8;
+  int _9;
+  short unsigned int _10;
+  const uint8_t * _11;
+  unsigned char _12;
+  const uint8_t * _13;
+  short unsigned int _14;
+  const uint8_t * _15;
+  const uint8_t * _16;
+  short unsigned int _17;
+  int _18;
+  int _19;
+  int _20;
+  int _21;
+  short unsigned int _22;
+  short unsigned int _23;
+  short unsigned int _24;
+  short unsigned int _25;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+
+  <bb 2> [local count: 95397012]:
+  lpspiState_36 = g_lpspiStatePtr[instance_35(D)];
+  base_37 = g_lpspiBase[instance_35(D)];
+  _1 = lpspiState_36->fifoSize;
+  _50 ={v} MEM[(const struct LPSPI_Type *)base_37].FSR;
+  _51 = _50 & 7;
+  _2 = (unsigned char) _51;
+  availableSpace_38 = _1 - _2;
+  if (availableSpace_38 != 0)
+    goto <bb 3>; [96.34%]
+  else
+    goto <bb 18>; [3.66%]
+
+  <bb 3> [local count: 91905481]:
+  _3 = lpspiState_36->isPcsContinuous;
+
+  <bb 4> [local count: 1034442873]:
+  # availableSpace_66 = PHI <availableSpace_38(3), availableSpace_49(17)>
+  if (_3 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 517221436]:
+  _4 ={v} lpspiState_36->txCount;
+  if (_4 == 1)
+    goto <bb 6>; [3.66%]
+  else
+    goto <bb 7>; [96.34%]
+
+  <bb 6> [local count: 18930305]:
+  _52 ={v} base_37->TCR;
+  _53 = _52 & 4293918719;
+  base_37->TCR ={v} _53;
+  lpspiState_36->txCount ={v} 0;
+  goto <bb 19>; [100.00%]
+
+  <bb 7> [local count: 1015512568]:
+  _5 = lpspiState_36->bytesPerFrame;
+  _6 = (int) _5;
+  _7 ={v} lpspiState_36->txFrameCnt;
+  _8 = (int) _7;
+  _9 = _6 - _8;
+  if (_9 <= 4)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 507756284]:
+  _10 ={v} lpspiState_36->txFrameCnt;
+  numOfBytes_40 = _5 - _10;
+
+  <bb 9> [local count: 1015512568]:
+  # numOfBytes_28 = PHI <numOfBytes_40(8), 4(7)>
+  _11 = lpspiState_36->txBuff;
+  if (_11 != 0B)
+    goto <bb 10>; [70.00%]
+  else
+    goto <bb 16>; [30.00%]
+
+  <bb 10> [local count: 710858801]:
+  if (_5 == 1)
+    goto <bb 12>; [33.33%]
+  else
+    goto <bb 11>; [66.67%]
+
+  <bb 11> [local count: 710858801]:
+  if (_5 == 2)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 12> [local count: 236952935]:
+  _12 = *_11;
+  wordToSend_43 = (uint32_t) _12;
+  _13 = _11 + 1;
+  lpspiState_36->txBuff = _13;
+  goto <bb 15>; [100.00%]
+
+  <bb 13> [local count: 236952935]:
+  _14 = MEM[(const uint16_t *)_11];
+  wordToSend_41 = (uint32_t) _14;
+  _15 = _11 + 2;
+  lpspiState_36->txBuff = _15;
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [local count: 236952935]:
+  wordToSend_45 = MEM[(const uint32_t *)_11];
+  _16 = _11 + 4;
+  lpspiState_36->txBuff = _16;
+
+  <bb 15> [local count: 710858807]:
+  # wordToSend_26 = PHI <wordToSend_43(12), wordToSend_41(13), wordToSend_45(14)>
+  _17 ={v} lpspiState_36->txFrameCnt;
+  _18 = (int) _17;
+  _19 = (int) numOfBytes_28;
+  _20 = _18 + _19;
+  _21 = _20 % _6;
+  _22 = (short unsigned int) _21;
+  lpspiState_36->txFrameCnt ={v} _22;
+
+  <bb 16> [local count: 1015512574]:
+  # wordToSend_27 = PHI <wordToSend_26(15), 0(9)>
+  base_37->TDR ={v} wordToSend_27;
+  _23 ={v} lpspiState_36->txCount;
+  _24 = _23 - numOfBytes_28;
+  lpspiState_36->txCount ={v} _24;
+  _25 ={v} lpspiState_36->txCount;
+  if (_25 == 0)
+    goto <bb 18>; [3.66%]
+  else
+    goto <bb 17>; [96.34%]
+
+  <bb 17> [local count: 978344813]:
+  availableSpace_49 = availableSpace_66 + 255;
+  if (availableSpace_49 != 0)
+    goto <bb 4>; [96.34%]
+  else
+    goto <bb 18>; [3.66%]
+
+  <bb 18> [local count: 76466713]:
+
+  <bb 19> [local count: 95397019]:
+  return;
+
+}
+
+
+
+;; Function LPSPI_DRV_ReadRXBuffer (LPSPI_DRV_ReadRXBuffer, funcdef_no=31, decl_uid=7604, cgraph_uid=32, symbol_order=35)
+
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+LPSPI_DRV_ReadRXBuffer (uint32_t instance)
+{
+  unsigned int ivtmp.28;
+  uint8_t filledSpace;
+  uint16_t j;
+  uint16_t numOfBytes;
+  const struct LPSPI_Type * base;
+  struct lpspi_state_t * lpspiState;
+  int _2;
+  short unsigned int _3;
+  int _4;
+  int _5;
+  short unsigned int _6;
+  long unsigned int _9;
+  unsigned char _11;
+  uint8_t * _12;
+  uint8_t * _13;
+  short unsigned int _14;
+  int _15;
+  int _17;
+  int _20;
+  short unsigned int _21;
+  short unsigned int _22;
+  short unsigned int _23;
+  short unsigned int _24;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  short unsigned int pretmp_48;
+  unsigned int _51;
+  short unsigned int prephitmp_56;
+  int _58;
+  int prephitmp_59;
+  uint8_t * pretmp_63;
+  uint8_t * prephitmp_64;
+  int prephitmp_66;
+  short unsigned int pretmp_67;
+  short unsigned int prephitmp_68;
+  int _69;
+  int prephitmp_70;
+
+  <bb 2> [local count: 13370358]:
+  lpspiState_33 = g_lpspiStatePtr[instance_32(D)];
+  base_34 = g_lpspiBase[instance_32(D)];
+  _43 ={v} base_34->FSR;
+  _44 = _43 >> 16;
+  _45 = _44 & 7;
+  filledSpace_35 = (uint8_t) _45;
+  if (_45 != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 3>; [5.50%]
+
+  <bb 3> [local count: 13370358]:
+  return;
+
+  <bb 4> [local count: 12634988]:
+  pretmp_48 = lpspiState_33->bytesPerFrame;
+
+  <bb 5> [local count: 118111600]:
+  # filledSpace_49 = PHI <filledSpace_35(4), filledSpace_39(12)>
+  # prephitmp_56 = PHI <pretmp_48(4), prephitmp_68(12)>
+  _46 ={v} base_34->RDR;
+  _2 = (int) prephitmp_56;
+  _3 ={v} lpspiState_33->rxFrameCnt;
+  _4 = (int) _3;
+  _5 = _2 - _4;
+  if (_5 <= 4)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 6> [local count: 59055800]:
+  _6 ={v} lpspiState_33->rxFrameCnt;
+  numOfBytes_36 = prephitmp_56 - _6;
+  if (numOfBytes_36 != 0)
+    goto <bb 7>; [66.92%]
+  else
+    goto <bb 11>; [33.08%]
+
+  <bb 7> [local count: 39518543]:
+  _58 = (int) numOfBytes_36;
+
+  <bb 8> [local count: 105119324]:
+  # numOfBytes_28 = PHI <numOfBytes_36(7), 4(5)>
+  # prephitmp_59 = PHI <_58(7), 4(5)>
+  pretmp_63 = lpspiState_33->rxBuff;
+
+  <bb 9> [local count: 955630225]:
+  # prephitmp_64 = PHI <pretmp_63(8), _13(9)>
+  # ivtmp.28_30 = PHI <0(8), ivtmp.28_52(9)>
+  _51 = ivtmp.28_30 * 8;
+  _9 = _46 >> _51;
+  _11 = (unsigned char) _9;
+  *prephitmp_64 = _11;
+  _12 = lpspiState_33->rxBuff;
+  _13 = _12 + 1;
+  lpspiState_33->rxBuff = _13;
+  ivtmp.28_52 = ivtmp.28_30 + 1;
+  j_47 = (uint16_t) ivtmp.28_52;
+  if (numOfBytes_28 > j_47)
+    goto <bb 9>; [89.00%]
+  else
+    goto <bb 10>; [11.00%]
+
+  <bb 10> [local count: 105119324]:
+  pretmp_67 = lpspiState_33->bytesPerFrame;
+  _69 = (int) pretmp_67;
+
+  <bb 11> [local count: 118111600]:
+  # numOfBytes_27 = PHI <numOfBytes_28(10), numOfBytes_36(6)>
+  # prephitmp_66 = PHI <prephitmp_59(10), 0(6)>
+  # prephitmp_68 = PHI <pretmp_67(10), prephitmp_56(6)>
+  # prephitmp_70 = PHI <_69(10), _2(6)>
+  _14 ={v} lpspiState_33->rxFrameCnt;
+  _15 = (int) _14;
+  _17 = _15 + prephitmp_66;
+  _20 = _17 % prephitmp_70;
+  _21 = (short unsigned int) _20;
+  lpspiState_33->rxFrameCnt ={v} _21;
+  _22 ={v} lpspiState_33->rxCount;
+  _23 = _22 - numOfBytes_27;
+  lpspiState_33->rxCount ={v} _23;
+  _24 ={v} lpspiState_33->rxCount;
+  if (_24 == 0)
+    goto <bb 3>; [5.50%]
+  else
+    goto <bb 12>; [94.50%]
+
+  <bb 12> [local count: 111615462]:
+  filledSpace_39 = filledSpace_49 + 255;
+  if (filledSpace_39 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 3>; [5.50%]
+
+}
+
+
+
+;; Function LPSPI_DRV_DisableTEIEInterrupts (LPSPI_DRV_DisableTEIEInterrupts, funcdef_no=32, decl_uid=7606, cgraph_uid=33, symbol_order=36)
+
+LPSPI_DRV_DisableTEIEInterrupts (uint32_t instance)
+{
+  struct LPSPI_Type * base;
+  long unsigned int _8;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _19;
+
+  <bb 2> [local count: 1073741824]:
+  base_3 = g_lpspiBase[instance_2(D)];
+  _14 ={v} base_3->IER;
+  _19 = _14 & 4294965247;
+  base_3->IER ={v} _19;
+  _8 ={v} base_3->IER;
+  _13 = _8 & 4294963199;
+  base_3->IER ={v} _13;
+  LPSPI_ClearStatusFlag (base_3, 11);
+  LPSPI_ClearStatusFlag (base_3, 12); [tail call]
+  return;
+
+}
+
+

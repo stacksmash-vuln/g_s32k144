@@ -1,0 +1,421 @@
+
+;; Function INT_SYS_InstallHandler (INT_SYS_InstallHandler, funcdef_no=0, decl_uid=6200, cgraph_uid=1, symbol_order=1)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+INT_SYS_InstallHandler (IRQn_Type irqNumber, void (*isr_t) (void) newHandler, void (*isr_t) (void) * const oldHandler)
+{
+  sizetype _1;
+  sizetype _2;
+  sizetype _3;
+  uint32_t * _4;
+  long unsigned int _5;
+  void (*<T5ff>) (void) _6;
+  long unsigned int newHandler.0_11;
+  sizetype _20;
+  sizetype _22;
+  sizetype _24;
+  uint32_t[139] * _26;
+  uint32_t[139] * prephitmp_27;
+
+  <bb 2> [local count: 1073741824]:
+  if (&__VECTOR_RAM != &__VECTOR_TABLE)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 3>; [30.00%]
+
+  <bb 3> [local count: 322122544]:
+  if (&__DATA_ROM == &__DATA_END)
+    goto <bb 4>; [30.00%]
+  else
+    goto <bb 8>; [70.00%]
+
+  <bb 4> [local count: 848256043]:
+  if (oldHandler_15(D) != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 5> [local count: 254476810]:
+  _20 = (sizetype) irqNumber_16(D);
+  _22 = _20 + 16;
+  _24 = _22 * 4;
+  _26 = &__VECTOR_RAM + _24;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 593779233]:
+  _1 = (sizetype) irqNumber_16(D);
+  _2 = _1 + 16;
+  _3 = _2 * 4;
+  _4 = &__VECTOR_RAM + _3;
+  _5 = *_4;
+  _6 = (void (*<T5ff>) (void)) _5;
+  *oldHandler_15(D) = _6;
+
+  <bb 7> [local count: 848256043]:
+  # prephitmp_27 = PHI <_4(6), _26(5)>
+  newHandler.0_11 = (long unsigned int) newHandler_18(D);
+  MEM[(uint32_t *)prephitmp_27] = newHandler.0_11;
+
+  <bb 8> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function INT_SYS_EnableIRQ (INT_SYS_EnableIRQ, funcdef_no=1, decl_uid=6202, cgraph_uid=2, symbol_order=2)
+
+INT_SYS_EnableIRQ (IRQn_Type irqNumber)
+{
+  unsigned char irqNumber.1_1;
+  long unsigned int _2;
+  unsigned char _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  irqNumber.1_1 = (unsigned char) irqNumber_7(D);
+  _3 = irqNumber.1_1 & 31;
+  _2 = (long unsigned int) _3;
+  _4 = (long unsigned int) irqNumber_7(D);
+  _5 = _4 >> 5;
+  _6 = 1 << _2;
+  MEM[(struct S32_NVIC_Type *)3758153984B].ISER[_5] ={v} _6;
+  return;
+
+}
+
+
+
+;; Function INT_SYS_DisableIRQ (INT_SYS_DisableIRQ, funcdef_no=2, decl_uid=6204, cgraph_uid=3, symbol_order=3)
+
+INT_SYS_DisableIRQ (IRQn_Type irqNumber)
+{
+  unsigned char irqNumber.2_1;
+  long unsigned int _2;
+  unsigned char _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  irqNumber.2_1 = (unsigned char) irqNumber_7(D);
+  _3 = irqNumber.2_1 & 31;
+  _2 = (long unsigned int) _3;
+  _4 = (long unsigned int) irqNumber_7(D);
+  _5 = _4 >> 5;
+  _6 = 1 << _2;
+  MEM[(struct S32_NVIC_Type *)3758153984B].ICER[_5] ={v} _6;
+  return;
+
+}
+
+
+
+;; Function INT_SYS_EnableIRQGlobal (INT_SYS_EnableIRQGlobal, funcdef_no=3, decl_uid=6206, cgraph_uid=4, symbol_order=4)
+
+Removing basic block 7
+Removing basic block 8
+INT_SYS_EnableIRQGlobal ()
+{
+  long int g_interruptDisableCount.3_1;
+  long int _2;
+
+  <bb 2> [local count: 1073741824]:
+  g_interruptDisableCount.3_1 = g_interruptDisableCount;
+  if (g_interruptDisableCount.3_1 > 0)
+    goto <bb 4>; [59.00%]
+  else
+    goto <bb 3>; [41.00%]
+
+  <bb 3> [local count: 756987985]:
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 633507681]:
+  _2 = g_interruptDisableCount.3_1 + -1;
+  g_interruptDisableCount = _2;
+  if (_2 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 5> [local count: 316753840]:
+  __asm__ __volatile__("cpsie i" :  :  : "memory");
+
+  <bb 6> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function INT_SYS_DisableIRQGlobal (INT_SYS_DisableIRQGlobal, funcdef_no=4, decl_uid=6208, cgraph_uid=5, symbol_order=5)
+
+INT_SYS_DisableIRQGlobal ()
+{
+  long int g_interruptDisableCount.6_1;
+  long int _2;
+
+  <bb 2> [local count: 1073741824]:
+  __asm__ __volatile__("cpsid i" :  :  : "memory");
+  g_interruptDisableCount.6_1 = g_interruptDisableCount;
+  _2 = g_interruptDisableCount.6_1 + 1;
+  g_interruptDisableCount = _2;
+  return;
+
+}
+
+
+
+;; Function INT_SYS_SetPriority (INT_SYS_SetPriority, funcdef_no=5, decl_uid=6211, cgraph_uid=6, symbol_order=6)
+
+Removing basic block 5
+Removing basic block 9
+INT_SYS_SetPriority (IRQn_Type irqNumber, uint8_t priority)
+{
+  uint32_t regId;
+  uint32_t intVectorId;
+  unsigned char irqNumber.7_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  sizetype _4;
+  volatile uint8_t * _5;
+  unsigned char _6;
+  long unsigned int _7;
+  unsigned char _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  unsigned char _11;
+  volatile uint8_t * iftmp.8_12;
+  unsigned char _14;
+
+  <bb 2> [local count: 1073741824]:
+  if (irqNumber_15(D) < 0)
+    goto <bb 3>; [41.00%]
+  else
+    goto <bb 7>; [59.00%]
+
+  <bb 3> [local count: 440234144]:
+  irqNumber.7_1 = (unsigned char) irqNumber_15(D);
+  _14 = irqNumber.7_1 & 15;
+  intVectorId_19 = (uint32_t) _14;
+  regId_20 = intVectorId_19 >> 2;
+  if (regId_20 != 1)
+    goto <bb 4>; [66.00%]
+  else
+    goto <bb 6>; [34.00%]
+
+  <bb 4> [local count: 290554534]:
+  if (regId_20 == 2)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 5> [local count: 191765991]:
+
+  <bb 6> [local count: 440234144]:
+  # iftmp.8_12 = PHI <3758157080B(3), 3758157084B(4), 3758157088B(5)>
+  _2 = (long unsigned int) priority_16(D);
+  _3 = _2 << 4;
+  _8 = irqNumber.7_1 & 3;
+  _4 = (sizetype) _8;
+  _5 = iftmp.8_12 + _4;
+  _6 = (unsigned char) _3;
+  *_5 ={v} _6;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 633507681]:
+  _7 = (long unsigned int) priority_16(D);
+  _9 = _7 << 4;
+  _10 = (long unsigned int) irqNumber_15(D);
+  _11 = (unsigned char) _9;
+  MEM[(struct S32_NVIC_Type *)3758153984B].IP[_10] ={v} _11;
+
+  <bb 8> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function INT_SYS_GetPriority (INT_SYS_GetPriority, funcdef_no=6, decl_uid=6213, cgraph_uid=7, symbol_order=7)
+
+Removing basic block 5
+Removing basic block 9
+INT_SYS_GetPriority (IRQn_Type irqNumber)
+{
+  uint32_t regId;
+  uint32_t intVectorId;
+  uint8_t priority;
+  unsigned char irqNumber.10_1;
+  sizetype _2;
+  const uint8_t * _3;
+  unsigned char _4;
+  int _5;
+  int _6;
+  long unsigned int _7;
+  unsigned char _8;
+  int _9;
+  int _10;
+  const uint8_t * iftmp.11_12;
+  unsigned char _13;
+  unsigned char _14;
+
+  <bb 2> [local count: 1073741824]:
+  if (irqNumber_15(D) < 0)
+    goto <bb 3>; [41.00%]
+  else
+    goto <bb 7>; [59.00%]
+
+  <bb 3> [local count: 440234144]:
+  irqNumber.10_1 = (unsigned char) irqNumber_15(D);
+  _13 = irqNumber.10_1 & 15;
+  intVectorId_18 = (uint32_t) _13;
+  regId_19 = intVectorId_18 >> 2;
+  if (regId_19 != 1)
+    goto <bb 4>; [66.00%]
+  else
+    goto <bb 6>; [34.00%]
+
+  <bb 4> [local count: 290554534]:
+  if (regId_19 == 2)
+    goto <bb 6>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 5> [local count: 191765991]:
+
+  <bb 6> [local count: 440234144]:
+  # iftmp.11_12 = PHI <3758157080B(3), 3758157084B(4), 3758157088B(5)>
+  _14 = irqNumber.10_1 & 3;
+  _2 = (sizetype) _14;
+  _3 = iftmp.11_12 + _2;
+  _4 ={v} *_3;
+  _5 = (int) _4;
+  _6 = _5 >> 4;
+  priority_20 = (uint8_t) _6;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 633507681]:
+  _7 = (long unsigned int) irqNumber_15(D);
+  _8 ={v} MEM[(struct S32_NVIC_Type *)3758153984B].IP[_7];
+  _9 = (int) _8;
+  _10 = _9 >> 4;
+  priority_17 = (uint8_t) _10;
+
+  <bb 8> [local count: 1073741824]:
+  # priority_11 = PHI <priority_20(6), priority_17(7)>
+  return priority_11;
+
+}
+
+
+
+;; Function INT_SYS_ClearPending (INT_SYS_ClearPending, funcdef_no=7, decl_uid=6215, cgraph_uid=8, symbol_order=8)
+
+INT_SYS_ClearPending (IRQn_Type irqNumber)
+{
+  unsigned char irqNumber.13_1;
+  long unsigned int _2;
+  unsigned char _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  irqNumber.13_1 = (unsigned char) irqNumber_7(D);
+  _3 = irqNumber.13_1 & 31;
+  _2 = (long unsigned int) _3;
+  _4 = (long unsigned int) irqNumber_7(D);
+  _5 = _4 >> 5;
+  _6 = 1 << _2;
+  MEM[(struct S32_NVIC_Type *)3758153984B].ICPR[_5] ={v} _6;
+  return;
+
+}
+
+
+
+;; Function INT_SYS_SetPending (INT_SYS_SetPending, funcdef_no=8, decl_uid=6217, cgraph_uid=9, symbol_order=9)
+
+INT_SYS_SetPending (IRQn_Type irqNumber)
+{
+  unsigned char irqNumber.14_1;
+  long unsigned int _2;
+  unsigned char _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  irqNumber.14_1 = (unsigned char) irqNumber_7(D);
+  _3 = irqNumber.14_1 & 31;
+  _2 = (long unsigned int) _3;
+  _4 = (long unsigned int) irqNumber_7(D);
+  _5 = _4 >> 5;
+  _6 = 1 << _2;
+  MEM[(struct S32_NVIC_Type *)3758153984B].ISPR[_5] ={v} _6;
+  return;
+
+}
+
+
+
+;; Function INT_SYS_GetPending (INT_SYS_GetPending, funcdef_no=9, decl_uid=6219, cgraph_uid=10, symbol_order=10)
+
+INT_SYS_GetPending (IRQn_Type irqNumber)
+{
+  unsigned char _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  unsigned char irqNumber.15_5;
+  long unsigned int _6;
+  long unsigned int _7;
+  uint32_t _10;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = (long unsigned int) irqNumber_8(D);
+  _3 = _2 >> 5;
+  _4 ={v} MEM[(struct S32_NVIC_Type *)3758153984B].ISPR[_3];
+  irqNumber.15_5 = (unsigned char) irqNumber_8(D);
+  _1 = irqNumber.15_5 & 31;
+  _6 = (long unsigned int) _1;
+  _7 = _4 >> _6;
+  _10 = _7 & 1;
+  return _10;
+
+}
+
+
+
+;; Function INT_SYS_GetActive (INT_SYS_GetActive, funcdef_no=10, decl_uid=6221, cgraph_uid=11, symbol_order=11)
+
+INT_SYS_GetActive (IRQn_Type irqNumber)
+{
+  unsigned char _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  unsigned char irqNumber.16_5;
+  long unsigned int _6;
+  long unsigned int _7;
+  uint32_t _10;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = (long unsigned int) irqNumber_8(D);
+  _3 = _2 >> 5;
+  _4 ={v} MEM[(struct S32_NVIC_Type *)3758153984B].IABR[_3];
+  irqNumber.16_5 = (unsigned char) irqNumber_8(D);
+  _1 = irqNumber.16_5 & 31;
+  _6 = (long unsigned int) _1;
+  _7 = _4 >> _6;
+  _10 = _7 & 1;
+  return _10;
+
+}
+
+

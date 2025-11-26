@@ -1,0 +1,817 @@
+<?xml version="1.0"?>
+<regs:peripheral xmlns:regs="http://swtools.freescale.net/XSD/registers/3.0/regsPeripheral.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://swtools.freescale.net/XSD/registers/3.0/regsPeripheral.xsd http://swtools.freescale.net/XSD/registers/3.0/regsPeripheral.xsd">
+  <register offset="0x80" width="32" name="FTFM" description="PCC FTFM Register">
+    <alias type="id" value="PCC_32"/>
+    <alias type="CMSIS" value="PCCn[32]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0x1" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x84" width="32" name="DMAMUX" description="PCC DMAMUX Register">
+    <alias type="id" value="PCC_33"/>
+    <alias type="CMSIS" value="PCCn[33]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x90" width="32" name="FlexCAN0" description="PCC FlexCAN0 Register">
+    <alias type="id" value="PCC_36"/>
+    <alias type="CMSIS" value="PCCn[36]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x94" width="32" name="FlexCAN1" description="PCC FlexCAN1 Register">
+    <alias type="id" value="PCC_37"/>
+    <alias type="CMSIS" value="PCCn[37]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x98" width="32" name="FTM3" description="PCC FTM3 Register">
+    <alias type="id" value="PCC_38"/>
+    <alias type="CMSIS" value="PCCn[38]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_EXT" value="0b000" description="Clock is off. An external clock can be enabled for this peripheral."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x9C" width="32" name="ADC1" description="PCC ADC1 Register">
+    <alias type="id" value="PCC_39"/>
+    <alias type="CMSIS" value="PCCn[39]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xB0" width="32" name="LPSPI0" description="PCC LPSPI0 Register">
+    <alias type="id" value="PCC_44"/>
+    <alias type="CMSIS" value="PCCn[44]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xB4" width="32" name="LPSPI1" description="PCC LPSPI1 Register">
+    <alias type="id" value="PCC_45"/>
+    <alias type="CMSIS" value="PCCn[45]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xB8" width="32" name="LPSPI2" description="PCC LPSPI2 Register">
+    <alias type="id" value="PCC_46"/>
+    <alias type="CMSIS" value="PCCn[46]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xC4" width="32" name="PDB1" description="PCC PDB1 Register">
+    <alias type="id" value="PCC_49"/>
+    <alias type="CMSIS" value="PCCn[49]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xC8" width="32" name="CRC" description="PCC CRC Register">
+    <alias type="id" value="PCC_50"/>
+    <alias type="CMSIS" value="PCCn[50]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xD8" width="32" name="PDB0" description="PCC PDB0 Register">
+    <alias type="id" value="PCC_54"/>
+    <alias type="CMSIS" value="PCCn[54]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xDC" width="32" name="LPIT" description="PCC LPIT Register">
+    <alias type="id" value="PCC_55"/>
+    <alias type="CMSIS" value="PCCn[55]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xE0" width="32" name="FTM0" description="PCC FTM0 Register">
+    <alias type="id" value="PCC_56"/>
+    <alias type="CMSIS" value="PCCn[56]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_EXT" value="0b000" description="Clock is off. An external clock can be enabled for this peripheral."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xE4" width="32" name="FTM1" description="PCC FTM1 Register">
+    <alias type="id" value="PCC_57"/>
+    <alias type="CMSIS" value="PCCn[57]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_EXT" value="0b000" description="Clock is off. An external clock can be enabled for this peripheral."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xE8" width="32" name="FTM2" description="PCC FTM2 Register">
+    <alias type="id" value="PCC_58"/>
+    <alias type="CMSIS" value="PCCn[58]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_EXT" value="0b000" description="Clock is off. An external clock can be enabled for this peripheral."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xEC" width="32" name="ADC0" description="PCC ADC0 Register">
+    <alias type="id" value="PCC_59"/>
+    <alias type="CMSIS" value="PCCn[59]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0xF4" width="32" name="RTC" description="PCC RTC Register">
+    <alias type="id" value="PCC_61"/>
+    <alias type="CMSIS" value="PCCn[61]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x100" width="32" name="LPTMR0" description="PCC LPTMR0 Register">
+    <alias type="id" value="PCC_64"/>
+    <alias type="CMSIS" value="PCCn[64]"/>
+    <bit_field offset="0" width="3" name="PCD" access="RW" reset_value="0" description="Peripheral Clock Divider Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCD(x)"/>
+      <bit_field_value name="PCCn_PCD_DIV_1" value="0b000" description="Divide by 1."/>
+      <bit_field_value name="PCCn_PCD_DIV_2" value="0b001" description="Divide by 2."/>
+      <bit_field_value name="PCCn_PCD_DIV_3" value="0b010" description="Divide by 3."/>
+      <bit_field_value name="PCCn_PCD_DIV_4" value="0b011" description="Divide by 4."/>
+      <bit_field_value name="PCCn_PCD_DIV_5" value="0b100" description="Divide by 5."/>
+      <bit_field_value name="PCCn_PCD_DIV_6" value="0b101" description="Divide by 6."/>
+      <bit_field_value name="PCCn_PCD_DIV_7" value="0b110" description="Divide by 7."/>
+      <bit_field_value name="PCCn_PCD_DIV_8" value="0b111" description="Divide by 8."/>
+    </bit_field>
+    <bit_field offset="3" width="1" name="FRAC" access="RW" reset_value="0" description="Peripheral Clock Divider Fraction">
+      <alias type="CMSIS" value="PCC_PCCn_FRAC(x)"/>
+      <bit_field_value name="PCCn_FRAC_FRAC_0" value="0b0" description="Fractional value is 0."/>
+      <bit_field_value name="PCCn_FRAC_FRAC_1" value="0b1" description="Fractional value is 1."/>
+    </bit_field>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x118" width="32" name="ATX" description="PCC ATX Register">
+    <alias type="id" value="PCC_70"/>
+    <alias type="CMSIS" value="PCCn[70]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x124" width="32" name="PORTA" description="PCC PORTA Register">
+    <alias type="id" value="PCC_73"/>
+    <alias type="CMSIS" value="PCCn[73]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x128" width="32" name="PORTB" description="PCC PORTB Register">
+    <alias type="id" value="PCC_74"/>
+    <alias type="CMSIS" value="PCCn[74]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x12C" width="32" name="PORTC" description="PCC PORTC Register">
+    <alias type="id" value="PCC_75"/>
+    <alias type="CMSIS" value="PCCn[75]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x130" width="32" name="PORTD" description="PCC PORTD Register">
+    <alias type="id" value="PCC_76"/>
+    <alias type="CMSIS" value="PCCn[76]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x134" width="32" name="PORTE" description="PCC PORTE Register">
+    <alias type="id" value="PCC_77"/>
+    <alias type="CMSIS" value="PCCn[77]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x168" width="32" name="FlexIO" description="PCC FlexIO Register">
+    <alias type="id" value="PCC_90"/>
+    <alias type="CMSIS" value="PCCn[90]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x184" width="32" name="EWM" description="PCC EWM Register">
+    <alias type="id" value="PCC_97"/>
+    <alias type="CMSIS" value="PCCn[97]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x198" width="32" name="LPI2C0" description="PCC LPI2C0 Register">
+    <alias type="id" value="PCC_102"/>
+    <alias type="CMSIS" value="PCCn[102]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x1A8" width="32" name="LPUART0" description="PCC LPUART0 Register">
+    <alias type="id" value="PCC_106"/>
+    <alias type="CMSIS" value="PCCn[106]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x1AC" width="32" name="LPUART1" description="PCC LPUART1 Register">
+    <alias type="id" value="PCC_107"/>
+    <alias type="CMSIS" value="PCCn[107]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x1B0" width="32" name="LPUART2" description="PCC LPUART2 Register">
+    <alias type="id" value="PCC_108"/>
+    <alias type="CMSIS" value="PCCn[108]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <bit_field offset="24" width="3" name="PCS" access="RW" reset_value="2" description="Peripheral Clock Source Select">
+      <alias type="CMSIS" value="PCC_PCCn_PCS(x)"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OFF" value="0b000" description="Clock is off."/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT1" value="0b001" description="Clock option 1"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT2" value="0b010" description="Clock option 2"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT3" value="0b011" description="Clock option 3"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT4" value="0b100" description="Clock option 4"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT5" value="0b101" description="Clock option 5"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT6" value="0b110" description="Clock option 6"/>
+      <bit_field_value name="PCCn_PCS_CLOCK_OPT7" value="0b111" description="Clock option 7"/>
+    </bit_field>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+  <register offset="0x1CC" width="32" name="CMP0" description="PCC CMP0 Register">
+    <alias type="id" value="PCC_115"/>
+    <alias type="CMSIS" value="PCCn[115]"/>
+    <reserved_bit_field offset="0" width="3" reset_value="0"/>
+    <reserved_bit_field offset="3" width="1" reset_value="0"/>
+    <reserved_bit_field offset="4" width="20" reset_value="0"/>
+    <reserved_bit_field offset="24" width="3" reset_value="0"/>
+    <reserved_bit_field offset="27" width="2" reset_value="0"/>
+    <reserved_bit_field offset="29" width="1" reset_value="0"/>
+    <bit_field offset="30" width="1" name="CGC" access="RW" reset_value="0" description="Clock Gate Control">
+      <alias type="CMSIS" value="PCC_PCCn_CGC(x)"/>
+      <bit_field_value name="PCCn_CGC_DISABLED" value="0b0" description="Clock disabled. The current clock selection and divider options are not locked and can be modified."/>
+      <bit_field_value name="PCCn_CGC_ENABLED" value="0b1" description="Clock enabled. The current clock selection and divider options are locked and cannot be modified."/>
+    </bit_field>
+    <bit_field offset="31" width="1" name="PR" access="RO" reset_value="0x1" description="Present">
+      <alias type="CMSIS" value="PCC_PCCn_PR(x)"/>
+      <bit_field_value name="PCCn_PR_NOT_PRESENT" value="0b0" description="Peripheral is not present."/>
+      <bit_field_value name="PCCn_PR_PRESENT" value="0b1" description="Peripheral is present."/>
+    </bit_field>
+  </register>
+</regs:peripheral>

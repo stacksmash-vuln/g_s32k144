@@ -1,0 +1,328 @@
+
+;; Function CRC_DRV_Deinit (CRC_DRV_Deinit, funcdef_no=18, decl_uid=6309, cgraph_uid=19, symbol_order=19)
+
+CRC_DRV_Deinit (uint32_t instance)
+{
+  <bb 2> [local count: 1073741824]:
+  CRC_Init (1073946624B);
+  return 0;
+
+}
+
+
+
+;; Function CRC_DRV_GetCrc32 (CRC_DRV_GetCrc32, funcdef_no=19, decl_uid=6314, cgraph_uid=20, symbol_order=20)
+
+Removing basic block 5
+CRC_DRV_GetCrc32 (uint32_t instance, uint32_t data, _Bool newSeed, uint32_t seed)
+{
+  uint32_t _8;
+
+  <bb 2> [local count: 1073741824]:
+  if (newSeed_2(D) != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  CRC_SetSeedReg (1073946624B, seed_4(D));
+
+  <bb 4> [local count: 1073741824]:
+  MEM[(struct CRC_Type *)1073946624B].DATAu.DATA ={v} data_6(D);
+  _8 = CRC_GetCrcResult (1073946624B); [tail call]
+  return _8;
+
+}
+
+
+
+;; Function CRC_DRV_GetCrc16 (CRC_DRV_GetCrc16, funcdef_no=20, decl_uid=6319, cgraph_uid=21, symbol_order=21)
+
+Removing basic block 5
+CRC_DRV_GetCrc16 (uint32_t instance, uint16_t data, _Bool newSeed, uint32_t seed)
+{
+  uint32_t _8;
+
+  <bb 2> [local count: 1073741824]:
+  if (newSeed_2(D) != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  CRC_SetSeedReg (1073946624B, seed_4(D));
+
+  <bb 4> [local count: 1073741824]:
+  MEM[(struct CRC_Type *)1073946624B].DATAu.DATA_16.L ={v} data_6(D);
+  _8 = CRC_GetCrcResult (1073946624B); [tail call]
+  return _8;
+
+}
+
+
+
+;; Function CRC_DRV_GetCrc8 (CRC_DRV_GetCrc8, funcdef_no=21, decl_uid=6324, cgraph_uid=22, symbol_order=22)
+
+Removing basic block 5
+CRC_DRV_GetCrc8 (uint32_t instance, uint8_t data, _Bool newSeed, uint32_t seed)
+{
+  uint32_t _8;
+
+  <bb 2> [local count: 1073741824]:
+  if (newSeed_2(D) != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  CRC_SetSeedReg (1073946624B, seed_4(D));
+
+  <bb 4> [local count: 1073741824]:
+  MEM[(struct CRC_Type *)1073946624B].DATAu.DATA_8.LL ={v} data_6(D);
+  _8 = CRC_GetCrcResult (1073946624B); [tail call]
+  return _8;
+
+}
+
+
+
+;; Function CRC_DRV_WriteData (CRC_DRV_WriteData, funcdef_no=22, decl_uid=6328, cgraph_uid=23, symbol_order=23)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+CRC_DRV_WriteData (uint32_t instance, const uint8_t * data, uint32_t dataSize)
+{
+  unsigned int ivtmp.43;
+  unsigned char _2;
+  const uint8_t * _3;
+  void * _15;
+  unsigned int _16;
+  unsigned int _17;
+  unsigned int _18;
+
+  <bb 2> [local count: 118111600]:
+  if (dataSize_6(D) != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 3> [local count: 105119324]:
+  _3 = data_7(D) + 4294967295;
+  ivtmp.43_11 = (unsigned int) _3;
+  _16 = (unsigned int) data_7(D);
+  _17 = dataSize_6(D) + _16;
+  _18 = _17 + 4294967295;
+
+  <bb 4> [local count: 955630225]:
+  # ivtmp.43_14 = PHI <ivtmp.43_11(3), ivtmp.43_4(4)>
+  ivtmp.43_4 = ivtmp.43_14 + 1;
+  _15 = (void *) ivtmp.43_4;
+  _2 = MEM[base: _15, offset: 0B];
+  MEM[(struct CRC_Type *)1073946624B].DATAu.DATA_8.LL ={v} _2;
+  if (ivtmp.43_4 != _18)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function CRC_DRV_GetCrcResult (CRC_DRV_GetCrcResult, funcdef_no=23, decl_uid=6330, cgraph_uid=24, symbol_order=24)
+
+CRC_DRV_GetCrcResult (uint32_t instance)
+{
+  uint32_t _3;
+
+  <bb 2> [local count: 1073741824]:
+  _3 = CRC_GetCrcResult (1073946624B); [tail call]
+  return _3;
+
+}
+
+
+
+;; Function CRC_DRV_Configure (CRC_DRV_Configure, funcdef_no=24, decl_uid=6333, cgraph_uid=25, symbol_order=25)
+
+Removing basic block 5
+CRC_DRV_Configure (uint32_t instance, const struct crc_user_config_t * userConfigPtr)
+{
+  uint32_t ctrlTemp;
+  uint32_t ctrlTemp;
+  uint32_t ctrlTemp;
+  uint32_t ctrlTemp;
+  <unnamed type> _1;
+  <unnamed type> _2;
+  long unsigned int _3;
+  <unnamed type> _4;
+  _Bool _5;
+  long unsigned int _6;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _36;
+  long unsigned int prephitmp_37;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = userConfigPtr_8(D)->crcWidth;
+  ctrlTemp_25 ={v} MEM[(struct CRC_Type *)1073946624B].CTRL;
+  ctrlTemp_26 = ctrlTemp_25 & 4278190079;
+  _27 = (long unsigned int) _1;
+  _28 = _27 << 24;
+  _29 = _28 & 16777216;
+  ctrlTemp_30 = ctrlTemp_26 | _29;
+  MEM[(struct CRC_Type *)1073946624B].CTRL ={v} ctrlTemp_30;
+  _2 = userConfigPtr_8(D)->readTranspose;
+  ctrlTemp_19 ={v} MEM[(struct CRC_Type *)1073946624B].CTRL;
+  ctrlTemp_20 = ctrlTemp_19 & 3489660927;
+  _21 = (long unsigned int) _2;
+  _22 = _21 << 28;
+  _23 = _22 & 805306368;
+  ctrlTemp_24 = ctrlTemp_20 | _23;
+  MEM[(struct CRC_Type *)1073946624B].CTRL ={v} ctrlTemp_24;
+  _3 = userConfigPtr_8(D)->polynomial;
+  MEM[(struct CRC_Type *)1073946624B].GPOLY ={v} _3;
+  _4 = userConfigPtr_8(D)->writeTranspose;
+  ctrlTemp_14 ={v} MEM[(struct CRC_Type *)1073946624B].CTRL;
+  ctrlTemp_15 = ctrlTemp_14 & 1073741823;
+  _16 = (long unsigned int) _4;
+  _17 = _16 << 30;
+  ctrlTemp_18 = ctrlTemp_15 | _17;
+  MEM[(struct CRC_Type *)1073946624B].CTRL ={v} ctrlTemp_18;
+  _5 = userConfigPtr_8(D)->complementChecksum;
+  ctrlTemp_10 ={v} MEM[(struct CRC_Type *)1073946624B].CTRL;
+  ctrlTemp_11 = ctrlTemp_10 & 4227858431;
+  if (_5 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _36 = ctrlTemp_11 | 67108864;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_37 = PHI <_36(3), ctrlTemp_11(2)>
+  MEM[(struct CRC_Type *)1073946624B].CTRL ={v} prephitmp_37;
+  _6 = userConfigPtr_8(D)->seed;
+  CRC_SetSeedReg (1073946624B, _6);
+  return 0;
+
+}
+
+
+
+;; Function CRC_DRV_Init (CRC_DRV_Init, funcdef_no=17, decl_uid=6307, cgraph_uid=18, symbol_order=18)
+
+CRC_DRV_Init (uint32_t instance, const struct crc_user_config_t * userConfigPtr)
+{
+  status_t retStatus;
+
+  <bb 2> [local count: 1073741824]:
+  CRC_Init (1073946624B);
+  retStatus_6 = CRC_DRV_Configure (instance_3(D), userConfigPtr_4(D)); [tail call]
+  return retStatus_6;
+
+}
+
+
+
+;; Function CRC_DRV_GetConfig (CRC_DRV_GetConfig, funcdef_no=25, decl_uid=6336, cgraph_uid=26, symbol_order=26)
+
+Removing basic block 7
+Removing basic block 8
+CRC_DRV_GetConfig (uint32_t instance, struct crc_user_config_t * const userConfigPtr)
+{
+  crc_transpose_t type;
+  uint32_t temp;
+  crc_transpose_t type;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  _Bool _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  unsigned int _15;
+  unsigned char _16;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  unsigned int _22;
+  unsigned char _23;
+  long unsigned int _25;
+  long unsigned int _26;
+  _Bool _29;
+  <unnamed type> _30;
+
+  <bb 2> [local count: 1073741824]:
+  _25 ={v} MEM[(const struct CRC_Type *)1073946624B].CTRL;
+  _26 = _25 & 16777216;
+  _29 = _26 != 0;
+  _30 = (<unnamed type>) _29;
+  userConfigPtr_2(D)->crcWidth = _30;
+  _19 ={v} MEM[(const struct CRC_Type *)1073946624B].CTRL;
+  _20 = _19 >> 28;
+  temp_21 = _20 & 3;
+  _22 = temp_21 + 4294967295;
+  if (_22 <= 2)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _23 = (unsigned char) temp_21;
+
+  <bb 4> [local count: 1073741824]:
+  # type_24 = PHI <_23(3), 0(2)>
+  userConfigPtr_2(D)->readTranspose = type_24;
+  _18 ={v} MEM[(const struct CRC_Type *)1073946624B].GPOLY;
+  userConfigPtr_2(D)->polynomial = _18;
+  _13 ={v} MEM[(const struct CRC_Type *)1073946624B].CTRL;
+  _14 = _13 >> 30;
+  _15 = _14 + 4294967295;
+  if (_15 <= 2)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  _16 = (unsigned char) _14;
+
+  <bb 6> [local count: 1073741824]:
+  # type_17 = PHI <_16(5), 0(4)>
+  userConfigPtr_2(D)->writeTranspose = type_17;
+  _10 ={v} MEM[(const struct CRC_Type *)1073946624B].CTRL;
+  _11 = _10 & 67108864;
+  _12 = _11 != 0;
+  userConfigPtr_2(D)->complementChecksum = _12;
+  _9 ={v} MEM[(const struct CRC_Type *)1073946624B].DATAu.DATA;
+  userConfigPtr_2(D)->seed = _9;
+  return 0;
+
+}
+
+
+
+;; Function CRC_DRV_GetDefaultConfig (CRC_DRV_GetDefaultConfig, funcdef_no=26, decl_uid=6338, cgraph_uid=27, symbol_order=27)
+
+CRC_DRV_GetDefaultConfig (struct crc_user_config_t * const userConfigPtr)
+{
+  <bb 2> [local count: 1073741824]:
+  userConfigPtr_2(D)->crcWidth = 0;
+  userConfigPtr_2(D)->polynomial = 4129;
+  MEM <unsigned short> [(<unnamed type> *)userConfigPtr_2(D) + 8B] = 0;
+  userConfigPtr_2(D)->complementChecksum = 0;
+  userConfigPtr_2(D)->seed = 65535;
+  return 0;
+
+}
+
+

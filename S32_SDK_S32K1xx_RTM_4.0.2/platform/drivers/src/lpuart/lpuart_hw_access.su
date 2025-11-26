@@ -1,0 +1,12 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:50:6:LPUART_Init	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:81:6:LPUART_SetBitCountPerChar	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:110:6:LPUART_SetParityMode	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:121:6:LPUART_Putchar9	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:141:6:LPUART_Putchar10	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:165:6:LPUART_Getchar9	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:181:6:LPUART_Getchar10	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:200:6:LPUART_SetIntMode	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:235:6:LPUART_GetIntMode	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:271:6:LPUART_GetStatusFlag	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:308:10:LPUART_ClearStatusFlag	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_hw_access.c:385:6:LPUART_SetErrorInterrupts	0	static

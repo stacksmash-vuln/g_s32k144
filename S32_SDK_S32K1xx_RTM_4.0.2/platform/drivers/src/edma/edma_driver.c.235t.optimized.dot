@@ -1,0 +1,2050 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_EDMA_DRV_PushConfigToSTCD.part.0" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_PushConfigToSTCD.part.0 ()";
+	subgraph cluster_66_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_66_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 3\>:\l\
+|#\ sructPtr_75\ =\ PHI\ \<stcd_23(D)(2),\ sructPtr_2(3)\>\l\
+|MEM[base:\ sructPtr_75,\ offset:\ 0B]\ =\ 0;\l\
+|sructPtr_2\ =\ sructPtr_75\ +\ 1;\l\
+|if\ (sructPtr_2\ !=\ _66)\l\
+\ \ goto\ \<bb\ 3\>;\ [87.64%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [12.36%]\l\
+}"];
+
+	}
+	fn_66_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_66_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_66_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|_66\ =\ stcd_23(D)\ +\ 32;\l\
+}"];
+
+	fn_66_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|_6\ =\ config_5(D)-\>srcModulo;\l\
+|_7\ =\ (short\ unsigned\ int)\ _6;\l\
+|_8\ =\ _7\ \<\<\ 11;\l\
+|_9\ =\ config_5(D)-\>srcTransferSize;\l\
+|_10\ =\ (short\ unsigned\ int)\ _9;\l\
+|_11\ =\ _10\ \<\<\ 8;\l\
+|_12\ =\ _11\ &\ 1792;\l\
+|_14\ =\ config_5(D)-\>destModulo;\l\
+|_15\ =\ (short\ unsigned\ int)\ _14;\l\
+|_16\ =\ _15\ \<\<\ 3;\l\
+|_17\ =\ _16\ &\ 255;\l\
+|_19\ =\ config_5(D)-\>destTransferSize;\l\
+|_20\ =\ _19\ &\ 7;\l\
+|_21\ =\ (short\ unsigned\ int)\ _20;\l\
+|_79\ =\ _8\ \|\ _21;\l\
+|_41\ =\ _12\ \|\ _79;\l\
+|_22\ =\ _17\ \|\ _41;\l\
+|stcd_23(D)-\>ATTR\ =\ _22;\l\
+|_24\ =\ config_5(D)-\>srcAddr;\l\
+|stcd_23(D)-\>SADDR\ =\ _24;\l\
+|_25\ =\ config_5(D)-\>srcOffset;\l\
+|stcd_23(D)-\>SOFF\ =\ _25;\l\
+|_26\ =\ config_5(D)-\>minorByteTransferCount;\l\
+|stcd_23(D)-\>NBYTES\ =\ _26;\l\
+|_27\ =\ config_5(D)-\>srcLastAddrAdjust;\l\
+|stcd_23(D)-\>SLAST\ =\ _27;\l\
+|_28\ =\ config_5(D)-\>destAddr;\l\
+|stcd_23(D)-\>DADDR\ =\ _28;\l\
+|_29\ =\ config_5(D)-\>destOffset;\l\
+|stcd_23(D)-\>DOFF\ =\ _29;\l\
+|_30\ =\ config_5(D)-\>loopTransferConfig;\l\
+|_31\ =\ _30-\>majorLoopIterationCount;\l\
+|_32\ =\ (short\ unsigned\ int)\ _31;\l\
+|stcd_23(D)-\>CITER\ =\ _32;\l\
+|_33\ =\ config_5(D)-\>scatterGatherEnable;\l\
+|if\ (_33\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_66_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 5\>:\l\
+|_34\ =\ config_5(D)-\>scatterGatherNextDescAddr;\l\
+|_35\ =\ (long\ int)\ _34;\l\
+|stcd_23(D)-\>DLAST_SGA\ =\ _35;\l\
+|_71\ =\ config_5(D)-\>interruptEnable;\l\
+|if\ (_71\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_66_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29527900\<bb\ 6\>:\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_66_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 7\>:\l\
+|_36\ =\ config_5(D)-\>destLastAddrAdjust;\l\
+|stcd_23(D)-\>DLAST_SGA\ =\ _36;\l\
+|_68\ =\ config_5(D)-\>interruptEnable;\l\
+|if\ (_68\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_66_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29527900\<bb\ 8\>:\l\
+}"];
+
+	fn_66_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 9\>:\l\
+|#\ prephitmp_69\ =\ PHI\ \<2(7),\ 18(5),\ 16(6),\ 0(8)\>\l\
+|stcd_23(D)-\>CSR\ =\ prephitmp_69;\l\
+|stcd_23(D)-\>BITER\ =\ _32;\l\
+|return;\l\
+}"];
+
+	fn_66_basic_block_0:s -> fn_66_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_66_basic_block_2:s -> fn_66_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_66_basic_block_3:s -> fn_66_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[87%]"];
+	fn_66_basic_block_3:s -> fn_66_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_66_basic_block_4:s -> fn_66_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_66_basic_block_4:s -> fn_66_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_66_basic_block_5:s -> fn_66_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_66_basic_block_5:s -> fn_66_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_66_basic_block_6:s -> fn_66_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_66_basic_block_7:s -> fn_66_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_66_basic_block_7:s -> fn_66_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_66_basic_block_8:s -> fn_66_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_66_basic_block_9:s -> fn_66_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_66_basic_block_0:s -> fn_66_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_Deinit" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_Deinit ()";
+	subgraph cluster_29_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1010605814\<bb\ 10\>:\l\
+|#\ prephitmp_27\ =\ PHI\ \<pretmp_30(11),\ 0(8)\>\l\
+|#\ ivtmp.152_6\ =\ PHI\ \<ivtmp.152_9(11),\ ivtmp.152_5(8)\>\l\
+|INT_SYS_DisableIRQ\ (prephitmp_27);\l\
+|if\ (ivtmp.152_6\ !=\ _38)\l\
+\ \ goto\ \<bb\ 11\>;\ [93.75%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [6.25%]\l\
+}"];
+
+	fn_29_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:947469801\<bb\ 11\>:\l\
+|_22\ =\ (void\ *)\ ivtmp.152_6;\l\
+|pretmp_30\ =\ MEM[base:\ _22,\ offset:\ 0B];\l\
+|ivtmp.152_9\ =\ ivtmp.152_6\ +\ 1;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_29_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	subgraph cluster_29_4 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey77";
+	label="loop 4";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:4372092073\<bb\ 5\>:\l\
+|#\ sructPtr_47\ =\ PHI\ \<chnState_24(4),\ sructPtr_26(5)\>\l\
+|MEM[base:\ sructPtr_47,\ offset:\ 0B]\ =\ 0;\l\
+|sructPtr_26\ =\ sructPtr_47\ +\ 1;\l\
+|if\ (_4\ !=\ sructPtr_26)\l\
+\ \ goto\ \<bb\ 5\>;\ [87.64%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [12.36%]\l\
+}"];
+
+	}
+	fn_29_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1010605814\<bb\ 3\>:\l\
+|#\ index_43\ =\ PHI\ \<index_18(9),\ 0(2)\>\l\
+|#\ prephitmp_36\ =\ PHI\ \<pretmp_41(9),\ s_virtEdmaState.2_1(2)\>\l\
+|chnState_16\ =\{v\}\ prephitmp_36-\>virtChnState[index_43];\l\
+|if\ (chnState_16\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [53.47%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [46.53%]\l\
+}"];
+
+	fn_29_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:540370927\<bb\ 4\>:\l\
+|_3\ =\ chnState_16-\>virtChn;\l\
+|dmaChannel_21\ =\ _3\ &\ 15;\l\
+|_23\ =\ (int)\ _3;\l\
+|chnState_24\ =\{v\}\ prephitmp_36-\>virtChnState[_23];\l\
+|EDMA_SetDmaRequestCmd\ (1073774592B,\ dmaChannel_21,\ 0);\l\
+|_4\ =\ chnState_24\ +\ 16;\l\
+}"];
+
+	fn_29_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1010605814\<bb\ 7\>:\l\
+|index_18\ =\ index_43\ +\ 1;\l\
+|if\ (index_18\ !=\ 16)\l\
+\ \ goto\ \<bb\ 9\>;\ [93.75%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [6.25%]\l\
+}"];
+
+	fn_29_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:947469801\<bb\ 9\>:\l\
+|pretmp_41\ =\ s_virtEdmaState;\l\
+goto\ \<bb\ 3\>;\ [100.00%]\l\
+}"];
+
+	fn_29_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:540370927\<bb\ 6\>:\l\
+|s_virtEdmaState.12_29\ =\ s_virtEdmaState;\l\
+|s_virtEdmaState.12_29-\>virtChnState[_23]\ =\{v\}\ 0B;\l\
+}"];
+
+	}
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:90194308\<bb\ 2\>:\l\
+|INT_SYS_DisableIRQ\ (16);\l\
+|s_virtEdmaState.2_1\ =\ s_virtEdmaState;\l\
+|if\ (s_virtEdmaState.2_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [30.00%]\l\
+}"];
+
+	fn_29_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136013\<bb\ 8\>:\l\
+|ivtmp.152_5\ =\ (unsigned\ int)\ &MEM\ \<const\ IRQn_Type[16]\>\ [(void\ *)&s_edmaIrqId\ +\ 1B];\l\
+|_39\ =\ (unsigned\ int)\ &s_edmaIrqId;\l\
+|_38\ =\ _39\ +\ 16;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_29_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:90194308\<bb\ 12\>:\l\
+|s_virtEdmaState\ =\ 0B;\l\
+|return\ 0;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_29_basic_block_3:s -> fn_29_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[53%]"];
+	fn_29_basic_block_3:s -> fn_29_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[46%]"];
+	fn_29_basic_block_4:s -> fn_29_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_5:s -> fn_29_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[87%]"];
+	fn_29_basic_block_5:s -> fn_29_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_29_basic_block_6:s -> fn_29_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_7:s -> fn_29_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[93%]"];
+	fn_29_basic_block_7:s -> fn_29_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[6%]"];
+	fn_29_basic_block_8:s -> fn_29_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_9:s -> fn_29_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_29_basic_block_10:s -> fn_29_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[93%]"];
+	fn_29_basic_block_10:s -> fn_29_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[6%]"];
+	fn_29_basic_block_11:s -> fn_29_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_29_basic_block_12:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_InstallCallback" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_InstallCallback ()";
+	fn_31_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_31_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_31_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|s_virtEdmaState.9_1\ =\ s_virtEdmaState;\l\
+|_2\ =\ (int)\ virtualChannel_6(D);\l\
+|_3\ =\{v\}\ s_virtEdmaState.9_1-\>virtChnState[_2];\l\
+|_3-\>callback\ =\ callback_7(D);\l\
+|_4\ =\{v\}\ s_virtEdmaState.9_1-\>virtChnState[_2];\l\
+|_4-\>parameter\ =\ parameter_9(D);\l\
+|return\ 0;\l\
+}"];
+
+	fn_31_basic_block_0:s -> fn_31_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_2:s -> fn_31_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_31_basic_block_0:s -> fn_31_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_ReleaseChannel" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_ReleaseChannel ()";
+	subgraph cluster_32_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_32_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 3\>:\l\
+|#\ sructPtr_21\ =\ PHI\ \<chnState_7(2),\ sructPtr_11(3)\>\l\
+|MEM[base:\ sructPtr_21,\ offset:\ 0B]\ =\ 0;\l\
+|sructPtr_11\ =\ sructPtr_21\ +\ 1;\l\
+|if\ (_10\ !=\ sructPtr_11)\l\
+\ \ goto\ \<bb\ 3\>;\ [87.64%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [12.36%]\l\
+}"];
+
+	}
+	fn_32_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_32_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_32_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|dmaChannel_5\ =\ virtualChannel_4(D)\ &\ 15;\l\
+|s_virtEdmaState.11_1\ =\ s_virtEdmaState;\l\
+|_2\ =\ (int)\ virtualChannel_4(D);\l\
+|chnState_7\ =\{v\}\ s_virtEdmaState.11_1-\>virtChnState[_2];\l\
+|EDMA_SetDmaRequestCmd\ (1073774592B,\ dmaChannel_5,\ 0);\l\
+|_10\ =\ chnState_7\ +\ 16;\l\
+}"];
+
+	fn_32_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|s_virtEdmaState.12_3\ =\ s_virtEdmaState;\l\
+|s_virtEdmaState.12_3-\>virtChnState[_2]\ =\{v\}\ 0B;\l\
+|return\ 0;\l\
+}"];
+
+	fn_32_basic_block_0:s -> fn_32_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[87%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_32_basic_block_4:s -> fn_32_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_32_basic_block_0:s -> fn_32_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_IRQHandler ()";
+	fn_35_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_35_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_35_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|s_virtEdmaState.13_1\ =\ s_virtEdmaState;\l\
+|_2\ =\ (int)\ virtualChannel_8(D);\l\
+|chnState_9\ =\{v\}\ s_virtEdmaState.13_1-\>virtChnState[_2];\l\
+|dmaChannel_11\ =\ virtualChannel_8(D)\ &\ 15;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].CDNE\ =\{v\}\ dmaChannel_11;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].CINT\ =\{v\}\ dmaChannel_11;\l\
+|if\ (chnState_9\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [30.00%]\l\
+}"];
+
+	fn_35_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 3\>:\l\
+|_3\ =\ chnState_9-\>callback;\l\
+|if\ (_3\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [30.00%]\l\
+}"];
+
+	fn_35_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:526133498\<bb\ 4\>:\l\
+|_4\ =\ chnState_9-\>parameter;\l\
+|_5\ =\{v\}\ chnState_9-\>status;\l\
+|_3\ (_4,\ _5);\ [tail\ call]\l\
+}"];
+
+	fn_35_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_35_basic_block_0:s -> fn_35_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_35_basic_block_3:s -> fn_35_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_35_basic_block_3:s -> fn_35_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_35_basic_block_4:s -> fn_35_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_5:s -> fn_35_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_35_basic_block_0:s -> fn_35_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_ErrorIRQHandler" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_ErrorIRQHandler ()";
+	fn_36_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_36_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_36_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_8\ =\ virtualChannel_7(D)\ &\ 15;\l\
+|EDMA_SetDmaRequestCmd\ (1073774592B,\ dmaChannel_8,\ 0);\l\
+|s_virtEdmaState.14_1\ =\ s_virtEdmaState;\l\
+|_2\ =\ (int)\ virtualChannel_7(D);\l\
+|chnState_11\ =\{v\}\ s_virtEdmaState.14_1-\>virtChnState[_2];\l\
+|if\ (chnState_11\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [30.00%]\l\
+}"];
+
+	fn_36_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:547608326\<bb\ 3\>:\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_36_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 4\>:\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].CDNE\ =\{v\}\ dmaChannel_8;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].CINT\ =\{v\}\ dmaChannel_8;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].CERR\ =\{v\}\ dmaChannel_8;\l\
+|chnState_11-\>status\ =\{v\}\ 1;\l\
+|_3\ =\ chnState_11-\>callback;\l\
+|if\ (_3\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [30.00%]\l\
+}"];
+
+	fn_36_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:526133498\<bb\ 5\>:\l\
+|_4\ =\ chnState_11-\>parameter;\l\
+|_5\ =\{v\}\ chnState_11-\>status;\l\
+|_3\ (_4,\ _5);\ [tail\ call]\l\
+}"];
+
+	fn_36_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|return;\l\
+}"];
+
+	fn_36_basic_block_0:s -> fn_36_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_36_basic_block_3:s -> fn_36_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_4:s -> fn_36_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_36_basic_block_4:s -> fn_36_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_36_basic_block_5:s -> fn_36_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_6:s -> fn_36_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_36_basic_block_0:s -> fn_36_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_ConfigSingleBlockTransfer" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_ConfigSingleBlockTransfer ()";
+	fn_37_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_37_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_37_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741819\<bb\ 2\>:\l\
+|_1\ =\ (int)\ transferSize_16(D);\l\
+|_2\ =\ 1\ \<\<\ _1;\l\
+|_14\ =\ _2\ &\ 255;\l\
+|_3\ =\ dataBufferSize_17(D)\ %\ _14;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+}"];
+
+	fn_37_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334798\<bb\ 3\>:\l\
+|dmaChannel_13\ =\ virtualChannel_12(D)\ &\ 15;\l\
+|EDMA_TCDClearReg\ (1073774592B,\ dmaChannel_13);\l\
+|regValTemp_28\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].CR;\l\
+|regValTemp_29\ =\ regValTemp_28\ &\ 4294967167;\l\
+|regValTemp_30\ =\ regValTemp_29\ \|\ 128;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].CR\ =\{v\}\ regValTemp_30;\l\
+|_27\ =\ (int)\ dmaChannel_13;\l\
+|_63\ =\ (signed\ short)\ dmaChannel_13;\l\
+|_64\ =\ (signed\ short)\ 32;\l\
+|_52\ =\ _63\ w*\ _64;\l\
+|_53\ =\ 1073774592B\ +\ _52;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ DMA_Type\ *)_53\ +\ 4096B]\ =\{v\}\ srcAddr_20(D);\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_27].DADDR\ =\{v\}\ destAddr_21(D);\l\
+|EDMA_TCDSetAttribute\ (1073774592B,\ dmaChannel_13,\ 0,\ 0,\ transferSize_16(D),\ transferSize_16(D));\l\
+|switch\ (type_23(D))\ \<default:\ \<L11\>\ [0.00%],\ case\ 0:\ \<L12\>\ [25.00%],\ case\ 1:\ \<L4\>\ [25.00%],\ case\ 2:\ \<L5\>\ [25.00%],\ case\ 3:\ \<L13\>\ [25.00%]\>\l\
+}"];
+
+	fn_37_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:70866961\<bb\ 4\>:\l\
+|\<L12\>:\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_53\ +\ 4100B]\ =\{v\}\ 0;\l\
+|transferOffset.15_4\ =\ (signed\ char)\ _2;\l\
+|offset.22_31\ =\ (short\ unsigned\ int)\ transferOffset.15_4;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_27].DOFF\ =\{v\}\ offset.22_31;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:70866961\<bb\ 5\>:\l\
+|\<L4\>:\l\
+|transferOffset.16_5\ =\ (signed\ char)\ _2;\l\
+|offset.21_32\ =\ (short\ unsigned\ int)\ transferOffset.16_5;\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_53\ +\ 4100B]\ =\{v\}\ offset.21_32;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_27].DOFF\ =\{v\}\ 0;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:70866961\<bb\ 6\>:\l\
+|\<L5\>:\l\
+|transferOffset.17_6\ =\ (signed\ char)\ _2;\l\
+|offset.21_33\ =\ (short\ unsigned\ int)\ transferOffset.17_6;\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_53\ +\ 4100B]\ =\{v\}\ offset.21_33;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_27].DOFF\ =\{v\}\ offset.21_33;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:70866961\<bb\ 7\>:\l\
+|\<L13\>:\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_53\ +\ 4100B]\ =\{v\}\ 0;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_27].DOFF\ =\{v\}\ 0;\l\
+}"];
+
+	fn_37_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334803\<bb\ 8\>:\l\
+|\<L11\>:\l\
+|EDMA_TCDSetNbytes\ (1073774592B,\ dmaChannel_13,\ dataBufferSize_17(D));\l\
+|EDMA_TCDSetMajorCount\ (1073774592B,\ dmaChannel_13,\ 1);\l\
+|regValTemp_34\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_27].CSR;\l\
+|regValTemp_35\ =\ regValTemp_34\ &\ 65533;\l\
+|regValTemp.24_36\ =\ (signed\ short)\ regValTemp_35;\l\
+|_37\ =\ regValTemp.24_36\ \|\ 2;\l\
+|regValTemp_38\ =\ (uint16_t)\ _37;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_27].CSR\ =\{v\}\ regValTemp_38;\l\
+|s_virtEdmaState.19_7\ =\ s_virtEdmaState;\l\
+|_8\ =\ (int)\ virtualChannel_12(D);\l\
+|_9\ =\{v\}\ s_virtEdmaState.19_7-\>virtChnState[_8];\l\
+|_9-\>status\ =\{v\}\ 0;\l\
+}"];
+
+	fn_37_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|#\ retStatus_15\ =\ PHI\ \<0(8),\ 1(2)\>\l\
+|return\ retStatus_15;\l\
+}"];
+
+	fn_37_basic_block_0:s -> fn_37_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_2:s -> fn_37_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_2:s -> fn_37_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_3:s -> fn_37_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_37_basic_block_3:s -> fn_37_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_37_basic_block_3:s -> fn_37_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_37_basic_block_3:s -> fn_37_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_37_basic_block_3:s -> fn_37_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_37_basic_block_4:s -> fn_37_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_5:s -> fn_37_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_6:s -> fn_37_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_7:s -> fn_37_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_8:s -> fn_37_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_9:s -> fn_37_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_37_basic_block_0:s -> fn_37_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_ConfigMultiBlockTransfer" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_ConfigMultiBlockTransfer ()";
+	fn_38_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_38_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_38_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|retStatus_11\ =\ EDMA_DRV_ConfigSingleBlockTransfer\ (virtualChannel_2(D),\ type_5(D),\ srcAddr_6(D),\ destAddr_7(D),\ transferSize_8(D),\ blockSize_9(D));\l\
+|if\ (retStatus_11\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_38_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|dmaChannel_3\ =\ virtualChannel_2(D)\ &\ 15;\l\
+|EDMA_TCDSetMajorCount\ (1073774592B,\ dmaChannel_3,\ blockCount_12(D));\l\
+|_15\ =\ (int)\ dmaChannel_3;\l\
+|regValTemp_16\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_15].CSR;\l\
+|regValTemp_17\ =\ regValTemp_16\ &\ 65527;\l\
+|if\ (disableReqOnCompletion_14(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_38_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 4\>:\l\
+}"];
+
+	fn_38_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 5\>:\l\
+|#\ iftmp.25_19\ =\ PHI\ \<8(3),\ 0(4)\>\l\
+|regValTemp.26_18\ =\ (signed\ short)\ regValTemp_17;\l\
+|_20\ =\ regValTemp.26_18\ \|\ iftmp.25_19;\l\
+|regValTemp_21\ =\ (uint16_t)\ _20;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_15].CSR\ =\{v\}\ regValTemp_21;\l\
+}"];
+
+	fn_38_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|return\ retStatus_11;\l\
+}"];
+
+	fn_38_basic_block_0:s -> fn_38_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_38_basic_block_3:s -> fn_38_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_38_basic_block_3:s -> fn_38_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_38_basic_block_4:s -> fn_38_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_5:s -> fn_38_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_6:s -> fn_38_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_38_basic_block_0:s -> fn_38_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_StartChannel" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_StartChannel ()";
+	fn_41_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_41_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_41_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|EDMA_SetDmaRequestCmd\ (1073774592B,\ dmaChannel_2,\ 1);\l\
+|return\ 0;\l\
+}"];
+
+	fn_41_basic_block_0:s -> fn_41_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_2:s -> fn_41_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_41_basic_block_0:s -> fn_41_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_StopChannel" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_StopChannel ()";
+	fn_42_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_42_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_42_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|EDMA_SetDmaRequestCmd\ (1073774592B,\ dmaChannel_2,\ 0);\l\
+|return\ 0;\l\
+}"];
+
+	fn_42_basic_block_0:s -> fn_42_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_2:s -> fn_42_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_42_basic_block_0:s -> fn_42_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetChannelRequestAndTrigger" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetChannelRequestAndTrigger ()";
+	fn_43_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_43_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_43_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|regIndex_23\ =\ (uint32_t)\ virtualChannel_2(D);\l\
+|regValTemp_24\ =\{v\}\ MEM[(struct\ DMAMUX_Type\ *)1073876992B].CHCFG[regIndex_23];\l\
+|regValTemp_25\ =\ regValTemp_24\ &\ 127;\l\
+|MEM[(struct\ DMAMUX_Type\ *)1073876992B].CHCFG[regIndex_23]\ =\{v\}\ regValTemp_25;\l\
+|regValTemp_16\ =\{v\}\ MEM[(struct\ DMAMUX_Type\ *)1073876992B].CHCFG[regIndex_23];\l\
+|regValTemp_17\ =\ regValTemp_16\ &\ 192;\l\
+|source.36_18\ =\ (signed\ char)\ request_1(D);\l\
+|_19\ =\ source.36_18\ &\ 63;\l\
+|regValTemp.37_20\ =\ (signed\ char)\ regValTemp_17;\l\
+|_21\ =\ _19\ \|\ regValTemp.37_20;\l\
+|regValTemp_22\ =\ (uint8_t)\ _21;\l\
+|MEM[(struct\ DMAMUX_Type\ *)1073876992B].CHCFG[regIndex_23]\ =\{v\}\ regValTemp_22;\l\
+|regValTemp_10\ =\{v\}\ MEM[(struct\ DMAMUX_Type\ *)1073876992B].CHCFG[regIndex_23];\l\
+|regValTemp_11\ =\ regValTemp_10\ &\ 191;\l\
+|if\ (enableTrigger_4(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_43_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 3\>:\l\
+}"];
+
+	fn_43_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ iftmp.38_13\ =\ PHI\ \<64(2),\ 0(3)\>\l\
+|regValTemp.39_12\ =\ (signed\ char)\ regValTemp_11;\l\
+|_14\ =\ regValTemp.39_12\ \|\ iftmp.38_13;\l\
+|regValTemp_15\ =\ (uint8_t)\ _14;\l\
+|MEM[(struct\ DMAMUX_Type\ *)1073876992B].CHCFG[regIndex_23]\ =\{v\}\ regValTemp_15;\l\
+|regValTemp_5\ =\{v\}\ MEM[(struct\ DMAMUX_Type\ *)1073876992B].CHCFG[regIndex_23];\l\
+|regValTemp_6\ =\ regValTemp_5\ &\ 127;\l\
+|regValTemp.41_7\ =\ (signed\ char)\ regValTemp_6;\l\
+|_8\ =\ regValTemp.41_7\ \|\ -128;\l\
+|regValTemp_9\ =\ (uint8_t)\ _8;\l\
+|MEM[(struct\ DMAMUX_Type\ *)1073876992B].CHCFG[regIndex_23]\ =\{v\}\ regValTemp_9;\l\
+|return\ 0;\l\
+}"];
+
+	fn_43_basic_block_0:s -> fn_43_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_2:s -> fn_43_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_2:s -> fn_43_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_3:s -> fn_43_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_4:s -> fn_43_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_43_basic_block_0:s -> fn_43_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_ChannelInit" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_ChannelInit ()";
+	subgraph cluster_30_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_30_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 3\>:\l\
+|#\ sructPtr_65\ =\ PHI\ \<edmaChannelState_19(D)(2),\ sructPtr_28(3)\>\l\
+|MEM[base:\ sructPtr_65,\ offset:\ 0B]\ =\ 0;\l\
+|sructPtr_28\ =\ sructPtr_65\ +\ 1;\l\
+|if\ (sructPtr_28\ !=\ _29)\l\
+\ \ goto\ \<bb\ 3\>;\ [87.64%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [12.36%]\l\
+}"];
+
+	}
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|_1\ =\ edmaChannelConfig_17(D)-\>virtChnConfig;\l\
+|dmaChannel_18\ =\ _1\ &\ 15;\l\
+|_29\ =\ edmaChannelState_19(D)\ +\ 16;\l\
+}"];
+
+	fn_30_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|_2\ =\ edmaChannelConfig_17(D)-\>virtChnConfig;\l\
+|_3\ =\ edmaChannelConfig_17(D)-\>source;\l\
+|_4\ =\ edmaChannelConfig_17(D)-\>enableTrigger;\l\
+|retStatus_21\ =\ EDMA_DRV_SetChannelRequestAndTrigger\ (_2,\ _3,\ _4);\l\
+|EDMA_TCDClearReg\ (1073774592B,\ dmaChannel_18);\l\
+|if\ (retStatus_21\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [67.00%]\l\
+}"];
+
+	fn_30_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38976828\<bb\ 5\>:\l\
+|s_virtEdmaState.4_5\ =\ s_virtEdmaState;\l\
+|_6\ =\ (signed\ short)\ _1;\l\
+|_56\ =\ (signed\ short)\ 4;\l\
+|_30\ =\ _6\ w*\ _56;\l\
+|_34\ =\ s_virtEdmaState.4_5\ +\ _30;\l\
+|MEM\ \<struct\ edma_chn_state_t\ *\ volatile\>\ [(struct\ edma_state_t\ *)_34]\ =\{v\}\ edmaChannelState_19(D);\l\
+|_7\ =\{v\}\ MEM\ \<struct\ edma_chn_state_t\ *\ volatile\>\ [(struct\ edma_state_t\ *)_34];\l\
+|_7-\>virtChn\ =\ _1;\l\
+|_8\ =\{v\}\ MEM\ \<struct\ edma_chn_state_t\ *\ volatile\>\ [(struct\ edma_state_t\ *)_34];\l\
+|_8-\>status\ =\{v\}\ 0;\l\
+|EDMA_SetErrorIntCmd\ (1073774592B,\ dmaChannel_18,\ 1);\l\
+|_31\ =\{v\}\ MEM[(const\ struct\ DMA_Type\ *)1073774592B].CR;\l\
+|_32\ =\ _31\ \>\>\ 2;\l\
+|_33\ =\ _32\ &\ 1;\l\
+|if\ (_33\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_30_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19488414\<bb\ 6\>:\l\
+|_9\ =\ edmaChannelConfig_17(D)-\>channelPriority;\l\
+|if\ (_9\ !=\ 255)\l\
+\ \ goto\ \<bb\ 7\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [34.00%]\l\
+}"];
+
+	fn_30_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:12862353\<bb\ 7\>:\l\
+|index_35\ =\ dmaChannel_18\ ^\ 3;\l\
+|_36\ =\ (int)\ index_35;\l\
+|regValTemp_37\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].DCHPRI[_36];\l\
+|regValTemp_38\ =\ regValTemp_37\ &\ 240;\l\
+|priority.7_39\ =\ (signed\ char)\ _9;\l\
+|_40\ =\ priority.7_39\ &\ 15;\l\
+|regValTemp.8_41\ =\ (signed\ char)\ regValTemp_38;\l\
+|_42\ =\ _40\ \|\ regValTemp.8_41;\l\
+|regValTemp_43\ =\ (uint8_t)\ _42;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].DCHPRI[_36]\ =\{v\}\ regValTemp_43;\l\
+}"];
+
+	fn_30_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38976828\<bb\ 8\>:\l\
+|_10\ =\ edmaChannelConfig_17(D)-\>virtChnConfig;\l\
+|_11\ =\ edmaChannelConfig_17(D)-\>callback;\l\
+|_12\ =\ edmaChannelConfig_17(D)-\>callbackParam;\l\
+|s_virtEdmaState.9_44\ =\ s_virtEdmaState;\l\
+|_45\ =\ (int)\ _10;\l\
+|_46\ =\{v\}\ s_virtEdmaState.9_44-\>virtChnState[_45];\l\
+|_46-\>callback\ =\ _11;\l\
+|_47\ =\{v\}\ s_virtEdmaState.9_44-\>virtChnState[_45];\l\
+|_47-\>parameter\ =\ _12;\l\
+}"];
+
+	fn_30_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 9\>:\l\
+|#\ retStatus_13\ =\ PHI\ \<retStatus_21(8),\ retStatus_21(4)\>\l\
+|return\ retStatus_13;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_3:s -> fn_30_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[87%]"];
+	fn_30_basic_block_3:s -> fn_30_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_30_basic_block_4:s -> fn_30_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_30_basic_block_4:s -> fn_30_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_30_basic_block_5:s -> fn_30_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_30_basic_block_5:s -> fn_30_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_30_basic_block_6:s -> fn_30_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_30_basic_block_6:s -> fn_30_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_30_basic_block_7:s -> fn_30_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_8:s -> fn_30_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_9:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_Init ()";
+	subgraph cluster_28_5 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 5";
+	labeljust=l;
+	penwidth=2;
+	fn_28_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:250305609\<bb\ 13\>:\l\
+|#\ index_66\ =\ PHI\ \<0(12),\ index_30(15)\>\l\
+|#\ edmaStatus_65\ =\ PHI\ \<0(12),\ edmaStatus_13(15)\>\l\
+|#\ ivtmp.224_69\ =\ PHI\ \<ivtmp.224_62(12),\ ivtmp.224_68(15)\>\l\
+|#\ ivtmp.227_12\ =\ PHI\ \<ivtmp.227_32(12),\ ivtmp.227_45(15)\>\l\
+|ivtmp.224_68\ =\ ivtmp.224_69\ +\ 4;\l\
+|_58\ =\ (void\ *)\ ivtmp.224_68;\l\
+|_5\ =\ MEM[base:\ _58,\ offset:\ 0B];\l\
+|ivtmp.227_45\ =\ ivtmp.227_12\ +\ 4;\l\
+|_61\ =\ (void\ *)\ ivtmp.227_45;\l\
+|_7\ =\ MEM[base:\ _61,\ offset:\ 0B];\l\
+|chnInitStatus_29\ =\ EDMA_DRV_ChannelInit\ (_5,\ _7);\l\
+|if\ (chnInitStatus_29\ !=\ 0)\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+}"];
+
+	fn_28_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:125152805\<bb\ 14\>:\l\
+}"];
+
+	fn_28_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:250305609\<bb\ 15\>:\l\
+|#\ edmaStatus_13\ =\ PHI\ \<edmaStatus_65(13),\ chnInitStatus_29(14)\>\l\
+|index_30\ =\ index_66\ +\ 1;\l\
+|if\ (chnCount_27(D)\ !=\ index_30)\l\
+\ \ goto\ \<bb\ 13\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_28_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_28_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1010605809\<bb\ 8\>:\l\
+|#\ prephitmp_38\ =\ PHI\ \<0(4),\ pretmp_40(7)\>\l\
+|#\ ivtmp.245_17\ =\ PHI\ \<ivtmp.245_9(4),\ ivtmp.245_59(7)\>\l\
+|INT_SYS_EnableIRQ\ (prephitmp_38);\l\
+|if\ (ivtmp.245_17\ !=\ _57)\l\
+\ \ goto\ \<bb\ 7\>;\ [93.75%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [6.25%]\l\
+}"];
+
+	fn_28_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:947469796\<bb\ 7\>:\l\
+|_56\ =\ (void\ *)\ ivtmp.245_17;\l\
+|pretmp_40\ =\ MEM[base:\ _56,\ offset:\ 0B];\l\
+|ivtmp.245_59\ =\ ivtmp.245_17\ +\ 1;\l\
+}"];
+
+	}
+	subgraph cluster_28_6 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 6";
+	labeljust=l;
+	penwidth=2;
+	fn_28_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:510827770\<bb\ 3\>:\l\
+|#\ sructPtr_72\ =\ PHI\ \<edmaState_23(D)(2),\ sructPtr_39(3)\>\l\
+|MEM[base:\ sructPtr_72,\ offset:\ 0B]\ =\ 0;\l\
+|sructPtr_39\ =\ sructPtr_72\ +\ 1;\l\
+|if\ (_8\ !=\ sructPtr_39)\l\
+\ \ goto\ \<bb\ 3\>;\ [87.64%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [12.36%]\l\
+}"];
+
+	}
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136016\<bb\ 2\>:\l\
+|s_virtEdmaState\ =\ edmaState_23(D);\l\
+|_8\ =\ edmaState_23(D)\ +\ 64;\l\
+}"];
+
+	fn_28_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136016\<bb\ 4\>:\l\
+|#\ prephitmp_19\ =\ PHI\ \<_16(6),\ regValTemp_43(5)\>\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].CR\ =\{v\}\ prephitmp_19;\l\
+|INT_SYS_EnableIRQ\ (16);\l\
+|ivtmp.245_9\ =\ (unsigned\ int)\ &MEM\ \<const\ IRQn_Type[16]\>\ [(void\ *)&s_edmaIrqId\ +\ 1B];\l\
+|_60\ =\ (unsigned\ int)\ &s_edmaIrqId;\l\
+|_57\ =\ _60\ +\ 16;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_28_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136016\<bb\ 5\>:\l\
+|EDMA_Init\ (1073774592B);\l\
+|_1\ =\ userConfig_37(D)-\>chnArbitration;\l\
+|regValTemp_46\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].CR;\l\
+|regValTemp_47\ =\ regValTemp_46\ &\ 4294967291;\l\
+|_48\ =\ (long\ unsigned\ int)\ _1;\l\
+|_49\ =\ _48\ \<\<\ 2;\l\
+|_50\ =\ _49\ &\ 4;\l\
+|regValTemp_51\ =\ regValTemp_47\ \|\ _50;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].CR\ =\{v\}\ regValTemp_51;\l\
+|_2\ =\ userConfig_37(D)-\>haltOnError;\l\
+|regValTemp_42\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].CR;\l\
+|regValTemp_43\ =\ regValTemp_42\ &\ 4294967279;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_28_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:31568008\<bb\ 6\>:\l\
+|_16\ =\ regValTemp_43\ \|\ 16;\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	fn_28_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136016\<bb\ 9\>:\l\
+|DMAMUX_Init\ (1073876992B);\l\
+|if\ (chnStateArray_25(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 10\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [30.00%]\l\
+}"];
+
+	fn_28_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:44195211\<bb\ 10\>:\l\
+|if\ (chnConfigArray_26(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 11\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [30.00%]\l\
+}"];
+
+	fn_28_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:30936648\<bb\ 11\>:\l\
+|if\ (chnCount_27(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [11.00%]\l\
+}"];
+
+	fn_28_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:27533617\<bb\ 12\>:\l\
+|_18\ =\ chnStateArray_25(D)\ +\ 4294967292;\l\
+|ivtmp.224_62\ =\ (unsigned\ int)\ _18;\l\
+|_67\ =\ chnConfigArray_26(D)\ +\ 4294967292;\l\
+|ivtmp.227_32\ =\ (unsigned\ int)\ _67;\l\
+}"];
+
+	fn_28_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63136016\<bb\ 16\>:\l\
+|#\ edmaStatus_15\ =\ PHI\ \<0(11),\ 0(10),\ 0(9),\ edmaStatus_13(15)\>\l\
+|return\ edmaStatus_15;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_2:s -> fn_28_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_3:s -> fn_28_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[87%]"];
+	fn_28_basic_block_3:s -> fn_28_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_28_basic_block_4:s -> fn_28_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_5:s -> fn_28_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_5:s -> fn_28_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_6:s -> fn_28_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_7:s -> fn_28_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_28_basic_block_8:s -> fn_28_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[93%]"];
+	fn_28_basic_block_8:s -> fn_28_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[6%]"];
+	fn_28_basic_block_9:s -> fn_28_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_28_basic_block_9:s -> fn_28_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_28_basic_block_10:s -> fn_28_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_28_basic_block_10:s -> fn_28_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_28_basic_block_11:s -> fn_28_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_28_basic_block_11:s -> fn_28_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_28_basic_block_12:s -> fn_28_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_13:s -> fn_28_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_13:s -> fn_28_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_28_basic_block_14:s -> fn_28_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_15:s -> fn_28_basic_block_13:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_28_basic_block_15:s -> fn_28_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_28_basic_block_16:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_ClearTCD" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_ClearTCD ()";
+	fn_44_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_44_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_44_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|EDMA_TCDClearReg\ (1073774592B,\ dmaChannel_2);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_44_basic_block_0:s -> fn_44_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_2:s -> fn_44_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_44_basic_block_0:s -> fn_44_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetSrcAddr" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetSrcAddr ()";
+	fn_45_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_45_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_45_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|_5\ =\ (int)\ dmaChannel_2;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_5].SADDR\ =\{v\}\ address_4(D);\l\
+|return;\l\
+}"];
+
+	fn_45_basic_block_0:s -> fn_45_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_45_basic_block_2:s -> fn_45_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_45_basic_block_0:s -> fn_45_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetSrcOffset" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetSrcOffset ()";
+	fn_46_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_46_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_46_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|_5\ =\ (int)\ dmaChannel_2;\l\
+|offset.21_6\ =\ (short\ unsigned\ int)\ offset_4(D);\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_5].SOFF\ =\{v\}\ offset.21_6;\l\
+|return;\l\
+}"];
+
+	fn_46_basic_block_0:s -> fn_46_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_46_basic_block_2:s -> fn_46_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_46_basic_block_0:s -> fn_46_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetSrcReadChunkSize" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetSrcReadChunkSize ()";
+	fn_47_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_47_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_47_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|_5\ =\ (signed\ short)\ dmaChannel_2;\l\
+|_19\ =\ (signed\ short)\ 32;\l\
+|_17\ =\ _5\ w*\ _19;\l\
+|_18\ =\ 1073774592B\ +\ _17;\l\
+|regValTemp_6\ =\{v\}\ MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_18\ +\ 4102B];\l\
+|regValTemp_7\ =\ regValTemp_6\ &\ 63743;\l\
+|_8\ =\ (short\ unsigned\ int)\ size_4(D);\l\
+|_9\ =\ _8\ \<\<\ 8;\l\
+|_10\ =\ (signed\ short)\ _9;\l\
+|_11\ =\ _10\ &\ 1792;\l\
+|regValTemp.42_12\ =\ (signed\ short)\ regValTemp_7;\l\
+|_13\ =\ _11\ \|\ regValTemp.42_12;\l\
+|regValTemp_14\ =\ (uint16_t)\ _13;\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_18\ +\ 4102B]\ =\{v\}\ regValTemp_14;\l\
+|return;\l\
+}"];
+
+	fn_47_basic_block_0:s -> fn_47_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_47_basic_block_2:s -> fn_47_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_47_basic_block_0:s -> fn_47_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetSrcLastAddrAdjustment" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetSrcLastAddrAdjustment ()";
+	fn_48_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_48_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_48_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|_5\ =\ (int)\ dmaChannel_2;\l\
+|size.43_6\ =\ (long\ unsigned\ int)\ adjust_4(D);\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_5].SLAST\ =\{v\}\ size.43_6;\l\
+|return;\l\
+}"];
+
+	fn_48_basic_block_0:s -> fn_48_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_48_basic_block_2:s -> fn_48_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_48_basic_block_0:s -> fn_48_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetDestLastAddrAdjustment" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetDestLastAddrAdjustment ()";
+	fn_49_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_49_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_49_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|_5\ =\ (int)\ dmaChannel_2;\l\
+|adjust.44_6\ =\ (long\ unsigned\ int)\ adjust_4(D);\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_5].DLASTSGA\ =\{v\}\ adjust.44_6;\l\
+|return;\l\
+}"];
+
+	fn_49_basic_block_0:s -> fn_49_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_49_basic_block_2:s -> fn_49_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_49_basic_block_0:s -> fn_49_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetDestAddr" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetDestAddr ()";
+	fn_50_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_50_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_50_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|_5\ =\ (int)\ dmaChannel_2;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_5].DADDR\ =\{v\}\ address_4(D);\l\
+|return;\l\
+}"];
+
+	fn_50_basic_block_0:s -> fn_50_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_50_basic_block_2:s -> fn_50_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_50_basic_block_0:s -> fn_50_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetDestOffset" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetDestOffset ()";
+	fn_51_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_51_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_51_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|_5\ =\ (int)\ dmaChannel_2;\l\
+|offset.22_6\ =\ (short\ unsigned\ int)\ offset_4(D);\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_5].DOFF\ =\{v\}\ offset.22_6;\l\
+|return;\l\
+}"];
+
+	fn_51_basic_block_0:s -> fn_51_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_51_basic_block_2:s -> fn_51_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_51_basic_block_0:s -> fn_51_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetDestWriteChunkSize" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetDestWriteChunkSize ()";
+	fn_52_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_52_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_52_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|_5\ =\ (signed\ short)\ dmaChannel_2;\l\
+|_17\ =\ (signed\ short)\ 32;\l\
+|_15\ =\ _5\ w*\ _17;\l\
+|_16\ =\ 1073774592B\ +\ _15;\l\
+|regValTemp_6\ =\{v\}\ MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_16\ +\ 4102B];\l\
+|regValTemp_7\ =\ regValTemp_6\ &\ 65528;\l\
+|_8\ =\ size_4(D)\ &\ 7;\l\
+|_9\ =\ (signed\ short)\ _8;\l\
+|regValTemp.45_10\ =\ (signed\ short)\ regValTemp_7;\l\
+|_11\ =\ _9\ \|\ regValTemp.45_10;\l\
+|regValTemp_12\ =\ (uint16_t)\ _11;\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_16\ +\ 4102B]\ =\{v\}\ regValTemp_12;\l\
+|return;\l\
+}"];
+
+	fn_52_basic_block_0:s -> fn_52_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_52_basic_block_2:s -> fn_52_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_52_basic_block_0:s -> fn_52_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetMinorLoopBlockSize" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetMinorLoopBlockSize ()";
+	fn_53_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_53_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_53_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|EDMA_TCDSetNbytes\ (1073774592B,\ dmaChannel_2,\ nbytes_4(D));\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_53_basic_block_0:s -> fn_53_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_53_basic_block_2:s -> fn_53_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_53_basic_block_0:s -> fn_53_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetMajorLoopIterationCount" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetMajorLoopIterationCount ()";
+	fn_54_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_54_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_54_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|EDMA_TCDSetMajorCount\ (1073774592B,\ dmaChannel_2,\ majorLoopCount_4(D));\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_54_basic_block_0:s -> fn_54_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_54_basic_block_2:s -> fn_54_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_54_basic_block_0:s -> fn_54_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_GetRemainingMajorIterationsCount" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_GetRemainingMajorIterationsCount ()";
+	fn_55_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_55_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_55_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|count_5\ =\ EDMA_TCDGetCurrentMajorCount\ (1073774592B,\ dmaChannel_2);\ [tail\ call]\l\
+|return\ count_5;\l\
+}"];
+
+	fn_55_basic_block_0:s -> fn_55_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_55_basic_block_2:s -> fn_55_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_55_basic_block_0:s -> fn_55_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_SetScatterGatherLink" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_SetScatterGatherLink ()";
+	fn_56_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_56_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_56_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|EDMA_TCDSetScatterGatherLink\ (1073774592B,\ dmaChannel_2,\ nextTCDAddr_4(D));\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_56_basic_block_0:s -> fn_56_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_56_basic_block_2:s -> fn_56_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_56_basic_block_0:s -> fn_56_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_DisableRequestsOnTransferComplete" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_DisableRequestsOnTransferComplete ()";
+	fn_57_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_57_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_57_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|_5\ =\ (int)\ dmaChannel_2;\l\
+|regValTemp_6\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_5].CSR;\l\
+|regValTemp_7\ =\ regValTemp_6\ &\ 65527;\l\
+|if\ (disable_4(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_57_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 3\>:\l\
+}"];
+
+	fn_57_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ iftmp.25_9\ =\ PHI\ \<8(2),\ 0(3)\>\l\
+|regValTemp.26_8\ =\ (signed\ short)\ regValTemp_7;\l\
+|_10\ =\ regValTemp.26_8\ \|\ iftmp.25_9;\l\
+|regValTemp_11\ =\ (uint16_t)\ _10;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_5].CSR\ =\{v\}\ regValTemp_11;\l\
+|return;\l\
+}"];
+
+	fn_57_basic_block_0:s -> fn_57_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_57_basic_block_2:s -> fn_57_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_57_basic_block_2:s -> fn_57_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_57_basic_block_3:s -> fn_57_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_57_basic_block_4:s -> fn_57_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_57_basic_block_0:s -> fn_57_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_ConfigureInterrupt" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_ConfigureInterrupt ()";
+	fn_58_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_58_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_58_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_3\ =\ virtualChannel_2(D)\ &\ 15;\l\
+|if\ (intSrc_4(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 6\>;\ [25.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [75.00%]\l\
+}"];
+
+	fn_58_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (intSrc_4(D)\ ==\ 2)\l\
+\ \ goto\ \<bb\ 9\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.67%]\l\
+}"];
+
+	fn_58_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|if\ (intSrc_4(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [66.67%]\l\
+}"];
+
+	fn_58_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 5\>:\l\
+|EDMA_SetErrorIntCmd\ (1073774592B,\ dmaChannel_3,\ enable_6(D));\ [tail\ call]\l\
+goto\ \<bb\ 12\>;\ [100.00%]\l\
+}"];
+
+	fn_58_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 6\>:\l\
+|_8\ =\ (int)\ dmaChannel_3;\l\
+|regValTemp_9\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_8].CSR;\l\
+|regValTemp_10\ =\ regValTemp_9\ &\ 65531;\l\
+|if\ (enable_6(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_58_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 7\>:\l\
+}"];
+
+	fn_58_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 8\>:\l\
+|#\ iftmp.46_12\ =\ PHI\ \<4(6),\ 0(7)\>\l\
+|regValTemp.47_11\ =\ (signed\ short)\ regValTemp_10;\l\
+|_13\ =\ regValTemp.47_11\ \|\ iftmp.46_12;\l\
+|regValTemp_14\ =\ (uint16_t)\ _13;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_8].CSR\ =\{v\}\ regValTemp_14;\l\
+goto\ \<bb\ 12\>;\ [100.00%]\l\
+}"];
+
+	fn_58_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 9\>:\l\
+|_15\ =\ (int)\ dmaChannel_3;\l\
+|regValTemp_16\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_15].CSR;\l\
+|regValTemp_17\ =\ regValTemp_16\ &\ 65533;\l\
+|if\ (enable_6(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_58_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 10\>:\l\
+}"];
+
+	fn_58_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 11\>:\l\
+|#\ iftmp.23_19\ =\ PHI\ \<2(9),\ 0(10)\>\l\
+|regValTemp.24_18\ =\ (signed\ short)\ regValTemp_17;\l\
+|_20\ =\ regValTemp.24_18\ \|\ iftmp.23_19;\l\
+|regValTemp_21\ =\ (uint16_t)\ _20;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_15].CSR\ =\{v\}\ regValTemp_21;\l\
+}"];
+
+	fn_58_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 12\>:\l\
+|return;\l\
+}"];
+
+	fn_58_basic_block_0:s -> fn_58_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_2:s -> fn_58_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_58_basic_block_2:s -> fn_58_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_58_basic_block_3:s -> fn_58_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_58_basic_block_3:s -> fn_58_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_58_basic_block_4:s -> fn_58_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_58_basic_block_4:s -> fn_58_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_58_basic_block_5:s -> fn_58_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_6:s -> fn_58_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_6:s -> fn_58_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_7:s -> fn_58_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_8:s -> fn_58_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_9:s -> fn_58_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_9:s -> fn_58_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_10:s -> fn_58_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_11:s -> fn_58_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_12:s -> fn_58_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_58_basic_block_0:s -> fn_58_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_CancelTransfer" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_CancelTransfer ()";
+	fn_59_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_59_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_59_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|if\ (error_5(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_59_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 3\>:\l\
+|EDMA_CancelTransferWithError\ (1073774592B);\ [tail\ call]\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_59_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 4\>:\l\
+|EDMA_CancelTransfer\ (1073774592B);\ [tail\ call]\l\
+}"];
+
+	fn_59_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_59_basic_block_0:s -> fn_59_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_2:s -> fn_59_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_59_basic_block_2:s -> fn_59_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_59_basic_block_3:s -> fn_59_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_4:s -> fn_59_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_5:s -> fn_59_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_59_basic_block_0:s -> fn_59_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_TriggerSwRequest" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_TriggerSwRequest ()";
+	fn_60_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_60_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_60_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_2\ =\ virtualChannel_1(D)\ &\ 15;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].SSRT\ =\{v\}\ dmaChannel_2;\l\
+|return;\l\
+}"];
+
+	fn_60_basic_block_0:s -> fn_60_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_60_basic_block_2:s -> fn_60_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_60_basic_block_0:s -> fn_60_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_PushConfigToSTCD" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_PushConfigToSTCD ()";
+	fn_61_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_61_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_61_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:241044080\<bb\ 2\>:\l\
+|if\ (config_3(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [30.00%]\l\
+}"];
+
+	fn_61_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:168730857\<bb\ 3\>:\l\
+|if\ (stcd_5(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [30.00%]\l\
+}"];
+
+	fn_61_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|EDMA_DRV_PushConfigToSTCD.part.0\ (config_3(D),\ stcd_5(D));\ [tail\ call]\l\
+}"];
+
+	fn_61_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:241044080\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_61_basic_block_0:s -> fn_61_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_61_basic_block_2:s -> fn_61_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_61_basic_block_2:s -> fn_61_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_61_basic_block_3:s -> fn_61_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_61_basic_block_3:s -> fn_61_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_61_basic_block_4:s -> fn_61_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_61_basic_block_5:s -> fn_61_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_61_basic_block_0:s -> fn_61_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_PushConfigToReg" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_PushConfigToReg ()";
+	fn_62_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_62_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_62_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|dmaChannel_35\ =\ virtualChannel_34(D)\ &\ 15;\l\
+|EDMA_TCDClearReg\ (1073774592B,\ dmaChannel_35);\l\
+|_1\ =\ tcd_38(D)-\>srcAddr;\l\
+|_52\ =\ (int)\ dmaChannel_35;\l\
+|_107\ =\ (signed\ short)\ dmaChannel_35;\l\
+|_16\ =\ (signed\ short)\ 32;\l\
+|_98\ =\ _107\ w*\ _16;\l\
+|_103\ =\ 1073774592B\ +\ _98;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ DMA_Type\ *)_103\ +\ 4096B]\ =\{v\}\ _1;\l\
+|_2\ =\ tcd_38(D)-\>destAddr;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].DADDR\ =\{v\}\ _2;\l\
+|_3\ =\ tcd_38(D)-\>srcModulo;\l\
+|_4\ =\ tcd_38(D)-\>destModulo;\l\
+|_5\ =\ tcd_38(D)-\>srcTransferSize;\l\
+|_6\ =\ tcd_38(D)-\>destTransferSize;\l\
+|EDMA_TCDSetAttribute\ (1073774592B,\ dmaChannel_35,\ _3,\ _4,\ _5,\ _6);\l\
+|_7\ =\ tcd_38(D)-\>srcOffset;\l\
+|offset.21_51\ =\ (short\ unsigned\ int)\ _7;\l\
+|MEM\ \<volatile\ uint16_t\>\ [(struct\ DMA_Type\ *)_103\ +\ 4100B]\ =\{v\}\ offset.21_51;\l\
+|_8\ =\ tcd_38(D)-\>destOffset;\l\
+|offset.22_50\ =\ (short\ unsigned\ int)\ _8;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].DOFF\ =\{v\}\ offset.22_50;\l\
+|_9\ =\ tcd_38(D)-\>srcLastAddrAdjust;\l\
+|size.43_49\ =\ (long\ unsigned\ int)\ _9;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].SLAST\ =\{v\}\ size.43_49;\l\
+|_10\ =\ tcd_38(D)-\>scatterGatherEnable;\l\
+|if\ (_10\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [67.00%]\l\
+}"];
+
+	fn_62_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|regValTemp_53\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR;\l\
+|regValTemp_54\ =\ regValTemp_53\ &\ 65519;\l\
+|regValTemp.51_55\ =\ (signed\ short)\ regValTemp_54;\l\
+|_56\ =\ regValTemp.51_55\ \|\ 16;\l\
+|regValTemp_57\ =\ (uint16_t)\ _56;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR\ =\{v\}\ regValTemp_57;\l\
+|_11\ =\ tcd_38(D)-\>scatterGatherNextDescAddr;\l\
+|EDMA_TCDSetScatterGatherLink\ (1073774592B,\ dmaChannel_35,\ _11);\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:719407025\<bb\ 4\>:\l\
+|regValTemp_59\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR;\l\
+|regValTemp_60\ =\ regValTemp_59\ &\ 65519;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR\ =\{v\}\ regValTemp_60;\l\
+|_12\ =\ tcd_38(D)-\>destLastAddrAdjust;\l\
+|adjust.44_58\ =\ (long\ unsigned\ int)\ _12;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].DLASTSGA\ =\{v\}\ adjust.44_58;\l\
+}"];
+
+	fn_62_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|_13\ =\ tcd_38(D)-\>interruptEnable;\l\
+|regValTemp_61\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR;\l\
+|regValTemp_62\ =\ regValTemp_61\ &\ 65533;\l\
+|if\ (_13\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 6\>:\l\
+}"];
+
+	fn_62_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|#\ iftmp.23_64\ =\ PHI\ \<2(5),\ 0(6)\>\l\
+|regValTemp.24_63\ =\ (signed\ short)\ regValTemp_62;\l\
+|_65\ =\ regValTemp.24_63\ \|\ iftmp.23_64;\l\
+|regValTemp_66\ =\ (uint16_t)\ _65;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR\ =\{v\}\ regValTemp_66;\l\
+|_14\ =\ tcd_38(D)-\>loopTransferConfig;\l\
+|if\ (_14\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 8\>:\l\
+|_100\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].CR;\l\
+|_101\ =\ _100\ \>\>\ 7;\l\
+|_102\ =\ _101\ &\ 1;\l\
+|if\ (_102\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 9\>:\l\
+|_15\ =\ _14-\>srcOffsetEnable;\l\
+|regValTemp_104\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].NBYTES.MLOFFYES;\l\
+|regValTemp_105\ =\ regValTemp_104\ &\ 2147483647;\l\
+|if\ (_15\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904820\<bb\ 10\>:\l\
+|_29\ =\ regValTemp_105\ \|\ 2147483648;\l\
+}"];
+
+	fn_62_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 11\>:\l\
+|#\ prephitmp_76\ =\ PHI\ \<_29(10),\ regValTemp_105(9)\>\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].NBYTES.MLOFFYES\ =\{v\}\ prephitmp_76;\l\
+}"];
+
+	fn_62_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 12\>:\l\
+|_92\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].CR;\l\
+|_93\ =\ _92\ \>\>\ 7;\l\
+|_94\ =\ _93\ &\ 1;\l\
+|if\ (_94\ !=\ 0)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 13\>:\l\
+|_17\ =\ _14-\>dstOffsetEnable;\l\
+|regValTemp_96\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].NBYTES.MLOFFYES;\l\
+|regValTemp_97\ =\ regValTemp_96\ &\ 3221225471;\l\
+|if\ (_17\ !=\ 0)\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904820\<bb\ 14\>:\l\
+|_18\ =\ regValTemp_97\ \|\ 1073741824;\l\
+}"];
+
+	fn_62_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 15\>:\l\
+|#\ prephitmp_42\ =\ PHI\ \<_18(14),\ regValTemp_97(13)\>\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].NBYTES.MLOFFYES\ =\{v\}\ prephitmp_42;\l\
+}"];
+
+	fn_62_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 16\>:\l\
+|_19\ =\ _14-\>minorLoopOffset;\l\
+|EDMA_TCDSetMinorLoopOffset\ (1073774592B,\ dmaChannel_35,\ _19);\l\
+|_20\ =\ tcd_38(D)-\>minorByteTransferCount;\l\
+|EDMA_TCDSetNbytes\ (1073774592B,\ dmaChannel_35,\ _20);\l\
+|_21\ =\ tcd_38(D)-\>loopTransferConfig;\l\
+|_22\ =\ _21-\>minorLoopChnLinkNumber;\l\
+|_23\ =\ (long\ unsigned\ int)\ _22;\l\
+|_24\ =\ _21-\>minorLoopChnLinkEnable;\l\
+|EDMA_TCDSetChannelMinorLink\ (1073774592B,\ dmaChannel_35,\ _23,\ _24);\l\
+|_25\ =\ tcd_38(D)-\>loopTransferConfig;\l\
+|_26\ =\ _25-\>majorLoopChnLinkNumber;\l\
+|_28\ =\ _25-\>majorLoopChnLinkEnable;\l\
+|regValTemp_77\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR;\l\
+|regValTemp_78\ =\ regValTemp_77\ &\ 61695;\l\
+|_79\ =\ (short\ unsigned\ int)\ _26;\l\
+|_80\ =\ _79\ \<\<\ 8;\l\
+|_81\ =\ (signed\ short)\ _80;\l\
+|_82\ =\ _81\ &\ 3840;\l\
+|regValTemp.54_83\ =\ (signed\ short)\ regValTemp_78;\l\
+|_84\ =\ _82\ \|\ regValTemp.54_83;\l\
+|regValTemp_85\ =\ (uint16_t)\ _84;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR\ =\{v\}\ regValTemp_85;\l\
+|regValTemp_86\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR;\l\
+|regValTemp_87\ =\ regValTemp_86\ &\ 65503;\l\
+|if\ (_28\ !=\ 0)\l\
+\ \ goto\ \<bb\ 18\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809641\<bb\ 17\>:\l\
+}"];
+
+	fn_62_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 18\>:\l\
+|#\ iftmp.55_89\ =\ PHI\ \<32(16),\ 0(17)\>\l\
+|regValTemp.56_88\ =\ (signed\ short)\ regValTemp_87;\l\
+|_90\ =\ regValTemp.56_88\ \|\ iftmp.55_89;\l\
+|regValTemp_91\ =\ (uint16_t)\ _90;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].TCD[_52].CSR\ =\{v\}\ regValTemp_91;\l\
+|_30\ =\ _25-\>majorLoopIterationCount;\l\
+|EDMA_TCDSetMajorCount\ (1073774592B,\ dmaChannel_35,\ _30);\ [tail\ call]\l\
+goto\ \<bb\ 20\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:322122544\<bb\ 19\>:\l\
+|_31\ =\ tcd_38(D)-\>minorByteTransferCount;\l\
+|EDMA_TCDSetNbytes\ (1073774592B,\ dmaChannel_35,\ _31);\ [tail\ call]\l\
+}"];
+
+	fn_62_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 20\>:\l\
+|return;\l\
+}"];
+
+	fn_62_basic_block_0:s -> fn_62_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_2:s -> fn_62_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_62_basic_block_2:s -> fn_62_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_62_basic_block_3:s -> fn_62_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_4:s -> fn_62_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_5:s -> fn_62_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_5:s -> fn_62_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_6:s -> fn_62_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_7:s -> fn_62_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_7:s -> fn_62_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_8:s -> fn_62_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_8:s -> fn_62_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_9:s -> fn_62_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_9:s -> fn_62_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_10:s -> fn_62_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_11:s -> fn_62_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_12:s -> fn_62_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_12:s -> fn_62_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_13:s -> fn_62_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_13:s -> fn_62_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_14:s -> fn_62_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_15:s -> fn_62_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_16:s -> fn_62_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_16:s -> fn_62_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_17:s -> fn_62_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_18:s -> fn_62_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_19:s -> fn_62_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_20:s -> fn_62_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_62_basic_block_0:s -> fn_62_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_ConfigLoopTransfer" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_ConfigLoopTransfer ()";
+	fn_39_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_39_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_39_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|regValTemp_9\ =\{v\}\ MEM[(struct\ DMA_Type\ *)1073774592B].CR;\l\
+|regValTemp_10\ =\ regValTemp_9\ &\ 4294967167;\l\
+|regValTemp_11\ =\ regValTemp_10\ \|\ 128;\l\
+|MEM[(struct\ DMA_Type\ *)1073774592B].CR\ =\{v\}\ regValTemp_11;\l\
+|EDMA_DRV_PushConfigToReg\ (virtualChannel_4(D),\ transferConfig_6(D));\l\
+|s_virtEdmaState.27_1\ =\ s_virtEdmaState;\l\
+|_2\ =\ (int)\ virtualChannel_4(D);\l\
+|_3\ =\{v\}\ s_virtEdmaState.27_1-\>virtChnState[_2];\l\
+|_3-\>status\ =\{v\}\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_39_basic_block_0:s -> fn_39_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_2:s -> fn_39_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_39_basic_block_0:s -> fn_39_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_ConfigScatterGatherTransfer" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_ConfigScatterGatherTransfer ()";
+	subgraph cluster_40_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_40_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1015498033\<bb\ 9\>:\l\
+|#\ i_77\ =\ PHI\ \<0(8),\ i_79(22)\>\l\
+|#\ ivtmp.321_90\ =\ PHI\ \<ivtmp.321_118(8),\ ivtmp.321_84(22)\>\l\
+|#\ ivtmp.323_86\ =\ PHI\ \<ivtmp.323_31(8),\ ivtmp.323_82(22)\>\l\
+|#\ ivtmp.324_116\ =\ PHI\ \<ivtmp.324_108(8),\ ivtmp.324_107(22)\>\l\
+|_105\ =\ (void\ *)\ ivtmp.321_90;\l\
+|_12\ =\ MEM[base:\ _105,\ offset:\ 0B];\l\
+|edmaTransferConfig.srcAddr\ =\ _12;\l\
+|_95\ =\ (void\ *)\ ivtmp.323_86;\l\
+|_14\ =\ MEM[base:\ _95,\ offset:\ 0B];\l\
+|edmaTransferConfig.destAddr\ =\ _14;\l\
+|_15\ =\ MEM[base:\ _105,\ offset:\ 4B];\l\
+|_16\ =\ MEM[base:\ _95,\ offset:\ 4B];\l\
+|if\ (_15\ !=\ _16)\l\
+\ \ goto\ \<bb\ 7\>;\ [2.75%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [97.25%]\l\
+}"];
+
+	fn_40_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:987571834\<bb\ 10\>:\l\
+|_17\ =\ MEM[base:\ _105,\ offset:\ 8B];\l\
+|_18\ =\ MEM[base:\ _95,\ offset:\ 8B];\l\
+|if\ (_17\ !=\ _18)\l\
+\ \ goto\ \<bb\ 7\>;\ [2.75%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [97.25%]\l\
+}"];
+
+	fn_40_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:960413605\<bb\ 11\>:\l\
+|_19\ =\ edmaTransferConfig.loopTransferConfig;\l\
+|_20\ =\ _15\ /\ bytesOnEachRequest_46(D);\l\
+|_19-\>majorLoopIterationCount\ =\ _20;\l\
+|switch\ (_17)\ \<default:\ \<L23\>\ [0.00%],\ case\ 0:\ \<L6\>\ [25.00%],\ case\ 1:\ \<L7\>\ [25.00%],\ case\ 2:\ \<L8\>\ [25.00%],\ case\ 3:\ \<L9\>\ [25.00%]\>\l\
+}"];
+
+	fn_40_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:960413620\<bb\ 16\>:\l\
+|\<L23\>:\l\
+|_24\ =\ tcdCount_61(D)\ +\ 255;\l\
+|if\ (_24\ ==\ i_77)\l\
+\ \ goto\ \<bb\ 18\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [66.00%]\l\
+}"];
+
+	fn_40_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:192082724\<bb\ 12\>:\l\
+|\<L6\>:\l\
+|edmaTransferConfig.srcOffset\ =\ 0;\l\
+|transferOffset.30_21\ =\ (short\ int)\ _7;\l\
+|edmaTransferConfig.destOffset\ =\ transferOffset.30_21;\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:192082724\<bb\ 13\>:\l\
+|\<L7\>:\l\
+|transferOffset.31_22\ =\ (short\ int)\ _7;\l\
+|edmaTransferConfig.srcOffset\ =\ transferOffset.31_22;\l\
+|edmaTransferConfig.destOffset\ =\ 0;\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:192082724\<bb\ 14\>:\l\
+|\<L8\>:\l\
+|transferOffset.32_23\ =\ (short\ int)\ _7;\l\
+|edmaTransferConfig.srcOffset\ =\ transferOffset.32_23;\l\
+|edmaTransferConfig.destOffset\ =\ transferOffset.32_23;\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:192082724\<bb\ 15\>:\l\
+|\<L9\>:\l\
+|edmaTransferConfig.srcOffset\ =\ 0;\l\
+|edmaTransferConfig.destOffset\ =\ 0;\l\
+}"];
+
+	fn_40_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:960413620\<bb\ 18\>:\l\
+|#\ cstore_115\ =\ PHI\ \<_99(17),\ _8(16)\>\l\
+|edmaTransferConfig.scatterGatherNextDescAddr\ =\ cstore_115;\l\
+|if\ (i_77\ ==\ 0)\l\
+\ \ goto\ \<bb\ 19\>;\ [21.69%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [78.31%]\l\
+}"];
+
+	fn_40_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:633872986\<bb\ 17\>:\l\
+|_99\ =\ ivtmp.324_116\ +\ 32;\l\
+}"];
+
+	fn_40_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:208313713\<bb\ 19\>:\l\
+|EDMA_DRV_PushConfigToReg\ (virtualChannel_43(D),\ &edmaTransferConfig);\l\
+goto\ \<bb\ 22\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:752099908\<bb\ 20\>:\l\
+|_29\ =\ (struct\ edma_software_tcd_t\ *)\ ivtmp.324_116;\l\
+|if\ (ivtmp.324_116\ !=\ 0)\l\
+\ \ goto\ \<bb\ 21\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [30.00%]\l\
+}"];
+
+	fn_40_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:960413622\<bb\ 22\>:\l\
+|i_79\ =\ i_77\ +\ 1;\l\
+|ivtmp.321_84\ =\ ivtmp.321_90\ +\ 12;\l\
+|ivtmp.323_82\ =\ ivtmp.323_86\ +\ 12;\l\
+|ivtmp.324_107\ =\ ivtmp.324_116\ +\ 32;\l\
+|if\ (tcdCount_61(D)\ !=\ i_79)\l\
+\ \ goto\ \<bb\ 9\>;\ [97.25%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [2.75%]\l\
+}"];
+
+	fn_40_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:526469937\<bb\ 21\>:\l\
+|EDMA_DRV_PushConfigToSTCD.part.0\ (&edmaTransferConfig,\ _29);\l\
+}"];
+
+	}
+	subgraph cluster_40_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_40_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:916928202\<bb\ 4\>:\l\
+|#\ sructPtr_119\ =\ PHI\ \<&edmaLoopConfig(3),\ sructPtr_83(4)\>\l\
+|MEM[base:\ sructPtr_119,\ offset:\ 0B]\ =\ 0;\l\
+|sructPtr_83\ =\ sructPtr_119\ +\ 1;\l\
+|if\ (&MEM\ \<struct\ edma_loop_transfer_config_t\>\ [(void\ *)&edmaLoopConfig\ +\ 16B]\ !=\ sructPtr_83)\l\
+\ \ goto\ \<bb\ 4\>;\ [87.64%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [12.36%]\l\
+}"];
+
+	}
+	subgraph cluster_40_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_40_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:916928202\<bb\ 3\>:\l\
+|#\ sructPtr_121\ =\ PHI\ \<&edmaTransferConfig(2),\ sructPtr_87(3)\>\l\
+|MEM[base:\ sructPtr_121,\ offset:\ 0B]\ =\ 0;\l\
+|sructPtr_87\ =\ sructPtr_121\ +\ 1;\l\
+|if\ (&MEM\ \<struct\ edma_transfer_config_t\>\ [(void\ *)&edmaTransferConfig\ +\ 48B]\ !=\ sructPtr_87)\l\
+\ \ goto\ \<bb\ 3\>;\ [87.64%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [12.36%]\l\
+}"];
+
+	}
+	fn_40_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_40_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_40_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:113328204\<bb\ 2\>:\l\
+|stcd.28_1\ =\ (long\ unsigned\ int)\ stcd_39(D);\l\
+|_2\ =\ stcd.28_1\ +\ 31;\l\
+|stcdAlignedAddr_40\ =\ _2\ &\ 4294967264;\l\
+|s_virtEdmaState.29_3\ =\ s_virtEdmaState;\l\
+|_4\ =\ (int)\ virtualChannel_43(D);\l\
+|_5\ =\{v\}\ s_virtEdmaState.29_3-\>virtChnState[_4];\l\
+|_5-\>status\ =\{v\}\ 0;\l\
+|_6\ =\ (int)\ transferSize_45(D);\l\
+|_7\ =\ 1\ \<\<\ _6;\l\
+|_38\ =\ _7\ &\ 65535;\l\
+|_8\ =\ bytesOnEachRequest_46(D)\ %\ _38;\l\
+}"];
+
+	fn_40_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:113328204\<bb\ 5\>:\l\
+|edmaTransferConfig.srcLastAddrAdjust\ =\ 0;\l\
+|edmaTransferConfig.destLastAddrAdjust\ =\ 0;\l\
+|MEM\ \<unsigned\ short\>\ [(\<unnamed\ type\>\ *)&edmaTransferConfig\ +\ 24B]\ =\ 0;\l\
+|edmaTransferConfig.srcTransferSize\ =\ transferSize_45(D);\l\
+|edmaTransferConfig.destTransferSize\ =\ transferSize_45(D);\l\
+|edmaTransferConfig.minorByteTransferCount\ =\ bytesOnEachRequest_46(D);\l\
+|edmaTransferConfig.interruptEnable\ =\ 1;\l\
+|edmaTransferConfig.scatterGatherEnable\ =\ 1;\l\
+|edmaTransferConfig.loopTransferConfig\ =\ &edmaLoopConfig;\l\
+|MEM\ \<unsigned\ short\>\ [(_Bool\ *)&edmaLoopConfig\ +\ 4B]\ =\ 0;\l\
+|edmaLoopConfig.minorLoopChnLinkEnable\ =\ 0;\l\
+|edmaLoopConfig.majorLoopChnLinkEnable\ =\ 0;\l\
+|if\ (tcdCount_61(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [97.25%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [2.75%]\l\
+}"];
+
+	fn_40_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:110211678\<bb\ 6\>:\l\
+|if\ (_8\ ==\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [97.25%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [2.75%]\l\
+}"];
+
+	fn_40_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58115251\<bb\ 7\>:\l\
+goto\ \<bb\ 24\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:107180856\<bb\ 8\>:\l\
+|ivtmp.321_118\ =\ (unsigned\ int)\ srcList_62(D);\l\
+|ivtmp.323_31\ =\ (unsigned\ int)\ destList_64(D);\l\
+|ivtmp.324_108\ =\ stcdAlignedAddr_40\ +\ 4294967264;\l\
+}"];
+
+	fn_40_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:3116526\<bb\ 23\>:\l\
+|_113\ =\ _8\ !=\ 0;\l\
+|_114\ =\ (\<unnamed\ type\>)\ _113;\l\
+}"];
+
+	fn_40_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:113328219\<bb\ 24\>:\l\
+|#\ retStatus_32\ =\ PHI\ \<1(7),\ _114(23),\ 0(22)\>\l\
+|edmaLoopConfig\ =\{v\}\ \{CLOBBER\};\l\
+|edmaTransferConfig\ =\{v\}\ \{CLOBBER\};\l\
+|return\ retStatus_32;\l\
+}"];
+
+	fn_40_basic_block_0:s -> fn_40_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_2:s -> fn_40_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_3:s -> fn_40_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[87%]"];
+	fn_40_basic_block_3:s -> fn_40_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_40_basic_block_4:s -> fn_40_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[87%]"];
+	fn_40_basic_block_4:s -> fn_40_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_40_basic_block_5:s -> fn_40_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[97%]"];
+	fn_40_basic_block_5:s -> fn_40_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_40_basic_block_6:s -> fn_40_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[97%]"];
+	fn_40_basic_block_6:s -> fn_40_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_40_basic_block_7:s -> fn_40_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_8:s -> fn_40_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_9:s -> fn_40_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_40_basic_block_9:s -> fn_40_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[97%]"];
+	fn_40_basic_block_10:s -> fn_40_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_40_basic_block_10:s -> fn_40_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[97%]"];
+	fn_40_basic_block_11:s -> fn_40_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_40_basic_block_11:s -> fn_40_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_40_basic_block_11:s -> fn_40_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_40_basic_block_11:s -> fn_40_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_40_basic_block_11:s -> fn_40_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_40_basic_block_12:s -> fn_40_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_13:s -> fn_40_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_14:s -> fn_40_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_15:s -> fn_40_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_16:s -> fn_40_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_40_basic_block_16:s -> fn_40_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_40_basic_block_17:s -> fn_40_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_18:s -> fn_40_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_40_basic_block_18:s -> fn_40_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_40_basic_block_19:s -> fn_40_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_20:s -> fn_40_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_40_basic_block_20:s -> fn_40_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_40_basic_block_21:s -> fn_40_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_22:s -> fn_40_basic_block_9:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[97%]"];
+	fn_40_basic_block_22:s -> fn_40_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_40_basic_block_23:s -> fn_40_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_24:s -> fn_40_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_40_basic_block_0:s -> fn_40_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_GetChannelStatus" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_GetChannelStatus ()";
+	fn_63_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_63_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_63_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|s_virtEdmaState.57_1\ =\ s_virtEdmaState;\l\
+|_2\ =\ (int)\ virtualChannel_5(D);\l\
+|_3\ =\{v\}\ s_virtEdmaState.57_1-\>virtChnState[_2];\l\
+|_6\ =\{v\}\ _3-\>status;\l\
+|return\ _6;\l\
+}"];
+
+	fn_63_basic_block_0:s -> fn_63_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_63_basic_block_2:s -> fn_63_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_63_basic_block_0:s -> fn_63_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EDMA_DRV_GetDmaRegBaseAddr" {
+	style="dashed";
+	color="black";
+	label="EDMA_DRV_GetDmaRegBaseAddr ()";
+	fn_64_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_64_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_64_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|return\ 1073774592B;\l\
+}"];
+
+	fn_64_basic_block_0:s -> fn_64_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_2:s -> fn_64_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_64_basic_block_0:s -> fn_64_basic_block_1:n [style="invis",constraint=true];
+}
+}

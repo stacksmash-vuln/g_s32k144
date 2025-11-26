@@ -1,0 +1,277 @@
+
+;; Function CMP_SetFunctionalMode (CMP_SetFunctionalMode, funcdef_no=50, decl_uid=6437, cgraph_uid=51, symbol_order=50)
+
+Removing basic block 12
+CMP_SetFunctionalMode (struct CMP_Type * baseAddr, cmp_mode_t mode, uint8_t filter_sample_count, uint8_t filter_sample_period)
+{
+  uint32_t tmp;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+
+  <bb 2> [local count: 1073741817]:
+  tmp_25 ={v} baseAddr_24(D)->C0;
+  baseAddr_24(D)->C0 ={v} tmp_25;
+  switch (mode_27(D)) <default: <L11> [0.00%], case 1: <L1> [12.50%], case 2: <L3> [12.50%], case 3: <L2> [12.50%], case 4: <L4> [12.50%], case 5: <L5> [12.50%], case 6: <L6> [12.50%], case 7: <L7> [12.50%], case 8: <L8> [12.50%]>
+
+  <bb 3> [local count: 119304647]:
+<L1>:
+  tmp_43 = tmp_25 | 256;
+  goto <bb 11>; [100.00%]
+
+  <bb 4> [local count: 119304647]:
+<L2>:
+  _1 = (long unsigned int) filter_sample_period_29(D);
+  _2 = _1 << 16;
+  _56 = _2 | tmp_25;
+  tmp_40 = _56 | 33040;
+  goto <bb 11>; [100.00%]
+
+  <bb 5> [local count: 119304647]:
+<L3>:
+  _3 = (long unsigned int) filter_sample_period_29(D);
+  _4 = _3 << 16;
+  _55 = _4 | tmp_25;
+  tmp_42 = _55 | 272;
+  goto <bb 11>; [100.00%]
+
+  <bb 6> [local count: 119304647]:
+<L4>:
+  _5 = (long unsigned int) filter_sample_count_33(D);
+  _6 = _5 << 4;
+  _7 = _6 & 112;
+  _8 = (long unsigned int) filter_sample_period_29(D);
+  _9 = _8 << 16;
+  _53 = _7 | _9;
+  _54 = tmp_25 | _53;
+  tmp_38 = _54 | 256;
+  goto <bb 11>; [100.00%]
+
+  <bb 7> [local count: 119304647]:
+<L5>:
+  _10 = (long unsigned int) filter_sample_count_33(D);
+  _11 = _10 << 4;
+  _12 = _11 & 112;
+  _13 = (long unsigned int) filter_sample_period_29(D);
+  _14 = _13 << 16;
+  _51 = _12 | _14;
+  _52 = tmp_25 | _51;
+  tmp_35 = _52 | 33024;
+  goto <bb 11>; [100.00%]
+
+  <bb 8> [local count: 119304647]:
+<L6>:
+  tmp_31 = tmp_25 | 16640;
+  goto <bb 11>; [100.00%]
+
+  <bb 9> [local count: 119304647]:
+<L7>:
+  _15 = (long unsigned int) filter_sample_period_29(D);
+  _16 = _15 << 16;
+  _50 = _16 | tmp_25;
+  tmp_30 = _50 | 16656;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 119304647]:
+<L8>:
+  _17 = (long unsigned int) filter_sample_count_33(D);
+  _18 = _17 << 4;
+  _19 = _18 & 112;
+  _20 = (long unsigned int) filter_sample_period_29(D);
+  _21 = _20 << 16;
+  _48 = _19 | _21;
+  _49 = tmp_25 | _48;
+  tmp_46 = _49 | 16640;
+
+  <bb 11> [local count: 1073741824]:
+  # tmp_22 = PHI <tmp_46(10), tmp_43(3), tmp_40(4), tmp_42(5), tmp_38(6), tmp_35(7), tmp_31(8), tmp_30(9), tmp_25(2)>
+<L11>:
+  baseAddr_24(D)->C0 ={v} tmp_22;
+  return;
+
+}
+
+
+
+;; Function CMP_GetFunctionalMode (CMP_GetFunctionalMode, funcdef_no=51, decl_uid=6432, cgraph_uid=52, symbol_order=51)
+
+Removing basic block 9
+Removing basic block 12
+Removing basic block 17
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 25
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+CMP_GetFunctionalMode (const struct CMP_Type * baseAddr)
+{
+  uint32_t filter_sample_count;
+  uint32_t filter_sample_period;
+  cmp_mode_t mode;
+  uint32_t tmp;
+  uint32_t state;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _17;
+  long unsigned int _19;
+  long unsigned int _21;
+  long unsigned int _25;
+  long unsigned int _26;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_16 ={v} baseAddr_15(D)->C0;
+  _1 ={v} baseAddr_15(D)->C0;
+  _2 = _1 >> 8;
+  _3 = _2 << 2;
+  state_18 = _3 & 4;
+  _4 ={v} baseAddr_15(D)->C0;
+  _5 = _4 >> 14;
+  _6 = _5 << 1;
+  _19 = _6 & 2;
+  state_20 = state_18 | _19;
+  _7 ={v} baseAddr_15(D)->C0;
+  _8 = _7 >> 15;
+  _21 = _8 & 1;
+  state_22 = state_20 | _21;
+  _9 = tmp_16 >> 16;
+  filter_sample_period_23 = _9 & 255;
+  _10 = tmp_16 >> 4;
+  filter_sample_count_24 = _10 & 7;
+  if (state_22 == 5)
+    goto <bb 10>; [25.00%]
+  else
+    goto <bb 3>; [75.00%]
+
+  <bb 3> [local count: 1073741824]:
+  if (state_22 == 6)
+    goto <bb 13>; [33.33%]
+  else
+    goto <bb 4>; [66.67%]
+
+  <bb 4> [local count: 1073741824]:
+  if (state_22 == 4)
+    goto <bb 5>; [33.33%]
+  else
+    goto <bb 18>; [66.67%]
+
+  <bb 5> [local count: 268435456]:
+  if (filter_sample_period_23 == 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 134217728]:
+  if (filter_sample_count_24 == 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 67108864]:
+  if (filter_sample_count_24 == 1)
+    goto <bb 19>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 8> [local count: 44291850]:
+  _26 = _10 & 6;
+  if (_26 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 9> [local count: 22145925]:
+  goto <bb 19>; [100.00%]
+
+  <bb 10> [local count: 268435456]:
+  if (filter_sample_count_24 == 1)
+    goto <bb 19>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 11> [local count: 177167400]:
+  _25 = _10 & 6;
+  if (_25 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 12> [local count: 88583700]:
+  goto <bb 19>; [100.00%]
+
+  <bb 13> [local count: 268435456]:
+  if (filter_sample_period_23 == 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 14> [local count: 134217728]:
+  if (filter_sample_count_24 == 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 15> [local count: 67108864]:
+  if (filter_sample_count_24 == 1)
+    goto <bb 19>; [34.00%]
+  else
+    goto <bb 16>; [66.00%]
+
+  <bb 16> [local count: 44291850]:
+  _17 = _10 & 6;
+  if (_17 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 17> [local count: 22145925]:
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [local count: 1073741824]:
+  # mode_13 = PHI <mode_37(19), 0(4)>
+  return mode_13;
+
+  <bb 19> [local count: 536870912]:
+  # mode_37 = PHI <6(14), 4(9), 7(15), 6(13), 3(10), 0(8), 1(6), 2(7), 1(5), 5(12), 0(11), 0(16), 8(17)>
+  goto <bb 18>; [100.00%]
+
+}
+
+

@@ -1,0 +1,2 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpi2c/lpi2c_irq.c:64:6:LPI2C0_Master_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpi2c/lpi2c_irq.c:70:6:LPI2C0_Slave_IRQHandler	0	static

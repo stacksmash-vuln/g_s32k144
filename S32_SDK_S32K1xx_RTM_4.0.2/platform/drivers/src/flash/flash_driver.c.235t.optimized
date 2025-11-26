@@ -1,0 +1,2780 @@
+
+;; Function FLASH_DRV_Init (FLASH_DRV_Init, funcdef_no=7, decl_uid=6319, cgraph_uid=9, symbol_order=8)
+
+FLASH_DRV_Init (const struct flash_user_config_t * const pUserConf, struct flash_ssd_config_t * const pSSDConfig)
+{
+  uint8_t DEPartitionCode;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  void (*<T608>) (void) _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  unsigned char _8;
+  long unsigned int cstore_56;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = pUserConf_12(D)->PFlashBase;
+  pSSDConfig_13(D)->PFlashBase = _1;
+  _2 = pUserConf_12(D)->PFlashSize;
+  pSSDConfig_13(D)->PFlashSize = _2;
+  _3 = pUserConf_12(D)->DFlashBase;
+  pSSDConfig_13(D)->DFlashBase = _3;
+  _4 = pUserConf_12(D)->EERAMBase;
+  pSSDConfig_13(D)->EERAMBase = _4;
+  _5 = pUserConf_12(D)->CallBack;
+  pSSDConfig_13(D)->CallBack = _5;
+  _6 ={v} MEM[(struct SIM_Type *)1074036736B].FCFG1;
+  _7 = _6 >> 12;
+  _8 = (unsigned char) _7;
+  DEPartitionCode_19 = _8 & 15;
+  switch (DEPartitionCode_19) <default: <L4> [7.14%], case 1 ... 2: <L5> [57.14%], case 3: <L7> [14.29%], case 4: <L8> [14.29%], case 5 ... 7: <L5> [57.14%], case 8: <L8> [14.29%], case 9: <L5> [57.14%], case 10: <L14> [7.14%], case 11: <L7> [14.29%], case 13 ... 14: <L5> [57.14%]>
+
+  <bb 3> [local count: 189483840]:
+<L4>:
+  pSSDConfig_13(D)->DFlashSize = 65536;
+  goto <bb 9>; [100.00%]
+
+  <bb 4> [local count: 505290240]:
+<L5>:
+  pSSDConfig_13(D)->DFlashSize = 4294967295;
+  goto <bb 9>; [100.00%]
+
+  <bb 5> [local count: 126322560]:
+<L7>:
+  pSSDConfig_13(D)->DFlashSize = 32768;
+  goto <bb 10>; [100.00%]
+
+  <bb 6> [local count: 126322560]:
+<L8>:
+  pSSDConfig_13(D)->DFlashSize = 0;
+  goto <bb 10>; [100.00%]
+
+  <bb 7> [local count: 63161280]:
+<L14>:
+  pSSDConfig_13(D)->DFlashSize = 16384;
+  goto <bb 10>; [100.00%]
+
+  <bb 8> [local count: 1073741761]:
+  # cstore_56 = PHI <0(9), 4096(10)>
+  pSSDConfig_13(D)->EEESize = cstore_56;
+  return 0;
+
+  <bb 9> [local count: 536870880]:
+  goto <bb 8>; [100.00%]
+
+  <bb 10> [local count: 315806400]:
+  goto <bb 8>; [100.00%]
+
+}
+
+
+
+;; Function FLASH_DRV_GetPFlashProtection (FLASH_DRV_GetPFlashProtection, funcdef_no=9, decl_uid=6321, cgraph_uid=10, symbol_order=9)
+
+FLASH_DRV_GetPFlashProtection (uint32_t * protectStatus)
+{
+  uint32_t reg3;
+  uint32_t reg2;
+  uint32_t reg1;
+  uint32_t reg0;
+  unsigned char _1;
+  unsigned char _2;
+  unsigned char _3;
+  unsigned char _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _10;
+  long unsigned int _18;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FPROT[3];
+  reg0_12 = (uint32_t) _1;
+  _2 ={v} MEM[(struct FTFC_Type *)1073872896B].FPROT[2];
+  reg1_13 = (uint32_t) _2;
+  _3 ={v} MEM[(struct FTFC_Type *)1073872896B].FPROT[1];
+  reg2_14 = (uint32_t) _3;
+  _4 ={v} MEM[(struct FTFC_Type *)1073872896B].FPROT[0];
+  reg3_15 = (uint32_t) _4;
+  _5 = reg0_12 << 24;
+  _6 = reg1_13 << 16;
+  _7 = _5 | _6;
+  _8 = reg2_14 << 8;
+  _18 = _7 | reg3_15;
+  _10 = _8 | _18;
+  *protectStatus_16(D) = _10;
+  return;
+
+}
+
+
+
+;; Function FLASH_DRV_SetPFlashProtection (FLASH_DRV_SetPFlashProtection, funcdef_no=10, decl_uid=6323, cgraph_uid=11, symbol_order=10)
+
+Removing basic block 7
+Removing basic block 8
+Removing basic block 9
+FLASH_DRV_SetPFlashProtection (uint32_t protectStatus)
+{
+  uint8_t reg3;
+  uint8_t reg2;
+  uint8_t reg1;
+  uint8_t reg0;
+  status_t ret;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  unsigned char _4;
+  unsigned char _5;
+  unsigned char _6;
+  unsigned char _7;
+  _Bool _19;
+  <unnamed type> _20;
+
+  <bb 2> [local count: 1073741823]:
+  _1 = protectStatus_9(D) >> 24;
+  reg0_10 = (uint8_t) _1;
+  _2 = protectStatus_9(D) >> 16;
+  reg1_11 = (uint8_t) _2;
+  _3 = protectStatus_9(D) >> 8;
+  reg2_12 = (uint8_t) _3;
+  reg3_13 = (uint8_t) protectStatus_9(D);
+  MEM[(struct FTFC_Type *)1073872896B].FPROT[3] ={v} reg0_10;
+  MEM[(struct FTFC_Type *)1073872896B].FPROT[2] ={v} reg1_11;
+  MEM[(struct FTFC_Type *)1073872896B].FPROT[1] ={v} reg2_12;
+  MEM[(struct FTFC_Type *)1073872896B].FPROT[0] ={v} reg3_13;
+  _4 ={v} MEM[(struct FTFC_Type *)1073872896B].FPROT[3];
+  _5 ={v} MEM[(struct FTFC_Type *)1073872896B].FPROT[2];
+  _6 ={v} MEM[(struct FTFC_Type *)1073872896B].FPROT[1];
+  _7 ={v} MEM[(struct FTFC_Type *)1073872896B].FPROT[0];
+  if (_4 != reg0_10)
+    goto <bb 6>; [66.00%]
+  else
+    goto <bb 3>; [34.00%]
+
+  <bb 3> [local count: 365072224]:
+  if (_5 != reg1_11)
+    goto <bb 6>; [66.00%]
+  else
+    goto <bb 4>; [34.00%]
+
+  <bb 4> [local count: 124124557]:
+  if (_6 != reg2_12)
+    goto <bb 6>; [66.00%]
+  else
+    goto <bb 5>; [34.00%]
+
+  <bb 5> [local count: 42202350]:
+  _19 = _7 != reg3_13;
+  _20 = (<unnamed type>) _19;
+
+  <bb 6> [local count: 1073741824]:
+  # ret_8 = PHI <1(2), _20(5), 1(3), 1(4)>
+  return ret_8;
+
+}
+
+
+
+;; Function FLASH_DRV_GetSecurityState (FLASH_DRV_GetSecurityState, funcdef_no=11, decl_uid=6325, cgraph_uid=12, symbol_order=11)
+
+FLASH_DRV_GetSecurityState (uint8_t * securityState)
+{
+  uint8_t regValue;
+  unsigned char _1;
+  unsigned char _9;
+
+  <bb 2> [local count: 1073741823]:
+  regValue_4 ={v} MEM[(struct FTFC_Type *)1073872896B].FSEC;
+  _1 = regValue_4 & 3;
+  if (_1 == 2)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  *securityState_5(D) = 1;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 708669600]:
+  _9 = regValue_4 & 192;
+  if (_9 == 128)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [local count: 240947666]:
+  *securityState_5(D) = 2;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 467721933]:
+  *securityState_5(D) = 4;
+
+  <bb 7> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLASH_DRV_SecurityBypass (FLASH_DRV_SecurityBypass, funcdef_no=12, decl_uid=6328, cgraph_uid=13, symbol_order=12)
+
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+FLASH_DRV_SecurityBypass (const struct flash_ssd_config_t * pSSDConfig, const uint8_t * keyBuffer)
+{
+  unsigned int ivtmp.76;
+  status_t ret;
+  unsigned char _1;
+  signed char _2;
+  unsigned char _6;
+  <unnamed type> _9;
+  unsigned int _15;
+  unsigned char _21;
+  unsigned char _22;
+  void (*<T608>) (void) _23;
+  unsigned char _25;
+  signed char _26;
+  unsigned char _27;
+  unsigned char _28;
+  _Bool _29;
+  void * _32;
+  const uint8_t * _37;
+  unsigned int _42;
+  uint8_t * _43;
+  unsigned int _44;
+  unsigned int _45;
+
+  <bb 2> [local count: 211737167]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _2 = (signed char) _1;
+  if (_2 >= 0)
+    goto <bb 11>; [43.66%]
+  else
+    goto <bb 3>; [56.34%]
+
+  <bb 3> [local count: 119292720]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 69;
+  _37 = keyBuffer_18(D) + 4294967295;
+  ivtmp.76_36 = (unsigned int) _37;
+  _44 = (unsigned int) keyBuffer_18(D);
+  _45 = _44 + 7;
+
+  <bb 4> [local count: 954449107]:
+  # ivtmp.76_38 = PHI <ivtmp.76_36(3), ivtmp.76_16(4)>
+  _15 = 1073872905 - _44;
+  _42 = _15 + ivtmp.76_38;
+  _43 = (uint8_t *) _42;
+  ivtmp.76_16 = ivtmp.76_38 + 1;
+  _32 = (void *) ivtmp.76_16;
+  _6 = MEM[base: _32, offset: 0B];
+  *_43 = _6;
+  if (ivtmp.76_16 != _45)
+    goto <bb 4>; [87.50%]
+  else
+    goto <bb 5>; [12.50%]
+
+  <bb 5> [local count: 119292720]:
+  _21 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _22 = _21 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _22;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 2049665882]:
+  _23 = pSSDConfig_14(D)->CallBack;
+  if (_23 != 4294967295B)
+    goto <bb 7>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 7> [local count: 112731623]:
+  _23 ();
+
+  <bb 8> [local count: 232024343]:
+
+  <bb 9> [local count: 2168958602]:
+  _25 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _26 = (signed char) _25;
+  if (_26 >= 0)
+    goto <bb 6>; [94.50%]
+  else
+    goto <bb 10>; [5.50%]
+
+  <bb 10> [local count: 119292722]:
+  _27 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _28 = _27 & 113;
+  _29 = _28 != 0;
+  _9 = (<unnamed type>) _29;
+
+  <bb 11> [local count: 211737169]:
+  # ret_7 = PHI <_9(10), 2(2)>
+  return ret_7;
+
+}
+
+
+
+;; Function FLASH_DRV_EraseAllBlock (FLASH_DRV_EraseAllBlock, funcdef_no=13, decl_uid=6330, cgraph_uid=14, symbol_order=13)
+
+Removing basic block 10
+Removing basic block 11
+FLASH_DRV_EraseAllBlock (const struct flash_ssd_config_t * pSSDConfig)
+{
+  status_t ret;
+  unsigned char _1;
+  signed char _2;
+  unsigned char _11;
+  unsigned char _12;
+  void (*<T608>) (void) _13;
+  unsigned char _15;
+  signed char _16;
+  unsigned char _17;
+  unsigned char _18;
+  _Bool _19;
+  <unnamed type> _22;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _2 = (signed char) _1;
+  if (_2 >= 0)
+    goto <bb 9>; [61.14%]
+  else
+    goto <bb 3>; [38.86%]
+
+  <bb 3> [local count: 417256071]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 68;
+  _11 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _12 = _11 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _12;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 7169218117]:
+  _13 = pSSDConfig_8(D)->CallBack;
+  if (_13 != 4294967295B)
+    goto <bb 5>; [5.50%]
+  else
+    goto <bb 7>; [94.50%]
+
+  <bb 5> [local count: 394306994]:
+  _13 ();
+
+  <bb 6> [local count: 811563065]:
+
+  <bb 7> [local count: 7586474188]:
+  _15 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _16 = (signed char) _15;
+  if (_16 >= 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 8>; [5.50%]
+
+  <bb 8> [local count: 417256078]:
+  _17 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _18 = _17 & 113;
+  _19 = _18 != 0;
+  _22 = (<unnamed type>) _19;
+
+  <bb 9> [local count: 1073741831]:
+  # ret_3 = PHI <_22(8), 2(2)>
+  return ret_3;
+
+}
+
+
+
+;; Function FLASH_DRV_VerifyAllBlock (FLASH_DRV_VerifyAllBlock, funcdef_no=14, decl_uid=6333, cgraph_uid=15, symbol_order=14)
+
+Removing basic block 10
+Removing basic block 11
+FLASH_DRV_VerifyAllBlock (const struct flash_ssd_config_t * pSSDConfig, uint8_t marginLevel)
+{
+  status_t ret;
+  unsigned char _1;
+  signed char _2;
+  unsigned char _13;
+  unsigned char _14;
+  void (*<T608>) (void) _15;
+  unsigned char _17;
+  signed char _18;
+  unsigned char _19;
+  unsigned char _20;
+  _Bool _21;
+  <unnamed type> _24;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _2 = (signed char) _1;
+  if (_2 >= 0)
+    goto <bb 9>; [61.14%]
+  else
+    goto <bb 3>; [38.86%]
+
+  <bb 3> [local count: 417256071]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 64;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} marginLevel_8(D);
+  _13 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _14 = _13 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _14;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 7169218117]:
+  _15 = pSSDConfig_10(D)->CallBack;
+  if (_15 != 4294967295B)
+    goto <bb 5>; [5.50%]
+  else
+    goto <bb 7>; [94.50%]
+
+  <bb 5> [local count: 394306994]:
+  _15 ();
+
+  <bb 6> [local count: 811563065]:
+
+  <bb 7> [local count: 7586474188]:
+  _17 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _18 = (signed char) _17;
+  if (_18 >= 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 8>; [5.50%]
+
+  <bb 8> [local count: 417256078]:
+  _19 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _20 = _19 & 113;
+  _21 = _20 != 0;
+  _24 = (<unnamed type>) _21;
+
+  <bb 9> [local count: 1073741831]:
+  # ret_3 = PHI <_24(8), 2(2)>
+  return ret_3;
+
+}
+
+
+
+;; Function FLASH_DRV_EraseSector (FLASH_DRV_EraseSector, funcdef_no=15, decl_uid=6337, cgraph_uid=16, symbol_order=15)
+
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+FLASH_DRV_EraseSector (const struct flash_ssd_config_t * pSSDConfig, uint32_t dest, uint32_t size)
+{
+  uint32_t tempSize;
+  uint32_t temp;
+  uint32_t sectorSize;
+  status_t ret;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _7;
+  unsigned char _8;
+  signed char _9;
+  long unsigned int _10;
+  unsigned char _11;
+  long unsigned int _12;
+  unsigned char _13;
+  unsigned char _17;
+  long unsigned int _20;
+  long unsigned int prephitmp_23;
+  unsigned char _50;
+  unsigned char _51;
+  void (*<T608>) (void) _52;
+  unsigned char _54;
+  signed char _55;
+  unsigned char _56;
+  unsigned char _57;
+  _Bool _75;
+  <unnamed type> _76;
+
+  <bb 2> [local count: 77159562]:
+  temp_28 = pSSDConfig_27(D)->DFlashBase;
+  if (temp_28 <= dest_29(D))
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 38579782]:
+  _1 = pSSDConfig_27(D)->DFlashSize;
+  _2 = _1 + temp_28;
+  if (_2 > dest_29(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 19289890]:
+  _20 = dest_29(D) + 8388608;
+  dest_30 = _20 - temp_28;
+  goto <bb 9>; [100.00%]
+
+  <bb 5> [local count: 57869672]:
+  temp_32 = pSSDConfig_27(D)->PFlashBase;
+  if (dest_29(D) >= temp_32)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 43841049]:
+  goto <bb 20>; [100.00%]
+
+  <bb 7> [local count: 28934836]:
+  _4 = pSSDConfig_27(D)->PFlashSize;
+  _5 = _4 + temp_32;
+  if (_5 > dest_29(D))
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 8> [local count: 14467418]:
+  dest_33 = dest_29(D) - temp_32;
+
+  <bb 9> [local count: 38579781]:
+  # dest_15 = PHI <dest_30(4), dest_33(8)>
+  # sectorSize_19 = PHI <2048(4), 4096(8)>
+  # prephitmp_23 = PHI <2047(4), 4095(8)>
+  _7 = prephitmp_23 & size_24(D);
+  if (size_24(D) != 0)
+    goto <bb 10>; [99.06%]
+  else
+    goto <bb 20>; [0.94%]
+
+  <bb 10> [local count: 45672914]:
+  if (_7 == 0)
+    goto <bb 11>; [99.76%]
+  else
+    goto <bb 6>; [0.24%]
+
+  <bb 11> [local count: 996582275]:
+  # tempSize_80 = PHI <size_24(D)(10), tempSize_43(19)>
+  # dest_42 = PHI <dest_15(10), dest_44(19)>
+  _8 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _9 = (signed char) _8;
+  if (_9 >= 0)
+    goto <bb 20>; [96.34%]
+  else
+    goto <bb 12>; [3.66%]
+
+  <bb 12> [local count: 36474912]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 9;
+  _10 = dest_42 >> 16;
+  _11 = (unsigned char) _10;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} _11;
+  _12 = dest_42 >> 8;
+  _13 = (unsigned char) _12;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[1] ={v} _13;
+  _17 = (unsigned char) dest_42;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[0] ={v} _17;
+  _50 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _51 = _50 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _51;
+  goto <bb 15>; [100.00%]
+
+  <bb 13> [local count: 626705329]:
+  _52 = pSSDConfig_27(D)->CallBack;
+  if (_52 != 4294967295B)
+    goto <bb 14>; [5.50%]
+  else
+    goto <bb 16>; [94.50%]
+
+  <bb 14> [local count: 34468792]:
+  _52 ();
+
+  <bb 15> [local count: 70943705]:
+
+  <bb 16> [local count: 663180243]:
+  _54 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _55 = (signed char) _54;
+  if (_55 >= 0)
+    goto <bb 13>; [94.50%]
+  else
+    goto <bb 17>; [5.50%]
+
+  <bb 17> [local count: 36474913]:
+  _56 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _57 = _56 & 113;
+  tempSize_43 = tempSize_80 - sectorSize_19;
+  dest_44 = sectorSize_19 + dest_42;
+  if (tempSize_43 != 0)
+    goto <bb 19>; [96.34%]
+  else
+    goto <bb 18>; [3.66%]
+
+  <bb 18> [local count: 1334982]:
+  _75 = _57 != 0;
+  _76 = (<unnamed type>) _75;
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 35139930]:
+  if (_57 == 0)
+    goto <bb 11>; [99.06%]
+  else
+    goto <bb 6>; [0.94%]
+
+  <bb 20> [local count: 77159563]:
+  # ret_61 = PHI <0(9), 1(6), _76(18), 2(11)>
+  return ret_61;
+
+}
+
+
+
+;; Function FLASH_DRV_VerifySection (FLASH_DRV_VerifySection, funcdef_no=16, decl_uid=6342, cgraph_uid=17, symbol_order=16)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+FLASH_DRV_VerifySection (const struct flash_ssd_config_t * pSSDConfig, uint32_t dest, uint16_t number, uint8_t marginLevel)
+{
+  uint32_t temp;
+  status_t ret;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _4;
+  long unsigned int _5;
+  unsigned char _6;
+  signed char _7;
+  long unsigned int _8;
+  unsigned char _9;
+  long unsigned int _10;
+  unsigned char _11;
+  unsigned char _12;
+  short unsigned int _13;
+  unsigned char _15;
+  unsigned char _16;
+  unsigned char _38;
+  unsigned char _39;
+  void (*<T608>) (void) _40;
+  unsigned char _42;
+  signed char _43;
+  unsigned char _44;
+  unsigned char _45;
+  _Bool _46;
+  long unsigned int _56;
+  <unnamed type> _57;
+
+  <bb 2> [local count: 1073741824]:
+  temp_21 = pSSDConfig_20(D)->DFlashBase;
+  if (temp_21 <= dest_22(D))
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _1 = pSSDConfig_20(D)->DFlashSize;
+  _2 = _1 + temp_21;
+  if (_2 > dest_22(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _56 = dest_22(D) + 8388608;
+  dest_23 = _56 - temp_21;
+  goto <bb 8>; [100.00%]
+
+  <bb 5> [local count: 805306368]:
+  temp_24 = pSSDConfig_20(D)->PFlashBase;
+  if (dest_22(D) >= temp_24)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 6> [local count: 402653184]:
+  _4 = pSSDConfig_20(D)->PFlashSize;
+  _5 = _4 + temp_24;
+  if (_5 > dest_22(D))
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 7> [local count: 201326590]:
+  dest_25 = dest_22(D) - temp_24;
+
+  <bb 8> [local count: 469762046]:
+  # dest_14 = PHI <dest_25(7), dest_23(4)>
+  _6 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _7 = (signed char) _6;
+  if (_7 >= 0)
+    goto <bb 15>; [61.14%]
+  else
+    goto <bb 9>; [38.86%]
+
+  <bb 9> [local count: 182549532]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 1;
+  _8 = dest_14 >> 16;
+  _9 = (unsigned char) _8;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} _9;
+  _10 = dest_14 >> 8;
+  _11 = (unsigned char) _10;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[1] ={v} _11;
+  _12 = (unsigned char) dest_14;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[0] ={v} _12;
+  _13 = number_31(D) >> 8;
+  _15 = (unsigned char) _13;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[7] ={v} _15;
+  _16 = (unsigned char) number_31(D);
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[6] ={v} _16;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[5] ={v} marginLevel_34(D);
+  _38 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _39 = _38 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _39;
+  goto <bb 12>; [100.00%]
+
+  <bb 10> [local count: 3136532933]:
+  _40 = pSSDConfig_20(D)->CallBack;
+  if (_40 != 4294967295B)
+    goto <bb 11>; [5.50%]
+  else
+    goto <bb 13>; [94.50%]
+
+  <bb 11> [local count: 172509310]:
+  _40 ();
+
+  <bb 12> [local count: 355058842]:
+
+  <bb 13> [local count: 3319082468]:
+  _42 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _43 = (signed char) _42;
+  if (_43 >= 0)
+    goto <bb 10>; [94.50%]
+  else
+    goto <bb 14>; [5.50%]
+
+  <bb 14> [local count: 182549535]:
+  _44 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _45 = _44 & 113;
+  _46 = _45 != 0;
+  _57 = (<unnamed type>) _46;
+
+  <bb 15> [local count: 1073741827]:
+  # ret_17 = PHI <1(5), 1(6), _57(14), 2(8)>
+  return ret_17;
+
+}
+
+
+
+;; Function FLASH_DRV_EraseSuspend (FLASH_DRV_EraseSuspend, funcdef_no=17, decl_uid=6344, cgraph_uid=18, symbol_order=17)
+
+Removing basic block 7
+Removing basic block 8
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+FLASH_DRV_EraseSuspend ()
+{
+  unsigned char _1;
+  signed char _2;
+  unsigned char _3;
+  unsigned char _4;
+  unsigned char _5;
+  signed char _6;
+  long unsigned int ivtmp_7;
+  long unsigned int ivtmp_8;
+  unsigned char _13;
+  signed char _14;
+
+  <bb 2> [local count: 126579599]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _2 = (signed char) _1;
+  if (_2 >= 0)
+    goto <bb 3>; [59.00%]
+  else
+    goto <bb 6>; [41.00%]
+
+  <bb 3> [local count: 74681964]:
+  _3 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _4 = _3 | 16;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _4;
+  _13 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _14 = (signed char) _13;
+  if (_14 >= 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 6>; [5.50%]
+
+  <bb 4> [local count: 999059861]:
+  # ivtmp_8 = PHI <64(3), ivtmp_7(5)>
+  _5 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _6 = (signed char) _5;
+  if (_6 >= 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 6>; [5.50%]
+
+  <bb 5> [local count: 944111569]:
+  ivtmp_7 = ivtmp_8 + 4294967295;
+  if (ivtmp_7 != 0)
+    goto <bb 4>; [98.46%]
+  else
+    goto <bb 6>; [1.54%]
+
+  <bb 6> [local count: 126579600]:
+  return;
+
+}
+
+
+
+;; Function FLASH_DRV_EraseResume (FLASH_DRV_EraseResume, funcdef_no=18, decl_uid=6346, cgraph_uid=19, symbol_order=18)
+
+Removing basic block 7
+Removing basic block 8
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+FLASH_DRV_EraseResume ()
+{
+  unsigned char _1;
+  unsigned char _2;
+  unsigned char _3;
+  unsigned char _4;
+  signed char _5;
+  short unsigned int ivtmp_6;
+  short unsigned int ivtmp_7;
+  unsigned char _8;
+  unsigned char _13;
+  signed char _14;
+
+  <bb 2> [local count: 179601568]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _8 = _1 & 16;
+  if (_8 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 3> [local count: 89800784]:
+  _2 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _3 = _2 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _3;
+  _13 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _14 = (signed char) _13;
+  if (_14 >= 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 6>; [5.50%]
+
+  <bb 4> [local count: 983941040]:
+  # ivtmp_7 = PHI <32(3), ivtmp_6(5)>
+  _4 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _5 = (signed char) _4;
+  if (_5 >= 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 6>; [5.50%]
+
+  <bb 5> [local count: 929824284]:
+  ivtmp_6 = ivtmp_7 + 65535;
+  if (ivtmp_6 != 0)
+    goto <bb 4>; [96.97%]
+  else
+    goto <bb 6>; [3.03%]
+
+  <bb 6> [local count: 179601569]:
+  return;
+
+}
+
+
+
+;; Function FLASH_DRV_ReadOnce (FLASH_DRV_ReadOnce, funcdef_no=19, decl_uid=6350, cgraph_uid=20, symbol_order=19)
+
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+FLASH_DRV_ReadOnce (const struct flash_ssd_config_t * pSSDConfig, uint8_t recordIndex, uint8_t * pDataArray)
+{
+  unsigned int ivtmp.130;
+  status_t ret;
+  unsigned char _1;
+  signed char _2;
+  unsigned char _6;
+  unsigned char _23;
+  unsigned char _24;
+  void (*<T608>) (void) _25;
+  uint8_t * _26;
+  unsigned char _27;
+  signed char _28;
+  unsigned char _29;
+  unsigned char _30;
+  unsigned int _36;
+  unsigned int _41;
+  uint8_t * _42;
+  void * _43;
+  unsigned int _44;
+  unsigned int _45;
+
+  <bb 2> [local count: 613961505]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _2 = (signed char) _1;
+  if (_2 >= 0)
+    goto <bb 11>; [61.14%]
+  else
+    goto <bb 3>; [38.86%]
+
+  <bb 3> [local count: 238585440]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 65;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} recordIndex_14(D);
+  _23 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _24 = _23 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _24;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 4099331745]:
+  _25 = pSSDConfig_16(D)->CallBack;
+  if (_25 != 4294967295B)
+    goto <bb 5>; [5.50%]
+  else
+    goto <bb 7>; [94.50%]
+
+  <bb 5> [local count: 225463244]:
+  _25 ();
+
+  <bb 6> [local count: 464048684]:
+
+  <bb 7> [local count: 4337917185]:
+  _27 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _28 = (signed char) _27;
+  if (_28 >= 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 8>; [5.50%]
+
+  <bb 8> [local count: 238585444]:
+  _29 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _30 = _29 & 113;
+  if (_30 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [local count: 119292722]:
+  _26 = pDataArray_20(D) + 4294967295;
+  ivtmp.130_8 = (unsigned int) _26;
+  _44 = (unsigned int) pDataArray_20(D);
+  _45 = _44 + 7;
+
+  <bb 10> [local count: 954449118]:
+  # ivtmp.130_34 = PHI <ivtmp.130_8(9), ivtmp.130_9(10)>
+  _36 = 1073872905 - _44;
+  _41 = ivtmp.130_34 + _36;
+  _42 = (uint8_t *) _41;
+  _6 = *_42;
+  ivtmp.130_9 = ivtmp.130_34 + 1;
+  _43 = (void *) ivtmp.130_9;
+  MEM[base: _43, offset: 0B] = _6;
+  if (ivtmp.130_9 != _45)
+    goto <bb 10>; [87.50%]
+  else
+    goto <bb 11>; [12.50%]
+
+  <bb 11> [local count: 613961509]:
+  # ret_7 = PHI <2(2), 1(8), 0(10)>
+  return ret_7;
+
+}
+
+
+
+;; Function FLASH_DRV_ProgramOnce (FLASH_DRV_ProgramOnce, funcdef_no=20, decl_uid=6354, cgraph_uid=21, symbol_order=20)
+
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+FLASH_DRV_ProgramOnce (const struct flash_ssd_config_t * pSSDConfig, uint8_t recordIndex, const uint8_t * pDataArray)
+{
+  unsigned int ivtmp.142;
+  status_t ret;
+  unsigned char _1;
+  signed char _2;
+  unsigned char _6;
+  <unnamed type> _9;
+  unsigned int _17;
+  unsigned char _23;
+  unsigned char _24;
+  void (*<T608>) (void) _25;
+  unsigned char _27;
+  signed char _28;
+  unsigned char _29;
+  unsigned char _30;
+  _Bool _31;
+  void * _34;
+  const uint8_t * _39;
+  unsigned int _44;
+  uint8_t * _45;
+  unsigned int _46;
+  unsigned int _47;
+
+  <bb 2> [local count: 211737167]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _2 = (signed char) _1;
+  if (_2 >= 0)
+    goto <bb 11>; [43.66%]
+  else
+    goto <bb 3>; [56.34%]
+
+  <bb 3> [local count: 119292720]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 67;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} recordIndex_14(D);
+  _39 = pDataArray_20(D) + 4294967295;
+  ivtmp.142_38 = (unsigned int) _39;
+  _46 = (unsigned int) pDataArray_20(D);
+  _47 = _46 + 7;
+
+  <bb 4> [local count: 954449107]:
+  # ivtmp.142_40 = PHI <ivtmp.142_38(3), ivtmp.142_18(4)>
+  _17 = 1073872905 - _46;
+  _44 = _17 + ivtmp.142_40;
+  _45 = (uint8_t *) _44;
+  ivtmp.142_18 = ivtmp.142_40 + 1;
+  _34 = (void *) ivtmp.142_18;
+  _6 = MEM[base: _34, offset: 0B];
+  *_45 = _6;
+  if (ivtmp.142_18 != _47)
+    goto <bb 4>; [87.50%]
+  else
+    goto <bb 5>; [12.50%]
+
+  <bb 5> [local count: 119292720]:
+  _23 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _24 = _23 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _24;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 2049665882]:
+  _25 = pSSDConfig_16(D)->CallBack;
+  if (_25 != 4294967295B)
+    goto <bb 7>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 7> [local count: 112731623]:
+  _25 ();
+
+  <bb 8> [local count: 232024343]:
+
+  <bb 9> [local count: 2168958602]:
+  _27 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _28 = (signed char) _27;
+  if (_28 >= 0)
+    goto <bb 6>; [94.50%]
+  else
+    goto <bb 10>; [5.50%]
+
+  <bb 10> [local count: 119292722]:
+  _29 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _30 = _29 & 113;
+  _31 = _30 != 0;
+  _9 = (<unnamed type>) _31;
+
+  <bb 11> [local count: 211737169]:
+  # ret_7 = PHI <_9(10), 2(2)>
+  return ret_7;
+
+}
+
+
+
+;; Function FLASH_DRV_Program (FLASH_DRV_Program, funcdef_no=21, decl_uid=6359, cgraph_uid=22, symbol_order=21)
+
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+FLASH_DRV_Program (const struct flash_ssd_config_t * pSSDConfig, uint32_t dest, uint32_t size, const uint8_t * pData)
+{
+  unsigned int ivtmp.156;
+  uint32_t temp;
+  status_t ret;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _5;
+  long unsigned int _6;
+  unsigned char _8;
+  signed char _9;
+  <unnamed type> _10;
+  long unsigned int _11;
+  unsigned char _12;
+  long unsigned int _13;
+  unsigned char _14;
+  unsigned char _20;
+  unsigned char _22;
+  _Bool _23;
+  unsigned int _24;
+  unsigned int _25;
+  uint8_t * _28;
+  unsigned int _59;
+  unsigned char _61;
+  unsigned char _62;
+  void (*<T608>) (void) _63;
+  void * _64;
+  unsigned char _65;
+  signed char _66;
+  unsigned char _67;
+  unsigned char _68;
+  unsigned int _69;
+  long unsigned int _75;
+  long unsigned int _77;
+  unsigned int _78;
+  long unsigned int _80;
+  long unsigned int _81;
+
+  <bb 2> [local count: 154319124]:
+  _1 = size_32(D) & 7;
+  if (_1 != 0)
+    goto <bb 21>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 77159561]:
+  temp_35 = pSSDConfig_34(D)->DFlashBase;
+  if (temp_35 <= dest_36(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 38579781]:
+  _2 = pSSDConfig_34(D)->DFlashSize;
+  _3 = _2 + temp_35;
+  if (_3 > dest_36(D))
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 19289890]:
+  _75 = dest_36(D) + 8388608;
+  dest_37 = _75 - temp_35;
+  if (size_32(D) != 0)
+    goto <bb 9>; [96.34%]
+  else
+    goto <bb 22>; [3.66%]
+
+  <bb 6> [local count: 57869671]:
+  temp_39 = pSSDConfig_34(D)->PFlashBase;
+  if (dest_36(D) >= temp_39)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 7> [local count: 28934836]:
+  _5 = pSSDConfig_34(D)->PFlashSize;
+  _6 = _5 + temp_39;
+  if (_6 > dest_36(D))
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 8> [local count: 14467418]:
+  dest_40 = dest_36(D) - temp_39;
+  if (size_32(D) != 0)
+    goto <bb 9>; [96.34%]
+  else
+    goto <bb 22>; [3.66%]
+
+  <bb 9> [local count: 73636155]:
+  # dest_48 = PHI <dest_37(5), dest_40(8)>
+
+  <bb 10> [local count: 996582268]:
+  # dest_7 = PHI <dest_48(9), dest_49(20)>
+  # pData_72 = PHI <pData_38(D)(9), pData_51(20)>
+  _8 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _9 = (signed char) _8;
+  if (_9 >= 0)
+    goto <bb 22>; [96.34%]
+  else
+    goto <bb 11>; [3.66%]
+
+  <bb 11> [local count: 36474912]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 7;
+  _11 = dest_7 >> 16;
+  _12 = (unsigned char) _11;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} _12;
+  _13 = dest_7 >> 8;
+  _14 = (unsigned char) _13;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[1] ={v} _14;
+  _22 = (unsigned char) dest_7;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[0] ={v} _22;
+  _78 = (unsigned int) pData_72;
+  _25 = _78 + 4294967295;
+
+  <bb 12> [local count: 291832119]:
+  # ivtmp.156_21 = PHI <_25(11), ivtmp.156_58(12)>
+  _59 = 1073872905 - _78;
+  _69 = ivtmp.156_21 + _59;
+  _28 = (uint8_t *) _69;
+  ivtmp.156_58 = ivtmp.156_21 + 1;
+  _64 = (void *) ivtmp.156_58;
+  _20 = MEM[base: _64, offset: 0B];
+  *_28 = _20;
+  _24 = _78 + 7;
+  if (_24 != ivtmp.156_58)
+    goto <bb 12>; [87.50%]
+  else
+    goto <bb 13>; [12.50%]
+
+  <bb 13> [local count: 36474912]:
+  _61 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _62 = _61 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _62;
+  goto <bb 16>; [100.00%]
+
+  <bb 14> [local count: 626705325]:
+  _63 = pSSDConfig_34(D)->CallBack;
+  if (_63 != 4294967295B)
+    goto <bb 15>; [5.50%]
+  else
+    goto <bb 17>; [94.50%]
+
+  <bb 15> [local count: 34468792]:
+  _63 ();
+
+  <bb 16> [local count: 70943704]:
+
+  <bb 17> [local count: 663180238]:
+  _65 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _66 = (signed char) _65;
+  if (_66 >= 0)
+    goto <bb 14>; [94.50%]
+  else
+    goto <bb 18>; [5.50%]
+
+  <bb 18> [local count: 36474913]:
+  _67 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _68 = _67 & 113;
+  dest_49 = dest_7 + 8;
+  pData_51 = pData_72 + 8;
+  _77 = (long unsigned int) pData_38(D);
+  _81 = size_32(D) + _77;
+  _80 = (long unsigned int) pData_51;
+  if (_80 != _81)
+    goto <bb 20>; [96.34%]
+  else
+    goto <bb 19>; [3.66%]
+
+  <bb 19> [local count: 1334982]:
+  _23 = _68 != 0;
+  _10 = (<unnamed type>) _23;
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 35139931]:
+  if (_68 == 0)
+    goto <bb 10>; [99.06%]
+  else
+    goto <bb 21>; [0.94%]
+
+  <bb 21> [local count: 120892422]:
+
+  <bb 22> [local count: 154319125]:
+  # ret_26 = PHI <0(5), 0(8), 1(21), _10(19), 2(10)>
+  return ret_26;
+
+}
+
+
+
+;; Function FLASH_DRV_ProgramCheck (FLASH_DRV_ProgramCheck, funcdef_no=22, decl_uid=6366, cgraph_uid=23, symbol_order=22)
+
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+FLASH_DRV_ProgramCheck (const struct flash_ssd_config_t * pSSDConfig, uint32_t dest, uint32_t size, const uint8_t * pExpectedData, uint32_t * pFailAddr, uint8_t marginLevel)
+{
+  unsigned int ivtmp.180;
+  uint32_t offsetAddr;
+  status_t ret;
+  uint32_t dest;
+  uint32_t failAddr;
+  status_t ret;
+  long unsigned int _1;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _23;
+  long unsigned int _24;
+  unsigned char _26;
+  signed char _27;
+  long unsigned int _29;
+  unsigned char _30;
+  long unsigned int _31;
+  unsigned char _32;
+  unsigned char _40;
+  long unsigned int _45;
+  long unsigned int _46;
+  unsigned char _61;
+  long unsigned int _63;
+  long unsigned int _64;
+  const uint8_t * _66;
+  unsigned char _67;
+  unsigned char _68;
+  void (*<T608>) (void) _69;
+  unsigned char _71;
+  signed char _72;
+  unsigned char _73;
+  unsigned char _74;
+  unsigned char _78;
+  long unsigned int _94;
+  unsigned char _101;
+  void * _106;
+  unsigned char _109;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = size_7(D) & 3;
+  if (_1 != 0)
+    goto <bb 24>; [67.00%]
+  else
+    goto <bb 3>; [33.00%]
+
+  <bb 3> [local count: 354334798]:
+  offsetAddr_17 = pSSDConfig_8(D)->DFlashBase;
+  if (dest_9(D) >= offsetAddr_17)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 177167401]:
+  _18 = pSSDConfig_8(D)->DFlashSize;
+  _19 = offsetAddr_17 + _18;
+  if (dest_9(D) < _19)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 88583698]:
+  _63 = dest_9(D) + 8388608;
+  dest_21 = _63 - offsetAddr_17;
+  goto <bb 22>; [100.00%]
+
+  <bb 6> [local count: 265751100]:
+  offsetAddr_22 = pSSDConfig_8(D)->PFlashBase;
+  if (dest_9(D) >= offsetAddr_22)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 7> [local count: 132875552]:
+  _23 = pSSDConfig_8(D)->PFlashSize;
+  _24 = offsetAddr_22 + _23;
+  if (dest_9(D) < _24)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 8> [local count: 66437776]:
+  dest_25 = dest_9(D) - offsetAddr_22;
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 155021472]:
+  _66 = pExpectedData_10(D) + 4;
+  ivtmp.180_57 = (unsigned int) _66;
+
+  <bb 10> [local count: 4576539452]:
+  # dest_111 = PHI <dest_56(9), dest_50(17)>
+  # ivtmp.180_118 = PHI <ivtmp.180_57(9), ivtmp.180_6(17)>
+  _26 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _27 = (signed char) _26;
+  if (_27 >= 0)
+    goto <bb 23>; [96.34%]
+  else
+    goto <bb 11>; [3.66%]
+
+  <bb 11> [local count: 167501351]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 2;
+  _29 = dest_111 >> 16;
+  _30 = (unsigned char) _29;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} _30;
+  _31 = dest_111 >> 8;
+  _32 = (unsigned char) _31;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[1] ={v} _32;
+  _78 = (unsigned char) dest_111;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[0] ={v} _78;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[7] ={v} marginLevel_11(D);
+  _106 = (void *) ivtmp.180_118;
+  _109 = MEM[base: _106, offset: 4294967292B];
+  MEM[(uint8_t *)1073872908B] = _109;
+  _61 = MEM[base: _106, offset: 4294967293B];
+  MEM[(uint8_t *)1073872909B] = _61;
+  _101 = MEM[base: _106, offset: 4294967294B];
+  MEM[(uint8_t *)1073872910B] = _101;
+  _40 = MEM[base: _106, offset: 4294967295B];
+  MEM[(uint8_t *)1073872911B] = _40;
+  _67 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _68 = _67 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _68;
+  goto <bb 14>; [100.00%]
+
+  <bb 12> [local count: 2877977797]:
+  _69 = pSSDConfig_8(D)->CallBack;
+  if (_69 != 4294967295B)
+    goto <bb 13>; [5.50%]
+  else
+    goto <bb 15>; [94.50%]
+
+  <bb 13> [local count: 158288776]:
+  _69 ();
+
+  <bb 14> [local count: 325790125]:
+
+  <bb 15> [local count: 3045479147]:
+  _71 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _72 = (signed char) _71;
+  if (_72 >= 0)
+    goto <bb 12>; [94.50%]
+  else
+    goto <bb 16>; [5.50%]
+
+  <bb 16> [local count: 167501354]:
+  _73 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _74 = _73 & 113;
+  if (_74 != 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 17> [local count: 83750677]:
+  dest_50 = dest_111 + 4;
+  ivtmp.180_6 = ivtmp.180_118 + 4;
+  _94 = size_7(D) + dest_56;
+  if (dest_50 != _94)
+    goto <bb 10>; [100.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 18> [local count: 0]:
+  goto <bb 23>; [100.00%]
+
+  <bb 19> [local count: 83750675]:
+  if (dest_111 > 8388607)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 20> [local count: 41875337]:
+  _64 = offsetAddr_43 + 4286578688;
+  _45 = _64 + dest_111;
+  goto <bb 23>; [100.00%]
+
+  <bb 21> [local count: 41875337]:
+  _46 = offsetAddr_43 + dest_111;
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [local count: 155021472]:
+  # dest_56 = PHI <dest_21(5), dest_25(8)>
+  # offsetAddr_43 = PHI <offsetAddr_17(5), offsetAddr_22(8)>
+  if (size_7(D) != 0)
+    goto <bb 9>; [100.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 23> [local count: 354334803]:
+  # ret_53 = PHI <1(7), 0(18), 1(20), 1(21), 1(6), 2(10)>
+  # failAddr_92 = PHI <_1(7), _1(18), _45(20), _46(21), _1(6), _1(10)>
+  *pFailAddr_14(D) = failAddr_92;
+
+  <bb 24> [local count: 1073741829]:
+  # ret_3 = PHI <ret_53(23), 1(2)>
+  return ret_3;
+
+}
+
+
+
+;; Function FLASH_DRV_CheckSum (FLASH_DRV_CheckSum, funcdef_no=23, decl_uid=6371, cgraph_uid=24, symbol_order=23)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+FLASH_DRV_CheckSum (const struct flash_ssd_config_t * pSSDConfig, uint32_t dest, uint32_t size, uint32_t * pSum)
+{
+  uint32_t endAddress;
+  uint32_t data;
+  uint32_t counter;
+  status_t ret;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _6;
+  long unsigned int _7;
+  uint8_t * dest.12_8;
+  unsigned char _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  void (*<T608>) (void) _12;
+  unsigned char _39;
+  uint8_t * dest.12_45;
+
+  <bb 2> [local count: 118111598]:
+  endAddress_23 = size_21(D) + dest_22(D);
+  _1 = pSSDConfig_25(D)->PFlashBase;
+  if (_1 > dest_22(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 59055799]:
+  _2 = pSSDConfig_25(D)->PFlashSize;
+  _3 = _1 + _2;
+  if (_3 < endAddress_23)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 4> [local count: 88583699]:
+  _4 = pSSDConfig_25(D)->DFlashBase;
+  if (_4 > dest_22(D))
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 44291849]:
+  _6 = pSSDConfig_25(D)->DFlashSize;
+  _7 = _4 + _6;
+  if (_7 < endAddress_23)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 66437774]:
+  *pSum_26(D) = 0;
+  goto <bb 14>; [100.00%]
+
+  <bb 7> [local count: 51673824]:
+  *pSum_26(D) = 0;
+  if (size_21(D) != 0)
+    goto <bb 15>; [97.00%]
+  else
+    goto <bb 8>; [3.00%]
+
+  <bb 8> [local count: 106668130]:
+  goto <bb 14>; [100.00%]
+
+  <bb 9> [local count: 905505207]:
+  dest.12_8 = (uint8_t *) dest_57;
+  _9 = *dest.12_8;
+  data_29 = (uint32_t) _9;
+  _10 = *pSum_26(D);
+  _11 = _10 + data_29;
+  *pSum_26(D) = _11;
+  dest_31 = dest_57 + 1;
+  counter_33 = counter_28 + 1;
+  if (counter_33 > 9)
+    goto <bb 10>; [52.77%]
+  else
+    goto <bb 12>; [47.23%]
+
+  <bb 10> [local count: 477815112]:
+  _12 = pSSDConfig_25(D)->CallBack;
+  if (_12 != 4294967295B)
+    goto <bb 11>; [70.00%]
+  else
+    goto <bb 12>; [30.00%]
+
+  <bb 11> [local count: 334470580]:
+  _12 ();
+
+  <bb 12> [local count: 905505205]:
+  # counter_54 = PHI <0(11), counter_33(9), 0(10)>
+
+  <bb 13> [local count: 955630226]:
+  # counter_28 = PHI <counter_54(12), 1(15)>
+  # dest_57 = PHI <dest_31(12), dest_50(15)>
+  if (endAddress_23 != dest_57)
+    goto <bb 9>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 14> [local count: 118111600]:
+  # ret_14 = PHI <0(8), 1(6)>
+  return ret_14;
+
+  <bb 15> [local count: 50125018]:
+  dest.12_45 = (uint8_t *) dest_22(D);
+  _39 = *dest.12_45;
+  data_35 = (uint32_t) _39;
+  *pSum_26(D) = data_35;
+  dest_50 = dest_22(D) + 1;
+  goto <bb 13>; [100.00%]
+
+}
+
+
+
+;; Function FLASH_DRV_ProgramSection (FLASH_DRV_ProgramSection, funcdef_no=24, decl_uid=6375, cgraph_uid=25, symbol_order=24)
+
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+FLASH_DRV_ProgramSection (const struct flash_ssd_config_t * pSSDConfig, uint32_t dest, uint16_t number)
+{
+  uint32_t temp;
+  status_t ret;
+  unsigned char _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _5;
+  long unsigned int _6;
+  unsigned char _7;
+  signed char _8;
+  long unsigned int _9;
+  unsigned char _10;
+  long unsigned int _11;
+  unsigned char _12;
+  unsigned char _13;
+  short unsigned int _14;
+  unsigned char _16;
+  unsigned char _17;
+  unsigned char _20;
+  unsigned char _38;
+  unsigned char _39;
+  void (*<T608>) (void) _40;
+  unsigned char _42;
+  signed char _43;
+  unsigned char _44;
+  unsigned char _45;
+  _Bool _46;
+  long unsigned int _56;
+  <unnamed type> _57;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _20 = _1 & 2;
+  if (_20 == 0)
+    goto <bb 16>; [35.00%]
+  else
+    goto <bb 3>; [65.00%]
+
+  <bb 3> [local count: 697932184]:
+  temp_23 = pSSDConfig_22(D)->DFlashBase;
+  if (temp_23 <= dest_24(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 348966093]:
+  _2 = pSSDConfig_22(D)->DFlashSize;
+  _3 = _2 + temp_23;
+  if (_3 > dest_24(D))
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 174483046]:
+  _56 = dest_24(D) + 8388608;
+  dest_25 = _56 - temp_23;
+  goto <bb 9>; [100.00%]
+
+  <bb 6> [local count: 523449137]:
+  temp_26 = pSSDConfig_22(D)->PFlashBase;
+  if (dest_24(D) >= temp_26)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 7> [local count: 261724570]:
+  _5 = pSSDConfig_22(D)->PFlashSize;
+  _6 = _5 + temp_26;
+  if (_6 > dest_24(D))
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 8> [local count: 130862284]:
+  dest_27 = dest_24(D) - temp_26;
+
+  <bb 9> [local count: 305345330]:
+  # dest_15 = PHI <dest_27(8), dest_25(5)>
+  _7 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _8 = (signed char) _7;
+  if (_8 >= 0)
+    goto <bb 16>; [61.14%]
+  else
+    goto <bb 10>; [38.86%]
+
+  <bb 10> [local count: 118657196]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 11;
+  _9 = dest_15 >> 16;
+  _10 = (unsigned char) _9;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} _10;
+  _11 = dest_15 >> 8;
+  _12 = (unsigned char) _11;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[1] ={v} _12;
+  _13 = (unsigned char) dest_15;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[0] ={v} _13;
+  _14 = number_33(D) >> 8;
+  _16 = (unsigned char) _14;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[7] ={v} _16;
+  _17 = (unsigned char) number_33(D);
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[6] ={v} _17;
+  _38 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _39 = _38 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _39;
+  goto <bb 13>; [100.00%]
+
+  <bb 11> [local count: 2038746407]:
+  _40 = pSSDConfig_22(D)->CallBack;
+  if (_40 != 4294967295B)
+    goto <bb 12>; [5.50%]
+  else
+    goto <bb 14>; [94.50%]
+
+  <bb 12> [local count: 112131052]:
+  _40 ();
+
+  <bb 13> [local count: 230788247]:
+
+  <bb 14> [local count: 2157403605]:
+  _42 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _43 = (signed char) _42;
+  if (_43 >= 0)
+    goto <bb 11>; [94.50%]
+  else
+    goto <bb 15>; [5.50%]
+
+  <bb 15> [local count: 118657198]:
+  _44 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _45 = _44 & 113;
+  _46 = _45 != 0;
+  _57 = (<unnamed type>) _46;
+
+  <bb 16> [local count: 1073741828]:
+  # ret_18 = PHI <4(2), 1(6), 1(7), _57(15), 2(9)>
+  return ret_18;
+
+}
+
+
+
+;; Function FLASH_DRV_EraseBlock (FLASH_DRV_EraseBlock, funcdef_no=25, decl_uid=6378, cgraph_uid=26, symbol_order=25)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+FLASH_DRV_EraseBlock (const struct flash_ssd_config_t * pSSDConfig, uint32_t dest)
+{
+  uint32_t temp;
+  status_t ret;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _4;
+  long unsigned int _5;
+  unsigned char _6;
+  signed char _7;
+  long unsigned int _8;
+  unsigned char _9;
+  long unsigned int _10;
+  unsigned char _11;
+  unsigned char _12;
+  unsigned char _30;
+  unsigned char _31;
+  void (*<T608>) (void) _32;
+  unsigned char _34;
+  signed char _35;
+  unsigned char _36;
+  unsigned char _37;
+  _Bool _38;
+  long unsigned int _48;
+  <unnamed type> _49;
+
+  <bb 2> [local count: 1073741824]:
+  temp_17 = pSSDConfig_16(D)->DFlashBase;
+  if (temp_17 <= dest_18(D))
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _1 = pSSDConfig_16(D)->DFlashSize;
+  _2 = _1 + temp_17;
+  if (_2 > dest_18(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _48 = dest_18(D) + 8388608;
+  dest_19 = _48 - temp_17;
+  goto <bb 8>; [100.00%]
+
+  <bb 5> [local count: 805306368]:
+  temp_20 = pSSDConfig_16(D)->PFlashBase;
+  if (dest_18(D) >= temp_20)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 6> [local count: 402653184]:
+  _4 = pSSDConfig_16(D)->PFlashSize;
+  _5 = _4 + temp_20;
+  if (_5 > dest_18(D))
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 7> [local count: 201326590]:
+  dest_21 = dest_18(D) - temp_20;
+
+  <bb 8> [local count: 469762046]:
+  # dest_29 = PHI <dest_21(7), dest_19(4)>
+  _6 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _7 = (signed char) _6;
+  if (_7 >= 0)
+    goto <bb 15>; [61.14%]
+  else
+    goto <bb 9>; [38.86%]
+
+  <bb 9> [local count: 182549532]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 8;
+  _8 = dest_29 >> 16;
+  _9 = (unsigned char) _8;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} _9;
+  _10 = dest_29 >> 8;
+  _11 = (unsigned char) _10;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[1] ={v} _11;
+  _12 = (unsigned char) dest_29;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[0] ={v} _12;
+  _30 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _31 = _30 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _31;
+  goto <bb 12>; [100.00%]
+
+  <bb 10> [local count: 3136532933]:
+  _32 = pSSDConfig_16(D)->CallBack;
+  if (_32 != 4294967295B)
+    goto <bb 11>; [5.50%]
+  else
+    goto <bb 13>; [94.50%]
+
+  <bb 11> [local count: 172509310]:
+  _32 ();
+
+  <bb 12> [local count: 355058842]:
+
+  <bb 13> [local count: 3319082468]:
+  _34 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _35 = (signed char) _34;
+  if (_35 >= 0)
+    goto <bb 10>; [94.50%]
+  else
+    goto <bb 14>; [5.50%]
+
+  <bb 14> [local count: 182549535]:
+  _36 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _37 = _36 & 113;
+  _38 = _37 != 0;
+  _49 = (<unnamed type>) _38;
+
+  <bb 15> [local count: 1073741827]:
+  # ret_13 = PHI <1(5), 1(6), _49(14), 2(8)>
+  return ret_13;
+
+}
+
+
+
+;; Function FLASH_DRV_VerifyBlock (FLASH_DRV_VerifyBlock, funcdef_no=26, decl_uid=6382, cgraph_uid=27, symbol_order=26)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+FLASH_DRV_VerifyBlock (const struct flash_ssd_config_t * pSSDConfig, uint32_t dest, uint8_t marginLevel)
+{
+  uint32_t temp;
+  status_t ret;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _4;
+  long unsigned int _5;
+  unsigned char _6;
+  signed char _7;
+  long unsigned int _8;
+  unsigned char _9;
+  long unsigned int _10;
+  unsigned char _11;
+  unsigned char _12;
+  unsigned char _32;
+  unsigned char _33;
+  void (*<T608>) (void) _34;
+  unsigned char _36;
+  signed char _37;
+  unsigned char _38;
+  unsigned char _39;
+  _Bool _40;
+  long unsigned int _50;
+  <unnamed type> _51;
+
+  <bb 2> [local count: 1073741824]:
+  temp_18 = pSSDConfig_17(D)->DFlashBase;
+  if (temp_18 <= dest_19(D))
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _1 = pSSDConfig_17(D)->DFlashSize;
+  _2 = _1 + temp_18;
+  if (_2 > dest_19(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _50 = dest_19(D) + 8388608;
+  dest_20 = _50 - temp_18;
+  goto <bb 8>; [100.00%]
+
+  <bb 5> [local count: 805306368]:
+  temp_21 = pSSDConfig_17(D)->PFlashBase;
+  if (dest_19(D) >= temp_21)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 6> [local count: 402653184]:
+  _4 = pSSDConfig_17(D)->PFlashSize;
+  _5 = _4 + temp_21;
+  if (_5 > dest_19(D))
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 7> [local count: 201326590]:
+  dest_22 = dest_19(D) - temp_21;
+
+  <bb 8> [local count: 469762046]:
+  # dest_13 = PHI <dest_22(7), dest_20(4)>
+  _6 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _7 = (signed char) _6;
+  if (_7 >= 0)
+    goto <bb 15>; [61.14%]
+  else
+    goto <bb 9>; [38.86%]
+
+  <bb 9> [local count: 182549532]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 0;
+  _8 = dest_13 >> 16;
+  _9 = (unsigned char) _8;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} _9;
+  _10 = dest_13 >> 8;
+  _11 = (unsigned char) _10;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[1] ={v} _11;
+  _12 = (unsigned char) dest_13;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[0] ={v} _12;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[7] ={v} marginLevel_28(D);
+  _32 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _33 = _32 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _33;
+  goto <bb 12>; [100.00%]
+
+  <bb 10> [local count: 3136532933]:
+  _34 = pSSDConfig_17(D)->CallBack;
+  if (_34 != 4294967295B)
+    goto <bb 11>; [5.50%]
+  else
+    goto <bb 13>; [94.50%]
+
+  <bb 11> [local count: 172509310]:
+  _34 ();
+
+  <bb 12> [local count: 355058842]:
+
+  <bb 13> [local count: 3319082468]:
+  _36 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _37 = (signed char) _36;
+  if (_37 >= 0)
+    goto <bb 10>; [94.50%]
+  else
+    goto <bb 14>; [5.50%]
+
+  <bb 14> [local count: 182549535]:
+  _38 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _39 = _38 & 113;
+  _40 = _39 != 0;
+  _51 = (<unnamed type>) _40;
+
+  <bb 15> [local count: 1073741827]:
+  # ret_14 = PHI <1(5), 1(6), _51(14), 2(8)>
+  return ret_14;
+
+}
+
+
+
+;; Function FLASH_DRV_GetEERAMProtection (FLASH_DRV_GetEERAMProtection, funcdef_no=27, decl_uid=6384, cgraph_uid=28, symbol_order=27)
+
+Removing basic block 5
+FLASH_DRV_GetEERAMProtection (uint8_t * protectStatus)
+{
+  status_t ret;
+  unsigned char _1;
+  unsigned char _2;
+  unsigned char _5;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _5 = _1 & 1;
+  if (_5 != 0)
+    goto <bb 3>; [65.00%]
+  else
+    goto <bb 4>; [35.00%]
+
+  <bb 3> [local count: 697932185]:
+  _2 ={v} MEM[(struct FTFC_Type *)1073872896B].FEPROT;
+  *protectStatus_7(D) = _2;
+
+  <bb 4> [local count: 1073741824]:
+  # ret_3 = PHI <0(3), 4(2)>
+  return ret_3;
+
+}
+
+
+
+;; Function FLASH_DRV_SetEERAMProtection (FLASH_DRV_SetEERAMProtection, funcdef_no=28, decl_uid=6386, cgraph_uid=29, symbol_order=28)
+
+Removing basic block 5
+FLASH_DRV_SetEERAMProtection (uint8_t protectStatus)
+{
+  status_t ret;
+  unsigned char _1;
+  unsigned char _2;
+  unsigned char _5;
+  _Bool _9;
+  <unnamed type> _10;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _5 = _1 & 1;
+  if (_5 == 0)
+    goto <bb 4>; [35.00%]
+  else
+    goto <bb 3>; [65.00%]
+
+  <bb 3> [local count: 697932185]:
+  MEM[(struct FTFC_Type *)1073872896B].FEPROT ={v} protectStatus_7(D);
+  _2 ={v} MEM[(struct FTFC_Type *)1073872896B].FEPROT;
+  _9 = _2 != protectStatus_7(D);
+  _10 = (<unnamed type>) _9;
+
+  <bb 4> [local count: 1073741824]:
+  # ret_3 = PHI <_10(3), 4(2)>
+  return ret_3;
+
+}
+
+
+
+;; Function FLASH_DRV_SetFlexRamFunction (FLASH_DRV_SetFlexRamFunction, funcdef_no=29, decl_uid=6391, cgraph_uid=30, symbol_order=29)
+
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+FLASH_DRV_SetFlexRamFunction (const struct flash_ssd_config_t * pSSDConfig, flash_flexRam_function_control_code_t flexRamFuncCode, uint16_t byteOfQuickWrite, struct flash_eeprom_status_t * const pEEPROMStatus)
+{
+  status_t ret;
+  unsigned char _1;
+  signed char _2;
+  short unsigned int _3;
+  unsigned char _4;
+  unsigned char _5;
+  unsigned char _6;
+  unsigned char _7;
+  short unsigned int _8;
+  short unsigned int _9;
+  unsigned char _10;
+  short unsigned int _11;
+  unsigned char _12;
+  short unsigned int _13;
+  short unsigned int _14;
+  unsigned char _15;
+  short unsigned int _16;
+  short unsigned int _33;
+  short unsigned int _35;
+  unsigned char _37;
+  unsigned char _38;
+  void (*<T608>) (void) _39;
+  unsigned char _41;
+  signed char _42;
+  unsigned char _43;
+  unsigned char _44;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _2 = (signed char) _1;
+  if (_2 >= 0)
+    goto <bb 14>; [43.66%]
+  else
+    goto <bb 3>; [56.34%]
+
+  <bb 3> [local count: 604946147]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 129;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} flexRamFuncCode_23(D);
+  if (flexRamFuncCode_23(D) == 85)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 4> [local count: 205681693]:
+  _3 = byteOfQuickWrite_25(D) >> 8;
+  _4 = (unsigned char) _3;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[7] ={v} _4;
+  _5 = (unsigned char) byteOfQuickWrite_25(D);
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[6] ={v} _5;
+
+  <bb 5> [local count: 604946147]:
+  _37 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _38 = _37 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _38;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 10394074946]:
+  _39 = pSSDConfig_28(D)->CallBack;
+  if (_39 != 4294967295B)
+    goto <bb 7>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 7> [local count: 571674118]:
+  _39 ();
+
+  <bb 8> [local count: 1176620265]:
+
+  <bb 9> [local count: 10999021093]:
+  _41 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _42 = (signed char) _41;
+  if (_42 >= 0)
+    goto <bb 6>; [94.50%]
+  else
+    goto <bb 10>; [5.50%]
+
+  <bb 10> [local count: 604946157]:
+  _43 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _44 = _43 & 113;
+  if (_44 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 11> [local count: 302473079]:
+  if (flexRamFuncCode_23(D) == 119)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 14>; [66.00%]
+
+  <bb 12> [local count: 102840847]:
+  if (pEEPROMStatus_31(D) == 0B)
+    goto <bb 14>; [30.00%]
+  else
+    goto <bb 13>; [70.00%]
+
+  <bb 13> [local count: 71988591]:
+  _6 ={v} MEM[(struct FTFC_Type *)1073872896B].FCCOB[6];
+  pEEPROMStatus_31(D)->brownOutCode = _6;
+  _7 ={v} MEM[(struct FTFC_Type *)1073872896B].FCCOB[11];
+  _8 = (short unsigned int) _7;
+  _9 = _8 << 8;
+  _10 ={v} MEM[(struct FTFC_Type *)1073872896B].FCCOB[10];
+  _33 = (short unsigned int) _10;
+  _11 = _9 | _33;
+  pEEPROMStatus_31(D)->sectorEraseCount = _11;
+  _12 ={v} MEM[(struct FTFC_Type *)1073872896B].FCCOB[5];
+  _13 = (short unsigned int) _12;
+  _14 = _13 << 8;
+  _15 ={v} MEM[(struct FTFC_Type *)1073872896B].FCCOB[4];
+  _35 = (short unsigned int) _15;
+  _16 = _14 | _35;
+  pEEPROMStatus_31(D)->numOfRecordReqMaintain = _16;
+
+  <bb 14> [local count: 1073741844]:
+  # ret_17 = PHI <0(13), 0(11), 2(2), 1(10), 1(12)>
+  return ret_17;
+
+}
+
+
+
+;; Function FLASH_DRV_EEEWrite (FLASH_DRV_EEEWrite, funcdef_no=31, decl_uid=6396, cgraph_uid=32, symbol_order=31)
+
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+FLASH_DRV_EEEWrite (const struct flash_ssd_config_t * pSSDConfig, uint32_t dest, uint32_t size, const uint8_t * pData)
+{
+  uint32_t temp;
+  status_t ret;
+  unsigned char _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  unsigned char _19;
+  _Bool _26;
+  short unsigned int load_dst_42;
+  volatile uint32_t * dest.13_46;
+  uint8_t * dest.14_47;
+  unsigned char _48;
+  volatile uint16_t * dest.15_55;
+  void (*<T608>) (void) _57;
+  unsigned char _58;
+  unsigned char _59;
+  unsigned char _60;
+  unsigned char _61;
+  unsigned char _62;
+  unsigned char _63;
+  long unsigned int prephitmp_101;
+  <unnamed type> _108;
+
+  <bb 2> [local count: 176713124]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _19 = _1 & 1;
+  if (_19 != 0)
+    goto <bb 3>; [65.00%]
+  else
+    goto <bb 20>; [35.00%]
+
+  <bb 3> [local count: 114863529]:
+  _2 = pSSDConfig_21(D)->EERAMBase;
+  if (_2 > dest_22(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 135985354]:
+  goto <bb 20>; [100.00%]
+
+  <bb 5> [local count: 57431769]:
+  _3 = dest_22(D) + size_23(D);
+  _5 = pSSDConfig_21(D)->EEESize;
+  _6 = _2 + _5;
+  if (_3 > _6)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 6> [local count: 958878377]:
+  # dest_77 = PHI <dest_22(D)(18), dest_27(19)>
+  # size_65 = PHI <size_23(D)(18), size_28(19)>
+  # pData_92 = PHI <pData_24(D)(18), pData_29(19)>
+  _7 = dest_77 & 3;
+  if (_7 == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 7> [local count: 479439188]:
+  if (size_65 > 3)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 326018655]:
+  temp_45 = MEM <long unsigned int> [(const uint8_t *)pData_92];
+  dest.13_46 = (volatile uint32_t *) dest_77;
+  *dest.13_46 ={v} temp_45;
+  goto <bb 11>; [100.00%]
+
+  <bb 9> [local count: 719158787]:
+  _8 = dest_77 & 1;
+  if (_8 == 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 10> [local count: 359579393]:
+  if (size_65 != 1)
+    goto <bb 22>; [66.00%]
+  else
+    goto <bb 21>; [34.00%]
+
+  <bb 11> [local count: 958878380]:
+  # prephitmp_101 = PHI <2(22), 1(21), 4(8)>
+  goto <bb 17>; [100.00%]
+
+  <bb 12> [local count: 8470577984]:
+  _57 = pSSDConfig_21(D)->CallBack;
+  if (_57 != 4294967295B)
+    goto <bb 13>; [70.00%]
+  else
+    goto <bb 14>; [30.00%]
+
+  <bb 13> [local count: 5929404610]:
+  _57 ();
+
+  <bb 14> [local count: 8470577984]:
+  _58 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _59 = _58 & 113;
+  if (_59 != 0)
+    goto <bb 15>; [5.50%]
+  else
+    goto <bb 17>; [94.50%]
+
+  <bb 15> [local count: 958878389]:
+  _62 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _63 = _62 & 113;
+  dest_27 = dest_77 + prephitmp_101;
+  size_28 = size_65 - prephitmp_101;
+  pData_29 = pData_92 + prephitmp_101;
+  if (size_28 != 0)
+    goto <bb 19>; [94.50%]
+  else
+    goto <bb 16>; [5.50%]
+
+  <bb 16> [local count: 52738311]:
+  _26 = _63 != 0;
+  _108 = (<unnamed type>) _26;
+  goto <bb 20>; [100.00%]
+
+  <bb 17> [local count: 8963574575]:
+  _60 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _61 = _60 & 1;
+  if (_61 == 0)
+    goto <bb 12>; [94.50%]
+  else
+    goto <bb 15>; [5.50%]
+
+  <bb 18> [local count: 28715885]:
+  if (size_23(D) != 0)
+    goto <bb 6>; [94.50%]
+  else
+    goto <bb 20>; [5.50%]
+
+  <bb 19> [local count: 906140074]:
+  if (_63 == 0)
+    goto <bb 6>; [94.50%]
+  else
+    goto <bb 4>; [5.50%]
+
+  <bb 20> [local count: 176713132]:
+  # ret_15 = PHI <_108(16), 1(4), 4(2), 0(18)>
+  return ret_15;
+
+  <bb 21> [local count: 326018655]:
+  dest.14_47 = (uint8_t *) dest_77;
+  _48 = *pData_92;
+  *dest.14_47 = _48;
+  goto <bb 11>; [100.00%]
+
+  <bb 22> [local count: 326018655]:
+  load_dst_42 = MEM <short unsigned int> [(const uint8_t *)pData_92];
+  dest.15_55 = (volatile uint16_t *) dest_77;
+  *dest.15_55 ={v} load_dst_42;
+  goto <bb 11>; [100.00%]
+
+}
+
+
+
+;; Function FLASH_DRV_DEFlashPartition (FLASH_DRV_DEFlashPartition, funcdef_no=32, decl_uid=6403, cgraph_uid=33, symbol_order=32)
+
+Removing basic block 10
+Removing basic block 11
+FLASH_DRV_DEFlashPartition (const struct flash_ssd_config_t * pSSDConfig, uint8_t uEEEDataSizeCode, uint8_t uDEPartitionCode, uint8_t uCSEcKeySize, _Bool uSFE, _Bool flexRamEnableLoadEEEData)
+{
+  status_t ret;
+  unsigned char _1;
+  signed char _2;
+  _Bool _3;
+  unsigned char _4;
+  unsigned char _23;
+  unsigned char _24;
+  unsigned char _25;
+  void (*<T608>) (void) _26;
+  unsigned char _28;
+  signed char _29;
+  unsigned char _30;
+  unsigned char _31;
+  _Bool _32;
+  <unnamed type> _35;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _2 = (signed char) _1;
+  if (_2 >= 0)
+    goto <bb 9>; [43.66%]
+  else
+    goto <bb 3>; [56.34%]
+
+  <bb 3> [local count: 604946147]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 128;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[2] ={v} uCSEcKeySize_11(D);
+  _23 = (unsigned char) uSFE_13(D);
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[1] ={v} _23;
+  _3 = ~flexRamEnableLoadEEEData_15(D);
+  _4 = (unsigned char) _3;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[0] ={v} _4;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[7] ={v} uEEEDataSizeCode_17(D);
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[6] ={v} uDEPartitionCode_19(D);
+  _24 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _25 = _24 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _25;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 10394074946]:
+  _26 = pSSDConfig_21(D)->CallBack;
+  if (_26 != 4294967295B)
+    goto <bb 5>; [5.50%]
+  else
+    goto <bb 7>; [94.50%]
+
+  <bb 5> [local count: 571674118]:
+  _26 ();
+
+  <bb 6> [local count: 1176620265]:
+
+  <bb 7> [local count: 10999021093]:
+  _28 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _29 = (signed char) _28;
+  if (_29 >= 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 8>; [5.50%]
+
+  <bb 8> [local count: 604946157]:
+  _30 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _31 = _30 & 113;
+  _32 = _31 != 0;
+  _35 = (<unnamed type>) _32;
+
+  <bb 9> [local count: 1073741834]:
+  # ret_5 = PHI <_35(8), 2(2)>
+  return ret_5;
+
+}
+
+
+
+;; Function FLASH_DRV_GetDFlashProtection (FLASH_DRV_GetDFlashProtection, funcdef_no=33, decl_uid=6406, cgraph_uid=34, symbol_order=33)
+
+Removing basic block 5
+FLASH_DRV_GetDFlashProtection (const struct flash_ssd_config_t * pSSDConfig, uint8_t * protectStatus)
+{
+  status_t ret;
+  long unsigned int _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = pSSDConfig_6(D)->DFlashSize;
+  if (_1 == 0)
+    goto <bb 4>; [35.00%]
+  else
+    goto <bb 3>; [65.00%]
+
+  <bb 3> [local count: 697932185]:
+  _2 ={v} MEM[(struct FTFC_Type *)1073872896B].FDPROT;
+  *protectStatus_7(D) = _2;
+
+  <bb 4> [local count: 1073741824]:
+  # ret_3 = PHI <0(3), 4(2)>
+  return ret_3;
+
+}
+
+
+
+;; Function FLASH_DRV_SetDFlashProtection (FLASH_DRV_SetDFlashProtection, funcdef_no=34, decl_uid=6409, cgraph_uid=35, symbol_order=34)
+
+Removing basic block 5
+FLASH_DRV_SetDFlashProtection (const struct flash_ssd_config_t * pSSDConfig, uint8_t protectStatus)
+{
+  status_t ret;
+  long unsigned int _1;
+  unsigned char _2;
+  _Bool _9;
+  <unnamed type> _10;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = pSSDConfig_6(D)->DFlashSize;
+  if (_1 == 0)
+    goto <bb 4>; [35.00%]
+  else
+    goto <bb 3>; [65.00%]
+
+  <bb 3> [local count: 697932185]:
+  MEM[(struct FTFC_Type *)1073872896B].FDPROT ={v} protectStatus_7(D);
+  _2 ={v} MEM[(struct FTFC_Type *)1073872896B].FDPROT;
+  _9 = _2 != protectStatus_7(D);
+  _10 = (<unnamed type>) _9;
+
+  <bb 4> [local count: 1073741824]:
+  # ret_3 = PHI <_10(3), 4(2)>
+  return ret_3;
+
+}
+
+
+
+;; Function FLASH_DRV_EraseAllBlockUnsecure (FLASH_DRV_EraseAllBlockUnsecure, funcdef_no=35, decl_uid=6411, cgraph_uid=36, symbol_order=35)
+
+Removing basic block 10
+Removing basic block 11
+FLASH_DRV_EraseAllBlockUnsecure (const struct flash_ssd_config_t * pSSDConfig)
+{
+  status_t ret;
+  unsigned char _1;
+  signed char _2;
+  unsigned char _11;
+  unsigned char _12;
+  void (*<T608>) (void) _13;
+  unsigned char _15;
+  signed char _16;
+  unsigned char _17;
+  unsigned char _18;
+  _Bool _19;
+  <unnamed type> _22;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _2 = (signed char) _1;
+  if (_2 >= 0)
+    goto <bb 9>; [61.14%]
+  else
+    goto <bb 3>; [38.86%]
+
+  <bb 3> [local count: 417256071]:
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} 112;
+  MEM[(struct FTFC_Type *)1073872896B].FCCOB[3] ={v} 73;
+  _11 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _12 = _11 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FSTAT ={v} _12;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 7169218117]:
+  _13 = pSSDConfig_8(D)->CallBack;
+  if (_13 != 4294967295B)
+    goto <bb 5>; [5.50%]
+  else
+    goto <bb 7>; [94.50%]
+
+  <bb 5> [local count: 394306994]:
+  _13 ();
+
+  <bb 6> [local count: 811563065]:
+
+  <bb 7> [local count: 7586474188]:
+  _15 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _16 = (signed char) _15;
+  if (_16 >= 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 8>; [5.50%]
+
+  <bb 8> [local count: 417256078]:
+  _17 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _18 = _17 & 113;
+  _19 = _18 != 0;
+  _22 = (<unnamed type>) _19;
+
+  <bb 9> [local count: 1073741831]:
+  # ret_3 = PHI <_22(8), 2(2)>
+  return ret_3;
+
+}
+
+
+
+;; Function FLASH_DRV_EnableCmdCompleteInterupt (FLASH_DRV_EnableCmdCompleteInterupt, funcdef_no=36, decl_uid=6413, cgraph_uid=37, symbol_order=36)
+
+FLASH_DRV_EnableCmdCompleteInterupt ()
+{
+  unsigned char _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _2 = _1 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _2;
+  INT_SYS_EnableIRQ (18);
+  return 0;
+
+}
+
+
+
+;; Function FLASH_DRV_DisableCmdCompleteInterupt (FLASH_DRV_DisableCmdCompleteInterupt, funcdef_no=37, decl_uid=6415, cgraph_uid=38, symbol_order=37)
+
+FLASH_DRV_DisableCmdCompleteInterupt ()
+{
+  unsigned char _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _2 = _1 & 127;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _2;
+  INT_SYS_DisableIRQ (18); [tail call]
+  return;
+
+}
+
+
+
+;; Function FLASH_DRV_EnableReadColisionInterupt (FLASH_DRV_EnableReadColisionInterupt, funcdef_no=38, decl_uid=6420, cgraph_uid=39, symbol_order=38)
+
+FLASH_DRV_EnableReadColisionInterupt ()
+{
+  unsigned char _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _2 = _1 | 64;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _2;
+  INT_SYS_EnableIRQ (19);
+  return 0;
+
+}
+
+
+
+;; Function FLASH_DRV_DisableReadColisionInterupt (FLASH_DRV_DisableReadColisionInterupt, funcdef_no=39, decl_uid=6422, cgraph_uid=40, symbol_order=39)
+
+FLASH_DRV_DisableReadColisionInterupt ()
+{
+  unsigned char _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _2 = _1 & 191;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _2;
+  INT_SYS_DisableIRQ (19); [tail call]
+  return;
+
+}
+
+
+
+;; Function FLASH_DRV_EnableDoubleBitFaultInterupt (FLASH_DRV_EnableDoubleBitFaultInterupt, funcdef_no=40, decl_uid=6430, cgraph_uid=41, symbol_order=40)
+
+FLASH_DRV_EnableDoubleBitFaultInterupt ()
+{
+  unsigned char _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FERCNFG;
+  _2 = _1 | 2;
+  MEM[(struct FTFC_Type *)1073872896B].FERCNFG ={v} _2;
+  INT_SYS_EnableIRQ (21);
+  return 0;
+
+}
+
+
+
+;; Function FLASH_DRV_DisableDoubleBitFaultInterupt (FLASH_DRV_DisableDoubleBitFaultInterupt, funcdef_no=41, decl_uid=6432, cgraph_uid=42, symbol_order=41)
+
+FLASH_DRV_DisableDoubleBitFaultInterupt ()
+{
+  unsigned char _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} MEM[(struct FTFC_Type *)1073872896B].FERCNFG;
+  _2 = _1 & 253;
+  MEM[(struct FTFC_Type *)1073872896B].FERCNFG ={v} _2;
+  INT_SYS_DisableIRQ (21); [tail call]
+  return;
+
+}
+
+
+
+;; Function FLASH_DRV_GetDefaultConfig (FLASH_DRV_GetDefaultConfig, funcdef_no=42, decl_uid=6443, cgraph_uid=43, symbol_order=42)
+
+FLASH_DRV_GetDefaultConfig (struct flash_user_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->PFlashBase = 0;
+  config_2(D)->PFlashSize = 524288;
+  config_2(D)->DFlashBase = 268435456;
+  config_2(D)->EERAMBase = 335544320;
+  config_2(D)->CallBack = 4294967295B;
+  return;
+
+}
+
+

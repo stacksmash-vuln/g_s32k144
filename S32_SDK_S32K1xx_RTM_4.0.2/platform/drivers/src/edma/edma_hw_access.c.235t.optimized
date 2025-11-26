@@ -1,0 +1,580 @@
+
+;; Function EDMA_Init (EDMA_Init, funcdef_no=28, decl_uid=6544, cgraph_uid=29, symbol_order=28)
+
+Removing basic block 5
+EDMA_Init (struct DMA_Type * base)
+{
+  unsigned int ivtmp.29;
+  uint32_t regValTemp;
+  struct DMA_Type * _1;
+  int _10;
+  sizetype _25;
+
+  <bb 2> [local count: 63136016]:
+  regValTemp_5 ={v} base_4(D)->CR;
+  regValTemp_6 = regValTemp_5 & 4294770489;
+  base_4(D)->CR ={v} regValTemp_6;
+
+  <bb 3> [local count: 1010605809]:
+  # ivtmp.29_24 = PHI <0(2), ivtmp.29_23(3)>
+  _10 = (int) ivtmp.29_24;
+  base_4(D)->TCD[_10].NBYTES.MLNO ={v} 0;
+  _25 = ivtmp.29_24 * 32;
+  _1 = base_4(D) + _25;
+  MEM <volatile uint32_t> [(struct DMA_Type *)_1 + 4096B] ={v} 0;
+  MEM <volatile uint16_t> [(struct DMA_Type *)_1 + 4100B] ={v} 0;
+  MEM <volatile uint16_t> [(struct DMA_Type *)_1 + 4102B] ={v} 0;
+  base_4(D)->TCD[_10].SLAST ={v} 0;
+  base_4(D)->TCD[_10].DADDR ={v} 0;
+  base_4(D)->TCD[_10].DOFF ={v} 0;
+  base_4(D)->TCD[_10].CITER.ELINKNO ={v} 0;
+  base_4(D)->TCD[_10].DLASTSGA ={v} 0;
+  base_4(D)->TCD[_10].CSR ={v} 0;
+  base_4(D)->TCD[_10].BITER.ELINKNO ={v} 0;
+  ivtmp.29_23 = ivtmp.29_24 + 1;
+  if (ivtmp.29_23 != 16)
+    goto <bb 3>; [93.75%]
+  else
+    goto <bb 4>; [6.25%]
+
+  <bb 4> [local count: 63136016]:
+  return;
+
+}
+
+
+
+;; Function EDMA_CancelTransfer (EDMA_CancelTransfer, funcdef_no=29, decl_uid=6546, cgraph_uid=30, symbol_order=29)
+
+Removing basic block 5
+EDMA_CancelTransfer (struct DMA_Type * base)
+{
+  uint32_t regValTemp;
+  long unsigned int _1;
+  long unsigned int _2;
+
+  <bb 2> [local count: 118111600]:
+  regValTemp_5 ={v} base_4(D)->CR;
+  regValTemp_6 = regValTemp_5 & 4294836223;
+  regValTemp_7 = regValTemp_6 | 131072;
+  base_4(D)->CR ={v} regValTemp_7;
+
+  <bb 3> [local count: 1073741824]:
+  _1 ={v} base_4(D)->CR;
+  _2 = _1 & 131072;
+  if (_2 != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function EDMA_CancelTransferWithError (EDMA_CancelTransferWithError, funcdef_no=30, decl_uid=6548, cgraph_uid=31, symbol_order=30)
+
+Removing basic block 5
+EDMA_CancelTransferWithError (struct DMA_Type * base)
+{
+  uint32_t regValTemp;
+  long unsigned int _1;
+  long unsigned int _2;
+
+  <bb 2> [local count: 118111600]:
+  regValTemp_5 ={v} base_4(D)->CR;
+  regValTemp_6 = regValTemp_5 & 4294901759;
+  regValTemp_7 = regValTemp_6 | 65536;
+  base_4(D)->CR ={v} regValTemp_7;
+
+  <bb 3> [local count: 1073741824]:
+  _1 ={v} base_4(D)->CR;
+  _2 = _1 & 65536;
+  if (_2 != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function EDMA_SetErrorIntCmd (EDMA_SetErrorIntCmd, funcdef_no=31, decl_uid=6578, cgraph_uid=32, symbol_order=31)
+
+EDMA_SetErrorIntCmd (struct DMA_Type * base, uint8_t channel, _Bool enable)
+{
+  <bb 2> [local count: 1073741824]:
+  if (enable_2(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  base_4(D)->SEEI ={v} channel_5(D);
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  base_4(D)->CEEI ={v} channel_5(D);
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function EDMA_SetDmaRequestCmd (EDMA_SetDmaRequestCmd, funcdef_no=32, decl_uid=6589, cgraph_uid=33, symbol_order=32)
+
+EDMA_SetDmaRequestCmd (struct DMA_Type * base, uint8_t channel, _Bool enable)
+{
+  <bb 2> [local count: 1073741824]:
+  if (enable_2(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  base_4(D)->SERQ ={v} channel_5(D);
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  base_4(D)->CERQ ={v} channel_5(D);
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function EDMA_TCDClearReg (EDMA_TCDClearReg, funcdef_no=33, decl_uid=6604, cgraph_uid=34, symbol_order=33)
+
+EDMA_TCDClearReg (struct DMA_Type * base, uint8_t channel)
+{
+  int _1;
+  sizetype _17;
+  struct DMA_Type * _18;
+  signed short _19;
+  signed short _20;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) channel_2(D);
+  base_4(D)->TCD[_1].NBYTES.MLNO ={v} 0;
+  _20 = (signed short) channel_2(D);
+  _19 = (signed short) 32;
+  _17 = _20 w* _19;
+  _18 = base_4(D) + _17;
+  MEM <volatile uint32_t> [(struct DMA_Type *)_18 + 4096B] ={v} 0;
+  MEM <volatile uint16_t> [(struct DMA_Type *)_18 + 4100B] ={v} 0;
+  MEM <volatile uint16_t> [(struct DMA_Type *)_18 + 4102B] ={v} 0;
+  base_4(D)->TCD[_1].SLAST ={v} 0;
+  base_4(D)->TCD[_1].DADDR ={v} 0;
+  base_4(D)->TCD[_1].DOFF ={v} 0;
+  base_4(D)->TCD[_1].CITER.ELINKNO ={v} 0;
+  base_4(D)->TCD[_1].DLASTSGA ={v} 0;
+  base_4(D)->TCD[_1].CSR ={v} 0;
+  base_4(D)->TCD[_1].BITER.ELINKNO ={v} 0;
+  return;
+
+}
+
+
+
+;; Function EDMA_TCDSetAttribute (EDMA_TCDSetAttribute, funcdef_no=34, decl_uid=6621, cgraph_uid=35, symbol_order=34)
+
+EDMA_TCDSetAttribute (struct DMA_Type * base, uint8_t channel, edma_modulo_t srcModulo, edma_modulo_t destModulo, edma_transfer_size_t srcTransferSize, edma_transfer_size_t destTransferSize)
+{
+  uint16_t regValTemp;
+  short unsigned int _1;
+  short unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  short unsigned int _5;
+  short unsigned int _6;
+  short unsigned int _7;
+  short unsigned int _8;
+  short unsigned int _9;
+  short unsigned int _10;
+  int _11;
+  <unnamed type> _22;
+  short unsigned int _24;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (short unsigned int) srcModulo_12(D);
+  _2 = _1 << 11;
+  _3 = (short unsigned int) srcTransferSize_13(D);
+  _4 = _3 << 8;
+  _5 = _4 & 1792;
+  _6 = (short unsigned int) destModulo_15(D);
+  _7 = _6 << 3;
+  _8 = _7 & 255;
+  _22 = destTransferSize_16(D) & 7;
+  _9 = (short unsigned int) _22;
+  _10 = _8 | _9;
+  _24 = _2 | _10;
+  regValTemp_17 = _5 | _24;
+  _11 = (int) channel_18(D);
+  base_20(D)->TCD[_11].ATTR ={v} regValTemp_17;
+  return;
+
+}
+
+
+
+;; Function EDMA_TCDSetNbytes (EDMA_TCDSetNbytes, funcdef_no=35, decl_uid=6637, cgraph_uid=36, symbol_order=35)
+
+Removing basic block 9
+Removing basic block 10
+EDMA_TCDSetNbytes (struct DMA_Type * base, uint8_t channel, uint32_t nbytes)
+{
+  uint32_t regValTemp;
+  long unsigned int _1;
+  long unsigned int _2;
+  int _3;
+  long unsigned int _4;
+  signed int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  int _10;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_13(D)->CR;
+  _2 = _1 & 128;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _3 = (int) channel_14(D);
+  _4 ={v} base_13(D)->TCD[_3].NBYTES.MLOFFNO;
+  _5 = (signed int) _4;
+  if (_5 >= 0)
+    goto <bb 4>; [59.00%]
+  else
+    goto <bb 6>; [41.00%]
+
+  <bb 4> [local count: 316753840]:
+  _6 ={v} base_13(D)->TCD[_3].NBYTES.MLOFFNO;
+  _7 = _6 & 1073741824;
+  if (_7 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 158376920]:
+  _8 = nbytes_15(D) & 1073741823;
+  base_13(D)->TCD[_3].NBYTES.MLOFFNO ={v} _8;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 378493992]:
+  regValTemp_18 ={v} base_13(D)->TCD[_3].NBYTES.MLOFFYES;
+  regValTemp_19 = regValTemp_18 & 4294966272;
+  _9 = nbytes_15(D) & 1023;
+  regValTemp_20 = _9 | regValTemp_19;
+  base_13(D)->TCD[_3].NBYTES.MLOFFYES ={v} regValTemp_20;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 536870913]:
+  _10 = (int) channel_14(D);
+  base_13(D)->TCD[_10].NBYTES.MLNO ={v} nbytes_15(D);
+
+  <bb 8> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function EDMA_TCDSetMinorLoopOffset (EDMA_TCDSetMinorLoopOffset, funcdef_no=36, decl_uid=6653, cgraph_uid=37, symbol_order=36)
+
+Removing basic block 8
+Removing basic block 9
+Removing basic block 10
+EDMA_TCDSetMinorLoopOffset (struct DMA_Type * base, uint8_t channel, int32_t offset)
+{
+  uint32_t regValTemp;
+  long unsigned int _1;
+  long unsigned int _2;
+  int _3;
+  long unsigned int _4;
+  signed int _5;
+  long unsigned int offset.1_8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _25;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_14(D)->CR;
+  _2 = _1 & 128;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _3 = (int) channel_15(D);
+  _4 ={v} base_14(D)->TCD[_3].NBYTES.MLOFFNO;
+  _5 = (signed int) _4;
+  if (_5 < 0)
+    goto <bb 5>; [41.00%]
+  else
+    goto <bb 4>; [59.00%]
+
+  <bb 4> [local count: 316753841]:
+  _22 ={v} base_14(D)->TCD[_3].NBYTES.MLOFFNO;
+  _23 = _22 & 1073741824;
+  if (_23 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 220117072]:
+  _25 ={v} base_14(D)->TCD[_3].NBYTES.MLOFFNO;
+
+  <bb 6> [local count: 402653184]:
+  regValTemp_16 ={v} base_14(D)->TCD[_3].NBYTES.MLOFFYES;
+  regValTemp_17 = regValTemp_16 & 3221226495;
+  offset.1_8 = (long unsigned int) offset_18(D);
+  _9 = offset.1_8 << 10;
+  _10 = _9 & 1073740800;
+  regValTemp_19 = _10 | regValTemp_17;
+  base_14(D)->TCD[_3].NBYTES.MLOFFYES ={v} regValTemp_19;
+
+  <bb 7> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function EDMA_TCDSetScatterGatherLink (EDMA_TCDSetScatterGatherLink, funcdef_no=37, decl_uid=6677, cgraph_uid=38, symbol_order=37)
+
+EDMA_TCDSetScatterGatherLink (struct DMA_Type * base, uint8_t channel, uint32_t nextTCDAddr)
+{
+  int _1;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) channel_2(D);
+  base_4(D)->TCD[_1].DLASTSGA ={v} nextTCDAddr_5(D);
+  return;
+
+}
+
+
+
+;; Function EDMA_TCDSetChannelMinorLink (EDMA_TCDSetChannelMinorLink, funcdef_no=38, decl_uid=6713, cgraph_uid=39, symbol_order=38)
+
+EDMA_TCDSetChannelMinorLink (struct DMA_Type * base, uint8_t channel, uint32_t linkChannel, _Bool enable)
+{
+  uint16_t regValTemp;
+  int _1;
+  short unsigned int _6;
+  short unsigned int _7;
+  signed short _8;
+  signed short _9;
+  signed short regValTemp.6_10;
+  signed short _11;
+  signed short regValTemp.7_12;
+  signed short _13;
+  signed short regValTemp.3_41;
+  signed short _42;
+  signed short regValTemp.5_47;
+  signed short _48;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) channel_16(D);
+  regValTemp_19 ={v} base_18(D)->TCD[_1].BITER.ELINKYES;
+  regValTemp_20 = regValTemp_19 & 32767;
+  if (enable_21(D) != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 1073741824]:
+  return;
+
+  <bb 4> [local count: 536870913]:
+  regValTemp.3_41 = (signed short) regValTemp_20;
+  _42 = regValTemp.3_41 | -32768;
+  regValTemp_43 = (uint16_t) _42;
+  base_18(D)->TCD[_1].BITER.ELINKYES ={v} regValTemp_43;
+  regValTemp_45 ={v} base_18(D)->TCD[_1].CITER.ELINKYES;
+  regValTemp_46 = regValTemp_45 & 32767;
+  regValTemp.5_47 = (signed short) regValTemp_46;
+  _48 = regValTemp.5_47 | -32768;
+  regValTemp_49 = (uint16_t) _48;
+  base_18(D)->TCD[_1].CITER.ELINKYES ={v} regValTemp_49;
+  regValTemp_28 ={v} base_18(D)->TCD[_1].BITER.ELINKYES;
+  regValTemp_29 = regValTemp_28 & 57855;
+  _6 = (short unsigned int) linkChannel_30(D);
+  _7 = _6 << 9;
+  _8 = (signed short) _7;
+  _9 = _8 & 7680;
+  regValTemp.6_10 = (signed short) regValTemp_29;
+  _11 = _9 | regValTemp.6_10;
+  regValTemp_31 = (uint16_t) _11;
+  base_18(D)->TCD[_1].BITER.ELINKYES ={v} regValTemp_31;
+  regValTemp_33 ={v} base_18(D)->TCD[_1].CITER.ELINKYES;
+  regValTemp_34 = regValTemp_33 & 57855;
+  regValTemp.7_12 = (signed short) regValTemp_34;
+  _13 = _9 | regValTemp.7_12;
+  regValTemp_35 = (uint16_t) _13;
+  base_18(D)->TCD[_1].CITER.ELINKYES ={v} regValTemp_35;
+  goto <bb 3>; [100.00%]
+
+  <bb 5> [local count: 536870912]:
+  base_18(D)->TCD[_1].BITER.ELINKYES ={v} regValTemp_20;
+  regValTemp_56 ={v} base_18(D)->TCD[_1].CITER.ELINKYES;
+  regValTemp_57 = regValTemp_56 & 32767;
+  base_18(D)->TCD[_1].CITER.ELINKYES ={v} regValTemp_57;
+  goto <bb 3>; [100.00%]
+
+}
+
+
+
+;; Function EDMA_TCDSetMajorCount (EDMA_TCDSetMajorCount, funcdef_no=39, decl_uid=6717, cgraph_uid=40, symbol_order=39)
+
+EDMA_TCDSetMajorCount (struct DMA_Type * base, uint8_t channel, uint32_t count)
+{
+  uint16_t regValTemp;
+  int _1;
+  short unsigned int _2;
+  signed short _3;
+  signed short _4;
+  signed short regValTemp.8_5;
+  signed short _6;
+  signed short regValTemp.9_7;
+  signed short _8;
+  signed short _9;
+  signed short _10;
+  signed short regValTemp.10_11;
+  signed short _12;
+  signed short regValTemp.11_13;
+  signed short _14;
+  signed short _36;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) channel_16(D);
+  _2 ={v} base_18(D)->TCD[_1].BITER.ELINKNO;
+  _36 = (signed short) _2;
+  if (_36 < 0)
+    goto <bb 3>; [41.00%]
+  else
+    goto <bb 4>; [59.00%]
+
+  <bb 3> [local count: 440234144]:
+  regValTemp_28 ={v} base_18(D)->TCD[_1].BITER.ELINKYES;
+  regValTemp_29 = regValTemp_28 & 65024;
+  _3 = (signed short) count_21(D);
+  _4 = _3 & 511;
+  regValTemp.8_5 = (signed short) regValTemp_29;
+  _6 = _4 | regValTemp.8_5;
+  regValTemp_30 = (uint16_t) _6;
+  base_18(D)->TCD[_1].BITER.ELINKYES ={v} regValTemp_30;
+  regValTemp_32 ={v} base_18(D)->TCD[_1].CITER.ELINKYES;
+  regValTemp_33 = regValTemp_32 & 65024;
+  regValTemp.9_7 = (signed short) regValTemp_33;
+  _8 = _4 | regValTemp.9_7;
+  regValTemp_34 = (uint16_t) _8;
+  base_18(D)->TCD[_1].CITER.ELINKYES ={v} regValTemp_34;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 633507681]:
+  regValTemp_19 ={v} base_18(D)->TCD[_1].BITER.ELINKNO;
+  regValTemp_20 = regValTemp_19 & 32768;
+  _9 = (signed short) count_21(D);
+  _10 = _9 & 32767;
+  regValTemp.10_11 = (signed short) regValTemp_20;
+  _12 = _10 | regValTemp.10_11;
+  regValTemp_22 = (uint16_t) _12;
+  base_18(D)->TCD[_1].BITER.ELINKNO ={v} regValTemp_22;
+  regValTemp_24 ={v} base_18(D)->TCD[_1].CITER.ELINKNO;
+  regValTemp_25 = regValTemp_24 & 32768;
+  regValTemp.11_13 = (signed short) regValTemp_25;
+  _14 = _10 | regValTemp.11_13;
+  regValTemp_26 = (uint16_t) _14;
+  base_18(D)->TCD[_1].CITER.ELINKNO ={v} regValTemp_26;
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function EDMA_TCDGetCurrentMajorCount (EDMA_TCDGetCurrentMajorCount, funcdef_no=40, decl_uid=6720, cgraph_uid=41, symbol_order=40)
+
+EDMA_TCDGetCurrentMajorCount (const struct DMA_Type * base, uint8_t channel)
+{
+  uint16_t result;
+  int _1;
+  short unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  uint32_t _11;
+  signed short _12;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) channel_6(D);
+  _2 ={v} base_8(D)->TCD[_1].BITER.ELINKNO;
+  _12 = (signed short) _2;
+  if (_12 < 0)
+    goto <bb 3>; [41.00%]
+  else
+    goto <bb 4>; [59.00%]
+
+  <bb 3> [local count: 440234144]:
+  _3 ={v} base_8(D)->TCD[_1].CITER.ELINKYES;
+  result_10 = _3 & 511;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 633507681]:
+  _4 ={v} base_8(D)->TCD[_1].CITER.ELINKNO;
+  result_9 = _4 & 32767;
+
+  <bb 5> [local count: 1073741824]:
+  # result_5 = PHI <result_10(3), result_9(4)>
+  _11 = (uint32_t) result_5;
+  return _11;
+
+}
+
+
+
+;; Function DMAMUX_Init (DMAMUX_Init, funcdef_no=41, decl_uid=6722, cgraph_uid=42, symbol_order=41)
+
+Removing basic block 5
+DMAMUX_Init (struct DMAMUX_Type * base)
+{
+  unsigned int ivtmp.75;
+  int _1;
+
+  <bb 2> [local count: 63136016]:
+
+  <bb 3> [local count: 1010605809]:
+  # ivtmp.75_10 = PHI <0(2), ivtmp.75_9(3)>
+  _1 = (int) ivtmp.75_10;
+  base_5(D)->CHCFG[_1] ={v} 0;
+  ivtmp.75_9 = ivtmp.75_10 + 1;
+  if (ivtmp.75_9 != 16)
+    goto <bb 3>; [93.75%]
+  else
+    goto <bb 4>; [6.25%]
+
+  <bb 4> [local count: 63136016]:
+  return;
+
+}
+
+

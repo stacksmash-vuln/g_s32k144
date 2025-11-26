@@ -1,0 +1,6 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/portable/MemMang/heap_4.c:377:13:prvInsertBlockIntoFreeList	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/portable/MemMang/heap_4.c:113:7:pvPortMalloc	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/portable/MemMang/heap_4.c:263:6:vPortFree	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/portable/MemMang/heap_4.c:311:8:xPortGetFreeHeapSize	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/portable/MemMang/heap_4.c:317:8:xPortGetMinimumEverFreeHeapSize	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/portable/MemMang/heap_4.c:323:6:vPortInitialiseBlocks	0	static

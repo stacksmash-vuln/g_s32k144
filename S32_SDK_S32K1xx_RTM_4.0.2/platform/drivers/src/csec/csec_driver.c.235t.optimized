@@ -1,0 +1,4454 @@
+
+;; Function CSEC_DRV_StartEncDecECBCmd (CSEC_DRV_StartEncDecECBCmd, funcdef_no=44, decl_uid=7828, cgraph_uid=46, symbol_order=46)
+
+CSEC_DRV_StartEncDecECBCmd ()
+{
+  uint8_t numBytes;
+  uint32_t numPagesLeft;
+  struct csec_state_t * g_csecStatePtr.14_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  unsigned char _5;
+  long unsigned int _6;
+  const uint8_t * _7;
+  const uint8_t * _8;
+  struct csec_state_t * g_csecStatePtr.19_9;
+  long unsigned int _10;
+  <unnamed type> _11;
+  <unnamed type> _12;
+  <unnamed type> _13;
+  short unsigned int iftmp.16_14;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.14_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.14_1->fullSize;
+  _3 = g_csecStatePtr.14_1->index;
+  _4 = _2 - _3;
+  numPagesLeft_16 = _4 >> 4;
+  _6 = MIN_EXPR <numPagesLeft_16, 7>;
+  iftmp.16_14 = (short unsigned int) _6;
+  _5 = (unsigned char) _6;
+  numBytes_17 = _5 << 4;
+  _7 = g_csecStatePtr.14_1->inputBuff;
+  _8 = _7 + _3;
+  CSEC_WriteCommandBytes (16, _8, numBytes_17);
+  CSEC_WriteCommandHalfWord (14, iftmp.16_14);
+  g_csecStatePtr.19_9 = g_csecStatePtr;
+  _10 = (long unsigned int) numBytes_17;
+  g_csecStatePtr.19_9->partSize = _10;
+  _11 = g_csecStatePtr.19_9->cmd;
+  _12 = g_csecStatePtr.19_9->seq;
+  _13 = g_csecStatePtr.19_9->keyId;
+  _21 = (long unsigned int) _11;
+  _22 = _21 << 24;
+  _23 = (long unsigned int) _12;
+  _24 = _23 << 8;
+  _25 = _22 | _24;
+  _26 = (long unsigned int) _13;
+  _27 = _25 | _26;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} _27;
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_StartEncDecCBCCmd (CSEC_DRV_StartEncDecCBCCmd, funcdef_no=45, decl_uid=7832, cgraph_uid=47, symbol_order=47)
+
+CSEC_DRV_StartEncDecCBCCmd ()
+{
+  uint8_t numBytes;
+  uint32_t numPagesLeft;
+  struct csec_state_t * g_csecStatePtr.44_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  unsigned char _5;
+  long unsigned int _6;
+  <unnamed type> _7;
+  unsigned char _8;
+  const uint8_t * _9;
+  struct csec_state_t * g_csecStatePtr.50_10;
+  const uint8_t * _11;
+  long unsigned int _12;
+  const uint8_t * _13;
+  const uint8_t * _14;
+  long unsigned int _15;
+  const uint8_t * _16;
+  struct csec_state_t * g_csecStatePtr.54_17;
+  long unsigned int _18;
+  long unsigned int _19;
+  short unsigned int _20;
+  struct csec_state_t * g_csecStatePtr.55_21;
+  long unsigned int _22;
+  <unnamed type> _23;
+  <unnamed type> _24;
+  <unnamed type> _25;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.44_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.44_1->fullSize;
+  _3 = g_csecStatePtr.44_1->index;
+  _4 = _2 - _3;
+  numPagesLeft_31 = _4 >> 4;
+  _7 = g_csecStatePtr.44_1->seq;
+  if (_7 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _6 = MIN_EXPR <numPagesLeft_31, 6>;
+  _8 = (unsigned char) _6;
+  numBytes_34 = _8 << 4;
+  _9 = g_csecStatePtr.44_1->iv;
+  CSEC_WriteCommandBytes (16, _9, 16);
+  g_csecStatePtr.50_10 = g_csecStatePtr;
+  _11 = g_csecStatePtr.50_10->inputBuff;
+  _12 = g_csecStatePtr.50_10->index;
+  _13 = _11 + _12;
+  CSEC_WriteCommandBytes (32, _13, numBytes_34);
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _15 = MIN_EXPR <numPagesLeft_31, 7>;
+  _5 = (unsigned char) _15;
+  numBytes_32 = _5 << 4;
+  _14 = g_csecStatePtr.44_1->inputBuff;
+  _16 = _14 + _3;
+  CSEC_WriteCommandBytes (16, _16, numBytes_32);
+
+  <bb 5> [local count: 1073741824]:
+  # numBytes_26 = PHI <numBytes_34(3), numBytes_32(4)>
+  g_csecStatePtr.54_17 = g_csecStatePtr;
+  _18 = g_csecStatePtr.54_17->fullSize;
+  _19 = _18 >> 4;
+  _20 = (short unsigned int) _19;
+  CSEC_WriteCommandHalfWord (14, _20);
+  g_csecStatePtr.55_21 = g_csecStatePtr;
+  _22 = (long unsigned int) numBytes_26;
+  g_csecStatePtr.55_21->partSize = _22;
+  _23 = g_csecStatePtr.55_21->cmd;
+  _24 = g_csecStatePtr.55_21->seq;
+  _25 = g_csecStatePtr.55_21->keyId;
+  _39 = (long unsigned int) _23;
+  _40 = _39 << 24;
+  _41 = (long unsigned int) _24;
+  _42 = _41 << 8;
+  _43 = _40 | _42;
+  _44 = (long unsigned int) _25;
+  _45 = _43 | _44;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} _45;
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_StartGenMACCmd (CSEC_DRV_StartGenMACCmd, funcdef_no=46, decl_uid=7836, cgraph_uid=48, symbol_order=48)
+
+Removing basic block 5
+CSEC_DRV_StartGenMACCmd ()
+{
+  struct csec_state_t * g_csecStatePtr.87_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  unsigned char _5;
+  unsigned char _6;
+  const uint8_t * _7;
+  const uint8_t * _8;
+  struct csec_state_t * g_csecStatePtr.93_9;
+  uint32_t * _10;
+  struct csec_state_t * g_csecStatePtr.94_11;
+  <unnamed type> _13;
+  <unnamed type> _14;
+  <unnamed type> _15;
+  unsigned char iftmp.86_16;
+  unsigned char iftmp.86_18;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int prephitmp_30;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.87_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.87_1->fullSize;
+  _3 = g_csecStatePtr.87_1->index;
+  _4 = _2 - _3;
+  if (_4 <= 112)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _5 = (unsigned char) _2;
+  _6 = (unsigned char) _3;
+  iftmp.86_18 = _5 - _6;
+
+  <bb 4> [local count: 1073741824]:
+  # iftmp.86_16 = PHI <iftmp.86_18(3), 112(2)>
+  # prephitmp_30 = PHI <_4(3), 112(2)>
+  _7 = g_csecStatePtr.87_1->inputBuff;
+  _8 = _7 + _3;
+  CSEC_WriteCommandBytes (16, _8, iftmp.86_16);
+  g_csecStatePtr.93_9 = g_csecStatePtr;
+  _10 = &g_csecStatePtr.93_9->msgLen;
+  CSEC_WriteCommandWords (12, _10, 1);
+  g_csecStatePtr.94_11 = g_csecStatePtr;
+  g_csecStatePtr.94_11->partSize = prephitmp_30;
+  _13 = g_csecStatePtr.94_11->cmd;
+  _14 = g_csecStatePtr.94_11->seq;
+  _15 = g_csecStatePtr.94_11->keyId;
+  _22 = (long unsigned int) _13;
+  _23 = _22 << 24;
+  _24 = (long unsigned int) _14;
+  _25 = _24 << 8;
+  _26 = _23 | _25;
+  _27 = (long unsigned int) _15;
+  _28 = _26 | _27;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} _28;
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_StartVerifMACCmd (CSEC_DRV_StartVerifMACCmd, funcdef_no=47, decl_uid=7840, cgraph_uid=49, symbol_order=49)
+
+CSEC_DRV_StartVerifMACCmd ()
+{
+  uint8_t macOffset;
+  struct csec_state_t * g_csecStatePtr.123_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  unsigned char _5;
+  unsigned char _6;
+  const uint8_t * _8;
+  const uint8_t * _9;
+  struct csec_state_t * g_csecStatePtr.129_10;
+  uint32_t * _11;
+  struct csec_state_t * g_csecStatePtr.130_12;
+  long unsigned int _13;
+  short unsigned int _14;
+  unsigned int _15;
+  unsigned char _16;
+  struct csec_state_t * g_csecStatePtr.131_17;
+  const uint8_t * _18;
+  struct csec_state_t * g_csecStatePtr.132_19;
+  <unnamed type> _21;
+  <unnamed type> _22;
+  <unnamed type> _23;
+  long unsigned int _27;
+  unsigned char iftmp.122_28;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  const uint8_t * _53;
+  const uint8_t * _54;
+  struct csec_state_t * g_csecStatePtr.129_56;
+  uint32_t * _57;
+  struct csec_state_t * g_csecStatePtr.130_59;
+  long unsigned int _60;
+  short unsigned int _61;
+  long unsigned int _65;
+  struct csec_state_t * pretmp_85;
+  struct csec_state_t * pretmp_86;
+  struct csec_state_t * prephitmp_87;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.123_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.123_1->fullSize;
+  _3 = g_csecStatePtr.123_1->index;
+  _4 = _2 - _3;
+  if (_4 <= 112)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _5 = (unsigned char) _2;
+  _6 = (unsigned char) _3;
+  iftmp.122_28 = _5 - _6;
+  _36 = _4 + 15;
+  _8 = g_csecStatePtr.123_1->inputBuff;
+  _9 = _8 + _3;
+  CSEC_WriteCommandBytes (16, _9, iftmp.122_28);
+  g_csecStatePtr.129_10 = g_csecStatePtr;
+  _11 = &g_csecStatePtr.129_10->msgLen;
+  CSEC_WriteCommandWords (12, _11, 1);
+  g_csecStatePtr.130_12 = g_csecStatePtr;
+  _13 = g_csecStatePtr.130_12->macLen;
+  _14 = (short unsigned int) _13;
+  CSEC_WriteCommandHalfWord (8, _14);
+  _27 = _36 & 240;
+  _15 = _27 + 16;
+  if (_15 <= 111)
+    goto <bb 5>; [66.00%]
+  else
+    goto <bb 4>; [34.00%]
+
+  <bb 4> [local count: 182536112]:
+  pretmp_86 = g_csecStatePtr;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 354334800]:
+  _37 = _36 & 4294967280;
+  macOffset_29 = (uint8_t) _37;
+  _16 = macOffset_29 + 16;
+  g_csecStatePtr.131_17 = g_csecStatePtr;
+  _18 = g_csecStatePtr.131_17->mac;
+  CSEC_WriteCommandBytes (_16, _18, 16);
+  g_csecStatePtr.132_19 = g_csecStatePtr;
+  g_csecStatePtr.132_19->macWritten = 1;
+
+  <bb 6> [local count: 1073741824]:
+  # _65 = PHI <112(7), _4(5), _4(4)>
+  # prephitmp_87 = PHI <pretmp_85(7), g_csecStatePtr.132_19(5), pretmp_86(4)>
+  prephitmp_87->partSize = _65;
+  _21 = prephitmp_87->cmd;
+  _22 = prephitmp_87->seq;
+  _23 = prephitmp_87->keyId;
+  _38 = (long unsigned int) _21;
+  _39 = _38 << 24;
+  _40 = (long unsigned int) _22;
+  _41 = _40 << 8;
+  _42 = _39 | _41;
+  _43 = (long unsigned int) _23;
+  _44 = _42 | _43;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} _44;
+  return;
+
+  <bb 7> [local count: 536870912]:
+  _53 = g_csecStatePtr.123_1->inputBuff;
+  _54 = _53 + _3;
+  CSEC_WriteCommandBytes (16, _54, 112);
+  g_csecStatePtr.129_56 = g_csecStatePtr;
+  _57 = &g_csecStatePtr.129_56->msgLen;
+  CSEC_WriteCommandWords (12, _57, 1);
+  g_csecStatePtr.130_59 = g_csecStatePtr;
+  _60 = g_csecStatePtr.130_59->macLen;
+  _61 = (short unsigned int) _60;
+  CSEC_WriteCommandHalfWord (8, _61);
+  pretmp_85 = g_csecStatePtr;
+  goto <bb 6>; [100.00%]
+
+}
+
+
+
+;; Function CSEC_DRV_ContinueEncDecECBCmd (CSEC_DRV_ContinueEncDecECBCmd, funcdef_no=48, decl_uid=7830, cgraph_uid=50, symbol_order=50)
+
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+CSEC_DRV_ContinueEncDecECBCmd ()
+{
+  struct csec_state_t * g_csecStatePtr.23_1;
+  uint8_t * _5;
+  long unsigned int _6;
+  uint8_t * _7;
+  long unsigned int _8;
+  unsigned char _9;
+  struct csec_state_t * g_csecStatePtr.29_10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.23_1 = g_csecStatePtr;
+  _25 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _26 = _25 >> 16;
+  if (_26 > 32)
+    goto <bb 5>; [45.83%]
+  else
+    goto <bb 3>; [54.17%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_26 != 0)
+    goto <bb 4>; [52.17%]
+  else
+    goto <bb 12>; [47.83%]
+
+  <bb 4> [local count: 1073741824]:
+  switch (_26) <default: <L29> [81.25%], case 1: <L18> [3.13%], case 2: <L19> [3.13%], case 4: <L20> [3.13%], case 8: <L21> [3.13%], case 16: <L22> [3.13%], case 32: <L23> [3.13%]>
+
+  <bb 5> [local count: 1073741824]:
+  if (_26 == 256)
+    goto <bb 15>; [18.18%]
+  else
+    goto <bb 6>; [81.82%]
+
+  <bb 6> [local count: 1073741824]:
+  if (_26 > 256)
+    goto <bb 9>; [67.81%]
+  else
+    goto <bb 7>; [32.19%]
+
+  <bb 7> [local count: 1073741824]:
+  if (_26 == 64)
+    goto <bb 17>; [44.44%]
+  else
+    goto <bb 8>; [55.56%]
+
+  <bb 8> [local count: 1073741824]:
+  if (_26 == 128)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 9> [local count: 1073741824]:
+  if (_26 == 512)
+    goto <bb 14>; [44.44%]
+  else
+    goto <bb 10>; [55.56%]
+
+  <bb 10> [local count: 1073741824]:
+  if (_26 == 1024)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [local count: 524845015]:
+<L18>:
+  g_csecStatePtr.23_1->errCode = 0;
+  _5 = g_csecStatePtr.23_1->outputBuff;
+  _6 = g_csecStatePtr.23_1->index;
+  _7 = _5 + _6;
+  _8 = g_csecStatePtr.23_1->partSize;
+  _9 = (unsigned char) _8;
+  CSEC_ReadCommandBytes (16, _7, _9);
+  g_csecStatePtr.29_10 = g_csecStatePtr;
+  _11 = g_csecStatePtr.29_10->index;
+  _12 = g_csecStatePtr.29_10->partSize;
+  _24 = _12 & 255;
+  _13 = _11 + _24;
+  g_csecStatePtr.29_10->index = _13;
+  _14 = g_csecStatePtr.29_10->fullSize;
+  if (_13 >= _14)
+    goto <bb 24>; [67.00%]
+  else
+    goto <bb 25>; [33.00%]
+
+  <bb 12> [local count: 89478488]:
+<L29>:
+  g_csecStatePtr.23_1->errCode = 1;
+  goto <bb 23>; [100.00%]
+
+  <bb 13> [local count: 89478488]:
+  g_csecStatePtr.23_1->errCode = 1036;
+  goto <bb 23>; [100.00%]
+
+  <bb 14> [local count: 89478488]:
+  g_csecStatePtr.23_1->errCode = 1034;
+  goto <bb 23>; [100.00%]
+
+  <bb 15> [local count: 89478488]:
+  g_csecStatePtr.23_1->errCode = 1033;
+  goto <bb 23>; [100.00%]
+
+  <bb 16> [local count: 89478488]:
+  g_csecStatePtr.23_1->errCode = 1032;
+  goto <bb 23>; [100.00%]
+
+  <bb 17> [local count: 89478488]:
+  g_csecStatePtr.23_1->errCode = 1031;
+  goto <bb 23>; [100.00%]
+
+  <bb 18> [local count: 89478488]:
+<L23>:
+  g_csecStatePtr.23_1->errCode = 1030;
+  goto <bb 23>; [100.00%]
+
+  <bb 19> [local count: 89478488]:
+<L22>:
+  g_csecStatePtr.23_1->errCode = 1029;
+  goto <bb 23>; [100.00%]
+
+  <bb 20> [local count: 89478488]:
+<L21>:
+  g_csecStatePtr.23_1->errCode = 1028;
+  goto <bb 23>; [100.00%]
+
+  <bb 21> [local count: 89478488]:
+<L20>:
+  g_csecStatePtr.23_1->errCode = 1027;
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [local count: 89478487]:
+<L19>:
+  g_csecStatePtr.23_1->errCode = 1026;
+
+  <bb 23> [local count: 548896841]:
+  g_csecStatePtr.23_1->cmdInProgress = 0;
+  goto <bb 26>; [100.00%]
+
+  <bb 24> [local count: 351646161]:
+  g_csecStatePtr.29_10->cmdInProgress = 0;
+  goto <bb 26>; [100.00%]
+
+  <bb 25> [local count: 173198854]:
+  CSEC_DRV_StartEncDecECBCmd (); [tail call]
+
+  <bb 26> [local count: 1073741855]:
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_ContinueGenMACCmd (CSEC_DRV_ContinueGenMACCmd, funcdef_no=50, decl_uid=7838, cgraph_uid=52, symbol_order=52)
+
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+CSEC_DRV_ContinueGenMACCmd ()
+{
+  struct csec_state_t * g_csecStatePtr.98_1;
+  <unnamed type> _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  uint8_t * _10;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.98_1 = g_csecStatePtr;
+  _23 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _24 = _23 >> 16;
+  if (_24 > 32)
+    goto <bb 5>; [45.83%]
+  else
+    goto <bb 3>; [54.17%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_24 != 0)
+    goto <bb 4>; [52.17%]
+  else
+    goto <bb 12>; [47.83%]
+
+  <bb 4> [local count: 1073741824]:
+  switch (_24) <default: <L31> [81.25%], case 1: <L20> [3.13%], case 2: <L21> [3.13%], case 4: <L22> [3.13%], case 8: <L23> [3.13%], case 16: <L24> [3.13%], case 32: <L25> [3.13%]>
+
+  <bb 5> [local count: 1073741824]:
+  if (_24 == 256)
+    goto <bb 15>; [18.18%]
+  else
+    goto <bb 6>; [81.82%]
+
+  <bb 6> [local count: 1073741824]:
+  if (_24 > 256)
+    goto <bb 9>; [67.81%]
+  else
+    goto <bb 7>; [32.19%]
+
+  <bb 7> [local count: 1073741824]:
+  if (_24 == 64)
+    goto <bb 17>; [44.44%]
+  else
+    goto <bb 8>; [55.56%]
+
+  <bb 8> [local count: 1073741824]:
+  if (_24 == 128)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 9> [local count: 1073741824]:
+  if (_24 == 512)
+    goto <bb 14>; [44.44%]
+  else
+    goto <bb 10>; [55.56%]
+
+  <bb 10> [local count: 1073741824]:
+  if (_24 == 1024)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [local count: 708669622]:
+<L20>:
+  g_csecStatePtr.98_1->errCode = 0;
+  _5 = g_csecStatePtr.98_1->seq;
+  if (_5 == 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 12> [local count: 89478488]:
+<L31>:
+  g_csecStatePtr.98_1->errCode = 1;
+  goto <bb 23>; [100.00%]
+
+  <bb 13> [local count: 89478488]:
+  g_csecStatePtr.98_1->errCode = 1036;
+  goto <bb 23>; [100.00%]
+
+  <bb 14> [local count: 89478488]:
+  g_csecStatePtr.98_1->errCode = 1034;
+  goto <bb 23>; [100.00%]
+
+  <bb 15> [local count: 89478488]:
+  g_csecStatePtr.98_1->errCode = 1033;
+  goto <bb 23>; [100.00%]
+
+  <bb 16> [local count: 89478488]:
+  g_csecStatePtr.98_1->errCode = 1032;
+  goto <bb 23>; [100.00%]
+
+  <bb 17> [local count: 89478488]:
+  g_csecStatePtr.98_1->errCode = 1031;
+  goto <bb 23>; [100.00%]
+
+  <bb 18> [local count: 89478488]:
+<L25>:
+  g_csecStatePtr.98_1->errCode = 1030;
+  goto <bb 23>; [100.00%]
+
+  <bb 19> [local count: 89478488]:
+<L24>:
+  g_csecStatePtr.98_1->errCode = 1029;
+  goto <bb 23>; [100.00%]
+
+  <bb 20> [local count: 89478488]:
+<L23>:
+  g_csecStatePtr.98_1->errCode = 1028;
+  goto <bb 23>; [100.00%]
+
+  <bb 21> [local count: 89478488]:
+<L22>:
+  g_csecStatePtr.98_1->errCode = 1027;
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [local count: 89478488]:
+<L21>:
+  g_csecStatePtr.98_1->errCode = 1026;
+
+  <bb 23> [local count: 365072235]:
+  g_csecStatePtr.98_1->cmdInProgress = 0;
+  goto <bb 28>; [100.00%]
+
+  <bb 24> [local count: 354334811]:
+  g_csecStatePtr.98_1->seq = 1;
+
+  <bb 25> [local count: 708669622]:
+  _6 = g_csecStatePtr.98_1->index;
+  _7 = g_csecStatePtr.98_1->partSize;
+  _22 = _7 & 255;
+  _8 = _6 + _22;
+  g_csecStatePtr.98_1->index = _8;
+  _9 = g_csecStatePtr.98_1->fullSize;
+  if (_8 >= _9)
+    goto <bb 26>; [50.00%]
+  else
+    goto <bb 27>; [50.00%]
+
+  <bb 26> [local count: 354334811]:
+  g_csecStatePtr.98_1->cmdInProgress = 0;
+  _10 = g_csecStatePtr.98_1->outputBuff;
+  CSEC_ReadCommandBytes (32, _10, 16); [tail call]
+  goto <bb 28>; [100.00%]
+
+  <bb 27> [local count: 354334811]:
+  CSEC_DRV_StartGenMACCmd (); [tail call]
+
+  <bb 28> [local count: 1073741857]:
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_ContinueVerifMACCmd (CSEC_DRV_ContinueVerifMACCmd, funcdef_no=51, decl_uid=7842, cgraph_uid=53, symbol_order=53)
+
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+CSEC_DRV_ContinueVerifMACCmd ()
+{
+  struct csec_state_t * g_csecStatePtr.137_1;
+  <unnamed type> _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  _Bool _9;
+  long unsigned int _10;
+  _Bool _11;
+  long unsigned int _12;
+  _Bool * _13;
+  _Bool _14;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+
+  <bb 2> [local count: 1073741823]:
+  g_csecStatePtr.137_1 = g_csecStatePtr;
+  _27 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _28 = _27 >> 16;
+  if (_28 > 32)
+    goto <bb 5>; [45.83%]
+  else
+    goto <bb 3>; [54.17%]
+
+  <bb 3> [local count: 1073741823]:
+  if (_28 != 0)
+    goto <bb 4>; [52.17%]
+  else
+    goto <bb 12>; [47.83%]
+
+  <bb 4> [local count: 1073741823]:
+  switch (_28) <default: <L31> [81.25%], case 1: <L20> [3.13%], case 2: <L21> [3.13%], case 4: <L22> [3.13%], case 8: <L23> [3.13%], case 16: <L24> [3.13%], case 32: <L25> [3.13%]>
+
+  <bb 5> [local count: 1073741823]:
+  if (_28 == 256)
+    goto <bb 15>; [18.18%]
+  else
+    goto <bb 6>; [81.82%]
+
+  <bb 6> [local count: 1073741823]:
+  if (_28 > 256)
+    goto <bb 9>; [67.81%]
+  else
+    goto <bb 7>; [32.19%]
+
+  <bb 7> [local count: 1073741823]:
+  if (_28 == 64)
+    goto <bb 17>; [44.44%]
+  else
+    goto <bb 8>; [55.56%]
+
+  <bb 8> [local count: 1073741823]:
+  if (_28 == 128)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 9> [local count: 1073741823]:
+  if (_28 == 512)
+    goto <bb 14>; [44.44%]
+  else
+    goto <bb 10>; [55.56%]
+
+  <bb 10> [local count: 1073741823]:
+  if (_28 == 1024)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [local count: 708669621]:
+<L20>:
+  g_csecStatePtr.137_1->errCode = 0;
+  _5 = g_csecStatePtr.137_1->seq;
+  if (_5 == 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 12> [local count: 89478488]:
+<L31>:
+  g_csecStatePtr.137_1->errCode = 1;
+  goto <bb 23>; [100.00%]
+
+  <bb 13> [local count: 89478488]:
+  g_csecStatePtr.137_1->errCode = 1036;
+  goto <bb 23>; [100.00%]
+
+  <bb 14> [local count: 89478488]:
+  g_csecStatePtr.137_1->errCode = 1034;
+  goto <bb 23>; [100.00%]
+
+  <bb 15> [local count: 89478488]:
+  g_csecStatePtr.137_1->errCode = 1033;
+  goto <bb 23>; [100.00%]
+
+  <bb 16> [local count: 89478488]:
+  g_csecStatePtr.137_1->errCode = 1032;
+  goto <bb 23>; [100.00%]
+
+  <bb 17> [local count: 89478488]:
+  g_csecStatePtr.137_1->errCode = 1031;
+  goto <bb 23>; [100.00%]
+
+  <bb 18> [local count: 89478488]:
+<L25>:
+  g_csecStatePtr.137_1->errCode = 1030;
+  goto <bb 23>; [100.00%]
+
+  <bb 19> [local count: 89478488]:
+<L24>:
+  g_csecStatePtr.137_1->errCode = 1029;
+  goto <bb 23>; [100.00%]
+
+  <bb 20> [local count: 89478488]:
+<L23>:
+  g_csecStatePtr.137_1->errCode = 1028;
+  goto <bb 23>; [100.00%]
+
+  <bb 21> [local count: 89478488]:
+<L22>:
+  g_csecStatePtr.137_1->errCode = 1027;
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [local count: 89478487]:
+<L21>:
+  g_csecStatePtr.137_1->errCode = 1026;
+
+  <bb 23> [local count: 365072235]:
+  g_csecStatePtr.137_1->cmdInProgress = 0;
+  goto <bb 28>; [100.00%]
+
+  <bb 24> [local count: 354334811]:
+  g_csecStatePtr.137_1->seq = 1;
+
+  <bb 25> [local count: 708669621]:
+  _6 = g_csecStatePtr.137_1->index;
+  _7 = g_csecStatePtr.137_1->partSize;
+  _10 = _7 & 255;
+  _8 = _6 + _10;
+  g_csecStatePtr.137_1->index = _8;
+  _9 = g_csecStatePtr.137_1->macWritten;
+  _11 = ~_9;
+  g_csecStatePtr.137_1->cmdInProgress = _11;
+  if (_11 != 0)
+    goto <bb 27>; [33.00%]
+  else
+    goto <bb 26>; [67.00%]
+
+  <bb 26> [local count: 474808647]:
+  _26 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[5].DATA_32;
+  _12 = _26 & 4294901760;
+  _13 = g_csecStatePtr.137_1->verifStatus;
+  _14 = _12 == 0;
+  *_13 = _14;
+  goto <bb 28>; [100.00%]
+
+  <bb 27> [local count: 233860973]:
+  CSEC_DRV_StartVerifMACCmd (); [tail call]
+
+  <bb 28> [local count: 1073741856]:
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_ContinueEncDecCBCCmd (CSEC_DRV_ContinueEncDecCBCCmd, funcdef_no=49, decl_uid=7834, cgraph_uid=51, symbol_order=51)
+
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+CSEC_DRV_ContinueEncDecCBCCmd ()
+{
+  struct csec_state_t * g_csecStatePtr.59_1;
+  <unnamed type> _5;
+  uint8_t * _6;
+  long unsigned int _7;
+  uint8_t * _8;
+  long unsigned int _9;
+  unsigned char _10;
+  struct csec_state_t * g_csecStatePtr.66_11;
+  uint8_t * _12;
+  long unsigned int _13;
+  uint8_t * _14;
+  long unsigned int _15;
+  unsigned char _16;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  struct csec_state_t * prephitmp_62;
+  struct csec_state_t * pretmp_63;
+
+  <bb 2> [local count: 1073741823]:
+  g_csecStatePtr.59_1 = g_csecStatePtr;
+  _35 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _36 = _35 >> 16;
+  if (_36 > 32)
+    goto <bb 5>; [45.83%]
+  else
+    goto <bb 3>; [54.17%]
+
+  <bb 3> [local count: 1073741823]:
+  if (_36 != 0)
+    goto <bb 4>; [52.17%]
+  else
+    goto <bb 12>; [47.83%]
+
+  <bb 4> [local count: 1073741823]:
+  switch (_36) <default: <L32> [81.25%], case 1: <L21> [3.13%], case 2: <L22> [3.13%], case 4: <L23> [3.13%], case 8: <L24> [3.13%], case 16: <L25> [3.13%], case 32: <L26> [3.13%]>
+
+  <bb 5> [local count: 1073741823]:
+  if (_36 == 256)
+    goto <bb 15>; [18.18%]
+  else
+    goto <bb 6>; [81.82%]
+
+  <bb 6> [local count: 1073741823]:
+  if (_36 > 256)
+    goto <bb 9>; [67.81%]
+  else
+    goto <bb 7>; [32.19%]
+
+  <bb 7> [local count: 1073741823]:
+  if (_36 == 64)
+    goto <bb 17>; [44.44%]
+  else
+    goto <bb 8>; [55.56%]
+
+  <bb 8> [local count: 1073741823]:
+  if (_36 == 128)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 9> [local count: 1073741823]:
+  if (_36 == 512)
+    goto <bb 14>; [44.44%]
+  else
+    goto <bb 10>; [55.56%]
+
+  <bb 10> [local count: 1073741823]:
+  if (_36 == 1024)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [local count: 708669621]:
+<L21>:
+  g_csecStatePtr.59_1->errCode = 0;
+  _5 = g_csecStatePtr.59_1->seq;
+  if (_5 == 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 12> [local count: 89478488]:
+<L32>:
+  g_csecStatePtr.59_1->errCode = 1;
+  goto <bb 23>; [100.00%]
+
+  <bb 13> [local count: 89478488]:
+  g_csecStatePtr.59_1->errCode = 1036;
+  goto <bb 23>; [100.00%]
+
+  <bb 14> [local count: 89478488]:
+  g_csecStatePtr.59_1->errCode = 1034;
+  goto <bb 23>; [100.00%]
+
+  <bb 15> [local count: 89478488]:
+  g_csecStatePtr.59_1->errCode = 1033;
+  goto <bb 23>; [100.00%]
+
+  <bb 16> [local count: 89478488]:
+  g_csecStatePtr.59_1->errCode = 1032;
+  goto <bb 23>; [100.00%]
+
+  <bb 17> [local count: 89478488]:
+  g_csecStatePtr.59_1->errCode = 1031;
+  goto <bb 23>; [100.00%]
+
+  <bb 18> [local count: 89478488]:
+<L26>:
+  g_csecStatePtr.59_1->errCode = 1030;
+  goto <bb 23>; [100.00%]
+
+  <bb 19> [local count: 89478488]:
+<L25>:
+  g_csecStatePtr.59_1->errCode = 1029;
+  goto <bb 23>; [100.00%]
+
+  <bb 20> [local count: 89478488]:
+<L24>:
+  g_csecStatePtr.59_1->errCode = 1028;
+  goto <bb 23>; [100.00%]
+
+  <bb 21> [local count: 89478488]:
+<L23>:
+  g_csecStatePtr.59_1->errCode = 1027;
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [local count: 89478487]:
+<L22>:
+  g_csecStatePtr.59_1->errCode = 1026;
+
+  <bb 23> [local count: 365072235]:
+  g_csecStatePtr.59_1->cmdInProgress = 0;
+  goto <bb 29>; [100.00%]
+
+  <bb 24> [local count: 354334811]:
+  _6 = g_csecStatePtr.59_1->outputBuff;
+  _7 = g_csecStatePtr.59_1->index;
+  _8 = _6 + _7;
+  _9 = g_csecStatePtr.59_1->partSize;
+  _10 = (unsigned char) _9;
+  CSEC_ReadCommandBytes (32, _8, _10);
+  g_csecStatePtr.66_11 = g_csecStatePtr;
+  g_csecStatePtr.66_11->seq = 1;
+  goto <bb 26>; [100.00%]
+
+  <bb 25> [local count: 354334811]:
+  _12 = g_csecStatePtr.59_1->outputBuff;
+  _13 = g_csecStatePtr.59_1->index;
+  _14 = _12 + _13;
+  _15 = g_csecStatePtr.59_1->partSize;
+  _16 = (unsigned char) _15;
+  CSEC_ReadCommandBytes (16, _14, _16);
+  pretmp_63 = g_csecStatePtr;
+
+  <bb 26> [local count: 708669621]:
+  # prephitmp_62 = PHI <g_csecStatePtr.66_11(24), pretmp_63(25)>
+  _18 = prephitmp_62->index;
+  _19 = prephitmp_62->partSize;
+  _34 = _19 & 255;
+  _20 = _18 + _34;
+  prephitmp_62->index = _20;
+  _21 = prephitmp_62->fullSize;
+  if (_20 >= _21)
+    goto <bb 27>; [67.00%]
+  else
+    goto <bb 28>; [33.00%]
+
+  <bb 27> [local count: 474808647]:
+  prephitmp_62->cmdInProgress = 0;
+  goto <bb 29>; [100.00%]
+
+  <bb 28> [local count: 233860973]:
+  CSEC_DRV_StartEncDecCBCCmd (); [tail call]
+
+  <bb 29> [local count: 1073741856]:
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_Init (CSEC_DRV_Init, funcdef_no=12, decl_uid=7104, cgraph_uid=14, symbol_order=14)
+
+CSEC_DRV_Init (struct csec_state_t * state)
+{
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr = state_2(D);
+  state_2(D)->cmdInProgress = 0;
+  INT_SYS_EnableIRQ (18);
+  OSIF_TimeDelay (0); [tail call]
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_Deinit (CSEC_DRV_Deinit, funcdef_no=13, decl_uid=7106, cgraph_uid=15, symbol_order=15)
+
+CSEC_DRV_Deinit ()
+{
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr = 0B;
+  INT_SYS_DisableIRQ (18); [tail call]
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_GenerateMACAddrMode (CSEC_DRV_GenerateMACAddrMode, funcdef_no=19, decl_uid=7143, cgraph_uid=21, symbol_order=21)
+
+Removing basic block 10
+Removing basic block 13
+Removing basic block 15
+Removing basic block 22
+Removing basic block 23
+Removing basic block 25
+Removing basic block 26
+Removing basic block 28
+CSEC_DRV_GenerateMACAddrMode (csec_key_id_t keyId, const uint8_t * msg, uint32_t msgLen, uint8_t * cmac)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.110_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.112_3;
+  status_t _4;
+  long unsigned int _18;
+  long unsigned int _19;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.110_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.110_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 21>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872648]:
+  g_csecStatePtr.110_1->cmdInProgress = 1;
+  CSEC_WriteCommandWords (16, &msg, 1);
+  CSEC_WriteCommandWords (12, &msgLen, 1);
+  CSEC_WriteCmdAndWait (5, 1, 0, keyId_11(D));
+  _18 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _19 = _18 >> 16;
+  if (_19 > 32)
+    goto <bb 7>; [45.83%]
+  else
+    goto <bb 4>; [54.17%]
+
+  <bb 4> [local count: 686872648]:
+  if (_19 != 0)
+    goto <bb 5>; [52.17%]
+  else
+    goto <bb 20>; [47.83%]
+
+  <bb 5> [local count: 686872648]:
+  switch (_19) <default: <L31> [81.25%], case 1: <L17> [3.13%], case 2: <L18> [3.13%], case 4: <L19> [3.13%], case 8: <L20> [3.13%], case 16: <L21> [3.13%], case 32: <L29> [3.13%]>
+
+  <bb 6> [local count: 558084027]:
+<L31>:
+  goto <bb 20>; [100.00%]
+
+  <bb 7> [local count: 686872648]:
+  if (_19 == 256)
+    goto <bb 20>; [18.18%]
+  else
+    goto <bb 8>; [81.82%]
+
+  <bb 8> [local count: 686872648]:
+  if (_19 > 256)
+    goto <bb 12>; [67.81%]
+  else
+    goto <bb 9>; [32.19%]
+
+  <bb 9> [local count: 686872648]:
+  if (_19 == 64)
+    goto <bb 20>; [44.44%]
+  else
+    goto <bb 10>; [55.56%]
+
+  <bb 10> [local count: 686872648]:
+  if (_19 == 128)
+    goto <bb 11>; [100.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 11> [local count: 686872648]:
+  goto <bb 20>; [100.00%]
+
+  <bb 12> [local count: 686872648]:
+  if (_19 == 512)
+    goto <bb 20>; [44.44%]
+  else
+    goto <bb 13>; [55.56%]
+
+  <bb 13> [local count: 686872648]:
+  if (_19 == 1024)
+    goto <bb 14>; [100.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 14> [local count: 686872648]:
+  goto <bb 20>; [100.00%]
+
+  <bb 15> [local count: 226667979]:
+<L17>:
+  CSEC_ReadCommandBytes (32, cmac_15(D), 16);
+  goto <bb 20>; [100.00%]
+
+  <bb 16> [local count: 57239389]:
+<L21>:
+  goto <bb 20>; [100.00%]
+
+  <bb 17> [local count: 57239389]:
+<L20>:
+  goto <bb 20>; [100.00%]
+
+  <bb 18> [local count: 57239389]:
+<L19>:
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 57239389]:
+<L18>:
+
+  <bb 20> [local count: 686872669]:
+  # stat_31 = PHI <1026(19), 0(15), 1027(18), 1034(12), 1032(11), 1(6), 1031(9), 1033(7), 1030(5), 1029(16), 1028(17), 1(10), 1(13), 1(4), 1036(14)>
+<L29>:
+  g_csecStatePtr.112_3 = g_csecStatePtr;
+  g_csecStatePtr.112_3->cmdInProgress = 0;
+
+  <bb 21> [local count: 1073741845]:
+  # _4 = PHI <stat_31(20), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_VerifyMACAddrMode (CSEC_DRV_VerifyMACAddrMode, funcdef_no=21, decl_uid=7158, cgraph_uid=23, symbol_order=23)
+
+Removing basic block 10
+Removing basic block 13
+Removing basic block 15
+Removing basic block 22
+Removing basic block 23
+Removing basic block 25
+Removing basic block 26
+Removing basic block 28
+CSEC_DRV_VerifyMACAddrMode (csec_key_id_t keyId, const uint8_t * msg, uint32_t msgLen, const uint8_t * mac, uint16_t macLen, _Bool * verifStatus)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.149_1;
+  _Bool _2;
+  long unsigned int _3;
+  _Bool _4;
+  struct csec_state_t * g_csecStatePtr.151_5;
+  status_t _6;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.149_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.149_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 21>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872648]:
+  g_csecStatePtr.149_1->cmdInProgress = 1;
+  CSEC_WriteCommandWords (16, &msg, 1);
+  CSEC_WriteCommandBytes (32, mac_12(D), 16);
+  CSEC_WriteCommandWords (12, &msgLen, 1);
+  CSEC_WriteCommandHalfWord (8, macLen_15(D));
+  CSEC_WriteCmdAndWait (6, 1, 0, keyId_17(D));
+  _25 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _26 = _25 >> 16;
+  if (_26 > 32)
+    goto <bb 7>; [45.83%]
+  else
+    goto <bb 4>; [54.17%]
+
+  <bb 4> [local count: 686872648]:
+  if (_26 != 0)
+    goto <bb 5>; [52.17%]
+  else
+    goto <bb 20>; [47.83%]
+
+  <bb 5> [local count: 686872648]:
+  switch (_26) <default: <L31> [81.25%], case 1: <L17> [3.13%], case 2: <L18> [3.13%], case 4: <L19> [3.13%], case 8: <L20> [3.13%], case 16: <L21> [3.13%], case 32: <L29> [3.13%]>
+
+  <bb 6> [local count: 558084027]:
+<L31>:
+  goto <bb 20>; [100.00%]
+
+  <bb 7> [local count: 686872648]:
+  if (_26 == 256)
+    goto <bb 20>; [18.18%]
+  else
+    goto <bb 8>; [81.82%]
+
+  <bb 8> [local count: 686872648]:
+  if (_26 > 256)
+    goto <bb 12>; [67.81%]
+  else
+    goto <bb 9>; [32.19%]
+
+  <bb 9> [local count: 686872648]:
+  if (_26 == 64)
+    goto <bb 20>; [44.44%]
+  else
+    goto <bb 10>; [55.56%]
+
+  <bb 10> [local count: 686872648]:
+  if (_26 == 128)
+    goto <bb 11>; [100.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 11> [local count: 686872648]:
+  goto <bb 20>; [100.00%]
+
+  <bb 12> [local count: 686872648]:
+  if (_26 == 512)
+    goto <bb 20>; [44.44%]
+  else
+    goto <bb 13>; [55.56%]
+
+  <bb 13> [local count: 686872648]:
+  if (_26 == 1024)
+    goto <bb 14>; [100.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 14> [local count: 686872648]:
+  goto <bb 20>; [100.00%]
+
+  <bb 15> [local count: 343436335]:
+<L17>:
+  _24 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[5].DATA_32;
+  _3 = _24 & 4294901760;
+  _4 = _3 == 0;
+  *verifStatus_21(D) = _4;
+  goto <bb 20>; [100.00%]
+
+  <bb 16> [local count: 57239389]:
+<L21>:
+  goto <bb 20>; [100.00%]
+
+  <bb 17> [local count: 57239389]:
+<L20>:
+  goto <bb 20>; [100.00%]
+
+  <bb 18> [local count: 57239389]:
+<L19>:
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 57239389]:
+<L18>:
+
+  <bb 20> [local count: 686872669]:
+  # stat_38 = PHI <1026(19), 0(15), 1027(18), 1034(12), 1032(11), 1(6), 1031(9), 1033(7), 1030(5), 1029(16), 1028(17), 1(10), 1(13), 1(4), 1036(14)>
+<L29>:
+  g_csecStatePtr.151_5 = g_csecStatePtr;
+  g_csecStatePtr.151_5->cmdInProgress = 0;
+
+  <bb 21> [local count: 1073741845]:
+  # _6 = PHI <stat_38(20), 2(2)>
+  return _6;
+
+}
+
+
+
+;; Function CSEC_DRV_LoadKey (CSEC_DRV_LoadKey, funcdef_no=22, decl_uid=7165, cgraph_uid=24, symbol_order=24)
+
+Removing basic block 12
+Removing basic block 15
+Removing basic block 17
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+CSEC_DRV_LoadKey (csec_key_id_t keyId, const uint8_t * m1, const uint8_t * m2, const uint8_t * m3, uint8_t * m4, uint8_t * m5)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.152_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.154_3;
+  status_t _4;
+  unsigned char _23;
+  signed char _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _28;
+  long unsigned int _29;
+
+  <bb 2> [local count: 184635922]:
+  g_csecStatePtr.152_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.152_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 118111600]:
+  g_csecStatePtr.152_1->cmdInProgress = 1;
+  CSEC_WriteCommandBytes (16, m1_9(D), 16);
+  CSEC_WriteCommandBytes (32, m2_11(D), 32);
+  CSEC_WriteCommandBytes (64, m3_13(D), 16);
+  _25 = (long unsigned int) keyId_15(D);
+  _26 = _25 | 117440512;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} _26;
+
+  <bb 4> [local count: 1073741824]:
+  _23 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _24 = (signed char) _23;
+  if (_24 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _28 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _29 = _28 >> 16;
+  if (_29 > 32)
+    goto <bb 9>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_29 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_29) <default: <L31> [81.25%], case 1: <L17> [3.13%], case 2: <L18> [3.13%], case 4: <L19> [3.13%], case 8: <L20> [3.13%], case 16: <L21> [3.13%], case 32: <L29> [3.13%]>
+
+  <bb 8> [local count: 95965675]:
+<L31>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 118111600]:
+  if (_29 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 10>; [81.82%]
+
+  <bb 10> [local count: 118111600]:
+  if (_29 > 256)
+    goto <bb 14>; [67.81%]
+  else
+    goto <bb 11>; [32.19%]
+
+  <bb 11> [local count: 118111600]:
+  if (_29 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 12>; [55.56%]
+
+  <bb 12> [local count: 118111600]:
+  if (_29 == 128)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 13> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 14> [local count: 118111600]:
+  if (_29 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 15>; [55.56%]
+
+  <bb 15> [local count: 118111600]:
+  if (_29 == 1024)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 16> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 17> [local count: 38976829]:
+<L17>:
+  CSEC_ReadCommandBytes (80, m4_18(D), 32);
+  CSEC_ReadCommandBytes (112, m5_20(D), 16);
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L21>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L20>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L19>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842630]:
+<L18>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_41 = PHI <1026(21), 0(17), 1027(20), 1034(14), 1032(13), 1(8), 1031(11), 1033(9), 1030(7), 1029(18), 1028(19), 1(12), 1(15), 1(6), 1036(16)>
+<L29>:
+  g_csecStatePtr.154_3 = g_csecStatePtr;
+  g_csecStatePtr.154_3->cmdInProgress = 0;
+
+  <bb 23> [local count: 184635926]:
+  # _4 = PHI <stat_41(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_LoadPlainKey (CSEC_DRV_LoadPlainKey, funcdef_no=23, decl_uid=7167, cgraph_uid=25, symbol_order=25)
+
+Removing basic block 14
+Removing basic block 19
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+Removing basic block 32
+CSEC_DRV_LoadPlainKey (const uint8_t * plainKey)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.155_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.157_3;
+  status_t _4;
+  unsigned char _13;
+  signed char _14;
+  long unsigned int _16;
+  long unsigned int _17;
+
+  <bb 2> [local count: 184635922]:
+  g_csecStatePtr.155_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.155_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 118111600]:
+  g_csecStatePtr.155_1->cmdInProgress = 1;
+  CSEC_WriteCommandBytes (16, plainKey_8(D), 16);
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 134217743;
+
+  <bb 4> [local count: 1073741824]:
+  _13 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _14 = (signed char) _13;
+  if (_14 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _16 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _17 = _16 >> 16;
+  if (_17 > 32)
+    goto <bb 10>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_17 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_17) <default: <L16> [81.25%], case 1: <L14> [3.13%], case 2: <L17> [3.13%], case 4: <L4> [3.13%], case 8: <L5> [3.13%], case 16: <L6> [3.13%], case 32: <L7> [3.13%]>
+
+  <bb 8> [local count: 3690988]:
+<L17>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 95965675]:
+<L16>:
+  goto <bb 22>; [100.00%]
+
+  <bb 10> [local count: 118111600]:
+  if (_17 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 11>; [81.82%]
+
+  <bb 11> [local count: 118111600]:
+  if (_17 > 256)
+    goto <bb 15>; [67.81%]
+  else
+    goto <bb 12>; [32.19%]
+
+  <bb 12> [local count: 118111600]:
+  if (_17 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 13>; [55.56%]
+
+  <bb 13> [local count: 118111600]:
+  if (_17 == 128)
+    goto <bb 14>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 14> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 15> [local count: 118111600]:
+  if (_17 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 16>; [55.56%]
+
+  <bb 16> [local count: 118111600]:
+  if (_17 == 1024)
+    goto <bb 17>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 17> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L4>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L5>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L6>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842634]:
+<L7>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_18 = PHI <1(6), 0(7), 1027(18), 1028(19), 1029(20), 1030(21), 1033(10), 1031(12), 1026(8), 1032(14), 1034(15), 1036(17), 1(13), 1(16), 1(9)>
+<L14>:
+  g_csecStatePtr.157_3 = g_csecStatePtr;
+  g_csecStatePtr.157_3->cmdInProgress = 0;
+
+  <bb 23> [local count: 184635926]:
+  # _4 = PHI <stat_18(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_ExportRAMKey (CSEC_DRV_ExportRAMKey, funcdef_no=24, decl_uid=7173, cgraph_uid=26, symbol_order=26)
+
+Removing basic block 12
+Removing basic block 15
+Removing basic block 17
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+CSEC_DRV_ExportRAMKey (uint8_t * m1, uint8_t * m2, uint8_t * m3, uint8_t * m4, uint8_t * m5)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.158_1;
+  _Bool _2;
+  status_t _4;
+  struct csec_state_t * prephitmp_9;
+  unsigned char _22;
+  signed char _23;
+  long unsigned int _25;
+  long unsigned int _26;
+  struct csec_state_t * pretmp_27;
+
+  <bb 2> [local count: 150883496]:
+  g_csecStatePtr.158_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.158_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 118111600]:
+  g_csecStatePtr.158_1->cmdInProgress = 1;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 150994959;
+
+  <bb 4> [local count: 1073741824]:
+  _22 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _23 = (signed char) _22;
+  if (_23 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _25 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _26 = _25 >> 16;
+  if (_26 > 32)
+    goto <bb 9>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_26 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_26) <default: <L33> [81.25%], case 1: <L17> [3.13%], case 2: <L18> [3.13%], case 4: <L19> [3.13%], case 8: <L20> [3.13%], case 16: <L21> [3.13%], case 32: <L29> [3.13%]>
+
+  <bb 8> [local count: 95965675]:
+<L33>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 118111600]:
+  if (_26 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 10>; [81.82%]
+
+  <bb 10> [local count: 118111600]:
+  if (_26 > 256)
+    goto <bb 14>; [67.81%]
+  else
+    goto <bb 11>; [32.19%]
+
+  <bb 11> [local count: 118111600]:
+  if (_26 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 12>; [55.56%]
+
+  <bb 12> [local count: 118111600]:
+  if (_26 == 128)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 13> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 14> [local count: 118111600]:
+  if (_26 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 15>; [55.56%]
+
+  <bb 15> [local count: 118111600]:
+  if (_26 == 1024)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 16> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 17> [local count: 38976829]:
+<L17>:
+  CSEC_ReadCommandBytes (16, m1_11(D), 16);
+  CSEC_ReadCommandBytes (32, m2_13(D), 32);
+  CSEC_ReadCommandBytes (64, m3_15(D), 16);
+  CSEC_ReadCommandBytes (80, m4_17(D), 32);
+  CSEC_ReadCommandBytes (112, m5_19(D), 16);
+  pretmp_27 = g_csecStatePtr;
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L21>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L20>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L19>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842630]:
+<L18>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_38 = PHI <1026(21), 0(17), 1027(20), 1034(14), 1032(13), 1(8), 1031(11), 1033(9), 1030(7), 1029(18), 1028(19), 1(12), 1(15), 1(6), 1036(16)>
+  # prephitmp_9 = PHI <g_csecStatePtr.158_1(21), pretmp_27(17), g_csecStatePtr.158_1(20), g_csecStatePtr.158_1(14), g_csecStatePtr.158_1(13), g_csecStatePtr.158_1(8), g_csecStatePtr.158_1(11), g_csecStatePtr.158_1(9), g_csecStatePtr.158_1(7), g_csecStatePtr.158_1(18), g_csecStatePtr.158_1(19), g_csecStatePtr.158_1(12), g_csecStatePtr.158_1(15), g_csecStatePtr.158_1(6), g_csecStatePtr.158_1(16)>
+<L29>:
+  prephitmp_9->cmdInProgress = 0;
+
+  <bb 23> [local count: 150883500]:
+  # _4 = PHI <stat_38(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_InitRNG (CSEC_DRV_InitRNG, funcdef_no=25, decl_uid=7175, cgraph_uid=27, symbol_order=27)
+
+Removing basic block 14
+Removing basic block 19
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+Removing basic block 32
+CSEC_DRV_InitRNG ()
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.161_1;
+  _Bool _2;
+  status_t _4;
+  unsigned char _11;
+  signed char _12;
+  long unsigned int _14;
+  long unsigned int _15;
+
+  <bb 2> [local count: 150883496]:
+  g_csecStatePtr.161_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.161_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 118111600]:
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 167772160;
+
+  <bb 4> [local count: 1073741824]:
+  _11 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _12 = (signed char) _11;
+  if (_12 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _14 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _15 = _14 >> 16;
+  if (_15 > 32)
+    goto <bb 10>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_15 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_15) <default: <L16> [81.25%], case 1: <L14> [3.13%], case 2: <L17> [3.13%], case 4: <L4> [3.13%], case 8: <L5> [3.13%], case 16: <L6> [3.13%], case 32: <L7> [3.13%]>
+
+  <bb 8> [local count: 3690988]:
+<L17>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 95965675]:
+<L16>:
+  goto <bb 22>; [100.00%]
+
+  <bb 10> [local count: 118111600]:
+  if (_15 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 11>; [81.82%]
+
+  <bb 11> [local count: 118111600]:
+  if (_15 > 256)
+    goto <bb 15>; [67.81%]
+  else
+    goto <bb 12>; [32.19%]
+
+  <bb 12> [local count: 118111600]:
+  if (_15 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 13>; [55.56%]
+
+  <bb 13> [local count: 118111600]:
+  if (_15 == 128)
+    goto <bb 14>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 14> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 15> [local count: 118111600]:
+  if (_15 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 16>; [55.56%]
+
+  <bb 16> [local count: 118111600]:
+  if (_15 == 1024)
+    goto <bb 17>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 17> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L4>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L5>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L6>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842634]:
+<L7>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_16 = PHI <1(6), 0(7), 1027(18), 1028(19), 1029(20), 1030(21), 1033(10), 1031(12), 1026(8), 1032(14), 1034(15), 1036(17), 1(13), 1(16), 1(9)>
+<L14>:
+  g_csecStatePtr.161_1->cmdInProgress = 0;
+
+  <bb 23> [local count: 150883500]:
+  # _4 = PHI <stat_16(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_ExtendSeed (CSEC_DRV_ExtendSeed, funcdef_no=26, decl_uid=7177, cgraph_uid=28, symbol_order=28)
+
+Removing basic block 14
+Removing basic block 19
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+Removing basic block 32
+CSEC_DRV_ExtendSeed (const uint8_t * entropy)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.164_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.166_3;
+  status_t _4;
+  unsigned char _13;
+  signed char _14;
+  long unsigned int _16;
+  long unsigned int _17;
+
+  <bb 2> [local count: 184635922]:
+  g_csecStatePtr.164_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.164_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 118111600]:
+  g_csecStatePtr.164_1->cmdInProgress = 1;
+  CSEC_WriteCommandBytes (16, entropy_8(D), 16);
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 184549376;
+
+  <bb 4> [local count: 1073741824]:
+  _13 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _14 = (signed char) _13;
+  if (_14 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _16 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _17 = _16 >> 16;
+  if (_17 > 32)
+    goto <bb 10>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_17 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_17) <default: <L16> [81.25%], case 1: <L14> [3.13%], case 2: <L17> [3.13%], case 4: <L4> [3.13%], case 8: <L5> [3.13%], case 16: <L6> [3.13%], case 32: <L7> [3.13%]>
+
+  <bb 8> [local count: 3690988]:
+<L17>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 95965675]:
+<L16>:
+  goto <bb 22>; [100.00%]
+
+  <bb 10> [local count: 118111600]:
+  if (_17 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 11>; [81.82%]
+
+  <bb 11> [local count: 118111600]:
+  if (_17 > 256)
+    goto <bb 15>; [67.81%]
+  else
+    goto <bb 12>; [32.19%]
+
+  <bb 12> [local count: 118111600]:
+  if (_17 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 13>; [55.56%]
+
+  <bb 13> [local count: 118111600]:
+  if (_17 == 128)
+    goto <bb 14>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 14> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 15> [local count: 118111600]:
+  if (_17 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 16>; [55.56%]
+
+  <bb 16> [local count: 118111600]:
+  if (_17 == 1024)
+    goto <bb 17>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 17> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L4>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L5>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L6>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842634]:
+<L7>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_18 = PHI <1(6), 0(7), 1027(18), 1028(19), 1029(20), 1030(21), 1033(10), 1031(12), 1026(8), 1032(14), 1034(15), 1036(17), 1(13), 1(16), 1(9)>
+<L14>:
+  g_csecStatePtr.166_3 = g_csecStatePtr;
+  g_csecStatePtr.166_3->cmdInProgress = 0;
+
+  <bb 23> [local count: 184635926]:
+  # _4 = PHI <stat_18(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_GenerateRND (CSEC_DRV_GenerateRND, funcdef_no=27, decl_uid=7179, cgraph_uid=29, symbol_order=29)
+
+Removing basic block 12
+Removing basic block 15
+Removing basic block 17
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+CSEC_DRV_GenerateRND (uint8_t * rnd)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.167_1;
+  _Bool _2;
+  status_t _4;
+  struct csec_state_t * prephitmp_9;
+  unsigned char _14;
+  signed char _15;
+  long unsigned int _17;
+  long unsigned int _18;
+  struct csec_state_t * pretmp_19;
+
+  <bb 2> [local count: 150883496]:
+  g_csecStatePtr.167_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.167_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 118111600]:
+  g_csecStatePtr.167_1->cmdInProgress = 1;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 201326592;
+
+  <bb 4> [local count: 1073741824]:
+  _14 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _15 = (signed char) _14;
+  if (_15 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _17 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _18 = _17 >> 16;
+  if (_18 > 32)
+    goto <bb 9>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_18 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_18) <default: <L33> [81.25%], case 1: <L17> [3.13%], case 2: <L18> [3.13%], case 4: <L19> [3.13%], case 8: <L20> [3.13%], case 16: <L21> [3.13%], case 32: <L29> [3.13%]>
+
+  <bb 8> [local count: 95965675]:
+<L33>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 118111600]:
+  if (_18 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 10>; [81.82%]
+
+  <bb 10> [local count: 118111600]:
+  if (_18 > 256)
+    goto <bb 14>; [67.81%]
+  else
+    goto <bb 11>; [32.19%]
+
+  <bb 11> [local count: 118111600]:
+  if (_18 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 12>; [55.56%]
+
+  <bb 12> [local count: 118111600]:
+  if (_18 == 128)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 13> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 14> [local count: 118111600]:
+  if (_18 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 15>; [55.56%]
+
+  <bb 15> [local count: 118111600]:
+  if (_18 == 1024)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 16> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 17> [local count: 38976829]:
+<L17>:
+  CSEC_ReadCommandBytes (16, rnd_11(D), 16);
+  pretmp_19 = g_csecStatePtr;
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L21>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L20>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L19>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842630]:
+<L18>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_30 = PHI <1026(21), 0(17), 1027(20), 1034(14), 1032(13), 1(8), 1031(11), 1033(9), 1030(7), 1029(18), 1028(19), 1(12), 1(15), 1(6), 1036(16)>
+  # prephitmp_9 = PHI <g_csecStatePtr.167_1(21), pretmp_19(17), g_csecStatePtr.167_1(20), g_csecStatePtr.167_1(14), g_csecStatePtr.167_1(13), g_csecStatePtr.167_1(8), g_csecStatePtr.167_1(11), g_csecStatePtr.167_1(9), g_csecStatePtr.167_1(7), g_csecStatePtr.167_1(18), g_csecStatePtr.167_1(19), g_csecStatePtr.167_1(12), g_csecStatePtr.167_1(15), g_csecStatePtr.167_1(6), g_csecStatePtr.167_1(16)>
+<L29>:
+  prephitmp_9->cmdInProgress = 0;
+
+  <bb 23> [local count: 150883500]:
+  # _4 = PHI <stat_30(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_BootFailure (CSEC_DRV_BootFailure, funcdef_no=28, decl_uid=7181, cgraph_uid=30, symbol_order=30)
+
+Removing basic block 14
+Removing basic block 19
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+Removing basic block 32
+CSEC_DRV_BootFailure ()
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.170_1;
+  _Bool _2;
+  status_t _4;
+  unsigned char _11;
+  signed char _12;
+  long unsigned int _14;
+  long unsigned int _15;
+
+  <bb 2> [local count: 150883496]:
+  g_csecStatePtr.170_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.170_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 118111600]:
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 234881024;
+
+  <bb 4> [local count: 1073741824]:
+  _11 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _12 = (signed char) _11;
+  if (_12 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _14 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _15 = _14 >> 16;
+  if (_15 > 32)
+    goto <bb 10>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_15 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_15) <default: <L16> [81.25%], case 1: <L14> [3.13%], case 2: <L17> [3.13%], case 4: <L4> [3.13%], case 8: <L5> [3.13%], case 16: <L6> [3.13%], case 32: <L7> [3.13%]>
+
+  <bb 8> [local count: 3690988]:
+<L17>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 95965675]:
+<L16>:
+  goto <bb 22>; [100.00%]
+
+  <bb 10> [local count: 118111600]:
+  if (_15 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 11>; [81.82%]
+
+  <bb 11> [local count: 118111600]:
+  if (_15 > 256)
+    goto <bb 15>; [67.81%]
+  else
+    goto <bb 12>; [32.19%]
+
+  <bb 12> [local count: 118111600]:
+  if (_15 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 13>; [55.56%]
+
+  <bb 13> [local count: 118111600]:
+  if (_15 == 128)
+    goto <bb 14>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 14> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 15> [local count: 118111600]:
+  if (_15 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 16>; [55.56%]
+
+  <bb 16> [local count: 118111600]:
+  if (_15 == 1024)
+    goto <bb 17>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 17> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L4>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L5>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L6>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842634]:
+<L7>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_16 = PHI <1(6), 0(7), 1027(18), 1028(19), 1029(20), 1030(21), 1033(10), 1031(12), 1026(8), 1032(14), 1034(15), 1036(17), 1(13), 1(16), 1(9)>
+<L14>:
+  g_csecStatePtr.170_1->cmdInProgress = 0;
+
+  <bb 23> [local count: 150883500]:
+  # _4 = PHI <stat_16(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_BootOK (CSEC_DRV_BootOK, funcdef_no=29, decl_uid=7183, cgraph_uid=31, symbol_order=31)
+
+Removing basic block 14
+Removing basic block 19
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+Removing basic block 32
+CSEC_DRV_BootOK ()
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.173_1;
+  _Bool _2;
+  status_t _4;
+  unsigned char _11;
+  signed char _12;
+  long unsigned int _14;
+  long unsigned int _15;
+
+  <bb 2> [local count: 150883496]:
+  g_csecStatePtr.173_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.173_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 118111600]:
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 251658240;
+
+  <bb 4> [local count: 1073741824]:
+  _11 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _12 = (signed char) _11;
+  if (_12 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _14 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _15 = _14 >> 16;
+  if (_15 > 32)
+    goto <bb 10>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_15 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_15) <default: <L16> [81.25%], case 1: <L14> [3.13%], case 2: <L17> [3.13%], case 4: <L4> [3.13%], case 8: <L5> [3.13%], case 16: <L6> [3.13%], case 32: <L7> [3.13%]>
+
+  <bb 8> [local count: 3690988]:
+<L17>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 95965675]:
+<L16>:
+  goto <bb 22>; [100.00%]
+
+  <bb 10> [local count: 118111600]:
+  if (_15 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 11>; [81.82%]
+
+  <bb 11> [local count: 118111600]:
+  if (_15 > 256)
+    goto <bb 15>; [67.81%]
+  else
+    goto <bb 12>; [32.19%]
+
+  <bb 12> [local count: 118111600]:
+  if (_15 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 13>; [55.56%]
+
+  <bb 13> [local count: 118111600]:
+  if (_15 == 128)
+    goto <bb 14>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 14> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 15> [local count: 118111600]:
+  if (_15 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 16>; [55.56%]
+
+  <bb 16> [local count: 118111600]:
+  if (_15 == 1024)
+    goto <bb 17>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 17> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L4>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L5>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L6>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842634]:
+<L7>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_16 = PHI <1(6), 0(7), 1027(18), 1028(19), 1029(20), 1030(21), 1033(10), 1031(12), 1026(8), 1032(14), 1034(15), 1036(17), 1(13), 1(16), 1(9)>
+<L14>:
+  g_csecStatePtr.173_1->cmdInProgress = 0;
+
+  <bb 23> [local count: 150883500]:
+  # _4 = PHI <stat_16(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_BootDefine (CSEC_DRV_BootDefine, funcdef_no=30, decl_uid=7186, cgraph_uid=32, symbol_order=32)
+
+Removing basic block 14
+Removing basic block 19
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+Removing basic block 32
+CSEC_DRV_BootDefine (uint32_t bootSize, csec_boot_flavor_t bootFlavor)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.176_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.178_3;
+  status_t _4;
+  unsigned char _14;
+  signed char _15;
+  long unsigned int _17;
+  long unsigned int _18;
+
+  <bb 2> [local count: 184635922]:
+  g_csecStatePtr.176_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.176_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 118111600]:
+  g_csecStatePtr.176_1->cmdInProgress = 1;
+  CSEC_WriteCommandWords (28, &bootSize, 1);
+  CSEC_WriteCommandByte (27, bootFlavor_6(D));
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 285212672;
+
+  <bb 4> [local count: 1073741824]:
+  _14 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _15 = (signed char) _14;
+  if (_15 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _17 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _18 = _17 >> 16;
+  if (_18 > 32)
+    goto <bb 10>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_18 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_18) <default: <L16> [81.25%], case 1: <L14> [3.13%], case 2: <L17> [3.13%], case 4: <L4> [3.13%], case 8: <L5> [3.13%], case 16: <L6> [3.13%], case 32: <L7> [3.13%]>
+
+  <bb 8> [local count: 3690988]:
+<L17>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 95965675]:
+<L16>:
+  goto <bb 22>; [100.00%]
+
+  <bb 10> [local count: 118111600]:
+  if (_18 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 11>; [81.82%]
+
+  <bb 11> [local count: 118111600]:
+  if (_18 > 256)
+    goto <bb 15>; [67.81%]
+  else
+    goto <bb 12>; [32.19%]
+
+  <bb 12> [local count: 118111600]:
+  if (_18 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 13>; [55.56%]
+
+  <bb 13> [local count: 118111600]:
+  if (_18 == 128)
+    goto <bb 14>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 14> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 15> [local count: 118111600]:
+  if (_18 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 16>; [55.56%]
+
+  <bb 16> [local count: 118111600]:
+  if (_18 == 1024)
+    goto <bb 17>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 17> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L4>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L5>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L6>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842634]:
+<L7>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_19 = PHI <1(6), 0(7), 1027(18), 1028(19), 1029(20), 1030(21), 1033(10), 1031(12), 1026(8), 1032(14), 1034(15), 1036(17), 1(13), 1(16), 1(9)>
+<L14>:
+  g_csecStatePtr.178_3 = g_csecStatePtr;
+  g_csecStatePtr.178_3->cmdInProgress = 0;
+
+  <bb 23> [local count: 184635926]:
+  # _4 = PHI <stat_19(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_GetID (CSEC_DRV_GetID, funcdef_no=31, decl_uid=7194, cgraph_uid=33, symbol_order=33)
+
+Removing basic block 12
+Removing basic block 15
+Removing basic block 17
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+CSEC_DRV_GetID (const uint8_t * challenge, uint8_t * uid, uint8_t * sreg, uint8_t * mac)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.179_1;
+  _Bool _2;
+  unsigned char _3;
+  struct csec_state_t * g_csecStatePtr.181_4;
+  status_t _5;
+  unsigned char _22;
+  signed char _23;
+  long unsigned int _25;
+  long unsigned int _26;
+
+  <bb 2> [local count: 184635922]:
+  g_csecStatePtr.179_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.179_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 118111600]:
+  g_csecStatePtr.179_1->cmdInProgress = 1;
+  CSEC_WriteCommandBytes (16, challenge_10(D), 16);
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 268435456;
+
+  <bb 4> [local count: 1073741824]:
+  _22 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _23 = (signed char) _22;
+  if (_23 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _25 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _26 = _25 >> 16;
+  if (_26 > 32)
+    goto <bb 9>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_26 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_26) <default: <L31> [81.25%], case 1: <L17> [3.13%], case 2: <L18> [3.13%], case 4: <L19> [3.13%], case 8: <L20> [3.13%], case 16: <L21> [3.13%], case 32: <L29> [3.13%]>
+
+  <bb 8> [local count: 95965675]:
+<L31>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 118111600]:
+  if (_26 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 10>; [81.82%]
+
+  <bb 10> [local count: 118111600]:
+  if (_26 > 256)
+    goto <bb 14>; [67.81%]
+  else
+    goto <bb 11>; [32.19%]
+
+  <bb 11> [local count: 118111600]:
+  if (_26 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 12>; [55.56%]
+
+  <bb 12> [local count: 118111600]:
+  if (_26 == 128)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 13> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 14> [local count: 118111600]:
+  if (_26 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 15>; [55.56%]
+
+  <bb 15> [local count: 118111600]:
+  if (_26 == 1024)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 16> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 17> [local count: 38976829]:
+<L17>:
+  CSEC_ReadCommandBytes (32, uid_14(D), 15);
+  _3 = CSEC_ReadCommandByte (47);
+  *sreg_17(D) = _3;
+  CSEC_ReadCommandBytes (48, mac_19(D), 16);
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L21>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L20>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L19>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842630]:
+<L18>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_38 = PHI <1026(21), 0(17), 1027(20), 1034(14), 1032(13), 1(8), 1031(11), 1033(9), 1030(7), 1029(18), 1028(19), 1(12), 1(15), 1(6), 1036(16)>
+<L29>:
+  g_csecStatePtr.181_4 = g_csecStatePtr;
+  g_csecStatePtr.181_4->cmdInProgress = 0;
+
+  <bb 23> [local count: 184635926]:
+  # _5 = PHI <stat_38(22), 2(2)>
+  return _5;
+
+}
+
+
+
+;; Function CSEC_DRV_DbgChal (CSEC_DRV_DbgChal, funcdef_no=32, decl_uid=7196, cgraph_uid=34, symbol_order=34)
+
+Removing basic block 12
+Removing basic block 15
+Removing basic block 17
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+CSEC_DRV_DbgChal (uint8_t * challenge)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.182_1;
+  _Bool _2;
+  status_t _4;
+  struct csec_state_t * prephitmp_9;
+  unsigned char _14;
+  signed char _15;
+  long unsigned int _17;
+  long unsigned int _18;
+  struct csec_state_t * pretmp_19;
+
+  <bb 2> [local count: 150883496]:
+  g_csecStatePtr.182_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.182_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 118111600]:
+  g_csecStatePtr.182_1->cmdInProgress = 1;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 301989888;
+
+  <bb 4> [local count: 1073741824]:
+  _14 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _15 = (signed char) _14;
+  if (_15 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _17 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _18 = _17 >> 16;
+  if (_18 > 32)
+    goto <bb 9>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_18 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_18) <default: <L33> [81.25%], case 1: <L17> [3.13%], case 2: <L18> [3.13%], case 4: <L19> [3.13%], case 8: <L20> [3.13%], case 16: <L21> [3.13%], case 32: <L29> [3.13%]>
+
+  <bb 8> [local count: 95965675]:
+<L33>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 118111600]:
+  if (_18 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 10>; [81.82%]
+
+  <bb 10> [local count: 118111600]:
+  if (_18 > 256)
+    goto <bb 14>; [67.81%]
+  else
+    goto <bb 11>; [32.19%]
+
+  <bb 11> [local count: 118111600]:
+  if (_18 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 12>; [55.56%]
+
+  <bb 12> [local count: 118111600]:
+  if (_18 == 128)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 13> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 14> [local count: 118111600]:
+  if (_18 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 15>; [55.56%]
+
+  <bb 15> [local count: 118111600]:
+  if (_18 == 1024)
+    goto <bb 16>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 16> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 17> [local count: 38976829]:
+<L17>:
+  CSEC_ReadCommandBytes (16, challenge_11(D), 16);
+  pretmp_19 = g_csecStatePtr;
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L21>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L20>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L19>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842630]:
+<L18>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_30 = PHI <1026(21), 0(17), 1027(20), 1034(14), 1032(13), 1(8), 1031(11), 1033(9), 1030(7), 1029(18), 1028(19), 1(12), 1(15), 1(6), 1036(16)>
+  # prephitmp_9 = PHI <g_csecStatePtr.182_1(21), pretmp_19(17), g_csecStatePtr.182_1(20), g_csecStatePtr.182_1(14), g_csecStatePtr.182_1(13), g_csecStatePtr.182_1(8), g_csecStatePtr.182_1(11), g_csecStatePtr.182_1(9), g_csecStatePtr.182_1(7), g_csecStatePtr.182_1(18), g_csecStatePtr.182_1(19), g_csecStatePtr.182_1(12), g_csecStatePtr.182_1(15), g_csecStatePtr.182_1(6), g_csecStatePtr.182_1(16)>
+<L29>:
+  prephitmp_9->cmdInProgress = 0;
+
+  <bb 23> [local count: 150883500]:
+  # _4 = PHI <stat_30(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_DbgAuth (CSEC_DRV_DbgAuth, funcdef_no=33, decl_uid=7198, cgraph_uid=35, symbol_order=35)
+
+Removing basic block 14
+Removing basic block 19
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 31
+Removing basic block 32
+CSEC_DRV_DbgAuth (const uint8_t * authorization)
+{
+  status_t stat;
+  struct csec_state_t * g_csecStatePtr.185_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.187_3;
+  status_t _4;
+  unsigned char _13;
+  signed char _14;
+  long unsigned int _16;
+  long unsigned int _17;
+
+  <bb 2> [local count: 184635922]:
+  g_csecStatePtr.185_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.185_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 23>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 118111600]:
+  g_csecStatePtr.185_1->cmdInProgress = 1;
+  CSEC_WriteCommandBytes (16, authorization_8(D), 16);
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} 318767104;
+
+  <bb 4> [local count: 1073741824]:
+  _13 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _14 = (signed char) _13;
+  if (_14 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _16 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _17 = _16 >> 16;
+  if (_17 > 32)
+    goto <bb 10>; [45.83%]
+  else
+    goto <bb 6>; [54.17%]
+
+  <bb 6> [local count: 118111600]:
+  if (_17 != 0)
+    goto <bb 7>; [52.17%]
+  else
+    goto <bb 22>; [47.83%]
+
+  <bb 7> [local count: 118111600]:
+  switch (_17) <default: <L16> [81.25%], case 1: <L14> [3.13%], case 2: <L17> [3.13%], case 4: <L4> [3.13%], case 8: <L5> [3.13%], case 16: <L6> [3.13%], case 32: <L7> [3.13%]>
+
+  <bb 8> [local count: 3690988]:
+<L17>:
+  goto <bb 22>; [100.00%]
+
+  <bb 9> [local count: 95965675]:
+<L16>:
+  goto <bb 22>; [100.00%]
+
+  <bb 10> [local count: 118111600]:
+  if (_17 == 256)
+    goto <bb 22>; [18.18%]
+  else
+    goto <bb 11>; [81.82%]
+
+  <bb 11> [local count: 118111600]:
+  if (_17 > 256)
+    goto <bb 15>; [67.81%]
+  else
+    goto <bb 12>; [32.19%]
+
+  <bb 12> [local count: 118111600]:
+  if (_17 == 64)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 13>; [55.56%]
+
+  <bb 13> [local count: 118111600]:
+  if (_17 == 128)
+    goto <bb 14>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 14> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 15> [local count: 118111600]:
+  if (_17 == 512)
+    goto <bb 22>; [44.44%]
+  else
+    goto <bb 16>; [55.56%]
+
+  <bb 16> [local count: 118111600]:
+  if (_17 == 1024)
+    goto <bb 17>; [100.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 17> [local count: 118111600]:
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 9842634]:
+<L4>:
+  goto <bb 22>; [100.00%]
+
+  <bb 19> [local count: 9842634]:
+<L5>:
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 9842634]:
+<L6>:
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 9842634]:
+<L7>:
+
+  <bb 22> [local count: 118111604]:
+  # stat_18 = PHI <1(6), 0(7), 1027(18), 1028(19), 1029(20), 1030(21), 1033(10), 1031(12), 1026(8), 1032(14), 1034(15), 1036(17), 1(13), 1(16), 1(9)>
+<L14>:
+  g_csecStatePtr.187_3 = g_csecStatePtr;
+  g_csecStatePtr.187_3->cmdInProgress = 0;
+
+  <bb 23> [local count: 184635926]:
+  # _4 = PHI <stat_18(22), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_EncryptECBAsync (CSEC_DRV_EncryptECBAsync, funcdef_no=35, decl_uid=7208, cgraph_uid=37, symbol_order=37)
+
+Removing basic block 5
+CSEC_DRV_EncryptECBAsync (csec_key_id_t keyId, const uint8_t * plainText, uint32_t length, uint8_t * cipherText)
+{
+  uint8_t tmp;
+  struct csec_state_t * g_csecStatePtr.197_1;
+  _Bool _2;
+  status_t _3;
+  unsigned char _12;
+  unsigned char _13;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.197_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.197_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 4>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  MEM <unsigned short> [(void *)g_csecStatePtr.197_1] = 257;
+  g_csecStatePtr.197_1->inputBuff = plainText_7(D);
+  g_csecStatePtr.197_1->outputBuff = cipherText_8(D);
+  g_csecStatePtr.197_1->keyId = keyId_6(D);
+  g_csecStatePtr.197_1->fullSize = length_9(D);
+  g_csecStatePtr.197_1->index = 0;
+  g_csecStatePtr.197_1->errCode = 0;
+  g_csecStatePtr.197_1->seq = 0;
+  CSEC_DRV_StartEncDecECBCmd ();
+  tmp_11 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _12 = tmp_11 & 127;
+  _13 = _12 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _13;
+
+  <bb 4> [local count: 1073741824]:
+  # _3 = PHI <0(3), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function CSEC_DRV_DecryptECBAsync (CSEC_DRV_DecryptECBAsync, funcdef_no=36, decl_uid=7213, cgraph_uid=38, symbol_order=38)
+
+Removing basic block 5
+CSEC_DRV_DecryptECBAsync (csec_key_id_t keyId, const uint8_t * cipherText, uint32_t length, uint8_t * plainText)
+{
+  uint8_t tmp;
+  struct csec_state_t * g_csecStatePtr.199_1;
+  _Bool _2;
+  status_t _3;
+  unsigned char _12;
+  unsigned char _13;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.199_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.199_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 4>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  MEM <unsigned short> [(void *)g_csecStatePtr.199_1] = 769;
+  g_csecStatePtr.199_1->inputBuff = cipherText_7(D);
+  g_csecStatePtr.199_1->outputBuff = plainText_8(D);
+  g_csecStatePtr.199_1->keyId = keyId_6(D);
+  g_csecStatePtr.199_1->fullSize = length_9(D);
+  g_csecStatePtr.199_1->index = 0;
+  g_csecStatePtr.199_1->errCode = 0;
+  g_csecStatePtr.199_1->seq = 0;
+  CSEC_DRV_StartEncDecECBCmd ();
+  tmp_11 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _12 = tmp_11 & 127;
+  _13 = _12 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _13;
+
+  <bb 4> [local count: 1073741824]:
+  # _3 = PHI <0(3), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function CSEC_DRV_EncryptCBCAsync (CSEC_DRV_EncryptCBCAsync, funcdef_no=37, decl_uid=7219, cgraph_uid=39, symbol_order=39)
+
+Removing basic block 5
+CSEC_DRV_EncryptCBCAsync (csec_key_id_t keyId, const uint8_t * plainText, uint32_t length, const uint8_t * iv, uint8_t * cipherText)
+{
+  uint8_t tmp;
+  struct csec_state_t * g_csecStatePtr.200_1;
+  _Bool _2;
+  status_t _3;
+  unsigned char _14;
+  unsigned char _15;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.200_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.200_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 4>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  MEM <unsigned short> [(void *)g_csecStatePtr.200_1] = 513;
+  g_csecStatePtr.200_1->inputBuff = plainText_7(D);
+  g_csecStatePtr.200_1->outputBuff = cipherText_8(D);
+  g_csecStatePtr.200_1->keyId = keyId_6(D);
+  g_csecStatePtr.200_1->fullSize = length_9(D);
+  g_csecStatePtr.200_1->index = 0;
+  g_csecStatePtr.200_1->errCode = 0;
+  g_csecStatePtr.200_1->seq = 0;
+  g_csecStatePtr.200_1->iv = iv_10(D);
+  CSEC_DRV_StartEncDecCBCCmd ();
+  tmp_13 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _14 = tmp_13 & 127;
+  _15 = _14 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _15;
+
+  <bb 4> [local count: 1073741824]:
+  # _3 = PHI <0(3), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function CSEC_DRV_DecryptCBCAsync (CSEC_DRV_DecryptCBCAsync, funcdef_no=38, decl_uid=7225, cgraph_uid=40, symbol_order=40)
+
+Removing basic block 5
+CSEC_DRV_DecryptCBCAsync (csec_key_id_t keyId, const uint8_t * cipherText, uint32_t length, const uint8_t * iv, uint8_t * plainText)
+{
+  uint8_t tmp;
+  struct csec_state_t * g_csecStatePtr.202_1;
+  _Bool _2;
+  status_t _3;
+  unsigned char _14;
+  unsigned char _15;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.202_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.202_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 4>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  MEM <unsigned short> [(void *)g_csecStatePtr.202_1] = 1025;
+  g_csecStatePtr.202_1->inputBuff = cipherText_7(D);
+  g_csecStatePtr.202_1->outputBuff = plainText_8(D);
+  g_csecStatePtr.202_1->keyId = keyId_6(D);
+  g_csecStatePtr.202_1->fullSize = length_9(D);
+  g_csecStatePtr.202_1->index = 0;
+  g_csecStatePtr.202_1->errCode = 0;
+  g_csecStatePtr.202_1->seq = 0;
+  g_csecStatePtr.202_1->iv = iv_10(D);
+  CSEC_DRV_StartEncDecCBCCmd ();
+  tmp_13 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _14 = tmp_13 & 127;
+  _15 = _14 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _15;
+
+  <bb 4> [local count: 1073741824]:
+  # _3 = PHI <0(3), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function CSEC_DRV_GenerateMACAsync (CSEC_DRV_GenerateMACAsync, funcdef_no=39, decl_uid=7230, cgraph_uid=41, symbol_order=41)
+
+Removing basic block 5
+CSEC_DRV_GenerateMACAsync (csec_key_id_t keyId, const uint8_t * msg, uint32_t msgLen, uint8_t * cmac)
+{
+  uint8_t tmp;
+  struct csec_state_t * g_csecStatePtr.204_1;
+  _Bool _2;
+  status_t _4;
+  unsigned char _14;
+  unsigned char _15;
+  long unsigned int _16;
+  long unsigned int _17;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.204_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.204_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 4>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  _17 = msgLen_7(D) + 7;
+  _16 = _17 >> 3;
+  MEM <unsigned short> [(void *)g_csecStatePtr.204_1] = 1281;
+  g_csecStatePtr.204_1->inputBuff = msg_10(D);
+  g_csecStatePtr.204_1->outputBuff = cmac_11(D);
+  g_csecStatePtr.204_1->keyId = keyId_9(D);
+  g_csecStatePtr.204_1->fullSize = _16;
+  g_csecStatePtr.204_1->index = 0;
+  g_csecStatePtr.204_1->errCode = 0;
+  g_csecStatePtr.204_1->seq = 0;
+  g_csecStatePtr.204_1->msgLen = msgLen_7(D);
+  CSEC_DRV_StartGenMACCmd ();
+  tmp_8 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _14 = tmp_8 & 127;
+  _15 = _14 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _15;
+
+  <bb 4> [local count: 1073741824]:
+  # _4 = PHI <0(3), 2(2)>
+  return _4;
+
+}
+
+
+
+;; Function CSEC_DRV_VerifyMACAsync (CSEC_DRV_VerifyMACAsync, funcdef_no=40, decl_uid=7237, cgraph_uid=42, symbol_order=42)
+
+Removing basic block 5
+CSEC_DRV_VerifyMACAsync (csec_key_id_t keyId, const uint8_t * msg, uint32_t msgLen, const uint8_t * mac, uint16_t macLen, _Bool * verifStatus)
+{
+  uint8_t tmp;
+  struct csec_state_t * g_csecStatePtr.206_1;
+  _Bool _2;
+  long unsigned int _4;
+  status_t _5;
+  unsigned char _21;
+  unsigned char _22;
+  long unsigned int _23;
+  long unsigned int _24;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.206_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.206_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 4>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  _24 = msgLen_8(D) + 7;
+  _23 = _24 >> 3;
+  MEM <unsigned short> [(void *)g_csecStatePtr.206_1] = 1537;
+  g_csecStatePtr.206_1->inputBuff = msg_11(D);
+  g_csecStatePtr.206_1->outputBuff = 0B;
+  g_csecStatePtr.206_1->keyId = keyId_10(D);
+  g_csecStatePtr.206_1->fullSize = _23;
+  g_csecStatePtr.206_1->index = 0;
+  g_csecStatePtr.206_1->errCode = 0;
+  g_csecStatePtr.206_1->seq = 0;
+  g_csecStatePtr.206_1->msgLen = msgLen_8(D);
+  g_csecStatePtr.206_1->verifStatus = verifStatus_13(D);
+  g_csecStatePtr.206_1->macWritten = 0;
+  g_csecStatePtr.206_1->mac = mac_16(D);
+  _4 = (long unsigned int) macLen_18(D);
+  g_csecStatePtr.206_1->macLen = _4;
+  CSEC_DRV_StartVerifMACCmd ();
+  tmp_9 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _21 = tmp_9 & 127;
+  _22 = _21 | 128;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _22;
+
+  <bb 4> [local count: 1073741824]:
+  # _5 = PHI <0(3), 2(2)>
+  return _5;
+
+}
+
+
+
+;; Function CSEC_DRV_GetAsyncCmdStatus (CSEC_DRV_GetAsyncCmdStatus, funcdef_no=41, decl_uid=7239, cgraph_uid=43, symbol_order=43)
+
+Removing basic block 5
+CSEC_DRV_GetAsyncCmdStatus ()
+{
+  struct csec_state_t * g_csecStatePtr.212_1;
+  _Bool _2;
+  status_t _3;
+  status_t _5;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.212_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.212_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 4>; [51.11%]
+  else
+    goto <bb 3>; [48.89%]
+
+  <bb 3> [local count: 524952376]:
+  _5 = g_csecStatePtr.212_1->errCode;
+
+  <bb 4> [local count: 1073741824]:
+  # _3 = PHI <_5(3), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function FTFC_IRQHandler (FTFC_IRQHandler, funcdef_no=43, decl_uid=7816, cgraph_uid=45, symbol_order=45)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+FTFC_IRQHandler ()
+{
+  uint8_t tmp;
+  signed char _1;
+  unsigned char _2;
+  struct csec_state_t * g_csecStatePtr.214_3;
+  _Bool _4;
+  <unnamed type> _5;
+  void (*<T766>) (uint32_t, void *) _8;
+  <unnamed type> _9;
+  long unsigned int _10;
+  void * _11;
+  unsigned char _21;
+  struct csec_state_t * pretmp_27;
+  struct csec_state_t * pretmp_28;
+  struct csec_state_t * pretmp_29;
+  struct csec_state_t * pretmp_30;
+  struct csec_state_t * prephitmp_31;
+  _Bool pretmp_32;
+  _Bool pretmp_33;
+  _Bool pretmp_34;
+  _Bool pretmp_35;
+  _Bool prephitmp_36;
+
+  <bb 2> [local count: 1073741821]:
+  _2 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _1 = (signed char) _2;
+  if (_1 < 0)
+    goto <bb 4>; [41.00%]
+  else
+    goto <bb 3>; [59.00%]
+
+  <bb 3> [local count: 996700849]:
+<L21>:
+  goto <bb 13>; [100.00%]
+
+  <bb 4> [local count: 440234143]:
+  g_csecStatePtr.214_3 = g_csecStatePtr;
+  _4 = g_csecStatePtr.214_3->cmdInProgress;
+  if (_4 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 5> [local count: 220117071]:
+  _5 = g_csecStatePtr.214_3->cmd;
+  switch (_5) <default: <L21> [0.00%], case 1: <L2> [33.33%], case 2: <L4> [33.33%], case 3: <L2> [33.33%], case 4: <L4> [33.33%], case 5: <L6> [16.67%], case 6: <L7> [16.67%]>
+
+  <bb 6> [local count: 44023415]:
+<L2>:
+  CSEC_DRV_ContinueEncDecECBCmd ();
+  pretmp_27 = g_csecStatePtr;
+  pretmp_32 = pretmp_27->cmdInProgress;
+  goto <bb 10>; [100.00%]
+
+  <bb 7> [local count: 44023415]:
+<L4>:
+  CSEC_DRV_ContinueEncDecCBCCmd ();
+  pretmp_28 = g_csecStatePtr;
+  pretmp_33 = pretmp_28->cmdInProgress;
+  goto <bb 10>; [100.00%]
+
+  <bb 8> [local count: 44023415]:
+<L6>:
+  CSEC_DRV_ContinueGenMACCmd ();
+  pretmp_29 = g_csecStatePtr;
+  pretmp_34 = pretmp_29->cmdInProgress;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 44023415]:
+<L7>:
+  CSEC_DRV_ContinueVerifMACCmd ();
+  pretmp_30 = g_csecStatePtr;
+  pretmp_35 = pretmp_30->cmdInProgress;
+
+  <bb 10> [local count: 220117075]:
+  # prephitmp_31 = PHI <pretmp_27(6), pretmp_28(7), pretmp_29(8), pretmp_30(9)>
+  # prephitmp_36 = PHI <pretmp_32(6), pretmp_33(7), pretmp_34(8), pretmp_35(9)>
+  if (prephitmp_36 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 11> [local count: 110058537]:
+  tmp_20 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _21 = tmp_20 & 127;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _21;
+  _8 = prephitmp_31->callback;
+  if (_8 != 0B)
+    goto <bb 12>; [70.00%]
+  else
+    goto <bb 3>; [30.00%]
+
+  <bb 12> [local count: 77040977]:
+  _9 = prephitmp_31->cmd;
+  _10 = (long unsigned int) _9;
+  _11 = prephitmp_31->callbackParam;
+  _8 (_10, _11); [tail call]
+
+  <bb 13> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_InstallCallback (CSEC_DRV_InstallCallback, funcdef_no=52, decl_uid=7242, cgraph_uid=54, symbol_order=54)
+
+CSEC_DRV_InstallCallback (void (*security_callback_t) (uint32_t, void *) callbackFunc, void * callbackParam)
+{
+  struct csec_state_t * g_csecStatePtr.221_1;
+
+  <bb 2> [local count: 1073741824]:
+  g_csecStatePtr.221_1 = g_csecStatePtr;
+  g_csecStatePtr.221_1->callback = callbackFunc_3(D);
+  g_csecStatePtr.221_1->callbackParam = callbackParam_5(D);
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_CancelCommand (CSEC_DRV_CancelCommand, funcdef_no=53, decl_uid=7244, cgraph_uid=55, symbol_order=55)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+CSEC_DRV_CancelCommand ()
+{
+  uint8_t tmp;
+  struct csec_state_t * g_csecStatePtr.223_1;
+  _Bool _2;
+  <unnamed type> _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  <unnamed type> _6;
+  unsigned char _11;
+  signed char _12;
+  unsigned char _14;
+  unsigned char _15;
+  signed char _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  <unnamed type> _25;
+
+  <bb 2> [local count: 236223200]:
+  g_csecStatePtr.223_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.223_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 3> [local count: 118111600]:
+  tmp_13 ={v} MEM[(struct FTFC_Type *)1073872896B].FCNFG;
+  _14 = tmp_13 & 127;
+  MEM[(struct FTFC_Type *)1073872896B].FCNFG ={v} _14;
+
+  <bb 4> [local count: 1073741824]:
+  _11 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _12 = (signed char) _11;
+  if (_12 >= 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _3 = g_csecStatePtr.223_1->cmd;
+  _25 = _3 & 253;
+  if (_25 != 1)
+    goto <bb 6>; [66.00%]
+  else
+    goto <bb 9>; [34.00%]
+
+  <bb 6> [local count: 51449412]:
+  _4 = g_csecStatePtr.223_1->fullSize;
+  _5 = g_csecStatePtr.223_1->index;
+  if (_4 != _5)
+    goto <bb 7>; [66.00%]
+  else
+    goto <bb 9>; [34.00%]
+
+  <bb 7> [local count: 33956612]:
+  _6 = g_csecStatePtr.223_1->keyId;
+  _17 = (long unsigned int) _3;
+  _18 = _17 << 24;
+  _19 = (long unsigned int) _6;
+  _20 = _18 | _19;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} _20;
+
+  <bb 8> [local count: 308696475]:
+  _15 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _16 = (signed char) _15;
+  if (_16 >= 0)
+    goto <bb 8>; [89.00%]
+  else
+    goto <bb 9>; [11.00%]
+
+  <bb 9> [local count: 118111600]:
+  g_csecStatePtr.223_1->cmdInProgress = 0;
+
+  <bb 10> [local count: 236223201]:
+  return;
+
+}
+
+
+
+;; Function CSEC_DRV_EncryptECB (CSEC_DRV_EncryptECB, funcdef_no=14, decl_uid=7112, cgraph_uid=16, symbol_order=16)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+CSEC_DRV_EncryptECB (csec_key_id_t keyId, const uint8_t * plainText, uint32_t length, uint8_t * cipherText, uint32_t timeout)
+{
+  uint32_t crtTime;
+  uint32_t startTime;
+  struct csec_state_t * g_csecStatePtr.1_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.2_4;
+  struct csec_state_t * g_csecStatePtr.3_5;
+  _Bool _6;
+  status_t _8;
+  long unsigned int _9;
+  unsigned char _27;
+  signed char _28;
+  struct csec_state_t * g_csecStatePtr.3_39;
+  _Bool _40;
+  <unnamed type> pretmp_42;
+  <unnamed type> pretmp_43;
+  <unnamed type> prephitmp_44;
+
+  <bb 2> [local count: 20900981]:
+  g_csecStatePtr.1_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.1_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 13>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 13370358]:
+  MEM <unsigned short> [(void *)g_csecStatePtr.1_1] = 257;
+  g_csecStatePtr.1_1->inputBuff = plainText_14(D);
+  g_csecStatePtr.1_1->outputBuff = cipherText_15(D);
+  g_csecStatePtr.1_1->keyId = keyId_13(D);
+  g_csecStatePtr.1_1->fullSize = length_16(D);
+  g_csecStatePtr.1_1->index = 0;
+  g_csecStatePtr.1_1->errCode = 0;
+  g_csecStatePtr.1_1->seq = 0;
+  startTime_18 = OSIF_GetMilliseconds ();
+  CSEC_DRV_StartEncDecECBCmd ();
+  g_csecStatePtr.3_39 = g_csecStatePtr;
+  _40 = g_csecStatePtr.3_39->cmdInProgress;
+  if (_40 != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 4> [local count: 12634988]:
+  _9 = startTime_18 + timeout_22(D);
+
+  <bb 5> [local count: 118111600]:
+
+  <bb 6> [local count: 1073741824]:
+  _27 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _28 = (signed char) _27;
+  if (_28 >= 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 118111600]:
+  crtTime_21 = OSIF_GetMilliseconds ();
+  if (_9 < crtTime_21)
+    goto <bb 8>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 8> [local count: 6496138]:
+  CSEC_DRV_CancelCommand ();
+  g_csecStatePtr.2_4 = g_csecStatePtr;
+  g_csecStatePtr.2_4->errCode = 3;
+  goto <bb 12>; [100.00%]
+
+  <bb 9> [local count: 111615462]:
+  CSEC_DRV_ContinueEncDecECBCmd ();
+  g_csecStatePtr.3_5 = g_csecStatePtr;
+  _6 = g_csecStatePtr.3_5->cmdInProgress;
+  if (_6 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 10>; [5.50%]
+
+  <bb 10> [local count: 6138850]:
+  pretmp_43 = g_csecStatePtr.3_5->errCode;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 735370]:
+  pretmp_42 = g_csecStatePtr.3_39->errCode;
+
+  <bb 12> [local count: 13370358]:
+  # prephitmp_44 = PHI <3(8), pretmp_42(11), pretmp_43(10)>
+
+  <bb 13> [local count: 20900982]:
+  # _8 = PHI <prephitmp_44(12), 2(2)>
+  return _8;
+
+}
+
+
+
+;; Function CSEC_DRV_DecryptECB (CSEC_DRV_DecryptECB, funcdef_no=15, decl_uid=7118, cgraph_uid=17, symbol_order=17)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+CSEC_DRV_DecryptECB (csec_key_id_t keyId, const uint8_t * cipherText, uint32_t length, uint8_t * plainText, uint32_t timeout)
+{
+  uint32_t crtTime;
+  uint32_t startTime;
+  struct csec_state_t * g_csecStatePtr.35_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.36_4;
+  struct csec_state_t * g_csecStatePtr.37_5;
+  _Bool _6;
+  status_t _8;
+  long unsigned int _9;
+  unsigned char _27;
+  signed char _28;
+  struct csec_state_t * g_csecStatePtr.37_39;
+  _Bool _40;
+  <unnamed type> pretmp_42;
+  <unnamed type> pretmp_43;
+  <unnamed type> prephitmp_44;
+
+  <bb 2> [local count: 20900981]:
+  g_csecStatePtr.35_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.35_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 13>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 13370358]:
+  MEM <unsigned short> [(void *)g_csecStatePtr.35_1] = 769;
+  g_csecStatePtr.35_1->inputBuff = cipherText_14(D);
+  g_csecStatePtr.35_1->outputBuff = plainText_15(D);
+  g_csecStatePtr.35_1->keyId = keyId_13(D);
+  g_csecStatePtr.35_1->fullSize = length_16(D);
+  g_csecStatePtr.35_1->index = 0;
+  g_csecStatePtr.35_1->errCode = 0;
+  g_csecStatePtr.35_1->seq = 0;
+  startTime_18 = OSIF_GetMilliseconds ();
+  CSEC_DRV_StartEncDecECBCmd ();
+  g_csecStatePtr.37_39 = g_csecStatePtr;
+  _40 = g_csecStatePtr.37_39->cmdInProgress;
+  if (_40 != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 4> [local count: 12634988]:
+  _9 = startTime_18 + timeout_22(D);
+
+  <bb 5> [local count: 118111600]:
+
+  <bb 6> [local count: 1073741824]:
+  _27 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _28 = (signed char) _27;
+  if (_28 >= 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 118111600]:
+  crtTime_21 = OSIF_GetMilliseconds ();
+  if (_9 < crtTime_21)
+    goto <bb 8>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 8> [local count: 6496138]:
+  CSEC_DRV_CancelCommand ();
+  g_csecStatePtr.36_4 = g_csecStatePtr;
+  g_csecStatePtr.36_4->errCode = 3;
+  goto <bb 12>; [100.00%]
+
+  <bb 9> [local count: 111615462]:
+  CSEC_DRV_ContinueEncDecECBCmd ();
+  g_csecStatePtr.37_5 = g_csecStatePtr;
+  _6 = g_csecStatePtr.37_5->cmdInProgress;
+  if (_6 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 10>; [5.50%]
+
+  <bb 10> [local count: 6138850]:
+  pretmp_43 = g_csecStatePtr.37_5->errCode;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 735370]:
+  pretmp_42 = g_csecStatePtr.37_39->errCode;
+
+  <bb 12> [local count: 13370358]:
+  # prephitmp_44 = PHI <3(8), pretmp_42(11), pretmp_43(10)>
+
+  <bb 13> [local count: 20900982]:
+  # _8 = PHI <prephitmp_44(12), 2(2)>
+  return _8;
+
+}
+
+
+
+;; Function CSEC_DRV_EncryptCBC (CSEC_DRV_EncryptCBC, funcdef_no=16, decl_uid=7125, cgraph_uid=18, symbol_order=18)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+CSEC_DRV_EncryptCBC (csec_key_id_t keyId, const uint8_t * plainText, uint32_t length, const uint8_t * iv, uint8_t * cipherText, uint32_t timeout)
+{
+  uint32_t crtTime;
+  uint32_t startTime;
+  struct csec_state_t * g_csecStatePtr.39_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.41_4;
+  struct csec_state_t * g_csecStatePtr.42_5;
+  _Bool _6;
+  status_t _8;
+  long unsigned int _9;
+  unsigned char _29;
+  signed char _30;
+  struct csec_state_t * g_csecStatePtr.42_41;
+  _Bool _42;
+  <unnamed type> pretmp_44;
+  <unnamed type> pretmp_45;
+  <unnamed type> prephitmp_46;
+
+  <bb 2> [local count: 20900981]:
+  g_csecStatePtr.39_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.39_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 13>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 13370358]:
+  MEM <unsigned short> [(void *)g_csecStatePtr.39_1] = 513;
+  g_csecStatePtr.39_1->inputBuff = plainText_14(D);
+  g_csecStatePtr.39_1->outputBuff = cipherText_15(D);
+  g_csecStatePtr.39_1->keyId = keyId_13(D);
+  g_csecStatePtr.39_1->fullSize = length_16(D);
+  g_csecStatePtr.39_1->index = 0;
+  g_csecStatePtr.39_1->errCode = 0;
+  g_csecStatePtr.39_1->seq = 0;
+  g_csecStatePtr.39_1->iv = iv_17(D);
+  startTime_20 = OSIF_GetMilliseconds ();
+  CSEC_DRV_StartEncDecCBCCmd ();
+  g_csecStatePtr.42_41 = g_csecStatePtr;
+  _42 = g_csecStatePtr.42_41->cmdInProgress;
+  if (_42 != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 4> [local count: 12634988]:
+  _9 = startTime_20 + timeout_24(D);
+
+  <bb 5> [local count: 118111600]:
+
+  <bb 6> [local count: 1073741824]:
+  _29 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _30 = (signed char) _29;
+  if (_30 >= 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 118111600]:
+  crtTime_23 = OSIF_GetMilliseconds ();
+  if (_9 < crtTime_23)
+    goto <bb 8>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 8> [local count: 6496138]:
+  CSEC_DRV_CancelCommand ();
+  g_csecStatePtr.41_4 = g_csecStatePtr;
+  g_csecStatePtr.41_4->errCode = 3;
+  goto <bb 12>; [100.00%]
+
+  <bb 9> [local count: 111615462]:
+  CSEC_DRV_ContinueEncDecCBCCmd ();
+  g_csecStatePtr.42_5 = g_csecStatePtr;
+  _6 = g_csecStatePtr.42_5->cmdInProgress;
+  if (_6 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 10>; [5.50%]
+
+  <bb 10> [local count: 6138850]:
+  pretmp_45 = g_csecStatePtr.42_5->errCode;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 735370]:
+  pretmp_44 = g_csecStatePtr.42_41->errCode;
+
+  <bb 12> [local count: 13370358]:
+  # prephitmp_46 = PHI <3(8), pretmp_44(11), pretmp_45(10)>
+
+  <bb 13> [local count: 20900982]:
+  # _8 = PHI <prephitmp_46(12), 2(2)>
+  return _8;
+
+}
+
+
+
+;; Function CSEC_DRV_DecryptCBC (CSEC_DRV_DecryptCBC, funcdef_no=17, decl_uid=7132, cgraph_uid=19, symbol_order=19)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+CSEC_DRV_DecryptCBC (csec_key_id_t keyId, const uint8_t * cipherText, uint32_t length, const uint8_t * iv, uint8_t * plainText, uint32_t timeout)
+{
+  uint32_t crtTime;
+  uint32_t startTime;
+  struct csec_state_t * g_csecStatePtr.76_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.78_4;
+  struct csec_state_t * g_csecStatePtr.79_5;
+  _Bool _6;
+  status_t _8;
+  long unsigned int _9;
+  unsigned char _29;
+  signed char _30;
+  struct csec_state_t * g_csecStatePtr.79_41;
+  _Bool _42;
+  <unnamed type> pretmp_44;
+  <unnamed type> pretmp_45;
+  <unnamed type> prephitmp_46;
+
+  <bb 2> [local count: 20900981]:
+  g_csecStatePtr.76_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.76_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 13>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 13370358]:
+  MEM <unsigned short> [(void *)g_csecStatePtr.76_1] = 1025;
+  g_csecStatePtr.76_1->inputBuff = cipherText_14(D);
+  g_csecStatePtr.76_1->outputBuff = plainText_15(D);
+  g_csecStatePtr.76_1->keyId = keyId_13(D);
+  g_csecStatePtr.76_1->fullSize = length_16(D);
+  g_csecStatePtr.76_1->index = 0;
+  g_csecStatePtr.76_1->errCode = 0;
+  g_csecStatePtr.76_1->seq = 0;
+  g_csecStatePtr.76_1->iv = iv_17(D);
+  startTime_20 = OSIF_GetMilliseconds ();
+  CSEC_DRV_StartEncDecCBCCmd ();
+  g_csecStatePtr.79_41 = g_csecStatePtr;
+  _42 = g_csecStatePtr.79_41->cmdInProgress;
+  if (_42 != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 4> [local count: 12634988]:
+  _9 = startTime_20 + timeout_24(D);
+
+  <bb 5> [local count: 118111600]:
+
+  <bb 6> [local count: 1073741824]:
+  _29 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _30 = (signed char) _29;
+  if (_30 >= 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 118111600]:
+  crtTime_23 = OSIF_GetMilliseconds ();
+  if (_9 < crtTime_23)
+    goto <bb 8>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 8> [local count: 6496138]:
+  CSEC_DRV_CancelCommand ();
+  g_csecStatePtr.78_4 = g_csecStatePtr;
+  g_csecStatePtr.78_4->errCode = 3;
+  goto <bb 12>; [100.00%]
+
+  <bb 9> [local count: 111615462]:
+  CSEC_DRV_ContinueEncDecCBCCmd ();
+  g_csecStatePtr.79_5 = g_csecStatePtr;
+  _6 = g_csecStatePtr.79_5->cmdInProgress;
+  if (_6 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 10>; [5.50%]
+
+  <bb 10> [local count: 6138850]:
+  pretmp_45 = g_csecStatePtr.79_5->errCode;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 735370]:
+  pretmp_44 = g_csecStatePtr.79_41->errCode;
+
+  <bb 12> [local count: 13370358]:
+  # prephitmp_46 = PHI <3(8), pretmp_44(11), pretmp_45(10)>
+
+  <bb 13> [local count: 20900982]:
+  # _8 = PHI <prephitmp_46(12), 2(2)>
+  return _8;
+
+}
+
+
+
+;; Function CSEC_DRV_GenerateMAC (CSEC_DRV_GenerateMAC, funcdef_no=18, decl_uid=7138, cgraph_uid=20, symbol_order=20)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+CSEC_DRV_GenerateMAC (csec_key_id_t keyId, const uint8_t * msg, uint32_t msgLen, uint8_t * cmac, uint32_t timeout)
+{
+  uint32_t crtTime;
+  uint32_t startTime;
+  struct csec_state_t * g_csecStatePtr.81_1;
+  _Bool _2;
+  struct csec_state_t * g_csecStatePtr.83_5;
+  struct csec_state_t * g_csecStatePtr.84_6;
+  _Bool _7;
+  status_t _9;
+  long unsigned int _10;
+  long unsigned int _15;
+  long unsigned int _30;
+  unsigned char _31;
+  signed char _32;
+  struct csec_state_t * g_csecStatePtr.84_42;
+  _Bool _43;
+  <unnamed type> pretmp_45;
+  <unnamed type> pretmp_46;
+  <unnamed type> prephitmp_47;
+
+  <bb 2> [local count: 20900981]:
+  g_csecStatePtr.81_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.81_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 13>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 13370358]:
+  _30 = msgLen_14(D) + 7;
+  _15 = _30 >> 3;
+  MEM <unsigned short> [(void *)g_csecStatePtr.81_1] = 1281;
+  g_csecStatePtr.81_1->inputBuff = msg_17(D);
+  g_csecStatePtr.81_1->outputBuff = cmac_18(D);
+  g_csecStatePtr.81_1->keyId = keyId_16(D);
+  g_csecStatePtr.81_1->fullSize = _15;
+  g_csecStatePtr.81_1->index = 0;
+  g_csecStatePtr.81_1->errCode = 0;
+  g_csecStatePtr.81_1->seq = 0;
+  g_csecStatePtr.81_1->msgLen = msgLen_14(D);
+  startTime_21 = OSIF_GetMilliseconds ();
+  CSEC_DRV_StartGenMACCmd ();
+  g_csecStatePtr.84_42 = g_csecStatePtr;
+  _43 = g_csecStatePtr.84_42->cmdInProgress;
+  if (_43 != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 4> [local count: 12634988]:
+  _10 = startTime_21 + timeout_25(D);
+
+  <bb 5> [local count: 118111600]:
+
+  <bb 6> [local count: 1073741824]:
+  _31 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _32 = (signed char) _31;
+  if (_32 >= 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 118111600]:
+  crtTime_24 = OSIF_GetMilliseconds ();
+  if (_10 < crtTime_24)
+    goto <bb 8>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 8> [local count: 6496138]:
+  CSEC_DRV_CancelCommand ();
+  g_csecStatePtr.83_5 = g_csecStatePtr;
+  g_csecStatePtr.83_5->errCode = 3;
+  goto <bb 12>; [100.00%]
+
+  <bb 9> [local count: 111615462]:
+  CSEC_DRV_ContinueGenMACCmd ();
+  g_csecStatePtr.84_6 = g_csecStatePtr;
+  _7 = g_csecStatePtr.84_6->cmdInProgress;
+  if (_7 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 10>; [5.50%]
+
+  <bb 10> [local count: 6138850]:
+  pretmp_46 = g_csecStatePtr.84_6->errCode;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 735370]:
+  pretmp_45 = g_csecStatePtr.84_42->errCode;
+
+  <bb 12> [local count: 13370358]:
+  # prephitmp_47 = PHI <3(8), pretmp_45(11), pretmp_46(10)>
+
+  <bb 13> [local count: 20900982]:
+  # _9 = PHI <prephitmp_47(12), 2(2)>
+  return _9;
+
+}
+
+
+
+;; Function CSEC_DRV_VerifyMAC (CSEC_DRV_VerifyMAC, funcdef_no=20, decl_uid=7151, cgraph_uid=22, symbol_order=22)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+CSEC_DRV_VerifyMAC (csec_key_id_t keyId, const uint8_t * msg, uint32_t msgLen, const uint8_t * mac, uint16_t macLen, _Bool * verifStatus, uint32_t timeout)
+{
+  uint32_t crtTime;
+  uint32_t startTime;
+  struct csec_state_t * g_csecStatePtr.113_1;
+  _Bool _2;
+  long unsigned int _4;
+  struct csec_state_t * g_csecStatePtr.119_6;
+  struct csec_state_t * g_csecStatePtr.120_7;
+  _Bool _8;
+  status_t _10;
+  long unsigned int _11;
+  long unsigned int _16;
+  long unsigned int _37;
+  unsigned char _38;
+  signed char _39;
+  struct csec_state_t * g_csecStatePtr.120_49;
+  _Bool _50;
+  <unnamed type> pretmp_52;
+  <unnamed type> pretmp_53;
+  <unnamed type> prephitmp_54;
+
+  <bb 2> [local count: 20900981]:
+  g_csecStatePtr.113_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.113_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 13>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 13370358]:
+  _37 = msgLen_15(D) + 7;
+  _16 = _37 >> 3;
+  MEM <unsigned short> [(void *)g_csecStatePtr.113_1] = 1537;
+  g_csecStatePtr.113_1->inputBuff = msg_18(D);
+  g_csecStatePtr.113_1->outputBuff = 0B;
+  g_csecStatePtr.113_1->keyId = keyId_17(D);
+  g_csecStatePtr.113_1->fullSize = _16;
+  g_csecStatePtr.113_1->index = 0;
+  g_csecStatePtr.113_1->errCode = 0;
+  g_csecStatePtr.113_1->seq = 0;
+  g_csecStatePtr.113_1->msgLen = msgLen_15(D);
+  g_csecStatePtr.113_1->verifStatus = verifStatus_20(D);
+  g_csecStatePtr.113_1->macWritten = 0;
+  g_csecStatePtr.113_1->mac = mac_23(D);
+  _4 = (long unsigned int) macLen_25(D);
+  g_csecStatePtr.113_1->macLen = _4;
+  startTime_28 = OSIF_GetMilliseconds ();
+  CSEC_DRV_StartVerifMACCmd ();
+  g_csecStatePtr.120_49 = g_csecStatePtr;
+  _50 = g_csecStatePtr.120_49->cmdInProgress;
+  if (_50 != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 4> [local count: 12634988]:
+  _11 = startTime_28 + timeout_32(D);
+
+  <bb 5> [local count: 118111600]:
+
+  <bb 6> [local count: 1073741824]:
+  _38 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _39 = (signed char) _38;
+  if (_39 >= 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 118111600]:
+  crtTime_31 = OSIF_GetMilliseconds ();
+  if (_11 < crtTime_31)
+    goto <bb 8>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 8> [local count: 6496138]:
+  CSEC_DRV_CancelCommand ();
+  g_csecStatePtr.119_6 = g_csecStatePtr;
+  g_csecStatePtr.119_6->errCode = 3;
+  goto <bb 12>; [100.00%]
+
+  <bb 9> [local count: 111615462]:
+  CSEC_DRV_ContinueVerifMACCmd ();
+  g_csecStatePtr.120_7 = g_csecStatePtr;
+  _8 = g_csecStatePtr.120_7->cmdInProgress;
+  if (_8 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 10>; [5.50%]
+
+  <bb 10> [local count: 6138850]:
+  pretmp_53 = g_csecStatePtr.120_7->errCode;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 735370]:
+  pretmp_52 = g_csecStatePtr.120_49->errCode;
+
+  <bb 12> [local count: 13370358]:
+  # prephitmp_54 = PHI <3(8), pretmp_52(11), pretmp_53(10)>
+
+  <bb 13> [local count: 20900982]:
+  # _10 = PHI <prephitmp_54(12), 2(2)>
+  return _10;
+
+}
+
+
+
+;; Function CSEC_DRV_MPCompress (CSEC_DRV_MPCompress, funcdef_no=34, decl_uid=7203, cgraph_uid=36, symbol_order=36)
+
+Removing basic block 18
+Removing basic block 20
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+Removing basic block 40
+Removing basic block 41
+Removing basic block 43
+Removing basic block 44
+CSEC_DRV_MPCompress (const uint8_t * msg, uint16_t msgLen, uint8_t * mpCompress, uint32_t timeout)
+{
+  uint8_t numBytes;
+  uint16_t numPagesLeft;
+  status_t stat;
+  uint32_t crtTime;
+  uint32_t startTime;
+  struct csec_state_t * g_csecStatePtr.188_1;
+  _Bool _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  const uint8_t * _7;
+  struct csec_state_t * g_csecStatePtr.191_8;
+  <unnamed type> _9;
+  struct csec_state_t * g_csecStatePtr.192_12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _16;
+  short unsigned int _17;
+  <unnamed type> _18;
+  struct csec_state_t * g_csecStatePtr.196_19;
+  status_t _25;
+  unsigned char iftmp.189_26;
+  unsigned char _53;
+  signed char _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _68;
+  long unsigned int _69;
+  long unsigned int _81;
+  long unsigned int prephitmp_83;
+  long unsigned int pretmp_85;
+  struct csec_state_t * pretmp_89;
+
+  <bb 2> [local count: 20900981]:
+  g_csecStatePtr.188_1 = g_csecStatePtr;
+  _2 = g_csecStatePtr.188_1->cmdInProgress;
+  if (_2 != 0)
+    goto <bb 29>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 13370358]:
+  _3 = (long unsigned int) msgLen_32(D);
+  _4 = _3 << 4;
+  MEM <unsigned short> [(void *)g_csecStatePtr.188_1] = 5633;
+  g_csecStatePtr.188_1->inputBuff = msg_34(D);
+  g_csecStatePtr.188_1->outputBuff = mpCompress_35(D);
+  g_csecStatePtr.188_1->keyId = 0;
+  g_csecStatePtr.188_1->fullSize = _4;
+  g_csecStatePtr.188_1->index = 0;
+  g_csecStatePtr.188_1->errCode = 0;
+  g_csecStatePtr.188_1->seq = 0;
+  startTime_37 = OSIF_GetMilliseconds ();
+  if (msgLen_32(D) != 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 30>; [5.50%]
+
+  <bb 4> [local count: 12634988]:
+  pretmp_89 = g_csecStatePtr;
+  pretmp_85 = pretmp_89->index;
+  _81 = startTime_37 + timeout_43(D);
+
+  <bb 5> [local count: 118111617]:
+  # numPagesLeft_22 = PHI <msgLen_32(D)(4), numPagesLeft_47(26)>
+  # prephitmp_83 = PHI <pretmp_85(4), _16(26)>
+  _17 = MIN_EXPR <numPagesLeft_22, 7>;
+  iftmp.189_26 = (unsigned char) _17;
+  numBytes_38 = iftmp.189_26 << 4;
+  _7 = msg_34(D) + prephitmp_83;
+  CSEC_WriteCommandBytes (16, _7, numBytes_38);
+  CSEC_WriteCommandHalfWord (14, msgLen_32(D));
+  g_csecStatePtr.191_8 = g_csecStatePtr;
+  _9 = g_csecStatePtr.191_8->seq;
+  _55 = (long unsigned int) _9;
+  _56 = _55 << 8;
+  _57 = _56 | 369098752;
+  MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[0].DATA_32 ={v} _57;
+
+  <bb 6> [local count: 1073741978]:
+  _53 ={v} MEM[(struct FTFC_Type *)1073872896B].FSTAT;
+  _54 = (signed char) _53;
+  if (_54 >= 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 118111617]:
+  crtTime_42 = OSIF_GetMilliseconds ();
+  if (crtTime_42 > _81)
+    goto <bb 8>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 8> [local count: 38976834]:
+  CSEC_DRV_CancelCommand ();
+  goto <bb 28>; [100.00%]
+
+  <bb 9> [local count: 79134783]:
+  _68 ={v} MEM[(struct CSE_PRAM_Type *)335548416B].RAMn[1].DATA_32;
+  _69 = _68 >> 16;
+  if (_69 > 32)
+    goto <bb 14>; [45.83%]
+  else
+    goto <bb 10>; [54.17%]
+
+  <bb 10> [local count: 79134783]:
+  if (_69 != 0)
+    goto <bb 11>; [52.17%]
+  else
+    goto <bb 28>; [47.83%]
+
+  <bb 11> [local count: 79134783]:
+  switch (_69) <default: <L48> [81.25%], case 1: <L31> [3.13%], case 2: <L32> [3.13%], case 4: <L45> [3.13%], case 8: <L49> [3.13%], case 16: <L44> [3.13%], case 32: <L36> [3.13%]>
+
+  <bb 12> [local count: 2472962]:
+<L49>:
+  goto <bb 28>; [100.00%]
+
+  <bb 13> [local count: 64297011]:
+<L48>:
+  goto <bb 28>; [100.00%]
+
+  <bb 14> [local count: 79134783]:
+  if (_69 == 256)
+    goto <bb 28>; [18.18%]
+  else
+    goto <bb 15>; [81.82%]
+
+  <bb 15> [local count: 79134783]:
+  if (_69 > 256)
+    goto <bb 19>; [67.81%]
+  else
+    goto <bb 16>; [32.19%]
+
+  <bb 16> [local count: 79134783]:
+  if (_69 == 64)
+    goto <bb 28>; [44.44%]
+  else
+    goto <bb 17>; [55.56%]
+
+  <bb 17> [local count: 79134783]:
+  if (_69 == 128)
+    goto <bb 18>; [100.00%]
+  else
+    goto <bb 28>; [0.00%]
+
+  <bb 18> [local count: 79134783]:
+  goto <bb 28>; [100.00%]
+
+  <bb 19> [local count: 79134783]:
+  if (_69 == 512)
+    goto <bb 28>; [44.44%]
+  else
+    goto <bb 20>; [55.56%]
+
+  <bb 20> [local count: 79134783]:
+  if (_69 == 1024)
+    goto <bb 21>; [100.00%]
+  else
+    goto <bb 28>; [0.00%]
+
+  <bb 21> [local count: 79134783]:
+  goto <bb 28>; [100.00%]
+
+  <bb 22> [local count: 6594566]:
+<L36>:
+  goto <bb 28>; [100.00%]
+
+  <bb 23> [local count: 111615481]:
+<L31>:
+  numPagesLeft_47 = numPagesLeft_22 - _17;
+  g_csecStatePtr.192_12 = g_csecStatePtr;
+  _13 = g_csecStatePtr.192_12->index;
+  _14 = (long unsigned int) numBytes_38;
+  _16 = _13 + _14;
+  g_csecStatePtr.192_12->index = _16;
+  _18 = g_csecStatePtr.192_12->seq;
+  if (_18 == 0)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 24> [local count: 6594561]:
+<L32>:
+  goto <bb 28>; [100.00%]
+
+  <bb 25> [local count: 55807740]:
+  g_csecStatePtr.192_12->seq = 1;
+
+  <bb 26> [local count: 111615481]:
+  if (numPagesLeft_47 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 30>; [5.50%]
+
+  <bb 27> [local count: 6594565]:
+<L45>:
+
+  <bb 28> [local count: 13370360]:
+  # stat_97 = PHI <0(30), 1034(19), 1(10), 1026(24), 3(8), 1032(18), 1027(27), 1029(11), 1030(22), 1033(14), 1031(16), 1028(12), 1036(21), 1(17), 1(20), 1(13)>
+<L44>:
+  g_csecStatePtr.196_19 = g_csecStatePtr;
+  g_csecStatePtr.196_19->cmdInProgress = 0;
+
+  <bb 29> [local count: 20900983]:
+  # _25 = PHI <stat_97(28), 2(2)>
+  return _25;
+
+  <bb 30> [local count: 6874221]:
+  CSEC_ReadCommandBytes (16, mpCompress_35(D), 16);
+  goto <bb 28>; [100.00%]
+
+}
+
+

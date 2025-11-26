@@ -1,0 +1,347 @@
+
+;; Function POWER_SYS_CallbacksManagement (POWER_SYS_CallbacksManagement, funcdef_no=7, decl_uid=6422, cgraph_uid=8, symbol_order=7)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+POWER_SYS_CallbacksManagement (struct power_manager_notify_struct_t * notifyStruct, uint8_t * currentStaticCallback, power_manager_policy_t policy)
+{
+  const struct power_manager_callback_user_config_t * const callbackConfig;
+  power_manager_callback_type_t callbackTypeFilter;
+  status_t callbackStatusCode;
+  status_t errorCode;
+  status_t returnCode;
+  uint8_t callbacksNumber;
+  <unnamed type> _1;
+  struct power_manager_callback_user_config_t *[<unknown>] * _2;
+  int _3;
+  <unnamed type> _4;
+  status_t (*<T640>) (struct power_manager_notify_struct_t *, power_manager_callback_data_t *) _5;
+  power_manager_callback_data_t * _6;
+  unsigned char _7;
+  unsigned char _8;
+  unsigned char _9;
+  unsigned char _35;
+
+  <bb 2> [local count: 71947384]:
+  _1 = notifyStruct_21(D)->notifyType;
+  if (_1 > 1)
+    goto <bb 3>; [37.50%]
+  else
+    goto <bb 5>; [62.50%]
+
+  <bb 3> [local count: 71947384]:
+  if (_1 == 2)
+    goto <bb 6>; [66.67%]
+  else
+    goto <bb 4>; [33.33%]
+
+  <bb 4> [local count: 23982462]:
+  *currentStaticCallback_25(D) = 0;
+  goto <bb 13>; [100.00%]
+
+  <bb 5> [local count: 35973692]:
+  callbacksNumber_23 = gPowerManagerState.staticCallbacksNumber;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 17986846]:
+  callbacksNumber_22 = gPowerManagerState.staticCallbacksNumber;
+
+  <bb 7> [local count: 47964922]:
+  # callbacksNumber_11 = PHI <callbacksNumber_23(5), callbacksNumber_22(6)>
+  # errorCode_15 = PHI <259(5), 260(6)>
+  # callbackTypeFilter_16 = PHI <2(5), 1(6)>
+  *currentStaticCallback_25(D) = 0;
+  if (callbacksNumber_11 != 0)
+    goto <bb 8>; [98.57%]
+  else
+    goto <bb 13>; [1.43%]
+
+  <bb 8> [local count: 1014686025]:
+  # _35 = PHI <0(7), _9(12)>
+  # returnCode_34 = PHI <0(7), returnCode_12(12)>
+  _2 = gPowerManagerState.staticCallbacks;
+  _3 = (int) _35;
+  callbackConfig_27 = (*_2)[_3];
+  if (callbackConfig_27 != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 12>; [30.00%]
+
+  <bb 9> [local count: 710280221]:
+  _4 = callbackConfig_27->callbackType;
+  if (_4 != callbackTypeFilter_16)
+    goto <bb 10>; [66.00%]
+  else
+    goto <bb 12>; [34.00%]
+
+  <bb 10> [local count: 468784943]:
+  _5 = callbackConfig_27->callbackFunction;
+  _6 = callbackConfig_27->callbackData;
+  callbackStatusCode_29 = _5 (notifyStruct_21(D), _6);
+  if (callbackStatusCode_29 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 234392471]:
+  _7 = *currentStaticCallback_25(D);
+  gPowerManagerState.errorCallbackIndex = _7;
+  if (policy_31(D) != 1)
+    goto <bb 13>; [5.50%]
+  else
+    goto <bb 12>; [94.50%]
+
+  <bb 12> [local count: 1001794440]:
+  # returnCode_12 = PHI <returnCode_34(9), returnCode_34(10), returnCode_34(8), errorCode_15(11)>
+  _8 = *currentStaticCallback_25(D);
+  _9 = _8 + 1;
+  *currentStaticCallback_25(D) = _9;
+  if (_9 < callbacksNumber_11)
+    goto <bb 8>; [94.50%]
+  else
+    goto <bb 13>; [5.50%]
+
+  <bb 13> [local count: 71947386]:
+  # returnCode_14 = PHI <0(4), 0(7), errorCode_15(11), returnCode_12(12)>
+  return returnCode_14;
+
+}
+
+
+
+;; Function POWER_SYS_Init (POWER_SYS_Init, funcdef_no=1, decl_uid=6401, cgraph_uid=2, symbol_order=1)
+
+POWER_SYS_Init (struct power_manager_user_config_t *[<unknown>] * powerConfigsPtr, uint8_t configsNumber, struct power_manager_callback_user_config_t *[<unknown>] * callbacksPtr, uint8_t callbacksNumber)
+{
+  status_t _17;
+
+  <bb 2> [local count: 1073741824]:
+  gPowerManagerState.configs = powerConfigsPtr_3(D);
+  gPowerManagerState.configsNumber = configsNumber_5(D);
+  gPowerManagerState.currentConfig = 0;
+  if (callbacksPtr_8(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  gPowerManagerState.staticCallbacks = callbacksPtr_8(D);
+  gPowerManagerState.staticCallbacksNumber = callbacksNumber_13(D);
+  gPowerManagerState.errorCallbackIndex = callbacksNumber_13(D);
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 322122544]:
+  gPowerManagerState.staticCallbacks = 0B;
+  MEM <unsigned short> [(unsigned char *)&gPowerManagerState + 12B] = 0;
+
+  <bb 5> [local count: 1073741824]:
+  _17 = POWER_SYS_DoInit (); [tail call]
+  return _17;
+
+}
+
+
+
+;; Function POWER_SYS_Deinit (POWER_SYS_Deinit, funcdef_no=2, decl_uid=6403, cgraph_uid=3, symbol_order=2)
+
+POWER_SYS_Deinit ()
+{
+  status_t _7;
+
+  <bb 2> [local count: 1073741824]:
+  gPowerManagerState.configs = 0B;
+  gPowerManagerState.configsNumber = 0;
+  gPowerManagerState.staticCallbacks = 0B;
+  gPowerManagerState.staticCallbacksNumber = 0;
+  _7 = POWER_SYS_DoDeinit (); [tail call]
+  return _7;
+
+}
+
+
+
+;; Function POWER_SYS_GetLastMode (POWER_SYS_GetLastMode, funcdef_no=3, decl_uid=6408, cgraph_uid=4, symbol_order=3)
+
+POWER_SYS_GetLastMode (uint8_t * powerModeIndexPtr)
+{
+  unsigned char _1;
+  unsigned char _2;
+  unsigned char _3;
+  _Bool _8;
+  <unnamed type> _9;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = gPowerManagerState.currentConfig;
+  *powerModeIndexPtr_6(D) = _1;
+  _2 = gPowerManagerState.errorCallbackIndex;
+  _3 = gPowerManagerState.staticCallbacksNumber;
+  _8 = _2 != _3;
+  _9 = (<unnamed type>) _8;
+  return _9;
+
+}
+
+
+
+;; Function POWER_SYS_GetLastModeConfig (POWER_SYS_GetLastModeConfig, funcdef_no=4, decl_uid=6410, cgraph_uid=5, symbol_order=4)
+
+POWER_SYS_GetLastModeConfig (struct power_manager_user_config_t * * powerModePtr)
+{
+  struct power_manager_user_config_t *[<unknown>] * _1;
+  unsigned char _2;
+  int _3;
+  struct power_manager_user_config_t * _4;
+  unsigned char _5;
+  unsigned char _6;
+  _Bool _11;
+  <unnamed type> _12;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = gPowerManagerState.configs;
+  _2 = gPowerManagerState.currentConfig;
+  _3 = (int) _2;
+  _4 = (*_1)[_3];
+  *powerModePtr_9(D) = _4;
+  _5 = gPowerManagerState.errorCallbackIndex;
+  _6 = gPowerManagerState.staticCallbacksNumber;
+  _11 = _5 != _6;
+  _12 = (<unnamed type>) _11;
+  return _12;
+
+}
+
+
+
+;; Function POWER_SYS_GetErrorCallbackIndex (POWER_SYS_GetErrorCallbackIndex, funcdef_no=5, decl_uid=6414, cgraph_uid=6, symbol_order=5)
+
+POWER_SYS_GetErrorCallbackIndex ()
+{
+  uint8_t _2;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = gPowerManagerState.errorCallbackIndex;
+  return _2;
+
+}
+
+
+
+;; Function POWER_SYS_GetErrorCallback (POWER_SYS_GetErrorCallback, funcdef_no=6, decl_uid=6416, cgraph_uid=7, symbol_order=6)
+
+Removing basic block 5
+POWER_SYS_GetErrorCallback ()
+{
+  unsigned char _1;
+  unsigned char _2;
+  struct power_manager_callback_user_config_t *[<unknown>] * _3;
+  int _4;
+  struct power_manager_callback_user_config_t * iftmp.0_5;
+  struct power_manager_callback_user_config_t * iftmp.0_7;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = gPowerManagerState.errorCallbackIndex;
+  _2 = gPowerManagerState.staticCallbacksNumber;
+  if (_1 < _2)
+    goto <bb 3>; [71.00%]
+  else
+    goto <bb 4>; [29.00%]
+
+  <bb 3> [local count: 762356697]:
+  _3 = gPowerManagerState.staticCallbacks;
+  _4 = (int) _1;
+  iftmp.0_7 = (*_3)[_4];
+
+  <bb 4> [local count: 1073741824]:
+  # iftmp.0_5 = PHI <iftmp.0_7(3), 0B(2)>
+  return iftmp.0_5;
+
+}
+
+
+
+;; Function POWER_SYS_SetMode (POWER_SYS_SetMode, funcdef_no=8, decl_uid=6406, cgraph_uid=9, symbol_order=8)
+
+Removing basic block 8
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+POWER_SYS_SetMode (uint8_t powerModeIndex, power_manager_policy_t policy)
+{
+  struct power_manager_notify_struct_t notifyStruct;
+  uint8_t currentStaticCallback;
+  status_t returnCode;
+  struct power_manager_user_config_t * configPtr;
+  struct power_manager_user_config_t *[<unknown>] * _1;
+  int _2;
+  unsigned char _3;
+
+  <bb 2> [local count: 1073741823]:
+  currentStaticCallback = 0;
+  _1 = gPowerManagerState.configs;
+  _2 = (int) powerModeIndex_8(D);
+  configPtr_9 = (*_1)[_2];
+  _3 = gPowerManagerState.staticCallbacksNumber;
+  gPowerManagerState.errorCallbackIndex = _3;
+  notifyStruct.policy = policy_11(D);
+  notifyStruct.targetPowerConfigIndex = powerModeIndex_8(D);
+  notifyStruct.targetPowerConfigPtr = configPtr_9;
+  notifyStruct.notifyType = 1;
+  returnCode_17 = POWER_SYS_CallbacksManagement (&notifyStruct, &currentStaticCallback, policy_11(D));
+  if (policy_11(D) == 1)
+    goto <bb 4>; [20.24%]
+  else
+    goto <bb 3>; [79.76%]
+
+  <bb 3> [local count: 856416479]:
+  if (returnCode_17 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 645533584]:
+  returnCode_19 = POWER_SYS_DoSetMode (configPtr_9);
+  if (returnCode_19 == 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 213026081]:
+  gPowerManagerState.currentConfig = powerModeIndex_8(D);
+  notifyStruct.notifyType = 2;
+  returnCode_26 = POWER_SYS_CallbacksManagement (&notifyStruct, &currentStaticCallback, 1);
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 860715742]:
+  # returnCode_29 = PHI <returnCode_17(3), returnCode_19(4)>
+  notifyStruct.notifyType = 0;
+  POWER_SYS_CallbacksManagement (&notifyStruct, &currentStaticCallback, 1);
+
+  <bb 7> [local count: 1073741824]:
+  # returnCode_4 = PHI <returnCode_26(5), returnCode_29(6)>
+  currentStaticCallback ={v} {CLOBBER};
+  notifyStruct ={v} {CLOBBER};
+  return returnCode_4;
+
+}
+
+
+
+;; Function POWER_SYS_GetDefaultConfig (POWER_SYS_GetDefaultConfig, funcdef_no=9, decl_uid=6418, cgraph_uid=10, symbol_order=9)
+
+POWER_SYS_GetDefaultConfig (struct power_manager_user_config_t * const config)
+{
+  <bb 2> [local count: 1073741824]:
+  config_2(D)->powerMode = 1;
+  config_2(D)->sleepOnExitValue = 0;
+  return;
+
+}
+
+

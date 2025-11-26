@@ -1,0 +1,4 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ewm/ewm_driver.c:60:10:EWM_DRV_Init	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ewm/ewm_driver.c:128:6:EWM_DRV_GetDefaultConfig	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ewm/ewm_driver.c:150:6:EWM_DRV_Refresh	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ewm/ewm_driver.c:172:23:EWM_DRV_GetInputPinAssertLogic	0	static

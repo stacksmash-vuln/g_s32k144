@@ -1,0 +1,195 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/eim/eim_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_EIM_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="EIM_DRV_Init ()";
+	subgraph cluster_8_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_8_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 4\>:\l\
+|#\ ivtmp.21_40\ =\ PHI\ \<ivtmp.21_56(3),\ ivtmp.21_57(4)\>\l\
+|_55\ =\ (void\ *)\ ivtmp.21_40;\l\
+|_15\ =\ MEM[base:\ _55,\ offset:\ 0B];\l\
+|temp_16\ =\{v\}\ MEM[(struct\ EIM_Type\ *)1073844224B].EICHEN;\l\
+|_17\ =\ (unsigned\ int)\ _15;\l\
+|_18\ =\ 2147483648\ \>\>\ _17;\l\
+|_19\ =\ ~_18;\l\
+|temp_20\ =\ temp_16\ &\ _19;\l\
+|_21\ =\ 31\ -\ _17;\l\
+|MEM[(struct\ EIM_Type\ *)1073844224B].EICHEN\ =\{v\}\ temp_20;\l\
+|_22\ =\ MEM[base:\ _55,\ offset:\ 1B];\l\
+|_23\ =\ (long\ unsigned\ int)\ _22;\l\
+|_25\ =\ _23\ \<\<\ 25;\l\
+|_1\ =\ _17\ *\ 256;\l\
+|_2\ =\ 1073844224B\ +\ _1;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ EIM_Type\ *)_2\ +\ 256B]\ =\{v\}\ _25;\l\
+|_26\ =\ MEM[base:\ _55,\ offset:\ 4B];\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ EIM_Type\ *)_2\ +\ 260B]\ =\{v\}\ _26;\l\
+|_27\ =\ MEM[base:\ _55,\ offset:\ 8B];\l\
+|temp_28\ =\{v\}\ MEM[(struct\ EIM_Type\ *)1073844224B].EICHEN;\l\
+|temp_29\ =\ _19\ &\ temp_28;\l\
+|_10\ =\ (long\ unsigned\ int)\ _27;\l\
+|_31\ =\ _10\ \<\<\ _21;\l\
+|temp_32\ =\ temp_29\ \|\ _31;\l\
+|MEM[(struct\ EIM_Type\ *)1073844224B].EICHEN\ =\{v\}\ temp_32;\l\
+|ivtmp.21_57\ =\ ivtmp.21_40\ +\ 12;\l\
+|if\ (_46\ !=\ ivtmp.21_57)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|if\ (channelCnt_7(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	fn_8_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 3\>:\l\
+|ivtmp.21_56\ =\ (unsigned\ int)\ channelConfigArr_8(D);\l\
+|_51\ =\ channelCnt_7(D)\ +\ 255;\l\
+|_53\ =\ (signed\ short)\ 12;\l\
+|_38\ =\ ivtmp.21_56\ +\ 12;\l\
+|_48\ =\ (signed\ short)\ _51;\l\
+|_46\ =\ WIDEN_MULT_PLUS_EXPR\ \<_53,\ _48,\ _38\>;\l\
+}"];
+
+	fn_8_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 5\>:\l\
+|_12\ =\{v\}\ MEM[(struct\ EIM_Type\ *)1073844224B].EIMCR;\l\
+|_13\ =\ _12\ \|\ 1;\l\
+|MEM[(struct\ EIM_Type\ *)1073844224B].EIMCR\ =\{v\}\ _13;\l\
+|return;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_8_basic_block_3:s -> fn_8_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_4:s -> fn_8_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_8_basic_block_4:s -> fn_8_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_8_basic_block_5:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EIM_DRV_Deinit" {
+	style="dashed";
+	color="black";
+	label="EIM_DRV_Deinit ()";
+	fn_9_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_9_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_9_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_3\ =\{v\}\ MEM[(struct\ EIM_Type\ *)1073844224B].EIMCR;\l\
+|_4\ =\ _3\ &\ 4294967294;\l\
+|MEM[(struct\ EIM_Type\ *)1073844224B].EIMCR\ =\{v\}\ _4;\l\
+|EIM_InitChannel\ (1073844224B);\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_9_basic_block_0:s -> fn_9_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_9_basic_block_0:s -> fn_9_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EIM_DRV_ConfigChannel" {
+	style="dashed";
+	color="black";
+	label="EIM_DRV_ConfigChannel ()";
+	fn_10_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_10_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_10_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ userChannelConfig_6(D)-\>channel;\l\
+|temp_15\ =\{v\}\ MEM[(struct\ EIM_Type\ *)1073844224B].EICHEN;\l\
+|_16\ =\ (unsigned\ int)\ _1;\l\
+|_17\ =\ 2147483648\ \>\>\ _16;\l\
+|_18\ =\ ~_17;\l\
+|temp_19\ =\ temp_15\ &\ _18;\l\
+|_20\ =\ 31\ -\ _16;\l\
+|MEM[(struct\ EIM_Type\ *)1073844224B].EICHEN\ =\{v\}\ temp_19;\l\
+|_2\ =\ userChannelConfig_6(D)-\>checkBitMask;\l\
+|_12\ =\ (long\ unsigned\ int)\ _2;\l\
+|_14\ =\ _12\ \<\<\ 25;\l\
+|_26\ =\ _16\ *\ 256;\l\
+|_27\ =\ 1073844224B\ +\ _26;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ EIM_Type\ *)_27\ +\ 256B]\ =\{v\}\ _14;\l\
+|_3\ =\ userChannelConfig_6(D)-\>dataMask;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ EIM_Type\ *)_27\ +\ 260B]\ =\{v\}\ _3;\l\
+|_4\ =\ userChannelConfig_6(D)-\>enable;\l\
+|temp_7\ =\{v\}\ MEM[(struct\ EIM_Type\ *)1073844224B].EICHEN;\l\
+|temp_8\ =\ temp_7\ &\ _18;\l\
+|_25\ =\ (long\ unsigned\ int)\ _4;\l\
+|_10\ =\ _25\ \<\<\ _20;\l\
+|temp_11\ =\ temp_8\ \|\ _10;\l\
+|MEM[(struct\ EIM_Type\ *)1073844224B].EICHEN\ =\{v\}\ temp_11;\l\
+|return;\l\
+}"];
+
+	fn_10_basic_block_0:s -> fn_10_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_10_basic_block_0:s -> fn_10_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EIM_DRV_GetChannelConfig" {
+	style="dashed";
+	color="black";
+	label="EIM_DRV_GetChannelConfig ()";
+	fn_11_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_11_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_11_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|channelConfig_2(D)-\>channel\ =\ channel_3(D);\l\
+|_18\ =\ (sizetype)\ channel_3(D);\l\
+|_19\ =\ _18\ *\ 256;\l\
+|_20\ =\ 1073844224B\ +\ _19;\l\
+|_15\ =\{v\}\ MEM\ \<const\ uint32_t\>\ [(const\ struct\ EIM_Type\ *)_20\ +\ 256B];\l\
+|_16\ =\ _15\ \>\>\ 25;\l\
+|_17\ =\ (unsigned\ char)\ _16;\l\
+|channelConfig_2(D)-\>checkBitMask\ =\ _17;\l\
+|_13\ =\{v\}\ MEM\ \<const\ uint32_t\>\ [(const\ struct\ EIM_Type\ *)_20\ +\ 260B];\l\
+|channelConfig_2(D)-\>dataMask\ =\ _13;\l\
+|_8\ =\{v\}\ MEM[(const\ struct\ EIM_Type\ *)1073844224B].EICHEN;\l\
+|_9\ =\ (unsigned\ int)\ channel_3(D);\l\
+|_10\ =\ 2147483648\ \>\>\ _9;\l\
+|_11\ =\ _8\ &\ _10;\l\
+|_12\ =\ _11\ !=\ 0;\l\
+|channelConfig_2(D)-\>enable\ =\ _12;\l\
+|return;\l\
+}"];
+
+	fn_11_basic_block_0:s -> fn_11_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_11_basic_block_2:s -> fn_11_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_11_basic_block_0:s -> fn_11_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_EIM_DRV_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="EIM_DRV_GetDefaultConfig ()";
+	fn_12_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_12_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_12_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|channelConfig_2(D)-\>channel\ =\ channel_3(D);\l\
+|channelConfig_2(D)-\>checkBitMask\ =\ 1;\l\
+|channelConfig_2(D)-\>dataMask\ =\ 0;\l\
+|channelConfig_2(D)-\>enable\ =\ 1;\l\
+|return;\l\
+}"];
+
+	fn_12_basic_block_0:s -> fn_12_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_12_basic_block_2:s -> fn_12_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_12_basic_block_0:s -> fn_12_basic_block_1:n [style="invis",constraint=true];
+}
+}

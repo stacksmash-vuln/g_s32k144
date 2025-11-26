@@ -1,0 +1,15 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:631:17:LPSPI_DRV_MasterStartTransfer	64	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:782:13:LPSPI_DRV_MasterCompleteTransfer	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:850:13:LPSPI_DRV_MasterCompleteRX	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:821:13:LPSPI_DRV_MasterCompleteDMATransfer	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:131:6:LPSPI_DRV_MasterGetDefaultConfig	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:219:10:LPSPI_DRV_MasterDeinit	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:266:10:LPSPI_DRV_MasterSetDelay	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:309:10:LPSPI_DRV_MasterConfigureBus	48	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:166:10:LPSPI_DRV_MasterInit	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:424:10:LPSPI_DRV_MasterTransferBlocking	40	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:511:10:LPSPI_DRV_MasterTransfer	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:549:10:LPSPI_DRV_MasterGetTransferStatus	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:578:10:LPSPI_DRV_MasterAbortTransfer	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:600:10:LPSPI_DRV_SetPcs	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c:867:6:LPSPI_DRV_MasterIRQHandler	16	static

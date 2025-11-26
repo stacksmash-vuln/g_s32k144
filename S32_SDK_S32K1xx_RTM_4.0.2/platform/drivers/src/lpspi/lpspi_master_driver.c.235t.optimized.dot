@@ -1,0 +1,1220 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_master_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_LPSPI_DRV_MasterStartTransfer" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterStartTransfer ()";
+	fn_39_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_39_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_39_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_58\ =\ g_lpspiBase[instance_56(D)];\l\
+|_83\ =\{v\}\ MEM[(const\ struct\ LPSPI_Type\ *)base_58].SR;\l\
+|_84\ =\ _83\ \>\>\ 24;\l\
+|_85\ =\ (_Bool)\ _84;\l\
+|if\ (_85\ !=\ 0)\l\
+\ \ goto\ \<bb\ 23\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+}"];
+
+	fn_39_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|_86\ =\{v\}\ MEM[(const\ struct\ LPSPI_Type\ *)base_58].SR;\l\
+|_87\ =\ _86\ \>\>\ 24;\l\
+|_88\ =\ (_Bool)\ _87;\l\
+|if\ (_88\ !=\ 0)\l\
+\ \ goto\ \<bb\ 23\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [78.28%]\l\
+}"];
+
+	fn_39_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:657963043\<bb\ 4\>:\l\
+|lpspiState_57\ =\ g_lpspiStatePtr[instance_56(D)];\l\
+|_1\ =\ lpspiState_57-\>bytesPerFrame;\l\
+|_2\ =\ transferByteCount_59(D)\ %\ _1;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 23\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [48.88%]\l\
+}"];
+
+	fn_39_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:321612333\<bb\ 5\>:\l\
+|LPSPI_SetFlushFifoCmd\ (base_58,\ 1,\ 1);\l\
+|LPSPI_SetFlushFifoCmd\ (base_58,\ 1,\ 1);\l\
+|_3\ =\ lpspiState_57-\>isPcsContinuous;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_39_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:160806166\<bb\ 6\>:\l\
+|_89\ =\{v\}\ base_58-\>TCR;\l\
+|_90\ =\ _89\ \|\ 1048576;\l\
+|base_58-\>TCR\ =\{v\}\ _90;\l\
+}"];
+
+	fn_39_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:321612333\<bb\ 7\>:\l\
+|lpspiState_57-\>status\ =\ 0;\l\
+|LPSPI_ClearStatusFlag\ (base_58,\ 16128);\l\
+|_91\ =\{v\}\ base_58-\>IER;\l\
+|_92\ =\ _91\ \|\ 2048;\l\
+|base_58-\>IER\ =\{v\}\ _92;\l\
+|if\ (receiveBuffer_64(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 25\>;\ [30.00%]\l\
+}"];
+
+	fn_39_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:225128634\<bb\ 8\>:\l\
+|_93\ =\{v\}\ base_58-\>IER;\l\
+|_94\ =\ _93\ \|\ 4096;\l\
+|base_58-\>IER\ =\{v\}\ _94;\l\
+|lpspiState_57-\>rxCount\ =\{v\}\ transferByteCount_59(D);\l\
+|_97\ =\{v\}\ base_58-\>TCR;\l\
+|_98\ =\ _97\ &\ 4294443007;\l\
+|base_58-\>TCR\ =\{v\}\ _98;\l\
+}"];
+
+	fn_39_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:321612333\<bb\ 9\>:\l\
+|lpspi_tmp_102\ =\{v\}\ base_58-\>FCR;\l\
+|lpspi_tmp_103\ =\ lpspi_tmp_102\ &\ 4294770687;\l\
+|base_58-\>FCR\ =\{v\}\ lpspi_tmp_103;\l\
+|lpspi_tmp_99\ =\{v\}\ base_58-\>FCR;\l\
+|lpspi_tmp_100\ =\ lpspi_tmp_99\ &\ 4294967292;\l\
+|lpspi_tmp_101\ =\ lpspi_tmp_100\ \|\ 2;\l\
+|base_58-\>FCR\ =\{v\}\ lpspi_tmp_101;\l\
+|_4\ =\ lpspiState_57-\>transferType;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 10\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [66.00%]\l\
+}"];
+
+	fn_39_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:109348194\<bb\ 10\>:\l\
+|lpspiState_57-\>txBuff\ =\ sendBuffer_67(D);\l\
+|lpspiState_57-\>rxBuff\ =\ receiveBuffer_64(D);\l\
+|lpspiState_57-\>txFrameCnt\ =\{v\}\ 0;\l\
+|lpspiState_57-\>rxFrameCnt\ =\{v\}\ 0;\l\
+|lpspiState_57-\>txCount\ =\{v\}\ transferByteCount_59(D);\l\
+|_5\ =\ lpspiState_57-\>isPcsContinuous;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_39_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:54674097\<bb\ 11\>:\l\
+|_6\ =\{v\}\ lpspiState_57-\>txCount;\l\
+|_7\ =\ _6\ +\ 1;\l\
+|lpspiState_57-\>txCount\ =\{v\}\ _7;\l\
+}"];
+
+	fn_39_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:109348194\<bb\ 12\>:\l\
+|lpspiState_57-\>isTransferInProgress\ =\{v\}\ 1;\l\
+|if\ (receiveBuffer_64(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 13\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [30.00%]\l\
+}"];
+
+	fn_39_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:76543736\<bb\ 13\>:\l\
+|_104\ =\{v\}\ base_58-\>IER;\l\
+|_105\ =\ _104\ \|\ 2;\l\
+|base_58-\>IER\ =\{v\}\ _105;\l\
+}"];
+
+	fn_39_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:109348194\<bb\ 14\>:\l\
+|_106\ =\{v\}\ base_58-\>IER;\l\
+|_107\ =\ _106\ \|\ 1;\l\
+|base_58-\>IER\ =\{v\}\ _107;\l\
+goto\ \<bb\ 23\>;\ [100.00%]\l\
+}"];
+
+	fn_39_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:212264138\<bb\ 15\>:\l\
+|_8\ =\ lpspiState_57-\>bytesPerFrame;\l\
+|_9\ =\ _8\ +\ 65535;\l\
+|if\ (_9\ \<=\ 3)\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+}"];
+
+	fn_39_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:106132069\<bb\ 16\>:\l\
+|_27\ =\ CSWTCH.21[_9];\l\
+|_160\ =\ (int)\ _27;\l\
+|_146\ =\ 1\ \<\<\ _160;\l\
+}"];
+
+	fn_39_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:212264138\<bb\ 17\>:\l\
+|#\ dmaTransferSize_43\ =\ PHI\ \<_27(16),\ 2(15)\>\l\
+|#\ prephitmp_153\ =\ PHI\ \<_160(16),\ 2(15)\>\l\
+|#\ prephitmp_161\ =\ PHI\ \<_146(16),\ 4(15)\>\l\
+|if\ (sendBuffer_67(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 18\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [30.00%]\l\
+}"];
+
+	fn_39_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:148584898\<bb\ 18\>:\l\
+|_10\ =\ lpspiState_57-\>txDMAChannel;\l\
+|sendBuffer.1_11\ =\ (long\ unsigned\ int)\ sendBuffer_67(D);\l\
+|_12\ =\ &base_58-\>TDR;\l\
+|_13\ =\ (long\ unsigned\ int)\ _12;\l\
+|_16\ =\ (long\ unsigned\ int)\ transferByteCount_59(D);\l\
+|_18\ =\ _16\ \>\>\ prephitmp_153;\l\
+|EDMA_DRV_ConfigMultiBlockTransfer\ (_10,\ 1,\ sendBuffer.1_11,\ _13,\ dmaTransferSize_43,\ prephitmp_161,\ _18,\ 1);\l\
+goto\ \<bb\ 20\>;\ [100.00%]\l\
+}"];
+
+	fn_39_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63679241\<bb\ 19\>:\l\
+|_19\ =\ lpspiState_57-\>txDMAChannel;\l\
+|_20\ =\ &lpspiState_57-\>dummy;\l\
+|_21\ =\ (long\ unsigned\ int)\ _20;\l\
+|_22\ =\ &base_58-\>TDR;\l\
+|_23\ =\ (long\ unsigned\ int)\ _22;\l\
+|_26\ =\ (long\ unsigned\ int)\ transferByteCount_59(D);\l\
+|_28\ =\ _26\ \>\>\ prephitmp_153;\l\
+|EDMA_DRV_ConfigMultiBlockTransfer\ (_19,\ 3,\ _21,\ _23,\ dmaTransferSize_43,\ prephitmp_161,\ _28,\ 1);\l\
+}"];
+
+	fn_39_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:212264138\<bb\ 20\>:\l\
+|if\ (receiveBuffer_64(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 21\>;\ [53.47%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [46.53%]\l\
+}"];
+
+	fn_39_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:148584898\<bb\ 21\>:\l\
+|_29\ =\ lpspiState_57-\>rxDMAChannel;\l\
+|_30\ =\ &base_58-\>RDR;\l\
+|_31\ =\ (long\ unsigned\ int)\ _30;\l\
+|receiveBuffer.2_32\ =\ (long\ unsigned\ int)\ receiveBuffer_64(D);\l\
+|_35\ =\ (long\ unsigned\ int)\ transferByteCount_59(D);\l\
+|_36\ =\ _35\ \>\>\ prephitmp_153;\l\
+|EDMA_DRV_ConfigMultiBlockTransfer\ (_29,\ 0,\ _31,\ receiveBuffer.2_32,\ dmaTransferSize_43,\ prephitmp_161,\ _36,\ 1);\l\
+|_37\ =\ lpspiState_57-\>rxDMAChannel;\l\
+|instance.3_38\ =\ (void\ *)\ instance_56(D);\l\
+|EDMA_DRV_InstallCallback\ (_37,\ LPSPI_DRV_MasterCompleteRX,\ instance.3_38);\l\
+|_39\ =\ lpspiState_57-\>rxDMAChannel;\l\
+|EDMA_DRV_StartChannel\ (_39);\l\
+|_147\ =\ lpspiState_57-\>txDMAChannel;\l\
+|EDMA_DRV_InstallCallback\ (_147,\ LPSPI_DRV_MasterCompleteDMATransfer,\ instance.3_38);\l\
+|_150\ =\ lpspiState_57-\>txDMAChannel;\l\
+|EDMA_DRV_StartChannel\ (_150);\l\
+|lpspiState_57-\>isTransferInProgress\ =\{v\}\ 1;\l\
+|_108\ =\{v\}\ base_58-\>DER;\l\
+|_109\ =\ _108\ &\ 4294967293;\l\
+|_110\ =\ _109\ \|\ 2;\l\
+|base_58-\>DER\ =\{v\}\ _110;\l\
+}"];
+
+	fn_39_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:212264138\<bb\ 22\>:\l\
+|_111\ =\{v\}\ base_58-\>DER;\l\
+|_112\ =\ _111\ &\ 4294967294;\l\
+|_113\ =\ _112\ \|\ 1;\l\
+|base_58-\>DER\ =\{v\}\ _113;\l\
+}"];
+
+	fn_39_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 23\>:\l\
+|#\ _44\ =\ PHI\ \<_2(14),\ 2(2),\ 2(3),\ _2(22),\ 1(4)\>\l\
+|return\ _44;\l\
+}"];
+
+	fn_39_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63679241\<bb\ 24\>:\l\
+|_154\ =\ lpspiState_57-\>txDMAChannel;\l\
+|instance.4_155\ =\ (void\ *)\ instance_56(D);\l\
+|EDMA_DRV_InstallCallback\ (_154,\ LPSPI_DRV_MasterCompleteDMATransfer,\ instance.4_155);\l\
+|_157\ =\ lpspiState_57-\>txDMAChannel;\l\
+|EDMA_DRV_StartChannel\ (_157);\l\
+|lpspiState_57-\>isTransferInProgress\ =\{v\}\ 1;\l\
+goto\ \<bb\ 22\>;\ [100.00%]\l\
+}"];
+
+	fn_39_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:96483699\<bb\ 25\>:\l\
+|lpspiState_57-\>rxCount\ =\{v\}\ 0;\l\
+|_95\ =\{v\}\ base_58-\>TCR;\l\
+|_96\ =\ _95\ \|\ 524288;\l\
+|base_58-\>TCR\ =\{v\}\ _96;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_39_basic_block_0:s -> fn_39_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_2:s -> fn_39_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_39_basic_block_2:s -> fn_39_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_39_basic_block_3:s -> fn_39_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_39_basic_block_3:s -> fn_39_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_39_basic_block_4:s -> fn_39_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_39_basic_block_4:s -> fn_39_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_39_basic_block_5:s -> fn_39_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_39_basic_block_5:s -> fn_39_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_39_basic_block_6:s -> fn_39_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_7:s -> fn_39_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_39_basic_block_7:s -> fn_39_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_39_basic_block_8:s -> fn_39_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_9:s -> fn_39_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_39_basic_block_9:s -> fn_39_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_39_basic_block_10:s -> fn_39_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_39_basic_block_10:s -> fn_39_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_39_basic_block_11:s -> fn_39_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_12:s -> fn_39_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_39_basic_block_12:s -> fn_39_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_39_basic_block_13:s -> fn_39_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_14:s -> fn_39_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_15:s -> fn_39_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_39_basic_block_15:s -> fn_39_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_39_basic_block_16:s -> fn_39_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_17:s -> fn_39_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_39_basic_block_17:s -> fn_39_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_39_basic_block_18:s -> fn_39_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_19:s -> fn_39_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_20:s -> fn_39_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[53%]"];
+	fn_39_basic_block_20:s -> fn_39_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[46%]"];
+	fn_39_basic_block_21:s -> fn_39_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_22:s -> fn_39_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_23:s -> fn_39_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_39_basic_block_24:s -> fn_39_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_25:s -> fn_39_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_0:s -> fn_39_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterCompleteTransfer" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterCompleteTransfer ()";
+	fn_40_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_40_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_40_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpspiState_11\ =\ g_lpspiStatePtr[instance_10(D)];\l\
+|base_12\ =\ g_lpspiBase[instance_10(D)];\l\
+|lpspiState_11-\>isTransferInProgress\ =\{v\}\ 0;\l\
+|_1\ =\ lpspiState_11-\>transferType;\l\
+|if\ (_1\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [33.00%]\l\
+}"];
+
+	fn_40_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:719407025\<bb\ 3\>:\l\
+|_21\ =\{v\}\ base_12-\>DER;\l\
+|_22\ =\ _21\ &\ 4294967293;\l\
+|base_12-\>DER\ =\{v\}\ _22;\l\
+|_19\ =\{v\}\ base_12-\>DER;\l\
+|_20\ =\ _19\ &\ 4294967294;\l\
+|base_12-\>DER\ =\{v\}\ _20;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_40_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|_34\ =\{v\}\ base_12-\>IER;\l\
+|_39\ =\ _34\ &\ 4294967293;\l\
+|base_12-\>IER\ =\{v\}\ _39;\l\
+|_28\ =\{v\}\ base_12-\>IER;\l\
+|_33\ =\ _28\ &\ 4294967294;\l\
+|base_12-\>IER\ =\{v\}\ _33;\l\
+}"];
+
+	fn_40_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|LPSPI_DRV_DisableTEIEInterrupts\ (instance_10(D));\l\
+|_40\ =\{v\}\ base_12-\>IER;\l\
+|_45\ =\ _40\ &\ 4294966271;\l\
+|base_12-\>IER\ =\{v\}\ _45;\l\
+|LPSPI_ClearStatusFlag\ (base_12,\ 10);\l\
+|_2\ =\ lpspiState_11-\>isBlocking;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [67.00%]\l\
+}"];
+
+	fn_40_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 6\>:\l\
+|_3\ =\ &lpspiState_11-\>lpspiSemaphore;\l\
+|OSIF_SemaPost\ (_3);\l\
+|lpspiState_11-\>isBlocking\ =\ 0;\l\
+}"];
+
+	fn_40_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|_4\ =\ lpspiState_11-\>callback;\l\
+|if\ (_4\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [30.00%]\l\
+}"];
+
+	fn_40_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 8\>:\l\
+|_5\ =\ lpspiState_11-\>callbackParam;\l\
+|_4\ (lpspiState_11,\ 0,\ _5);\ [tail\ call]\l\
+}"];
+
+	fn_40_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|return;\l\
+}"];
+
+	fn_40_basic_block_0:s -> fn_40_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_2:s -> fn_40_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_40_basic_block_2:s -> fn_40_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_40_basic_block_3:s -> fn_40_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_4:s -> fn_40_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_5:s -> fn_40_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_40_basic_block_5:s -> fn_40_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_40_basic_block_6:s -> fn_40_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_7:s -> fn_40_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_40_basic_block_7:s -> fn_40_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_40_basic_block_8:s -> fn_40_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_9:s -> fn_40_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_40_basic_block_0:s -> fn_40_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterCompleteRX" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterCompleteRX ()";
+	fn_42_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_42_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_42_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (status_6(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [79.76%]\l\
+}"];
+
+	fn_42_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:217325344\<bb\ 3\>:\l\
+|instance_3\ =\ (uint32_t)\ parameter_2(D);\l\
+|lpspiState_5\ =\ g_lpspiStatePtr[instance_3];\l\
+|base_9\ =\ g_lpspiBase[instance_3];\l\
+|LPSPI_DRV_MasterCompleteTransfer\ (instance_3);\l\
+|LPSPI_SetFlushFifoCmd\ (base_9,\ 1,\ 1);\l\
+|LPSPI_SetFlushFifoCmd\ (base_9,\ 1,\ 1);\l\
+|lpspiState_5-\>status\ =\ 1;\l\
+}"];
+
+	fn_42_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|return;\l\
+}"];
+
+	fn_42_basic_block_0:s -> fn_42_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_2:s -> fn_42_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_42_basic_block_2:s -> fn_42_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_42_basic_block_3:s -> fn_42_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_4:s -> fn_42_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_42_basic_block_0:s -> fn_42_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterCompleteDMATransfer" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterCompleteDMATransfer ()";
+	fn_41_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_41_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_41_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|instance_5\ =\ (uint32_t)\ parameter_4(D);\l\
+|lpspiState_7\ =\ g_lpspiStatePtr[instance_5];\l\
+|base_8\ =\ g_lpspiBase[instance_5];\l\
+|if\ (status_9(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [79.76%]\l\
+}"];
+
+	fn_41_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:217325344\<bb\ 3\>:\l\
+|LPSPI_DRV_MasterCompleteTransfer\ (instance_5);\l\
+|LPSPI_SetFlushFifoCmd\ (base_8,\ 1,\ 1);\l\
+|LPSPI_SetFlushFifoCmd\ (base_8,\ 1,\ 1);\l\
+|lpspiState_7-\>status\ =\ 1;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_41_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:856416481\<bb\ 4\>:\l\
+|_1\ =\ lpspiState_7-\>isPcsContinuous;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_41_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:428208240\<bb\ 5\>:\l\
+|_14\ =\{v\}\ base_8-\>TCR;\l\
+|_15\ =\ _14\ &\ 4293918719;\l\
+|base_8-\>TCR\ =\{v\}\ _15;\l\
+}"];
+
+	fn_41_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:856416481\<bb\ 6\>:\l\
+|lpspiState_7-\>txCount\ =\{v\}\ 0;\l\
+|lpspiState_7-\>rxCount\ =\{v\}\ 0;\l\
+|_16\ =\{v\}\ base_8-\>IER;\l\
+|_17\ =\ _16\ \|\ 1024;\l\
+|base_8-\>IER\ =\{v\}\ _17;\l\
+}"];
+
+	fn_41_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|return;\l\
+}"];
+
+	fn_41_basic_block_0:s -> fn_41_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_2:s -> fn_41_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_41_basic_block_2:s -> fn_41_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_41_basic_block_3:s -> fn_41_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_4:s -> fn_41_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_4:s -> fn_41_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_41_basic_block_5:s -> fn_41_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_6:s -> fn_41_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_41_basic_block_7:s -> fn_41_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_41_basic_block_0:s -> fn_41_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterGetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterGetDefaultConfig ()";
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|spiConfig_2(D)-\>bitsPerSec\ =\ 50000;\l\
+|MEM\ \<unsigned\ short\>\ [(void\ *)spiConfig_2(D)\ +\ 4B]\ =\ 0;\l\
+|spiConfig_2(D)-\>isPcsContinuous\ =\ 0;\l\
+|spiConfig_2(D)-\>bitcount\ =\ 8;\l\
+|spiConfig_2(D)-\>lpspiSrcClk\ =\ 8000000;\l\
+|MEM\ \<unsigned\ int\>\ [(void\ *)spiConfig_2(D)\ +\ 16B]\ =\ 16777216;\l\
+|MEM\ \<unsigned\ short\>\ [(unsigned\ char\ *)spiConfig_2(D)\ +\ 20B]\ =\ 0;\l\
+|spiConfig_2(D)-\>callback\ =\ 0B;\l\
+|spiConfig_2(D)-\>callbackParam\ =\ 0B;\l\
+|return;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterDeinit" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterDeinit ()";
+	fn_31_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_31_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_31_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpspiState_5\ =\ g_lpspiStatePtr[instance_4(D)];\l\
+|base_6\ =\ g_lpspiBase[instance_4(D)];\l\
+|LPSPI_Init\ (base_6);\l\
+|_1\ =\ g_lpspiIrqId[instance_4(D)];\l\
+|INT_SYS_DisableIRQ\ (_1);\l\
+|g_lpspiStatePtr[instance_4(D)]\ =\ 0B;\l\
+|_2\ =\ &lpspiState_5-\>lpspiSemaphore;\l\
+|errorCode_11\ =\ OSIF_SemaDestroy\ (_2);\ [tail\ call]\l\
+|return\ errorCode_11;\l\
+}"];
+
+	fn_31_basic_block_0:s -> fn_31_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_2:s -> fn_31_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_31_basic_block_0:s -> fn_31_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterSetDelay" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterSetDelay ()";
+	fn_32_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_32_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_32_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_4\ =\ g_lpspiBase[instance_3(D)];\l\
+|errorCode_6\ =\ LPSPI_Disable\ (base_4);\l\
+|if\ (errorCode_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+}"];
+
+	fn_32_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669601\<bb\ 3\>:\l\
+|_20\ =\{v\}\ base_4-\>CCR;\l\
+|ccrValue_21\ =\ _20\ &\ 16777215;\l\
+|_22\ =\ delaySCKtoPCS_7(D)\ \<\<\ 24;\l\
+|ccrValue_23\ =\ ccrValue_21\ \|\ _22;\l\
+|base_4-\>CCR\ =\{v\}\ ccrValue_23;\l\
+|_16\ =\{v\}\ base_4-\>CCR;\l\
+|ccrValue_17\ =\ _16\ &\ 4278255615;\l\
+|_18\ =\ delayPCStoSCK_8(D)\ \<\<\ 16;\l\
+|ccrValue_19\ =\ ccrValue_17\ \|\ _18;\l\
+|base_4-\>CCR\ =\{v\}\ ccrValue_19;\l\
+|_12\ =\{v\}\ base_4-\>CCR;\l\
+|ccrValue_13\ =\ _12\ &\ 4294902015;\l\
+|_14\ =\ delayBetwenTransfers_9(D)\ \<\<\ 8;\l\
+|ccrValue_15\ =\ ccrValue_13\ \|\ _14;\l\
+|base_4-\>CCR\ =\{v\}\ ccrValue_15;\l\
+|_10\ =\{v\}\ base_4-\>CR;\l\
+|_11\ =\ _10\ \|\ 1;\l\
+|base_4-\>CR\ =\{v\}\ _11;\l\
+}"];
+
+	fn_32_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|return\ errorCode_6;\l\
+}"];
+
+	fn_32_basic_block_0:s -> fn_32_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_4:s -> fn_32_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_32_basic_block_0:s -> fn_32_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterConfigureBus" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterConfigureBus ()";
+	fn_33_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_33_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_33_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|lpspiState_42\ =\ g_lpspiStatePtr[instance_41(D)];\l\
+|base_43\ =\ g_lpspiBase[instance_41(D)];\l\
+|_1\ =\ LPSPI_Disable\ (base_43);\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.00%]\l\
+}"];
+
+	fn_33_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:765045350\<bb\ 3\>:\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_33_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669600\<bb\ 4\>:\l\
+|_2\ =\ spiConfig_45(D)-\>bitcount;\l\
+|_3\ =\ _2\ +\ 65528;\l\
+|if\ (_3\ \>\ 4088)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_33_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:467721933\<bb\ 5\>:\l\
+|lpspiState_42-\>bitsPerFrame\ =\ _2;\l\
+|_4\ =\ spiConfig_45(D)-\>lpspiSrcClk;\l\
+|lpspiState_42-\>lpspiSrcClk\ =\ _4;\l\
+|_5\ =\ spiConfig_45(D)-\>isPcsContinuous;\l\
+|lpspiState_42-\>isPcsContinuous\ =\ _5;\l\
+|_6\ =\ spiConfig_45(D)-\>lsbFirst;\l\
+|lpspiState_42-\>lsb\ =\{v\}\ _6;\l\
+|_7\ =\ spiConfig_45(D)-\>transferType;\l\
+|lpspiState_42-\>transferType\ =\ _7;\l\
+|lpspiState_42-\>isTransferInProgress\ =\{v\}\ 0;\l\
+|lpspiState_42-\>isBlocking\ =\ 0;\l\
+|_96\ =\ _2\ +\ 7;\l\
+|_9\ =\ (unsigned\ int)\ _96;\l\
+|_10\ =\ _9\ \>\>\ 3;\l\
+|if\ (_10\ ==\ 3)\l\
+\ \ goto\ \<bb\ 6\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [66.00%]\l\
+}"];
+
+	fn_33_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:159025459\<bb\ 6\>:\l\
+|lpspiState_42-\>bytesPerFrame\ =\ 4;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_33_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:308696474\<bb\ 7\>:\l\
+|_11\ =\ (short\ unsigned\ int)\ _10;\l\
+|if\ (_10\ \>\ 4)\l\
+\ \ goto\ \<bb\ 9\>;\ [75.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [24.24%]\l\
+}"];
+
+	fn_33_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:74835509\<bb\ 8\>:\l\
+|lpspiState_42-\>bytesPerFrame\ =\ _11;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_33_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:233860966\<bb\ 9\>:\l\
+|_14\ =\ _10\ +\ 4294967295;\l\
+|_15\ =\ _14\ \>\>\ 2;\l\
+|_16\ =\ _15\ +\ 1;\l\
+|_17\ =\ (short\ unsigned\ int)\ _16;\l\
+|_18\ =\ _17\ *\ 4;\l\
+|lpspiState_42-\>bytesPerFrame\ =\ _18;\l\
+}"];
+
+	fn_33_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:467721933\<bb\ 10\>:\l\
+|_19\ =\ spiConfig_45(D)-\>rxDMAChannel;\l\
+|lpspiState_42-\>rxDMAChannel\ =\ _19;\l\
+|_20\ =\ spiConfig_45(D)-\>txDMAChannel;\l\
+|lpspiState_42-\>txDMAChannel\ =\ _20;\l\
+|_21\ =\ spiConfig_45(D)-\>callback;\l\
+|lpspiState_42-\>callback\ =\ _21;\l\
+|_22\ =\ spiConfig_45(D)-\>callbackParam;\l\
+|lpspiState_42-\>callbackParam\ =\ _22;\l\
+|_23\ =\ spiConfig_45(D)-\>whichPcs;\l\
+|_24\ =\ spiConfig_45(D)-\>pcsPolarity;\l\
+|LPSPI_SetPcsPolarityMode\ (base_43,\ _23,\ _24);\l\
+|_25\ =\ spiConfig_45(D)-\>bitsPerSec;\l\
+|_26\ =\ spiConfig_45(D)-\>lpspiSrcClk;\l\
+|baudRate_62\ =\ LPSPI_SetBaudRate\ (base_43,\ _25,\ _26,\ &tcrPrescaleValue);\l\
+|lpspi_tmp_82\ =\{v\}\ base_43-\>CFGR1;\l\
+|lpspi_tmp_83\ =\ lpspi_tmp_82\ &\ 4294967293;\l\
+|lpspi_tmp_84\ =\ lpspi_tmp_83\ \|\ 2;\l\
+|base_43-\>CFGR1\ =\{v\}\ lpspi_tmp_84;\l\
+|_80\ =\{v\}\ base_43-\>CR;\l\
+|_81\ =\ _80\ \|\ 1;\l\
+|base_43-\>CR\ =\{v\}\ _81;\l\
+|if\ (baudRate_62\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [66.00%]\l\
+}"];
+
+	fn_33_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:308696474\<bb\ 11\>:\l\
+|if\ (calculatedBaudRate_63(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 12\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [30.00%]\l\
+}"];
+
+	fn_33_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:216087533\<bb\ 12\>:\l\
+|*calculatedBaudRate_63(D)\ =\ baudRate_62;\l\
+}"];
+
+	fn_33_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:308696474\<bb\ 13\>:\l\
+|_27\ =\ lpspiState_42-\>bitsPerFrame;\l\
+|_28\ =\ (long\ unsigned\ int)\ _27;\l\
+|txCmdCfg.frameSize\ =\ _28;\l\
+|MEM\ \<unsigned\ int\>\ [(void\ *)&txCmdCfg\ +\ 4B]\ =\ 0;\l\
+|_29\ =\ spiConfig_45(D)-\>isPcsContinuous;\l\
+|txCmdCfg.contTransfer\ =\ _29;\l\
+|txCmdCfg.byteSwap\ =\ 0;\l\
+|_30\ =\ spiConfig_45(D)-\>lsbFirst;\l\
+|txCmdCfg.lsbFirst\ =\ _30;\l\
+|_31\ =\ spiConfig_45(D)-\>whichPcs;\l\
+|txCmdCfg.whichPcs\ =\ _31;\l\
+|tcrPrescaleValue.0_32\ =\ tcrPrescaleValue;\l\
+|txCmdCfg.preDiv\ =\ tcrPrescaleValue.0_32;\l\
+|_97\ =\ MEM\ \<unsigned\ short\>\ [(void\ *)spiConfig_45(D)\ +\ 16B];\l\
+|MEM\ \<unsigned\ short\>\ [(void\ *)&txCmdCfg\ +\ 16B]\ =\ _97;\l\
+|LPSPI_SetTxCommandReg\ (base_43,\ &txCmdCfg);\l\
+}"];
+
+	fn_33_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 14\>:\l\
+|#\ _35\ =\ PHI\ \<_1(13),\ 1(3)\>\l\
+|tcrPrescaleValue\ =\{v\}\ \{CLOBBER\};\l\
+|txCmdCfg\ =\{v\}\ \{CLOBBER\};\l\
+|return\ _35;\l\
+}"];
+
+	fn_33_basic_block_0:s -> fn_33_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_2:s -> fn_33_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_33_basic_block_2:s -> fn_33_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_33_basic_block_3:s -> fn_33_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_4:s -> fn_33_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_33_basic_block_4:s -> fn_33_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_33_basic_block_5:s -> fn_33_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_33_basic_block_5:s -> fn_33_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_33_basic_block_6:s -> fn_33_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_7:s -> fn_33_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_33_basic_block_7:s -> fn_33_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[24%]"];
+	fn_33_basic_block_8:s -> fn_33_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_9:s -> fn_33_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_10:s -> fn_33_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_33_basic_block_10:s -> fn_33_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_33_basic_block_11:s -> fn_33_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_33_basic_block_11:s -> fn_33_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_33_basic_block_12:s -> fn_33_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_13:s -> fn_33_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_14:s -> fn_33_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_33_basic_block_0:s -> fn_33_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterInit" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterInit ()";
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_7\ =\ g_lpspiBase[instance_6(D)];\l\
+|g_lpspiStatePtr[instance_6(D)]\ =\ lpspiState_8(D);\l\
+|LPSPI_Init\ (base_7);\l\
+|LPSPI_SetMasterSlaveMode\ (base_7,\ 1);\l\
+|LPSPI_SetPinConfigMode\ (base_7,\ 0,\ 0,\ 1);\l\
+|_20\ =\{v\}\ MEM[(const\ struct\ LPSPI_Type\ *)base_7].PARAM;\l\
+|_21\ =\ _20\ &\ 255;\l\
+|_22\ =\ 1\ \<\<\ _21;\l\
+|_23\ =\ (unsigned\ char)\ _22;\l\
+|MEM[(uint8_t\ *)lpspiState_8(D)\ +\ 33B]\ =\ _23;\l\
+|errorCode_15\ =\ LPSPI_DRV_MasterConfigureBus\ (instance_6(D),\ spiConfig_13(D),\ 0B);\l\
+|if\ (errorCode_15\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [48.88%]\l\
+}"];
+
+	fn_30_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:524845000\<bb\ 3\>:\l\
+|lpspiState_8(D)-\>dummy\ =\ 0;\l\
+|_1\ =\ &lpspiState_8(D)-\>lpspiSemaphore;\l\
+|errorCode_18\ =\ OSIF_SemaCreate\ (_1,\ 0);\l\
+|_2\ =\ g_lpspiIrqId[instance_6(D)];\l\
+|INT_SYS_EnableIRQ\ (_2);\l\
+|_24\ =\{v\}\ base_7-\>CR;\l\
+|_25\ =\ _24\ \|\ 1;\l\
+|base_7-\>CR\ =\{v\}\ _25;\l\
+}"];
+
+	fn_30_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ _3\ =\ PHI\ \<errorCode_18(3),\ errorCode_15(2)\>\l\
+|return\ _3;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_30_basic_block_3:s -> fn_30_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_4:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterTransferBlocking" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterTransferBlocking ()";
+	fn_34_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_34_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_34_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (transferByteCount_8(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+}"];
+
+	fn_34_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669601\<bb\ 3\>:\l\
+|base_7\ =\ g_lpspiBase[instance_5(D)];\l\
+|_25\ =\{v\}\ MEM[(const\ struct\ LPSPI_Type\ *)base_7].SR;\l\
+|_26\ =\ _25\ \>\>\ 24;\l\
+|_27\ =\ (_Bool)\ _26;\l\
+|if\ (_27\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [36.03%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [63.97%]\l\
+}"];
+
+	fn_34_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:453335945\<bb\ 4\>:\l\
+|lpspiState_6\ =\ g_lpspiStatePtr[instance_5(D)];\l\
+|_1\ =\ &lpspiState_6-\>lpspiSemaphore;\l\
+|OSIF_SemaWait\ (_1,\ 0);\l\
+|lpspiState_6-\>isBlocking\ =\ 1;\l\
+|error_14\ =\ LPSPI_DRV_MasterStartTransfer\ (instance_5(D),\ sendBuffer_11(D),\ receiveBuffer_12(D),\ transferByteCount_8(D));\l\
+|if\ (error_14\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_34_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:154134223\<bb\ 5\>:\l\
+|_44\ =\{v\}\ base_7-\>IER;\l\
+|_49\ =\ _44\ &\ 4294967294;\l\
+|base_7-\>IER\ =\{v\}\ _49;\l\
+|_38\ =\{v\}\ base_7-\>IER;\l\
+|_43\ =\ _38\ &\ 4294967293;\l\
+|base_7-\>IER\ =\{v\}\ _43;\l\
+|LPSPI_DRV_DisableTEIEInterrupts\ (instance_5(D));\l\
+|_32\ =\{v\}\ base_7-\>IER;\l\
+|_37\ =\ _32\ &\ 4294966271;\l\
+|base_7-\>IER\ =\{v\}\ _37;\l\
+|LPSPI_ClearStatusFlag\ (base_7,\ 10);\l\
+|lpspiState_6-\>isBlocking\ =\ 0;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_34_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:299201722\<bb\ 6\>:\l\
+|osifError_17\ =\ OSIF_SemaWait\ (_1,\ timeout_15(D));\l\
+|if\ (osifError_17\ ==\ 3)\l\
+\ \ goto\ \<bb\ 7\>;\ [12.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [87.50%]\l\
+}"];
+
+	fn_34_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:37400215\<bb\ 7\>:\l\
+|lpspiState_6-\>isBlocking\ =\ 0;\l\
+|LPSPI_DRV_MasterCompleteTransfer\ (instance_5(D));\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_34_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:261801507\<bb\ 8\>:\l\
+|LPSPI_DRV_DisableTEIEInterrupts\ (instance_5(D));\l\
+|_50\ =\{v\}\ base_7-\>IER;\l\
+|_55\ =\ _50\ &\ 4294966271;\l\
+|base_7-\>IER\ =\{v\}\ _55;\l\
+|LPSPI_ClearStatusFlag\ (base_7,\ 10);\l\
+}"];
+
+	fn_34_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|#\ _2\ =\ PHI\ \<error_14(8),\ transferByteCount_8(D)(2),\ error_14(5),\ osifError_17(7),\ 2(3)\>\l\
+|return\ _2;\l\
+}"];
+
+	fn_34_basic_block_0:s -> fn_34_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_2:s -> fn_34_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_34_basic_block_2:s -> fn_34_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_34_basic_block_3:s -> fn_34_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_34_basic_block_3:s -> fn_34_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_34_basic_block_4:s -> fn_34_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_34_basic_block_4:s -> fn_34_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_34_basic_block_5:s -> fn_34_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_6:s -> fn_34_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_34_basic_block_6:s -> fn_34_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[87%]"];
+	fn_34_basic_block_7:s -> fn_34_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_8:s -> fn_34_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_9:s -> fn_34_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_34_basic_block_0:s -> fn_34_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterTransfer" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterTransfer ()";
+	fn_35_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_35_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_35_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (transferByteCount_4(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [48.88%]\l\
+}"];
+
+	fn_35_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:524845000\<bb\ 3\>:\l\
+|error_10\ =\ LPSPI_DRV_MasterStartTransfer\ (instance_6(D),\ sendBuffer_7(D),\ receiveBuffer_8(D),\ transferByteCount_4(D));\ [tail\ call]\l\
+}"];
+
+	fn_35_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ _1\ =\ PHI\ \<error_10(3),\ transferByteCount_4(D)(2)\>\l\
+|return\ _1;\l\
+}"];
+
+	fn_35_basic_block_0:s -> fn_35_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_35_basic_block_3:s -> fn_35_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_4:s -> fn_35_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_35_basic_block_0:s -> fn_35_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterGetTransferStatus" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterGetTransferStatus ()";
+	fn_36_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_36_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_36_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpspiState_10\ =\ g_lpspiStatePtr[instance_9(D)];\l\
+|if\ (bytesRemained_11(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [30.00%]\l\
+}"];
+
+	fn_36_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 3\>:\l\
+|_1\ =\{v\}\ lpspiState_10-\>rxCount;\l\
+|_2\ =\ (long\ unsigned\ int)\ _1;\l\
+|*bytesRemained_11(D)\ =\ _2;\l\
+}"];
+
+	fn_36_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|_3\ =\ lpspiState_10-\>status;\l\
+|if\ (_3\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_36_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 5\>:\l\
+|_4\ =\{v\}\ lpspiState_10-\>isTransferInProgress;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_36_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435457\<bb\ 6\>:\l\
+}"];
+
+	fn_36_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|#\ _5\ =\ PHI\ \<1(4),\ 2(5),\ 0(6)\>\l\
+|return\ _5;\l\
+}"];
+
+	fn_36_basic_block_0:s -> fn_36_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_36_basic_block_3:s -> fn_36_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_4:s -> fn_36_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_4:s -> fn_36_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_5:s -> fn_36_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_5:s -> fn_36_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_6:s -> fn_36_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_7:s -> fn_36_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_36_basic_block_0:s -> fn_36_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterAbortTransfer" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterAbortTransfer ()";
+	fn_37_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_37_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_37_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_3\ =\ g_lpspiBase[instance_2(D)];\l\
+|LPSPI_DRV_MasterCompleteTransfer\ (instance_2(D));\l\
+|LPSPI_SetFlushFifoCmd\ (base_3,\ 1,\ 1);\l\
+|LPSPI_SetFlushFifoCmd\ (base_3,\ 1,\ 1);\l\
+|return\ 0;\l\
+}"];
+
+	fn_37_basic_block_0:s -> fn_37_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_2:s -> fn_37_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_37_basic_block_0:s -> fn_37_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_SetPcs" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_SetPcs ()";
+	fn_38_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_38_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_38_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_6\ =\ g_lpspiBase[instance_5(D)];\l\
+|_1\ =\ LPSPI_Disable\ (base_6);\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+}"];
+
+	fn_38_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:817197590\<bb\ 3\>:\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_38_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:524845000\<bb\ 4\>:\l\
+|result_11\ =\ LPSPI_SetPcsPolarityMode\ (base_6,\ whichPcs_8(D),\ polarity_9(D));\l\
+|if\ (result_11\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [48.88%]\l\
+}"];
+
+	fn_38_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:256544234\<bb\ 5\>:\l\
+|_13\ =\{v\}\ base_6-\>CR;\l\
+|_14\ =\ _13\ \|\ 1;\l\
+|base_6-\>CR\ =\{v\}\ _14;\l\
+|LPSPI_SetPcs\ (base_6,\ whichPcs_8(D));\l\
+}"];
+
+	fn_38_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _2\ =\ PHI\ \<result_11(5),\ 1(3)\>\l\
+|return\ _2;\l\
+}"];
+
+	fn_38_basic_block_0:s -> fn_38_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_38_basic_block_3:s -> fn_38_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_4:s -> fn_38_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_38_basic_block_4:s -> fn_38_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_38_basic_block_5:s -> fn_38_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_6:s -> fn_38_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_38_basic_block_0:s -> fn_38_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPSPI_DRV_MasterIRQHandler" {
+	style="dashed";
+	color="black";
+	label="LPSPI_DRV_MasterIRQHandler ()";
+	fn_43_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_43_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_43_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741821\<bb\ 2\>:\l\
+|lpspiState_12\ =\ g_lpspiStatePtr[instance_11(D)];\l\
+|base_13\ =\ g_lpspiBase[instance_11(D)];\l\
+|_23\ =\{v\}\ MEM[(const\ struct\ LPSPI_Type\ *)base_13].SR;\l\
+|_24\ =\ _23\ \>\>\ 11;\l\
+|_25\ =\ (_Bool)\ _24;\l\
+|if\ (_25\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_43_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870910\<bb\ 3\>:\l\
+|_1\ =\ lpspiState_12-\>txBuff;\l\
+|if\ (_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [37.19%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [62.81%]\l\
+}"];
+
+	fn_43_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:199662291\<bb\ 4\>:\l\
+|LPSPI_DRV_MasterCompleteTransfer\ (instance_11(D));\l\
+|LPSPI_SetFlushFifoCmd\ (base_13,\ 1,\ 1);\l\
+|LPSPI_SetFlushFifoCmd\ (base_13,\ 1,\ 1);\l\
+|LPSPI_ClearStatusFlag\ (base_13,\ 11);\l\
+|lpspiState_12-\>status\ =\ 1;\l\
+goto\ \<bb\ 19\>;\ [100.00%]\l\
+}"];
+
+	fn_43_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:874079530\<bb\ 5\>:\l\
+|_26\ =\{v\}\ MEM[(const\ struct\ LPSPI_Type\ *)base_13].SR;\l\
+|_27\ =\ _26\ \>\>\ 12;\l\
+|_28\ =\ (_Bool)\ _27;\l\
+|if\ (_28\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_43_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:437039765\<bb\ 6\>:\l\
+|_2\ =\ lpspiState_12-\>rxBuff;\l\
+|if\ (_2\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 7\>;\ [37.19%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [62.81%]\l\
+}"];
+
+	fn_43_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:162535088\<bb\ 7\>:\l\
+|LPSPI_DRV_MasterCompleteTransfer\ (instance_11(D));\l\
+|LPSPI_SetFlushFifoCmd\ (base_13,\ 1,\ 1);\l\
+|LPSPI_SetFlushFifoCmd\ (base_13,\ 1,\ 1);\l\
+|LPSPI_ClearStatusFlag\ (base_13,\ 12);\l\
+|lpspiState_12-\>status\ =\ 2;\l\
+goto\ \<bb\ 19\>;\ [100.00%]\l\
+}"];
+
+	fn_43_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:711544441\<bb\ 8\>:\l\
+|_29\ =\{v\}\ MEM[(const\ struct\ LPSPI_Type\ *)base_13].SR;\l\
+|_30\ =\ _29\ \>\>\ 1;\l\
+|_31\ =\ (_Bool)\ _30;\l\
+|if\ (_31\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_43_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:355772220\<bb\ 9\>:\l\
+|_3\ =\{v\}\ lpspiState_12-\>rxCount;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [67.00%]\l\
+}"];
+
+	fn_43_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:117404832\<bb\ 10\>:\l\
+|LPSPI_DRV_ReadRXBuffer\ (instance_11(D));\l\
+}"];
+
+	fn_43_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:711544442\<bb\ 11\>:\l\
+|_32\ =\{v\}\ MEM[(const\ struct\ LPSPI_Type\ *)base_13].SR;\l\
+|_33\ =\ (_Bool)\ _32;\l\
+|if\ (_33\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+}"];
+
+	fn_43_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:355772221\<bb\ 12\>:\l\
+|_4\ =\{v\}\ lpspiState_12-\>txCount;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 13\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [67.00%]\l\
+}"];
+
+	fn_43_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:117404832\<bb\ 13\>:\l\
+|LPSPI_DRV_FillupTxBuffer\ (instance_11(D));\l\
+}"];
+
+	fn_43_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:711544443\<bb\ 14\>:\l\
+|_5\ =\{v\}\ lpspiState_12-\>txCount;\l\
+|if\ (_5\ ==\ 0)\l\
+\ \ goto\ \<bb\ 16\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [67.00%]\l\
+}"];
+
+	fn_43_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:672800849\<bb\ 15\>:\l\
+goto\ \<bb\ 19\>;\ [100.00%]\l\
+}"];
+
+	fn_43_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:234809665\<bb\ 16\>:\l\
+|_43\ =\{v\}\ base_13-\>IER;\l\
+|_48\ =\ _43\ &\ 4294967294;\l\
+|base_13-\>IER\ =\{v\}\ _48;\l\
+|_34\ =\{v\}\ base_13-\>IER;\l\
+|_35\ =\ _34\ \|\ 1024;\l\
+|base_13-\>IER\ =\{v\}\ _35;\l\
+|_6\ =\{v\}\ lpspiState_12-\>rxCount;\l\
+|if\ (_6\ ==\ 0)\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+}"];
+
+	fn_43_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:117404832\<bb\ 17\>:\l\
+|_36\ =\{v\}\ MEM[(const\ struct\ LPSPI_Type\ *)base_13].SR;\l\
+|_37\ =\ _36\ \>\>\ 10;\l\
+|_38\ =\ (_Bool)\ _37;\l\
+|if\ (_38\ !=\ 0)\l\
+\ \ goto\ \<bb\ 18\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [67.00%]\l\
+}"];
+
+	fn_43_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38743595\<bb\ 18\>:\l\
+|LPSPI_DRV_MasterCompleteTransfer\ (instance_11(D));\ [tail\ call]\l\
+}"];
+
+	fn_43_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 19\>:\l\
+|return;\l\
+}"];
+
+	fn_43_basic_block_0:s -> fn_43_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_2:s -> fn_43_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_2:s -> fn_43_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_3:s -> fn_43_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[37%]"];
+	fn_43_basic_block_3:s -> fn_43_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[62%]"];
+	fn_43_basic_block_4:s -> fn_43_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_5:s -> fn_43_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_5:s -> fn_43_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_6:s -> fn_43_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[37%]"];
+	fn_43_basic_block_6:s -> fn_43_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[62%]"];
+	fn_43_basic_block_7:s -> fn_43_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_8:s -> fn_43_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_8:s -> fn_43_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_9:s -> fn_43_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_43_basic_block_9:s -> fn_43_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_43_basic_block_10:s -> fn_43_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_11:s -> fn_43_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_11:s -> fn_43_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_12:s -> fn_43_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_43_basic_block_12:s -> fn_43_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_43_basic_block_13:s -> fn_43_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_14:s -> fn_43_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_43_basic_block_14:s -> fn_43_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_43_basic_block_15:s -> fn_43_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_16:s -> fn_43_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_16:s -> fn_43_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_43_basic_block_17:s -> fn_43_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_43_basic_block_17:s -> fn_43_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_43_basic_block_18:s -> fn_43_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_19:s -> fn_43_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_43_basic_block_0:s -> fn_43_basic_block_1:n [style="invis",constraint=true];
+}
+}

@@ -1,0 +1,24 @@
+
+;; Function LPI2C0_Master_IRQHandler (LPI2C0_Master_IRQHandler, funcdef_no=5, decl_uid=7299, cgraph_uid=6, symbol_order=5)
+
+LPI2C0_Master_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  LPI2C_DRV_MasterIRQHandler (0); [tail call]
+  return;
+
+}
+
+
+
+;; Function LPI2C0_Slave_IRQHandler (LPI2C0_Slave_IRQHandler, funcdef_no=6, decl_uid=7301, cgraph_uid=7, symbol_order=6)
+
+LPI2C0_Slave_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  LPI2C_DRV_SlaveIRQHandler (0); [tail call]
+  return;
+
+}
+
+

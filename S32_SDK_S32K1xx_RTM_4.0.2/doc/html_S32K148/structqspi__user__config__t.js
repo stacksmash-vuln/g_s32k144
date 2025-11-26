@@ -1,0 +1,25 @@
+var structqspi__user__config__t =
+[
+    [ "callback", "structqspi__user__config__t.html#ad8d4bed67f264c3c558c0c687ca94dcf", null ],
+    [ "callbackParam", "structqspi__user__config__t.html#a4d9d27cc6eab695492581dc7c24441f6", null ],
+    [ "clock_src", "structqspi__user__config__t.html#a2a4e87be995a8cc102722d79314e6f41", null ],
+    [ "columnAddr", "structqspi__user__config__t.html#a0694b5b0d6d06db589648495ae8582ce", null ],
+    [ "csHoldTime", "structqspi__user__config__t.html#a28a1626994bd04ec0efdc23b6d7363a3", null ],
+    [ "csSetupTime", "structqspi__user__config__t.html#a78314ebaeee072682a3d9c1ea3d5a144", null ],
+    [ "dataRate", "structqspi__user__config__t.html#a386a482698d0011189fb7cf8ace61e85", null ],
+    [ "divider", "structqspi__user__config__t.html#a69b787541e43a8cfea7991dc50926b7b", null ],
+    [ "dmaChannel", "structqspi__user__config__t.html#a03119bc8b5dd9fff3246ecea514bec1a", null ],
+    [ "dmaSupport", "structqspi__user__config__t.html#a1bd9fa3dd1076f3d066ba9a80b4c8415", null ],
+    [ "dozeMode", "structqspi__user__config__t.html#ae4b73559c6b4e74d0249fce8a2c5a02b", null ],
+    [ "dqsDelay", "structqspi__user__config__t.html#a7bf81711b8e02ad2e43b1c41be4c23bb", null ],
+    [ "dqsInvert", "structqspi__user__config__t.html#aba5eb97fa3d9465b15b46fef5d67af2a", null ],
+    [ "endianess", "structqspi__user__config__t.html#aa6abf26ba27755b7f33de1d62872b462", null ],
+    [ "io2IdleValue", "structqspi__user__config__t.html#a3ea3df6c9bb54790a7d1db599fe6d079", null ],
+    [ "io3IdleValue", "structqspi__user__config__t.html#a27e128035d2439c09b205804e101ad5e", null ],
+    [ "memSize", "structqspi__user__config__t.html#a1d56e5453ce89b731040619bac587108", null ],
+    [ "readMode", "structqspi__user__config__t.html#ab95b1011faab2776de3a9224e280d073", null ],
+    [ "sampleDelay", "structqspi__user__config__t.html#a3880abfa572a223e0e03dc89551db8a8", null ],
+    [ "samplePhase", "structqspi__user__config__t.html#add47abe3e57338a74d81a9ae2ca81914", null ],
+    [ "side", "structqspi__user__config__t.html#a08867dc499119b321426f608e4edf3c7", null ],
+    [ "wordAddresable", "structqspi__user__config__t.html#a007308bf5301cce82b7d66fa7422123e", null ]
+];

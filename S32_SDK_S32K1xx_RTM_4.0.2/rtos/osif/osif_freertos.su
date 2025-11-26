@@ -1,0 +1,10 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:132:6:OSIF_TimeDelay	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:148:10:OSIF_GetMilliseconds	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:165:10:OSIF_MutexLock	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:221:10:OSIF_MutexUnlock	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:262:10:OSIF_MutexCreate	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:296:10:OSIF_MutexDestroy	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:319:10:OSIF_SemaWait	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:354:10:OSIF_SemaPost	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:395:10:OSIF_SemaCreate	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/osif/osif_freertos.c:426:10:OSIF_SemaDestroy	8	static

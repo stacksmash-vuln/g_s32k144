@@ -1,0 +1,177 @@
+************************************************************************************
+Release Notes for NXP Semiconductors SCST M0+ for S32K118 swv: 1.0.1
+
+NXP and the NXP logo are trademarks of NXP Semiconductors.
+
+All other product or service names are the property of their respective owners.
+Copyright 2018,2020 NXP
+************************************************************************************
+
+************************************************************************************
+This package contains files for NXP SCST M0+ for S32K118, swv: 1.0.1 RTM
+************************************************************************************
+
+========================================================
+Installation
+========================================================
+
+Run the SCST_M0_S32K118_RTM_1.0.1.exe file and follow the instructions.
+
+========================================================
+Supported Devices:
+========================================================
+S32K11x (M0+ Core)
+
+Tested with: 
+- PS32K118LAMLH 64LQFP (maskset SEALP)
+
+========================================================
+Release Specifics:
+========================================================
+
+1. This release was specifically created for the Cortex M0+ core and S32K118 device.
+
+2. This release was tested on PS32K118LAMLH 64LQFP (maskset SEALP) microcontroller.
+
+3. This RTM release consists of following top-level folders:
+   - M0_SCST - SCST Library
+   - Quality_Documentation - Quality-related documentation
+   - Safety_Documentation - Safety-related documentation
+   - User_Documentation - User documentation
+
+4. The M0+ SCST library was developed with the following compilers:
+   - WindRiver 5.9.6.3
+   - IAR compiler v. 8.11.2 
+   - GreenHills compiler v.2017.1.4
+   - GCC gcc version 6.3.1 20170509, this compiler is part of S32DS installer from here: 
+     https://www.nxp.com/webapp/swlicensing/sso/downloadSoftware.sp?catid=S32-DS-ARM_v2018
+   
+
+========================================================
+Known Issues, Limitations, Notes
+========================================================
+None
+
+========================================================
+What's modified in RTM 1.0.1 release:
+========================================================
+
+Bugs:
+CSTL-601: Fix GHS compilation error
+- Fixed compilation error when --no_debug compiler option was set.
+- Updated the following files:
+        m0_scst_lib.s
+        m0_scst_vector_table.s
+        m0_scst_compiler.h
+
+CSTL-604: Wrong execution/latency time measurements
+- Updated test reports.
+- Updated execution and latency times, see Table 9-1 in 
+  the M0_S32K118_SCST_User_Manual.pdf        
+
+========================================================
+What's modified in RTM 1.0.0 release:
+========================================================
+New Features:
+CSTL-527: Prepare support for the GCC compiler
+    - Prepared compiler abstraction for the GCC compiler.
+        
+Improvements:
+CSTL-542: Update SVC exception test
+  The m0_scst_exception_svc_test.s file was changed to additionally test:
+    - Return from nested exception into the Handler mode.
+    - Core registers stacking/unstacking during IRQ entry/exit sequence.
+  Test signature was not affected.
+    
+CSTL-545: Update NMI exception test
+  The m0_scst_exception_nmi_test.s file was changed to additionally test:
+    - NMI exception priority level.
+    - Privileged/Unprivileged mode.
+    - Core registers stacking/unstacking during IRQ entry/exit sequence.
+    - Return from exception into the Thread mode using both Process 
+      and Main stack pointers.
+  Test signature was not affected.
+      
+CSTL-546: Update HardFault exception test
+  The m0_scst_exception_hardfault_test2.s file was changed to additionally test:
+    - Return from exception into the Thread mode using the Process stack pointer.
+  Test signature was not affected.
+    
+CSTL-548: Review memory barrier instructions
+  Changed m0_scst_regfile_test2.s, m0_scst_branch_test2.s, m0_scst_exception_lib.s files.
+    - Added ISB instruction after writing into the CONTROL register according
+      to the recommendation comming from ARM.
+    - Removed not needed DSB instructions.
+  Test signatures were not affected.
+    
+CSTL-551: Update Multiplier test
+  The m0_scst_alu_test5.s file was changed to test:
+    - At least 256 multiplications to ensure better diagnostic coverage 
+      for the fast single-cycle multiplier.
+  Test signature was affected! See Table 9-1 in the M0_S32K118_SCST_User_Manual.pdf.
+
+CSTL-552: Update branch tests
+  Both m0_scst_branch_test1 and m0_scst_branch_test2 were changed to:
+   - Implement self-modifying code for the fetch unit testing.
+   - Improved execution time for the m0_scst_branch_test1.
+
+Other:
+CSTL-536: Update copyright in source and header files
+  Updated copyright text in all M0+ SCST Library related source files.
+  
+========================================================
+What's modified in BETA 0.9.1 release:
+========================================================
+New Features:
+CSTL-509: Develop branch test
+    - Added new atomic tests covering core Branch Logic.
+
+CSTL-515: Develop register file tests
+    - Added new atomic tests covering core Register File. 
+
+CSTL-510: Add support for IAR compiler
+    - Prepared compiler abstraction for the IAR compiler.
+
+CSTL-523: Add support for GHS compiler
+    - Prepared compiler abstraction for the GreenHills compiler.
+
+Improvements:
+CSTL-522: Remove obsolete defines
+    - Useless obsolete defines were removed from the m0_scst_test_shell.h file.
+
+CSTL-521: Fix header files inclusion
+    - Removed redundant inclusion of m0_scst_configuration.h from ALU and Load/Store atomic tests.
+
+    
+========================================================
+What's modified in BETA 0.9.0 release:
+========================================================
+New Features:
+CSTL-497: Develop ALU tests
+    - Added new atomic tests covering the Arithmetic Logic Unit.
+
+Improvements:
+CSTL-505: Improve register restoring to be faster
+    - Register restoring in the exception tests was re-worked to be faster.
+    
+CSTL-506: Remove m0_scst_exception_test_tail_end function
+    - The m0_scst_exception_test_tail_end function was removed since it's functionality 
+      was doubled by the m0_scs_test_tail_end function.
+    
+Defects:
+CSTL-501: Fix invalid function name
+    - Fixed invalid .type symbol name for the m0_scst_set_user_interrupt_vector_table function. 
+      
+CSTL-507: Remove unused compiler abstraction macros.
+    - Unused WindRiver Diab compiler abstraction related macros were removed from 
+      the m0_scst_compiler.h file.
+      
+      
+========================================================
+What's modified in EAR 0.8.0 release:
+========================================================
+CSTL-482: Develop exceptions tests
+    - Added atomic tests covering the Exception Control Logic.
+    
+CSTL-486: Develop Load Store tests
+    - Added atomic tests covering the Load/Store Unit.

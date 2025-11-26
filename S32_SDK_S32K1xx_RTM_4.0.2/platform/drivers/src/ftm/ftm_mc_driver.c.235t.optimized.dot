@@ -1,0 +1,218 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_mc_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_FTM_DRV_InitCounter" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_InitCounter ()";
+	subgraph cluster_141_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_141_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:954449105\<bb\ 5\>:\l\
+|#\ ivtmp.17_62\ =\ PHI\ \<0(4),\ ivtmp.17_61(5)\>\l\
+|_63\ =\ ivtmp.17_62\ *\ 8;\l\
+|_6\ =\ ftmBase_12\ +\ _63;\l\
+|_33\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_6\ +\ 12B];\l\
+|_34\ =\ _33\ &\ 4294967291;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_6\ +\ 12B]\ =\{v\}\ _34;\l\
+|_35\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_6\ +\ 12B];\l\
+|_36\ =\ _35\ &\ 4294967287;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_6\ +\ 12B]\ =\{v\}\ _36;\l\
+|ivtmp.17_61\ =\ ivtmp.17_62\ +\ 1;\l\
+|if\ (ivtmp.17_61\ !=\ 8)\l\
+\ \ goto\ \<bb\ 5\>;\ [87.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [12.50%]\l\
+}"];
+
+	}
+	fn_141_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_141_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_141_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:340836342\<bb\ 2\>:\l\
+|state_13\ =\ ftmStatePtr[instance_11(D)];\l\
+|if\ (state_13\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [30.00%]\l\
+}"];
+
+	fn_141_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:238585440\<bb\ 3\>:\l\
+|_1\ =\ state_13-\>ftmMode;\l\
+|if\ (_1\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_141_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:119292720\<bb\ 4\>:\l\
+|ftmBase_12\ =\ g_ftmBase[instance_11(D)];\l\
+|_30\ =\{v\}\ ftmBase_12-\>SC;\l\
+|_31\ =\ _30\ &\ 4294967271;\l\
+|ftmBase_12-\>SC\ =\{v\}\ _31;\l\
+|_27\ =\{v\}\ ftmBase_12-\>SC;\l\
+|_28\ =\ _27\ &\ 4294966783;\l\
+|ftmBase_12-\>SC\ =\{v\}\ _28;\l\
+|vol.1_29\ =\{v\}\ ftmBase_12-\>SC;\l\
+|_2\ =\ timer_14(D)-\>initialValue;\l\
+|_23\ =\{v\}\ ftmBase_12-\>CNTIN;\l\
+|_24\ =\ _23\ &\ 4294901760;\l\
+|_25\ =\ (long\ unsigned\ int)\ _2;\l\
+|_26\ =\ _24\ \|\ _25;\l\
+|ftmBase_12-\>CNTIN\ =\{v\}\ _26;\l\
+|_3\ =\ timer_14(D)-\>finalValue;\l\
+|_19\ =\{v\}\ ftmBase_12-\>MOD;\l\
+|_20\ =\ _19\ &\ 4294901760;\l\
+|_21\ =\ (long\ unsigned\ int)\ _3;\l\
+|_22\ =\ _20\ \|\ _21;\l\
+|ftmBase_12-\>MOD\ =\{v\}\ _22;\l\
+|_17\ =\{v\}\ ftmBase_12-\>QDCTRL;\l\
+|_18\ =\ _17\ &\ 4294967294;\l\
+|ftmBase_12-\>QDCTRL\ =\{v\}\ _18;\l\
+}"];
+
+	fn_141_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:119292720\<bb\ 6\>:\l\
+|_4\ =\ timer_14(D)-\>mode;\l\
+|if\ (_4\ ==\ 6)\l\
+\ \ goto\ \<bb\ 7\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [66.00%]\l\
+}"];
+
+	fn_141_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40559525\<bb\ 7\>:\l\
+|_37\ =\{v\}\ ftmBase_12-\>SC;\l\
+|_38\ =\ _37\ &\ 4294967263;\l\
+|ftmBase_12-\>SC\ =\{v\}\ _38;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_141_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:78733195\<bb\ 8\>:\l\
+|if\ (_4\ ==\ 7)\l\
+\ \ goto\ \<bb\ 9\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [66.00%]\l\
+}"];
+
+	fn_141_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:26769287\<bb\ 9\>:\l\
+|_39\ =\{v\}\ ftmBase_12-\>SC;\l\
+|_40\ =\ _39\ &\ 4294967263;\l\
+|_41\ =\ _40\ \|\ 32;\l\
+|ftmBase_12-\>SC\ =\{v\}\ _41;\l\
+}"];
+
+	fn_141_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:119292720\<bb\ 10\>:\l\
+|state_13-\>ftmMode\ =\ _4;\l\
+}"];
+
+	fn_141_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:340836342\<bb\ 11\>:\l\
+|#\ retStatus_5\ =\ PHI\ \<0(10),\ 1(2),\ 1(3)\>\l\
+|return\ retStatus_5;\l\
+}"];
+
+	fn_141_basic_block_0:s -> fn_141_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_2:s -> fn_141_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_141_basic_block_2:s -> fn_141_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_141_basic_block_3:s -> fn_141_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_141_basic_block_3:s -> fn_141_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_141_basic_block_4:s -> fn_141_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_5:s -> fn_141_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[87%]"];
+	fn_141_basic_block_5:s -> fn_141_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_141_basic_block_6:s -> fn_141_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_141_basic_block_6:s -> fn_141_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_141_basic_block_7:s -> fn_141_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_8:s -> fn_141_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_141_basic_block_8:s -> fn_141_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_141_basic_block_9:s -> fn_141_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_10:s -> fn_141_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_141_basic_block_11:s -> fn_141_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_141_basic_block_0:s -> fn_141_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_DRV_CounterStart" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_CounterStart ()";
+	fn_142_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_142_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_142_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|ftmBase_4\ =\ g_ftmBase[instance_3(D)];\l\
+|state_5\ =\ ftmStatePtr[instance_3(D)];\l\
+|_1\ =\ state_5-\>ftmClockSource;\l\
+|_6\ =\{v\}\ ftmBase_4-\>SC;\l\
+|_7\ =\ _6\ &\ 4294967271;\l\
+|_8\ =\ (long\ unsigned\ int)\ _1;\l\
+|_9\ =\ _8\ \<\<\ 3;\l\
+|_10\ =\ _9\ &\ 24;\l\
+|_11\ =\ _7\ \|\ _10;\l\
+|ftmBase_4-\>SC\ =\{v\}\ _11;\l\
+|return\ 0;\l\
+}"];
+
+	fn_142_basic_block_0:s -> fn_142_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_2:s -> fn_142_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_142_basic_block_0:s -> fn_142_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_DRV_CounterStop" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_CounterStop ()";
+	fn_143_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_143_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_143_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|ftmBase_3\ =\ g_ftmBase[instance_2(D)];\l\
+|_4\ =\{v\}\ ftmBase_3-\>SC;\l\
+|_5\ =\ _4\ &\ 4294967271;\l\
+|ftmBase_3-\>SC\ =\{v\}\ _5;\l\
+|return\ 0;\l\
+}"];
+
+	fn_143_basic_block_0:s -> fn_143_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_143_basic_block_2:s -> fn_143_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_143_basic_block_0:s -> fn_143_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_DRV_CounterRead" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_CounterRead ()";
+	fn_144_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_144_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_144_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|ftmBase_3\ =\ g_ftmBase[instance_2(D)];\l\
+|_4\ =\{v\}\ ftmBase_3-\>CNT;\l\
+|_5\ =\ _4\ &\ 65535;\l\
+|return\ _5;\l\
+}"];
+
+	fn_144_basic_block_0:s -> fn_144_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_144_basic_block_2:s -> fn_144_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_144_basic_block_0:s -> fn_144_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_MC_DRV_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="FTM_MC_DRV_GetDefaultConfig ()";
+	fn_145_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_145_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_145_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>mode\ =\ 6;\l\
+|config_2(D)-\>initialValue\ =\ 0;\l\
+|config_2(D)-\>finalValue\ =\ 65535;\l\
+|return;\l\
+}"];
+
+	fn_145_basic_block_0:s -> fn_145_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_145_basic_block_2:s -> fn_145_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_145_basic_block_0:s -> fn_145_basic_block_1:n [style="invis",constraint=true];
+}
+}

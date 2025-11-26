@@ -1,0 +1,755 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/wdog/wdog_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_WDOG_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_Init ()";
+	fn_13_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_13_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_13_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ userConfigPtr_8(D)-\>winEnable;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_13_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 3\>:\l\
+|pretmp_14\ =\ userConfigPtr_8(D)-\>timeoutValue;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_13_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_2\ =\ userConfigPtr_8(D)-\>windowValue;\l\
+|_3\ =\ userConfigPtr_8(D)-\>timeoutValue;\l\
+|if\ (_2\ \>=\ _3)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_13_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:805306369\<bb\ 5\>:\l\
+|#\ prephitmp_15\ =\ PHI\ \<pretmp_14(3),\ _3(4)\>\l\
+|if\ (prephitmp_15\ ==\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [33.00%]\l\
+}"];
+
+	fn_13_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:265751100\<bb\ 6\>:\l\
+|status_10\ =\ WDOG_Config\ (1074077696B,\ userConfigPtr_8(D));\l\
+|if\ (status_10\ ==\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [67.00%]\l\
+}"];
+
+	fn_13_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:87697863\<bb\ 7\>:\l\
+|INT_SYS_EnableIRQ\ (22);\l\
+}"];
+
+	fn_13_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ status_6\ =\ PHI\ \<status_10(7),\ 1(5),\ 1(4),\ status_10(6)\>\l\
+|return\ status_6;\l\
+}"];
+
+	fn_13_basic_block_0:s -> fn_13_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_13_basic_block_2:s -> fn_13_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_13_basic_block_2:s -> fn_13_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_13_basic_block_3:s -> fn_13_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_13_basic_block_4:s -> fn_13_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_13_basic_block_4:s -> fn_13_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_13_basic_block_5:s -> fn_13_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_13_basic_block_5:s -> fn_13_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_13_basic_block_6:s -> fn_13_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_13_basic_block_6:s -> fn_13_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_13_basic_block_7:s -> fn_13_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_13_basic_block_8:s -> fn_13_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_13_basic_block_0:s -> fn_13_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_Deinit" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_Deinit ()";
+	fn_14_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_14_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_14_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|INT_SYS_DisableIRQGlobal\ ();\l\
+|_8\ =\{v\}\ MEM[(const\ struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_9\ =\ _8\ &\ 32;\l\
+|if\ (_9\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [67.00%]\l\
+}"];
+
+	fn_14_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|INT_SYS_DisableIRQ\ (22);\l\
+|WDOG_Deinit\ (1074077696B);\l\
+}"];
+
+	fn_14_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ status_1\ =\ PHI\ \<0(3),\ 1(2)\>\l\
+|INT_SYS_EnableIRQGlobal\ ();\l\
+|return\ status_1;\l\
+}"];
+
+	fn_14_basic_block_0:s -> fn_14_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_14_basic_block_2:s -> fn_14_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_14_basic_block_2:s -> fn_14_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_14_basic_block_3:s -> fn_14_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_14_basic_block_4:s -> fn_14_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_14_basic_block_0:s -> fn_14_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_GetConfig" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_GetConfig ()";
+	fn_15_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_15_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_15_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|*config_2(D)\ =\ WDOG_GetConfig\ (1074077696B);\l\
+|return;\l\
+}"];
+
+	fn_15_basic_block_0:s -> fn_15_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_15_basic_block_2:s -> fn_15_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_15_basic_block_0:s -> fn_15_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_GetDefaultConfig ()";
+	fn_16_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_16_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_16_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>prescalerEnable\ =\ 0;\l\
+|MEM\ \<unsigned\ short\>\ [(void\ *)config_2(D)]\ =\ 1;\l\
+|MEM\ \<unsigned\ short\>\ [(_Bool\ *)config_2(D)\ +\ 2B]\ =\ 0;\l\
+|MEM\ \<unsigned\ short\>\ [(_Bool\ *)config_2(D)\ +\ 4B]\ =\ 1;\l\
+|config_2(D)-\>winEnable\ =\ 0;\l\
+|config_2(D)-\>timeoutValue\ =\ 1024;\l\
+|config_2(D)-\>windowValue\ =\ 0;\l\
+|return;\l\
+}"];
+
+	fn_16_basic_block_0:s -> fn_16_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_16_basic_block_2:s -> fn_16_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_16_basic_block_0:s -> fn_16_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_SetInt" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_SetInt ()";
+	fn_17_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_17_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_17_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_8\ =\{v\}\ MEM[(const\ struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_9\ =\ _8\ &\ 32;\l\
+|if\ (_9\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [67.00%]\l\
+}"];
+
+	fn_17_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|INT_SYS_DisableIRQGlobal\ ();\l\
+|WDOG_SetInt\ (1074077696B,\ enable_5(D));\l\
+|INT_SYS_EnableIRQGlobal\ ();\l\
+}"];
+
+	fn_17_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ status_1\ =\ PHI\ \<0(3),\ 1(2)\>\l\
+|return\ status_1;\l\
+}"];
+
+	fn_17_basic_block_0:s -> fn_17_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_2:s -> fn_17_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_17_basic_block_2:s -> fn_17_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_17_basic_block_3:s -> fn_17_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_4:s -> fn_17_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_17_basic_block_0:s -> fn_17_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_ClearIntFlag" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_ClearIntFlag ()";
+	fn_18_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_18_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_18_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_3\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_4\ =\ _3\ &\ 8192;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_18_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 3643327776;\l\
+|vol.0_5\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_18_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 50464;\l\
+|vol.1_6\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 55592;\l\
+|vol.2_7\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+}"];
+
+	fn_18_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|_8\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_9\ =\ _8\ \|\ 16384;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CS\ =\{v\}\ _9;\l\
+|vol.3_10\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|return;\l\
+}"];
+
+	fn_18_basic_block_0:s -> fn_18_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_18_basic_block_2:s -> fn_18_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_18_basic_block_2:s -> fn_18_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_18_basic_block_3:s -> fn_18_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_18_basic_block_4:s -> fn_18_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_18_basic_block_5:s -> fn_18_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_18_basic_block_0:s -> fn_18_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_Trigger" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_Trigger ()";
+	fn_19_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_19_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_19_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_3\ =\ _2\ &\ 8192;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_19_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 3028329986;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_19_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 42498;\l\
+|vol.4_4\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 46208;\l\
+}"];
+
+	fn_19_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_19_basic_block_0:s -> fn_19_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_2:s -> fn_19_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_2:s -> fn_19_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_3:s -> fn_19_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_4:s -> fn_19_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_5:s -> fn_19_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_19_basic_block_0:s -> fn_19_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_GetCounter" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_GetCounter ()";
+	fn_20_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_20_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_20_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\{v\}\ MEM[(const\ struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|_3\ =\ (uint16_t)\ _1;\l\
+|return\ _3;\l\
+}"];
+
+	fn_20_basic_block_0:s -> fn_20_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_20_basic_block_2:s -> fn_20_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_20_basic_block_0:s -> fn_20_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_SetWindow" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_SetWindow ()";
+	fn_21_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_21_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_21_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_7\ =\{v\}\ MEM[(const\ struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_8\ =\ _7\ &\ 32;\l\
+|if\ (_8\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [67.00%]\l\
+}"];
+
+	fn_21_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|_20\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_21\ =\ _20\ &\ 8192;\l\
+|if\ (_21\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_21_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 4\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 3643327776;\l\
+|vol.5_22\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_21_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 5\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 50464;\l\
+|vol.6_23\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 55592;\l\
+|vol.7_24\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+}"];
+
+	fn_21_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 6\>:\l\
+|_25\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_26\ =\ _25\ &\ 4294934527;\l\
+|if\ (enable_4(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_21_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 7\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 3643327776;\l\
+|vol.9_11\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_21_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 8\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 50464;\l\
+|vol.10_12\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 55592;\l\
+|vol.11_13\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+}"];
+
+	fn_21_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 9\>:\l\
+|_14\ =\ (long\ unsigned\ int)\ windowvalue_6(D);\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].WIN\ =\{v\}\ _14;\l\
+}"];
+
+	fn_21_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|#\ status_1\ =\ PHI\ \<0(9),\ 0(12),\ 1(2)\>\l\
+|return\ status_1;\l\
+}"];
+
+	fn_21_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 11\>:\l\
+|_36\ =\ _26\ \|\ 32768;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CS\ =\{v\}\ _36;\l\
+|_9\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_10\ =\ _9\ &\ 8192;\l\
+|if\ (_10\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_21_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 12\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CS\ =\{v\}\ _26;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_21_basic_block_0:s -> fn_21_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_2:s -> fn_21_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_21_basic_block_2:s -> fn_21_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_21_basic_block_3:s -> fn_21_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_21_basic_block_3:s -> fn_21_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_21_basic_block_4:s -> fn_21_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_5:s -> fn_21_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_6:s -> fn_21_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_21_basic_block_6:s -> fn_21_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_21_basic_block_7:s -> fn_21_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_8:s -> fn_21_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_9:s -> fn_21_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_10:s -> fn_21_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_21_basic_block_11:s -> fn_21_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_21_basic_block_11:s -> fn_21_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_21_basic_block_12:s -> fn_21_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_0:s -> fn_21_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_SetMode" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_SetMode ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_9\ =\{v\}\ MEM[(const\ struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_10\ =\ _9\ &\ 32;\l\
+|if\ (_10\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [50.00%]\l\
+}"];
+
+	fn_22_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|if\ (Setmode_4(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 12\>;\ [25.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [75.00%]\l\
+}"];
+
+	fn_22_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|if\ (Setmode_4(D)\ ==\ 2)\l\
+\ \ goto\ \<bb\ 18\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.67%]\l\
+}"];
+
+	fn_22_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 5\>:\l\
+|if\ (Setmode_4(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [66.67%]\l\
+}"];
+
+	fn_22_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 6\>:\l\
+|_11\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_12\ =\ _11\ &\ 8192;\l\
+|if\ (_12\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_22_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 7\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 3643327776;\l\
+|vol.12_13\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_22_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 8\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 50464;\l\
+|vol.13_14\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 55592;\l\
+|vol.14_15\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+}"];
+
+	fn_22_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 9\>:\l\
+|_16\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_17\ =\ _16\ &\ 4294967291;\l\
+|if\ (enable_5(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_22_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 10\>:\l\
+|_7\ =\ _17\ \|\ 4;\l\
+}"];
+
+	fn_22_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 11\>:\l\
+|#\ prephitmp_8\ =\ PHI\ \<_7(10),\ _17(9)\>\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CS\ =\{v\}\ prephitmp_8;\l\
+goto\ \<bb\ 24\>;\ [100.00%]\l\
+}"];
+
+	fn_22_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 12\>:\l\
+|_20\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_21\ =\ _20\ &\ 8192;\l\
+|if\ (_21\ !=\ 0)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+}"];
+
+	fn_22_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 13\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 3643327776;\l\
+|vol.16_22\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+goto\ \<bb\ 15\>;\ [100.00%]\l\
+}"];
+
+	fn_22_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 14\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 50464;\l\
+|vol.17_23\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 55592;\l\
+|vol.18_24\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+}"];
+
+	fn_22_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 15\>:\l\
+|_25\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_26\ =\ _25\ &\ 4294967293;\l\
+|if\ (enable_5(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+}"];
+
+	fn_22_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 16\>:\l\
+|_41\ =\ _26\ \|\ 2;\l\
+}"];
+
+	fn_22_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 17\>:\l\
+|#\ prephitmp_6\ =\ PHI\ \<_41(16),\ _26(15)\>\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CS\ =\{v\}\ prephitmp_6;\l\
+goto\ \<bb\ 24\>;\ [100.00%]\l\
+}"];
+
+	fn_22_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 18\>:\l\
+|_29\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_30\ =\ _29\ &\ 8192;\l\
+|if\ (_30\ !=\ 0)\l\
+\ \ goto\ \<bb\ 19\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [50.00%]\l\
+}"];
+
+	fn_22_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 19\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 3643327776;\l\
+|vol.20_31\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+goto\ \<bb\ 21\>;\ [100.00%]\l\
+}"];
+
+	fn_22_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 20\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 50464;\l\
+|vol.21_32\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 55592;\l\
+|vol.22_33\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+}"];
+
+	fn_22_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134217728\<bb\ 21\>:\l\
+|if\ (enable_5(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 22\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [50.00%]\l\
+}"];
+
+	fn_22_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 22\>:\l\
+|_34\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_35\ =\ _34\ \|\ 1;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CS\ =\{v\}\ _35;\l\
+goto\ \<bb\ 24\>;\ [100.00%]\l\
+}"];
+
+	fn_22_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67108864\<bb\ 23\>:\l\
+|_36\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_37\ =\ _36\ &\ 4294967294;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CS\ =\{v\}\ _37;\l\
+}"];
+
+	fn_22_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 24\>:\l\
+|#\ status_1\ =\ PHI\ \<0(17),\ 0(22),\ 0(11),\ 1(2),\ 0(23),\ 0(5)\>\l\
+|return\ status_1;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_2:s -> fn_22_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_2:s -> fn_22_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_3:s -> fn_22_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_22_basic_block_3:s -> fn_22_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_22_basic_block_4:s -> fn_22_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_22_basic_block_4:s -> fn_22_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_22_basic_block_5:s -> fn_22_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_22_basic_block_5:s -> fn_22_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_22_basic_block_6:s -> fn_22_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_6:s -> fn_22_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_7:s -> fn_22_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_8:s -> fn_22_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_9:s -> fn_22_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_9:s -> fn_22_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_10:s -> fn_22_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_11:s -> fn_22_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_12:s -> fn_22_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_12:s -> fn_22_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_13:s -> fn_22_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_14:s -> fn_22_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_15:s -> fn_22_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_15:s -> fn_22_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_16:s -> fn_22_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_17:s -> fn_22_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_18:s -> fn_22_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_18:s -> fn_22_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_19:s -> fn_22_basic_block_21:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_20:s -> fn_22_basic_block_21:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_21:s -> fn_22_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_21:s -> fn_22_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_22_basic_block_22:s -> fn_22_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_23:s -> fn_22_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_24:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_SetTimeout" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_SetTimeout ()";
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_16\ =\{v\}\ MEM[(const\ struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_17\ =\ _16\ &\ 32;\l\
+|if\ (_17\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_23_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_1\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_2\ =\ _1\ &\ 8192;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_23_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 3643327776;\l\
+|vol.23_13\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_23_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 5\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 50464;\l\
+|vol.24_9\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 55592;\l\
+|vol.25_11\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+}"];
+
+	fn_23_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 6\>:\l\
+|_3\ =\ (long\ unsigned\ int)\ timeout_14(D);\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].TOVAL\ =\{v\}\ _3;\l\
+}"];
+
+	fn_23_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|#\ status_4\ =\ PHI\ \<0(6),\ 1(2)\>\l\
+|return\ status_4;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_2:s -> fn_23_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_23_basic_block_2:s -> fn_23_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_23_basic_block_3:s -> fn_23_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_23_basic_block_3:s -> fn_23_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_23_basic_block_4:s -> fn_23_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_5:s -> fn_23_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_6:s -> fn_23_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_7:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_SetTestMode" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_SetTestMode ()";
+	fn_24_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_24_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_24_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|regValue_10\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_21\ =\{v\}\ MEM[(const\ struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_22\ =\ _21\ &\ 32;\l\
+|if\ (_22\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_24_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|regValue_11\ =\ regValue_10\ &\ 4294967271;\l\
+|_1\ =\ (long\ unsigned\ int)\ testMode_12(D);\l\
+|_2\ =\ _1\ \<\<\ 3;\l\
+|_3\ =\ _2\ &\ 24;\l\
+|regValue_13\ =\ _3\ \|\ regValue_11;\l\
+|_4\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_5\ =\ _4\ &\ 8192;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_24_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 3643327776;\l\
+|vol.26_19\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_24_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 5\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 50464;\l\
+|vol.27_15\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CNT\ =\{v\}\ 55592;\l\
+|vol.28_17\ =\{v\}\ MEM[(struct\ WDOG_Type\ *)1074077696B].CNT;\l\
+}"];
+
+	fn_24_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 6\>:\l\
+|MEM[(struct\ WDOG_Type\ *)1074077696B].CS\ =\{v\}\ regValue_13;\l\
+}"];
+
+	fn_24_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|#\ status_6\ =\ PHI\ \<0(6),\ 1(2)\>\l\
+|return\ status_6;\l\
+}"];
+
+	fn_24_basic_block_0:s -> fn_24_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_2:s -> fn_24_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_2:s -> fn_24_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_3:s -> fn_24_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_3:s -> fn_24_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_4:s -> fn_24_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_5:s -> fn_24_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_6:s -> fn_24_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_7:s -> fn_24_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_24_basic_block_0:s -> fn_24_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_WDOG_DRV_GetTestMode" {
+	style="dashed";
+	color="black";
+	label="WDOG_DRV_GetTestMode ()";
+	fn_25_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_25_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_25_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_6\ =\{v\}\ MEM[(const\ struct\ WDOG_Type\ *)1074077696B].CS;\l\
+|_7\ =\ _6\ \>\>\ 3;\l\
+|_8\ =\ _7\ &\ 3;\l\
+|_9\ =\ _8\ +\ 4294967295;\l\
+|if\ (_9\ \<=\ 2)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_25_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_5\ =\ (unsigned\ char)\ _8;\l\
+}"];
+
+	fn_25_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ testMode_2\ =\ PHI\ \<_5(3),\ 0(2)\>\l\
+|return\ testMode_2;\l\
+}"];
+
+	fn_25_basic_block_0:s -> fn_25_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_25_basic_block_2:s -> fn_25_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_25_basic_block_2:s -> fn_25_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_25_basic_block_3:s -> fn_25_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_25_basic_block_4:s -> fn_25_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_25_basic_block_0:s -> fn_25_basic_block_1:n [style="invis",constraint=true];
+}
+}

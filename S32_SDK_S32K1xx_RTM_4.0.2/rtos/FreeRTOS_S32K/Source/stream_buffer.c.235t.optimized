@@ -1,0 +1,1796 @@
+
+;; Function prvReadBytesFromBuffer (prvReadBytesFromBuffer, funcdef_no=23, decl_uid=6036, cgraph_uid=24, symbol_order=23)
+
+Merging blocks 5 and 18
+Merging blocks 8 and 19
+Merging blocks 12 and 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+prvReadBytesFromBuffer (struct StreamBuffer_t * pxStreamBuffer, uint8_t * pucData, size_t xMaxCount, size_t xBytesAvailable)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  size_t xNextTail;
+  size_t xFirstLength;
+  size_t xCount;
+  unsigned int _1;
+  unsigned int _2;
+  unsigned int _3;
+  uint8_t * _4;
+  uint8_t * _5;
+  uint8_t * _6;
+  uint8_t * _7;
+  unsigned int _8;
+  unsigned int _9;
+
+  <bb 2> [local count: 42524432]:
+  xCount_15 = MIN_EXPR <xMaxCount_13(D), xBytesAvailable_14(D)>;
+  if (xCount_15 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 3> [local count: 21262216]:
+  xNextTail_18 ={v} pxStreamBuffer_17(D)->xTail;
+  _1 = pxStreamBuffer_17(D)->xLength;
+  _2 = _1 - xNextTail_18;
+  xFirstLength_19 = MIN_EXPR <_2, xCount_15>;
+  if (xMaxCount_13(D) < xFirstLength_19)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_26 : "i" 16 : "memory");
+
+  <bb 5> [local count: 1073741824]:
+  goto <bb 5>; [100.00%]
+
+  <bb 6> [local count: 10631108]:
+  _3 = xNextTail_18 + xFirstLength_19;
+  if (_1 < _3)
+    goto <bb 7>; [67.00%]
+  else
+    goto <bb 9>; [33.00%]
+
+  <bb 7> [local count: 7122842]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_27 : "i" 16 : "memory");
+
+  <bb 8> [local count: 719407024]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 3508266]:
+  _4 = pxStreamBuffer_17(D)->pucBuffer;
+  _5 = _4 + xNextTail_18;
+  memcpy (pucData_20(D), _5, xFirstLength_19);
+  if (xCount_15 > xFirstLength_19)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 10> [local count: 1754133]:
+  if (xMaxCount_13(D) < xCount_15)
+    goto <bb 11>; [67.00%]
+  else
+    goto <bb 13>; [33.00%]
+
+  <bb 11> [local count: 1175269]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_28 : "i" 16 : "memory");
+
+  <bb 12> [local count: 118702158]:
+  goto <bb 12>; [100.00%]
+
+  <bb 13> [local count: 578864]:
+  _6 = pucData_20(D) + xFirstLength_19;
+  _7 = pxStreamBuffer_17(D)->pucBuffer;
+  _8 = xCount_15 - xFirstLength_19;
+  memcpy (_6, _7, _8);
+
+  <bb 14> [local count: 2332997]:
+  xNextTail_23 = xCount_15 + xNextTail_18;
+  _9 = pxStreamBuffer_17(D)->xLength;
+  if (_9 <= xNextTail_23)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [local count: 1166498]:
+  xNextTail_24 = xNextTail_23 - _9;
+
+  <bb 16> [local count: 2332997]:
+  # xNextTail_10 = PHI <xNextTail_24(15), xNextTail_23(14)>
+  pxStreamBuffer_17(D)->xTail ={v} xNextTail_10;
+
+  <bb 17> [local count: 23595213]:
+  return xCount_15;
+
+}
+
+
+
+;; Function prvWriteBytesToBuffer.part.0 (prvWriteBytesToBuffer.part.0, funcdef_no=27, decl_uid=6532, cgraph_uid=47, symbol_order=46)
+
+Merging blocks 4 and 13
+Merging blocks 8 and 14
+Removing basic block 15
+Removing basic block 16
+prvWriteBytesToBuffer.part.0 (struct StreamBuffer_t * const pxStreamBuffer, const uint8_t * pucData, size_t xCount)
+{
+  size_t xNextHead;
+  size_t xFirstLength;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  unsigned int _3;
+  unsigned int _4;
+  unsigned int _7;
+  uint8_t * _9;
+  uint8_t * _10;
+  unsigned int _12;
+  unsigned int _13;
+  uint8_t * _15;
+  const uint8_t * _16;
+  unsigned int _18;
+
+  <bb 2> [local count: 15867325]:
+  xNextHead_2 ={v} pxStreamBuffer_1(D)->xHead;
+  _3 = pxStreamBuffer_1(D)->xLength;
+  _4 = _3 - xNextHead_2;
+  xFirstLength_6 = MIN_EXPR <_4, xCount_5(D)>;
+  _7 = xNextHead_2 + xFirstLength_6;
+  if (_3 < _7)
+    goto <bb 3>; [67.00%]
+  else
+    goto <bb 5>; [33.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 5236217]:
+  _9 = pxStreamBuffer_1(D)->pucBuffer;
+  _10 = _9 + xNextHead_2;
+  memcpy (_10, pucData_11(D), xFirstLength_6);
+  if (xCount_5(D) > xFirstLength_6)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 6> [local count: 2618109]:
+  _12 = xCount_5(D) - xFirstLength_6;
+  _13 = pxStreamBuffer_1(D)->xLength;
+  if (_12 > _13)
+    goto <bb 7>; [67.00%]
+  else
+    goto <bb 9>; [33.00%]
+
+  <bb 7> [local count: 1754133]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_14 : "i" 16 : "memory");
+
+  <bb 8> [local count: 177167400]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 863976]:
+  _15 = pxStreamBuffer_1(D)->pucBuffer;
+  _16 = pucData_11(D) + xFirstLength_6;
+  memcpy (_15, _16, _12);
+
+  <bb 10> [local count: 3482085]:
+  xNextHead_17 = xNextHead_2 + xCount_5(D);
+  _18 = pxStreamBuffer_1(D)->xLength;
+  if (xNextHead_17 >= _18)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 1741042]:
+  xNextHead_19 = xNextHead_17 - _18;
+
+  <bb 12> [local count: 3482085]:
+  # xNextHead_20 = PHI <xNextHead_19(11), xNextHead_17(10)>
+  pxStreamBuffer_1(D)->xHead ={v} xNextHead_20;
+  return xCount_5(D);
+
+}
+
+
+
+;; Function prvWriteMessageToBuffer (prvWriteMessageToBuffer, funcdef_no=13, decl_uid=6031, cgraph_uid=14, symbol_order=13)
+
+Merging blocks 9 and 12
+Removing basic block 13
+Removing basic block 14
+prvWriteMessageToBuffer (struct StreamBuffer_t * const pxStreamBuffer, const void * pvTxData, size_t xDataLengthBytes, size_t xSpace, size_t xRequiredSpace)
+{
+  uint32_t ulNewBASEPRI;
+  size_t xReturn;
+  unsigned char _1;
+  unsigned int xDataLengthBytes.2_2;
+  unsigned int _3;
+  unsigned char _11;
+  unsigned int prephitmp_14;
+  unsigned int _19;
+  unsigned int pretmp_21;
+
+  <bb 2> [local count: 1073741824]:
+  if (xSpace_7(D) == 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+  _1 = pxStreamBuffer_9(D)->ucFlags;
+  _11 = _1 & 1;
+  if (_11 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435464]:
+  xDataLengthBytes.2_2 = xDataLengthBytes;
+  _3 = MIN_EXPR <xDataLengthBytes.2_2, xSpace_7(D)>;
+  xDataLengthBytes = _3;
+  goto <bb 7>; [100.00%]
+
+  <bb 5> [local count: 268435464]:
+  if (xSpace_7(D) >= xRequiredSpace_10(D))
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 11>; [67.00%]
+
+  <bb 6> [local count: 88583694]:
+  prvWriteBytesToBuffer.part.0 (pxStreamBuffer_9(D), &xDataLengthBytes, 4);
+  pretmp_21 = xDataLengthBytes;
+
+  <bb 7> [local count: 357019158]:
+  # prephitmp_14 = PHI <_3(4), pretmp_21(6)>
+  if (prephitmp_14 == 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 8> [local count: 178509579]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_18 : "i" 16 : "memory");
+
+  <bb 9> [local count: 18029466072]:
+  goto <bb 9>; [100.00%]
+
+  <bb 10> [local count: 178509579]:
+  _19 = prvWriteBytesToBuffer.part.0 (pxStreamBuffer_9(D), pvTxData_13(D), prephitmp_14);
+
+  <bb 11> [local count: 895232245]:
+  # xReturn_5 = PHI <_19(10), xSpace_7(D)(2), 0(5)>
+  return xReturn_5;
+
+}
+
+
+
+;; Function xStreamBufferGenericCreate (xStreamBufferGenericCreate, funcdef_no=5, decl_uid=5996, cgraph_uid=6, symbol_order=5)
+
+Merging blocks 5 and 18
+Merging blocks 8 and 21
+Merging blocks 11 and 19
+Merging blocks 15 and 20
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+xStreamBufferGenericCreate (size_t xBufferSizeBytes, size_t xTriggerLevelBytes, BaseType_t xIsMessageBuffer)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint8_t ucFlags;
+  uint8_t * pucAllocatedMemory;
+  unsigned int _1;
+  uint8_t * _2;
+  void * _20;
+
+  <bb 2> [local count: 31734651]:
+  if (xIsMessageBuffer_5(D) == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 3> [local count: 10789781]:
+  if (xBufferSizeBytes_7(D) <= 4)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 4> [local count: 5394891]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_14 : "i" 16 : "memory");
+
+  <bb 5> [local count: 544883916]:
+  goto <bb 5>; [100.00%]
+
+  <bb 6> [local count: 20944869]:
+  if (xBufferSizeBytes_7(D) == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 7> [local count: 10472435]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_15 : "i" 16 : "memory");
+
+  <bb 8> [local count: 1057715821]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 15867325]:
+  # ucFlags_3 = PHI <1(3), 0(6)>
+  if (xBufferSizeBytes_7(D) < xTriggerLevelBytes_9(D))
+    goto <bb 10>; [67.00%]
+  else
+    goto <bb 12>; [33.00%]
+
+  <bb 10> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_16 : "i" 16 : "memory");
+
+  <bb 11> [local count: 1073741824]:
+  goto <bb 11>; [100.00%]
+
+  <bb 12> [local count: 5236217]:
+  _1 = xBufferSizeBytes_7(D) + 33;
+  pucAllocatedMemory_12 = pvPortMalloc (_1);
+  if (pucAllocatedMemory_12 != 0B)
+    goto <bb 13>; [53.47%]
+  else
+    goto <bb 17>; [46.53%]
+
+  <bb 13> [local count: 2799805]:
+  xBufferSizeBytes_10 = xBufferSizeBytes_7(D) + 1;
+  _2 = pucAllocatedMemory_12 + 32;
+  _20 = memset (_2, 85, xBufferSizeBytes_10);
+  if (_2 != _20)
+    goto <bb 14>; [82.57%]
+  else
+    goto <bb 16>; [17.43%]
+
+  <bb 14> [local count: 2311799]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_21 : "i" 16 : "memory");
+
+  <bb 15> [local count: 233491714]:
+  goto <bb 15>; [100.00%]
+
+  <bb 16> [local count: 488006]:
+  memset (pucAllocatedMemory_12, 0, 32);
+  MEM[(struct StreamBuffer_t *)pucAllocatedMemory_12].pucBuffer = _2;
+  MEM[(struct StreamBuffer_t *)pucAllocatedMemory_12].xLength = xBufferSizeBytes_10;
+  xTriggerLevelBytes_6 = MAX_EXPR <xTriggerLevelBytes_9(D), 1>;
+  MEM[(struct StreamBuffer_t *)pucAllocatedMemory_12].xTriggerLevelBytes = xTriggerLevelBytes_6;
+  MEM[(struct StreamBuffer_t *)pucAllocatedMemory_12].ucFlags = ucFlags_3;
+
+  <bb 17> [local count: 2924418]:
+  return pucAllocatedMemory_12;
+
+}
+
+
+
+;; Function vStreamBufferDelete (vStreamBufferDelete, funcdef_no=6, decl_uid=5973, cgraph_uid=7, symbol_order=6)
+
+Merging blocks 4 and 9
+vStreamBufferDelete (struct StreamBufferDef_t * xStreamBuffer)
+{
+  uint32_t ulNewBASEPRI;
+  unsigned char _1;
+  unsigned char _4;
+
+  <bb 2> [local count: 35437027]:
+  if (xStreamBuffer_3(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _1 = MEM[(struct StreamBuffer_t *)xStreamBuffer_3(D)].ucFlags;
+  _4 = _1 & 2;
+  if (_4 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 12402960]:
+  vPortFree (xStreamBuffer_3(D)); [tail call]
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 12402960]:
+  memset (xStreamBuffer_3(D), 0, 32); [tail call]
+
+  <bb 8> [local count: 24805919]:
+  return;
+
+}
+
+
+
+;; Function xStreamBufferReset (xStreamBufferReset, funcdef_no=7, decl_uid=5979, cgraph_uid=8, symbol_order=7)
+
+Merging blocks 4 and 12
+Merging blocks 9 and 13
+Removing basic block 14
+Removing basic block 15
+xStreamBufferReset (struct StreamBufferDef_t * xStreamBuffer)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  struct tskTaskControlBlock * _1;
+  struct tskTaskControlBlock * _2;
+  uint8_t * _3;
+  unsigned int _4;
+  unsigned int _5;
+  unsigned char _6;
+  void * _16;
+
+  <bb 2> [local count: 22847857]:
+  if (xStreamBuffer_9(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_14 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  _1 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].xTaskWaitingToReceive;
+  if (_1 == 0B)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 11>; [70.00%]
+
+  <bb 6> [local count: 3665025]:
+  _2 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].xTaskWaitingToSend;
+  if (_2 == 0B)
+    goto <bb 7>; [17.43%]
+  else
+    goto <bb 11>; [82.57%]
+
+  <bb 7> [local count: 638814]:
+  _3 = MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].pucBuffer;
+  _4 = MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].xLength;
+  _5 = MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].xTriggerLevelBytes;
+  _6 = MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].ucFlags;
+  _16 = memset (_3, 85, _4);
+  if (_3 != _16)
+    goto <bb 8>; [82.57%]
+  else
+    goto <bb 10>; [17.43%]
+
+  <bb 8> [local count: 527469]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_17 : "i" 16 : "memory");
+
+  <bb 9> [local count: 53274321]:
+  goto <bb 9>; [100.00%]
+
+  <bb 10> [local count: 111345]:
+  memset (xStreamBuffer_9(D), 0, 32);
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].pucBuffer = _3;
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].xLength = _4;
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].xTriggerLevelBytes = _5;
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_9(D)].ucFlags = _6;
+
+  <bb 11> [local count: 11689281]:
+  # xReturn_7 = PHI <1(10), 0(5), 0(6)>
+  vPortExitCritical ();
+  return xReturn_7;
+
+}
+
+
+
+;; Function xStreamBufferSetTriggerLevel (xStreamBufferSetTriggerLevel, funcdef_no=8, decl_uid=5986, cgraph_uid=9, symbol_order=8)
+
+Merging blocks 4 and 8
+Removing basic block 9
+xStreamBufferSetTriggerLevel (struct StreamBufferDef_t * xStreamBuffer, size_t xTriggerLevel)
+{
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  unsigned int _1;
+
+  <bb 2> [local count: 35437027]:
+  if (xStreamBuffer_4(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_9 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  xTriggerLevel_8 = MAX_EXPR <xTriggerLevel_5(D), 1>;
+  _1 = MEM[(struct StreamBuffer_t *)xStreamBuffer_4(D)].xLength;
+  if (_1 >= xTriggerLevel_8)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 12402960]:
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_4(D)].xTriggerLevelBytes = xTriggerLevel_8;
+
+  <bb 7> [local count: 24805919]:
+  # xReturn_2 = PHI <1(6), 0(5)>
+  return xReturn_2;
+
+}
+
+
+
+;; Function xStreamBufferSpacesAvailable (xStreamBufferSpacesAvailable, funcdef_no=9, decl_uid=5981, cgraph_uid=10, symbol_order=9)
+
+Removing basic block 8
+xStreamBufferSpacesAvailable (struct StreamBufferDef_t * xStreamBuffer)
+{
+  uint32_t ulNewBASEPRI;
+  size_t xSpace;
+  unsigned int _1;
+  unsigned int _2;
+  unsigned int _3;
+  unsigned int _8;
+
+  <bb 2> [local count: 35437027]:
+  if (xStreamBuffer_5(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_12 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _1 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_5(D)].xLength;
+  _2 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_5(D)].xTail;
+  xSpace_7 = _1 + _2;
+  _8 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_5(D)].xHead;
+  _3 = xSpace_7 + 4294967295;
+  xSpace_10 = _3 - _8;
+  if (_1 <= xSpace_10)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 12402960]:
+  xSpace_11 = xSpace_10 - _1;
+
+  <bb 7> [local count: 24805919]:
+  # xSpace_4 = PHI <xSpace_11(6), xSpace_10(5)>
+  return xSpace_4;
+
+}
+
+
+
+;; Function xStreamBufferBytesAvailable (xStreamBufferBytesAvailable, funcdef_no=10, decl_uid=5983, cgraph_uid=11, symbol_order=10)
+
+Removing basic block 8
+xStreamBufferBytesAvailable (struct StreamBufferDef_t * xStreamBuffer)
+{
+  size_t xCount;
+  uint32_t ulNewBASEPRI;
+  unsigned int _4;
+  unsigned int _5;
+  unsigned int _7;
+
+  <bb 2> [local count: 35437027]:
+  if (xStreamBuffer_1(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_3 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _4 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_1(D)].xLength;
+  _5 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_1(D)].xHead;
+  xCount_6 = _4 + _5;
+  _7 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_1(D)].xTail;
+  xCount_8 = xCount_6 - _7;
+  if (_4 <= xCount_8)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 12402960]:
+  xCount_9 = xCount_8 - _4;
+
+  <bb 7> [local count: 24805919]:
+  # xCount_10 = PHI <xCount_9(6), xCount_8(5)>
+  return xCount_10;
+
+}
+
+
+
+;; Function xStreamBufferSend (xStreamBufferSend, funcdef_no=11, decl_uid=5956, cgraph_uid=12, symbol_order=11)
+
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+Removing basic block 39
+Removing basic block 40
+Removing basic block 41
+Removing basic block 42
+Removing basic block 43
+Removing basic block 44
+Removing basic block 45
+xStreamBufferSend (struct StreamBufferDef_t * xStreamBuffer, const void * pvTxData, size_t xDataLengthBytes, TickType_t xTicksToWait)
+{
+  size_t xSpace;
+  size_t xSpace;
+  size_t xCount;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  struct TimeOut_t xTimeOut;
+  size_t xRequiredSpace;
+  size_t xSpace;
+  size_t xReturn;
+  unsigned char _1;
+  long unsigned int xTicksToWait.0_2;
+  struct tskTaskControlBlock * _3;
+  struct tskTaskControlBlock * _4;
+  long unsigned int xTicksToWait.1_5;
+  long int _6;
+  unsigned int _7;
+  struct tskTaskControlBlock * _8;
+  struct tskTaskControlBlock * _9;
+  unsigned char _19;
+  unsigned int _50;
+  unsigned int _51;
+  unsigned int _53;
+  unsigned int _62;
+  unsigned int _63;
+  unsigned int _65;
+  unsigned int _71;
+  unsigned int _72;
+  unsigned int _74;
+  unsigned int _85;
+  unsigned int _87;
+
+  <bb 2> [local count: 35437027]:
+  if (pvTxData_22(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_46 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  if (xStreamBuffer_18(D) == 0B)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 8>; [70.00%]
+
+  <bb 6> [local count: 7441776]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_47 : "i" 16 : "memory");
+
+  <bb 7> [local count: 751619281]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 17364143]:
+  _1 = MEM[(struct StreamBuffer_t *)xStreamBuffer_18(D)].ucFlags;
+  _19 = _1 & 1;
+  if (_19 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 9> [local count: 8682072]:
+  xRequiredSpace_24 = xDataLengthBytes_21(D) + 4;
+  if (xDataLengthBytes_21(D) >= xRequiredSpace_24)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 10> [local count: 4341036]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_48 : "i" 16 : "memory");
+
+  <bb 11> [local count: 438444586]:
+  goto <bb 11>; [100.00%]
+
+  <bb 12> [local count: 13023108]:
+  # xRequiredSpace_12 = PHI <xDataLengthBytes_21(D)(8), xRequiredSpace_24(9)>
+  xTicksToWait.0_2 = xTicksToWait;
+  if (xTicksToWait.0_2 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 13> [local count: 6941493]:
+  _71 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_18(D)].xLength;
+  _72 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_18(D)].xTail;
+  xSpace_73 = _71 + _72;
+  _74 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_18(D)].xHead;
+  _85 = xSpace_73 + 4294967295;
+  xSpace_76 = _85 - _74;
+  if (_71 <= xSpace_76)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 14> [local count: 6511554]:
+  vTaskSetTimeOutState (&xTimeOut);
+
+  <bb 15> [local count: 17406790]:
+  vPortEnterCritical ();
+  _62 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_18(D)].xLength;
+  _63 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_18(D)].xTail;
+  xSpace_64 = _62 + _63;
+  _65 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_18(D)].xHead;
+  _87 = xSpace_64 + 4294967295;
+  xSpace_67 = _87 - _65;
+  if (_62 <= xSpace_67)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 16> [local count: 6092377]:
+  xSpace_68 = xSpace_67 - _62;
+
+  <bb 17> [local count: 12184753]:
+  # xSpace_69 = PHI <xSpace_68(16), xSpace_67(15)>
+  if (xRequiredSpace_12 > xSpace_69)
+    goto <bb 18>; [96.34%]
+  else
+    goto <bb 22>; [3.66%]
+
+  <bb 18> [local count: 11738791]:
+  xTaskNotifyStateClear (0B);
+  _3 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_18(D)].xTaskWaitingToSend;
+  if (_3 != 0B)
+    goto <bb 19>; [3.66%]
+  else
+    goto <bb 21>; [96.34%]
+
+  <bb 19> [local count: 429640]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_49 : "i" 16 : "memory");
+
+  <bb 20> [local count: 43393614]:
+  goto <bb 20>; [100.00%]
+
+  <bb 21> [local count: 11309152]:
+  _4 = xTaskGetCurrentTaskHandle ();
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_18(D)].xTaskWaitingToSend ={v} _4;
+  vPortExitCritical ();
+  xTicksToWait.1_5 = xTicksToWait;
+  xTaskNotifyWait (0, 0, 0B, xTicksToWait.1_5);
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_18(D)].xTaskWaitingToSend ={v} 0B;
+  _6 = xTaskCheckForTimeOut (&xTimeOut, &xTicksToWait);
+  if (_6 == 0)
+    goto <bb 15>; [96.34%]
+  else
+    goto <bb 23>; [3.66%]
+
+  <bb 22> [local count: 445962]:
+  vPortExitCritical ();
+
+  <bb 23> [local count: 859877]:
+  if (xSpace_69 == 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 24> [local count: 2429522]:
+  xSpace_77 = xSpace_76 - _71;
+
+  <bb 25> [local count: 5288983]:
+  # xSpace_11 = PHI <xSpace_76(13), xSpace_77(24), xSpace_69(23)>
+  xReturn_40 = prvWriteMessageToBuffer (xStreamBuffer_18(D), pvTxData_22(D), xDataLengthBytes_21(D), xSpace_11, xRequiredSpace_12);
+  if (xReturn_40 != 0)
+    goto <bb 26>; [50.00%]
+  else
+    goto <bb 32>; [50.00%]
+
+  <bb 26> [local count: 2644492]:
+  _50 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_18(D)].xLength;
+  _51 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_18(D)].xHead;
+  xCount_52 = _50 + _51;
+  _53 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_18(D)].xTail;
+  xCount_54 = xCount_52 - _53;
+  if (_50 <= xCount_54)
+    goto <bb 27>; [50.00%]
+  else
+    goto <bb 28>; [50.00%]
+
+  <bb 27> [local count: 1322246]:
+  xCount_55 = xCount_54 - _50;
+
+  <bb 28> [local count: 2644492]:
+  # xCount_56 = PHI <xCount_55(27), xCount_54(26)>
+  _7 = MEM[(struct StreamBuffer_t *)xStreamBuffer_18(D)].xTriggerLevelBytes;
+  if (_7 <= xCount_56)
+    goto <bb 29>; [33.00%]
+  else
+    goto <bb 32>; [67.00%]
+
+  <bb 29> [local count: 872682]:
+  vTaskSuspendAll ();
+  _8 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_18(D)].xTaskWaitingToReceive;
+  if (_8 != 0B)
+    goto <bb 30>; [53.47%]
+  else
+    goto <bb 31>; [46.53%]
+
+  <bb 30> [local count: 466623]:
+  _9 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_18(D)].xTaskWaitingToReceive;
+  xTaskGenericNotify (_9, 0, 0, 0B);
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_18(D)].xTaskWaitingToReceive ={v} 0B;
+
+  <bb 31> [local count: 872682]:
+  xTaskResumeAll ();
+
+  <bb 32> [local count: 5288983]:
+  xTimeOut ={v} {CLOBBER};
+  return xReturn_40;
+
+}
+
+
+
+;; Function xStreamBufferSendFromISR (xStreamBufferSendFromISR, funcdef_no=12, decl_uid=5961, cgraph_uid=13, symbol_order=12)
+
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+xStreamBufferSendFromISR (struct StreamBufferDef_t * xStreamBuffer, const void * pvTxData, size_t xDataLengthBytes, BaseType_t * const pxHigherPriorityTaskWoken)
+{
+  size_t xSpace;
+  size_t xCount;
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  size_t xRequiredSpace;
+  size_t xReturn;
+  unsigned char _1;
+  unsigned int _2;
+  struct tskTaskControlBlock * _3;
+  struct tskTaskControlBlock * _4;
+  unsigned char _9;
+  unsigned int _25;
+  unsigned int _26;
+  unsigned int _28;
+  unsigned int _36;
+  unsigned int _37;
+  unsigned int _39;
+  unsigned int _48;
+
+  <bb 2> [local count: 35437027]:
+  if (pvTxData_11(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_21 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  if (xStreamBuffer_8(D) == 0B)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 8>; [70.00%]
+
+  <bb 6> [local count: 7441776]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_22 : "i" 16 : "memory");
+
+  <bb 7> [local count: 751619281]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 17364143]:
+  _1 = MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].ucFlags;
+  _9 = _1 & 1;
+  if (_9 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 8682072]:
+  xRequiredSpace_13 = xDataLengthBytes_10(D) + 4;
+
+  <bb 10> [local count: 17364143]:
+  # xRequiredSpace_5 = PHI <xRequiredSpace_13(9), xDataLengthBytes_10(D)(8)>
+  _36 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_8(D)].xLength;
+  _37 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_8(D)].xTail;
+  xSpace_38 = _36 + _37;
+  _39 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_8(D)].xHead;
+  _48 = xSpace_38 + 4294967295;
+  xSpace_41 = _48 - _39;
+  if (_36 <= xSpace_41)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 6077450]:
+  xSpace_42 = xSpace_41 - _36;
+
+  <bb 12> [local count: 12154900]:
+  # xSpace_43 = PHI <xSpace_42(11), xSpace_41(10)>
+  xReturn_17 = prvWriteMessageToBuffer (xStreamBuffer_8(D), pvTxData_11(D), xDataLengthBytes_10(D), xSpace_43, xRequiredSpace_5);
+  if (xReturn_17 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 13> [local count: 6077450]:
+  _25 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_8(D)].xLength;
+  _26 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_8(D)].xHead;
+  xCount_27 = _25 + _26;
+  _28 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_8(D)].xTail;
+  xCount_29 = xCount_27 - _28;
+  if (_25 <= xCount_29)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 3038725]:
+  xCount_30 = xCount_29 - _25;
+
+  <bb 15> [local count: 6077450]:
+  # xCount_31 = PHI <xCount_30(14), xCount_29(13)>
+  _2 = MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].xTriggerLevelBytes;
+  if (_2 <= xCount_31)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 16> [local count: 3038725]:
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_23, "=r" ulNewBASEPRI_24 : "i" 16 : "memory");
+  _3 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].xTaskWaitingToReceive;
+  if (_3 != 0B)
+    goto <bb 17>; [53.47%]
+  else
+    goto <bb 18>; [46.53%]
+
+  <bb 17> [local count: 1624806]:
+  _4 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].xTaskWaitingToReceive;
+  xTaskGenericNotifyFromISR (_4, 0, 0, 0B, pxHigherPriorityTaskWoken_18(D));
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].xTaskWaitingToReceive ={v} 0B;
+
+  <bb 18> [local count: 3038725]:
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_23 : "memory");
+
+  <bb 19> [local count: 12154900]:
+  return xReturn_17;
+
+}
+
+
+
+;; Function xStreamBufferReceive (xStreamBufferReceive, funcdef_no=14, decl_uid=5966, cgraph_uid=15, symbol_order=14)
+
+Removing basic block 9
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+Removing basic block 39
+Removing basic block 40
+Removing basic block 41
+xStreamBufferReceive (struct StreamBufferDef_t * xStreamBuffer, void * pvRxData, size_t xBufferLengthBytes, TickType_t xTicksToWait)
+{
+  size_t xOriginalTail;
+  size_t xReceivedLength;
+  size_t xNextMessageLength;
+  size_t xTempNextMessageLength;
+  size_t xBytesAvailable;
+  size_t xCount;
+  size_t xCount;
+  size_t xCount;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  size_t xBytesToStoreMessageLength;
+  size_t xBytesAvailable;
+  size_t xReceivedLength;
+  unsigned char _1;
+  struct tskTaskControlBlock * _2;
+  struct tskTaskControlBlock * _3;
+  struct tskTaskControlBlock * _4;
+  struct tskTaskControlBlock * _5;
+  unsigned char _14;
+  unsigned int _35;
+  unsigned int _36;
+  unsigned int _38;
+  unsigned int _42;
+  unsigned int _43;
+  unsigned int _45;
+  unsigned int _48;
+  unsigned int _49;
+  unsigned int _51;
+
+  <bb 2> [local count: 35437027]:
+  if (pvRxData_15(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_32 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  if (xStreamBuffer_13(D) == 0B)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 8>; [70.00%]
+
+  <bb 6> [local count: 7441776]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_33 : "i" 16 : "memory");
+
+  <bb 7> [local count: 751619281]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 17364143]:
+  _1 = MEM[(struct StreamBuffer_t *)xStreamBuffer_13(D)].ucFlags;
+  _14 = _1 & 1;
+  if (_14 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [local count: 8682072]:
+
+  <bb 10> [local count: 17364143]:
+  # xBytesToStoreMessageLength_8 = PHI <4(8), 0(9)>
+  if (xTicksToWait_17(D) != 0)
+    goto <bb 11>; [33.00%]
+  else
+    goto <bb 19>; [67.00%]
+
+  <bb 11> [local count: 5730167]:
+  vPortEnterCritical ();
+  _35 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_13(D)].xLength;
+  _36 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_13(D)].xHead;
+  xCount_37 = _35 + _36;
+  _38 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_13(D)].xTail;
+  xCount_39 = xCount_37 - _38;
+  if (_35 <= xCount_39)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 2865084]:
+  xCount_40 = xCount_39 - _35;
+
+  <bb 13> [local count: 5730167]:
+  # xCount_41 = PHI <xCount_40(12), xCount_39(11)>
+  if (xBytesToStoreMessageLength_8 >= xCount_41)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 31>; [50.00%]
+
+  <bb 14> [local count: 2865084]:
+  xTaskNotifyStateClear (0B);
+  _2 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_13(D)].xTaskWaitingToReceive;
+  if (_2 != 0B)
+    goto <bb 15>; [82.57%]
+  else
+    goto <bb 17>; [17.43%]
+
+  <bb 15> [local count: 2365700]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_34 : "i" 16 : "memory");
+
+  <bb 16> [local count: 238935637]:
+  goto <bb 16>; [100.00%]
+
+  <bb 17> [local count: 1110274]:
+  _3 = xTaskGetCurrentTaskHandle ();
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_13(D)].xTaskWaitingToReceive ={v} _3;
+  vPortExitCritical ();
+  xTaskNotifyWait (0, 0, 0B, xTicksToWait_17(D));
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_13(D)].xTaskWaitingToReceive ={v} 0B;
+  _42 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_13(D)].xLength;
+  _43 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_13(D)].xHead;
+  xCount_44 = _42 + _43;
+  _45 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_13(D)].xTail;
+  xCount_46 = xCount_44 - _45;
+  if (_42 <= xCount_46)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 18> [local count: 555137]:
+  xCount_47 = xCount_46 - _42;
+  goto <bb 21>; [100.00%]
+
+  <bb 19> [local count: 11633976]:
+  _48 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_13(D)].xLength;
+  _49 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_13(D)].xHead;
+  xCount_50 = _48 + _49;
+  _51 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_13(D)].xTail;
+  xCount_52 = xCount_50 - _51;
+  if (_48 <= xCount_52)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 20> [local count: 5816988]:
+  xCount_53 = xCount_52 - _48;
+
+  <bb 21> [local count: 12744250]:
+  # xBytesAvailable_7 = PHI <xCount_47(18), xCount_53(20), xCount_46(17), xCount_52(19)>
+  if (xBytesAvailable_7 > xBytesToStoreMessageLength_8)
+    goto <bb 23>; [21.15%]
+  else
+    goto <bb 22>; [78.85%]
+
+  <bb 22> [local count: 13365114]:
+  goto <bb 30>; [100.00%]
+
+  <bb 23> [local count: 4949486]:
+  # xBytesAvailable_105 = PHI <xCount_41(31), xBytesAvailable_7(21)>
+  if (xBytesToStoreMessageLength_8 != 0)
+    goto <bb 24>; [33.00%]
+  else
+    goto <bb 26>; [67.00%]
+
+  <bb 24> [local count: 1633331]:
+  xOriginalTail_57 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_13(D)].xTail;
+  prvReadBytesFromBuffer (xStreamBuffer_13(D), &xTempNextMessageLength, xBytesToStoreMessageLength_8, xBytesAvailable_105);
+  xNextMessageLength_58 = xTempNextMessageLength;
+  xBytesAvailable_59 = xBytesAvailable_105 - xBytesToStoreMessageLength_8;
+  if (xBufferLengthBytes_25(D) < xNextMessageLength_58)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 25> [local count: 816665]:
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_13(D)].xTail ={v} xOriginalTail_57;
+
+  <bb 26> [local count: 4949486]:
+  # xBytesAvailable_61 = PHI <xBytesAvailable_105(23), xBytesAvailable_59(25), xBytesAvailable_59(24)>
+  # xNextMessageLength_60 = PHI <xBufferLengthBytes_25(D)(23), 0(25), xNextMessageLength_58(24)>
+  xReceivedLength_62 = prvReadBytesFromBuffer (xStreamBuffer_13(D), pvRxData_15(D), xNextMessageLength_60, xBytesAvailable_61);
+  xTempNextMessageLength ={v} {CLOBBER};
+  if (xReceivedLength_62 != 0)
+    goto <bb 27>; [33.00%]
+  else
+    goto <bb 22>; [67.00%]
+
+  <bb 27> [local count: 1633331]:
+  vTaskSuspendAll ();
+  _4 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_13(D)].xTaskWaitingToSend;
+  if (_4 != 0B)
+    goto <bb 28>; [53.47%]
+  else
+    goto <bb 29>; [46.53%]
+
+  <bb 28> [local count: 873342]:
+  _5 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_13(D)].xTaskWaitingToSend;
+  xTaskGenericNotify (_5, 0, 0, 0B);
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_13(D)].xTaskWaitingToSend ={v} 0B;
+
+  <bb 29> [local count: 1633331]:
+  xTaskResumeAll ();
+
+  <bb 30> [local count: 14998444]:
+  # xReceivedLength_6 = PHI <0(22), xReceivedLength_62(29)>
+  return xReceivedLength_6;
+
+  <bb 31> [local count: 2254194]:
+  vPortExitCritical ();
+  goto <bb 23>; [100.00%]
+
+}
+
+
+
+;; Function xStreamBufferNextMessageLengthBytes (xStreamBufferNextMessageLengthBytes, funcdef_no=15, decl_uid=6004, cgraph_uid=16, symbol_order=15)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+xStreamBufferNextMessageLengthBytes (struct StreamBufferDef_t * xStreamBuffer)
+{
+  size_t xCount;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  size_t xTempReturn;
+  size_t xOriginalTail;
+  size_t xReturn;
+  unsigned char _1;
+  unsigned char _5;
+  unsigned int _14;
+  unsigned int _15;
+  unsigned int _17;
+
+  <bb 2> [local count: 35437027]:
+  if (xStreamBuffer_4(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_12 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _1 = MEM[(struct StreamBuffer_t *)xStreamBuffer_4(D)].ucFlags;
+  _5 = _1 & 1;
+  if (_5 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 6> [local count: 12402960]:
+  _14 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_4(D)].xLength;
+  _15 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_4(D)].xHead;
+  xCount_16 = _14 + _15;
+  _17 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_4(D)].xTail;
+  xCount_18 = xCount_16 - _17;
+  if (_14 <= xCount_18)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 6201480]:
+  xCount_19 = xCount_18 - _14;
+
+  <bb 8> [local count: 12402960]:
+  # xCount_20 = PHI <xCount_19(7), xCount_18(6)>
+  if (xCount_20 > 4)
+    goto <bb 9>; [33.00%]
+  else
+    goto <bb 10>; [67.00%]
+
+  <bb 9> [local count: 4092977]:
+  xOriginalTail_7 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_4(D)].xTail;
+  prvReadBytesFromBuffer (xStreamBuffer_4(D), &xTempReturn, 4, xCount_20);
+  xReturn_9 = xTempReturn;
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_4(D)].xTail ={v} xOriginalTail_7;
+  goto <bb 13>; [100.00%]
+
+  <bb 10> [local count: 8309983]:
+  if (xCount_20 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 11> [local count: 4154991]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_13 : "i" 16 : "memory");
+
+  <bb 12> [local count: 419654103]:
+  goto <bb 12>; [100.00%]
+
+  <bb 13> [local count: 20650928]:
+  # xReturn_2 = PHI <0(5), xReturn_9(9), xCount_20(10)>
+  xTempReturn ={v} {CLOBBER};
+  return xReturn_2;
+
+}
+
+
+
+;; Function xStreamBufferReceiveFromISR (xStreamBufferReceiveFromISR, funcdef_no=16, decl_uid=5971, cgraph_uid=17, symbol_order=16)
+
+Removing basic block 9
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+xStreamBufferReceiveFromISR (struct StreamBufferDef_t * xStreamBuffer, void * pvRxData, size_t xBufferLengthBytes, BaseType_t * const pxHigherPriorityTaskWoken)
+{
+  size_t xOriginalTail;
+  size_t xReceivedLength;
+  size_t xNextMessageLength;
+  size_t xTempNextMessageLength;
+  size_t xBytesAvailable;
+  size_t xCount;
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  size_t xBytesToStoreMessageLength;
+  size_t xReceivedLength;
+  unsigned char _1;
+  struct tskTaskControlBlock * _2;
+  struct tskTaskControlBlock * _3;
+  unsigned char _9;
+  unsigned int _22;
+  unsigned int _23;
+  unsigned int _25;
+
+  <bb 2> [local count: 35437027]:
+  if (pvRxData_10(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_18 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  if (xStreamBuffer_8(D) == 0B)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 8>; [70.00%]
+
+  <bb 6> [local count: 7441776]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_19 : "i" 16 : "memory");
+
+  <bb 7> [local count: 751619281]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [local count: 17364143]:
+  _1 = MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].ucFlags;
+  _9 = _1 & 1;
+  if (_9 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [local count: 8682072]:
+
+  <bb 10> [local count: 17364143]:
+  # xBytesToStoreMessageLength_5 = PHI <4(8), 0(9)>
+  _22 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_8(D)].xLength;
+  _23 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_8(D)].xHead;
+  xCount_24 = _22 + _23;
+  _25 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_8(D)].xTail;
+  xCount_26 = xCount_24 - _25;
+  if (_22 <= xCount_26)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 8682072]:
+  xCount_27 = xCount_26 - _22;
+
+  <bb 12> [local count: 17364143]:
+  # xCount_28 = PHI <xCount_27(11), xCount_26(10)>
+  if (xBytesToStoreMessageLength_5 < xCount_28)
+    goto <bb 14>; [33.00%]
+  else
+    goto <bb 13>; [67.00%]
+
+  <bb 13> [local count: 14499060]:
+  goto <bb 21>; [100.00%]
+
+  <bb 14> [local count: 5730167]:
+  if (xBytesToStoreMessageLength_5 != 0)
+    goto <bb 15>; [33.00%]
+  else
+    goto <bb 17>; [67.00%]
+
+  <bb 15> [local count: 1890955]:
+  xOriginalTail_33 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].xTail;
+  prvReadBytesFromBuffer (xStreamBuffer_8(D), &xTempNextMessageLength, xBytesToStoreMessageLength_5, xCount_28);
+  xNextMessageLength_34 = xTempNextMessageLength;
+  xBytesAvailable_35 = xCount_28 - xBytesToStoreMessageLength_5;
+  if (xBufferLengthBytes_12(D) < xNextMessageLength_34)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 16> [local count: 945478]:
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].xTail ={v} xOriginalTail_33;
+
+  <bb 17> [local count: 5730167]:
+  # xBytesAvailable_37 = PHI <xCount_28(14), xBytesAvailable_35(16), xBytesAvailable_35(15)>
+  # xNextMessageLength_36 = PHI <xBufferLengthBytes_12(D)(14), 0(16), xNextMessageLength_34(15)>
+  xReceivedLength_38 = prvReadBytesFromBuffer (xStreamBuffer_8(D), pvRxData_10(D), xNextMessageLength_36, xBytesAvailable_37);
+  xTempNextMessageLength ={v} {CLOBBER};
+  if (xReceivedLength_38 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 18> [local count: 2865084]:
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_20, "=r" ulNewBASEPRI_21 : "i" 16 : "memory");
+  _2 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].xTaskWaitingToSend;
+  if (_2 != 0B)
+    goto <bb 19>; [53.47%]
+  else
+    goto <bb 20>; [46.53%]
+
+  <bb 19> [local count: 1531960]:
+  _3 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].xTaskWaitingToSend;
+  xTaskGenericNotifyFromISR (_3, 0, 0, 0B, pxHigherPriorityTaskWoken_15(D));
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_8(D)].xTaskWaitingToSend ={v} 0B;
+
+  <bb 20> [local count: 2865084]:
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_20 : "memory");
+
+  <bb 21> [local count: 17364143]:
+  # xReceivedLength_4 = PHI <0(13), xReceivedLength_38(20)>
+  return xReceivedLength_4;
+
+}
+
+
+
+;; Function xStreamBufferIsEmpty (xStreamBufferIsEmpty, funcdef_no=18, decl_uid=5977, cgraph_uid=19, symbol_order=18)
+
+Merging blocks 4 and 6
+xStreamBufferIsEmpty (struct StreamBufferDef_t * xStreamBuffer)
+{
+  uint32_t ulNewBASEPRI;
+  size_t xTail;
+  unsigned int _1;
+  _Bool _8;
+  long int _9;
+
+  <bb 2> [local count: 35437027]:
+  if (xStreamBuffer_3(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  xTail_5 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_3(D)].xTail;
+  _1 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_3(D)].xHead;
+  _8 = _1 == xTail_5;
+  _9 = (long int) _8;
+  return _9;
+
+}
+
+
+
+;; Function xStreamBufferIsFull (xStreamBufferIsFull, funcdef_no=19, decl_uid=5975, cgraph_uid=20, symbol_order=19)
+
+Removing basic block 6
+Removing basic block 11
+xStreamBufferIsFull (struct StreamBufferDef_t * xStreamBuffer)
+{
+  size_t xSpace;
+  uint32_t ulNewBASEPRI;
+  size_t xBytesToStoreMessageLength;
+  unsigned char _1;
+  unsigned int _2;
+  unsigned char _6;
+  unsigned int _11;
+  unsigned int _12;
+  unsigned int _14;
+  _Bool _20;
+  long int _21;
+
+  <bb 2> [local count: 35437027]:
+  if (xStreamBuffer_5(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_9 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _1 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_5(D)].ucFlags;
+  _6 = _1 & 1;
+  if (_6 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 12402960]:
+
+  <bb 7> [local count: 24805919]:
+  # xBytesToStoreMessageLength_4 = PHI <4(5), 0(6)>
+  _11 = MEM[(const struct StreamBuffer_t *)xStreamBuffer_5(D)].xLength;
+  _12 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_5(D)].xTail;
+  xSpace_13 = _11 + _12;
+  _14 ={v} MEM[(const struct StreamBuffer_t *)xStreamBuffer_5(D)].xHead;
+  _2 = xSpace_13 + 4294967295;
+  xSpace_16 = _2 - _14;
+  if (_11 <= xSpace_16)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 8682072]:
+  xSpace_17 = xSpace_16 - _11;
+
+  <bb 9> [local count: 17364143]:
+  # xSpace_18 = PHI <xSpace_17(8), xSpace_16(7)>
+  _20 = xBytesToStoreMessageLength_4 >= xSpace_18;
+  _21 = (long int) _20;
+  return _21;
+
+}
+
+
+
+;; Function xStreamBufferSendCompletedFromISR (xStreamBufferSendCompletedFromISR, funcdef_no=20, decl_uid=5989, cgraph_uid=21, symbol_order=20)
+
+Merging blocks 4 and 8
+Removing basic block 9
+xStreamBufferSendCompletedFromISR (struct StreamBufferDef_t * xStreamBuffer, BaseType_t * pxHigherPriorityTaskWoken)
+{
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  struct tskTaskControlBlock * _1;
+  struct tskTaskControlBlock * _2;
+
+  <bb 2> [local count: 35437027]:
+  if (xStreamBuffer_5(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_10 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_11, "=r" ulNewBASEPRI_12 : "i" 16 : "memory");
+  _1 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_5(D)].xTaskWaitingToReceive;
+  if (_1 != 0B)
+    goto <bb 6>; [53.47%]
+  else
+    goto <bb 7>; [46.53%]
+
+  <bb 6> [local count: 13263725]:
+  _2 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_5(D)].xTaskWaitingToReceive;
+  xTaskGenericNotifyFromISR (_2, 0, 0, 0B, pxHigherPriorityTaskWoken_7(D));
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_5(D)].xTaskWaitingToReceive ={v} 0B;
+
+  <bb 7> [local count: 24805919]:
+  # xReturn_3 = PHI <1(6), 0(5)>
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_11 : "memory");
+  return xReturn_3;
+
+}
+
+
+
+;; Function xStreamBufferReceiveCompletedFromISR (xStreamBufferReceiveCompletedFromISR, funcdef_no=21, decl_uid=5992, cgraph_uid=22, symbol_order=21)
+
+Merging blocks 4 and 8
+Removing basic block 9
+xStreamBufferReceiveCompletedFromISR (struct StreamBufferDef_t * xStreamBuffer, BaseType_t * pxHigherPriorityTaskWoken)
+{
+  uint32_t ulOriginalBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  struct tskTaskControlBlock * _1;
+  struct tskTaskControlBlock * _2;
+
+  <bb 2> [local count: 35437027]:
+  if (xStreamBuffer_5(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_10 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  __asm__ __volatile__("	mrs %0, basepri											
+	mov %1, %2												
+	msr basepri, %1											
+	isb														
+	dsb														
+" : "=r" ulOriginalBASEPRI_11, "=r" ulNewBASEPRI_12 : "i" 16 : "memory");
+  _1 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_5(D)].xTaskWaitingToSend;
+  if (_1 != 0B)
+    goto <bb 6>; [53.47%]
+  else
+    goto <bb 7>; [46.53%]
+
+  <bb 6> [local count: 13263725]:
+  _2 ={v} MEM[(struct StreamBuffer_t *)xStreamBuffer_5(D)].xTaskWaitingToSend;
+  xTaskGenericNotifyFromISR (_2, 0, 0, 0B, pxHigherPriorityTaskWoken_7(D));
+  MEM[(struct StreamBuffer_t *)xStreamBuffer_5(D)].xTaskWaitingToSend ={v} 0B;
+
+  <bb 7> [local count: 24805919]:
+  # xReturn_3 = PHI <1(6), 0(5)>
+  __asm__ __volatile__("	msr basepri, %0	" :  : "r" ulOriginalBASEPRI_11 : "memory");
+  return xReturn_3;
+
+}
+
+

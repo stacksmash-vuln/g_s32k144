@@ -1,0 +1,9 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_slave_driver.c:105:6:LPSPI_DRV_SlaveGetDefaultConfig	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_slave_driver.c:125:10:LPSPI_DRV_SlaveInit	56	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_slave_driver.c:201:10:LPSPI_DRV_SlaveDeinit	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_slave_driver.c:280:10:LPSPI_DRV_SlaveTransfer	64	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_slave_driver.c:512:10:LPSPI_DRV_SlaveAbortTransfer	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_slave_driver.c:230:10:LPSPI_DRV_SlaveTransferBlocking	32	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_slave_driver.c:575:13:LPSPI_DRV_SlaveCompleteDMATransfer	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_slave_driver.c:437:6:LPSPI_DRV_SlaveIRQHandler	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_slave_driver.c:550:10:LPSPI_DRV_SlaveGetTransferStatus	0	static

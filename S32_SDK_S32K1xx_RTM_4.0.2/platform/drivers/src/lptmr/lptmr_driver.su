@@ -1,0 +1,17 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:477:6:LPTMR_DRV_InitConfigStruct	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:569:6:LPTMR_DRV_SetConfig	40	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:525:6:LPTMR_DRV_Init	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:650:6:LPTMR_DRV_GetConfig	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:680:6:LPTMR_DRV_Deinit	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:702:10:LPTMR_DRV_SetCompareValueByCount	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:753:6:LPTMR_DRV_GetCompareValueByCount	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:777:10:LPTMR_DRV_SetCompareValueByUs	40	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:837:6:LPTMR_DRV_GetCompareValueByUs	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:877:6:LPTMR_DRV_GetCompareFlag	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:895:6:LPTMR_DRV_ClearCompareFlag	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:915:6:LPTMR_DRV_IsRunning	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:934:6:LPTMR_DRV_SetInterrupt	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:954:10:LPTMR_DRV_GetCounterValueByCount	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:973:6:LPTMR_DRV_StartCounter	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:1000:6:LPTMR_DRV_StopCounter	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lptmr/lptmr_driver.c:1017:6:LPTMR_DRV_SetPinConfiguration	0	static

@@ -1,0 +1,4611 @@
+
+;; Function FLEXCAN_StartSendData (FLEXCAN_StartSendData, funcdef_no=95, decl_uid=8192, cgraph_uid=96, symbol_order=101)
+
+Removing basic block 7
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 15
+FLEXCAN_StartSendData (uint8_t instance, uint8_t mb_idx, const struct flexcan_data_info_t * tx_info, uint32_t msg_id, const uint8_t * mb_data, _Bool isBlocking)
+{
+  uint32_t flag;
+  struct CAN_Type * base;
+  struct flexcan_state_t * state;
+  struct flexcan_msgbuff_code_status_t cs;
+  status_t result;
+  int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  int _4;
+  <unnamed type> _5;
+  _Bool _6;
+  long unsigned int _7;
+  <unnamed type> _8;
+  _Bool _11;
+  status_t _12;
+  long unsigned int _40;
+  unsigned short _45;
+  long unsigned int cstore_48;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_15(D);
+  state_17 = g_flexcanStatePtr[_1];
+  base_18 = g_flexcanBase[_1];
+  _2 = (long unsigned int) mb_idx_19(D);
+  _3 = FLEXCAN_GetMaxMbNum (base_18);
+  if (_2 >= _3)
+    goto <bb 10>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 840525097]:
+  _4 = (int) mb_idx_19(D);
+  _5 ={v} state_17->mbs[_4].state;
+  if (_5 != 0)
+    goto <bb 10>; [21.72%]
+  else
+    goto <bb 4>; [78.28%]
+
+  <bb 4> [local count: 657963043]:
+  if (mb_idx_19(D) <= 31)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 328981521]:
+  _40 = (long unsigned int) mb_idx_19(D);
+  flag_41 = 1 << _40;
+  base_18->IFLAG1 ={v} flag_41;
+
+  <bb 6> [local count: 657963043]:
+  state_17->mbs[_4].state ={v} 2;
+  state_17->mbs[_4].isBlocking = isBlocking_22(D);
+  _6 = tx_info_24(D)->is_remote;
+  state_17->mbs[_4].isRemote = _6;
+  _7 = tx_info_24(D)->data_length;
+  _8 = tx_info_24(D)->msg_id_type;
+  cs.msgIdType = _8;
+  _11 = tx_info_24(D)->enable_brs;
+  cs.dataLen = _7;
+  _45 = MEM <unsigned short> [(void *)tx_info_24(D) + 8B];
+  MEM <unsigned short> [(void *)&cs + 12B] = _45;
+  cs.enable_brs = _11;
+  if (_6 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 328981522]:
+
+  <bb 8> [local count: 657963043]:
+  # cstore_48 = PHI <28(6), 12(7)>
+  cs.code = cstore_48;
+  result_36 = FLEXCAN_SetTxMsgBuff (base_18, _2, &cs, msg_id_33(D), mb_data_34(D), 0);
+  if (result_36 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 328981521]:
+  state_17->mbs[_4].state ={v} 0;
+
+  <bb 10> [local count: 1073741824]:
+  # _12 = PHI <768(2), 2(3), result_36(9), result_36(8)>
+  cs ={v} {CLOBBER};
+  return _12;
+
+}
+
+
+
+;; Function FLEXCAN_StartRxMessageBufferData (FLEXCAN_StartRxMessageBufferData, funcdef_no=96, decl_uid=8197, cgraph_uid=97, symbol_order=102)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+FLEXCAN_StartRxMessageBufferData (uint8_t instance, uint8_t mb_idx, struct flexcan_msgbuff_t * data, _Bool isBlocking)
+{
+  uint32_t val1;
+  struct flexcan_state_t * state;
+  struct CAN_Type * base;
+  status_t result;
+  int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  int _6;
+  <unnamed type> _7;
+  status_t _8;
+  long unsigned int _17;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+
+  <bb 2> [local count: 1073741823]:
+  _1 = (int) instance_10(D);
+  base_12 = g_flexcanBase[_1];
+  state_13 = g_flexcanStatePtr[_1];
+  _2 = (long unsigned int) mb_idx_14(D);
+  _3 = FLEXCAN_GetMaxMbNum (base_12);
+  if (_2 >= _3)
+    goto <bb 8>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 840525095]:
+  _17 ={v} MEM[(const struct CAN_Type *)base_12].MCR;
+  _26 = _17 & 536870912;
+  if (_26 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 420262547]:
+  _4 ={v} base_12->CTRL2;
+  _5 = _4 >> 24;
+  val1_16 = _5 & 15;
+  _27 = val1_16 + 1;
+  _28 = _27 * 8;
+  _29 = _28 >> 2;
+  _30 = _29 + 5;
+  if (_2 <= _30)
+    goto <bb 8>; [21.72%]
+  else
+    goto <bb 5>; [78.28%]
+
+  <bb 5> [local count: 749244069]:
+  _6 = (int) mb_idx_14(D);
+  _7 ={v} state_13->mbs[_6].state;
+  if (_7 != 0)
+    goto <bb 8>; [36.03%]
+  else
+    goto <bb 6>; [63.97%]
+
+  <bb 6> [local count: 479291432]:
+  state_13->mbs[_6].state ={v} 1;
+  state_13->mbs[_6].mb_message = data_19(D);
+  state_13->mbs[_6].isBlocking = isBlocking_21(D);
+  result_24 = FLEXCAN_SetMsgBuffIntCmd (base_12, _2, 1);
+  if (result_24 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 239645716]:
+  state_13->mbs[_6].state ={v} 0;
+
+  <bb 8> [local count: 1073741824]:
+  # _8 = PHI <768(4), 768(2), 2(5), result_24(7), result_24(6)>
+  return _8;
+
+}
+
+
+
+;; Function FLEXCAN_StartRxMessageFifoData (FLEXCAN_StartRxMessageFifoData, funcdef_no=97, decl_uid=8201, cgraph_uid=98, symbol_order=103)
+
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+FLEXCAN_StartRxMessageFifoData (uint8_t instance, struct flexcan_msgbuff_t * data, _Bool isBlocking)
+{
+  uint32_t flag;
+  status_t edmaStatus;
+  status_t edmaStat;
+  struct flexcan_state_t * state;
+  struct CAN_Type * base;
+  int _1;
+  <unnamed type> _2;
+  <unnamed type> _3;
+  <unnamed type> _4;
+  <unnamed type> _5;
+  unsigned char _7;
+  long unsigned int _8;
+  void * _9;
+  unsigned char _10;
+  volatile uint32_t[128] * _11;
+  long unsigned int _12;
+  struct flexcan_msgbuff_t * _13;
+  long unsigned int _14;
+  unsigned char _15;
+  unsigned char _16;
+  status_t _17;
+  long unsigned int vol.6_28;
+  long unsigned int _49;
+  long unsigned int shifttmp_52;
+  long unsigned int _53;
+  <unnamed type> pretmp_54;
+  long unsigned int _55;
+  <unnamed type> prephitmp_56;
+  long unsigned int _57;
+  long unsigned int _58;
+
+  <bb 2> [local count: 1073741821]:
+  _1 = (int) instance_23(D);
+  base_25 = g_flexcanBase[_1];
+  state_26 = g_flexcanStatePtr[_1];
+  _2 = state_26->transferType;
+  if (_2 == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 9>; [66.00%]
+
+  <bb 3> [local count: 365072223]:
+  _3 ={v} state_26->mbs[0].state;
+  if (_3 == 3)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 9>; [66.00%]
+
+  <bb 4> [local count: 124124557]:
+  _49 ={v} MEM[(const struct CAN_Type *)base_25].IFLAG1;
+  _55 = _49 >> 5;
+  flag_50 = _55 & 1;
+  if (flag_50 != 0)
+    goto <bb 5>; [20.24%]
+  else
+    goto <bb 8>; [79.76%]
+
+  <bb 5> [local count: 25122810]:
+  FLEXCAN_EnterFreezeMode (base_25);
+  base_25->IFLAG1 ={v} 1;
+
+  <bb 6> [local count: 228389185]:
+  vol.6_28 ={v} base_25->RAMn[3];
+  _53 ={v} MEM[(const struct CAN_Type *)base_25].IFLAG1;
+  shifttmp_52 = _53 & 32;
+  if (shifttmp_52 != 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 25122810]:
+  FLEXCAN_ExitFreezeMode (base_25);
+
+  <bb 8> [local count: 124124557]:
+  state_26->mbs[0].state ={v} 0;
+
+  <bb 9> [local count: 1073741823]:
+  _4 ={v} state_26->mbs[0].state;
+  if (_4 != 0)
+    goto <bb 21>; [21.72%]
+  else
+    goto <bb 10>; [78.28%]
+
+  <bb 10> [local count: 840525096]:
+  _57 ={v} MEM[(const struct CAN_Type *)base_25].MCR;
+  _58 = _57 & 536870912;
+  if (_58 == 0)
+    goto <bb 21>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 11> [local count: 554746561]:
+  state_26->mbs[0].state ={v} 1;
+  state_26->mbs[0].isBlocking = isBlocking_32(D);
+  state_26->mbs[0].mb_message = data_34(D);
+  _5 = state_26->transferType;
+  if (_5 == 0)
+    goto <bb 12>; [33.00%]
+  else
+    goto <bb 13>; [67.00%]
+
+  <bb 12> [local count: 183066364]:
+  FLEXCAN_SetMsgBuffIntCmd (base_25, 6, 1);
+  FLEXCAN_SetMsgBuffIntCmd (base_25, 7, 1);
+  FLEXCAN_SetMsgBuffIntCmd (base_25, 5, 1);
+  pretmp_54 = state_26->transferType;
+
+  <bb 13> [local count: 554746561]:
+  # prephitmp_56 = PHI <pretmp_54(12), _5(11)>
+  if (prephitmp_56 == 1)
+    goto <bb 15>; [20.24%]
+  else
+    goto <bb 14>; [79.76%]
+
+  <bb 14> [local count: 460171490]:
+  goto <bb 21>; [100.00%]
+
+  <bb 15> [local count: 112280703]:
+  _7 = state_26->rxFifoDMAChannel;
+  _8 = (long unsigned int) instance_23(D);
+  _9 = (void *) _8;
+  edmaStatus_40 = EDMA_DRV_InstallCallback (_7, FLEXCAN_CompleteRxFifoDataDMA, _9);
+  if (edmaStatus_40 != 0)
+    goto <bb 16>; [51.12%]
+  else
+    goto <bb 17>; [48.88%]
+
+  <bb 16> [local count: 57397896]:
+  state_26->mbs[0].state ={v} 0;
+  goto <bb 21>; [100.00%]
+
+  <bb 17> [local count: 54882807]:
+  _10 = state_26->rxFifoDMAChannel;
+  _11 = &base_25->RAMn;
+  _12 = (long unsigned int) _11;
+  _13 = state_26->mbs[0].mb_message;
+  _14 = (long unsigned int) _13;
+  edmaStatus_42 = EDMA_DRV_ConfigSingleBlockTransfer (_10, 2, _12, _14, 2, 16);
+  if (edmaStatus_42 != 0)
+    goto <bb 18>; [51.12%]
+  else
+    goto <bb 19>; [48.88%]
+
+  <bb 18> [local count: 28056091]:
+  state_26->mbs[0].state ={v} 0;
+  goto <bb 21>; [100.00%]
+
+  <bb 19> [local count: 26826716]:
+  _15 = state_26->rxFifoDMAChannel;
+  EDMA_DRV_DisableRequestsOnTransferComplete (_15, 1);
+  _16 = state_26->rxFifoDMAChannel;
+  edmaStat_45 = EDMA_DRV_StartChannel (_16);
+  if (edmaStat_45 != 0)
+    goto <bb 20>; [34.00%]
+  else
+    goto <bb 14>; [66.00%]
+
+  <bb 20> [local count: 9121084]:
+  state_26->mbs[0].state ={v} 0;
+
+  <bb 21> [local count: 1073741824]:
+  # _17 = PHI <2(9), 0(14), 1(16), 1(18), 1(20), 1(10)>
+  return _17;
+
+}
+
+
+
+;; Function FLEXCAN_CompleteRxMessageFifoData (FLEXCAN_CompleteRxMessageFifoData, funcdef_no=100, decl_uid=8206, cgraph_uid=101, symbol_order=106)
+
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+FLEXCAN_CompleteRxMessageFifoData (uint8_t instance)
+{
+  uint32_t * msgData_32;
+  struct flexcan_msgbuff_t * fifo_message;
+  struct flexcan_state_t * state;
+  struct CAN_Type * base;
+  int _1;
+  <unnamed type> _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  unsigned char _10;
+  unsigned char _11;
+  long unsigned int _12;
+  uint32_t * _13;
+  long unsigned int _14;
+  <unnamed type> _15;
+  void (*<T7f0>) (uint8_t, flexcan_event_type_t, uint32_t, struct FlexCANState *) _16;
+  <unnamed type> _17;
+  _Bool _18;
+  <unnamed type> _19;
+  struct QueueDefinition * * _20;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_25(D);
+  state_28 = g_flexcanStatePtr[_1];
+  _2 = state_28->transferType;
+  if (_2 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  base_27 = g_flexcanBase[_1];
+  FLEXCAN_SetMsgBuffIntCmd (base_27, 5, 0);
+  FLEXCAN_SetMsgBuffIntCmd (base_27, 6, 0);
+  FLEXCAN_SetMsgBuffIntCmd (base_27, 7, 0);
+  goto <bb 8>; [100.00%]
+
+  <bb 4> [local count: 719407025]:
+  _3 ={v} state_28->mbs[0].state;
+  if (_3 != 3)
+    goto <bb 5>; [48.88%]
+  else
+    goto <bb 8>; [51.12%]
+
+  <bb 5> [local count: 351646151]:
+  fifo_message_29 = state_28->mbs[0].mb_message;
+  msgData_32_30 = &fifo_message_29->data;
+  _4 = state_28->rxFifoDMAChannel;
+  EDMA_DRV_StopChannel (_4);
+  _5 = fifo_message_29->cs;
+  _6 = _5 & 2097152;
+  if (_6 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 175823076]:
+  _7 = fifo_message_29->msgId;
+  _8 = _7 >> 18;
+  fifo_message_29->msgId = _8;
+
+  <bb 7> [local count: 351646151]:
+  _9 = _5 >> 16;
+  _10 = (unsigned char) _9;
+  _11 = _10 & 15;
+  fifo_message_29->dataLen = _11;
+  _12 = MEM[(uint32_t *)fifo_message_29 + 8B];
+  __asm__ __volatile__("rev %0, %1" : "=r" *msgData_32_30 : "r" _12);
+  _13 = &MEM <uint32_t> [(void *)fifo_message_29 + 12B];
+  _14 = MEM[(uint32_t *)fifo_message_29 + 12B];
+  __asm__ __volatile__("rev %0, %1" : "=r" *_13 : "r" _14);
+
+  <bb 8> [local count: 1073741824]:
+  state_28->mbs[0].mb_message = 0B;
+  _15 ={v} state_28->mbs[0].state;
+  if (_15 != 3)
+    goto <bb 10>; [66.00%]
+  else
+    goto <bb 9>; [34.00%]
+
+  <bb 9> [local count: 905078457]:
+  goto <bb 13>; [100.00%]
+
+  <bb 10> [local count: 708669601]:
+  state_28->mbs[0].state ={v} 0;
+  _16 = state_28->callback;
+  if (_16 != 0B)
+    goto <bb 11>; [70.00%]
+  else
+    goto <bb 9>; [30.00%]
+
+  <bb 11> [local count: 496068722]:
+  _17 = state_28->transferType;
+  if (_17 == 1)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 9>; [66.00%]
+
+  <bb 12> [local count: 168663367]:
+  _16 (instance_25(D), 8, 0, state_28);
+
+  <bb 13> [local count: 1073741824]:
+  _18 = state_28->mbs[0].isBlocking;
+  if (_18 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 14> [local count: 536870913]:
+  _19 ={v} state_28->mbs[0].state;
+  if (_19 == 0)
+    goto <bb 15>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 15> [local count: 177167400]:
+  _20 = &state_28->mbs[0].mbSema;
+  OSIF_SemaPost (_20); [tail call]
+
+  <bb 16> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_CompleteRxFifoDataDMA (FLEXCAN_CompleteRxFifoDataDMA, funcdef_no=99, decl_uid=8209, cgraph_uid=100, symbol_order=105)
+
+FLEXCAN_CompleteRxFifoDataDMA (void * parameter, edma_chn_status_t status)
+{
+  struct flexcan_state_t * state;
+  uint32_t instance;
+  void (*<T7f0>) (uint8_t, flexcan_event_type_t, uint32_t, struct FlexCANState *) _1;
+  unsigned char _2;
+  unsigned char _13;
+  unsigned char _14;
+  unsigned char prephitmp_15;
+
+  <bb 2> [local count: 1073741824]:
+  instance_6 = (uint32_t) parameter_5(D);
+  if (status_7(D) == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669600]:
+  _13 = (unsigned char) instance_6;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 365072224]:
+  state_9 = g_flexcanStatePtr[instance_6];
+  state_9->mbs[0].state ={v} 3;
+  _1 = state_9->callback;
+  if (_1 != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 5> [local count: 109521666]:
+  _14 = (unsigned char) instance_6;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 255550558]:
+  _2 = (unsigned char) instance_6;
+  _1 (_2, 9, 0, state_9);
+
+  <bb 7> [local count: 1073741824]:
+  # prephitmp_15 = PHI <_2(6), _13(3), _14(5)>
+  FLEXCAN_CompleteRxMessageFifoData (prephitmp_15); [tail call]
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SetBitrate (FLEXCAN_DRV_SetBitrate, funcdef_no=59, decl_uid=7233, cgraph_uid=60, symbol_order=65)
+
+Removing basic block 10
+Removing basic block 11
+FLEXCAN_DRV_SetBitrate (uint8_t instance, const struct flexcan_time_segment_t * bitrate)
+{
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _11;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _64;
+  long unsigned int _65;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_5(D);
+  base_7 = g_flexcanBase[_1];
+  _15 ={v} MEM[(const struct CAN_Type *)base_7].MCR;
+  _16 = _15 & 2048;
+  _13 ={v} MEM[(const struct CAN_Type *)base_7].MCR;
+  _14 = _13 & 16777216;
+  if (_14 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_7);
+
+  <bb 4> [local count: 1073741824]:
+  if (_16 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  _17 ={v} base_7->CBT;
+  _18 = _17 & 2147483648;
+  base_7->CBT ={v} _18;
+  _19 ={v} base_7->CBT;
+  _20 = bitrate_9(D)->propSeg;
+  _21 = _20 << 10;
+  _22 = _21 & 65535;
+  _23 = bitrate_9(D)->phaseSeg2;
+  _24 = _23 & 31;
+  _26 = bitrate_9(D)->phaseSeg1;
+  _27 = _26 << 5;
+  _28 = _27 & 992;
+  _64 = _22 | _28;
+  _29 = _24 | _64;
+  _30 = bitrate_9(D)->preDivider;
+  _31 = _30 << 21;
+  _32 = _31 & 2145386496;
+  _33 = _29 | _32;
+  _34 = bitrate_9(D)->rJumpwidth;
+  _35 = _34 << 16;
+  _36 = _35 & 2031616;
+  _37 = _33 | _36;
+  _38 = _19 | _37;
+  base_7->CBT ={v} _38;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 536870913]:
+  _39 ={v} base_7->CTRL1;
+  _40 = _39 & 65528;
+  base_7->CTRL1 ={v} _40;
+  _41 ={v} base_7->CTRL1;
+  _42 = bitrate_9(D)->propSeg;
+  _43 = _42 & 7;
+  _44 = bitrate_9(D)->phaseSeg2;
+  _45 = _44 << 16;
+  _46 = _45 & 458752;
+  _48 = bitrate_9(D)->phaseSeg1;
+  _49 = _48 << 19;
+  _50 = _49 & 3670016;
+  _52 = bitrate_9(D)->preDivider;
+  _53 = _52 << 24;
+  _65 = _43 | _53;
+  _11 = _46 | _65;
+  _54 = _11 | _50;
+  _55 = bitrate_9(D)->rJumpwidth;
+  _56 = _55 << 22;
+  _57 = _56 & 12582912;
+  _58 = _54 | _57;
+  _59 = _41 | _58;
+  base_7->CTRL1 ={v} _59;
+
+  <bb 7> [local count: 1073741824]:
+  if (_14 == 0)
+    goto <bb 8>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 8> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_7); [tail call]
+
+  <bb 9> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SetBitrateCbt (FLEXCAN_DRV_SetBitrateCbt, funcdef_no=60, decl_uid=7236, cgraph_uid=61, symbol_order=66)
+
+Removing basic block 7
+Removing basic block 8
+FLEXCAN_DRV_SetBitrateCbt (uint8_t instance, const struct flexcan_time_segment_t * bitrate)
+{
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _37;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_4(D);
+  base_6 = g_flexcanBase[_1];
+  _11 ={v} MEM[(const struct CAN_Type *)base_6].MCR;
+  _12 = _11 & 16777216;
+  if (_12 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_6);
+
+  <bb 4> [local count: 1073741824]:
+  _13 ={v} base_6->FDCBT;
+  _14 = _13 & 3221783320;
+  base_6->FDCBT ={v} _14;
+  _15 ={v} base_6->FDCBT;
+  _16 = bitrate_8(D)->propSeg;
+  _17 = _16 << 10;
+  _18 = _17 & 31744;
+  _19 = bitrate_8(D)->phaseSeg2;
+  _20 = _19 & 7;
+  _22 = bitrate_8(D)->phaseSeg1;
+  _23 = _22 << 5;
+  _24 = _23 & 255;
+  _37 = _18 | _24;
+  _25 = _20 | _37;
+  _26 = bitrate_8(D)->preDivider;
+  _27 = _26 << 20;
+  _28 = _27 & 1072693248;
+  _29 = _25 | _28;
+  _30 = bitrate_8(D)->rJumpwidth;
+  _31 = _30 << 16;
+  _32 = _31 & 458752;
+  _33 = _29 | _32;
+  _34 = _15 | _33;
+  base_6->FDCBT ={v} _34;
+  if (_12 == 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_6); [tail call]
+
+  <bb 6> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_GetBitrate (FLEXCAN_DRV_GetBitrate, funcdef_no=61, decl_uid=7239, cgraph_uid=62, symbol_order=67)
+
+FLEXCAN_DRV_GetBitrate (uint8_t instance, struct flexcan_time_segment_t * bitrate)
+{
+  const struct CAN_Type * base;
+  int _1;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_3(D);
+  base_5 = g_flexcanBase[_1];
+  _9 ={v} base_5->MCR;
+  _10 = _9 & 2048;
+  if (_10 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _11 ={v} base_5->CBT;
+  _12 = _11 >> 21;
+  _13 = _12 & 1023;
+  bitrate_6(D)->preDivider = _13;
+  _14 ={v} base_5->CBT;
+  _15 = _14 >> 10;
+  _16 = _15 & 63;
+  bitrate_6(D)->propSeg = _16;
+  _17 ={v} base_5->CBT;
+  _18 = _17 >> 5;
+  _19 = _18 & 31;
+  bitrate_6(D)->phaseSeg1 = _19;
+  _20 ={v} base_5->CBT;
+  _21 = _20 & 31;
+  bitrate_6(D)->phaseSeg2 = _21;
+  _22 ={v} base_5->CBT;
+  _23 = _22 >> 16;
+  _24 = _23 & 31;
+  bitrate_6(D)->rJumpwidth = _24;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _25 ={v} base_5->CTRL1;
+  _26 = _25 >> 24;
+  bitrate_6(D)->preDivider = _26;
+  _27 ={v} base_5->CTRL1;
+  _28 = _27 & 7;
+  bitrate_6(D)->propSeg = _28;
+  _29 ={v} base_5->CTRL1;
+  _30 = _29 >> 19;
+  _31 = _30 & 7;
+  bitrate_6(D)->phaseSeg1 = _31;
+  _32 ={v} base_5->CTRL1;
+  _33 = _32 >> 16;
+  _34 = _33 & 7;
+  bitrate_6(D)->phaseSeg2 = _34;
+  _35 ={v} base_5->CTRL1;
+  _36 = _35 >> 22;
+  _37 = _36 & 3;
+  bitrate_6(D)->rJumpwidth = _37;
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_GetBitrateFD (FLEXCAN_DRV_GetBitrateFD, funcdef_no=62, decl_uid=7242, cgraph_uid=63, symbol_order=68)
+
+FLEXCAN_DRV_GetBitrateFD (uint8_t instance, struct flexcan_time_segment_t * bitrate)
+{
+  const struct CAN_Type * base;
+  int _1;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_2(D);
+  base_4 = g_flexcanBase[_1];
+  _7 ={v} base_4->FDCBT;
+  _8 = _7 >> 20;
+  _9 = _8 & 1023;
+  bitrate_5(D)->preDivider = _9;
+  _10 ={v} base_4->FDCBT;
+  _11 = _10 >> 10;
+  _12 = _11 & 31;
+  bitrate_5(D)->propSeg = _12;
+  _13 ={v} base_4->FDCBT;
+  _14 = _13 >> 5;
+  _15 = _14 & 7;
+  bitrate_5(D)->phaseSeg1 = _15;
+  _16 ={v} base_4->FDCBT;
+  _17 = _16 & 7;
+  bitrate_5(D)->phaseSeg2 = _17;
+  _18 ={v} base_4->FDCBT;
+  _19 = _18 >> 16;
+  _20 = _19 & 7;
+  bitrate_5(D)->rJumpwidth = _20;
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SetRxMaskType (FLEXCAN_DRV_SetRxMaskType, funcdef_no=63, decl_uid=7245, cgraph_uid=64, symbol_order=69)
+
+Removing basic block 10
+Removing basic block 11
+FLEXCAN_DRV_SetRxMaskType (uint8_t instance, flexcan_rx_mask_type_t type)
+{
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_4(D);
+  base_6 = g_flexcanBase[_1];
+  _10 ={v} MEM[(const struct CAN_Type *)base_6].MCR;
+  _11 = _10 & 16777216;
+  if (_11 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_6);
+
+  <bb 4> [local count: 1073741824]:
+  if (type_8(D) == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  _12 ={v} base_6->MCR;
+  _13 = _12 & 4294901759;
+  base_6->MCR ={v} _13;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 536870913]:
+  _14 ={v} base_6->MCR;
+  _15 = _14 | 65536;
+  base_6->MCR ={v} _15;
+
+  <bb 7> [local count: 1073741824]:
+  if (_11 == 0)
+    goto <bb 8>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 8> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_6); [tail call]
+
+  <bb 9> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SetRxFifoGlobalMask (FLEXCAN_DRV_SetRxFifoGlobalMask, funcdef_no=64, decl_uid=7249, cgraph_uid=65, symbol_order=70)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+FLEXCAN_DRV_SetRxFifoGlobalMask (uint8_t instance, flexcan_msgbuff_id_type_t id_type, uint32_t mask)
+{
+  uint32_t calcMask;
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  unsigned int _29;
+  unsigned char _30;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _53;
+  long unsigned int _54;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_13(D);
+  base_15 = g_flexcanBase[_1];
+  _22 ={v} MEM[(const struct CAN_Type *)base_15].MCR;
+  _23 = _22 & 16777216;
+  if (_23 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 15>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_15);
+  _53 ={v} MEM[(const struct CAN_Type *)base_15].MCR;
+  _54 = _53 & 536870912;
+  if (_54 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 4> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_15); [tail call]
+  goto <bb 14>; [100.00%]
+
+  <bb 5> [local count: 536870913]:
+  _26 ={v} MEM[(const struct CAN_Type *)base_15].MCR;
+  _27 = _26 >> 8;
+  _28 = _27 & 3;
+  _29 = _28 + 4294967295;
+  if (_29 <= 2)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 268435457]:
+  calcMask_38 = FLEXCAN_GetRxFifoMask (id_type_17(D), 0, mask_18(D));
+  base_15->RXFGMASK ={v} calcMask_38;
+  goto <bb 12>; [100.00%]
+
+  <bb 7> [local count: 268435456]:
+  _30 = (unsigned char) _28;
+  calcMask_20 = FLEXCAN_GetRxFifoMask (id_type_17(D), _30, mask_18(D));
+  if (_28 == 1)
+    goto <bb 9>; [33.33%]
+  else
+    goto <bb 8>; [66.67%]
+
+  <bb 8> [local count: 268435456]:
+  if (_30 == 2)
+    goto <bb 10>; [52.17%]
+  else
+    goto <bb 11>; [47.83%]
+
+  <bb 9> [local count: 134217728]:
+  _2 = calcMask_20 >> 16;
+  _3 = _2 | calcMask_20;
+  base_15->RXFGMASK ={v} _3;
+  goto <bb 12>; [100.00%]
+
+  <bb 10> [local count: 134217728]:
+  _4 = calcMask_20 >> 24;
+  _6 = calcMask_20 >> 16;
+  _48 = _4 | _6;
+  _7 = calcMask_20 | _48;
+  _8 = calcMask_20 >> 8;
+  _9 = _7 | _8;
+  base_15->RXFGMASK ={v} _9;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 134217728]:
+  base_15->RXFGMASK ={v} 4294967295;
+
+  <bb 12> [local count: 536870912]:
+  if (_23 == 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 13>; [67.00%]
+
+  <bb 13> [local count: 719407024]:
+
+  <bb 14> [local count: 1073741824]:
+  return;
+
+  <bb 15> [local count: 719407024]:
+  _49 ={v} MEM[(const struct CAN_Type *)base_15].MCR;
+  _50 = _49 & 536870912;
+  if (_50 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SetRxMbGlobalMask (FLEXCAN_DRV_SetRxMbGlobalMask, funcdef_no=65, decl_uid=7253, cgraph_uid=66, symbol_order=71)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+FLEXCAN_DRV_SetRxMbGlobalMask (uint8_t instance, flexcan_msgbuff_id_type_t id_type, uint32_t mask)
+{
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_5(D);
+  base_7 = g_flexcanBase[_1];
+  _12 ={v} MEM[(const struct CAN_Type *)base_7].MCR;
+  _13 = _12 & 16777216;
+  if (_13 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_7);
+
+  <bb 4> [local count: 1073741824]:
+  if (id_type_9(D) == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  _14 = mask_10(D) << 18;
+  _15 = _14 & 536608768;
+  base_7->RXMGMASK ={v} _15;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 536870913]:
+  if (id_type_9(D) == 1)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 182536112]:
+  _16 = mask_10(D) & 536870911;
+  base_7->RXMGMASK ={v} _16;
+
+  <bb 8> [local count: 1073741824]:
+  if (_13 == 0)
+    goto <bb 9>; [33.00%]
+  else
+    goto <bb 10>; [67.00%]
+
+  <bb 9> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_7); [tail call]
+
+  <bb 10> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SetRxMb14Mask (FLEXCAN_DRV_SetRxMb14Mask, funcdef_no=66, decl_uid=7257, cgraph_uid=67, symbol_order=72)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+FLEXCAN_DRV_SetRxMb14Mask (uint8_t instance, flexcan_msgbuff_id_type_t id_type, uint32_t mask)
+{
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_5(D);
+  base_7 = g_flexcanBase[_1];
+  _12 ={v} MEM[(const struct CAN_Type *)base_7].MCR;
+  _13 = _12 & 16777216;
+  if (_13 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_7);
+
+  <bb 4> [local count: 1073741824]:
+  if (id_type_9(D) == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  _14 = mask_10(D) << 18;
+  _15 = _14 & 536608768;
+  base_7->RX14MASK ={v} _15;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 536870913]:
+  if (id_type_9(D) == 1)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 182536112]:
+  _16 = mask_10(D) & 536870911;
+  base_7->RX14MASK ={v} _16;
+
+  <bb 8> [local count: 1073741824]:
+  if (_13 == 0)
+    goto <bb 9>; [33.00%]
+  else
+    goto <bb 10>; [67.00%]
+
+  <bb 9> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_7); [tail call]
+
+  <bb 10> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SetRxMb15Mask (FLEXCAN_DRV_SetRxMb15Mask, funcdef_no=67, decl_uid=7261, cgraph_uid=68, symbol_order=73)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+FLEXCAN_DRV_SetRxMb15Mask (uint8_t instance, flexcan_msgbuff_id_type_t id_type, uint32_t mask)
+{
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_5(D);
+  base_7 = g_flexcanBase[_1];
+  _12 ={v} MEM[(const struct CAN_Type *)base_7].MCR;
+  _13 = _12 & 16777216;
+  if (_13 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_7);
+
+  <bb 4> [local count: 1073741824]:
+  if (id_type_9(D) == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  _14 = mask_10(D) << 18;
+  _15 = _14 & 536608768;
+  base_7->RX15MASK ={v} _15;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 536870913]:
+  if (id_type_9(D) == 1)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 182536112]:
+  _16 = mask_10(D) & 536870911;
+  base_7->RX15MASK ={v} _16;
+
+  <bb 8> [local count: 1073741824]:
+  if (_13 == 0)
+    goto <bb 9>; [33.00%]
+  else
+    goto <bb 10>; [67.00%]
+
+  <bb 9> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_7); [tail call]
+
+  <bb 10> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SetRxIndividualMask (FLEXCAN_DRV_SetRxIndividualMask, funcdef_no=68, decl_uid=7266, cgraph_uid=69, symbol_order=74)
+
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+FLEXCAN_DRV_SetRxIndividualMask (uint8_t instance, flexcan_msgbuff_id_type_t id_type, uint8_t mb_idx, uint32_t mask)
+{
+  uint8_t ret;
+  uint32_t calcMask;
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  status_t _11;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  unsigned char _38;
+  unsigned char _39;
+  unsigned char _40;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  unsigned int _45;
+  unsigned char _46;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _78;
+  long unsigned int _79;
+  long unsigned int _80;
+  long unsigned int _81;
+  long unsigned int _82;
+  long unsigned int _83;
+  long unsigned int _84;
+
+  <bb 2> [local count: 1073741823]:
+  _1 = (int) instance_16(D);
+  base_18 = g_flexcanBase[_1];
+  _27 ={v} MEM[(const struct CAN_Type *)base_18].MCR;
+  _28 = _27 & 16777216;
+  if (_28 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 25>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_18);
+  _78 = (long unsigned int) mb_idx_20(D);
+  _79 ={v} MEM[(const struct CAN_Type *)base_18].MCR;
+  _80 = _79 & 127;
+  if (_78 > _80)
+    goto <bb 4>; [21.72%]
+  else
+    goto <bb 27>; [78.28%]
+
+  <bb 4> [local count: 137206997]:
+  FLEXCAN_ExitFreezeMode (base_18);
+  goto <bb 24>; [100.00%]
+
+  <bb 5> [local count: 657963042]:
+  # _30 = PHI <_82(26), _78(27)>
+  _31 ={v} MEM[(const struct CAN_Type *)base_18].MCR;
+  _32 = _31 & 536870912;
+  if (_32 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 6> [local count: 328981521]:
+  if (id_type_21(D) == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 164490760]:
+  _33 = mask_22(D) << 18;
+  _34 = _33 & 536608768;
+  base_18->RXIMR[_30] ={v} _34;
+  goto <bb 22>; [100.00%]
+
+  <bb 8> [local count: 164490760]:
+  if (id_type_21(D) == 1)
+    goto <bb 9>; [34.00%]
+  else
+    goto <bb 22>; [66.00%]
+
+  <bb 9> [local count: 55926859]:
+  _35 = mask_22(D) & 536870911;
+  base_18->RXIMR[_30] ={v} _35;
+  goto <bb 22>; [100.00%]
+
+  <bb 10> [local count: 328981521]:
+  _36 ={v} MEM[(const struct CAN_Type *)base_18].CTRL2;
+  _37 = _36 >> 24;
+  _38 = (unsigned char) _37;
+  _39 = _38 << 1;
+  _40 = _39 & 30;
+  ret_41 = _40 + 7;
+  if (mb_idx_20(D) <= ret_41)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 11> [local count: 164490760]:
+  _42 ={v} MEM[(const struct CAN_Type *)base_18].MCR;
+  _43 = _42 >> 8;
+  _44 = _43 & 3;
+  _45 = _44 + 4294967295;
+  if (_45 <= 2)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 12> [local count: 82245380]:
+  calcMask_60 = FLEXCAN_GetRxFifoMask (id_type_21(D), 0, mask_22(D));
+  base_18->RXIMR[_30] ={v} calcMask_60;
+  goto <bb 22>; [100.00%]
+
+  <bb 13> [local count: 82245380]:
+  _46 = (unsigned char) _44;
+  calcMask_24 = FLEXCAN_GetRxFifoMask (id_type_21(D), _46, mask_22(D));
+  if (_44 == 1)
+    goto <bb 15>; [33.33%]
+  else
+    goto <bb 14>; [66.67%]
+
+  <bb 14> [local count: 82245380]:
+  if (_46 == 2)
+    goto <bb 16>; [52.17%]
+  else
+    goto <bb 17>; [47.83%]
+
+  <bb 15> [local count: 41122690]:
+  _3 = calcMask_24 >> 16;
+  _4 = _3 | calcMask_24;
+  base_18->RXIMR[_30] ={v} _4;
+  goto <bb 22>; [100.00%]
+
+  <bb 16> [local count: 41122690]:
+  _5 = calcMask_24 >> 24;
+  _7 = calcMask_24 >> 16;
+  _81 = _5 | _7;
+  _8 = calcMask_24 | _81;
+  _9 = calcMask_24 >> 8;
+  _10 = _8 | _9;
+  base_18->RXIMR[_30] ={v} _10;
+  goto <bb 22>; [100.00%]
+
+  <bb 17> [local count: 41122690]:
+  base_18->RXIMR[_30] ={v} 4294967295;
+  goto <bb 22>; [100.00%]
+
+  <bb 18> [local count: 164490760]:
+  if (id_type_21(D) == 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 19> [local count: 82245380]:
+  _48 = mask_22(D) << 18;
+  _49 = _48 & 536608768;
+  base_18->RXIMR[_30] ={v} _49;
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 82245380]:
+  if (id_type_21(D) == 1)
+    goto <bb 21>; [34.00%]
+  else
+    goto <bb 22>; [66.00%]
+
+  <bb 21> [local count: 27963430]:
+  _50 = mask_22(D) & 536870911;
+  base_18->RXIMR[_30] ={v} _50;
+
+  <bb 22> [local count: 657963042]:
+  if (_28 == 0)
+    goto <bb 23>; [33.00%]
+  else
+    goto <bb 24>; [67.00%]
+
+  <bb 23> [local count: 217127802]:
+  FLEXCAN_ExitFreezeMode (base_18);
+
+  <bb 24> [local count: 1073741824]:
+  # _11 = PHI <768(4), 0(23), 0(22), 768(25), 768(26)>
+  return _11;
+
+  <bb 25> [local count: 719407023]:
+  _82 = (long unsigned int) mb_idx_20(D);
+  _83 ={v} MEM[(const struct CAN_Type *)base_18].MCR;
+  _84 = _83 & 127;
+  if (_82 > _84)
+    goto <bb 24>; [21.72%]
+  else
+    goto <bb 26>; [78.28%]
+
+  <bb 26> [local count: 563151815]:
+  if (mb_idx_20(D) > 31)
+    goto <bb 24>; [21.72%]
+  else
+    goto <bb 5>; [78.28%]
+
+  <bb 27> [local count: 277373280]:
+  if (mb_idx_20(D) > 31)
+    goto <bb 4>; [21.72%]
+  else
+    goto <bb 5>; [78.28%]
+
+}
+
+
+
+;; Function FLEXCAN_DRV_Init (FLEXCAN_DRV_Init, funcdef_no=70, decl_uid=7272, cgraph_uid=71, symbol_order=76)
+
+Removing basic block 42
+Removing basic block 43
+Removing basic block 44
+Removing basic block 45
+Removing basic block 46
+Removing basic block 47
+Removing basic block 48
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+Removing basic block 57
+Removing basic block 58
+Removing basic block 59
+Removing basic block 60
+Removing basic block 61
+FLEXCAN_DRV_Init (uint8_t instance, struct flexcan_state_t * state, const struct flexcan_user_config_t * data)
+{
+  unsigned int ivtmp.182;
+  unsigned int ivtmp.173;
+  const long unsigned int bitrate$rJumpwidth;
+  const long unsigned int bitrate$preDivider;
+  const long unsigned int bitrate$phaseSeg2;
+  const long unsigned int bitrate$phaseSeg1;
+  const long unsigned int bitrate$propSeg;
+  static const _Bool fdInstances[3] = {1, 0, 0};
+  uint32_t i;
+  status_t osifStat;
+  struct CAN_Type * base;
+  status_t result;
+  int _1;
+  <unnamed type> _2;
+  _Bool _3;
+  _Bool _5;
+  <unnamed type> _6;
+  _Bool _7;
+  <unnamed type> _8;
+  long unsigned int _9;
+  <unnamed type> _10;
+  <unnamed type> _11;
+  long unsigned int _12;
+  <unnamed type> _13;
+  <unnamed type> _14;
+  struct QueueDefinition * * _15;
+  struct QueueDefinition * * _16;
+  <unnamed type> _17;
+  unsigned char _18;
+  status_t _21;
+  long unsigned int _42;
+  long unsigned int _51;
+  <unnamed type> _54;
+  signed int _75;
+  _Bool _77;
+  long unsigned int _78;
+  long unsigned int _79;
+  long unsigned int _80;
+  long unsigned int _81;
+  long unsigned int _82;
+  long unsigned int _83;
+  unsigned int _89;
+  long unsigned int _91;
+  long unsigned int _92;
+  long unsigned int _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  long unsigned int _97;
+  long unsigned int _98;
+  long unsigned int _99;
+  long unsigned int _100;
+  long unsigned int _101;
+  long unsigned int _102;
+  long unsigned int _108;
+  long unsigned int _109;
+  long unsigned int _118;
+  long unsigned int _119;
+  long unsigned int _120;
+  long unsigned int _122;
+  long unsigned int _123;
+  long unsigned int _125;
+  struct QueueDefinition * * _127;
+  long unsigned int _128;
+  long unsigned int _129;
+  long unsigned int _130;
+  long unsigned int _132;
+  long unsigned int _133;
+  long unsigned int _134;
+  long unsigned int _136;
+  long unsigned int _137;
+  long unsigned int _138;
+  long unsigned int _139;
+  long unsigned int _140;
+  long unsigned int _141;
+  long unsigned int _142;
+  long unsigned int _144;
+  long unsigned int _145;
+  unsigned int _146;
+  long unsigned int _147;
+  unsigned int _149;
+  long unsigned int _150;
+  long unsigned int _151;
+  long unsigned int _152;
+  long unsigned int _153;
+  long unsigned int _154;
+  long unsigned int _155;
+  long unsigned int _156;
+  long unsigned int prephitmp_157;
+  long unsigned int _158;
+  long unsigned int _159;
+  long unsigned int _160;
+  long unsigned int _161;
+  long unsigned int _162;
+  long unsigned int _163;
+  long unsigned int _164;
+  long unsigned int _165;
+  long unsigned int _166;
+  long unsigned int _167;
+  long unsigned int _168;
+  long unsigned int _169;
+  unsigned int _170;
+  long unsigned int _172;
+  long unsigned int _173;
+  long unsigned int _176;
+  long unsigned int _177;
+  long unsigned int _179;
+  long unsigned int _180;
+  long unsigned int _181;
+  long unsigned int _182;
+  <unnamed type> _184;
+  <unnamed type> _185;
+  <unnamed type> _186;
+  <unnamed type> _212;
+  long unsigned int _231;
+  long unsigned int _232;
+  long unsigned int _234;
+  long unsigned int _236;
+  long unsigned int _237;
+  long unsigned int _239;
+  long unsigned int _240;
+  long unsigned int _242;
+  long unsigned int _243;
+  long unsigned int _247;
+  long unsigned int _248;
+  long unsigned int _250;
+  long unsigned int _251;
+  long unsigned int _254;
+  long unsigned int _256;
+  long unsigned int _257;
+  long unsigned int _259;
+  long unsigned int _261;
+  long unsigned int _262;
+
+  <bb 2> [local count: 285391188]:
+  _1 = (int) instance_33(D);
+  base_35 = g_flexcanBase[_1];
+  _42 ={v} MEM[(const struct CAN_Type *)base_35].MCR;
+  _75 = (signed int) _42;
+  if (_75 >= 0)
+    goto <bb 3>; [41.48%]
+  else
+    goto <bb 4>; [58.52%]
+
+  <bb 3> [local count: 118380266]:
+  FLEXCAN_EnterFreezeMode (base_35);
+  FLEXCAN_Disable (base_35);
+
+  <bb 4> [local count: 285391188]:
+  _2 = data_38(D)->pe_clock;
+  _78 ={v} base_35->CTRL1;
+  _79 = _78 & 4294959103;
+  _80 = (long unsigned int) _2;
+  _81 = _80 << 13;
+  _82 = _81 & 8192;
+  _83 = _79 | _82;
+  base_35->CTRL1 ={v} _83;
+  FLEXCAN_Enable (base_35);
+  FLEXCAN_EnterFreezeMode (base_35);
+  FLEXCAN_Init (base_35);
+  _77 = fdInstances[_1];
+  if (_77 != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 7>; [67.00%]
+
+  <bb 5> [local count: 94179092]:
+  _3 = data_38(D)->fd_enable;
+  _108 ={v} base_35->MCR;
+  _109 = _108 & 4294965247;
+  if (_3 != 0)
+    goto <bb 41>; [50.00%]
+  else
+    goto <bb 40>; [50.00%]
+
+  <bb 6> [local count: 47089546]:
+  # prephitmp_157 = PHI <_153(38), _243(39)>
+  base_35->CTRL2 ={v} prephitmp_157;
+  goto <bb 9>; [100.00%]
+
+  <bb 7> [local count: 191212097]:
+  _5 = data_38(D)->fd_enable;
+  if (_5 != 0)
+    goto <bb 8>; [34.00%]
+  else
+    goto <bb 9>; [66.00%]
+
+  <bb 8> [local count: 187152718]:
+  goto <bb 37>; [100.00%]
+
+  <bb 9> [local count: 173289529]:
+  _6 = data_38(D)->flexcanMode;
+  if (_6 != 2)
+    goto <bb 10>; [66.00%]
+  else
+    goto <bb 11>; [34.00%]
+
+  <bb 10> [local count: 114371089]:
+  _91 ={v} base_35->MCR;
+  _92 = _91 & 4294836223;
+  _93 = _92 | 131072;
+  base_35->MCR ={v} _93;
+
+  <bb 11> [local count: 173289529]:
+  _7 = data_38(D)->is_rx_fifo_needed;
+  if (_7 != 0)
+    goto <bb 13>; [33.00%]
+  else
+    goto <bb 12>; [67.00%]
+
+  <bb 12> [local count: 153846444]:
+  _10 = data_38(D)->transfer_type;
+  if (_10 == 1)
+    goto <bb 14>; [34.00%]
+  else
+    goto <bb 16>; [66.00%]
+
+  <bb 13> [local count: 57185544]:
+  _8 = data_38(D)->num_id_filters;
+  _9 = (long unsigned int) _8;
+  result_45 = FLEXCAN_EnableRxFifo (base_35, _9);
+  if (result_45 != 0)
+    goto <bb 37>; [34.00%]
+  else
+    goto <bb 12>; [66.00%]
+
+  <bb 14> [local count: 52307792]:
+  _94 ={v} MEM[(const struct CAN_Type *)base_35].MCR;
+  _95 = _94 & 536870912;
+  if (_95 != 0)
+    goto <bb 15>; [66.00%]
+  else
+    goto <bb 8>; [34.00%]
+
+  <bb 15> [local count: 34523142]:
+  _96 ={v} base_35->MCR;
+  _97 = _96 & 4294934527;
+  _98 = _97 | 32768;
+  base_35->MCR ={v} _98;
+  goto <bb 18>; [100.00%]
+
+  <bb 16> [local count: 101538653]:
+  if (_10 == 0)
+    goto <bb 17>; [67.00%]
+  else
+    goto <bb 18>; [33.00%]
+
+  <bb 17> [local count: 68030897]:
+  _99 ={v} base_35->MCR;
+  _100 = _99 & 4294934527;
+  base_35->MCR ={v} _100;
+
+  <bb 18> [local count: 136061795]:
+  _11 = data_38(D)->payload;
+  FLEXCAN_SetPayloadSize (base_35, _11);
+  _12 = data_38(D)->max_num_mb;
+  result_48 = FLEXCAN_SetMaxMsgBuffNum (base_35, _12);
+  if (result_48 != 0)
+    goto <bb 37>; [34.00%]
+  else
+    goto <bb 19>; [66.00%]
+
+  <bb 19> [local count: 89800784]:
+  _101 ={v} MEM[(const struct CAN_Type *)base_35].MCR;
+  _102 = _101 & 2048;
+  if (_102 != 0)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 20> [local count: 44900392]:
+  bitrate$propSeg_264 = data_38(D)->bitrate.propSeg;
+  bitrate$phaseSeg1_263 = data_38(D)->bitrate.phaseSeg1;
+  bitrate$phaseSeg2_31 = data_38(D)->bitrate.phaseSeg2;
+  bitrate$preDivider_19 = data_38(D)->bitrate.preDivider;
+  bitrate$rJumpwidth_230 = data_38(D)->bitrate.rJumpwidth;
+  _140 ={v} base_35->CBT;
+  _141 = _140 & 2147483648;
+  base_35->CBT ={v} _141;
+  _142 ={v} base_35->CBT;
+  _144 = bitrate$propSeg_264 << 10;
+  _145 = _144 & 65535;
+  _147 = bitrate$phaseSeg2_31 & 31;
+  _150 = bitrate$phaseSeg1_263 << 5;
+  _151 = _150 & 992;
+  _167 = _145 | _151;
+  _152 = _147 | _167;
+  _154 = bitrate$preDivider_19 << 21;
+  _155 = _154 & 2145386496;
+  _156 = _152 | _155;
+  _158 = bitrate$rJumpwidth_230 << 16;
+  _159 = _158 & 2031616;
+  _160 = _156 | _159;
+  _161 = _142 | _160;
+  base_35->CBT ={v} _161;
+  bitrate$propSeg_196 = data_38(D)->bitrate_cbt.propSeg;
+  bitrate$phaseSeg1_195 = data_38(D)->bitrate_cbt.phaseSeg1;
+  bitrate$phaseSeg2_194 = data_38(D)->bitrate_cbt.phaseSeg2;
+  bitrate$preDivider_117 = data_38(D)->bitrate_cbt.preDivider;
+  bitrate$rJumpwidth_116 = data_38(D)->bitrate_cbt.rJumpwidth;
+  _118 ={v} base_35->FDCBT;
+  _119 = _118 & 3221783320;
+  base_35->FDCBT ={v} _119;
+  _120 ={v} base_35->FDCBT;
+  _122 = bitrate$propSeg_196 << 10;
+  _123 = _122 & 31744;
+  _125 = bitrate$phaseSeg2_194 & 7;
+  _128 = bitrate$phaseSeg1_195 << 5;
+  _129 = _128 & 255;
+  _165 = _123 | _129;
+  _130 = _125 | _165;
+  _132 = bitrate$preDivider_117 << 20;
+  _133 = _132 & 1072693248;
+  _134 = _130 | _133;
+  _136 = bitrate$rJumpwidth_116 << 16;
+  _137 = _136 & 458752;
+  _138 = _134 | _137;
+  _139 = _120 | _138;
+  base_35->FDCBT ={v} _139;
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 44900392]:
+  bitrate$propSeg_30 = data_38(D)->bitrate.propSeg;
+  bitrate$phaseSeg1_20 = data_38(D)->bitrate.phaseSeg1;
+  bitrate$phaseSeg2_245 = data_38(D)->bitrate.phaseSeg2;
+  bitrate$preDivider_233 = data_38(D)->bitrate.preDivider;
+  bitrate$rJumpwidth_244 = data_38(D)->bitrate.rJumpwidth;
+  _162 ={v} base_35->CTRL1;
+  _163 = _162 & 65528;
+  base_35->CTRL1 ={v} _163;
+  _164 ={v} base_35->CTRL1;
+  _166 = bitrate$propSeg_30 & 7;
+  _168 = bitrate$phaseSeg2_245 << 16;
+  _169 = _168 & 458752;
+  _172 = bitrate$phaseSeg1_20 << 19;
+  _173 = _172 & 3670016;
+  _176 = bitrate$preDivider_233 << 24;
+  _51 = _166 | _176;
+  _254 = _51 | _169;
+  _177 = _173 | _254;
+  _179 = bitrate$rJumpwidth_244 << 22;
+  _180 = _179 & 12582912;
+  _181 = _177 | _180;
+  _182 = _164 | _181;
+  base_35->CTRL1 ={v} _182;
+
+  <bb 22> [local count: 89800784]:
+  _13 = data_38(D)->flexcanMode;
+  FLEXCAN_SetOperationMode (base_35, _13);
+  _14 = data_38(D)->flexcanMode;
+  if (_14 != 3)
+    goto <bb 23>; [48.88%]
+  else
+    goto <bb 24>; [51.12%]
+
+  <bb 23> [local count: 43894623]:
+  FLEXCAN_ExitFreezeMode (base_35);
+
+  <bb 24> [local count: 89800784]:
+  _184 = g_flexcanWakeUpIrqId[_1];
+  if (_184 != -128)
+    goto <bb 25>; [48.88%]
+  else
+    goto <bb 26>; [51.12%]
+
+  <bb 25> [local count: 43894623]:
+  INT_SYS_EnableIRQ (_184);
+
+  <bb 26> [local count: 89800784]:
+  _185 = g_flexcanErrorIrqId[_1];
+  INT_SYS_EnableIRQ (_185);
+  _186 = g_flexcanBusOffIrqId[_1];
+  INT_SYS_EnableIRQ (_186);
+  _54 = g_flexcanOredMessageBufferIrqId[0][_1];
+  if (_54 != -128)
+    goto <bb 27>; [48.88%]
+  else
+    goto <bb 28>; [51.12%]
+
+  <bb 27> [local count: 43894623]:
+  INT_SYS_EnableIRQ (_54);
+
+  <bb 28> [local count: 89800784]:
+  _212 = g_flexcanOredMessageBufferIrqId[1][_1];
+  if (_212 != -128)
+    goto <bb 29>; [48.88%]
+  else
+    goto <bb 30>; [51.12%]
+
+  <bb 29> [local count: 43894623]:
+  INT_SYS_EnableIRQ (_212);
+
+  <bb 30> [local count: 89800784]:
+  _127 = state_58(D) + 4;
+  ivtmp.182_135 = (unsigned int) _127;
+
+  <bb 31> [local count: 1041207448]:
+  # i_265 = PHI <0(30), i_71(35)>
+  # ivtmp.182_143 = PHI <ivtmp.182_135(30), ivtmp.182_126(35)>
+  _15 = (struct QueueDefinition * *) ivtmp.182_143;
+  osifStat_67 = OSIF_SemaCreate (_15, 0);
+  if (osifStat_67 != 0)
+    goto <bb 32>; [5.50%]
+  else
+    goto <bb 35>; [94.50%]
+
+  <bb 32> [local count: 57266409]:
+  if (i_265 != 0)
+    goto <bb 33>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 33> [local count: 50967104]:
+  _170 = i_265 * 12;
+  _149 = (unsigned int) state_58(D);
+  _89 = _149 + 4;
+  _146 = _89 + _170;
+
+  <bb 34> [local count: 463337315]:
+  # ivtmp.173_178 = PHI <ivtmp.182_135(33), ivtmp.173_175(34)>
+  _16 = (struct QueueDefinition * *) ivtmp.173_178;
+  OSIF_SemaDestroy (_16);
+  ivtmp.173_175 = ivtmp.173_178 + 12;
+  if (_146 != ivtmp.173_175)
+    goto <bb 34>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 35> [local count: 983941040]:
+  MEM[base: _15, offset: 5B] = 0;
+  MEM[base: _15, offset: 4294967292B] = 0B;
+  state_58(D)->mbs[i_265].state ={v} 0;
+  i_71 = i_265 + 1;
+  ivtmp.182_126 = ivtmp.182_143 + 12;
+  if (i_71 != 32)
+    goto <bb 31>; [96.69%]
+  else
+    goto <bb 36>; [3.31%]
+
+  <bb 36> [local count: 32534376]:
+  _17 = data_38(D)->transfer_type;
+  state_58(D)->transferType = _17;
+  _18 = data_38(D)->rxFifoDMAChannel;
+  state_58(D)->rxFifoDMAChannel = _18;
+  state_58(D)->callback = 0B;
+  state_58(D)->callbackParam = 0B;
+  state_58(D)->error_callback = 0B;
+  state_58(D)->errorCallbackParam = 0B;
+  g_flexcanStatePtr[_1] = state_58(D);
+
+  <bb 37> [local count: 285391190]:
+  # _21 = PHI <1(8), result_45(13), osifStat_67(36), result_48(18)>
+  return _21;
+
+  <bb 38> [local count: 23544773]:
+  _231 ={v} base_35->CTRL2;
+  _232 = _231 & 4294963199;
+  _153 = _232 | 4096;
+  goto <bb 6>; [100.00%]
+
+  <bb 39> [local count: 23544773]:
+  _242 ={v} base_35->CTRL2;
+  _243 = _242 & 4294963199;
+  goto <bb 6>; [100.00%]
+
+  <bb 40> [local count: 47089546]:
+  base_35->MCR ={v} _109;
+  _256 ={v} base_35->CBT;
+  _257 = _256 & 2147483647;
+  base_35->CBT ={v} _257;
+  _247 ={v} base_35->FDCTRL;
+  _248 = _247 & 4294926591;
+  base_35->FDCTRL ={v} _248;
+  _250 ={v} MEM[(const struct CAN_Type *)base_35].MCR;
+  _251 = _250 & 2048;
+  if (_251 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 39>; [50.00%]
+
+  <bb 41> [local count: 47089546]:
+  _259 = _109 | 2048;
+  base_35->MCR ={v} _259;
+  _261 ={v} base_35->CBT;
+  _262 = _261 & 2147483647;
+  _234 = _262 | 2147483648;
+  base_35->CBT ={v} _234;
+  _236 ={v} base_35->FDCTRL;
+  _237 = _236 & 4294926591;
+  base_35->FDCTRL ={v} _237;
+  _239 ={v} MEM[(const struct CAN_Type *)base_35].MCR;
+  _240 = _239 & 2048;
+  if (_240 == 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 38>; [50.00%]
+
+}
+
+
+
+;; Function FLEXCAN_DRV_ConfigTxMb (FLEXCAN_DRV_ConfigTxMb, funcdef_no=71, decl_uid=7289, cgraph_uid=72, symbol_order=77)
+
+Removing basic block 5
+FLEXCAN_DRV_ConfigTxMb (uint8_t instance, uint8_t mb_idx, const struct flexcan_data_info_t * tx_info, uint32_t msg_id)
+{
+  struct CAN_Type * base;
+  struct flexcan_msgbuff_code_status_t cs;
+  int _1;
+  long unsigned int _2;
+  _Bool _3;
+  long unsigned int _4;
+  <unnamed type> _5;
+  _Bool _6;
+  status_t _9;
+  status_t _25;
+  unsigned short _28;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_11(D);
+  base_13 = g_flexcanBase[_1];
+  _2 = (long unsigned int) mb_idx_14(D);
+  _3 = FLEXCAN_IsOutOfRangeMbIdx (base_13, _2);
+  if (_3 != 0)
+    goto <bb 4>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  _4 = tx_info_16(D)->data_length;
+  _5 = tx_info_16(D)->msg_id_type;
+  cs.msgIdType = _5;
+  _6 = tx_info_16(D)->enable_brs;
+  cs.dataLen = _4;
+  _28 = MEM <unsigned short> [(void *)tx_info_16(D) + 8B];
+  MEM <unsigned short> [(void *)&cs + 12B] = _28;
+  cs.enable_brs = _6;
+  cs.code = 8;
+  _25 = FLEXCAN_SetTxMsgBuff (base_13, _2, &cs, msg_id_23(D), 0B, 0);
+
+  <bb 4> [local count: 1073741824]:
+  # _9 = PHI <_25(3), 768(2)>
+  cs ={v} {CLOBBER};
+  return _9;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_ConfigRemoteResponseMb (FLEXCAN_DRV_ConfigRemoteResponseMb, funcdef_no=72, decl_uid=7295, cgraph_uid=73, symbol_order=78)
+
+Removing basic block 7
+Removing basic block 8
+FLEXCAN_DRV_ConfigRemoteResponseMb (uint8_t instance, uint8_t mb_idx, const struct flexcan_data_info_t * tx_info, uint32_t msg_id, const uint8_t * mb_data)
+{
+  uint32_t flag;
+  struct CAN_Type * base;
+  struct flexcan_msgbuff_code_status_t cs;
+  int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  <unnamed type> _6;
+  _Bool _7;
+  status_t _8;
+  status_t _21;
+  long unsigned int _24;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_10(D);
+  base_12 = g_flexcanBase[_1];
+  _2 = (long unsigned int) mb_idx_13(D);
+  _3 ={v} base_12->MCR;
+  _4 = _3 & 127;
+  if (_2 > _4)
+    goto <bb 6>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 840525097]:
+  _5 = tx_info_14(D)->data_length;
+  cs.dataLen = _5;
+  _6 = tx_info_14(D)->msg_id_type;
+  cs.msgIdType = _6;
+  cs.code = 10;
+  if (mb_idx_13(D) <= 31)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 420262548]:
+  _24 = (long unsigned int) mb_idx_13(D);
+  flag_25 = 1 << _24;
+  base_12->IFLAG1 ={v} flag_25;
+
+  <bb 5> [local count: 840525097]:
+  _7 = tx_info_14(D)->is_remote;
+  _21 = FLEXCAN_SetTxMsgBuff (base_12, _2, &cs, msg_id_18(D), mb_data_19(D), _7);
+
+  <bb 6> [local count: 1073741824]:
+  # _8 = PHI <_21(5), 768(2)>
+  cs ={v} {CLOBBER};
+  return _8;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SendBlocking (FLEXCAN_DRV_SendBlocking, funcdef_no=73, decl_uid=7302, cgraph_uid=74, symbol_order=79)
+
+Removing basic block 13
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+FLEXCAN_DRV_SendBlocking (uint8_t instance, uint8_t mb_idx, const struct flexcan_data_info_t * tx_info, uint32_t msg_id, const uint8_t * mb_data, uint32_t timeout_ms)
+{
+  uint32_t flag;
+  uint32_t flag;
+  const uint32_t * flexcan_mb;
+  uint32_t flexcan_mb_config;
+  status_t status;
+  struct CAN_Type * base;
+  struct flexcan_state_t * state;
+  status_t result;
+  int _1;
+  long unsigned int _2;
+  _Bool _3;
+  int _4;
+  struct QueueDefinition * * _5;
+  <unnamed type> _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  status_t _10;
+  unsigned char _29;
+  long unsigned int _36;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  signed short _42;
+  unsigned char _43;
+  signed short _59;
+  sizetype _60;
+
+  <bb 2> [local count: 1073741823]:
+  _1 = (int) instance_13(D);
+  state_15 = g_flexcanStatePtr[_1];
+  base_16 = g_flexcanBase[_1];
+  _2 = (long unsigned int) mb_idx_17(D);
+  _3 = FLEXCAN_IsOutOfRangeMbIdx (base_16, _2);
+  if (_3 != 0)
+    goto <bb 16>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872648]:
+  result_23 = FLEXCAN_StartSendData (instance_13(D), mb_idx_17(D), tx_info_19(D), msg_id_20(D), mb_data_21(D), 1);
+  if (result_23 == 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 4> [local count: 226667972]:
+  FLEXCAN_SetMsgBuffIntCmd (base_16, _2, 1);
+  _59 = (signed short) 12;
+  _42 = (signed short) mb_idx_17(D);
+  _60 = WIDEN_MULT_PLUS_EXPR <_59, _42, 4>;
+  _5 = state_15 + _60;
+  status_27 = OSIF_SemaWait (_5, timeout_ms_25(D));
+  FLEXCAN_SetMsgBuffIntCmd (base_16, _2, 0);
+  if (status_27 == 3)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 16>; [66.00%]
+
+  <bb 5> [local count: 77067111]:
+  _4 = (int) mb_idx_17(D);
+  _6 ={v} state_15->mbs[_4].state;
+  if (_6 != 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 15>; [33.00%]
+
+  <bb 6> [local count: 51634965]:
+  _29 = mb_idx_17(D) & 31;
+  _36 = (long unsigned int) _29;
+  flag_37 = 1 << _36;
+  if (mb_idx_17(D) <= 31)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 25817482]:
+  base_16->IFLAG1 ={v} flag_37;
+
+  <bb 8> [local count: 51634965]:
+  FLEXCAN_AbortTxMsgBuff (base_16, _2);
+  _39 = 1 << _2;
+
+  <bb 9> [local count: 234704386]:
+
+  <bb 10> [local count: 469408773]:
+  if (_2 <= 31)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 11> [local count: 234704386]:
+  _38 ={v} MEM[(const struct CAN_Type *)base_16].IFLAG1;
+  _40 = _38 & _39;
+  flag_41 = _40 >> _2;
+  _43 = (unsigned char) flag_41;
+  if (_43 == 0)
+    goto <bb 9>; [78.00%]
+  else
+    goto <bb 12>; [22.00%]
+
+  <bb 12> [local count: 51634965]:
+  flexcan_mb_33 = FLEXCAN_GetMsgBuffRegion (base_16, _2);
+  flexcan_mb_config_34 ={v} *flexcan_mb_33;
+  _7 = flexcan_mb_config_34 >> 24;
+  _8 = _7 & 15;
+  if (_8 == 9)
+    goto <bb 13>; [34.00%]
+  else
+    goto <bb 14>; [66.00%]
+
+  <bb 13> [local count: 17555888]:
+
+  <bb 14> [local count: 51634965]:
+  # result_9 = PHI <result_23(12), status_27(13)>
+  base_16->IFLAG1 ={v} flag_37;
+  state_15->mbs[_4].state ={v} 0;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [local count: 25432147]:
+  OSIF_SemaWait (_5, 0);
+
+  <bb 16> [local count: 1073741824]:
+  # _10 = PHI <768(2), result_23(3), result_9(14), result_23(15), result_23(4)>
+  return _10;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_Send (FLEXCAN_DRV_Send, funcdef_no=74, decl_uid=7308, cgraph_uid=75, symbol_order=80)
+
+Removing basic block 6
+Removing basic block 7
+FLEXCAN_DRV_Send (uint8_t instance, uint8_t mb_idx, const struct flexcan_data_info_t * tx_info, uint32_t msg_id, const uint8_t * mb_data)
+{
+  struct CAN_Type * base;
+  status_t result;
+  int _1;
+  long unsigned int _2;
+  _Bool _3;
+  status_t _4;
+
+  <bb 2> [local count: 1073741823]:
+  _1 = (int) instance_6(D);
+  base_8 = g_flexcanBase[_1];
+  _2 = (long unsigned int) mb_idx_9(D);
+  _3 = FLEXCAN_IsOutOfRangeMbIdx (base_8, _2);
+  if (_3 != 0)
+    goto <bb 5>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872648]:
+  result_15 = FLEXCAN_StartSendData (instance_6(D), mb_idx_9(D), tx_info_11(D), msg_id_12(D), mb_data_13(D), 0);
+  if (result_15 == 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 5>; [67.00%]
+
+  <bb 4> [local count: 226667972]:
+  result_17 = FLEXCAN_SetMsgBuffIntCmd (base_8, _2, 1); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  # _4 = PHI <768(2), result_17(4), result_15(3)>
+  return _4;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_ConfigRxMb (FLEXCAN_DRV_ConfigRxMb, funcdef_no=75, decl_uid=7313, cgraph_uid=76, symbol_order=81)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+FLEXCAN_DRV_ConfigRxMb (uint8_t instance, uint8_t mb_idx, const struct flexcan_data_info_t * rx_info, uint32_t msg_id)
+{
+  uint32_t flag;
+  struct CAN_Type * base;
+  struct flexcan_msgbuff_code_status_t cs;
+  status_t result;
+  int _1;
+  long unsigned int _2;
+  _Bool _3;
+  long unsigned int _4;
+  <unnamed type> _5;
+  _Bool _6;
+  status_t _9;
+  unsigned char _32;
+  long unsigned int _34;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_13(D);
+  base_15 = g_flexcanBase[_1];
+  _2 = (long unsigned int) mb_idx_16(D);
+  _3 = FLEXCAN_IsOutOfRangeMbIdx (base_15, _2);
+  if (_3 != 0)
+    goto <bb 10>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 840525097]:
+  _4 = rx_info_18(D)->data_length;
+  cs.dataLen = _4;
+  _5 = rx_info_18(D)->msg_id_type;
+  cs.msgIdType = _5;
+  _6 = rx_info_18(D)->fd_enable;
+  cs.fd_enable = _6;
+  _32 = mb_idx_16(D) & 31;
+  _34 = (long unsigned int) _32;
+  flag_35 = 1 << _34;
+  if (mb_idx_16(D) <= 31)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 420262548]:
+  base_15->IFLAG1 ={v} flag_35;
+
+  <bb 5> [local count: 840525097]:
+  cs.code = 15;
+  result_25 = FLEXCAN_SetRxMsgBuff (base_15, _2, &cs, msg_id_23(D));
+  if (result_25 == 0)
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 10>; [67.00%]
+
+  <bb 6> [local count: 277373281]:
+  cs.code = 0;
+  result_28 = FLEXCAN_SetRxMsgBuff (base_15, _2, &cs, msg_id_23(D));
+  if (result_28 == 0)
+    goto <bb 7>; [100.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 7> [local count: 420262548]:
+  cs.code = 4;
+  result_31 = FLEXCAN_SetRxMsgBuff (base_15, _2, &cs, msg_id_23(D));
+  if (result_31 == 0)
+    goto <bb 8>; [100.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 8> [local count: 420262548]:
+  if (mb_idx_16(D) <= 31)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 210131274]:
+  base_15->IFLAG1 ={v} flag_35;
+
+  <bb 10> [local count: 1073741824]:
+  # _9 = PHI <result_31(7), result_31(9), result_25(5), result_28(6), 768(2), result_31(8)>
+  cs ={v} {CLOBBER};
+  return _9;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_ConfigRxFifo (FLEXCAN_DRV_ConfigRxFifo, funcdef_no=76, decl_uid=7317, cgraph_uid=77, symbol_order=82)
+
+FLEXCAN_DRV_ConfigRxFifo (uint8_t instance, flexcan_rx_fifo_id_element_format_t id_format, const struct flexcan_id_table_t * id_filter_table)
+{
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _12;
+  long unsigned int _13;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_4(D);
+  base_6 = g_flexcanBase[_1];
+  _12 ={v} MEM[(const struct CAN_Type *)base_6].MCR;
+  _13 = _12 & 16777216;
+  if (_13 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 5>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_6);
+  FLEXCAN_SetRxFifoFilter (base_6, id_format_8(D), id_filter_table_9(D));
+  FLEXCAN_ExitFreezeMode (base_6); [tail call]
+
+  <bb 4> [local count: 1073741824]:
+  return;
+
+  <bb 5> [local count: 719407024]:
+  FLEXCAN_SetRxFifoFilter (base_6, id_format_8(D), id_filter_table_9(D)); [tail call]
+  goto <bb 4>; [100.00%]
+
+}
+
+
+
+;; Function FLEXCAN_DRV_ReceiveBlocking (FLEXCAN_DRV_ReceiveBlocking, funcdef_no=77, decl_uid=7322, cgraph_uid=78, symbol_order=83)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+FLEXCAN_DRV_ReceiveBlocking (uint8_t instance, uint8_t mb_idx, struct flexcan_msgbuff_t * data, uint32_t timeout_ms)
+{
+  status_t status;
+  struct CAN_Type * base;
+  struct flexcan_state_t * state;
+  status_t result;
+  int _1;
+  long unsigned int _2;
+  _Bool _3;
+  int _4;
+  struct QueueDefinition * * _5;
+  <unnamed type> _6;
+  status_t _7;
+  sizetype _26;
+  signed short _27;
+  signed short _28;
+
+  <bb 2> [local count: 1073741823]:
+  _1 = (int) instance_9(D);
+  state_11 = g_flexcanStatePtr[_1];
+  base_12 = g_flexcanBase[_1];
+  _2 = (long unsigned int) mb_idx_13(D);
+  _3 = FLEXCAN_IsOutOfRangeMbIdx (base_12, _2);
+  if (_3 != 0)
+    goto <bb 8>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872648]:
+  result_17 = FLEXCAN_StartRxMessageBufferData (instance_9(D), mb_idx_13(D), data_15(D), 1);
+  if (result_17 == 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 4> [local count: 226667972]:
+  _27 = (signed short) 12;
+  _28 = (signed short) mb_idx_13(D);
+  _26 = WIDEN_MULT_PLUS_EXPR <_27, _28, 4>;
+  _5 = state_11 + _26;
+  status_20 = OSIF_SemaWait (_5, timeout_ms_18(D));
+  FLEXCAN_SetMsgBuffIntCmd (base_12, _2, 0);
+  if (status_20 == 3)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 5> [local count: 77067111]:
+  _4 = (int) mb_idx_13(D);
+  _6 ={v} state_11->mbs[_4].state;
+  if (_6 == 0)
+    goto <bb 6>; [32.03%]
+  else
+    goto <bb 7>; [67.97%]
+
+  <bb 6> [local count: 24684596]:
+  OSIF_SemaWait (_5, 0);
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 52382516]:
+  state_11->mbs[_4].state ={v} 0;
+
+  <bb 8> [local count: 1073741824]:
+  # _7 = PHI <768(2), result_17(6), result_17(3), status_20(7), result_17(4)>
+  return _7;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_Receive (FLEXCAN_DRV_Receive, funcdef_no=78, decl_uid=7326, cgraph_uid=79, symbol_order=84)
+
+Removing basic block 5
+FLEXCAN_DRV_Receive (uint8_t instance, uint8_t mb_idx, struct flexcan_msgbuff_t * data)
+{
+  status_t result;
+  const struct CAN_Type * base;
+  int _1;
+  long unsigned int _2;
+  _Bool _3;
+  status_t _4;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_6(D);
+  base_8 = g_flexcanBase[_1];
+  _2 = (long unsigned int) mb_idx_9(D);
+  _3 = FLEXCAN_IsOutOfRangeMbIdx (base_8, _2);
+  if (_3 != 0)
+    goto <bb 4>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  result_13 = FLEXCAN_StartRxMessageBufferData (instance_6(D), mb_idx_9(D), data_11(D), 0); [tail call]
+
+  <bb 4> [local count: 1073741824]:
+  # _4 = PHI <result_13(3), 768(2)>
+  return _4;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_RxFifoBlocking (FLEXCAN_DRV_RxFifoBlocking, funcdef_no=79, decl_uid=7330, cgraph_uid=80, symbol_order=85)
+
+Removing basic block 11
+Removing basic block 12
+FLEXCAN_DRV_RxFifoBlocking (uint8_t instance, struct flexcan_msgbuff_t * data, uint32_t timeout_ms)
+{
+  struct CAN_Type * base;
+  struct flexcan_state_t * state;
+  status_t result;
+  int _1;
+  struct QueueDefinition * * _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  <unnamed type> _5;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_9(D);
+  state_11 = g_flexcanStatePtr[_1];
+  base_12 = g_flexcanBase[_1];
+  result_15 = FLEXCAN_StartRxMessageFifoData (instance_9(D), data_13(D), 1);
+  if (result_15 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 10>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  _2 = &state_11->mbs[0].mbSema;
+  result_18 = OSIF_SemaWait (_2, timeout_ms_16(D));
+  _3 = state_11->transferType;
+  if (_3 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 177167400]:
+  FLEXCAN_SetMsgBuffIntCmd (base_12, 5, 0);
+  FLEXCAN_SetMsgBuffIntCmd (base_12, 6, 0);
+  FLEXCAN_SetMsgBuffIntCmd (base_12, 7, 0);
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 177167400]:
+  _4 = state_11->rxFifoDMAChannel;
+  EDMA_DRV_StopChannel (_4);
+
+  <bb 6> [local count: 354334800]:
+  if (result_18 == 3)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 10>; [66.00%]
+
+  <bb 7> [local count: 120473833]:
+  _5 ={v} state_11->mbs[0].state;
+  if (_5 == 0)
+    goto <bb 8>; [47.77%]
+  else
+    goto <bb 9>; [52.23%]
+
+  <bb 8> [local count: 57550350]:
+  OSIF_SemaWait (_2, 0);
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 62923483]:
+  state_11->mbs[0].state ={v} 0;
+
+  <bb 10> [local count: 1073741824]:
+  # result_6 = PHI <result_18(9), result_15(2), result_15(8), result_18(6)>
+  return result_6;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_RxFifo (FLEXCAN_DRV_RxFifo, funcdef_no=80, decl_uid=7333, cgraph_uid=81, symbol_order=86)
+
+FLEXCAN_DRV_RxFifo (uint8_t instance, struct flexcan_msgbuff_t * data)
+{
+  status_t result;
+
+  <bb 2> [local count: 1073741824]:
+  result_5 = FLEXCAN_StartRxMessageFifoData (instance_2(D), data_3(D), 0); [tail call]
+  return result_5;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_Deinit (FLEXCAN_DRV_Deinit, funcdef_no=81, decl_uid=7274, cgraph_uid=82, symbol_order=87)
+
+Removing basic block 17
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 30
+Removing basic block 31
+FLEXCAN_DRV_Deinit (uint8_t instance)
+{
+  unsigned int ivtmp.225;
+  status_t osifStat;
+  status_t result;
+  const struct flexcan_state_t * state;
+  struct CAN_Type * base;
+  int _1;
+  unsigned int _2;
+  void (*<T7f4>) (uint8_t, flexcan_event_type_t, struct FlexCANState *) _3;
+  <unnamed type> _4;
+  <unnamed type> _5;
+  <unnamed type> _6;
+  struct QueueDefinition * const * _8;
+  struct QueueDefinition * const * _15;
+  long unsigned int _41;
+  signed int _42;
+  <unnamed type> _46;
+  unsigned int _50;
+  <unnamed type> _52;
+
+  <bb 2> [local count: 46477680]:
+  _1 = (int) instance_20(D);
+  base_22 = g_flexcanBase[_1];
+  state_23 = g_flexcanStatePtr[_1];
+  if (state_23 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 3> [local count: 32534376]:
+  _3 = state_23->error_callback;
+  if (_3 != 0B)
+    goto <bb 4>; [53.47%]
+  else
+    goto <bb 5>; [46.53%]
+
+  <bb 4> [local count: 17396131]:
+  FLEXCAN_SetErrIntCmd (base_22, 16384, 0);
+  FLEXCAN_SetErrIntCmd (base_22, 1024, 0);
+  FLEXCAN_SetErrIntCmd (base_22, 2048, 0);
+  FLEXCAN_SetErrIntCmd (base_22, 32768, 0);
+
+  <bb 5> [local count: 46477680]:
+  _4 = g_flexcanWakeUpIrqId[_1];
+  if (_4 != -128)
+    goto <bb 6>; [48.88%]
+  else
+    goto <bb 7>; [51.12%]
+
+  <bb 6> [local count: 22718290]:
+  INT_SYS_DisableIRQ (_4);
+
+  <bb 7> [local count: 46477680]:
+  _5 = g_flexcanErrorIrqId[_1];
+  INT_SYS_DisableIRQ (_5);
+  _6 = g_flexcanBusOffIrqId[_1];
+  INT_SYS_DisableIRQ (_6);
+  _46 = g_flexcanOredMessageBufferIrqId[0][_1];
+  if (_46 != -128)
+    goto <bb 8>; [48.88%]
+  else
+    goto <bb 9>; [51.12%]
+
+  <bb 8> [local count: 22718290]:
+  INT_SYS_DisableIRQ (_46);
+
+  <bb 9> [local count: 46477680]:
+  _52 = g_flexcanOredMessageBufferIrqId[1][_1];
+  if (_52 != -128)
+    goto <bb 10>; [48.88%]
+  else
+    goto <bb 11>; [51.12%]
+
+  <bb 10> [local count: 22718290]:
+  INT_SYS_DisableIRQ (_52);
+
+  <bb 11> [local count: 46477680]:
+  _41 ={v} MEM[(const struct CAN_Type *)base_22].MCR;
+  _42 = (signed int) _41;
+  if (_42 >= 0)
+    goto <bb 12>; [41.48%]
+  else
+    goto <bb 13>; [58.52%]
+
+  <bb 12> [local count: 19278942]:
+  FLEXCAN_EnterFreezeMode (base_22);
+  FLEXCAN_Disable (base_22);
+
+  <bb 13> [local count: 46477680]:
+  if (state_23 != 0B)
+    goto <bb 15>; [70.00%]
+  else
+    goto <bb 14>; [30.00%]
+
+  <bb 14> [local count: 30210492]:
+  g_flexcanStatePtr[_1] = 0B;
+  goto <bb 20>; [100.00%]
+
+  <bb 15> [local count: 32534376]:
+  _15 = state_23 + 4;
+  ivtmp.225_10 = (unsigned int) _15;
+  _2 = (unsigned int) state_23;
+  _50 = _2 + 388;
+
+  <bb 16> [local count: 1041207450]:
+  # result_57 = PHI <0(15), result_9(18)>
+  # ivtmp.225_18 = PHI <ivtmp.225_10(15), ivtmp.225_12(18)>
+  _8 = (struct QueueDefinition * const *) ivtmp.225_18;
+  osifStat_36 = OSIF_SemaDestroy (_8);
+  if (osifStat_36 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 17> [local count: 520603725]:
+
+  <bb 18> [local count: 1041207450]:
+  # result_9 = PHI <result_57(16), 1(17)>
+  ivtmp.225_12 = ivtmp.225_18 + 12;
+  if (ivtmp.225_12 != _50)
+    goto <bb 16>; [96.88%]
+  else
+    goto <bb 19>; [3.12%]
+
+  <bb 19> [local count: 32534376]:
+  if (result_9 == 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 20> [local count: 46477680]:
+  # result_32 = PHI <0(14), result_9(19)>
+  return result_32;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_SetTDCOffset (FLEXCAN_DRV_SetTDCOffset, funcdef_no=82, decl_uid=7278, cgraph_uid=83, symbol_order=88)
+
+FLEXCAN_DRV_SetTDCOffset (uint8_t instance, _Bool enable, uint8_t offset)
+{
+  uint32_t tmp;
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _14;
+  long unsigned int _20;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _27;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_4(D);
+  base_6 = g_flexcanBase[_1];
+  _11 ={v} MEM[(const struct CAN_Type *)base_6].MCR;
+  _12 = _11 & 16777216;
+  if (_12 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_6);
+  tmp_28 ={v} base_6->FDCTRL;
+  tmp_29 = tmp_28 & 4294926591;
+  if (enable_8(D) != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_6); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+  <bb 6> [local count: 177167400]:
+  base_6->FDCTRL ={v} tmp_29;
+  goto <bb 4>; [100.00%]
+
+  <bb 7> [local count: 359703512]:
+  base_6->FDCTRL ={v} tmp_34;
+  goto <bb 5>; [100.00%]
+
+  <bb 8> [local count: 719407024]:
+  tmp_33 ={v} base_6->FDCTRL;
+  tmp_34 = tmp_33 & 4294926591;
+  if (enable_8(D) != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 9> [local count: 177167400]:
+  _20 = (long unsigned int) offset_9(D);
+  _27 = _20 << 8;
+  _14 = _27 & 7936;
+  _25 = _14 | tmp_29;
+  tmp_13 = _25 | 32768;
+  base_6->FDCTRL ={v} tmp_13;
+  goto <bb 4>; [100.00%]
+
+  <bb 10> [local count: 359703512]:
+  _38 = (long unsigned int) offset_9(D);
+  _39 = _38 << 8;
+  _40 = _39 & 7936;
+  _24 = tmp_34 | _40;
+  tmp_41 = _24 | 32768;
+  base_6->FDCTRL ={v} tmp_41;
+  goto <bb 5>; [100.00%]
+
+}
+
+
+
+;; Function FLEXCAN_DRV_GetTDCValue (FLEXCAN_DRV_GetTDCValue, funcdef_no=83, decl_uid=7280, cgraph_uid=84, symbol_order=89)
+
+FLEXCAN_DRV_GetTDCValue (uint8_t instance)
+{
+  const struct CAN_Type * base;
+  int _1;
+  long unsigned int _2;
+  unsigned char _3;
+  uint8_t _7;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_4(D);
+  base_6 = g_flexcanBase[_1];
+  _2 ={v} base_6->FDCTRL;
+  _3 = (unsigned char) _2;
+  _7 = _3 & 63;
+  return _7;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_GetTDCFail (FLEXCAN_DRV_GetTDCFail, funcdef_no=84, decl_uid=7282, cgraph_uid=85, symbol_order=90)
+
+FLEXCAN_DRV_GetTDCFail (uint8_t instance)
+{
+  const struct CAN_Type * base;
+  int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  _Bool _7;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_4(D);
+  base_6 = g_flexcanBase[_1];
+  _2 ={v} base_6->FDCTRL;
+  _3 = _2 & 16384;
+  _7 = _3 != 0;
+  return _7;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_ClearTDCFail (FLEXCAN_DRV_ClearTDCFail, funcdef_no=85, decl_uid=7284, cgraph_uid=86, symbol_order=91)
+
+FLEXCAN_DRV_ClearTDCFail (uint8_t instance)
+{
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_4(D);
+  base_6 = g_flexcanBase[_1];
+  _2 ={v} base_6->FDCTRL;
+  _3 = _2 | 16384;
+  base_6->FDCTRL ={v} _3;
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_BusOff_IRQHandler (FLEXCAN_BusOff_IRQHandler, funcdef_no=88, decl_uid=7709, cgraph_uid=89, symbol_order=94)
+
+Removing basic block 5
+FLEXCAN_BusOff_IRQHandler (uint8_t instance)
+{
+  struct flexcan_state_t * state;
+  struct CAN_Type * base;
+  int _1;
+  void (*<T7f4>) (uint8_t, flexcan_event_type_t, struct FlexCANState *) _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_4(D);
+  base_6 = g_flexcanBase[_1];
+  state_7 = g_flexcanStatePtr[_1];
+  _2 = state_7->error_callback;
+  if (_2 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _2 (instance_4(D), 10, state_7);
+
+  <bb 4> [local count: 1073741824]:
+  FLEXCAN_ClearBusOffIntStatusFlag (base_6); [tail call]
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_IRQHandler (FLEXCAN_IRQHandler, funcdef_no=89, decl_uid=7705, cgraph_uid=90, symbol_order=95)
+
+Removing basic block 69
+Removing basic block 70
+Removing basic block 71
+Removing basic block 72
+Removing basic block 73
+Removing basic block 74
+Removing basic block 75
+Removing basic block 76
+Removing basic block 77
+Removing basic block 78
+Removing basic block 79
+Removing basic block 80
+Removing basic block 81
+Removing basic block 82
+Removing basic block 83
+Removing basic block 84
+Removing basic block 85
+Removing basic block 86
+Removing basic block 87
+Removing basic block 88
+Removing basic block 89
+Removing basic block 90
+Removing basic block 91
+Removing basic block 92
+Removing basic block 93
+Removing basic block 94
+Removing basic block 95
+Removing basic block 96
+Removing basic block 97
+Removing basic block 98
+Removing basic block 99
+Removing basic block 100
+Removing basic block 101
+Removing basic block 102
+Removing basic block 103
+Removing basic block 104
+Removing basic block 105
+Removing basic block 106
+Removing basic block 107
+Removing basic block 108
+Removing basic block 109
+Removing basic block 110
+Removing basic block 111
+Removing basic block 112
+Removing basic block 113
+Removing basic block 114
+Removing basic block 115
+Removing basic block 116
+Removing basic block 117
+Removing basic block 118
+Removing basic block 119
+FLEXCAN_IRQHandler (uint8_t instance)
+{
+  uint32_t mask;
+  uint8_t flag;
+  struct flexcan_state_t * state;
+  struct flexcan_state_t * state;
+  volatile uint32_t * flexcan_mb;
+  uint32_t flag;
+  uint32_t mask;
+  uint8_t flag;
+  uint32_t mask;
+  uint8_t flag;
+  uint32_t flag;
+  uint32_t flag;
+  uint32_t flag;
+  uint32_t flag;
+  struct flexcan_msgbuff_t mb;
+  uint32_t mb_idx;
+  struct flexcan_state_t * state;
+  struct CAN_Type * base;
+  int _1;
+  <unnamed type> _4;
+  _Bool _5;
+  void (*<T7f0>) (uint8_t, flexcan_event_type_t, uint32_t, struct FlexCANState *) _9;
+  <unnamed type> _10;
+  <unnamed type> _11;
+  <unnamed type> _12;
+  long unsigned int _14;
+  _Bool _17;
+  <unnamed type> _31;
+  struct flexcan_msgbuff_t * _32;
+  <unnamed type> _33;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _51;
+  long unsigned int _52;
+  sizetype _53;
+  _Bool _58;
+  _Bool _59;
+  long unsigned int _66;
+  long unsigned int _67;
+  unsigned char _70;
+  long unsigned int _74;
+  long unsigned int _75;
+  <unnamed type> _76;
+  long unsigned int _77;
+  unsigned char _78;
+  long unsigned int vol.7_82;
+  long unsigned int _83;
+  <unnamed type> _84;
+  struct flexcan_msgbuff_t * _85;
+  void (*<T7f0>) (uint8_t, flexcan_event_type_t, uint32_t, struct FlexCANState *) _86;
+  <unnamed type> _87;
+  void (*<T7f0>) (uint8_t, flexcan_event_type_t, uint32_t, struct FlexCANState *) _88;
+  void (*<T7f0>) (uint8_t, flexcan_event_type_t, uint32_t, struct FlexCANState *) _89;
+  long unsigned int _96;
+  long unsigned int _97;
+  struct flexcan_msgbuff_t * _98;
+  long unsigned int _99;
+  long unsigned int _100;
+  long unsigned int _101;
+  long unsigned int _103;
+  long unsigned int _104;
+  long unsigned int _105;
+  long unsigned int _106;
+  long unsigned int vol.7_107;
+  void (*<T7f0>) (uint8_t, flexcan_event_type_t, uint32_t, struct FlexCANState *) _108;
+  <unnamed type> _109;
+  <unnamed type> _110;
+  _Bool _113;
+  struct QueueDefinition * * _114;
+  _Bool _118;
+  struct QueueDefinition * * _119;
+  long unsigned int _121;
+  long unsigned int _122;
+  long unsigned int _124;
+  unsigned char _125;
+  long unsigned int _133;
+  _Bool _136;
+  sizetype _137;
+  sizetype _161;
+  _Bool _162;
+  <unnamed type> _163;
+  long unsigned int _167;
+  <unnamed type> _176;
+  long unsigned int _177;
+  sizetype _178;
+  <unnamed type> _180;
+  <unnamed type> _185;
+  _Bool _187;
+  _Bool _189;
+  long unsigned int vol.7_244;
+  long unsigned int _245;
+  long unsigned int _246;
+  long unsigned int _247;
+  struct flexcan_msgbuff_t * _249;
+  <unnamed type> _251;
+
+  <bb 2> [local count: 90815472]:
+  _1 = (int) instance_25(D);
+  base_27 = g_flexcanBase[_1];
+  state_28 = g_flexcanStatePtr[_1];
+  mask_65 ={v} MEM[(const struct CAN_Type *)base_27].IMASK1;
+  _66 ={v} MEM[(const struct CAN_Type *)base_27].IFLAG1;
+  _67 = mask_65 & _66;
+  _70 = (unsigned char) _67;
+  flag_71 = _70 & 1;
+  if (flag_71 == 0)
+    goto <bb 6>; [94.50%]
+  else
+    goto <bb 3>; [5.50%]
+
+  <bb 3> [local count: 4994851]:
+  _177 ={v} MEM[(const struct CAN_Type *)base_27].MCR;
+  _14 = _177 & 536870912;
+  if (_14 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 60>; [50.00%]
+
+  <bb 4> [local count: 928865403]:
+  mb_idx_30 = mb_idx_16 + 1;
+  if (mb_idx_30 != 32)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 504164472]:
+  goto <bb 51>; [100.00%]
+
+  <bb 6> [local count: 982926352]:
+  # mb_idx_16 = PHI <1(2), mb_idx_30(4)>
+  mask_73 ={v} MEM[(const struct CAN_Type *)base_27].IMASK1;
+  _74 ={v} MEM[(const struct CAN_Type *)base_27].IFLAG1;
+  _75 = mask_73 & _74;
+  _77 = _75 >> mb_idx_16;
+  _78 = (unsigned char) _77;
+  flag_79 = _78 & 1;
+  if (flag_79 == 0)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 7>; [5.50%]
+
+  <bb 7> [local count: 40412886]:
+  _43 ={v} MEM[(const struct CAN_Type *)base_27].MCR;
+  _44 = _43 & 536870912;
+  if (_44 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 68>; [50.00%]
+
+  <bb 8> [local count: 20206442]:
+  if (mb_idx_16 <= 7)
+    goto <bb 9>; [33.00%]
+  else
+    goto <bb 68>; [67.00%]
+
+  <bb 9> [local count: 6668126]:
+  if (mb_idx_16 == 5)
+    goto <bb 10>; [38.79%]
+  else
+    goto <bb 17>; [61.21%]
+
+  <bb 10> [local count: 2547374]:
+  _84 ={v} state_28->mbs[0].state;
+  if (_84 == 1)
+    goto <bb 11>; [20.24%]
+  else
+    goto <bb 58>; [79.76%]
+
+  <bb 11> [local count: 515589]:
+  _85 = state_28->mbs[0].mb_message;
+  FLEXCAN_ReadRxFifo (base_27, _85);
+  base_27->IFLAG1 ={v} 32;
+  state_28->mbs[0].state ={v} 0;
+  _86 = state_28->callback;
+  if (_86 != 0B)
+    goto <bb 12>; [70.00%]
+  else
+    goto <bb 13>; [30.00%]
+
+  <bb 12> [local count: 360912]:
+  _86 (instance_25(D), 1, 0, state_28);
+
+  <bb 13> [local count: 515589]:
+  _87 ={v} state_28->mbs[0].state;
+  if (_87 == 0)
+    goto <bb 14>; [33.00%]
+  else
+    goto <bb 58>; [67.00%]
+
+  <bb 14> [local count: 170144]:
+  FLEXCAN_CompleteRxMessageFifoData (instance_25(D));
+  goto <bb 58>; [100.00%]
+
+  <bb 15> [local count: 2497426]:
+  _185 ={v} state_28->mbs[0].state;
+  if (_185 == 2)
+    goto <bb 16>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 16> [local count: 849125]:
+  _136 = state_28->mbs[0].isRemote;
+  if (_136 != 0)
+    goto <bb 66>; [33.00%]
+  else
+    goto <bb 37>; [67.00%]
+
+  <bb 17> [local count: 2447476]:
+  if (mb_idx_16 == 6)
+    goto <bb 18>; [67.33%]
+  else
+    goto <bb 20>; [32.67%]
+
+  <bb 18> [local count: 1681267]:
+  base_27->IFLAG1 ={v} 64;
+  _88 = state_28->callback;
+  if (_88 != 0B)
+    goto <bb 19>; [70.00%]
+  else
+    goto <bb 55>; [30.00%]
+
+  <bb 19> [local count: 1176887]:
+  _88 (instance_25(D), 2, 0, state_28);
+  _76 ={v} state_28->mbs[6].state;
+  if (_76 == 2)
+    goto <bb 57>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 20> [local count: 1109636]:
+  if (mb_idx_16 == 7)
+    goto <bb 21>; [100.00%]
+  else
+    goto <bb 33>; [0.00%]
+
+  <bb 21> [local count: 1109636]:
+  base_27->IFLAG1 ={v} 128;
+  _89 = state_28->callback;
+  if (_89 != 0B)
+    goto <bb 22>; [70.00%]
+  else
+    goto <bb 52>; [30.00%]
+
+  <bb 22> [local count: 776745]:
+  _89 (instance_25(D), 3, 0, state_28);
+  _31 ={v} state_28->mbs[7].state;
+  if (_31 == 2)
+    goto <bb 54>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 23> [local count: 7674089]:
+  # flag_39 = PHI <1(59), flag_95(67)>
+  # mb_idx_40 = PHI <_14(59), mb_idx_16(67)>
+  base_27->IFLAG1 ={v} flag_39;
+  _96 ={v} MEM[(const struct CAN_Type *)base_27].MCR;
+  _97 = _96 & 536870912;
+  if (_97 != 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 24> [local count: 3837045]:
+  _98 = state_28->mbs[mb_idx_40].mb_message;
+  _99 = _98->cs;
+  _100 = _99 >> 24;
+  _101 = _100 & 15;
+  if (_101 == 0)
+    goto <bb 25>; [33.00%]
+  else
+    goto <bb 26>; [67.00%]
+
+  <bb 25> [local count: 1266225]:
+  flexcan_mb_102 = FLEXCAN_GetMsgBuffRegion (base_27, mb_idx_40);
+  _103 ={v} *flexcan_mb_102;
+  _104 = _103 & 4043309055;
+  *flexcan_mb_102 ={v} _104;
+  _105 ={v} *flexcan_mb_102;
+  _106 = _105 | 67108864;
+  *flexcan_mb_102 ={v} _106;
+  goto <bb 27>; [100.00%]
+
+  <bb 26> [local count: 6407864]:
+  vol.7_107 ={v} MEM[(const struct CAN_Type *)base_27].TIMER;
+
+  <bb 27> [local count: 7674089]:
+  state_28->mbs[mb_idx_40].state ={v} 0;
+  _108 = state_28->callback;
+  if (_108 != 0B)
+    goto <bb 28>; [70.00%]
+  else
+    goto <bb 29>; [30.00%]
+
+  <bb 28> [local count: 5371862]:
+  _108 (instance_25(D), 0, mb_idx_40, state_28);
+
+  <bb 29> [local count: 7674089]:
+  _109 ={v} state_28->mbs[mb_idx_40].state;
+  if (_109 == 0)
+    goto <bb 30>; [33.00%]
+  else
+    goto <bb 33>; [67.00%]
+
+  <bb 30> [local count: 2532449]:
+  state_112 = g_flexcanStatePtr[_1];
+  FLEXCAN_SetMsgBuffIntCmd (base_27, mb_idx_40, 0);
+  _113 = state_112->mbs[mb_idx_40].isBlocking;
+  if (_113 != 0)
+    goto <bb 31>; [33.00%]
+  else
+    goto <bb 32>; [67.00%]
+
+  <bb 31> [local count: 835708]:
+  _161 = mb_idx_40 * 12;
+  _137 = _161 + 4;
+  _114 = state_112 + _137;
+  OSIF_SemaPost (_114);
+
+  <bb 32> [local count: 2532449]:
+  state_112->mbs[mb_idx_40].state ={v} 0;
+
+  <bb 33> [local count: 35580086]:
+  # mb_idx_57 = PHI <mb_idx_16(20), mb_idx_40(29), mb_idx_40(32), mb_idx_16(68)>
+  _4 ={v} state_28->mbs[mb_idx_57].state;
+  if (_4 == 2)
+    goto <bb 34>; [34.00%]
+  else
+    goto <bb 65>; [66.00%]
+
+  <bb 34> [local count: 12097229]:
+  _5 = state_28->mbs[mb_idx_57].isRemote;
+  if (_5 != 0)
+    goto <bb 66>; [33.00%]
+  else
+    goto <bb 37>; [67.00%]
+
+  <bb 35> [local count: 866107]:
+  # mb_idx_192 = PHI <mb_idx_13(63), mb_idx_241(66)>
+  flag_47 = 1 << mb_idx_192;
+  base_27->IFLAG1 ={v} flag_47;
+
+  <bb 36> [local count: 5094748]:
+  # mb_idx_193 = PHI <mb_idx_13(63), mb_idx_192(35), mb_idx_241(66)>
+  mb ={v} {CLOBBER};
+  goto <bb 38>; [100.00%]
+
+  <bb 37> [local count: 5171941]:
+  # mb_idx_90 = PHI <0(16), mb_idx_57(34), mb_idx_16(53), mb_idx_16(54), mb_idx_16(56), mb_idx_16(57), _14(62), mb_idx_16(64)>
+  flag_49 = 1 << mb_idx_90;
+  base_27->IFLAG1 ={v} flag_49;
+
+  <bb 38> [local count: 15438631]:
+  # mb_idx_69 = PHI <mb_idx_193(36), mb_idx_90(37)>
+  state_28->mbs[mb_idx_69].state ={v} 0;
+  _9 = state_28->callback;
+  if (_9 != 0B)
+    goto <bb 39>; [70.00%]
+  else
+    goto <bb 40>; [30.00%]
+
+  <bb 39> [local count: 10807042]:
+  _9 (instance_25(D), 4, mb_idx_69, state_28);
+
+  <bb 40> [local count: 15438631]:
+  _10 ={v} state_28->mbs[mb_idx_69].state;
+  if (_10 == 0)
+    goto <bb 41>; [33.00%]
+  else
+    goto <bb 65>; [67.00%]
+
+  <bb 41> [local count: 5094748]:
+  state_117 = g_flexcanStatePtr[_1];
+  FLEXCAN_SetMsgBuffIntCmd (base_27, mb_idx_69, 0);
+  _118 = state_117->mbs[mb_idx_69].isBlocking;
+  if (_118 != 0)
+    goto <bb 42>; [33.00%]
+  else
+    goto <bb 43>; [67.00%]
+
+  <bb 42> [local count: 1681267]:
+  _53 = mb_idx_69 * 12;
+  _178 = _53 + 4;
+  _119 = state_117 + _178;
+  OSIF_SemaPost (_119);
+
+  <bb 43> [local count: 5094748]:
+  state_117->mbs[mb_idx_69].state ={v} 0;
+  goto <bb 65>; [100.00%]
+
+  <bb 44> [local count: 22703868]:
+  # mb_idx_164 = PHI <mb_idx_239(65), mb_idx_16(55), mb_idx_16(22), mb_idx_16(19), mb_idx_16(52), 0(15), mb_idx_16(58), _14(61)>
+  mask_120 ={v} MEM[(const struct CAN_Type *)base_27].IMASK1;
+  _121 ={v} MEM[(const struct CAN_Type *)base_27].IFLAG1;
+  _122 = mask_120 & _121;
+  _124 = _122 >> mb_idx_164;
+  _125 = (unsigned char) _124;
+  flag_126 = _125 & 1;
+  if (flag_126 != 0)
+    goto <bb 45>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 45> [local count: 11351934]:
+  _51 ={v} MEM[(const struct CAN_Type *)base_27].MCR;
+  _52 = _51 & 536870912;
+  if (_52 != 0)
+    goto <bb 46>; [50.00%]
+  else
+    goto <bb 49>; [50.00%]
+
+  <bb 46> [local count: 5675967]:
+  if (mb_idx_164 <= 7)
+    goto <bb 47>; [50.00%]
+  else
+    goto <bb 49>; [50.00%]
+
+  <bb 47> [local count: 2837984]:
+  _11 ={v} state_28->mbs[0].state;
+  if (_11 == 0)
+    goto <bb 48>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 48> [local count: 1418992]:
+  flag_54 = 1 << mb_idx_164;
+  base_27->IFLAG1 ={v} flag_54;
+  goto <bb 51>; [100.00%]
+
+  <bb 49> [local count: 8513951]:
+  _12 ={v} state_28->mbs[mb_idx_164].state;
+  if (_12 == 0)
+    goto <bb 50>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 50> [local count: 4256975]:
+  flag_56 = 1 << mb_idx_164;
+  base_27->IFLAG1 ={v} flag_56;
+
+  <bb 51> [local count: 90815474]:
+  return;
+
+  <bb 52> [local count: 332891]:
+  _180 ={v} state_28->mbs[7].state;
+  if (_180 == 2)
+    goto <bb 53>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 53> [local count: 113183]:
+  _17 = state_28->mbs[7].isRemote;
+  if (_17 != 0)
+    goto <bb 63>; [33.00%]
+  else
+    goto <bb 37>; [67.00%]
+
+  <bb 54> [local count: 264093]:
+  _187 = state_28->mbs[7].isRemote;
+  if (_187 != 0)
+    goto <bb 63>; [33.00%]
+  else
+    goto <bb 37>; [67.00%]
+
+  <bb 55> [local count: 504380]:
+  _163 ={v} state_28->mbs[6].state;
+  if (_163 == 2)
+    goto <bb 56>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 56> [local count: 171489]:
+  _162 = state_28->mbs[6].isRemote;
+  if (_162 != 0)
+    goto <bb 63>; [33.00%]
+  else
+    goto <bb 37>; [67.00%]
+
+  <bb 57> [local count: 400142]:
+  _58 = state_28->mbs[6].isRemote;
+  if (_58 != 0)
+    goto <bb 63>; [33.00%]
+  else
+    goto <bb 37>; [67.00%]
+
+  <bb 58> [local count: 2547375]:
+  _176 ={v} state_28->mbs[5].state;
+  if (_176 == 2)
+    goto <bb 64>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 59> [local count: 505479]:
+  FLEXCAN_LockRxMsgBuff (base_27, 0);
+  _32 = state_28->mbs[0].mb_message;
+  FLEXCAN_GetMsgBuff (base_27, 0, _32);
+  goto <bb 23>; [100.00%]
+
+  <bb 60> [local count: 2497426]:
+  _33 ={v} state_28->mbs[0].state;
+  if (_33 == 1)
+    goto <bb 59>; [20.24%]
+  else
+    goto <bb 61>; [79.76%]
+
+  <bb 61> [local count: 1991947]:
+  _110 ={v} state_28->mbs[0].state;
+  if (_110 == 2)
+    goto <bb 62>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 62> [local count: 677262]:
+  _59 = state_28->mbs[0].isRemote;
+  if (_59 != 0)
+    goto <bb 63>; [33.00%]
+  else
+    goto <bb 37>; [67.00%]
+
+  <bb 63> [local count: 536635]:
+  # mb_idx_13 = PHI <mb_idx_16(57), mb_idx_16(56), mb_idx_16(54), mb_idx_16(53), _14(62)>
+  FLEXCAN_LockRxMsgBuff (base_27, mb_idx_13);
+  FLEXCAN_GetMsgBuff (base_27, mb_idx_13, &mb);
+  vol.7_82 ={v} MEM[(const struct CAN_Type *)base_27].TIMER;
+  _167 = mb.cs;
+  _83 = _167 >> 24;
+  _133 = _83 & 15;
+  if (_133 == 4)
+    goto <bb 35>; [34.00%]
+  else
+    goto <bb 36>; [66.00%]
+
+  <bb 64> [local count: 866108]:
+  _189 = state_28->mbs[5].isRemote;
+  if (_189 != 0)
+    goto <bb 66>; [33.00%]
+  else
+    goto <bb 37>; [67.00%]
+
+  <bb 65> [local count: 16152918]:
+  # mb_idx_239 = PHI <mb_idx_57(33), mb_idx_69(43), mb_idx_69(40)>
+  goto <bb 44>; [100.00%]
+
+  <bb 66> [local count: 4558112]:
+  # mb_idx_241 = PHI <0(16), mb_idx_57(34), mb_idx_16(64)>
+  FLEXCAN_LockRxMsgBuff (base_27, mb_idx_241);
+  FLEXCAN_GetMsgBuff (base_27, mb_idx_241, &mb);
+  vol.7_244 ={v} MEM[(const struct CAN_Type *)base_27].TIMER;
+  _245 = mb.cs;
+  _246 = _245 >> 24;
+  _247 = _246 & 15;
+  if (_247 == 4)
+    goto <bb 35>; [15.00%]
+  else
+    goto <bb 36>; [85.00%]
+
+  <bb 67> [local count: 3331566]:
+  FLEXCAN_LockRxMsgBuff (base_27, mb_idx_16);
+  _249 = state_28->mbs[mb_idx_16].mb_message;
+  FLEXCAN_GetMsgBuff (base_27, mb_idx_16, _249);
+  flag_95 = 1 << mb_idx_16;
+  goto <bb 23>; [100.00%]
+
+  <bb 68> [local count: 33744759]:
+  _251 ={v} state_28->mbs[mb_idx_16].state;
+  if (_251 == 1)
+    goto <bb 67>; [9.87%]
+  else
+    goto <bb 33>; [90.13%]
+
+}
+
+
+
+;; Function FLEXCAN_Error_IRQHandler (FLEXCAN_Error_IRQHandler, funcdef_no=90, decl_uid=7707, cgraph_uid=91, symbol_order=96)
+
+Removing basic block 5
+FLEXCAN_Error_IRQHandler (uint8_t instance)
+{
+  struct flexcan_state_t * state;
+  struct CAN_Type * base;
+  int _1;
+  void (*<T7f4>) (uint8_t, flexcan_event_type_t, struct FlexCANState *) _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_4(D);
+  base_6 = g_flexcanBase[_1];
+  state_7 = g_flexcanStatePtr[_1];
+  _2 = state_7->error_callback;
+  if (_2 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _2 (instance_4(D), 10, state_7);
+
+  <bb 4> [local count: 1073741824]:
+  FLEXCAN_ClearErrIntStatusFlag (base_6); [tail call]
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_WakeUpHandler (FLEXCAN_WakeUpHandler, funcdef_no=91, decl_uid=7711, cgraph_uid=92, symbol_order=97)
+
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+FLEXCAN_WakeUpHandler (uint8_t instance)
+{
+  struct flexcan_state_t * state;
+  struct CAN_Type * base;
+  int _1;
+  void (*<T7f0>) (uint8_t, flexcan_event_type_t, uint32_t, struct FlexCANState *) _2;
+  void (*<T7f0>) (uint8_t, flexcan_event_type_t, uint32_t, struct FlexCANState *) _3;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  unsigned char _16;
+  unsigned char _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  unsigned char _22;
+  unsigned char _23;
+  long unsigned int _24;
+  long unsigned int _25;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_6(D);
+  base_8 = g_flexcanBase[_1];
+  _12 ={v} MEM[(const struct CAN_Type *)base_8].MCR;
+  _13 = _12 & 16384;
+  if (_13 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 885837005]:
+  goto <bb 11>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  state_9 = g_flexcanStatePtr[_1];
+  _14 ={v} MEM[(const struct CAN_Type *)base_8].WU_MTC;
+  _15 = _14 >> 17;
+  _16 = (unsigned char) _15;
+  _17 = _16 & 1;
+  if (_17 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 348966093]:
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 268435456]:
+  _18 ={v} base_8->WU_MTC;
+  _19 = _18 | 131072;
+  base_8->WU_MTC ={v} _19;
+  _2 = state_9->callback;
+  if (_2 != 0B)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 7> [local count: 187904820]:
+  _2 (instance_6(D), 5, 0, state_9);
+
+  <bb 8> [local count: 536870913]:
+  _20 ={v} MEM[(const struct CAN_Type *)base_8].WU_MTC;
+  _21 = _20 >> 16;
+  _22 = (unsigned char) _21;
+  _23 = _22 & 1;
+  if (_23 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 9> [local count: 268435456]:
+  _24 ={v} base_8->WU_MTC;
+  _25 = _24 | 65536;
+  base_8->WU_MTC ={v} _25;
+  _3 = state_9->callback;
+  if (_3 != 0B)
+    goto <bb 10>; [70.00%]
+  else
+    goto <bb 3>; [30.00%]
+
+  <bb 10> [local count: 187904820]:
+  _3 (instance_6(D), 6, 0, state_9); [tail call]
+
+  <bb 11> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_GetTransferStatus (FLEXCAN_DRV_GetTransferStatus, funcdef_no=92, decl_uid=7339, cgraph_uid=93, symbol_order=98)
+
+Removing basic block 4
+Removing basic block 6
+FLEXCAN_DRV_GetTransferStatus (uint8_t instance, uint8_t mb_idx)
+{
+  status_t status;
+  const struct flexcan_state_t * state;
+  int _1;
+  int _2;
+  <unnamed type> _3;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_6(D);
+  state_8 = g_flexcanStatePtr[_1];
+  _2 = (int) mb_idx_9(D);
+  _3 ={v} state_8->mbs[_2].state;
+  if (_3 == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _4 ={v} state_8->mbs[_2].state;
+  if (_4 == 3)
+    goto <bb 5>; [48.89%]
+  else
+    goto <bb 4>; [51.11%]
+
+  <bb 4> [local count: 274394725]:
+
+  <bb 5> [local count: 1073741824]:
+  # status_5 = PHI <0(2), 1(3), 2(4)>
+  return status_5;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_GetErrorStatus (FLEXCAN_DRV_GetErrorStatus, funcdef_no=93, decl_uid=7341, cgraph_uid=94, symbol_order=99)
+
+FLEXCAN_DRV_GetErrorStatus (uint8_t instance)
+{
+  const struct CAN_Type * base;
+  int _1;
+  uint32_t _5;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_2(D);
+  base_4 = g_flexcanBase[_1];
+  _5 ={v} base_4->ESR1;
+  return _5;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_AbortTransfer (FLEXCAN_DRV_AbortTransfer, funcdef_no=94, decl_uid=7336, cgraph_uid=95, symbol_order=100)
+
+Removing basic block 13
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+Removing basic block 40
+Removing basic block 41
+Removing basic block 42
+Removing basic block 43
+Removing basic block 44
+Removing basic block 45
+Removing basic block 46
+Removing basic block 47
+Removing basic block 48
+FLEXCAN_DRV_AbortTransfer (uint8_t instance, uint8_t mb_idx)
+{
+  struct flexcan_state_t * state;
+  uint32_t flag;
+  uint32_t flag;
+  uint32_t flag;
+  uint32_t flag;
+  uint32_t val1;
+  const uint32_t * flexcan_mb;
+  uint32_t flexcan_mb_config;
+  status_t result;
+  struct CAN_Type * base;
+  struct flexcan_state_t * state;
+  int _1;
+  int _2;
+  <unnamed type> _3;
+  <unnamed type> _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  <unnamed type> _8;
+  long unsigned int _9;
+  unsigned char _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  <unnamed type> _13;
+  unsigned char _14;
+  status_t _18;
+  sizetype _19;
+  long unsigned int _31;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  sizetype _47;
+  unsigned char _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _57;
+  sizetype _59;
+  unsigned char _60;
+  long unsigned int _61;
+  unsigned char _65;
+  _Bool _72;
+  struct QueueDefinition * * _73;
+  signed short _74;
+  signed short _76;
+  _Bool _77;
+  struct QueueDefinition * * _78;
+  signed short _79;
+  _Bool _82;
+  struct QueueDefinition * * _83;
+  long unsigned int _97;
+  long unsigned int prephitmp_104;
+  sizetype _106;
+  long unsigned int _108;
+  signed short _111;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_23(D);
+  state_25 = g_flexcanStatePtr[_1];
+  _2 = (int) mb_idx_27(D);
+  _3 ={v} state_25->mbs[_2].state;
+  if (_3 == 0)
+    goto <bb 32>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 840525097]:
+  base_26 = g_flexcanBase[_1];
+  _4 ={v} state_25->mbs[_2].state;
+  if (_4 == 2)
+    goto <bb 4>; [11.56%]
+  else
+    goto <bb 15>; [88.44%]
+
+  <bb 4> [local count: 97164699]:
+  _5 = (long unsigned int) mb_idx_27(D);
+  FLEXCAN_SetMsgBuffIntCmd (base_26, _5, 0);
+  _72 = state_25->mbs[_5].isBlocking;
+  if (_72 != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 32064350]:
+  _79 = (signed short) 12;
+  _111 = (signed short) mb_idx_27(D);
+  _19 = WIDEN_MULT_PLUS_EXPR <_79, _111, 4>;
+  _73 = state_25 + _19;
+  OSIF_SemaPost (_73);
+
+  <bb 6> [local count: 97164699]:
+  state_25->mbs[_5].state ={v} 0;
+  _10 = mb_idx_27(D) & 31;
+  _31 = (long unsigned int) _10;
+  flag_42 = 1 << _31;
+  if (mb_idx_27(D) <= 31)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 48582350]:
+  base_26->IFLAG1 ={v} flag_42;
+
+  <bb 8> [local count: 97164699]:
+  FLEXCAN_AbortTxMsgBuff (base_26, _5);
+  _44 = 1 << _5;
+
+  <bb 9> [local count: 441657725]:
+
+  <bb 10> [local count: 883315451]:
+  if (_5 <= 31)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 11> [local count: 441657725]:
+  _43 ={v} MEM[(const struct CAN_Type *)base_26].IFLAG1;
+  _45 = _43 & _44;
+  flag_46 = _45 >> _5;
+  _48 = (unsigned char) flag_46;
+  if (_48 == 0)
+    goto <bb 9>; [78.00%]
+  else
+    goto <bb 12>; [22.00%]
+
+  <bb 12> [local count: 97164699]:
+  flexcan_mb_39 = FLEXCAN_GetMsgBuffRegion (base_26, _5);
+  flexcan_mb_config_40 ={v} *flexcan_mb_39;
+  _6 = flexcan_mb_config_40 >> 24;
+  _7 = _6 & 15;
+  if (_7 == 8)
+    goto <bb 14>; [34.00%]
+  else
+    goto <bb 13>; [66.00%]
+
+  <bb 13> [local count: 64128701]:
+
+  <bb 14> [local count: 97164699]:
+  # result_17 = PHI <769(12), 0(13)>
+  base_26->IFLAG1 ={v} flag_42;
+  state_25->mbs[_2].state ={v} 0;
+  goto <bb 32>; [100.00%]
+
+  <bb 15> [local count: 743360398]:
+  _8 ={v} state_25->mbs[_2].state;
+  if (_8 == 1)
+    goto <bb 17>; [20.24%]
+  else
+    goto <bb 16>; [79.76%]
+
+  <bb 16> [local count: 660444017]:
+  _97 = (long unsigned int) mb_idx_27(D);
+  goto <bb 26>; [100.00%]
+
+  <bb 17> [local count: 150456144]:
+  _9 = (long unsigned int) mb_idx_27(D);
+  FLEXCAN_SetMsgBuffIntCmd (base_26, _9, 0);
+  _77 = state_25->mbs[_9].isBlocking;
+  if (_77 != 0)
+    goto <bb 18>; [33.00%]
+  else
+    goto <bb 19>; [67.00%]
+
+  <bb 18> [local count: 49650527]:
+  _76 = (signed short) 12;
+  _74 = (signed short) mb_idx_27(D);
+  _59 = WIDEN_MULT_PLUS_EXPR <_76, _74, 4>;
+  _78 = state_25 + _59;
+  OSIF_SemaPost (_78);
+
+  <bb 19> [local count: 150456144]:
+  state_25->mbs[_9].state ={v} 0;
+  _49 ={v} MEM[(const struct CAN_Type *)base_26].MCR;
+  _50 = _49 & 536870912;
+  if (_50 != 0)
+    goto <bb 20>; [67.00%]
+  else
+    goto <bb 25>; [33.00%]
+
+  <bb 20> [local count: 100805616]:
+  _11 ={v} base_26->CTRL2;
+  _12 = _11 >> 24;
+  val1_30 = _12 & 15;
+  _51 = val1_30 + 1;
+  _52 = _51 * 8;
+  _53 = _52 >> 2;
+  _54 = _53 + 5;
+  if (_9 > _54)
+    goto <bb 21>; [33.00%]
+  else
+    goto <bb 22>; [67.00%]
+
+  <bb 21> [local count: 33265853]:
+  FLEXCAN_ResetRxMsgBuff (base_26, _9);
+
+  <bb 22> [local count: 100805616]:
+  if (mb_idx_27(D) == 0)
+    goto <bb 23>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 23> [local count: 33265853]:
+  FLEXCAN_SetMsgBuffIntCmd (base_26, 5, 0);
+  _13 = state_25->transferType;
+  if (_13 == 1)
+    goto <bb 24>; [20.24%]
+  else
+    goto <bb 33>; [79.76%]
+
+  <bb 24> [local count: 6733009]:
+  _14 = state_25->rxFifoDMAChannel;
+  EDMA_DRV_StopChannel (_14);
+  goto <bb 33>; [100.00%]
+
+  <bb 25> [local count: 49650527]:
+  FLEXCAN_ResetRxMsgBuff (base_26, _9);
+
+  <bb 26> [local count: 710094545]:
+  # prephitmp_104 = PHI <_9(25), _97(16)>
+  if (prephitmp_104 <= 31)
+    goto <bb 28>; [47.66%]
+  else
+    goto <bb 27>; [52.34%]
+
+  <bb 27> [local count: 592904254]:
+  goto <bb 32>; [100.00%]
+
+  <bb 28> [local count: 371680199]:
+  # _108 = PHI <0(33), prephitmp_104(26)>
+  _55 ={v} MEM[(const struct CAN_Type *)base_26].IMASK1;
+  _56 = 1 << _108;
+  _57 = _55 & _56;
+  flag_58 = _57 >> _108;
+  _60 = (unsigned char) flag_58;
+  if (_60 == 1)
+    goto <bb 29>; [40.48%]
+  else
+    goto <bb 27>; [59.52%]
+
+  <bb 29> [local count: 150456144]:
+  state_81 = g_flexcanStatePtr[_1];
+  FLEXCAN_SetMsgBuffIntCmd (base_26, _108, 0);
+  _82 = state_81->mbs[_108].isBlocking;
+  if (_82 != 0)
+    goto <bb 30>; [33.00%]
+  else
+    goto <bb 31>; [67.00%]
+
+  <bb 30> [local count: 49650527]:
+  _47 = _108 * 12;
+  _106 = _47 + 4;
+  _83 = state_81 + _106;
+  OSIF_SemaPost (_83);
+
+  <bb 31> [local count: 150456144]:
+  state_81->mbs[_108].state ={v} 0;
+  _65 = mb_idx_27(D) & 31;
+  _61 = (long unsigned int) _65;
+  flag_62 = 1 << _61;
+  base_26->IFLAG1 ={v} flag_62;
+
+  <bb 32> [local count: 1073741824]:
+  # _18 = PHI <0(27), result_17(14), 0(31), 769(2)>
+  return _18;
+
+  <bb 33> [local count: 33265853]:
+  goto <bb 28>; [100.00%]
+
+}
+
+
+
+;; Function FLEXCAN_DRV_InstallEventCallback (FLEXCAN_DRV_InstallEventCallback, funcdef_no=101, decl_uid=7345, cgraph_uid=102, symbol_order=107)
+
+FLEXCAN_DRV_InstallEventCallback (uint8_t instance, void (*flexcan_callback_t) (uint8_t, flexcan_event_type_t, uint32_t, struct flexcan_state_t *) callback, void * callbackParam)
+{
+  struct flexcan_state_t * state;
+  int _1;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_2(D);
+  state_4 = g_flexcanStatePtr[_1];
+  state_4->callback = callback_5(D);
+  state_4->callbackParam = callbackParam_7(D);
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_InstallErrorCallback (FLEXCAN_DRV_InstallErrorCallback, funcdef_no=102, decl_uid=7349, cgraph_uid=103, symbol_order=108)
+
+Removing basic block 10
+Removing basic block 11
+FLEXCAN_DRV_InstallErrorCallback (uint8_t instance, void (*flexcan_error_callback_t) (uint8_t, flexcan_event_type_t, struct flexcan_state_t *) callback, void * callbackParam)
+{
+  struct flexcan_state_t * state;
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _23;
+  long unsigned int _24;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_5(D);
+  base_7 = g_flexcanBase[_1];
+  state_8 = g_flexcanStatePtr[_1];
+  state_8->error_callback = callback_9(D);
+  state_8->errorCallbackParam = callbackParam_11(D);
+  _23 ={v} MEM[(const struct CAN_Type *)base_7].MCR;
+  _24 = _23 & 16777216;
+  if (_24 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_7);
+
+  <bb 4> [local count: 1073741824]:
+  if (callback_9(D) != 0B)
+    goto <bb 5>; [70.00%]
+  else
+    goto <bb 6>; [30.00%]
+
+  <bb 5> [local count: 751619281]:
+  FLEXCAN_SetErrIntCmd (base_7, 16384, 1);
+  FLEXCAN_SetErrIntCmd (base_7, 1024, 1);
+  FLEXCAN_SetErrIntCmd (base_7, 2048, 1);
+  FLEXCAN_SetErrIntCmd (base_7, 32768, 1);
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 322122544]:
+  FLEXCAN_SetErrIntCmd (base_7, 16384, 0);
+  FLEXCAN_SetErrIntCmd (base_7, 1024, 0);
+  FLEXCAN_SetErrIntCmd (base_7, 2048, 0);
+  FLEXCAN_SetErrIntCmd (base_7, 32768, 0);
+
+  <bb 7> [local count: 1073741824]:
+  if (_24 == 0)
+    goto <bb 8>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 8> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_7); [tail call]
+
+  <bb 9> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_ConfigPN (FLEXCAN_DRV_ConfigPN, funcdef_no=103, decl_uid=7353, cgraph_uid=104, symbol_order=109)
+
+Removing basic block 10
+Removing basic block 11
+FLEXCAN_DRV_ConfigPN (uint8_t instance, _Bool enable, const struct flexcan_pn_config_t * pnConfig)
+{
+  struct CAN_Type * base;
+  int _1;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int prephitmp_25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_5(D);
+  base_7 = g_flexcanBase[_1];
+  _13 ={v} MEM[(const struct CAN_Type *)base_7].MCR;
+  _14 = _13 & 16777216;
+  if (_14 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  FLEXCAN_EnterFreezeMode (base_7);
+
+  <bb 4> [local count: 1073741824]:
+  if (enable_9(D) != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 5> [local count: 354334800]:
+  FLEXCAN_ConfigPN (base_7, pnConfig_10(D));
+  _26 ={v} base_7->MCR;
+  _27 = _26 & 4294950911;
+  _28 = _27 | 16384;
+
+  <bb 6> [local count: 1073741824]:
+  # prephitmp_25 = PHI <_28(5), _30(9)>
+  base_7->MCR ={v} prephitmp_25;
+  if (_14 == 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 7> [local count: 354334800]:
+  FLEXCAN_ExitFreezeMode (base_7); [tail call]
+
+  <bb 8> [local count: 1073741824]:
+  return;
+
+  <bb 9> [local count: 536870912]:
+  _29 ={v} base_7->MCR;
+  _30 = _29 & 4294950911;
+  goto <bb 6>; [100.00%]
+
+}
+
+
+
+;; Function FLEXCAN_DRV_GetWMB (FLEXCAN_DRV_GetWMB, funcdef_no=104, decl_uid=7357, cgraph_uid=105, symbol_order=110)
+
+FLEXCAN_DRV_GetWMB (uint8_t instance, uint8_t wmbIndex, struct flexcan_msgbuff_t * wmb)
+{
+  uint32_t wmbData;
+  uint32_t * tmp;
+  const struct CAN_Type * base;
+  int _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  unsigned char _9;
+  unsigned char _10;
+  sizetype _24;
+  const struct CAN_Type * _25;
+  long unsigned int cstore_32;
+  signed short _33;
+  signed short _34;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (int) instance_12(D);
+  base_14 = g_flexcanBase[_1];
+  tmp_16 = &wmb_15(D)->data[0];
+  _2 = (int) wmbIndex_17(D);
+  wmbData_18 ={v} base_14->WMB[_2].WMBn_D03;
+  __asm__ __volatile__("rev %0, %1" : "=r" *tmp_16 : "r" wmbData_18);
+  tmp_20 = &wmb_15(D)->data[4];
+  wmbData_21 ={v} base_14->WMB[_2].WMBn_D47;
+  __asm__ __volatile__("rev %0, %1" : "=r" *tmp_20 : "r" wmbData_21);
+  _34 = (signed short) wmbIndex_17(D);
+  _33 = (signed short) 16;
+  _24 = _34 w* _33;
+  _25 = base_14 + _24;
+  _3 ={v} MEM <const uint32_t> [(const struct CAN_Type *)_25 + 2880B];
+  wmb_15(D)->cs = _3;
+  _4 = _3 & 2097152;
+  if (_4 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _5 ={v} MEM <const uint32_t> [(const struct CAN_Type *)_25 + 2884B];
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _6 ={v} MEM <const uint32_t> [(const struct CAN_Type *)_25 + 2884B];
+  _7 = _6 >> 18;
+
+  <bb 5> [local count: 1073741824]:
+  # cstore_32 = PHI <_5(3), _7(4)>
+  wmb_15(D)->msgId = cstore_32;
+  _8 = _3 >> 16;
+  _9 = (unsigned char) _8;
+  _10 = _9 & 15;
+  wmb_15(D)->dataLen = _10;
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_DRV_GetDefaultConfig (FLEXCAN_DRV_GetDefaultConfig, funcdef_no=111, decl_uid=7268, cgraph_uid=112, symbol_order=117)
+
+Removing basic block 27
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+Removing basic block 39
+Removing basic block 40
+Removing basic block 41
+Removing basic block 42
+Removing basic block 43
+Removing basic block 44
+Removing basic block 45
+Removing basic block 46
+Removing basic block 47
+FLEXCAN_DRV_GetDefaultConfig (struct flexcan_user_config_t * config)
+{
+  uint32_t ivtmp.301;
+  uint32_t tmpPropseg;
+  uint32_t tmpPseg2;
+  uint32_t tmpPseg1;
+  uint32_t tSeg2;
+  uint32_t tSeg1;
+  uint32_t presdiv;
+  uint32_t propseg;
+  uint32_t pseg2;
+  uint32_t pseg1;
+  uint32_t numTq;
+  uint32_t dSampleMin;
+  uint32_t tmpSample;
+  uint32_t tmpPresdiv;
+  uint32_t dBitrateMin;
+  uint32_t tmpBitrate;
+  uint32_t clkFreq;
+  long unsigned int clkFreq.9_1;
+  long unsigned int _12;
+  long unsigned int _15;
+  long unsigned int _21;
+  long unsigned int _24;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _31;
+  long unsigned int _33;
+  long unsigned int _35;
+  long unsigned int _40;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _53;
+  long unsigned int _58;
+  long unsigned int _75;
+  long unsigned int _81;
+  long unsigned int _85;
+  long unsigned int _133;
+
+  <bb 2> [local count: 1073741824]:
+  CLOCK_SYS_GetFreq (6, &clkFreq);
+  clkFreq.9_1 = clkFreq;
+
+  <bb 3> [local count: 99854197709]:
+  # tmpPresdiv_144 = PHI <0(2), _21(25)>
+  # dBitrateMin_145 = PHI <1000000(2), dBitrateMin_70(25)>
+  # dSampleMin_146 = PHI <100(2), dSampleMin_66(25)>
+  # pseg1_147 = PHI <0(2), pseg1_64(25)>
+  # pseg2_148 = PHI <0(2), pseg2_63(25)>
+  # propseg_149 = PHI <0(2), propseg_61(25)>
+  # presdiv_150 = PHI <0(2), presdiv_38(25)>
+  # ivtmp.301_136 = PHI <500000(2), ivtmp.301_78(25)>
+  _21 = tmpPresdiv_144 + 1;
+  numTq_23 = clkFreq.9_1 / ivtmp.301_136;
+  _24 = _21 * numTq_23;
+  tmpBitrate_25 = clkFreq.9_1 / _24;
+  _26 = numTq_23 + 4294967288;
+  if (_26 <= 17)
+    goto <bb 4>; [27.00%]
+  else
+    goto <bb 25>; [73.00%]
+
+  <bb 4> [local count: 26960633651]:
+  _27 = numTq_23 * 88;
+  _28 = _27 / 100;
+  _29 = _28 + 4294967295;
+  _31 = numTq_23 - _28;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 463232709025]:
+  _33 = tSeg2_32 + 1;
+  _35 = tSeg1_34 + 4294967295;
+
+  <bb 6> [local count: 490193341763]:
+  # tSeg1_34 = PHI <_29(4), _35(5)>
+  # tSeg2_32 = PHI <_31(4), _33(5)>
+  if (tSeg1_34 > 16)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 245096671338]:
+  if (tSeg2_32 <= 1)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 8> [local count: 26960633651]:
+  tmpPseg2_37 = tSeg2_32 + 4294967295;
+  _85 = tSeg1_34 + 4294967294;
+  _40 = _85 - tmpPseg2_37;
+  if (_40 == 0)
+    goto <bb 10>; [97.00%]
+  else
+    goto <bb 9>; [3.00%]
+
+  <bb 9> [local count: 808084251]:
+  if (_40 > 7)
+    goto <bb 11>; [100.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 10> [local count: 218136037687]:
+  _75 = tSeg2_32 + 4294967294;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 0]:
+  _81 = tSeg2_32 + 4294967288;
+  _133 = _40 + _81;
+
+  <bb 12> [local count: 26960633701]:
+  # tmpPseg1_153 = PHI <_133(11), _75(10), tmpPseg2_37(9)>
+  # tmpPropseg_154 = PHI <7(11), 1(10), _40(9)>
+  if (tmpPseg2_37 > 7)
+    goto <bb 25>; [33.00%]
+  else
+    goto <bb 13>; [67.00%]
+
+  <bb 13> [local count: 18063624546]:
+  if (tSeg1_34 <= 1)
+    goto <bb 25>; [25.50%]
+  else
+    goto <bb 14>; [74.50%]
+
+  <bb 14> [local count: 9016458319]:
+  if (tmpPseg1_153 > 7)
+    goto <bb 25>; [33.00%]
+  else
+    goto <bb 15>; [67.00%]
+
+  <bb 15> [local count: 4047487965]:
+  _43 = tSeg1_34 + 1;
+  _44 = _43 * 100;
+  tmpSample_45 = _44 / numTq_23;
+  if (tmpSample_45 > 88)
+    goto <bb 16>; [34.00%]
+  else
+    goto <bb 17>; [66.00%]
+
+  <bb 16> [local count: 1376146054]:
+  _46 = tmpSample_45 + 4294967208;
+  goto <bb 18>; [100.00%]
+
+  <bb 17> [local count: 2671341911]:
+  _47 = 88 - tmpSample_45;
+
+  <bb 18> [local count: 4047487965]:
+  # _53 = PHI <_46(16), _47(17)>
+  if (tmpBitrate_25 > 500000)
+    goto <bb 19>; [34.00%]
+  else
+    goto <bb 20>; [66.00%]
+
+  <bb 19> [local count: 1376146054]:
+  _48 = tmpBitrate_25 + 4294467296;
+  if (_48 < dBitrateMin_145)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 20> [local count: 2671341911]:
+  _49 = 500000 - tmpBitrate_25;
+  if (_49 < dBitrateMin_145)
+    goto <bb 23>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 21> [local count: 2023743982]:
+  # _15 = PHI <_48(19), _49(20)>
+  if (_15 == dBitrateMin_145)
+    goto <bb 22>; [34.00%]
+  else
+    goto <bb 25>; [66.00%]
+
+  <bb 22> [local count: 688072799]:
+  if (_53 < dSampleMin_146)
+    goto <bb 23>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 23> [local count: 1679707360]:
+  # _12 = PHI <_49(20), _15(22)>
+  if (_12 == 0)
+    goto <bb 24>; [70.48%]
+  else
+    goto <bb 25>; [29.52%]
+
+  <bb 24> [local count: 1183890191]:
+  if (_53 <= 1)
+    goto <bb 26>; [5.50%]
+  else
+    goto <bb 25>; [94.50%]
+
+  <bb 25> [local count: 99789084016]:
+  # dBitrateMin_70 = PHI <dBitrateMin_145(22), dBitrateMin_145(21), dBitrateMin_145(14), dBitrateMin_145(12), _12(23), _48(19), dBitrateMin_145(13), dBitrateMin_145(3), _12(24)>
+  # dSampleMin_66 = PHI <dSampleMin_146(22), dSampleMin_146(21), dSampleMin_146(14), dSampleMin_146(12), _53(23), _53(19), dSampleMin_146(13), dSampleMin_146(3), _53(24)>
+  # pseg1_64 = PHI <pseg1_147(22), pseg1_147(21), pseg1_147(14), pseg1_147(12), tmpPseg1_153(23), tmpPseg1_153(19), pseg1_147(13), pseg1_147(3), tmpPseg1_153(24)>
+  # pseg2_63 = PHI <pseg2_148(22), pseg2_148(21), pseg2_148(14), pseg2_148(12), tmpPseg2_37(23), tmpPseg2_37(19), pseg2_148(13), pseg2_148(3), tmpPseg2_37(24)>
+  # propseg_61 = PHI <propseg_149(22), propseg_149(21), propseg_149(14), propseg_149(12), tmpPropseg_154(23), tmpPropseg_154(19), propseg_149(13), propseg_149(3), tmpPropseg_154(24)>
+  # presdiv_38 = PHI <presdiv_150(22), presdiv_150(21), presdiv_150(14), presdiv_150(12), tmpPresdiv_144(23), tmpPresdiv_144(19), presdiv_150(13), presdiv_150(3), tmpPresdiv_144(24)>
+  ivtmp.301_78 = ivtmp.301_136 + 500000;
+  if (_21 != 256)
+    goto <bb 3>; [98.99%]
+  else
+    goto <bb 26>; [1.01%]
+
+  <bb 26> [local count: 1073741824]:
+  # pseg1_54 = PHI <tmpPseg1_153(24), pseg1_64(25)>
+  # pseg2_55 = PHI <tmpPseg2_37(24), pseg2_63(25)>
+  # propseg_57 = PHI <tmpPropseg_154(24), propseg_61(25)>
+  # presdiv_56 = PHI <tmpPresdiv_144(24), presdiv_38(25)>
+  if (pseg1_54 <= 2)
+    goto <bb 27>; [48.89%]
+  else
+    goto <bb 28>; [51.11%]
+
+  <bb 27> [local count: 524952376]:
+
+  <bb 28> [local count: 1073741824]:
+  # _58 = PHI <3(26), pseg1_54(27)>
+  config_6(D)->bitrate.propSeg = propseg_57;
+  config_6(D)->bitrate.phaseSeg1 = pseg1_54;
+  config_6(D)->bitrate.phaseSeg2 = pseg2_55;
+  config_6(D)->bitrate.preDivider = presdiv_56;
+  config_6(D)->bitrate.rJumpwidth = _58;
+  config_6(D)->max_num_mb = 16;
+  MEM <unsigned int> [(void *)config_6(D) + 4B] = 0;
+  MEM <unsigned short> [(void *)config_6(D) + 8B] = 0;
+  config_6(D)->bitrate_cbt.propSeg = propseg_57;
+  config_6(D)->bitrate_cbt.phaseSeg1 = pseg1_54;
+  config_6(D)->bitrate_cbt.phaseSeg2 = pseg2_55;
+  config_6(D)->bitrate_cbt.preDivider = presdiv_56;
+  config_6(D)->bitrate_cbt.rJumpwidth = _58;
+  MEM <unsigned short> [(void *)config_6(D) + 52B] = 0;
+  clkFreq ={v} {CLOBBER};
+  return tmpBitrate_25;
+
+}
+
+

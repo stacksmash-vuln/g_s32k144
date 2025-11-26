@@ -1,0 +1,235 @@
+
+;; Function DMA0_IRQHandler (DMA0_IRQHandler, funcdef_no=28, decl_uid=6751, cgraph_uid=29, symbol_order=28)
+
+DMA0_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (0); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA1_IRQHandler (DMA1_IRQHandler, funcdef_no=29, decl_uid=6753, cgraph_uid=30, symbol_order=29)
+
+DMA1_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (1); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA2_IRQHandler (DMA2_IRQHandler, funcdef_no=30, decl_uid=6755, cgraph_uid=31, symbol_order=30)
+
+DMA2_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (2); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA3_IRQHandler (DMA3_IRQHandler, funcdef_no=31, decl_uid=6757, cgraph_uid=32, symbol_order=31)
+
+DMA3_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (3); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA4_IRQHandler (DMA4_IRQHandler, funcdef_no=32, decl_uid=6759, cgraph_uid=33, symbol_order=32)
+
+DMA4_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (4); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA5_IRQHandler (DMA5_IRQHandler, funcdef_no=33, decl_uid=6761, cgraph_uid=34, symbol_order=33)
+
+DMA5_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (5); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA6_IRQHandler (DMA6_IRQHandler, funcdef_no=34, decl_uid=6763, cgraph_uid=35, symbol_order=34)
+
+DMA6_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (6); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA7_IRQHandler (DMA7_IRQHandler, funcdef_no=35, decl_uid=6765, cgraph_uid=36, symbol_order=35)
+
+DMA7_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (7); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA8_IRQHandler (DMA8_IRQHandler, funcdef_no=36, decl_uid=6767, cgraph_uid=37, symbol_order=36)
+
+DMA8_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (8); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA9_IRQHandler (DMA9_IRQHandler, funcdef_no=37, decl_uid=6769, cgraph_uid=38, symbol_order=37)
+
+DMA9_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (9); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA10_IRQHandler (DMA10_IRQHandler, funcdef_no=38, decl_uid=6771, cgraph_uid=39, symbol_order=38)
+
+DMA10_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (10); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA11_IRQHandler (DMA11_IRQHandler, funcdef_no=39, decl_uid=6773, cgraph_uid=40, symbol_order=39)
+
+DMA11_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (11); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA12_IRQHandler (DMA12_IRQHandler, funcdef_no=40, decl_uid=6775, cgraph_uid=41, symbol_order=40)
+
+DMA12_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (12); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA13_IRQHandler (DMA13_IRQHandler, funcdef_no=41, decl_uid=6777, cgraph_uid=42, symbol_order=41)
+
+DMA13_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (13); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA14_IRQHandler (DMA14_IRQHandler, funcdef_no=42, decl_uid=6779, cgraph_uid=43, symbol_order=42)
+
+DMA14_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (14); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA15_IRQHandler (DMA15_IRQHandler, funcdef_no=43, decl_uid=6781, cgraph_uid=44, symbol_order=43)
+
+DMA15_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  EDMA_DRV_IRQHandler (15); [tail call]
+  return;
+
+}
+
+
+
+;; Function DMA_Error_IRQHandler (DMA_Error_IRQHandler, funcdef_no=44, decl_uid=6783, cgraph_uid=45, symbol_order=44)
+
+Removing basic block 7
+Removing basic block 8
+DMA_Error_IRQHandler ()
+{
+  uint8_t virtualChannel;
+  uint32_t error;
+  const struct DMA_Type * edmaRegBase;
+  long unsigned int _1;
+  long unsigned int _12;
+
+  <bb 2> [local count: 63136016]:
+  edmaRegBase_8 = EDMA_DRV_GetDmaRegBaseAddr (0);
+  _12 ={v} edmaRegBase_8->ERR;
+
+  <bb 3> [local count: 1010605809]:
+  # error_20 = PHI <_12(2), error_10(5)>
+  # virtualChannel_21 = PHI <0(2), virtualChannel_11(5)>
+  _1 = error_20 & 1;
+  if (_1 != 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 5>; [67.00%]
+
+  <bb 4> [local count: 333499915]:
+  EDMA_DRV_ErrorIRQHandler (virtualChannel_21);
+
+  <bb 5> [local count: 1010605809]:
+  error_10 = error_20 >> 1;
+  virtualChannel_11 = virtualChannel_21 + 1;
+  if (virtualChannel_11 != 16)
+    goto <bb 3>; [93.75%]
+  else
+    goto <bb 6>; [6.25%]
+
+  <bb 6> [local count: 63136016]:
+  return;
+
+}
+
+

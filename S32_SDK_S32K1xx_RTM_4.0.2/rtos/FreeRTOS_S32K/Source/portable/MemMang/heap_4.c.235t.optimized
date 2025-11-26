@@ -1,0 +1,469 @@
+
+;; Function prvInsertBlockIntoFreeList (prvInsertBlockIntoFreeList, funcdef_no=11, decl_uid=6167, cgraph_uid=12, symbol_order=18)
+
+Removing basic block 15
+Removing basic block 16
+prvInsertBlockIntoFreeList (struct BlockLink_t * pxBlockToInsert)
+{
+  struct BlockLink_t * pxIterator;
+  struct A_BLOCK_LINK * _1;
+  unsigned int _2;
+  uint8_t * _3;
+  unsigned int _5;
+  unsigned int _6;
+  uint8_t * _8;
+  struct BlockLink_t * pxEnd.18_10;
+  unsigned int _11;
+  unsigned int _12;
+  struct A_BLOCK_LINK * _13;
+  unsigned int pretmp_29;
+  unsigned int prephitmp_39;
+
+  <bb 2> [local count: 118111600]:
+
+  <bb 3> [local count: 1073741824]:
+  # pxIterator_15 = PHI <&xStart(2), _1(3)>
+  _1 = pxIterator_15->pxNextFreeBlock;
+  if (_1 < pxBlockToInsert_20(D))
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  _2 = pxIterator_15->xBlockSize;
+  _3 = pxIterator_15 + _2;
+  if (_3 == pxBlockToInsert_20(D))
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 5> [local count: 82678120]:
+  pretmp_29 = pxBlockToInsert_20(D)->xBlockSize;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 35433480]:
+  _5 = pxBlockToInsert_20(D)->xBlockSize;
+  _6 = _2 + _5;
+  pxIterator_15->xBlockSize = _6;
+
+  <bb 7> [local count: 118111600]:
+  # pxBlockToInsert_14 = PHI <pxIterator_15(6), pxBlockToInsert_20(D)(5)>
+  # prephitmp_39 = PHI <_6(6), pretmp_29(5)>
+  _8 = pxBlockToInsert_14 + prephitmp_39;
+  if (_1 == _8)
+    goto <bb 8>; [30.00%]
+  else
+    goto <bb 11>; [70.00%]
+
+  <bb 8> [local count: 35433480]:
+  pxEnd.18_10 = pxEnd;
+  if (_1 != pxEnd.18_10)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 9> [local count: 24803436]:
+  _11 = _1->xBlockSize;
+  _12 = _11 + prephitmp_39;
+  pxBlockToInsert_14->xBlockSize = _12;
+  _13 = _1->pxNextFreeBlock;
+  pxBlockToInsert_14->pxNextFreeBlock = _13;
+  goto <bb 12>; [100.00%]
+
+  <bb 10> [local count: 10630044]:
+  pxBlockToInsert_14->pxNextFreeBlock = pxEnd.18_10;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 82678120]:
+  pxBlockToInsert_14->pxNextFreeBlock = _1;
+
+  <bb 12> [local count: 118111600]:
+  if (pxBlockToInsert_14 != pxIterator_15)
+    goto <bb 13>; [70.00%]
+  else
+    goto <bb 14>; [30.00%]
+
+  <bb 13> [local count: 82678120]:
+  pxIterator_15->pxNextFreeBlock = pxBlockToInsert_14;
+
+  <bb 14> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function pvPortMalloc (pvPortMalloc, funcdef_no=5, decl_uid=5860, cgraph_uid=6, symbol_order=12)
+
+Merging blocks 21 and 30
+Merging blocks 27 and 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+Removing basic block 39
+Removing basic block 40
+Removing basic block 41
+Removing basic block 42
+Removing basic block 43
+pvPortMalloc (size_t xWantedSize)
+{
+  size_t uxAddress;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  void * pvReturn;
+  struct BlockLink_t * pxNewBlockLink;
+  struct BlockLink_t * pxPreviousBlock;
+  struct BlockLink_t * pxBlock;
+  struct BlockLink_t * pxEnd.0_1;
+  unsigned int _3;
+  unsigned int _4;
+  unsigned int _5;
+  unsigned int xFreeBytesRemaining.2_6;
+  unsigned int _7;
+  struct A_BLOCK_LINK * _8;
+  struct BlockLink_t * pxEnd.3_9;
+  struct A_BLOCK_LINK * _10;
+  struct A_BLOCK_LINK * _11;
+  unsigned int _13;
+  unsigned int pxNewBlockLink.4_14;
+  unsigned int _15;
+  unsigned int _19;
+  unsigned int xMinimumEverFreeBytesRemaining.7_20;
+  unsigned int _21;
+  unsigned int _22;
+  unsigned int pvReturn.10_23;
+  unsigned int _24;
+  unsigned int pretmp_28;
+  unsigned int prephitmp_32;
+  unsigned int _57;
+  struct BlockLink_t * uxAddress.13_68;
+  unsigned int _69;
+  unsigned int prephitmp_83;
+  unsigned int pretmp_86;
+  unsigned int prephitmp_97;
+  uint8_t * _106;
+  uint8_t * prephitmp_107;
+  unsigned int _108;
+
+  <bb 2> [local count: 24151721]:
+  vTaskSuspendAll ();
+  pxEnd.0_1 = pxEnd;
+  if (pxEnd.0_1 == 0B)
+    goto <bb 4>; [17.43%]
+  else
+    goto <bb 3>; [82.57%]
+
+  <bb 3> [local count: 19942076]:
+  pretmp_28 = xBlockAllocatedBit;
+  goto <bb 8>; [100.00%]
+
+  <bb 4> [local count: 4209645]:
+  uxAddress_56 = (size_t) &ucHeap;
+  _57 = uxAddress_56 & 7;
+  if (_57 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 2104823]:
+  _108 = uxAddress_56 + 8192;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 2104822]:
+  uxAddress_58 = uxAddress_56 + 7;
+  uxAddress_59 = uxAddress_58 & 4294967288;
+  _21 = uxAddress_56 + 8192;
+  _106 = (uint8_t *) uxAddress_59;
+
+  <bb 7> [local count: 4209645]:
+  # uxAddress_62 = PHI <uxAddress_59(6), uxAddress_56(5)>
+  # prephitmp_107 = PHI <_106(6), &ucHeap(5)>
+  # prephitmp_32 = PHI <_21(6), _108(5)>
+  xStart.pxNextFreeBlock = prephitmp_107;
+  xStart.xBlockSize = 0;
+  uxAddress_66 = prephitmp_32 + 4294967288;
+  uxAddress_67 = uxAddress_66 & 4294967288;
+  uxAddress.13_68 = (struct BlockLink_t *) uxAddress_67;
+  pxEnd = uxAddress.13_68;
+  uxAddress.13_68->xBlockSize = 0;
+  uxAddress.13_68->pxNextFreeBlock = 0B;
+  _69 = uxAddress_67 - uxAddress_62;
+  MEM[(struct BlockLink_t *)prephitmp_107].xBlockSize = _69;
+  MEM[(struct BlockLink_t *)prephitmp_107].pxNextFreeBlock = uxAddress.13_68;
+  xMinimumEverFreeBytesRemaining = _69;
+  xFreeBytesRemaining = _69;
+  xBlockAllocatedBit = 2147483648;
+
+  <bb 8> [local count: 24151721]:
+  # prephitmp_83 = PHI <2147483648(7), pretmp_28(3)>
+  _3 = xWantedSize_36(D) & prephitmp_83;
+  if (_3 == 0)
+    goto <bb 9>; [83.25%]
+  else
+    goto <bb 29>; [16.75%]
+
+  <bb 9> [local count: 20106307]:
+  if (xWantedSize_36(D) != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 29>; [50.00%]
+
+  <bb 10> [local count: 10053154]:
+  xWantedSize_37 = xWantedSize_36(D) + 8;
+  _4 = xWantedSize_37 & 7;
+  if (_4 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 5026577]:
+  _5 = xWantedSize_37 & 4294967288;
+  xWantedSize_38 = _5 + 8;
+
+  <bb 12> [local count: 14275478]:
+  # xWantedSize_25 = PHI <xWantedSize_38(11), xWantedSize_37(10)>
+  if (xWantedSize_25 != 0)
+    goto <bb 13>; [100.00%]
+  else
+    goto <bb 29>; [0.00%]
+
+  <bb 13> [local count: 14275478]:
+  xFreeBytesRemaining.2_6 = xFreeBytesRemaining;
+  if (xFreeBytesRemaining.2_6 >= xWantedSize_25)
+    goto <bb 14>; [71.00%]
+  else
+    goto <bb 29>; [29.00%]
+
+  <bb 14> [local count: 10135590]:
+  pxBlock_39 = xStart.pxNextFreeBlock;
+
+  <bb 15> [local count: 94747275]:
+  # pxBlock_26 = PHI <pxBlock_39(14), _8(16)>
+  # pxPreviousBlock_27 = PHI <&xStart(14), pxBlock_26(16)>
+  _7 = pxBlock_26->xBlockSize;
+  if (_7 < xWantedSize_25)
+    goto <bb 16>; [94.50%]
+  else
+    goto <bb 17>; [5.50%]
+
+  <bb 16> [local count: 89536175]:
+  _8 = pxBlock_26->pxNextFreeBlock;
+  if (_8 != 0B)
+    goto <bb 15>; [94.50%]
+  else
+    goto <bb 17>; [5.50%]
+
+  <bb 17> [local count: 10135590]:
+  pxEnd.3_9 = pxEnd;
+  if (pxEnd.3_9 != pxBlock_26)
+    goto <bb 18>; [85.10%]
+  else
+    goto <bb 29>; [14.90%]
+
+  <bb 18> [local count: 8625387]:
+  _10 = pxPreviousBlock_27->pxNextFreeBlock;
+  pvReturn_41 = _10 + 8;
+  _11 = pxBlock_26->pxNextFreeBlock;
+  pxPreviousBlock_27->pxNextFreeBlock = _11;
+  _13 = _7 - xWantedSize_25;
+  if (_13 > 16)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 19> [local count: 4312693]:
+  pxNewBlockLink_43 = pxBlock_26 + xWantedSize_25;
+  pxNewBlockLink.4_14 = (unsigned int) pxNewBlockLink_43;
+  _15 = pxNewBlockLink.4_14 & 7;
+  if (_15 != 0)
+    goto <bb 20>; [67.00%]
+  else
+    goto <bb 22>; [33.00%]
+
+  <bb 20> [local count: 2889505]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_52 : "i" 16 : "memory");
+
+  <bb 21> [local count: 291839942]:
+  goto <bb 21>; [100.00%]
+
+  <bb 22> [local count: 1423189]:
+  pxNewBlockLink_43->xBlockSize = _13;
+  pxBlock_26->xBlockSize = xWantedSize_25;
+  prvInsertBlockIntoFreeList (pxNewBlockLink_43);
+  pretmp_86 = pxBlock_26->xBlockSize;
+
+  <bb 23> [local count: 5735882]:
+  # prephitmp_97 = PHI <pretmp_86(22), _7(18)>
+  _19 = xFreeBytesRemaining.2_6 - prephitmp_97;
+  xFreeBytesRemaining = _19;
+  xMinimumEverFreeBytesRemaining.7_20 = xMinimumEverFreeBytesRemaining;
+  if (_19 < xMinimumEverFreeBytesRemaining.7_20)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 25>; [50.00%]
+
+  <bb 24> [local count: 2867941]:
+  xMinimumEverFreeBytesRemaining = _19;
+
+  <bb 25> [local count: 10631108]:
+  _22 = prephitmp_83 | prephitmp_97;
+  pxBlock_26->xBlockSize = _22;
+  pxBlock_26->pxNextFreeBlock = 0B;
+  xTaskResumeAll ();
+  pvReturn.10_23 = (unsigned int) pvReturn_41;
+  _24 = pvReturn.10_23 & 7;
+  if (_24 != 0)
+    goto <bb 26>; [100.00%]
+  else
+    goto <bb 28>; [0.00%]
+
+  <bb 26> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_53 : "i" 16 : "memory");
+
+  <bb 27> [local count: 1073741824]:
+  goto <bb 27>; [100.00%]
+
+  <bb 28> [local count: 10631108]:
+  # pvReturn_109 = PHI <0B(29), pvReturn_41(25)>
+  return pvReturn_109;
+
+  <bb 29> [local count: 10631108]:
+  xTaskResumeAll ();
+  goto <bb 28>; [100.00%]
+
+}
+
+
+
+;; Function vPortFree (vPortFree, funcdef_no=6, decl_uid=5862, cgraph_uid=7, symbol_order=13)
+
+Merging blocks 5 and 11
+Merging blocks 8 and 12
+Removing basic block 13
+vPortFree (void * pv)
+{
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  uint8_t * puc;
+  unsigned int _1;
+  unsigned int xBlockAllocatedBit.20_2;
+  unsigned int _3;
+  struct A_BLOCK_LINK * _4;
+  unsigned int _5;
+  unsigned int _6;
+  unsigned int _7;
+  unsigned int xFreeBytesRemaining.23_8;
+  unsigned int _9;
+
+  <bb 2> [local count: 30374594]:
+  if (pv_11(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 3> [local count: 21262216]:
+  _1 = MEM[(struct BlockLink_t *)pv_11(D) + 4294967288B].xBlockSize;
+  xBlockAllocatedBit.20_2 = xBlockAllocatedBit;
+  _3 = _1 & xBlockAllocatedBit.20_2;
+  if (_3 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_19 : "i" 16 : "memory");
+
+  <bb 5> [local count: 1073741824]:
+  goto <bb 5>; [100.00%]
+
+  <bb 6> [local count: 10631108]:
+  _4 = MEM[(struct BlockLink_t *)pv_11(D) + 4294967288B].pxNextFreeBlock;
+  if (_4 != 0B)
+    goto <bb 7>; [82.57%]
+  else
+    goto <bb 9>; [17.43%]
+
+  <bb 7> [local count: 8778106]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_20 : "i" 16 : "memory");
+
+  <bb 8> [local count: 886588624]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 1853002]:
+  _5 = ~xBlockAllocatedBit.20_2;
+  _6 = _1 & _5;
+  MEM[(struct BlockLink_t *)pv_11(D) + 4294967288B].xBlockSize = _6;
+  vTaskSuspendAll ();
+  _7 = MEM[(struct BlockLink_t *)pv_11(D) + 4294967288B].xBlockSize;
+  xFreeBytesRemaining.23_8 = xFreeBytesRemaining;
+  _9 = _7 + xFreeBytesRemaining.23_8;
+  xFreeBytesRemaining = _9;
+  puc_13 = pv_11(D) + 4294967288;
+  prvInsertBlockIntoFreeList (puc_13);
+  xTaskResumeAll (); [tail call]
+
+  <bb 10> [local count: 10965380]:
+  return;
+
+}
+
+
+
+;; Function xPortGetFreeHeapSize (xPortGetFreeHeapSize, funcdef_no=7, decl_uid=5866, cgraph_uid=8, symbol_order=14)
+
+xPortGetFreeHeapSize ()
+{
+  size_t _2;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = xFreeBytesRemaining;
+  return _2;
+
+}
+
+
+
+;; Function xPortGetMinimumEverFreeHeapSize (xPortGetMinimumEverFreeHeapSize, funcdef_no=8, decl_uid=5868, cgraph_uid=9, symbol_order=15)
+
+xPortGetMinimumEverFreeHeapSize ()
+{
+  size_t _2;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = xMinimumEverFreeBytesRemaining;
+  return _2;
+
+}
+
+
+
+;; Function vPortInitialiseBlocks (vPortInitialiseBlocks, funcdef_no=9, decl_uid=5864, cgraph_uid=10, symbol_order=16)
+
+vPortInitialiseBlocks ()
+{
+  <bb 2> [local count: 1073741824]:
+  return;
+
+}
+
+

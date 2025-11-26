@@ -1,0 +1,26 @@
+var phy__shared_8c =
+[
+    [ "BASIC_STATUS_100BASET2FD_FLAG", "phy__shared_8c.html#abd05ad3d1d5c61711de44b1fd55c00e8", null ],
+    [ "BASIC_STATUS_100BASET2HD_FLAG", "phy__shared_8c.html#af18b89fa0c9a2bcf4f825070f6a5c832", null ],
+    [ "BASIC_STATUS_ADDR", "phy__shared_8c.html#a0b5810e0b48bd7e6af7ddcf879870945", null ],
+    [ "BASIC_STATUS_AUTONEG_ABILITY_FLAG", "phy__shared_8c.html#aa22773372ff2d194a36ee5cba7a5f445", null ],
+    [ "BASIC_STATUS_AUTONEG_COMPLETE_FLAG", "phy__shared_8c.html#a0172dbdd9f2cfe487f1c8c40d5310231", null ],
+    [ "BASIC_STATUS_EXTENDED_STATUS_FLAG", "phy__shared_8c.html#aefa9c179578301131d28d1d717d8bcb7", null ],
+    [ "BASIC_STATUS_LINK_FLAG", "phy__shared_8c.html#ada0aeee0f23687db0a2abfb0643c9365", null ],
+    [ "BASIC_STATUS_REMOTE_FAULT_FLAG", "phy__shared_8c.html#a97893a5b11ff72ab6b8ed2a993b44640", null ],
+    [ "ID_1_OCTET0_MASK", "phy__shared_8c.html#ac7939933afd1ecfa1443ab5c586cb4a3", null ],
+    [ "ID_1_OCTET0_SHIFT", "phy__shared_8c.html#a8b814c82b5b295ee1f8fd7a19a842eb5", null ],
+    [ "ID_1_OCTET1_MASK", "phy__shared_8c.html#a4527f66ebca14ccf7ddcb64540ecf393", null ],
+    [ "ID_1_OCTET1_SHIFT", "phy__shared_8c.html#afa00590c43cd98fa0287485865708499", null ],
+    [ "ID_1_OCTET2_MASK", "phy__shared_8c.html#a848a469a3b9daf2f41013f0a660fc7a1", null ],
+    [ "ID_1_OCTET2_SHIFT", "phy__shared_8c.html#a322f11adc688853ce05b15ac5cb459e9", null ],
+    [ "ID_2_OCTET2_MASK", "phy__shared_8c.html#abbeda00ecc6790aa769bd480a018cac6", null ],
+    [ "ID_2_OCTET2_SHIFT", "phy__shared_8c.html#a53eb3d48d9cad5f39418ad641934b9eb", null ],
+    [ "ID_2_REV_MASK", "phy__shared_8c.html#ad8d3ab12d85933faded18577c819a333", null ],
+    [ "ID_2_TYPE_MASK", "phy__shared_8c.html#ad155ea19b21d3cfda001b65114fd1e2a", null ],
+    [ "ID_2_TYPE_SHIFT", "phy__shared_8c.html#a274295ad41c18de5b326a633e7db63d6", null ],
+    [ "PHY_SHARED_ExtractPhyID", "phy__shared_8c.html#ab52204d46b3504582f7b4cafa59bc8b1", null ],
+    [ "PHY_SHARED_ReadBasicStatus", "phy__shared_8c.html#aadffb79090f7de9d17dc67bb8283730a", null ],
+    [ "PHY_SHARED_ReturnNotSupported", "phy__shared_8c.html#a44e4f30289384137345c218a8f1dd1f0", null ],
+    [ "swap", "phy__shared_8c.html#a171f6755c4ab76096f6040981eab2983", null ]
+];

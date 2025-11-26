@@ -1,0 +1,1072 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/cmp/cmp_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_CMP_DRV_Reset" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_Reset ()";
+	fn_50_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_50_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_50_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ 100663296;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ 0;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_50_basic_block_0:s -> fn_50_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_50_basic_block_2:s -> fn_50_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_50_basic_block_0:s -> fn_50_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetInitConfigAll" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetInitConfigAll ()";
+	fn_51_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_51_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_51_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>comparator.dmaTriggerState\ =\ 0;\l\
+|config_2(D)-\>comparator.outputInterruptTrigger\ =\ 0;\l\
+|config_2(D)-\>comparator.mode\ =\ 0;\l\
+|config_2(D)-\>comparator.filterSampleCount\ =\ 0;\l\
+|config_2(D)-\>comparator.filterSamplePeriod\ =\ 0;\l\
+|config_2(D)-\>comparator.powerMode\ =\ 0;\l\
+|config_2(D)-\>comparator.inverterState\ =\ 0;\l\
+|config_2(D)-\>comparator.outputSelect\ =\ 0;\l\
+|config_2(D)-\>comparator.pinState\ =\ 0;\l\
+|config_2(D)-\>comparator.hysteresisLevel\ =\ 0;\l\
+|config_2(D)-\>dac.state\ =\ 0;\l\
+|config_2(D)-\>dac.voltageReferenceSource\ =\ 0;\l\
+|config_2(D)-\>dac.voltage\ =\ 0;\l\
+|config_2(D)-\>mux.negativeInputMux\ =\ 0;\l\
+|config_2(D)-\>mux.positiveInputMux\ =\ 0;\l\
+|config_2(D)-\>mux.negativePortMux\ =\ 0;\l\
+|config_2(D)-\>mux.positivePortMux\ =\ 0;\l\
+|config_2(D)-\>triggerMode.roundRobinState\ =\ 0;\l\
+|config_2(D)-\>triggerMode.roundRobinInterruptState\ =\ 0;\l\
+|config_2(D)-\>triggerMode.fixedPort\ =\ 0;\l\
+|config_2(D)-\>triggerMode.fixedChannel\ =\ 0;\l\
+|config_2(D)-\>triggerMode.samples\ =\ 0;\l\
+|config_2(D)-\>triggerMode.roundRobinChannelsState\ =\ 0;\l\
+|config_2(D)-\>triggerMode.programedState\ =\ 0;\l\
+|config_2(D)-\>triggerMode.initializationDelay\ =\ 0;\l\
+|config_2(D)-\>comparator.offsetLevel\ =\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_51_basic_block_0:s -> fn_51_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_51_basic_block_2:s -> fn_51_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_51_basic_block_0:s -> fn_51_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetDefaultConfig ()";
+	fn_52_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_52_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_52_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>comparator.dmaTriggerState\ =\ 0;\l\
+|config_2(D)-\>comparator.outputInterruptTrigger\ =\ 3;\l\
+|config_2(D)-\>comparator.mode\ =\ 1;\l\
+|config_2(D)-\>comparator.filterSampleCount\ =\ 0;\l\
+|config_2(D)-\>comparator.filterSamplePeriod\ =\ 0;\l\
+|config_2(D)-\>comparator.powerMode\ =\ 0;\l\
+|config_2(D)-\>comparator.inverterState\ =\ 0;\l\
+|config_2(D)-\>comparator.outputSelect\ =\ 0;\l\
+|config_2(D)-\>comparator.pinState\ =\ 0;\l\
+|config_2(D)-\>comparator.hysteresisLevel\ =\ 0;\l\
+|config_2(D)-\>dac.state\ =\ 1;\l\
+|config_2(D)-\>dac.voltageReferenceSource\ =\ 0;\l\
+|config_2(D)-\>dac.voltage\ =\ 127;\l\
+|config_2(D)-\>mux.negativeInputMux\ =\ 1;\l\
+|config_2(D)-\>mux.positiveInputMux\ =\ 1;\l\
+|config_2(D)-\>mux.negativePortMux\ =\ 0;\l\
+|config_2(D)-\>mux.positivePortMux\ =\ 1;\l\
+|config_2(D)-\>triggerMode.roundRobinState\ =\ 0;\l\
+|config_2(D)-\>triggerMode.roundRobinInterruptState\ =\ 0;\l\
+|config_2(D)-\>triggerMode.fixedPort\ =\ 0;\l\
+|config_2(D)-\>triggerMode.fixedChannel\ =\ 0;\l\
+|config_2(D)-\>triggerMode.samples\ =\ 0;\l\
+|config_2(D)-\>triggerMode.roundRobinChannelsState\ =\ 0;\l\
+|config_2(D)-\>triggerMode.programedState\ =\ 0;\l\
+|config_2(D)-\>triggerMode.initializationDelay\ =\ 0;\l\
+|config_2(D)-\>comparator.offsetLevel\ =\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_52_basic_block_0:s -> fn_52_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_52_basic_block_2:s -> fn_52_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_52_basic_block_0:s -> fn_52_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_Init ()";
+	fn_53_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_53_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_53_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ config_28(D)-\>comparator.dmaTriggerState;\l\
+|_160\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_161\ =\ _160\ &\ 3221225471;\l\
+|_162\ =\ (long\ unsigned\ int)\ _1;\l\
+|_163\ =\ _162\ \<\<\ 30;\l\
+|_164\ =\ _161\ \|\ _163;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _164;\l\
+|_2\ =\ config_28(D)-\>comparator.outputInterruptTrigger;\l\
+|tmp_149\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|tmp_150\ =\ tmp_149\ &\ 3892314111;\l\
+|_151\ =\ _2\ \>\>\ 1;\l\
+|_152\ =\ (long\ unsigned\ int)\ _151;\l\
+|_153\ =\ _152\ \<\<\ 28;\l\
+|_154\ =\ _153\ &\ 268435456;\l\
+|_155\ =\ (long\ unsigned\ int)\ _2;\l\
+|_156\ =\ _155\ \<\<\ 27;\l\
+|_157\ =\ _156\ &\ 134217728;\l\
+|_190\ =\ tmp_150\ \|\ _157;\l\
+|tmp_159\ =\ _154\ \|\ _190;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_159;\l\
+|_3\ =\ config_28(D)-\>comparator.mode;\l\
+|_4\ =\ config_28(D)-\>comparator.filterSampleCount;\l\
+|_5\ =\ config_28(D)-\>comparator.filterSamplePeriod;\l\
+|CMP_SetFunctionalMode\ (1074212864B,\ _3,\ _4,\ _5);\l\
+|_6\ =\ config_28(D)-\>comparator.powerMode;\l\
+|_144\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_145\ =\ _144\ &\ 4294963199;\l\
+|_146\ =\ (long\ unsigned\ int)\ _6;\l\
+|_147\ =\ _146\ \<\<\ 12;\l\
+|_148\ =\ _145\ \|\ _147;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _148;\l\
+|_7\ =\ config_28(D)-\>comparator.inverterState;\l\
+|_139\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_140\ =\ _139\ &\ 4294965247;\l\
+|_141\ =\ (long\ unsigned\ int)\ _7;\l\
+|_142\ =\ _141\ \<\<\ 11;\l\
+|_143\ =\ _140\ \|\ _142;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _143;\l\
+|_8\ =\ config_28(D)-\>comparator.outputSelect;\l\
+|_134\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_135\ =\ _134\ &\ 4294966271;\l\
+|_136\ =\ (long\ unsigned\ int)\ _8;\l\
+|_137\ =\ _136\ \<\<\ 10;\l\
+|_138\ =\ _135\ \|\ _137;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _138;\l\
+|_9\ =\ config_28(D)-\>comparator.pinState;\l\
+|_129\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_130\ =\ _129\ &\ 4294966783;\l\
+|_131\ =\ (long\ unsigned\ int)\ _9;\l\
+|_132\ =\ _131\ \<\<\ 9;\l\
+|_133\ =\ _130\ \|\ _132;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _133;\l\
+|_10\ =\ config_28(D)-\>comparator.hysteresisLevel;\l\
+|tmp_124\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|tmp_125\ =\ tmp_124\ &\ 4294967292;\l\
+|_126\ =\ _10\ &\ 3;\l\
+|_127\ =\ (long\ unsigned\ int)\ _126;\l\
+|tmp_128\ =\ tmp_125\ \|\ _127;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_128;\l\
+|_11\ =\ config_28(D)-\>dac.state;\l\
+|_119\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_120\ =\ _119\ &\ 4294934527;\l\
+|_121\ =\ (long\ unsigned\ int)\ _11;\l\
+|_122\ =\ _121\ \<\<\ 15;\l\
+|_123\ =\ _120\ \|\ _122;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ _123;\l\
+|_12\ =\ config_28(D)-\>dac.voltageReferenceSource;\l\
+|_114\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_115\ =\ _114\ &\ 4294967281;\l\
+|_116\ =\ (long\ unsigned\ int)\ _12;\l\
+|_117\ =\ _116\ \<\<\ 14;\l\
+|_118\ =\ _115\ \|\ _117;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ _118;\l\
+|_13\ =\ config_28(D)-\>dac.voltage;\l\
+|tmp_110\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_111\ =\ tmp_110\ &\ 4294967040;\l\
+|_112\ =\ (long\ unsigned\ int)\ _13;\l\
+|tmp_113\ =\ tmp_111\ \|\ _112;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_113;\l\
+|_14\ =\ config_28(D)-\>mux.negativeInputMux;\l\
+|tmp_104\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_105\ =\ tmp_104\ &\ 4294965503;\l\
+|_106\ =\ (long\ unsigned\ int)\ _14;\l\
+|_107\ =\ _106\ \<\<\ 8;\l\
+|_108\ =\ _107\ &\ 1792;\l\
+|tmp_109\ =\ tmp_105\ \|\ _108;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_109;\l\
+|_15\ =\ config_28(D)-\>mux.positiveInputMux;\l\
+|tmp_98\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_99\ =\ tmp_98\ &\ 4294952959;\l\
+|_100\ =\ (long\ unsigned\ int)\ _15;\l\
+|_101\ =\ _100\ \<\<\ 11;\l\
+|_102\ =\ _101\ &\ 14336;\l\
+|tmp_103\ =\ tmp_99\ \|\ _102;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_103;\l\
+|_16\ =\ config_28(D)-\>mux.negativePortMux;\l\
+|tmp_92\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_93\ =\ tmp_92\ &\ 4244635647;\l\
+|_94\ =\ (long\ unsigned\ int)\ _16;\l\
+|_95\ =\ _94\ \<\<\ 24;\l\
+|_96\ =\ _95\ &\ 50331648;\l\
+|tmp_97\ =\ tmp_93\ \|\ _96;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_97;\l\
+|_17\ =\ config_28(D)-\>mux.positivePortMux;\l\
+|tmp_86\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_87\ =\ tmp_86\ &\ 3892314111;\l\
+|_88\ =\ (long\ unsigned\ int)\ _17;\l\
+|_89\ =\ _88\ \<\<\ 27;\l\
+|_90\ =\ _89\ &\ 402653184;\l\
+|tmp_91\ =\ tmp_87\ \|\ _90;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_91;\l\
+|_18\ =\ config_28(D)-\>triggerMode.fixedPort;\l\
+|_81\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_82\ =\ _81\ &\ 3758096383;\l\
+|_83\ =\ (long\ unsigned\ int)\ _18;\l\
+|_84\ =\ _83\ \<\<\ 29;\l\
+|_85\ =\ _82\ \|\ _84;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ _85;\l\
+|_19\ =\ config_28(D)-\>triggerMode.fixedChannel;\l\
+|tmp_75\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_76\ =\ tmp_75\ &\ 4060086271;\l\
+|_77\ =\ (long\ unsigned\ int)\ _19;\l\
+|_78\ =\ _77\ \<\<\ 25;\l\
+|_79\ =\ _78\ &\ 234881024;\l\
+|tmp_80\ =\ tmp_76\ \|\ _79;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_80;\l\
+|_20\ =\ config_28(D)-\>triggerMode.samples;\l\
+|tmp_69\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_70\ =\ tmp_69\ &\ 4294918143;\l\
+|_71\ =\ (long\ unsigned\ int)\ _20;\l\
+|_72\ =\ _71\ \<\<\ 14;\l\
+|_73\ =\ _72\ &\ 65535;\l\
+|tmp_74\ =\ tmp_70\ \|\ _73;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_74;\l\
+|_21\ =\ config_28(D)-\>triggerMode.roundRobinChannelsState;\l\
+|tmp_64\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_65\ =\ tmp_64\ &\ 4278255615;\l\
+|_66\ =\ (long\ unsigned\ int)\ _21;\l\
+|_67\ =\ _66\ \<\<\ 16;\l\
+|tmp_68\ =\ tmp_65\ \|\ _67;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_68;\l\
+|_22\ =\ config_28(D)-\>triggerMode.programedState;\l\
+|tmp_60\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_61\ =\ tmp_60\ &\ 4294967040;\l\
+|_62\ =\ (long\ unsigned\ int)\ _22;\l\
+|tmp_63\ =\ tmp_61\ \|\ _62;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_63;\l\
+|_23\ =\ config_28(D)-\>triggerMode.roundRobinInterruptState;\l\
+|_55\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_56\ =\ _55\ &\ 4294967265;\l\
+|_57\ =\ (long\ unsigned\ int)\ _23;\l\
+|_58\ =\ _57\ \<\<\ 30;\l\
+|_59\ =\ _56\ \|\ _58;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ _59;\l\
+|_24\ =\ config_28(D)-\>triggerMode.roundRobinState;\l\
+|_50\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_51\ =\ _50\ &\ 2147483647;\l\
+|_52\ =\ (long\ unsigned\ int)\ _24;\l\
+|_53\ =\ _52\ \<\<\ 31;\l\
+|_54\ =\ _51\ \|\ _53;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ _54;\l\
+|_25\ =\ config_28(D)-\>comparator.offsetLevel;\l\
+|tmp_44\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|tmp_45\ =\ tmp_44\ &\ 4294967291;\l\
+|_46\ =\ (long\ unsigned\ int)\ _25;\l\
+|_47\ =\ _46\ \<\<\ 2;\l\
+|_48\ =\ _47\ &\ 4;\l\
+|tmp_49\ =\ tmp_45\ \|\ _48;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_49;\l\
+|_26\ =\ config_28(D)-\>triggerMode.initializationDelay;\l\
+|tmp_38\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_39\ =\ tmp_38\ &\ 4294951167;\l\
+|_40\ =\ (long\ unsigned\ int)\ _26;\l\
+|_41\ =\ _40\ \<\<\ 8;\l\
+|_42\ =\ _41\ &\ 16128;\l\
+|tmp_43\ =\ tmp_39\ \|\ _42;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_43;\l\
+|tmp_34\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_35\ =\ tmp_34\ &\ 4194303999;\l\
+|tmp_36\ =\ _35\ \|\ 100663296;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_36;\l\
+|vol.0_37\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|tmp_31\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_32\ =\ tmp_31\ \|\ 16711680;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_32;\l\
+|vol.1_33\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|return\ 0;\l\
+}"];
+
+	fn_53_basic_block_0:s -> fn_53_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_53_basic_block_2:s -> fn_53_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_53_basic_block_0:s -> fn_53_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetConfigAll" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetConfigAll ()";
+	fn_54_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_54_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_54_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_123\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_124\ =\ _123\ \>\>\ 30;\l\
+|_125\ =\ (_Bool)\ _124;\l\
+|config_3(D)-\>comparator.dmaTriggerState\ =\ _125;\l\
+|_113\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_114\ =\ _113\ \>\>\ 28;\l\
+|rising_enabled_115\ =\ (_Bool)\ _114;\l\
+|_116\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_117\ =\ _116\ \>\>\ 27;\l\
+|falling_enabled_118\ =\ (_Bool)\ _117;\l\
+|_119\ =\ (unsigned\ char)\ rising_enabled_115;\l\
+|_120\ =\ _119\ \<\<\ 1;\l\
+|_121\ =\ (unsigned\ char)\ falling_enabled_118;\l\
+|_122\ =\ _120\ \|\ _121;\l\
+|config_3(D)-\>comparator.outputInterruptTrigger\ =\ _122;\l\
+|_1\ =\ CMP_GetFunctionalMode\ (1074212864B);\l\
+|config_3(D)-\>comparator.mode\ =\ _1;\l\
+|tmp_109\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_110\ =\ tmp_109\ \>\>\ 4;\l\
+|tmp_111\ =\ _110\ &\ 7;\l\
+|_112\ =\ (unsigned\ char)\ tmp_111;\l\
+|config_3(D)-\>comparator.filterSampleCount\ =\ _112;\l\
+|tmp_106\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_107\ =\ tmp_106\ \>\>\ 16;\l\
+|_108\ =\ (unsigned\ char)\ _107;\l\
+|config_3(D)-\>comparator.filterSamplePeriod\ =\ _108;\l\
+|_102\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_103\ =\ _102\ \>\>\ 12;\l\
+|_104\ =\ (unsigned\ char)\ _103;\l\
+|_105\ =\ _104\ &\ 1;\l\
+|config_3(D)-\>comparator.powerMode\ =\ _105;\l\
+|_98\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_99\ =\ _98\ \>\>\ 11;\l\
+|_100\ =\ (unsigned\ char)\ _99;\l\
+|_101\ =\ _100\ &\ 1;\l\
+|config_3(D)-\>comparator.inverterState\ =\ _101;\l\
+|_94\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_95\ =\ _94\ \>\>\ 10;\l\
+|_96\ =\ (unsigned\ char)\ _95;\l\
+|_97\ =\ _96\ &\ 1;\l\
+|config_3(D)-\>comparator.outputSelect\ =\ _97;\l\
+|_90\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_91\ =\ _90\ \>\>\ 9;\l\
+|_92\ =\ (unsigned\ char)\ _91;\l\
+|_93\ =\ _92\ &\ 1;\l\
+|config_3(D)-\>comparator.pinState\ =\ _93;\l\
+|tmp_87\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|tmp_88\ =\ tmp_87\ &\ 3;\l\
+|_89\ =\ (\<unnamed\ type\>)\ tmp_88;\l\
+|config_3(D)-\>comparator.hysteresisLevel\ =\ _89;\l\
+|_84\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_85\ =\ _84\ \>\>\ 15;\l\
+|_86\ =\ (_Bool)\ _85;\l\
+|config_3(D)-\>dac.state\ =\ _86;\l\
+|_80\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_81\ =\ _80\ \>\>\ 14;\l\
+|_82\ =\ (unsigned\ char)\ _81;\l\
+|_83\ =\ _82\ &\ 1;\l\
+|config_3(D)-\>dac.voltageReferenceSource\ =\ _83;\l\
+|tmp_78\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_79\ =\ (unsigned\ char)\ tmp_78;\l\
+|config_3(D)-\>dac.voltage\ =\ _79;\l\
+|tmp_74\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_75\ =\ tmp_74\ \>\>\ 24;\l\
+|tmp_76\ =\ _75\ &\ 3;\l\
+|_77\ =\ (\<unnamed\ type\>)\ tmp_76;\l\
+|config_3(D)-\>mux.negativePortMux\ =\ _77;\l\
+|tmp_70\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_71\ =\ tmp_70\ \>\>\ 27;\l\
+|tmp_72\ =\ _71\ &\ 3;\l\
+|_73\ =\ (\<unnamed\ type\>)\ tmp_72;\l\
+|config_3(D)-\>mux.positivePortMux\ =\ _73;\l\
+|tmp_66\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_67\ =\ tmp_66\ \>\>\ 8;\l\
+|tmp_68\ =\ _67\ &\ 7;\l\
+|_69\ =\ (unsigned\ char)\ tmp_68;\l\
+|config_3(D)-\>mux.negativeInputMux\ =\ _69;\l\
+|tmp_62\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_63\ =\ tmp_62\ \>\>\ 11;\l\
+|tmp_64\ =\ _63\ &\ 7;\l\
+|_65\ =\ (unsigned\ char)\ tmp_64;\l\
+|config_3(D)-\>mux.positiveInputMux\ =\ _65;\l\
+|_59\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_60\ =\ _59\ \>\>\ 31;\l\
+|_61\ =\ (_Bool)\ _60;\l\
+|config_3(D)-\>triggerMode.roundRobinState\ =\ _61;\l\
+|_56\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_57\ =\ _56\ \>\>\ 30;\l\
+|_58\ =\ (_Bool)\ _57;\l\
+|config_3(D)-\>triggerMode.roundRobinInterruptState\ =\ _58;\l\
+|_52\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_53\ =\ _52\ \>\>\ 29;\l\
+|_54\ =\ (unsigned\ char)\ _53;\l\
+|_55\ =\ _54\ &\ 1;\l\
+|config_3(D)-\>triggerMode.fixedPort\ =\ _55;\l\
+|tmp_48\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_49\ =\ tmp_48\ \>\>\ 25;\l\
+|tmp_50\ =\ _49\ &\ 7;\l\
+|_51\ =\ (unsigned\ char)\ tmp_50;\l\
+|config_3(D)-\>triggerMode.fixedChannel\ =\ _51;\l\
+|tmp_44\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_45\ =\ tmp_44\ \>\>\ 14;\l\
+|tmp_46\ =\ _45\ &\ 3;\l\
+|_47\ =\ (unsigned\ char)\ tmp_46;\l\
+|config_3(D)-\>triggerMode.samples\ =\ _47;\l\
+|tmp_41\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_42\ =\ tmp_41\ \>\>\ 16;\l\
+|_43\ =\ (unsigned\ char)\ _42;\l\
+|config_3(D)-\>triggerMode.roundRobinChannelsState\ =\ _43;\l\
+|tmp_39\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_40\ =\ (unsigned\ char)\ tmp_39;\l\
+|config_3(D)-\>triggerMode.programedState\ =\ _40;\l\
+|_35\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_36\ =\ _35\ \>\>\ 2;\l\
+|_37\ =\ (unsigned\ char)\ _36;\l\
+|_38\ =\ _37\ &\ 1;\l\
+|config_3(D)-\>comparator.offsetLevel\ =\ _38;\l\
+|tmp_31\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_32\ =\ tmp_31\ \>\>\ 8;\l\
+|tmp_33\ =\ _32\ &\ 63;\l\
+|_34\ =\ (unsigned\ char)\ tmp_33;\l\
+|config_3(D)-\>triggerMode.initializationDelay\ =\ _34;\l\
+|return\ 0;\l\
+}"];
+
+	fn_54_basic_block_0:s -> fn_54_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_54_basic_block_2:s -> fn_54_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_54_basic_block_0:s -> fn_54_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetInitConfigDAC" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetInitConfigDAC ()";
+	fn_55_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_55_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_55_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>state\ =\ 0;\l\
+|config_2(D)-\>voltageReferenceSource\ =\ 0;\l\
+|config_2(D)-\>voltage\ =\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_55_basic_block_0:s -> fn_55_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_55_basic_block_2:s -> fn_55_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_55_basic_block_0:s -> fn_55_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_ConfigDAC" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_ConfigDAC ()";
+	fn_56_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_56_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_56_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ config_5(D)-\>state;\l\
+|_15\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_16\ =\ _15\ &\ 4294934527;\l\
+|_17\ =\ (long\ unsigned\ int)\ _1;\l\
+|_18\ =\ _17\ \<\<\ 15;\l\
+|_19\ =\ _16\ \|\ _18;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ _19;\l\
+|_2\ =\ config_5(D)-\>voltageReferenceSource;\l\
+|_10\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_11\ =\ _10\ &\ 4294967281;\l\
+|_12\ =\ (long\ unsigned\ int)\ _2;\l\
+|_13\ =\ _12\ \<\<\ 14;\l\
+|_14\ =\ _11\ \|\ _13;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ _14;\l\
+|_3\ =\ config_5(D)-\>voltage;\l\
+|tmp_6\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_7\ =\ tmp_6\ &\ 4294967040;\l\
+|_8\ =\ (long\ unsigned\ int)\ _3;\l\
+|tmp_9\ =\ tmp_7\ \|\ _8;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_9;\l\
+|return\ 0;\l\
+}"];
+
+	fn_56_basic_block_0:s -> fn_56_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_56_basic_block_2:s -> fn_56_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_56_basic_block_0:s -> fn_56_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetDACConfig" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetDACConfig ()";
+	fn_57_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_57_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_57_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_12\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_13\ =\ _12\ \>\>\ 15;\l\
+|_14\ =\ (_Bool)\ _13;\l\
+|config_2(D)-\>state\ =\ _14;\l\
+|_8\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_9\ =\ _8\ \>\>\ 14;\l\
+|_10\ =\ (unsigned\ char)\ _9;\l\
+|_11\ =\ _10\ &\ 1;\l\
+|config_2(D)-\>voltageReferenceSource\ =\ _11;\l\
+|tmp_6\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_7\ =\ (unsigned\ char)\ tmp_6;\l\
+|config_2(D)-\>voltage\ =\ _7;\l\
+|return\ 0;\l\
+}"];
+
+	fn_57_basic_block_0:s -> fn_57_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_57_basic_block_2:s -> fn_57_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_57_basic_block_0:s -> fn_57_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetInitConfigMUX" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetInitConfigMUX ()";
+	fn_58_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_58_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_58_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>negativePortMux\ =\ 0;\l\
+|config_2(D)-\>positivePortMux\ =\ 0;\l\
+|config_2(D)-\>negativeInputMux\ =\ 0;\l\
+|config_2(D)-\>positiveInputMux\ =\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_58_basic_block_0:s -> fn_58_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_2:s -> fn_58_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_58_basic_block_0:s -> fn_58_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_ConfigMUX" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_ConfigMUX ()";
+	fn_59_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_59_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_59_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ config_6(D)-\>negativePortMux;\l\
+|tmp_25\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_26\ =\ tmp_25\ &\ 4244635647;\l\
+|_27\ =\ (long\ unsigned\ int)\ _1;\l\
+|_28\ =\ _27\ \<\<\ 24;\l\
+|_29\ =\ _28\ &\ 50331648;\l\
+|tmp_30\ =\ tmp_26\ \|\ _29;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_30;\l\
+|_2\ =\ config_6(D)-\>positivePortMux;\l\
+|tmp_19\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_20\ =\ tmp_19\ &\ 3892314111;\l\
+|_21\ =\ (long\ unsigned\ int)\ _2;\l\
+|_22\ =\ _21\ \<\<\ 27;\l\
+|_23\ =\ _22\ &\ 402653184;\l\
+|tmp_24\ =\ tmp_20\ \|\ _23;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_24;\l\
+|_3\ =\ config_6(D)-\>negativeInputMux;\l\
+|tmp_13\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_14\ =\ tmp_13\ &\ 4294965503;\l\
+|_15\ =\ (long\ unsigned\ int)\ _3;\l\
+|_16\ =\ _15\ \<\<\ 8;\l\
+|_17\ =\ _16\ &\ 1792;\l\
+|tmp_18\ =\ tmp_14\ \|\ _17;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_18;\l\
+|_4\ =\ config_6(D)-\>positiveInputMux;\l\
+|tmp_7\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_8\ =\ tmp_7\ &\ 4294952959;\l\
+|_9\ =\ (long\ unsigned\ int)\ _4;\l\
+|_10\ =\ _9\ \<\<\ 11;\l\
+|_11\ =\ _10\ &\ 14336;\l\
+|tmp_12\ =\ tmp_8\ \|\ _11;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_12;\l\
+|return\ 0;\l\
+}"];
+
+	fn_59_basic_block_0:s -> fn_59_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_2:s -> fn_59_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_59_basic_block_0:s -> fn_59_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetMUXConfig" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetMUXConfig ()";
+	fn_60_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_60_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_60_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_19\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_20\ =\ tmp_19\ \>\>\ 24;\l\
+|tmp_21\ =\ _20\ &\ 3;\l\
+|_22\ =\ (\<unnamed\ type\>)\ tmp_21;\l\
+|config_2(D)-\>negativePortMux\ =\ _22;\l\
+|tmp_15\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_16\ =\ tmp_15\ \>\>\ 27;\l\
+|tmp_17\ =\ _16\ &\ 3;\l\
+|_18\ =\ (\<unnamed\ type\>)\ tmp_17;\l\
+|config_2(D)-\>positivePortMux\ =\ _18;\l\
+|tmp_11\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_12\ =\ tmp_11\ \>\>\ 8;\l\
+|tmp_13\ =\ _12\ &\ 7;\l\
+|_14\ =\ (unsigned\ char)\ tmp_13;\l\
+|config_2(D)-\>negativeInputMux\ =\ _14;\l\
+|tmp_7\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_8\ =\ tmp_7\ \>\>\ 11;\l\
+|tmp_9\ =\ _8\ &\ 7;\l\
+|_10\ =\ (unsigned\ char)\ tmp_9;\l\
+|config_2(D)-\>positiveInputMux\ =\ _10;\l\
+|return\ 0;\l\
+}"];
+
+	fn_60_basic_block_0:s -> fn_60_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_60_basic_block_2:s -> fn_60_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_60_basic_block_0:s -> fn_60_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetInitTriggerMode" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetInitTriggerMode ()";
+	fn_61_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_61_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_61_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>roundRobinState\ =\ 0;\l\
+|config_2(D)-\>roundRobinInterruptState\ =\ 0;\l\
+|config_2(D)-\>fixedPort\ =\ 0;\l\
+|config_2(D)-\>fixedChannel\ =\ 0;\l\
+|config_2(D)-\>samples\ =\ 0;\l\
+|config_2(D)-\>roundRobinChannelsState\ =\ 0;\l\
+|config_2(D)-\>programedState\ =\ 0;\l\
+|config_2(D)-\>initializationDelay\ =\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_61_basic_block_0:s -> fn_61_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_61_basic_block_2:s -> fn_61_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_61_basic_block_0:s -> fn_61_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_ConfigTriggerMode" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_ConfigTriggerMode ()";
+	fn_62_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_62_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_62_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ config_10(D)-\>roundRobinState;\l\
+|_48\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_49\ =\ _48\ &\ 2147483647;\l\
+|_50\ =\ (long\ unsigned\ int)\ _1;\l\
+|_51\ =\ _50\ \<\<\ 31;\l\
+|_52\ =\ _49\ \|\ _51;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ _52;\l\
+|_2\ =\ config_10(D)-\>roundRobinInterruptState;\l\
+|_43\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_44\ =\ _43\ &\ 4294967265;\l\
+|_45\ =\ (long\ unsigned\ int)\ _2;\l\
+|_46\ =\ _45\ \<\<\ 30;\l\
+|_47\ =\ _44\ \|\ _46;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ _47;\l\
+|_3\ =\ config_10(D)-\>fixedPort;\l\
+|_38\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_39\ =\ _38\ &\ 3758096383;\l\
+|_40\ =\ (long\ unsigned\ int)\ _3;\l\
+|_41\ =\ _40\ \<\<\ 29;\l\
+|_42\ =\ _39\ \|\ _41;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ _42;\l\
+|_4\ =\ config_10(D)-\>fixedChannel;\l\
+|tmp_32\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_33\ =\ tmp_32\ &\ 4060086271;\l\
+|_34\ =\ (long\ unsigned\ int)\ _4;\l\
+|_35\ =\ _34\ \<\<\ 25;\l\
+|_36\ =\ _35\ &\ 234881024;\l\
+|tmp_37\ =\ tmp_33\ \|\ _36;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_37;\l\
+|_5\ =\ config_10(D)-\>samples;\l\
+|tmp_26\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_27\ =\ tmp_26\ &\ 4294918143;\l\
+|_28\ =\ (long\ unsigned\ int)\ _5;\l\
+|_29\ =\ _28\ \<\<\ 14;\l\
+|_30\ =\ _29\ &\ 65535;\l\
+|tmp_31\ =\ tmp_27\ \|\ _30;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_31;\l\
+|_6\ =\ config_10(D)-\>initializationDelay;\l\
+|tmp_20\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_21\ =\ tmp_20\ &\ 4294951167;\l\
+|_22\ =\ (long\ unsigned\ int)\ _6;\l\
+|_23\ =\ _22\ \<\<\ 8;\l\
+|_24\ =\ _23\ &\ 16128;\l\
+|tmp_25\ =\ tmp_21\ \|\ _24;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_25;\l\
+|_7\ =\ config_10(D)-\>roundRobinChannelsState;\l\
+|tmp_15\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C1;\l\
+|tmp_16\ =\ tmp_15\ &\ 4278255615;\l\
+|_17\ =\ (long\ unsigned\ int)\ _7;\l\
+|_18\ =\ _17\ \<\<\ 16;\l\
+|tmp_19\ =\ tmp_16\ \|\ _18;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C1\ =\{v\}\ tmp_19;\l\
+|_8\ =\ config_10(D)-\>programedState;\l\
+|tmp_11\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_12\ =\ tmp_11\ &\ 4294967040;\l\
+|_13\ =\ (long\ unsigned\ int)\ _8;\l\
+|tmp_14\ =\ tmp_12\ \|\ _13;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_14;\l\
+|return\ 0;\l\
+}"];
+
+	fn_62_basic_block_0:s -> fn_62_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_2:s -> fn_62_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_62_basic_block_0:s -> fn_62_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetTriggerModeConfig" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetTriggerModeConfig ()";
+	fn_63_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_63_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_63_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_35\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_36\ =\ _35\ \>\>\ 31;\l\
+|_37\ =\ (_Bool)\ _36;\l\
+|config_2(D)-\>roundRobinState\ =\ _37;\l\
+|_32\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_33\ =\ _32\ \>\>\ 30;\l\
+|_34\ =\ (_Bool)\ _33;\l\
+|config_2(D)-\>roundRobinInterruptState\ =\ _34;\l\
+|_28\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_29\ =\ _28\ \>\>\ 29;\l\
+|_30\ =\ (unsigned\ char)\ _29;\l\
+|_31\ =\ _30\ &\ 1;\l\
+|config_2(D)-\>fixedPort\ =\ _31;\l\
+|tmp_24\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_25\ =\ tmp_24\ \>\>\ 25;\l\
+|tmp_26\ =\ _25\ &\ 7;\l\
+|_27\ =\ (unsigned\ char)\ tmp_26;\l\
+|config_2(D)-\>fixedChannel\ =\ _27;\l\
+|tmp_20\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_21\ =\ tmp_20\ \>\>\ 14;\l\
+|tmp_22\ =\ _21\ &\ 3;\l\
+|_23\ =\ (unsigned\ char)\ tmp_22;\l\
+|config_2(D)-\>samples\ =\ _23;\l\
+|tmp_17\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C1;\l\
+|_18\ =\ tmp_17\ \>\>\ 16;\l\
+|_19\ =\ (unsigned\ char)\ _18;\l\
+|config_2(D)-\>roundRobinChannelsState\ =\ _19;\l\
+|tmp_15\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_16\ =\ (unsigned\ char)\ tmp_15;\l\
+|config_2(D)-\>programedState\ =\ _16;\l\
+|tmp_11\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_12\ =\ tmp_11\ \>\>\ 8;\l\
+|tmp_13\ =\ _12\ &\ 63;\l\
+|_14\ =\ (unsigned\ char)\ tmp_13;\l\
+|config_2(D)-\>initializationDelay\ =\ _14;\l\
+|return\ 0;\l\
+}"];
+
+	fn_63_basic_block_0:s -> fn_63_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_63_basic_block_2:s -> fn_63_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_63_basic_block_0:s -> fn_63_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetOutputFlags" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetOutputFlags ()";
+	fn_64_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_64_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_64_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_2\ =\ _1\ \>\>\ 26;\l\
+|rising_enabled_10\ =\ (_Bool)\ _2;\l\
+|_3\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_4\ =\ _3\ \>\>\ 25;\l\
+|falling_enabled_11\ =\ (_Bool)\ _4;\l\
+|_5\ =\ (unsigned\ char)\ rising_enabled_10;\l\
+|_6\ =\ _5\ \<\<\ 1;\l\
+|_7\ =\ (unsigned\ char)\ falling_enabled_11;\l\
+|_8\ =\ _6\ \|\ _7;\l\
+|*flags_12(D)\ =\ _8;\l\
+|return\ 0;\l\
+}"];
+
+	fn_64_basic_block_0:s -> fn_64_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_2:s -> fn_64_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_64_basic_block_0:s -> fn_64_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_ClearOutputFlags" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_ClearOutputFlags ()";
+	fn_65_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_65_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_65_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_3\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_1\ =\ tmp_3\ &\ 4194303999;\l\
+|tmp_4\ =\ _1\ \|\ 100663296;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_4;\l\
+|vol.0_6\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_65_basic_block_0:s -> fn_65_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_65_basic_block_2:s -> fn_65_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_65_basic_block_0:s -> fn_65_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetInputFlags" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetInputFlags ()";
+	fn_66_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_66_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_66_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_4\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C2;\l\
+|_1\ =\ tmp_4\ \>\>\ 16;\l\
+|_2\ =\ (unsigned\ char)\ _1;\l\
+|*flags_5(D)\ =\ _2;\l\
+|return\ 0;\l\
+}"];
+
+	fn_66_basic_block_0:s -> fn_66_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_66_basic_block_2:s -> fn_66_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_66_basic_block_0:s -> fn_66_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_ClearInputFlags" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_ClearInputFlags ()";
+	fn_67_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_67_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_67_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_2\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|tmp_3\ =\ tmp_2\ \|\ 16711680;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C2\ =\{v\}\ tmp_3;\l\
+|vol.1_5\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C2;\l\
+|return\ 0;\l\
+}"];
+
+	fn_67_basic_block_0:s -> fn_67_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_67_basic_block_2:s -> fn_67_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_67_basic_block_0:s -> fn_67_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetInitConfigComparator" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetInitConfigComparator ()";
+	fn_68_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_68_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_68_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>outputInterruptTrigger\ =\ 0;\l\
+|config_2(D)-\>dmaTriggerState\ =\ 0;\l\
+|config_2(D)-\>mode\ =\ 0;\l\
+|config_2(D)-\>filterSampleCount\ =\ 0;\l\
+|config_2(D)-\>filterSamplePeriod\ =\ 0;\l\
+|config_2(D)-\>powerMode\ =\ 0;\l\
+|config_2(D)-\>inverterState\ =\ 0;\l\
+|config_2(D)-\>outputSelect\ =\ 0;\l\
+|config_2(D)-\>pinState\ =\ 0;\l\
+|config_2(D)-\>offsetLevel\ =\ 0;\l\
+|config_2(D)-\>hysteresisLevel\ =\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_68_basic_block_0:s -> fn_68_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_68_basic_block_2:s -> fn_68_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_68_basic_block_0:s -> fn_68_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_ConfigComparator" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_ConfigComparator ()";
+	fn_69_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_69_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_69_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ config_15(D)-\>dmaTriggerState;\l\
+|_74\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_75\ =\ _74\ &\ 3221225471;\l\
+|_76\ =\ (long\ unsigned\ int)\ _1;\l\
+|_77\ =\ _76\ \<\<\ 30;\l\
+|_78\ =\ _75\ \|\ _77;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _78;\l\
+|_2\ =\ config_15(D)-\>outputInterruptTrigger;\l\
+|tmp_63\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|tmp_64\ =\ tmp_63\ &\ 3892314111;\l\
+|_65\ =\ _2\ \>\>\ 1;\l\
+|_66\ =\ (long\ unsigned\ int)\ _65;\l\
+|_67\ =\ _66\ \<\<\ 28;\l\
+|_68\ =\ _67\ &\ 268435456;\l\
+|_69\ =\ (long\ unsigned\ int)\ _2;\l\
+|_70\ =\ _69\ \<\<\ 27;\l\
+|_71\ =\ _70\ &\ 134217728;\l\
+|_91\ =\ tmp_64\ \|\ _71;\l\
+|tmp_73\ =\ _68\ \|\ _91;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_73;\l\
+|_3\ =\ config_15(D)-\>mode;\l\
+|_4\ =\ config_15(D)-\>filterSampleCount;\l\
+|_5\ =\ config_15(D)-\>filterSamplePeriod;\l\
+|CMP_SetFunctionalMode\ (1074212864B,\ _3,\ _4,\ _5);\l\
+|_6\ =\ config_15(D)-\>filterSamplePeriod;\l\
+|tmp_56\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_57\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_58\ =\ _57\ &\ 4278255615;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _58;\l\
+|tmp_59\ =\ tmp_56\ &\ 4278255615;\l\
+|_60\ =\ (long\ unsigned\ int)\ _6;\l\
+|_61\ =\ _60\ \<\<\ 16;\l\
+|tmp_62\ =\ tmp_59\ \|\ _61;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_62;\l\
+|_7\ =\ config_15(D)-\>filterSampleCount;\l\
+|tmp_48\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_49\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_50\ =\ _49\ &\ 4294967183;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _50;\l\
+|tmp_51\ =\ tmp_48\ &\ 4294967183;\l\
+|_52\ =\ (long\ unsigned\ int)\ _7;\l\
+|_53\ =\ _52\ \<\<\ 4;\l\
+|_54\ =\ _53\ &\ 112;\l\
+|tmp_55\ =\ tmp_51\ \|\ _54;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_55;\l\
+|_8\ =\ config_15(D)-\>powerMode;\l\
+|_43\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_44\ =\ _43\ &\ 4294963199;\l\
+|_45\ =\ (long\ unsigned\ int)\ _8;\l\
+|_46\ =\ _45\ \<\<\ 12;\l\
+|_47\ =\ _44\ \|\ _46;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _47;\l\
+|_9\ =\ config_15(D)-\>inverterState;\l\
+|_38\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_39\ =\ _38\ &\ 4294965247;\l\
+|_40\ =\ (long\ unsigned\ int)\ _9;\l\
+|_41\ =\ _40\ \<\<\ 11;\l\
+|_42\ =\ _39\ \|\ _41;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _42;\l\
+|_10\ =\ config_15(D)-\>outputSelect;\l\
+|_33\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_34\ =\ _33\ &\ 4294966271;\l\
+|_35\ =\ (long\ unsigned\ int)\ _10;\l\
+|_36\ =\ _35\ \<\<\ 10;\l\
+|_37\ =\ _34\ \|\ _36;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _37;\l\
+|_11\ =\ config_15(D)-\>pinState;\l\
+|_28\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_29\ =\ _28\ &\ 4294966783;\l\
+|_30\ =\ (long\ unsigned\ int)\ _11;\l\
+|_31\ =\ _30\ \<\<\ 9;\l\
+|_32\ =\ _29\ \|\ _31;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ _32;\l\
+|_12\ =\ config_15(D)-\>offsetLevel;\l\
+|tmp_22\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|tmp_23\ =\ tmp_22\ &\ 4294967291;\l\
+|_24\ =\ (long\ unsigned\ int)\ _12;\l\
+|_25\ =\ _24\ \<\<\ 2;\l\
+|_26\ =\ _25\ &\ 4;\l\
+|tmp_27\ =\ tmp_23\ \|\ _26;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_27;\l\
+|_13\ =\ config_15(D)-\>hysteresisLevel;\l\
+|tmp_17\ =\{v\}\ MEM[(struct\ CMP_Type\ *)1074212864B].C0;\l\
+|tmp_18\ =\ tmp_17\ &\ 4294967292;\l\
+|_19\ =\ _13\ &\ 3;\l\
+|_20\ =\ (long\ unsigned\ int)\ _19;\l\
+|tmp_21\ =\ tmp_18\ \|\ _20;\l\
+|MEM[(struct\ CMP_Type\ *)1074212864B].C0\ =\{v\}\ tmp_21;\l\
+|return\ 0;\l\
+}"];
+
+	fn_69_basic_block_0:s -> fn_69_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_69_basic_block_2:s -> fn_69_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_69_basic_block_0:s -> fn_69_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_CMP_DRV_GetComparatorConfig" {
+	style="dashed";
+	color="black";
+	label="CMP_DRV_GetComparatorConfig ()";
+	fn_70_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_70_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_70_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_56\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_57\ =\ _56\ \>\>\ 30;\l\
+|_58\ =\ (_Bool)\ _57;\l\
+|config_3(D)-\>dmaTriggerState\ =\ _58;\l\
+|_46\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_47\ =\ _46\ \>\>\ 28;\l\
+|rising_enabled_48\ =\ (_Bool)\ _47;\l\
+|_49\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_50\ =\ _49\ \>\>\ 27;\l\
+|falling_enabled_51\ =\ (_Bool)\ _50;\l\
+|_52\ =\ (unsigned\ char)\ rising_enabled_48;\l\
+|_53\ =\ _52\ \<\<\ 1;\l\
+|_54\ =\ (unsigned\ char)\ falling_enabled_51;\l\
+|_55\ =\ _53\ \|\ _54;\l\
+|config_3(D)-\>outputInterruptTrigger\ =\ _55;\l\
+|_1\ =\ CMP_GetFunctionalMode\ (1074212864B);\l\
+|config_3(D)-\>mode\ =\ _1;\l\
+|tmp_42\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_43\ =\ tmp_42\ \>\>\ 4;\l\
+|tmp_44\ =\ _43\ &\ 7;\l\
+|_45\ =\ (unsigned\ char)\ tmp_44;\l\
+|config_3(D)-\>filterSampleCount\ =\ _45;\l\
+|tmp_39\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_40\ =\ tmp_39\ \>\>\ 16;\l\
+|_41\ =\ (unsigned\ char)\ _40;\l\
+|config_3(D)-\>filterSamplePeriod\ =\ _41;\l\
+|_35\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_36\ =\ _35\ \>\>\ 12;\l\
+|_37\ =\ (unsigned\ char)\ _36;\l\
+|_38\ =\ _37\ &\ 1;\l\
+|config_3(D)-\>powerMode\ =\ _38;\l\
+|_31\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_32\ =\ _31\ \>\>\ 11;\l\
+|_33\ =\ (unsigned\ char)\ _32;\l\
+|_34\ =\ _33\ &\ 1;\l\
+|config_3(D)-\>inverterState\ =\ _34;\l\
+|_27\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_28\ =\ _27\ \>\>\ 10;\l\
+|_29\ =\ (unsigned\ char)\ _28;\l\
+|_30\ =\ _29\ &\ 1;\l\
+|config_3(D)-\>outputSelect\ =\ _30;\l\
+|_23\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_24\ =\ _23\ \>\>\ 9;\l\
+|_25\ =\ (unsigned\ char)\ _24;\l\
+|_26\ =\ _25\ &\ 1;\l\
+|config_3(D)-\>pinState\ =\ _26;\l\
+|_19\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|_20\ =\ _19\ \>\>\ 2;\l\
+|_21\ =\ (unsigned\ char)\ _20;\l\
+|_22\ =\ _21\ &\ 1;\l\
+|config_3(D)-\>offsetLevel\ =\ _22;\l\
+|tmp_16\ =\{v\}\ MEM[(const\ struct\ CMP_Type\ *)1074212864B].C0;\l\
+|tmp_17\ =\ tmp_16\ &\ 3;\l\
+|_18\ =\ (\<unnamed\ type\>)\ tmp_17;\l\
+|config_3(D)-\>hysteresisLevel\ =\ _18;\l\
+|return\ 0;\l\
+}"];
+
+	fn_70_basic_block_0:s -> fn_70_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_70_basic_block_2:s -> fn_70_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_70_basic_block_0:s -> fn_70_basic_block_1:n [style="invis",constraint=true];
+}
+}

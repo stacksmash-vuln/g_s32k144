@@ -1,0 +1,45 @@
+/*!
+    @page hello_world_mkf_s32k144w_group Hello World - Makefile
+    @brief Basic application that presents the project scenarios for S32 SDK using makefiles for various compilers
+
+    ## Application description ##
+    _____
+    The purpose of this demo is to provide the user with an out-of-the box
+    example application for S32K144W platform, using S32 SDK.
+    The demo uses Pins and Clock driver to initialize the MCU and
+    to toggle two LEDs alternatively.
+
+    There are five projects delivered with this package:
+       - Makefile project (GCC compiler)
+       - Makefile project (GHS compiler)
+       - Makefile project (IAR compiler)
+       - Makefile project (DCC compiler)
+       - Makefile project (ARM compiler)
+
+   @note For information about how to run the makefile please refer to @ref Usage
+
+    ## Prerequisites ##
+    _____
+    To run the example you will need to have the following items:
+    - 1 XS32K14WEVB-Q064 board
+    - 1 Power Adapter 12V (if the board cannot be powered from the USB port)
+    - 1 Personal Computer
+    - 1 PEmicro
+
+    ## Boards supported ##
+    _____
+    The following boards are supported by this application:
+    - XS32K14WEVB-Q064
+    - S32K14xCVD-Q064 with S32K-MB
+
+    ## Hardware Wiring ##
+    _____
+    The following connections must be done to for this example application to work:
+
+    PIN FUNCTION         |  XS32K14WEVB-Q064            |   S32K14xCVD-Q064 with S32K-MB
+    ---------------------|------------------------------|--------------
+    LED1 (\b PTE0/PTC0)  |RGB_RED - wired on the board  |   LED_0 - JP49 (wired on the board)
+    LED2 (\b PTE7/PTC1)  |RGB_GREEN - wired on the board|   LED_1 - JP50 (wired on the board)
+
+*/
+

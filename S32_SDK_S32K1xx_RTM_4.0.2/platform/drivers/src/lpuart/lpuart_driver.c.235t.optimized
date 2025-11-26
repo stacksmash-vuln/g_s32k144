@@ -1,0 +1,2607 @@
+
+;; Function LPUART_DRV_StartSendDataUsingInt (LPUART_DRV_StartSendDataUsingInt, funcdef_no=42, decl_uid=7830, cgraph_uid=43, symbol_order=46)
+
+Removing basic block 7
+Removing basic block 8
+LPUART_DRV_StartSendDataUsingInt (uint32_t instance, const uint8_t * txBuff, uint32_t txSize)
+{
+  struct lpuart_state_t * lpuartState;
+  struct LPUART_Type * base;
+  _Bool _1;
+  status_t _2;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+
+  <bb 2> [local count: 150883496]:
+  lpuartState_7 = s_lpuartStatePtr[instance_5(D)];
+  _1 ={v} lpuartState_7->isTxBusy;
+  if (_1 != 0)
+    goto <bb 6>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 118111600]:
+  base_6 = s_lpuartBase[instance_5(D)];
+  lpuartState_7->txBuff = txBuff_8(D);
+  lpuartState_7->txSize ={v} txSize_10(D);
+  lpuartState_7->isTxBusy ={v} 1;
+  lpuartState_7->transmitStatus ={v} 2;
+  _15 ={v} base_6->CTRL;
+  _16 = _15 & 4294443007;
+  _17 = _16 | 524288;
+  base_6->CTRL ={v} _17;
+
+  <bb 4> [local count: 1073741824]:
+  _18 ={v} base_6->CTRL;
+  _19 = _18 & 524288;
+  if (_19 == 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  LPUART_SetIntMode (base_6, 196631, 1);
+
+  <bb 6> [local count: 150883496]:
+  # _2 = PHI <0(5), 2(2)>
+  return _2;
+
+}
+
+
+
+;; Function LPUART_DRV_StartSendDataUsingDma (LPUART_DRV_StartSendDataUsingDma, funcdef_no=43, decl_uid=7846, cgraph_uid=44, symbol_order=47)
+
+Removing basic block 7
+Removing basic block 8
+LPUART_DRV_StartSendDataUsingDma (uint32_t instance, const uint8_t * txBuff, uint32_t txSize)
+{
+  struct lpuart_state_t * lpuartState;
+  struct LPUART_Type * base;
+  _Bool _1;
+  unsigned char _2;
+  long unsigned int txBuff.1_3;
+  volatile uint32_t * _4;
+  long unsigned int _5;
+  unsigned char _6;
+  void * instance.2_7;
+  unsigned char _8;
+  status_t _9;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+
+  <bb 2> [local count: 184635922]:
+  lpuartState_14 = s_lpuartStatePtr[instance_12(D)];
+  _1 ={v} lpuartState_14->isTxBusy;
+  if (_1 != 0)
+    goto <bb 6>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 118111600]:
+  base_13 = s_lpuartBase[instance_12(D)];
+  lpuartState_14->txBuff = txBuff_15(D);
+  lpuartState_14->txSize ={v} 0;
+  lpuartState_14->isTxBusy ={v} 1;
+  lpuartState_14->transmitStatus ={v} 2;
+  _2 = lpuartState_14->txDMAChannel;
+  txBuff.1_3 = (long unsigned int) txBuff_15(D);
+  _4 = &base_13->DATA;
+  _5 = (long unsigned int) _4;
+  EDMA_DRV_ConfigMultiBlockTransfer (_2, 1, txBuff.1_3, _5, 0, 1, txSize_20(D), 1);
+  _6 = lpuartState_14->txDMAChannel;
+  instance.2_7 = (void *) instance_12(D);
+  EDMA_DRV_InstallCallback (_6, LPUART_DRV_TxDmaCallback, instance.2_7);
+  _8 = lpuartState_14->txDMAChannel;
+  EDMA_DRV_StartChannel (_8);
+  _27 ={v} base_13->CTRL;
+  _28 = _27 & 4294443007;
+  _29 = _28 | 524288;
+  base_13->CTRL ={v} _29;
+
+  <bb 4> [local count: 1073741824]:
+  _30 ={v} base_13->CTRL;
+  _31 = _30 & 524288;
+  if (_31 == 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _24 ={v} base_13->BAUD;
+  _25 = _24 & 4286578687;
+  _26 = _25 | 8388608;
+  base_13->BAUD ={v} _26;
+
+  <bb 6> [local count: 184635922]:
+  # _9 = PHI <0(5), 2(2)>
+  return _9;
+
+}
+
+
+
+;; Function LPUART_DRV_CompleteSendDataUsingInt (LPUART_DRV_CompleteSendDataUsingInt, funcdef_no=44, decl_uid=7832, cgraph_uid=45, symbol_order=48)
+
+Removing basic block 10
+Removing basic block 11
+LPUART_DRV_CompleteSendDataUsingInt (uint32_t instance)
+{
+  struct lpuart_state_t * lpuartState;
+  struct LPUART_Type * base;
+  <unnamed type> _1;
+  _Bool _2;
+  struct QueueDefinition * * _3;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+
+  <bb 2> [local count: 118111600]:
+  base_8 = s_lpuartBase[instance_7(D)];
+  lpuartState_9 = s_lpuartStatePtr[instance_7(D)];
+  _1 ={v} lpuartState_9->transmitStatus;
+  if (_1 == 2)
+    goto <bb 3>; [51.12%]
+  else
+    goto <bb 4>; [48.88%]
+
+  <bb 3> [local count: 60378650]:
+  lpuartState_9->transmitStatus ={v} 0;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 57732950]:
+  LPUART_SetIntMode (base_8, 196631, 0);
+
+  <bb 5> [local count: 118111600]:
+  LPUART_SetIntMode (base_8, 196630, 0);
+  _15 ={v} base_8->CTRL;
+  _16 = _15 & 4294443007;
+  base_8->CTRL ={v} _16;
+
+  <bb 6> [local count: 1073741824]:
+  _17 ={v} base_8->CTRL;
+  _18 = _17 & 524288;
+  if (_18 != 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 7>; [11.00%]
+
+  <bb 7> [local count: 118111600]:
+  lpuartState_9->isTxBusy ={v} 0;
+  _2 ={v} lpuartState_9->isTxBlocking;
+  if (_2 != 0)
+    goto <bb 8>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 8> [local count: 38976828]:
+  _3 = &lpuartState_9->txComplete;
+  OSIF_SemaPost (_3); [tail call]
+
+  <bb 9> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_StopTxDma (LPUART_DRV_StopTxDma, funcdef_no=52, decl_uid=7840, cgraph_uid=53, symbol_order=56)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+LPUART_DRV_StopTxDma (uint32_t instance)
+{
+  struct lpuart_state_t * lpuartState;
+  struct LPUART_Type * base;
+  unsigned char _1;
+  _Bool _2;
+  struct QueueDefinition * * _3;
+  <unnamed type> _4;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+
+  <bb 2> [local count: 118111600]:
+  base_9 = s_lpuartBase[instance_8(D)];
+  lpuartState_10 = s_lpuartStatePtr[instance_8(D)];
+  _20 ={v} base_9->BAUD;
+  _21 = _20 & 4286578687;
+  base_9->BAUD ={v} _21;
+  _1 = lpuartState_10->txDMAChannel;
+  EDMA_DRV_StopChannel (_1);
+  LPUART_SetIntMode (base_9, 196630, 0);
+  _16 ={v} base_9->CTRL;
+  _17 = _16 & 4294443007;
+  base_9->CTRL ={v} _17;
+
+  <bb 3> [local count: 1073741824]:
+  _18 ={v} base_9->CTRL;
+  _19 = _18 & 524288;
+  if (_19 != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  _2 ={v} lpuartState_10->isTxBlocking;
+  if (_2 != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 38976828]:
+  _3 = &lpuartState_10->txComplete;
+  OSIF_SemaPost (_3);
+
+  <bb 6> [local count: 118111600]:
+  _4 ={v} lpuartState_10->transmitStatus;
+  if (_4 == 2)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 40157944]:
+  lpuartState_10->transmitStatus ={v} 0;
+
+  <bb 8> [local count: 118111600]:
+  lpuartState_10->isTxBusy ={v} 0;
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_TxDmaCallback (LPUART_DRV_TxDmaCallback, funcdef_no=45, decl_uid=7849, cgraph_uid=46, symbol_order=49)
+
+Removing basic block 11
+Removing basic block 12
+LPUART_DRV_TxDmaCallback (void * parameter, edma_chn_status_t status)
+{
+  struct LPUART_Type * base;
+  struct lpuart_state_t * lpuartState;
+  uint32_t instance;
+  void (*<T7fe>) (void *, uart_event_t, void *) _1;
+  void * _2;
+  void (*<T7fe>) (void *, uart_event_t, void *) _3;
+  void * _4;
+  long unsigned int _5;
+  unsigned char _6;
+  const uint8_t * _7;
+  long unsigned int _8;
+  unsigned char _9;
+  long unsigned int _10;
+  unsigned char _11;
+
+  <bb 2> [local count: 1073741823]:
+  instance_15 = (uint32_t) parameter_14(D);
+  lpuartState_17 = s_lpuartStatePtr[instance_15];
+  if (status_19(D) == 1)
+    goto <bb 3>; [20.24%]
+  else
+    goto <bb 5>; [79.76%]
+
+  <bb 3> [local count: 217325344]:
+  lpuartState_17->transmitStatus ={v} 1;
+  LPUART_DRV_StopTxDma (instance_15);
+  _1 = lpuartState_17->txCallback;
+  if (_1 != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 4> [local count: 152127741]:
+  _2 = lpuartState_17->txCallbackParam;
+  _1 (lpuartState_17, 3, _2); [tail call]
+  goto <bb 10>; [100.00%]
+
+  <bb 5> [local count: 856416479]:
+  base_18 = s_lpuartBase[instance_15];
+  _3 = lpuartState_17->txCallback;
+  if (_3 != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 6> [local count: 599491539]:
+  _4 = lpuartState_17->txCallbackParam;
+  _3 (lpuartState_17, 1, _4);
+
+  <bb 7> [local count: 856416480]:
+  _5 ={v} lpuartState_17->txSize;
+  if (_5 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 428208240]:
+  _6 = lpuartState_17->txDMAChannel;
+  _7 = lpuartState_17->txBuff;
+  _8 = (long unsigned int) _7;
+  EDMA_DRV_SetSrcAddr (_6, _8);
+  _9 = lpuartState_17->txDMAChannel;
+  _10 ={v} lpuartState_17->txSize;
+  EDMA_DRV_SetMajorLoopIterationCount (_9, _10);
+  lpuartState_17->txSize ={v} 0;
+  _11 = lpuartState_17->txDMAChannel;
+  EDMA_DRV_StartChannel (_11); [tail call]
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 428208240]:
+  LPUART_SetIntMode (base_18, 196630, 1); [tail call]
+
+  <bb 10> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_PutData (LPUART_DRV_PutData, funcdef_no=50, decl_uid=7858, cgraph_uid=51, symbol_order=54)
+
+LPUART_DRV_PutData (uint32_t instance)
+{
+  const uint8_t * txBuff;
+  uint16_t data;
+  struct LPUART_Type * base;
+  const struct lpuart_state_t * lpuartState;
+  <unnamed type> _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_14 = s_lpuartStatePtr[instance_13(D)];
+  base_15 = s_lpuartBase[instance_13(D)];
+  txBuff_16 = lpuartState_14->txBuff;
+  _1 = lpuartState_14->bitCountPerChar;
+  if (_1 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _2 = *txBuff_16;
+  MEM[(volatile uint8_t *)base_15 + 28B] ={v} _2;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  if (_1 == 1)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [local count: 182536112]:
+  data_21 = MEM <short unsigned int> [(const uint8_t *)txBuff_16];
+  LPUART_Putchar9 (base_15, data_21); [tail call]
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 354334800]:
+  data_18 = MEM <short unsigned int> [(const uint8_t *)txBuff_16];
+  LPUART_Putchar10 (base_15, data_18); [tail call]
+
+  <bb 7> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_StartReceiveDataUsingInt (LPUART_DRV_StartReceiveDataUsingInt, funcdef_no=46, decl_uid=7836, cgraph_uid=47, symbol_order=50)
+
+Removing basic block 7
+Removing basic block 8
+LPUART_DRV_StartReceiveDataUsingInt (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize)
+{
+  struct LPUART_Type * base;
+  struct lpuart_state_t * lpuartState;
+  _Bool _1;
+  status_t _2;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+
+  <bb 2> [local count: 150883496]:
+  lpuartState_6 = s_lpuartStatePtr[instance_5(D)];
+  _1 ={v} lpuartState_6->isRxBusy;
+  if (_1 != 0)
+    goto <bb 6>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 118111600]:
+  base_7 = s_lpuartBase[instance_5(D)];
+  lpuartState_6->isRxBusy ={v} 1;
+  lpuartState_6->rxBuff = rxBuff_9(D);
+  lpuartState_6->rxSize ={v} rxSize_11(D);
+  lpuartState_6->receiveStatus ={v} 2;
+  _16 ={v} base_7->CTRL;
+  _17 = _16 & 4294705151;
+  _18 = _17 | 262144;
+  base_7->CTRL ={v} _18;
+
+  <bb 4> [local count: 1073741824]:
+  _19 ={v} base_7->CTRL;
+  _20 = _19 & 262144;
+  if (_20 == 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  LPUART_SetErrorInterrupts (base_7, 1);
+  LPUART_SetIntMode (base_7, 196629, 1);
+
+  <bb 6> [local count: 150883496]:
+  # _2 = PHI <0(5), 2(2)>
+  return _2;
+
+}
+
+
+
+;; Function LPUART_DRV_StartReceiveDataUsingDma (LPUART_DRV_StartReceiveDataUsingDma, funcdef_no=47, decl_uid=7853, cgraph_uid=48, symbol_order=51)
+
+Removing basic block 7
+Removing basic block 8
+LPUART_DRV_StartReceiveDataUsingDma (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize)
+{
+  struct lpuart_state_t * lpuartState;
+  struct LPUART_Type * base;
+  _Bool _1;
+  unsigned char _2;
+  volatile uint32_t * _3;
+  long unsigned int _4;
+  long unsigned int rxBuff.5_5;
+  unsigned char _6;
+  void * instance.6_7;
+  unsigned char _8;
+  status_t _9;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+
+  <bb 2> [local count: 184635922]:
+  lpuartState_14 = s_lpuartStatePtr[instance_12(D)];
+  _1 ={v} lpuartState_14->isRxBusy;
+  if (_1 != 0)
+    goto <bb 6>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 118111600]:
+  base_13 = s_lpuartBase[instance_12(D)];
+  _2 = lpuartState_14->rxDMAChannel;
+  _3 = &base_13->DATA;
+  _4 = (long unsigned int) _3;
+  rxBuff.5_5 = (long unsigned int) rxBuff_15(D);
+  EDMA_DRV_ConfigMultiBlockTransfer (_2, 0, _4, rxBuff.5_5, 0, 1, rxSize_16(D), 1);
+  _6 = lpuartState_14->rxDMAChannel;
+  instance.6_7 = (void *) instance_12(D);
+  EDMA_DRV_InstallCallback (_6, LPUART_DRV_RxDmaCallback, instance.6_7);
+  _8 = lpuartState_14->rxDMAChannel;
+  EDMA_DRV_StartChannel (_8);
+  lpuartState_14->rxBuff = rxBuff_15(D);
+  lpuartState_14->rxSize ={v} 0;
+  lpuartState_14->isRxBusy ={v} 1;
+  lpuartState_14->receiveStatus ={v} 2;
+  _28 ={v} base_13->CTRL;
+  _29 = _28 & 4294705151;
+  _30 = _29 | 262144;
+  base_13->CTRL ={v} _30;
+
+  <bb 4> [local count: 1073741824]:
+  _31 ={v} base_13->CTRL;
+  _32 = _31 & 262144;
+  if (_32 == 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  LPUART_SetErrorInterrupts (base_13, 1);
+  _25 ={v} base_13->BAUD;
+  _26 = _25 & 4292870143;
+  _27 = _26 | 2097152;
+  base_13->BAUD ={v} _27;
+
+  <bb 6> [local count: 184635922]:
+  # _9 = PHI <0(5), 2(2)>
+  return _9;
+
+}
+
+
+
+;; Function LPUART_DRV_CompleteReceiveDataUsingInt (LPUART_DRV_CompleteReceiveDataUsingInt, funcdef_no=48, decl_uid=7838, cgraph_uid=49, symbol_order=52)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+LPUART_DRV_CompleteReceiveDataUsingInt (uint32_t instance)
+{
+  struct LPUART_Type * base;
+  struct lpuart_state_t * lpuartState;
+  _Bool _1;
+  struct QueueDefinition * * _2;
+  <unnamed type> _3;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+
+  <bb 2> [local count: 118111600]:
+  lpuartState_8 = s_lpuartStatePtr[instance_7(D)];
+  base_9 = s_lpuartBase[instance_7(D)];
+  _17 ={v} base_9->CTRL;
+  _18 = _17 & 4294705151;
+  base_9->CTRL ={v} _18;
+
+  <bb 3> [local count: 1073741824]:
+  _19 ={v} base_9->CTRL;
+  _20 = _19 & 262144;
+  if (_20 != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  LPUART_SetErrorInterrupts (base_9, 0);
+  _16 ={v} MEM[(const struct LPUART_Type *)base_9].DATA;
+  LPUART_SetIntMode (base_9, 196629, 0);
+  _1 ={v} lpuartState_8->isRxBlocking;
+  if (_1 != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 38976828]:
+  _2 = &lpuartState_8->rxComplete;
+  OSIF_SemaPost (_2);
+  lpuartState_8->isRxBlocking ={v} 0;
+
+  <bb 6> [local count: 118111600]:
+  lpuartState_8->isRxBusy ={v} 0;
+  _3 ={v} lpuartState_8->receiveStatus;
+  if (_3 == 2)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 40157944]:
+  lpuartState_8->receiveStatus ={v} 0;
+
+  <bb 8> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_StopRxDma (LPUART_DRV_StopRxDma, funcdef_no=53, decl_uid=7842, cgraph_uid=54, symbol_order=57)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+LPUART_DRV_StopRxDma (uint32_t instance)
+{
+  struct lpuart_state_t * lpuartState;
+  struct LPUART_Type * base;
+  unsigned char _1;
+  _Bool _2;
+  struct QueueDefinition * * _3;
+  <unnamed type> _4;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+
+  <bb 2> [local count: 118111600]:
+  base_9 = s_lpuartBase[instance_8(D)];
+  lpuartState_10 = s_lpuartStatePtr[instance_8(D)];
+  _20 ={v} base_9->CTRL;
+  _21 = _20 & 4294705151;
+  base_9->CTRL ={v} _21;
+
+  <bb 3> [local count: 1073741824]:
+  _22 ={v} base_9->CTRL;
+  _23 = _22 & 262144;
+  if (_23 != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  LPUART_SetErrorInterrupts (base_9, 0);
+  _18 ={v} base_9->BAUD;
+  _19 = _18 & 4292870143;
+  base_9->BAUD ={v} _19;
+  _17 ={v} MEM[(const struct LPUART_Type *)base_9].DATA;
+  _1 = lpuartState_10->rxDMAChannel;
+  EDMA_DRV_StopChannel (_1);
+  _2 ={v} lpuartState_10->isRxBlocking;
+  if (_2 != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 38976828]:
+  _3 = &lpuartState_10->rxComplete;
+  OSIF_SemaPost (_3);
+  lpuartState_10->isRxBlocking ={v} 0;
+
+  <bb 6> [local count: 118111600]:
+  _4 ={v} lpuartState_10->receiveStatus;
+  if (_4 == 2)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 40157944]:
+  lpuartState_10->receiveStatus ={v} 0;
+
+  <bb 8> [local count: 118111600]:
+  lpuartState_10->isRxBusy ={v} 0;
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_RxDmaCallback (LPUART_DRV_RxDmaCallback, funcdef_no=49, decl_uid=7856, cgraph_uid=50, symbol_order=53)
+
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+LPUART_DRV_RxDmaCallback (void * parameter, edma_chn_status_t status)
+{
+  struct LPUART_Type * base;
+  struct lpuart_state_t * lpuartState;
+  uint32_t instance;
+  void (*<T7fe>) (void *, uart_event_t, void *) _1;
+  void * _2;
+  <unnamed type> _3;
+  void (*<T7fe>) (void *, uart_event_t, void *) _4;
+  void * _5;
+  long unsigned int _6;
+  unsigned char _7;
+  uint8_t * _8;
+  long unsigned int _9;
+  unsigned char _10;
+  long unsigned int _11;
+  unsigned char _12;
+  void (*<T7fe>) (void *, uart_event_t, void *) _13;
+  void * _14;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+
+  <bb 2> [local count: 1073741824]:
+  instance_21 = (uint32_t) parameter_20(D);
+  lpuartState_23 = s_lpuartStatePtr[instance_21];
+  base_24 = s_lpuartBase[instance_21];
+  if (status_25(D) == 1)
+    goto <bb 3>; [20.24%]
+  else
+    goto <bb 6>; [79.76%]
+
+  <bb 3> [local count: 217325344]:
+  lpuartState_23->receiveStatus ={v} 1;
+  LPUART_DRV_StopRxDma (instance_21);
+  _1 = lpuartState_23->rxCallback;
+  if (_1 != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 4> [local count: 152127742]:
+  _2 = lpuartState_23->rxCallbackParam;
+  _1 (lpuartState_23, 3, _2);
+
+  <bb 5> [local count: 217325344]:
+  _36 ={v} base_24->STAT;
+  _37 = _36 & 1071661055;
+  _38 = _37 | 983040;
+  base_24->STAT ={v} _38;
+
+  <bb 6> [local count: 1073741824]:
+  _3 ={v} lpuartState_23->receiveStatus;
+  if (_3 != 2)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 536870913]:
+  _4 = lpuartState_23->rxCallback;
+  if (_4 != 0B)
+    goto <bb 8>; [70.00%]
+  else
+    goto <bb 9>; [30.00%]
+
+  <bb 8> [local count: 375809640]:
+  _5 = lpuartState_23->rxCallbackParam;
+  _4 (lpuartState_23, 0, _5);
+
+  <bb 9> [local count: 536870913]:
+  _6 ={v} lpuartState_23->rxSize;
+  if (_6 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 268435456]:
+  _7 = lpuartState_23->rxDMAChannel;
+  _8 = lpuartState_23->rxBuff;
+  _9 = (long unsigned int) _8;
+  EDMA_DRV_SetDestAddr (_7, _9);
+  _10 = lpuartState_23->rxDMAChannel;
+  _11 ={v} lpuartState_23->rxSize;
+  EDMA_DRV_SetMajorLoopIterationCount (_10, _11);
+  lpuartState_23->rxSize ={v} 0;
+  _12 = lpuartState_23->rxDMAChannel;
+  EDMA_DRV_StartChannel (_12); [tail call]
+  goto <bb 14>; [100.00%]
+
+  <bb 11> [local count: 268435456]:
+  LPUART_DRV_StopRxDma (instance_21);
+  _13 = lpuartState_23->rxCallback;
+  if (_13 != 0B)
+    goto <bb 12>; [70.00%]
+  else
+    goto <bb 13>; [30.00%]
+
+  <bb 12> [local count: 187904820]:
+  _14 = lpuartState_23->rxCallbackParam;
+  _13 (lpuartState_23, 2, _14);
+
+  <bb 13> [local count: 268435456]:
+  _39 ={v} base_24->STAT;
+  _40 = _39 & 1071661055;
+  _41 = _40 | 983040;
+  base_24->STAT ={v} _41;
+
+  <bb 14> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_GetData (LPUART_DRV_GetData, funcdef_no=51, decl_uid=7860, cgraph_uid=52, symbol_order=55)
+
+LPUART_DRV_GetData (uint32_t instance)
+{
+  uint8_t * rxBuff;
+  uint16_t data;
+  const struct LPUART_Type * base;
+  const struct lpuart_state_t * lpuartState;
+  <unnamed type> _1;
+  short unsigned int data.8_2;
+  unsigned char _3;
+  short unsigned int data.9_4;
+  short unsigned int _5;
+  unsigned char _6;
+  short unsigned int data.10_7;
+  unsigned char _8;
+  short unsigned int data.11_9;
+  short unsigned int _10;
+  unsigned char _11;
+  long unsigned int _25;
+  unsigned char _26;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_15 = s_lpuartStatePtr[instance_14(D)];
+  base_16 = s_lpuartBase[instance_14(D)];
+  rxBuff_17 = lpuartState_15->rxBuff;
+  _1 = lpuartState_15->bitCountPerChar;
+  if (_1 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _25 ={v} base_16->DATA;
+  _26 = (unsigned char) _25;
+  *rxBuff_17 = _26;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  if (_1 == 1)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [local count: 182536112]:
+  LPUART_Getchar9 (base_16, &data);
+  data.8_2 = data;
+  _3 = (unsigned char) data.8_2;
+  *rxBuff_17 = _3;
+  data.9_4 = data;
+  _5 = data.9_4 >> 8;
+  _6 = (unsigned char) _5;
+  MEM[(uint8_t *)rxBuff_17 + 1B] = _6;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 354334800]:
+  LPUART_Getchar10 (base_16, &data);
+  data.10_7 = data;
+  _8 = (unsigned char) data.10_7;
+  *rxBuff_17 = _8;
+  data.11_9 = data;
+  _10 = data.11_9 >> 8;
+  _11 = (unsigned char) _10;
+  MEM[(uint8_t *)rxBuff_17 + 1B] = _11;
+
+  <bb 7> [local count: 1073741824]:
+  data ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_GetDefaultConfig (LPUART_DRV_GetDefaultConfig, funcdef_no=18, decl_uid=7198, cgraph_uid=19, symbol_order=22)
+
+LPUART_DRV_GetDefaultConfig (struct lpuart_user_config_t * lpuartUserConfig)
+{
+  <bb 2> [local count: 1073741824]:
+  lpuartUserConfig_2(D)->baudRate = 9600;
+  MEM <unsigned int> [(void *)lpuartUserConfig_2(D) + 4B] = 16777216;
+  MEM <unsigned short> [(unsigned char *)lpuartUserConfig_2(D) + 8B] = 0;
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_Deinit (LPUART_DRV_Deinit, funcdef_no=20, decl_uid=7204, cgraph_uid=21, symbol_order=24)
+
+Removing basic block 5
+LPUART_DRV_Deinit (uint32_t instance)
+{
+  const struct lpuart_state_t * lpuartState;
+  const struct LPUART_Type * base;
+  uint32_t lpuartSourceClock;
+  clock_names_t instanceClkName;
+  _Bool _1;
+  struct QueueDefinition * const * _2;
+  struct QueueDefinition * const * _3;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 118111600]:
+  instanceClkName_8 = s_lpuartClkNames[instance_7(D)];
+  base_9 = s_lpuartBase[instance_7(D)];
+  lpuartState_10 = s_lpuartStatePtr[instance_7(D)];
+  CLOCK_SYS_GetFreq (instanceClkName_8, &lpuartSourceClock);
+
+  <bb 3> [local count: 1073741824]:
+  _1 = LPUART_GetStatusFlag (base_9, 131094);
+  if (_1 != 0)
+    goto <bb 4>; [11.00%]
+  else
+    goto <bb 3>; [89.00%]
+
+  <bb 4> [local count: 118111600]:
+  _2 = &lpuartState_10->rxComplete;
+  OSIF_SemaDestroy (_2);
+  _3 = &lpuartState_10->txComplete;
+  OSIF_SemaDestroy (_3);
+  _4 = s_lpuartRxTxIrqId[instance_7(D)];
+  INT_SYS_DisableIRQ (_4);
+  INT_SYS_InstallHandler (_4, DefaultISR, 0B);
+  s_lpuartStatePtr[instance_7(D)] = 0B;
+  lpuartSourceClock ={v} {CLOBBER};
+  return 0;
+
+}
+
+
+
+;; Function LPUART_DRV_InstallRxCallback (LPUART_DRV_InstallRxCallback, funcdef_no=21, decl_uid=7208, cgraph_uid=22, symbol_order=25)
+
+LPUART_DRV_InstallRxCallback (uint32_t instance, void (*uart_callback_t) (void *, uart_event_t, void *) function, void * callbackParam)
+{
+  void (*uart_callback_t) (void *, uart_event_t, void *) currentCallback;
+  struct lpuart_state_t * lpuartState;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_3 = s_lpuartStatePtr[instance_2(D)];
+  currentCallback_4 = lpuartState_3->rxCallback;
+  lpuartState_3->rxCallback = function_5(D);
+  lpuartState_3->rxCallbackParam = callbackParam_7(D);
+  return currentCallback_4;
+
+}
+
+
+
+;; Function LPUART_DRV_InstallTxCallback (LPUART_DRV_InstallTxCallback, funcdef_no=22, decl_uid=7212, cgraph_uid=23, symbol_order=26)
+
+LPUART_DRV_InstallTxCallback (uint32_t instance, void (*uart_callback_t) (void *, uart_event_t, void *) function, void * callbackParam)
+{
+  void (*uart_callback_t) (void *, uart_event_t, void *) currentCallback;
+  struct lpuart_state_t * lpuartState;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_3 = s_lpuartStatePtr[instance_2(D)];
+  currentCallback_4 = lpuartState_3->txCallback;
+  lpuartState_3->txCallback = function_5(D);
+  lpuartState_3->txCallbackParam = callbackParam_7(D);
+  return currentCallback_4;
+
+}
+
+
+
+;; Function LPUART_DRV_SendDataBlocking (LPUART_DRV_SendDataBlocking, funcdef_no=23, decl_uid=7217, cgraph_uid=24, symbol_order=27)
+
+Removing basic block 12
+Removing basic block 13
+LPUART_DRV_SendDataBlocking (uint32_t instance, const uint8_t * txBuff, uint32_t txSize, uint32_t timeout)
+{
+  status_t syncStatus;
+  status_t retVal;
+  struct lpuart_state_t * lpuartState;
+  <unnamed type> _1;
+  struct QueueDefinition * * _2;
+  <unnamed type> _3;
+  status_t _24;
+
+  <bb 2> [local count: 1073741823]:
+  lpuartState_9 = s_lpuartStatePtr[instance_8(D)];
+  lpuartState_9->isTxBlocking ={v} 1;
+  _1 = lpuartState_9->transferType;
+  if (_1 == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  retVal_16 = LPUART_DRV_StartSendDataUsingInt (instance_8(D), txBuff_11(D), txSize_12(D));
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 708669600]:
+  retVal_14 = LPUART_DRV_StartSendDataUsingDma (instance_8(D), txBuff_11(D), txSize_12(D));
+
+  <bb 5> [local count: 1073741823]:
+  # retVal_4 = PHI <retVal_16(3), retVal_14(4)>
+  if (retVal_4 == 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 6> [local count: 953267990]:
+  goto <bb 11>; [100.00%]
+
+  <bb 7> [local count: 354334800]:
+  _2 = &lpuartState_9->txComplete;
+  syncStatus_19 = OSIF_SemaWait (_2, timeout_17(D));
+  if (syncStatus_19 == 3)
+    goto <bb 8>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 8> [local count: 120473833]:
+  lpuartState_9->isTxBlocking ={v} 0;
+  lpuartState_9->transmitStatus ={v} 3;
+  _3 = lpuartState_9->transferType;
+  if (_3 == 1)
+    goto <bb 9>; [34.00%]
+  else
+    goto <bb 10>; [66.00%]
+
+  <bb 9> [local count: 40961104]:
+  LPUART_DRV_CompleteSendDataUsingInt (instance_8(D));
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 79512729]:
+  LPUART_DRV_StopTxDma (instance_8(D));
+
+  <bb 11> [local count: 1073741824]:
+  _24 ={v} lpuartState_9->transmitStatus;
+  return _24;
+
+}
+
+
+
+;; Function LPUART_DRV_SendDataPolling (LPUART_DRV_SendDataPolling, funcdef_no=24, decl_uid=7221, cgraph_uid=25, symbol_order=28)
+
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+LPUART_DRV_SendDataPolling (uint32_t instance, const uint8_t * txBuff, uint32_t txSize)
+{
+  struct lpuart_state_t * lpuartState;
+  struct LPUART_Type * base;
+  _Bool _1;
+  _Bool _2;
+  <unnamed type> _3;
+  status_t _6;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+
+  <bb 2> [local count: 18648522]:
+  lpuartState_13 = s_lpuartStatePtr[instance_11(D)];
+  _1 ={v} lpuartState_13->isTxBusy;
+  if (_1 != 0)
+    goto <bb 14>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 14598063]:
+  base_12 = s_lpuartBase[instance_11(D)];
+  _24 ={v} base_12->CTRL;
+  _25 = _24 & 4294443007;
+  _26 = _25 | 524288;
+  base_12->CTRL ={v} _26;
+
+  <bb 4> [local count: 132709663]:
+  _27 ={v} base_12->CTRL;
+  _28 = _27 & 524288;
+  if (_28 == 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 14598063]:
+  if (txSize_15(D) != 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 12>; [11.00%]
+
+  <bb 6> [local count: 118111600]:
+  # txBuff_40 = PHI <txBuff_14(D)(5), txBuff_33(11)>
+  # txSize_41 = PHI <txSize_15(D)(5), txSize_19(11)>
+
+  <bb 7> [local count: 1073741824]:
+  _2 = LPUART_GetStatusFlag (base_12, 131095);
+  if (_2 != 0)
+    goto <bb 8>; [11.00%]
+  else
+    goto <bb 7>; [89.00%]
+
+  <bb 8> [local count: 118111600]:
+  lpuartState_13->txBuff = txBuff_40;
+  LPUART_DRV_PutData (instance_11(D));
+  _3 = lpuartState_13->bitCountPerChar;
+  if (_3 == 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 59055800]:
+  txBuff_22 = txBuff_40 + 1;
+  txSize_23 = txSize_41 + 4294967295;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 59055800]:
+  txBuff_20 = &MEM <const uint8_t> [(void *)txBuff_40 + 2B];
+  txSize_21 = txSize_41 + 4294967294;
+
+  <bb 11> [local count: 118111600]:
+  # txBuff_33 = PHI <txBuff_22(9), txBuff_20(10)>
+  # txSize_19 = PHI <txSize_23(9), txSize_21(10)>
+  if (txSize_19 != 0)
+    goto <bb 6>; [89.00%]
+  else
+    goto <bb 12>; [11.00%]
+
+  <bb 12> [local count: 14598063]:
+  _29 ={v} base_12->CTRL;
+  _30 = _29 & 4294443007;
+  base_12->CTRL ={v} _30;
+
+  <bb 13> [local count: 132709663]:
+  _31 ={v} base_12->CTRL;
+  _32 = _31 & 524288;
+  if (_32 != 0)
+    goto <bb 13>; [89.00%]
+  else
+    goto <bb 14>; [11.00%]
+
+  <bb 14> [local count: 18648522]:
+  # _6 = PHI <2(2), 0(13)>
+  return _6;
+
+}
+
+
+
+;; Function LPUART_DRV_SendData (LPUART_DRV_SendData, funcdef_no=25, decl_uid=7225, cgraph_uid=26, symbol_order=29)
+
+LPUART_DRV_SendData (uint32_t instance, const uint8_t * txBuff, uint32_t txSize)
+{
+  struct lpuart_state_t * lpuartState;
+  status_t retVal;
+  <unnamed type> _1;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_6 = s_lpuartStatePtr[instance_5(D)];
+  lpuartState_6->isTxBlocking ={v} 0;
+  _1 = lpuartState_6->transferType;
+  if (_1 == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  retVal_13 = LPUART_DRV_StartSendDataUsingInt (instance_5(D), txBuff_8(D), txSize_9(D)); [tail call]
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 708669601]:
+  retVal_11 = LPUART_DRV_StartSendDataUsingDma (instance_5(D), txBuff_8(D), txSize_9(D)); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  # retVal_2 = PHI <retVal_13(3), retVal_11(4)>
+  return retVal_2;
+
+}
+
+
+
+;; Function LPUART_DRV_GetTransmitStatus (LPUART_DRV_GetTransmitStatus, funcdef_no=26, decl_uid=7228, cgraph_uid=27, symbol_order=30)
+
+Removing basic block 9
+LPUART_DRV_GetTransmitStatus (uint32_t instance, uint32_t * bytesRemaining)
+{
+  const struct lpuart_state_t * lpuartState;
+  _Bool _1;
+  <unnamed type> _2;
+  long unsigned int _3;
+  unsigned char _4;
+  long unsigned int _5;
+  status_t _15;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_9 = s_lpuartStatePtr[instance_8(D)];
+  if (bytesRemaining_10(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 8>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _1 ={v} lpuartState_9->isTxBusy;
+  if (_1 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 4> [local count: 375809640]:
+  _2 = lpuartState_9->transferType;
+  if (_2 == 1)
+    goto <bb 5>; [51.12%]
+  else
+    goto <bb 6>; [48.88%]
+
+  <bb 5> [local count: 192113889]:
+  _3 ={v} lpuartState_9->txSize;
+  *bytesRemaining_10(D) = _3;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 183695751]:
+  _4 = lpuartState_9->txDMAChannel;
+  _5 = EDMA_DRV_GetRemainingMajorIterationsCount (_4);
+  *bytesRemaining_10(D) = _5;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 375809640]:
+  *bytesRemaining_10(D) = 0;
+
+  <bb 8> [local count: 1073741824]:
+  _15 ={v} lpuartState_9->transmitStatus;
+  return _15;
+
+}
+
+
+
+;; Function LPUART_DRV_AbortSendingData (LPUART_DRV_AbortSendingData, funcdef_no=27, decl_uid=7230, cgraph_uid=28, symbol_order=31)
+
+Removing basic block 7
+LPUART_DRV_AbortSendingData (uint32_t instance)
+{
+  struct lpuart_state_t * lpuartState;
+  _Bool _1;
+  <unnamed type> _2;
+
+  <bb 2> [local count: 1073741823]:
+  lpuartState_6 = s_lpuartStatePtr[instance_5(D)];
+  _1 ={v} lpuartState_6->isTxBusy;
+  if (_1 != 0)
+    goto <bb 3>; [66.00%]
+  else
+    goto <bb 6>; [34.00%]
+
+  <bb 3> [local count: 708669600]:
+  lpuartState_6->transmitStatus ={v} 1538;
+  _2 = lpuartState_6->transferType;
+  if (_2 == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 4> [local count: 240947666]:
+  LPUART_DRV_CompleteSendDataUsingInt (instance_5(D));
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 467721933]:
+  LPUART_DRV_StopTxDma (instance_5(D));
+
+  <bb 6> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function LPUART_DRV_ReceiveDataBlocking (LPUART_DRV_ReceiveDataBlocking, funcdef_no=28, decl_uid=7235, cgraph_uid=29, symbol_order=32)
+
+Removing basic block 12
+Removing basic block 13
+LPUART_DRV_ReceiveDataBlocking (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize, uint32_t timeout)
+{
+  status_t syncStatus;
+  status_t retVal;
+  struct lpuart_state_t * lpuartState;
+  <unnamed type> _1;
+  struct QueueDefinition * * _2;
+  <unnamed type> _3;
+  status_t _24;
+
+  <bb 2> [local count: 1073741823]:
+  lpuartState_9 = s_lpuartStatePtr[instance_8(D)];
+  lpuartState_9->isRxBlocking ={v} 1;
+  _1 = lpuartState_9->transferType;
+  if (_1 == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  retVal_16 = LPUART_DRV_StartReceiveDataUsingInt (instance_8(D), rxBuff_11(D), rxSize_12(D));
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 708669600]:
+  retVal_14 = LPUART_DRV_StartReceiveDataUsingDma (instance_8(D), rxBuff_11(D), rxSize_12(D));
+
+  <bb 5> [local count: 1073741823]:
+  # retVal_4 = PHI <retVal_16(3), retVal_14(4)>
+  if (retVal_4 == 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 6> [local count: 953267990]:
+  goto <bb 11>; [100.00%]
+
+  <bb 7> [local count: 354334800]:
+  _2 = &lpuartState_9->rxComplete;
+  syncStatus_19 = OSIF_SemaWait (_2, timeout_17(D));
+  if (syncStatus_19 == 3)
+    goto <bb 8>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 8> [local count: 120473833]:
+  lpuartState_9->isRxBlocking ={v} 0;
+  lpuartState_9->receiveStatus ={v} 3;
+  _3 = lpuartState_9->transferType;
+  if (_3 == 1)
+    goto <bb 9>; [34.00%]
+  else
+    goto <bb 10>; [66.00%]
+
+  <bb 9> [local count: 40961104]:
+  LPUART_DRV_CompleteReceiveDataUsingInt (instance_8(D));
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 79512729]:
+  LPUART_DRV_StopRxDma (instance_8(D));
+
+  <bb 11> [local count: 1073741824]:
+  _24 ={v} lpuartState_9->receiveStatus;
+  return _24;
+
+}
+
+
+
+;; Function LPUART_DRV_ReceiveDataPolling (LPUART_DRV_ReceiveDataPolling, funcdef_no=29, decl_uid=7239, cgraph_uid=30, symbol_order=33)
+
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+Removing basic block 39
+Removing basic block 40
+Removing basic block 41
+Removing basic block 42
+Removing basic block 43
+Removing basic block 44
+LPUART_DRV_ReceiveDataPolling (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize)
+{
+  struct lpuart_state_t * lpuartState;
+  struct LPUART_Type * base;
+  status_t retVal;
+  _Bool _1;
+  _Bool _2;
+  <unnamed type> _3;
+  _Bool _4;
+  _Bool _5;
+  _Bool _6;
+  _Bool _7;
+  status_t _15;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+
+  <bb 2> [local count: 16240080]:
+  lpuartState_24 = s_lpuartStatePtr[instance_22(D)];
+  _1 ={v} lpuartState_24->isRxBusy;
+  if (_1 != 0)
+    goto <bb 29>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 12712735]:
+  base_23 = s_lpuartBase[instance_22(D)];
+  _43 ={v} base_23->CTRL;
+  _44 = _43 & 4294705151;
+  _45 = _44 | 262144;
+  base_23->CTRL ={v} _45;
+
+  <bb 4> [local count: 115570317]:
+  _46 ={v} base_23->CTRL;
+  _47 = _46 & 262144;
+  if (_47 == 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 26>; [11.00%]
+
+  <bb 5> [local count: 1073741824]:
+  _2 = LPUART_GetStatusFlag (base_23, 131093);
+  if (_2 != 0)
+    goto <bb 6>; [11.00%]
+  else
+    goto <bb 5>; [89.00%]
+
+  <bb 6> [local count: 118111600]:
+  lpuartState_24->rxBuff = rxBuff_9;
+  LPUART_DRV_GetData (instance_22(D));
+  _3 = lpuartState_24->bitCountPerChar;
+  if (_3 == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 59055800]:
+  rxBuff_32 = rxBuff_9 + 1;
+  rxSize_33 = rxSize_11 + 4294967295;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 59055800]:
+  rxBuff_30 = &MEM <uint8_t> [(void *)rxBuff_9 + 2B];
+  rxSize_31 = rxSize_11 + 4294967294;
+
+  <bb 9> [local count: 118111600]:
+  # rxBuff_8 = PHI <rxBuff_32(7), rxBuff_30(8)>
+  # rxSize_10 = PHI <rxSize_33(7), rxSize_31(8)>
+  _4 = LPUART_GetStatusFlag (base_23, 131089);
+  if (_4 != 0)
+    goto <bb 10>; [2.20%]
+  else
+    goto <bb 13>; [97.80%]
+
+  <bb 10> [local count: 2598455]:
+  _48 ={v} base_23->CTRL;
+  _49 = _48 & 4294705151;
+  base_23->CTRL ={v} _49;
+
+  <bb 11> [local count: 23622320]:
+  _51 ={v} base_23->CTRL;
+  _52 = _51 & 262144;
+  if (_52 != 0)
+    goto <bb 11>; [89.00%]
+  else
+    goto <bb 12>; [11.00%]
+
+  <bb 12> [local count: 2598455]:
+  LPUART_ClearStatusFlag (base_23, 131089);
+  goto <bb 28>; [100.00%]
+
+  <bb 13> [local count: 115513145]:
+  _5 = LPUART_GetStatusFlag (base_23, 131090);
+  if (_5 != 0)
+    goto <bb 14>; [2.20%]
+  else
+    goto <bb 17>; [97.80%]
+
+  <bb 14> [local count: 2541289]:
+  _53 ={v} base_23->CTRL;
+  _54 = _53 & 4294705151;
+  base_23->CTRL ={v} _54;
+
+  <bb 15> [local count: 23102629]:
+  _56 ={v} base_23->CTRL;
+  _57 = _56 & 262144;
+  if (_57 != 0)
+    goto <bb 15>; [89.00%]
+  else
+    goto <bb 16>; [11.00%]
+
+  <bb 16> [local count: 2541289]:
+  LPUART_ClearStatusFlag (base_23, 131090);
+  goto <bb 28>; [100.00%]
+
+  <bb 17> [local count: 112971856]:
+  _6 = LPUART_GetStatusFlag (base_23, 131088);
+  if (_6 != 0)
+    goto <bb 18>; [2.20%]
+  else
+    goto <bb 21>; [97.80%]
+
+  <bb 18> [local count: 2485381]:
+  _58 ={v} base_23->CTRL;
+  _59 = _58 & 4294705151;
+  base_23->CTRL ={v} _59;
+
+  <bb 19> [local count: 22594371]:
+  _61 ={v} base_23->CTRL;
+  _62 = _61 & 262144;
+  if (_62 != 0)
+    goto <bb 19>; [89.00%]
+  else
+    goto <bb 20>; [11.00%]
+
+  <bb 20> [local count: 2485381]:
+  LPUART_ClearStatusFlag (base_23, 131088);
+  goto <bb 28>; [100.00%]
+
+  <bb 21> [local count: 110486475]:
+  _7 = LPUART_GetStatusFlag (base_23, 131091);
+  if (_7 != 0)
+    goto <bb 22>; [2.20%]
+  else
+    goto <bb 26>; [97.80%]
+
+  <bb 22> [local count: 2430702]:
+  _63 ={v} base_23->CTRL;
+  _64 = _63 & 4294705151;
+  base_23->CTRL ={v} _64;
+
+  <bb 23> [local count: 22097295]:
+  _66 ={v} base_23->CTRL;
+  _67 = _66 & 262144;
+  if (_67 != 0)
+    goto <bb 23>; [89.00%]
+  else
+    goto <bb 24>; [11.00%]
+
+  <bb 24> [local count: 2430702]:
+  LPUART_ClearStatusFlag (base_23, 131091);
+  if (rxSize_10 == 0)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 28>; [50.00%]
+
+  <bb 25> [local count: 7436950]:
+  _68 ={v} base_23->CTRL;
+  _69 = _68 & 4294705151;
+  base_23->CTRL ={v} _69;
+  goto <bb 27>; [100.00%]
+
+  <bb 26> [local count: 120768507]:
+  # rxBuff_9 = PHI <rxBuff_25(D)(4), rxBuff_8(21)>
+  # rxSize_11 = PHI <rxSize_26(D)(4), rxSize_10(21)>
+  if (rxSize_11 != 0)
+    goto <bb 5>; [97.80%]
+  else
+    goto <bb 25>; [2.20%]
+
+  <bb 27> [local count: 67608635]:
+  _70 ={v} base_23->CTRL;
+  _71 = _70 & 262144;
+  if (_71 != 0)
+    goto <bb 27>; [89.00%]
+  else
+    goto <bb 28>; [11.00%]
+
+  <bb 28> [local count: 12712735]:
+  # retVal_55 = PHI <1537(24), 1541(16), 1539(12), 1540(20), 0(27)>
+  _72 ={v} MEM[(const struct LPUART_Type *)base_23].DATA;
+
+  <bb 29> [local count: 16240080]:
+  # _15 = PHI <retVal_55(28), 2(2)>
+  return _15;
+
+}
+
+
+
+;; Function LPUART_DRV_ReceiveData (LPUART_DRV_ReceiveData, funcdef_no=30, decl_uid=7243, cgraph_uid=31, symbol_order=34)
+
+LPUART_DRV_ReceiveData (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize)
+{
+  struct lpuart_state_t * lpuartState;
+  status_t retVal;
+  <unnamed type> _1;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_6 = s_lpuartStatePtr[instance_5(D)];
+  lpuartState_6->isRxBlocking ={v} 0;
+  _1 = lpuartState_6->transferType;
+  if (_1 == 1)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  retVal_13 = LPUART_DRV_StartReceiveDataUsingInt (instance_5(D), rxBuff_8(D), rxSize_9(D)); [tail call]
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 708669601]:
+  retVal_11 = LPUART_DRV_StartReceiveDataUsingDma (instance_5(D), rxBuff_8(D), rxSize_9(D)); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  # retVal_2 = PHI <retVal_13(3), retVal_11(4)>
+  return retVal_2;
+
+}
+
+
+
+;; Function LPUART_DRV_GetReceiveStatus (LPUART_DRV_GetReceiveStatus, funcdef_no=31, decl_uid=7246, cgraph_uid=32, symbol_order=35)
+
+Removing basic block 9
+LPUART_DRV_GetReceiveStatus (uint32_t instance, uint32_t * bytesRemaining)
+{
+  const struct lpuart_state_t * lpuartState;
+  _Bool _1;
+  <unnamed type> _2;
+  long unsigned int _3;
+  unsigned char _4;
+  long unsigned int _5;
+  status_t _15;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_9 = s_lpuartStatePtr[instance_8(D)];
+  if (bytesRemaining_10(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 8>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _1 ={v} lpuartState_9->isRxBusy;
+  if (_1 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 4> [local count: 375809640]:
+  _2 = lpuartState_9->transferType;
+  if (_2 == 1)
+    goto <bb 5>; [51.12%]
+  else
+    goto <bb 6>; [48.88%]
+
+  <bb 5> [local count: 192113889]:
+  _3 ={v} lpuartState_9->rxSize;
+  *bytesRemaining_10(D) = _3;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 183695751]:
+  _4 = lpuartState_9->rxDMAChannel;
+  _5 = EDMA_DRV_GetRemainingMajorIterationsCount (_4);
+  *bytesRemaining_10(D) = _5;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 375809640]:
+  *bytesRemaining_10(D) = 0;
+
+  <bb 8> [local count: 1073741824]:
+  _15 ={v} lpuartState_9->receiveStatus;
+  return _15;
+
+}
+
+
+
+;; Function LPUART_DRV_AbortReceivingData (LPUART_DRV_AbortReceivingData, funcdef_no=32, decl_uid=7248, cgraph_uid=33, symbol_order=36)
+
+Removing basic block 7
+LPUART_DRV_AbortReceivingData (uint32_t instance)
+{
+  struct lpuart_state_t * lpuartState;
+  _Bool _1;
+  <unnamed type> _2;
+
+  <bb 2> [local count: 1073741823]:
+  lpuartState_6 = s_lpuartStatePtr[instance_5(D)];
+  _1 ={v} lpuartState_6->isRxBusy;
+  if (_1 != 0)
+    goto <bb 3>; [66.00%]
+  else
+    goto <bb 6>; [34.00%]
+
+  <bb 3> [local count: 708669600]:
+  lpuartState_6->receiveStatus ={v} 1538;
+  _2 = lpuartState_6->transferType;
+  if (_2 == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 4> [local count: 240947666]:
+  LPUART_DRV_CompleteReceiveDataUsingInt (instance_5(D));
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 467721933]:
+  LPUART_DRV_StopRxDma (instance_5(D));
+
+  <bb 6> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function LPUART_DRV_SetBaudRate (LPUART_DRV_SetBaudRate, funcdef_no=33, decl_uid=7251, cgraph_uid=34, symbol_order=37)
+
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+LPUART_DRV_SetBaudRate (uint32_t instance, uint32_t desiredBaudRate)
+{
+  uint32_t baudRegValTemp;
+  uint32_t baudRegValTemp;
+  const struct lpuart_state_t * lpuartState;
+  struct LPUART_Type * base;
+  clock_names_t instanceClkName;
+  uint32_t lpuartSourceClock;
+  uint32_t maxOsr;
+  uint32_t baudDiff;
+  uint32_t calculatedBaud;
+  uint32_t tempDiff;
+  uint32_t osr;
+  uint16_t i;
+  uint16_t sbrTemp;
+  uint16_t sbr;
+  _Bool _1;
+  _Bool _2;
+  long unsigned int lpuartSourceClock.12_3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _7;
+  long unsigned int _9;
+  long unsigned int _10;
+  int _11;
+  int _12;
+  int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  status_t _26;
+  long unsigned int _34;
+  short unsigned int _35;
+  long unsigned int _37;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _57;
+  long unsigned int _70;
+  long unsigned int _98;
+  long unsigned int _100;
+  long unsigned int _102;
+  long unsigned int prephitmp_103;
+  long unsigned int _104;
+  long unsigned int _106;
+  long unsigned int _108;
+  long unsigned int prephitmp_109;
+
+  <bb 2> [local count: 231499792]:
+  lpuartState_33 = s_lpuartStatePtr[instance_30(D)];
+  if (lpuartState_33 != 0B)
+    goto <bb 3>; [82.57%]
+  else
+    goto <bb 5>; [17.43%]
+
+  <bb 3> [local count: 191149378]:
+  _1 ={v} lpuartState_33->isTxBusy;
+  if (_1 != 0)
+    goto <bb 22>; [21.72%]
+  else
+    goto <bb 4>; [78.28%]
+
+  <bb 4> [local count: 149631733]:
+  _2 ={v} lpuartState_33->isRxBusy;
+  if (_2 != 0)
+    goto <bb 22>; [21.72%]
+  else
+    goto <bb 5>; [78.28%]
+
+  <bb 5> [local count: 157482133]:
+  instanceClkName_31 = s_lpuartClkNames[instance_30(D)];
+  base_32 = s_lpuartBase[instance_30(D)];
+  CLOCK_SYS_GetFreq (instanceClkName_31, &lpuartSourceClock);
+  lpuartSourceClock.12_3 = lpuartSourceClock;
+  _4 = desiredBaudRate_38(D) * 4;
+  _5 = lpuartSourceClock.12_3 / _4;
+  sbr_39 = (uint16_t) _5;
+  _34 = _5 & 65535;
+  _7 = _34 * 4;
+  calculatedBaud_40 = lpuartSourceClock.12_3 / _7;
+  if (desiredBaudRate_38(D) < calculatedBaud_40)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 78741067]:
+  baudDiff_42 = calculatedBaud_40 - desiredBaudRate_38(D);
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 78741067]:
+  baudDiff_41 = desiredBaudRate_38(D) - calculatedBaud_40;
+
+  <bb 8> [local count: 157482133]:
+  # baudDiff_23 = PHI <baudDiff_42(6), baudDiff_41(7)>
+  maxOsr_43 = lpuartSourceClock.12_3 / desiredBaudRate_38(D);
+  if (maxOsr_43 > 32)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [local count: 78741067]:
+  if (maxOsr_43 > 4)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 10> [local count: 105119324]:
+  # maxOsr_21 = PHI <32(8), maxOsr_43(9)>
+
+  <bb 11> [local count: 955630225]:
+  # _70 = PHI <5(10), _15(16)>
+  # sbr_86 = PHI <sbr_39(10), sbr_17(16)>
+  # i_72 = PHI <5(10), i_48(16)>
+  # osr_75 = PHI <4(10), osr_20(16)>
+  # baudDiff_89 = PHI <baudDiff_23(10), baudDiff_24(16)>
+  _9 = desiredBaudRate_38(D) * _70;
+  _10 = lpuartSourceClock.12_3 / _9;
+  _11 = (int) i_72;
+  _37 = _10 & 65535;
+  _12 = (int) _37;
+  _13 = _11 * _12;
+  _14 = (long unsigned int) _13;
+  calculatedBaud_45 = lpuartSourceClock.12_3 / _14;
+  if (desiredBaudRate_38(D) < calculatedBaud_45)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 477815112]:
+  tempDiff_47 = calculatedBaud_45 - desiredBaudRate_38(D);
+  goto <bb 14>; [100.00%]
+
+  <bb 13> [local count: 477815112]:
+  tempDiff_46 = desiredBaudRate_38(D) - calculatedBaud_45;
+
+  <bb 14> [local count: 955630225]:
+  # tempDiff_22 = PHI <tempDiff_47(12), tempDiff_46(13)>
+  if (tempDiff_22 <= baudDiff_89)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [local count: 477815113]:
+  sbrTemp_44 = (uint16_t) _10;
+
+  <bb 16> [local count: 955630225]:
+  # sbr_17 = PHI <sbrTemp_44(15), sbr_86(14)>
+  # osr_20 = PHI <_70(15), osr_75(14)>
+  # baudDiff_24 = PHI <tempDiff_22(15), baudDiff_89(14)>
+  i_48 = i_72 + 1;
+  _15 = (long unsigned int) i_48;
+  if (_15 <= maxOsr_21)
+    goto <bb 11>; [89.00%]
+  else
+    goto <bb 17>; [11.00%]
+
+  <bb 17> [local count: 105086762]:
+  if (osr_20 <= 7)
+    goto <bb 19>; [42.93%]
+  else
+    goto <bb 18>; [57.07%]
+
+  <bb 18> [local count: 59977172]:
+  _104 = osr_20 + 4294967295;
+  _106 = _104 << 24;
+  _108 = _106 & 520093696;
+  goto <bb 21>; [100.00%]
+
+  <bb 19> [local count: 45109590]:
+  _98 = osr_20 + 4294967295;
+  _100 = _98 << 24;
+  _102 = _100 & 520093696;
+
+  <bb 20> [local count: 98426333]:
+  # sbr_50 = PHI <sbr_17(19), sbr_39(9)>
+  # prephitmp_103 = PHI <_102(19), 50331648(9)>
+  _53 ={v} base_32->BAUD;
+  _54 = _53 | 131072;
+  base_32->BAUD ={v} _54;
+
+  <bb 21> [local count: 157482133]:
+  # sbr_51 = PHI <sbr_50(20), sbr_17(18)>
+  # prephitmp_109 = PHI <prephitmp_103(20), _108(18)>
+  baudRegValTemp_59 ={v} base_32->BAUD;
+  baudRegValTemp_60 = baudRegValTemp_59 & 3774873599;
+  baudRegValTemp_63 = baudRegValTemp_60 | prephitmp_109;
+  base_32->BAUD ={v} baudRegValTemp_63;
+  baudRegValTemp_55 ={v} base_32->BAUD;
+  baudRegValTemp_56 = baudRegValTemp_55 & 4294959104;
+  _35 = sbr_51 & 8191;
+  _57 = (long unsigned int) _35;
+  baudRegValTemp_58 = baudRegValTemp_56 | _57;
+  base_32->BAUD ={v} baudRegValTemp_58;
+
+  <bb 22> [local count: 231499792]:
+  # _26 = PHI <0(21), 2(3), 2(4)>
+  lpuartSourceClock ={v} {CLOBBER};
+  return _26;
+
+}
+
+
+
+;; Function LPUART_DRV_Init (LPUART_DRV_Init, funcdef_no=19, decl_uid=7202, cgraph_uid=20, symbol_order=23)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+LPUART_DRV_Init (uint32_t instance, struct lpuart_state_t * lpuartStatePtr, const struct lpuart_user_config_t * lpuartUserConfig)
+{
+  unsigned int ivtmp.164;
+  clock_names_t instanceClkName;
+  uint32_t lpuartSourceClock;
+  struct LPUART_Type * base;
+  status_t osStatusTxSem;
+  status_t osStatusRxSem;
+  <unnamed type> _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  unsigned char _5;
+  long unsigned int _6;
+  <unnamed type> _7;
+  <unnamed type> _8;
+  <unnamed type> _9;
+  <unnamed type> _10;
+  <unnamed type> _11;
+  struct QueueDefinition * * _12;
+  struct QueueDefinition * * _13;
+  <unnamed type> _14;
+  void (*<T606>) (void) _15;
+  status_t _17;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  unsigned int _57;
+  unsigned int _58;
+  void * _59;
+  uint8_t * _60;
+
+  <bb 2> [local count: 18790480]:
+  base_23 = s_lpuartBase[instance_22(D)];
+  instanceClkName_24 = s_lpuartClkNames[instance_22(D)];
+  CLOCK_SYS_GetFreq (instanceClkName_24, &lpuartSourceClock);
+  _60 = lpuartStatePtr_26(D) + 4294967295;
+  ivtmp.164_56 = (unsigned int) _60;
+  _57 = (unsigned int) lpuartStatePtr_26(D);
+  _58 = _57 + 55;
+
+  <bb 3> [local count: 1054951345]:
+  # ivtmp.164_62 = PHI <ivtmp.164_56(2), ivtmp.164_61(3)>
+  ivtmp.164_61 = ivtmp.164_62 + 1;
+  _59 = (void *) ivtmp.164_61;
+  MEM[base: _59, offset: 0B] = 0;
+  if (_58 != ivtmp.164_61)
+    goto <bb 3>; [98.22%]
+  else
+    goto <bb 4>; [1.78%]
+
+  <bb 4> [local count: 18790480]:
+  s_lpuartStatePtr[instance_22(D)] = lpuartStatePtr_26(D);
+  _2 = lpuartUserConfig_28(D)->transferType;
+  lpuartStatePtr_26(D)->transferType = _2;
+  _3 = lpuartUserConfig_28(D)->bitCountPerChar;
+  lpuartStatePtr_26(D)->bitCountPerChar = _3;
+  _4 = lpuartUserConfig_28(D)->rxDMAChannel;
+  lpuartStatePtr_26(D)->rxDMAChannel = _4;
+  _5 = lpuartUserConfig_28(D)->txDMAChannel;
+  lpuartStatePtr_26(D)->txDMAChannel = _5;
+  LPUART_Init (base_23);
+  _6 = lpuartUserConfig_28(D)->baudRate;
+  LPUART_DRV_SetBaudRate (instance_22(D), _6);
+  _7 = lpuartUserConfig_28(D)->parityMode;
+  if (_7 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 9395240]:
+  _8 = lpuartUserConfig_28(D)->bitCountPerChar;
+  LPUART_SetBitCountPerChar (base_23, _8, 1);
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 9395240]:
+  _9 = lpuartUserConfig_28(D)->bitCountPerChar;
+  LPUART_SetBitCountPerChar (base_23, _9, 0);
+
+  <bb 7> [local count: 18790480]:
+  _10 = lpuartUserConfig_28(D)->parityMode;
+  LPUART_SetParityMode (base_23, _10);
+  _11 = lpuartUserConfig_28(D)->stopBitCount;
+  _49 ={v} base_23->BAUD;
+  _50 = _49 & 4294959103;
+  _51 = (long unsigned int) _11;
+  _52 = _51 << 13;
+  _53 = _50 | _52;
+  base_23->BAUD ={v} _53;
+  lpuartStatePtr_26(D)->transmitStatus ={v} 0;
+  lpuartStatePtr_26(D)->receiveStatus ={v} 0;
+  _12 = &lpuartStatePtr_26(D)->rxComplete;
+  osStatusRxSem_41 = OSIF_SemaCreate (_12, 0);
+  _13 = &lpuartStatePtr_26(D)->txComplete;
+  osStatusTxSem_43 = OSIF_SemaCreate (_13, 0);
+  if (osStatusRxSem_41 == 1)
+    goto <bb 10>; [20.97%]
+  else
+    goto <bb 8>; [79.03%]
+
+  <bb 8> [local count: 14850116]:
+  if (osStatusTxSem_43 == 1)
+    goto <bb 10>; [35.01%]
+  else
+    goto <bb 9>; [64.99%]
+
+  <bb 9> [local count: 9651091]:
+  _14 = s_lpuartRxTxIrqId[instance_22(D)];
+  _15 = g_lpuartIsr[instance_22(D)];
+  INT_SYS_InstallHandler (_14, _15, 0B);
+  INT_SYS_EnableIRQ (_14);
+
+  <bb 10> [local count: 18790480]:
+  # _17 = PHI <osStatusRxSem_41(7), 0(9), osStatusTxSem_43(8)>
+  lpuartSourceClock ={v} {CLOBBER};
+  return _17;
+
+}
+
+
+
+;; Function LPUART_DRV_GetBaudRate (LPUART_DRV_GetBaudRate, funcdef_no=34, decl_uid=7254, cgraph_uid=35, symbol_order=38)
+
+LPUART_DRV_GetBaudRate (uint32_t instance, uint32_t * configuredBaudRate)
+{
+  const struct LPUART_Type * base;
+  clock_names_t instanceClkName;
+  uint32_t lpuartSourceClock;
+  long unsigned int lpuartSourceClock.18_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  unsigned char _11;
+  long unsigned int _15;
+  short unsigned int _16;
+  short unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  unsigned char _20;
+  unsigned char _21;
+
+  <bb 2> [local count: 1073741824]:
+  instanceClkName_8 = s_lpuartClkNames[instance_7(D)];
+  base_9 = s_lpuartBase[instance_7(D)];
+  CLOCK_SYS_GetFreq (instanceClkName_8, &lpuartSourceClock);
+  _18 ={v} base_9->BAUD;
+  _19 = _18 >> 24;
+  _20 = (unsigned char) _19;
+  _21 = _20 & 31;
+  _15 ={v} base_9->BAUD;
+  _16 = (short unsigned int) _15;
+  _17 = _16 & 8191;
+  lpuartSourceClock.18_1 = lpuartSourceClock;
+  _11 = _21 + 1;
+  _2 = (long unsigned int) _11;
+  _3 = (long unsigned int) _17;
+  _4 = _2 * _3;
+  _5 = lpuartSourceClock.18_1 / _4;
+  *configuredBaudRate_12(D) = _5;
+  lpuartSourceClock ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function LPUART_DRV_SetTxBuffer (LPUART_DRV_SetTxBuffer, funcdef_no=35, decl_uid=7258, cgraph_uid=36, symbol_order=39)
+
+LPUART_DRV_SetTxBuffer (uint32_t instance, const uint8_t * txBuff, uint32_t txSize)
+{
+  struct lpuart_state_t * lpuartState;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_3 = s_lpuartStatePtr[instance_2(D)];
+  lpuartState_3->txBuff = txBuff_4(D);
+  lpuartState_3->txSize ={v} txSize_6(D);
+  return 0;
+
+}
+
+
+
+;; Function LPUART_DRV_SetRxBuffer (LPUART_DRV_SetRxBuffer, funcdef_no=36, decl_uid=7262, cgraph_uid=37, symbol_order=40)
+
+LPUART_DRV_SetRxBuffer (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize)
+{
+  struct lpuart_state_t * lpuartState;
+
+  <bb 2> [local count: 1073741824]:
+  lpuartState_3 = s_lpuartStatePtr[instance_2(D)];
+  lpuartState_3->rxBuff = rxBuff_4(D);
+  lpuartState_3->rxSize ={v} rxSize_6(D);
+  return 0;
+
+}
+
+
+
+;; Function LPUART_DRV_IRQHandler (LPUART_DRV_IRQHandler, funcdef_no=37, decl_uid=7402, cgraph_uid=38, symbol_order=41)
+
+Removing basic block 64
+Removing basic block 65
+Removing basic block 66
+Removing basic block 67
+Removing basic block 68
+Removing basic block 69
+Removing basic block 70
+Removing basic block 71
+Removing basic block 72
+Removing basic block 73
+Removing basic block 74
+Removing basic block 75
+Removing basic block 76
+Removing basic block 77
+Removing basic block 78
+Removing basic block 79
+Removing basic block 80
+Removing basic block 81
+Removing basic block 82
+Removing basic block 83
+Removing basic block 84
+Removing basic block 85
+Removing basic block 86
+Removing basic block 87
+LPUART_DRV_IRQHandler (uint32_t instance)
+{
+  struct lpuart_state_t * lpuartState;
+  struct lpuart_state_t * lpuartState;
+  struct lpuart_state_t * lpuartState;
+  struct lpuart_state_t * lpuartState;
+  const struct LPUART_Type * base;
+  _Bool _1;
+  _Bool _2;
+  _Bool _3;
+  _Bool _4;
+  _Bool _5;
+  _Bool _6;
+  _Bool _25;
+  <unnamed type> _26;
+  void (*<T7fe>) (void *, uart_event_t, void *) _27;
+  void * _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  _Bool _32;
+  <unnamed type> _33;
+  void (*<T7fe>) (void *, uart_event_t, void *) _34;
+  void * _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  _Bool _39;
+  <unnamed type> _40;
+  void (*<T7fe>) (void *, uart_event_t, void *) _41;
+  void * _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  _Bool _46;
+  <unnamed type> _47;
+  void (*<T7fe>) (void *, uart_event_t, void *) _48;
+  void * _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  <unnamed type> _54;
+  uint8_t * _55;
+  uint8_t * _56;
+  long unsigned int _57;
+  long unsigned int _58;
+  uint8_t * _59;
+  uint8_t * _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  void (*<T7fe>) (void *, uart_event_t, void *) _64;
+  void * _65;
+  long unsigned int _66;
+  void (*<T7fe>) (void *, uart_event_t, void *) _67;
+  void * _68;
+  long unsigned int _71;
+  <unnamed type> _72;
+  const uint8_t * _73;
+  const uint8_t * _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  const uint8_t * _77;
+  const uint8_t * _78;
+  long unsigned int _79;
+  long unsigned int _80;
+  long unsigned int _81;
+  void (*<T7fe>) (void *, uart_event_t, void *) _82;
+  void * _83;
+  long unsigned int _84;
+  long unsigned int _86;
+  <unnamed type> _87;
+  void (*<T7fe>) (void *, uart_event_t, void *) _88;
+  void * _89;
+
+  <bb 2> [local count: 1073741824]:
+  base_12 = s_lpuartBase[instance_11(D)];
+  lpuartState_23 = s_lpuartStatePtr[instance_11(D)];
+  _25 = LPUART_GetStatusFlag (base_12, 131091);
+  if (_25 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  lpuartState_23->receiveStatus ={v} 1537;
+  _26 = lpuartState_23->transferType;
+  if (_26 == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 4> [local count: 182536112]:
+  LPUART_DRV_CompleteReceiveDataUsingInt (instance_11(D));
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 354334800]:
+  LPUART_DRV_StopRxDma (instance_11(D));
+
+  <bb 6> [local count: 536870911]:
+  _27 = lpuartState_23->rxCallback;
+  if (_27 != 0B)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 8>; [30.00%]
+
+  <bb 7> [local count: 375809640]:
+  _28 = lpuartState_23->rxCallbackParam;
+  _27 (lpuartState_23, 3, _28);
+
+  <bb 8> [local count: 536870911]:
+  _29 ={v} MEM[(struct LPUART_Type *)base_12].STAT;
+  _30 = _29 & 1071661055;
+  _31 = _30 | 983040;
+  MEM[(struct LPUART_Type *)base_12].STAT ={v} _31;
+
+  <bb 9> [local count: 1073741824]:
+  _32 = LPUART_GetStatusFlag (base_12, 131089);
+  if (_32 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 10> [local count: 536870911]:
+  lpuartState_23->receiveStatus ={v} 1539;
+  _33 = lpuartState_23->transferType;
+  if (_33 == 1)
+    goto <bb 11>; [34.00%]
+  else
+    goto <bb 12>; [66.00%]
+
+  <bb 11> [local count: 182536112]:
+  LPUART_DRV_CompleteReceiveDataUsingInt (instance_11(D));
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [local count: 354334800]:
+  LPUART_DRV_StopRxDma (instance_11(D));
+
+  <bb 13> [local count: 536870911]:
+  _34 = lpuartState_23->rxCallback;
+  if (_34 != 0B)
+    goto <bb 14>; [70.00%]
+  else
+    goto <bb 15>; [30.00%]
+
+  <bb 14> [local count: 375809640]:
+  _35 = lpuartState_23->rxCallbackParam;
+  _34 (lpuartState_23, 3, _35);
+
+  <bb 15> [local count: 536870911]:
+  _36 ={v} MEM[(struct LPUART_Type *)base_12].STAT;
+  _37 = _36 & 1071661055;
+  _38 = _37 | 983040;
+  MEM[(struct LPUART_Type *)base_12].STAT ={v} _38;
+
+  <bb 16> [local count: 1073741824]:
+  _39 = LPUART_GetStatusFlag (base_12, 131088);
+  if (_39 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 17> [local count: 536870911]:
+  lpuartState_23->receiveStatus ={v} 1540;
+  _40 = lpuartState_23->transferType;
+  if (_40 == 1)
+    goto <bb 18>; [34.00%]
+  else
+    goto <bb 19>; [66.00%]
+
+  <bb 18> [local count: 182536112]:
+  LPUART_DRV_CompleteReceiveDataUsingInt (instance_11(D));
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 354334800]:
+  LPUART_DRV_StopRxDma (instance_11(D));
+
+  <bb 20> [local count: 536870911]:
+  _41 = lpuartState_23->rxCallback;
+  if (_41 != 0B)
+    goto <bb 21>; [70.00%]
+  else
+    goto <bb 22>; [30.00%]
+
+  <bb 21> [local count: 375809640]:
+  _42 = lpuartState_23->rxCallbackParam;
+  _41 (lpuartState_23, 3, _42);
+
+  <bb 22> [local count: 536870911]:
+  _43 ={v} MEM[(struct LPUART_Type *)base_12].STAT;
+  _44 = _43 & 1071661055;
+  _45 = _44 | 983040;
+  MEM[(struct LPUART_Type *)base_12].STAT ={v} _45;
+
+  <bb 23> [local count: 1073741824]:
+  _46 = LPUART_GetStatusFlag (base_12, 131090);
+  if (_46 != 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 30>; [50.00%]
+
+  <bb 24> [local count: 536870911]:
+  lpuartState_23->receiveStatus ={v} 1541;
+  _47 = lpuartState_23->transferType;
+  if (_47 == 1)
+    goto <bb 25>; [34.00%]
+  else
+    goto <bb 26>; [66.00%]
+
+  <bb 25> [local count: 182536112]:
+  LPUART_DRV_CompleteReceiveDataUsingInt (instance_11(D));
+  goto <bb 27>; [100.00%]
+
+  <bb 26> [local count: 354334800]:
+  LPUART_DRV_StopRxDma (instance_11(D));
+
+  <bb 27> [local count: 536870911]:
+  _48 = lpuartState_23->rxCallback;
+  if (_48 != 0B)
+    goto <bb 28>; [70.00%]
+  else
+    goto <bb 29>; [30.00%]
+
+  <bb 28> [local count: 375809640]:
+  _49 = lpuartState_23->rxCallbackParam;
+  _48 (lpuartState_23, 3, _49);
+
+  <bb 29> [local count: 536870911]:
+  _50 ={v} MEM[(struct LPUART_Type *)base_12].STAT;
+  _51 = _50 & 1071661055;
+  _52 = _51 | 983040;
+  MEM[(struct LPUART_Type *)base_12].STAT ={v} _52;
+
+  <bb 30> [local count: 1073741824]:
+  _1 = LPUART_GetIntMode (base_12, 196629);
+  if (_1 != 0)
+    goto <bb 32>; [33.00%]
+  else
+    goto <bb 31>; [67.00%]
+
+  <bb 31> [local count: 1046730883]:
+  goto <bb 42>; [100.00%]
+
+  <bb 32> [local count: 354334800]:
+  _2 = LPUART_GetStatusFlag (base_12, 131093);
+  if (_2 != 0)
+    goto <bb 33>; [33.00%]
+  else
+    goto <bb 31>; [67.00%]
+
+  <bb 33> [local count: 116930483]:
+  lpuartState_53 = s_lpuartStatePtr[instance_11(D)];
+  LPUART_DRV_GetData (instance_11(D));
+  _54 = lpuartState_53->bitCountPerChar;
+  if (_54 == 0)
+    goto <bb 34>; [50.00%]
+  else
+    goto <bb 35>; [50.00%]
+
+  <bb 34> [local count: 58465242]:
+  _55 = lpuartState_53->rxBuff;
+  _56 = _55 + 1;
+  lpuartState_53->rxBuff = _56;
+  _57 ={v} lpuartState_53->rxSize;
+  _58 = _57 + 4294967295;
+  lpuartState_53->rxSize ={v} _58;
+  goto <bb 36>; [100.00%]
+
+  <bb 35> [local count: 58465242]:
+  _59 = lpuartState_53->rxBuff;
+  _60 = _59 + 2;
+  lpuartState_53->rxBuff = _60;
+  _61 ={v} lpuartState_53->rxSize;
+  _62 = _61 + 4294967294;
+  lpuartState_53->rxSize ={v} _62;
+
+  <bb 36> [local count: 116930483]:
+  _63 ={v} lpuartState_53->rxSize;
+  if (_63 == 0)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 39>; [50.00%]
+
+  <bb 37> [local count: 58465242]:
+  _64 = lpuartState_53->rxCallback;
+  if (_64 != 0B)
+    goto <bb 38>; [70.00%]
+  else
+    goto <bb 39>; [30.00%]
+
+  <bb 38> [local count: 40925669]:
+  _65 = lpuartState_53->rxCallbackParam;
+  _64 (lpuartState_53, 0, _65);
+
+  <bb 39> [local count: 116930483]:
+  _66 ={v} lpuartState_53->rxSize;
+  if (_66 == 0)
+    goto <bb 40>; [33.00%]
+  else
+    goto <bb 31>; [67.00%]
+
+  <bb 40> [local count: 38587059]:
+  LPUART_DRV_CompleteReceiveDataUsingInt (instance_11(D));
+  _67 = lpuartState_53->rxCallback;
+  if (_67 != 0B)
+    goto <bb 41>; [70.00%]
+  else
+    goto <bb 31>; [30.00%]
+
+  <bb 41> [local count: 27010942]:
+  _68 = lpuartState_53->rxCallbackParam;
+  _67 (lpuartState_53, 2, _68);
+
+  <bb 42> [local count: 1073741825]:
+  _3 = LPUART_GetIntMode (base_12, 196631);
+  if (_3 != 0)
+    goto <bb 44>; [33.00%]
+  else
+    goto <bb 43>; [67.00%]
+
+  <bb 43> [local count: 1067374961]:
+  goto <bb 54>; [100.00%]
+
+  <bb 44> [local count: 354334800]:
+  _4 = LPUART_GetStatusFlag (base_12, 131095);
+  if (_4 != 0)
+    goto <bb 45>; [33.00%]
+  else
+    goto <bb 43>; [67.00%]
+
+  <bb 45> [local count: 116930483]:
+  lpuartState_69 = s_lpuartStatePtr[instance_11(D)];
+  _71 ={v} lpuartState_69->txSize;
+  if (_71 != 0)
+    goto <bb 46>; [33.00%]
+  else
+    goto <bb 43>; [67.00%]
+
+  <bb 46> [local count: 38587059]:
+  LPUART_DRV_PutData (instance_11(D));
+  _72 = lpuartState_69->bitCountPerChar;
+  if (_72 == 0)
+    goto <bb 47>; [50.00%]
+  else
+    goto <bb 48>; [50.00%]
+
+  <bb 47> [local count: 19293530]:
+  _73 = lpuartState_69->txBuff;
+  _74 = _73 + 1;
+  lpuartState_69->txBuff = _74;
+  _75 ={v} lpuartState_69->txSize;
+  _76 = _75 + 4294967295;
+  lpuartState_69->txSize ={v} _76;
+  goto <bb 49>; [100.00%]
+
+  <bb 48> [local count: 19293530]:
+  _77 = lpuartState_69->txBuff;
+  _78 = _77 + 2;
+  lpuartState_69->txBuff = _78;
+  _79 ={v} lpuartState_69->txSize;
+  _80 = _79 + 4294967294;
+  lpuartState_69->txSize ={v} _80;
+
+  <bb 49> [local count: 38587059]:
+  _81 ={v} lpuartState_69->txSize;
+  if (_81 == 0)
+    goto <bb 50>; [50.00%]
+  else
+    goto <bb 43>; [50.00%]
+
+  <bb 50> [local count: 19293530]:
+  _82 = lpuartState_69->txCallback;
+  if (_82 != 0B)
+    goto <bb 51>; [70.00%]
+  else
+    goto <bb 52>; [30.00%]
+
+  <bb 51> [local count: 13505471]:
+  _83 = lpuartState_69->txCallbackParam;
+  _82 (lpuartState_69, 1, _83);
+
+  <bb 52> [local count: 19293530]:
+  _84 ={v} lpuartState_69->txSize;
+  if (_84 == 0)
+    goto <bb 53>; [33.00%]
+  else
+    goto <bb 43>; [67.00%]
+
+  <bb 53> [local count: 6366865]:
+  LPUART_SetIntMode (base_12, 196631, 0);
+  LPUART_SetIntMode (base_12, 196630, 1);
+
+  <bb 54> [local count: 1073741825]:
+  _5 = LPUART_GetIntMode (base_12, 196630);
+  if (_5 != 0)
+    goto <bb 56>; [33.00%]
+  else
+    goto <bb 55>; [67.00%]
+
+  <bb 55> [local count: 1032816156]:
+  goto <bb 63>; [100.00%]
+
+  <bb 56> [local count: 354334800]:
+  _6 = LPUART_GetStatusFlag (base_12, 131094);
+  if (_6 != 0)
+    goto <bb 57>; [33.00%]
+  else
+    goto <bb 55>; [67.00%]
+
+  <bb 57> [local count: 116930483]:
+  lpuartState_85 = s_lpuartStatePtr[instance_11(D)];
+  _86 ={v} lpuartState_85->txSize;
+  if (_86 == 0)
+    goto <bb 58>; [50.00%]
+  else
+    goto <bb 55>; [50.00%]
+
+  <bb 58> [local count: 58465242]:
+  _87 = lpuartState_85->transferType;
+  if (_87 == 1)
+    goto <bb 59>; [34.00%]
+  else
+    goto <bb 60>; [66.00%]
+
+  <bb 59> [local count: 19878182]:
+  LPUART_DRV_CompleteSendDataUsingInt (instance_11(D));
+  goto <bb 61>; [100.00%]
+
+  <bb 60> [local count: 38587059]:
+  LPUART_DRV_StopTxDma (instance_11(D));
+
+  <bb 61> [local count: 58465242]:
+  _88 = lpuartState_85->txCallback;
+  if (_88 != 0B)
+    goto <bb 62>; [70.00%]
+  else
+    goto <bb 55>; [30.00%]
+
+  <bb 62> [local count: 40925669]:
+  _89 = lpuartState_85->txCallbackParam;
+  _88 (lpuartState_85, 2, _89); [tail call]
+
+  <bb 63> [local count: 1073741825]:
+  return;
+
+}
+
+

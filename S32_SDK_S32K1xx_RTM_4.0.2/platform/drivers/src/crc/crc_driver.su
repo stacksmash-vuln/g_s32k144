@@ -1,0 +1,10 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:88:10:CRC_DRV_Deinit	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:108:10:CRC_DRV_GetCrc32	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:139:10:CRC_DRV_GetCrc16	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:169:10:CRC_DRV_GetCrc8	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:197:6:CRC_DRV_WriteData	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:220:10:CRC_DRV_GetCrcResult	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:236:10:CRC_DRV_Configure	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:65:10:CRC_DRV_Init	16	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:268:10:CRC_DRV_GetConfig	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/crc/crc_driver.c:300:10:CRC_DRV_GetDefaultConfig	0	static

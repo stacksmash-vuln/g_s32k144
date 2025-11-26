@@ -1,0 +1,235 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/trgmux/trgmux_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_TRGMUX_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_DRV_Init ()";
+	subgraph cluster_0_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_0_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 7\>:\l\
+|#\ ivtmp.13_38\ =\ PHI\ \<0(6),\ ivtmp.13_32(9)\>\l\
+|_8\ =\ trgmuxUserConfig_24(D)-\>inOutMappingConfig;\l\
+|_44\ =\ ivtmp.13_38\ &\ 255;\l\
+|_10\ =\ _44\ *\ 3;\l\
+|_11\ =\ _8\ +\ _10;\l\
+|_12\ =\ _11-\>lockTargetModuleReg;\l\
+|if\ (_12\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [67.00%]\l\
+}"];
+
+	fn_0_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:315357972\<bb\ 8\>:\l\
+|_13\ =\ _11-\>targetModule;\l\
+|TRGMUX_SetLockForTargetModule\ (1074147328B,\ _13);\l\
+}"];
+
+	fn_0_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 9\>:\l\
+|_14\ =\ trgmuxUserConfig_24(D)-\>numInOutMappingConfigs;\l\
+|ivtmp.13_32\ =\ ivtmp.13_38\ +\ 1;\l\
+|count_30\ =\ (uint8_t)\ ivtmp.13_32;\l\
+|if\ (_14\ \>\ count_30)\l\
+\ \ goto\ \<bb\ 7\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_0_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_0_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 5\>:\l\
+|#\ ivtmp.17_29\ =\ PHI\ \<0(4),\ ivtmp.17_19(5)\>\l\
+|_1\ =\ trgmuxUserConfig_24(D)-\>inOutMappingConfig;\l\
+|_43\ =\ ivtmp.17_29\ &\ 255;\l\
+|_3\ =\ _43\ *\ 3;\l\
+|_4\ =\ _1\ +\ _3;\l\
+|_5\ =\ _4-\>triggerSource;\l\
+|_6\ =\ _4-\>targetModule;\l\
+|TRGMUX_SetTrigSourceForTargetModule\ (1074147328B,\ _5,\ _6);\l\
+|_7\ =\ trgmuxUserConfig_24(D)-\>numInOutMappingConfigs;\l\
+|ivtmp.17_19\ =\ ivtmp.17_29\ +\ 1;\l\
+|count_16\ =\ (uint8_t)\ ivtmp.17_19;\l\
+|if\ (_7\ \>\ count_16)\l\
+\ \ goto\ \<bb\ 5\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_0_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_0_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_0_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:236223200\<bb\ 2\>:\l\
+|status_23\ =\ TRGMUX_Init\ (1074147328B);\l\
+|if\ (status_23\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_0_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:236223200\<bb\ 3\>:\l\
+|return\ status_23;\l\
+}"];
+
+	fn_0_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|_34\ =\ trgmuxUserConfig_24(D)-\>numInOutMappingConfigs;\l\
+|if\ (_34\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [11.00%]\l\
+}"];
+
+	fn_0_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 6\>:\l\
+|if\ (_7\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [100.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [0.00%]\l\
+}"];
+
+	fn_0_basic_block_0:s -> fn_0_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_2:s -> fn_0_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_0_basic_block_2:s -> fn_0_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_0_basic_block_3:s -> fn_0_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_0_basic_block_4:s -> fn_0_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_0_basic_block_4:s -> fn_0_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_0_basic_block_5:s -> fn_0_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_0_basic_block_5:s -> fn_0_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_0_basic_block_6:s -> fn_0_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_0_basic_block_6:s -> fn_0_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_0_basic_block_7:s -> fn_0_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_0_basic_block_7:s -> fn_0_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_0_basic_block_8:s -> fn_0_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_9:s -> fn_0_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_0_basic_block_9:s -> fn_0_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_0_basic_block_0:s -> fn_0_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_DRV_Deinit" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_DRV_Deinit ()";
+	fn_1_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|status_3\ =\ TRGMUX_Init\ (1074147328B);\ [tail\ call]\l\
+|return\ status_3;\l\
+}"];
+
+	fn_1_basic_block_0:s -> fn_1_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_1_basic_block_2:s -> fn_1_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_1_basic_block_0:s -> fn_1_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_DRV_SetTrigSourceForTargetModule" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_DRV_SetTrigSourceForTargetModule ()";
+	fn_2_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_2_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_2_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lock_6\ =\ TRGMUX_GetLockForTargetModule\ (1074147328B,\ targetModule_4(D));\l\
+|if\ (lock_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+}"];
+
+	fn_2_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|TRGMUX_SetTrigSourceForTargetModule\ (1074147328B,\ triggerSource_7(D),\ targetModule_4(D));\l\
+}"];
+
+	fn_2_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ status_1\ =\ PHI\ \<0(3),\ 1(2)\>\l\
+|return\ status_1;\l\
+}"];
+
+	fn_2_basic_block_0:s -> fn_2_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_2_basic_block_2:s -> fn_2_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_2_basic_block_2:s -> fn_2_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_2_basic_block_3:s -> fn_2_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_2_basic_block_4:s -> fn_2_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_2_basic_block_0:s -> fn_2_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_DRV_GetTrigSourceForTargetModule" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_DRV_GetTrigSourceForTargetModule ()";
+	fn_3_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_3_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_3_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_4\ =\ TRGMUX_GetTrigSourceForTargetModule\ (1074147328B,\ targetModule_2(D));\ [tail\ call]\l\
+|return\ _4;\l\
+}"];
+
+	fn_3_basic_block_0:s -> fn_3_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_3_basic_block_2:s -> fn_3_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_3_basic_block_0:s -> fn_3_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_DRV_SetLockForTargetModule" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_DRV_SetLockForTargetModule ()";
+	fn_4_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_4_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_4_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|TRGMUX_SetLockForTargetModule\ (1074147328B,\ targetModule_2(D));\ [tail\ call]\l\
+|return;\l\
+}"];
+
+	fn_4_basic_block_0:s -> fn_4_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_4_basic_block_2:s -> fn_4_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_4_basic_block_0:s -> fn_4_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_DRV_GetLockForTargetModule" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_DRV_GetLockForTargetModule ()";
+	fn_5_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_5_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_5_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_4\ =\ TRGMUX_GetLockForTargetModule\ (1074147328B,\ targetModule_2(D));\ [tail\ call]\l\
+|return\ _4;\l\
+}"];
+
+	fn_5_basic_block_0:s -> fn_5_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_2:s -> fn_5_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_5_basic_block_0:s -> fn_5_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_TRGMUX_DRV_GenSWTrigger" {
+	style="dashed";
+	color="black";
+	label="TRGMUX_DRV_GenSWTrigger ()";
+	fn_6_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_6_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_6_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM[(struct\ SIM_Type\ *)1074036736B].MISCTRL1\ =\{v\}\ 0;\l\
+|MEM[(struct\ SIM_Type\ *)1074036736B].MISCTRL1\ =\{v\}\ 1;\l\
+|return;\l\
+}"];
+
+	fn_6_basic_block_0:s -> fn_6_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_6_basic_block_0:s -> fn_6_basic_block_1:n [style="invis",constraint=true];
+}
+}

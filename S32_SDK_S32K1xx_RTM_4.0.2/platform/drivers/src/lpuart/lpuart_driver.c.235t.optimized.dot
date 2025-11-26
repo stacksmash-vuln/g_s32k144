@@ -1,0 +1,3013 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpuart/lpuart_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_LPUART_DRV_StartSendDataUsingInt" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_StartSendDataUsingInt ()";
+	subgraph cluster_42_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_42_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|_18\ =\{v\}\ base_6-\>CTRL;\l\
+|_19\ =\ _18\ &\ 524288;\l\
+|if\ (_19\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_42_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_42_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_42_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:150883496\<bb\ 2\>:\l\
+|lpuartState_7\ =\ s_lpuartStatePtr[instance_5(D)];\l\
+|_1\ =\{v\}\ lpuartState_7-\>isTxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+}"];
+
+	fn_42_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 3\>:\l\
+|base_6\ =\ s_lpuartBase[instance_5(D)];\l\
+|lpuartState_7-\>txBuff\ =\ txBuff_8(D);\l\
+|lpuartState_7-\>txSize\ =\{v\}\ txSize_10(D);\l\
+|lpuartState_7-\>isTxBusy\ =\{v\}\ 1;\l\
+|lpuartState_7-\>transmitStatus\ =\{v\}\ 2;\l\
+|_15\ =\{v\}\ base_6-\>CTRL;\l\
+|_16\ =\ _15\ &\ 4294443007;\l\
+|_17\ =\ _16\ \|\ 524288;\l\
+|base_6-\>CTRL\ =\{v\}\ _17;\l\
+}"];
+
+	fn_42_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 5\>:\l\
+|LPUART_SetIntMode\ (base_6,\ 196631,\ 1);\l\
+}"];
+
+	fn_42_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:150883496\<bb\ 6\>:\l\
+|#\ _2\ =\ PHI\ \<0(5),\ 2(2)\>\l\
+|return\ _2;\l\
+}"];
+
+	fn_42_basic_block_0:s -> fn_42_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_2:s -> fn_42_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_42_basic_block_2:s -> fn_42_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_42_basic_block_3:s -> fn_42_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_4:s -> fn_42_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_42_basic_block_4:s -> fn_42_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_42_basic_block_5:s -> fn_42_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_42_basic_block_6:s -> fn_42_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_42_basic_block_0:s -> fn_42_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_StartSendDataUsingDma" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_StartSendDataUsingDma ()";
+	subgraph cluster_43_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_43_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|_30\ =\{v\}\ base_13-\>CTRL;\l\
+|_31\ =\ _30\ &\ 524288;\l\
+|if\ (_31\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_43_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_43_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_43_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:184635922\<bb\ 2\>:\l\
+|lpuartState_14\ =\ s_lpuartStatePtr[instance_12(D)];\l\
+|_1\ =\{v\}\ lpuartState_14-\>isTxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [36.03%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+}"];
+
+	fn_43_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 3\>:\l\
+|base_13\ =\ s_lpuartBase[instance_12(D)];\l\
+|lpuartState_14-\>txBuff\ =\ txBuff_15(D);\l\
+|lpuartState_14-\>txSize\ =\{v\}\ 0;\l\
+|lpuartState_14-\>isTxBusy\ =\{v\}\ 1;\l\
+|lpuartState_14-\>transmitStatus\ =\{v\}\ 2;\l\
+|_2\ =\ lpuartState_14-\>txDMAChannel;\l\
+|txBuff.1_3\ =\ (long\ unsigned\ int)\ txBuff_15(D);\l\
+|_4\ =\ &base_13-\>DATA;\l\
+|_5\ =\ (long\ unsigned\ int)\ _4;\l\
+|EDMA_DRV_ConfigMultiBlockTransfer\ (_2,\ 1,\ txBuff.1_3,\ _5,\ 0,\ 1,\ txSize_20(D),\ 1);\l\
+|_6\ =\ lpuartState_14-\>txDMAChannel;\l\
+|instance.2_7\ =\ (void\ *)\ instance_12(D);\l\
+|EDMA_DRV_InstallCallback\ (_6,\ LPUART_DRV_TxDmaCallback,\ instance.2_7);\l\
+|_8\ =\ lpuartState_14-\>txDMAChannel;\l\
+|EDMA_DRV_StartChannel\ (_8);\l\
+|_27\ =\{v\}\ base_13-\>CTRL;\l\
+|_28\ =\ _27\ &\ 4294443007;\l\
+|_29\ =\ _28\ \|\ 524288;\l\
+|base_13-\>CTRL\ =\{v\}\ _29;\l\
+}"];
+
+	fn_43_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 5\>:\l\
+|_24\ =\{v\}\ base_13-\>BAUD;\l\
+|_25\ =\ _24\ &\ 4286578687;\l\
+|_26\ =\ _25\ \|\ 8388608;\l\
+|base_13-\>BAUD\ =\{v\}\ _26;\l\
+}"];
+
+	fn_43_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:184635922\<bb\ 6\>:\l\
+|#\ _9\ =\ PHI\ \<0(5),\ 2(2)\>\l\
+|return\ _9;\l\
+}"];
+
+	fn_43_basic_block_0:s -> fn_43_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_2:s -> fn_43_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_43_basic_block_2:s -> fn_43_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_43_basic_block_3:s -> fn_43_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_4:s -> fn_43_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_43_basic_block_4:s -> fn_43_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_43_basic_block_5:s -> fn_43_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_43_basic_block_6:s -> fn_43_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_43_basic_block_0:s -> fn_43_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_CompleteSendDataUsingInt" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_CompleteSendDataUsingInt ()";
+	subgraph cluster_44_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_44_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|_17\ =\{v\}\ base_8-\>CTRL;\l\
+|_18\ =\ _17\ &\ 524288;\l\
+|if\ (_18\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_44_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_44_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_44_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|base_8\ =\ s_lpuartBase[instance_7(D)];\l\
+|lpuartState_9\ =\ s_lpuartStatePtr[instance_7(D)];\l\
+|_1\ =\{v\}\ lpuartState_9-\>transmitStatus;\l\
+|if\ (_1\ ==\ 2)\l\
+\ \ goto\ \<bb\ 3\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+}"];
+
+	fn_44_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:60378650\<bb\ 3\>:\l\
+|lpuartState_9-\>transmitStatus\ =\{v\}\ 0;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_44_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:57732950\<bb\ 4\>:\l\
+|LPUART_SetIntMode\ (base_8,\ 196631,\ 0);\l\
+}"];
+
+	fn_44_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 5\>:\l\
+|LPUART_SetIntMode\ (base_8,\ 196630,\ 0);\l\
+|_15\ =\{v\}\ base_8-\>CTRL;\l\
+|_16\ =\ _15\ &\ 4294443007;\l\
+|base_8-\>CTRL\ =\{v\}\ _16;\l\
+}"];
+
+	fn_44_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 7\>:\l\
+|lpuartState_9-\>isTxBusy\ =\{v\}\ 0;\l\
+|_2\ =\{v\}\ lpuartState_9-\>isTxBlocking;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [67.00%]\l\
+}"];
+
+	fn_44_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38976828\<bb\ 8\>:\l\
+|_3\ =\ &lpuartState_9-\>txComplete;\l\
+|OSIF_SemaPost\ (_3);\ [tail\ call]\l\
+}"];
+
+	fn_44_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 9\>:\l\
+|return;\l\
+}"];
+
+	fn_44_basic_block_0:s -> fn_44_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_2:s -> fn_44_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_44_basic_block_2:s -> fn_44_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_44_basic_block_3:s -> fn_44_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_4:s -> fn_44_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_5:s -> fn_44_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_6:s -> fn_44_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_44_basic_block_6:s -> fn_44_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_44_basic_block_7:s -> fn_44_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_44_basic_block_7:s -> fn_44_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_44_basic_block_8:s -> fn_44_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_44_basic_block_9:s -> fn_44_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_44_basic_block_0:s -> fn_44_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_StopTxDma" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_StopTxDma ()";
+	subgraph cluster_52_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_52_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|_18\ =\{v\}\ base_9-\>CTRL;\l\
+|_19\ =\ _18\ &\ 524288;\l\
+|if\ (_19\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_52_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_52_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_52_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|base_9\ =\ s_lpuartBase[instance_8(D)];\l\
+|lpuartState_10\ =\ s_lpuartStatePtr[instance_8(D)];\l\
+|_20\ =\{v\}\ base_9-\>BAUD;\l\
+|_21\ =\ _20\ &\ 4286578687;\l\
+|base_9-\>BAUD\ =\{v\}\ _21;\l\
+|_1\ =\ lpuartState_10-\>txDMAChannel;\l\
+|EDMA_DRV_StopChannel\ (_1);\l\
+|LPUART_SetIntMode\ (base_9,\ 196630,\ 0);\l\
+|_16\ =\{v\}\ base_9-\>CTRL;\l\
+|_17\ =\ _16\ &\ 4294443007;\l\
+|base_9-\>CTRL\ =\{v\}\ _17;\l\
+}"];
+
+	fn_52_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|_2\ =\{v\}\ lpuartState_10-\>isTxBlocking;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_52_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38976828\<bb\ 5\>:\l\
+|_3\ =\ &lpuartState_10-\>txComplete;\l\
+|OSIF_SemaPost\ (_3);\l\
+}"];
+
+	fn_52_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 6\>:\l\
+|_4\ =\{v\}\ lpuartState_10-\>transmitStatus;\l\
+|if\ (_4\ ==\ 2)\l\
+\ \ goto\ \<bb\ 7\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [66.00%]\l\
+}"];
+
+	fn_52_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40157944\<bb\ 7\>:\l\
+|lpuartState_10-\>transmitStatus\ =\{v\}\ 0;\l\
+}"];
+
+	fn_52_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 8\>:\l\
+|lpuartState_10-\>isTxBusy\ =\{v\}\ 0;\l\
+|return;\l\
+}"];
+
+	fn_52_basic_block_0:s -> fn_52_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_52_basic_block_2:s -> fn_52_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_52_basic_block_3:s -> fn_52_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_52_basic_block_3:s -> fn_52_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_52_basic_block_4:s -> fn_52_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_52_basic_block_4:s -> fn_52_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_52_basic_block_5:s -> fn_52_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_52_basic_block_6:s -> fn_52_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_52_basic_block_6:s -> fn_52_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_52_basic_block_7:s -> fn_52_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_52_basic_block_8:s -> fn_52_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_52_basic_block_0:s -> fn_52_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_TxDmaCallback" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_TxDmaCallback ()";
+	fn_45_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_45_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_45_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|instance_15\ =\ (uint32_t)\ parameter_14(D);\l\
+|lpuartState_17\ =\ s_lpuartStatePtr[instance_15];\l\
+|if\ (status_19(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [79.76%]\l\
+}"];
+
+	fn_45_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:217325344\<bb\ 3\>:\l\
+|lpuartState_17-\>transmitStatus\ =\{v\}\ 1;\l\
+|LPUART_DRV_StopTxDma\ (instance_15);\l\
+|_1\ =\ lpuartState_17-\>txCallback;\l\
+|if\ (_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [30.00%]\l\
+}"];
+
+	fn_45_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:152127741\<bb\ 4\>:\l\
+|_2\ =\ lpuartState_17-\>txCallbackParam;\l\
+|_1\ (lpuartState_17,\ 3,\ _2);\ [tail\ call]\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_45_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:856416479\<bb\ 5\>:\l\
+|base_18\ =\ s_lpuartBase[instance_15];\l\
+|_3\ =\ lpuartState_17-\>txCallback;\l\
+|if\ (_3\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 6\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [30.00%]\l\
+}"];
+
+	fn_45_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:599491539\<bb\ 6\>:\l\
+|_4\ =\ lpuartState_17-\>txCallbackParam;\l\
+|_3\ (lpuartState_17,\ 1,\ _4);\l\
+}"];
+
+	fn_45_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:856416480\<bb\ 7\>:\l\
+|_5\ =\{v\}\ lpuartState_17-\>txSize;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_45_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:428208240\<bb\ 8\>:\l\
+|_6\ =\ lpuartState_17-\>txDMAChannel;\l\
+|_7\ =\ lpuartState_17-\>txBuff;\l\
+|_8\ =\ (long\ unsigned\ int)\ _7;\l\
+|EDMA_DRV_SetSrcAddr\ (_6,\ _8);\l\
+|_9\ =\ lpuartState_17-\>txDMAChannel;\l\
+|_10\ =\{v\}\ lpuartState_17-\>txSize;\l\
+|EDMA_DRV_SetMajorLoopIterationCount\ (_9,\ _10);\l\
+|lpuartState_17-\>txSize\ =\{v\}\ 0;\l\
+|_11\ =\ lpuartState_17-\>txDMAChannel;\l\
+|EDMA_DRV_StartChannel\ (_11);\ [tail\ call]\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_45_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:428208240\<bb\ 9\>:\l\
+|LPUART_SetIntMode\ (base_18,\ 196630,\ 1);\ [tail\ call]\l\
+}"];
+
+	fn_45_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|return;\l\
+}"];
+
+	fn_45_basic_block_0:s -> fn_45_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_45_basic_block_2:s -> fn_45_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_45_basic_block_2:s -> fn_45_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_45_basic_block_3:s -> fn_45_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_45_basic_block_3:s -> fn_45_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_45_basic_block_4:s -> fn_45_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_45_basic_block_5:s -> fn_45_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_45_basic_block_5:s -> fn_45_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_45_basic_block_6:s -> fn_45_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_45_basic_block_7:s -> fn_45_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_45_basic_block_7:s -> fn_45_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_45_basic_block_8:s -> fn_45_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_45_basic_block_9:s -> fn_45_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_45_basic_block_10:s -> fn_45_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_45_basic_block_0:s -> fn_45_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_PutData" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_PutData ()";
+	fn_50_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_50_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_50_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_14\ =\ s_lpuartStatePtr[instance_13(D)];\l\
+|base_15\ =\ s_lpuartBase[instance_13(D)];\l\
+|txBuff_16\ =\ lpuartState_14-\>txBuff;\l\
+|_1\ =\ lpuartState_14-\>bitCountPerChar;\l\
+|if\ (_1\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_50_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_2\ =\ *txBuff_16;\l\
+|MEM[(volatile\ uint8_t\ *)base_15\ +\ 28B]\ =\{v\}\ _2;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_50_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 5\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_50_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 5\>:\l\
+|data_21\ =\ MEM\ \<short\ unsigned\ int\>\ [(const\ uint8_t\ *)txBuff_16];\l\
+|LPUART_Putchar9\ (base_15,\ data_21);\ [tail\ call]\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_50_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 6\>:\l\
+|data_18\ =\ MEM\ \<short\ unsigned\ int\>\ [(const\ uint8_t\ *)txBuff_16];\l\
+|LPUART_Putchar10\ (base_15,\ data_18);\ [tail\ call]\l\
+}"];
+
+	fn_50_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|return;\l\
+}"];
+
+	fn_50_basic_block_0:s -> fn_50_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_50_basic_block_2:s -> fn_50_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_50_basic_block_2:s -> fn_50_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_50_basic_block_3:s -> fn_50_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_50_basic_block_4:s -> fn_50_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_50_basic_block_4:s -> fn_50_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_50_basic_block_5:s -> fn_50_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_50_basic_block_6:s -> fn_50_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_50_basic_block_7:s -> fn_50_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_50_basic_block_0:s -> fn_50_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_StartReceiveDataUsingInt" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_StartReceiveDataUsingInt ()";
+	subgraph cluster_46_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_46_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|_19\ =\{v\}\ base_7-\>CTRL;\l\
+|_20\ =\ _19\ &\ 262144;\l\
+|if\ (_20\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_46_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_46_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_46_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:150883496\<bb\ 2\>:\l\
+|lpuartState_6\ =\ s_lpuartStatePtr[instance_5(D)];\l\
+|_1\ =\{v\}\ lpuartState_6-\>isRxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+}"];
+
+	fn_46_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 3\>:\l\
+|base_7\ =\ s_lpuartBase[instance_5(D)];\l\
+|lpuartState_6-\>isRxBusy\ =\{v\}\ 1;\l\
+|lpuartState_6-\>rxBuff\ =\ rxBuff_9(D);\l\
+|lpuartState_6-\>rxSize\ =\{v\}\ rxSize_11(D);\l\
+|lpuartState_6-\>receiveStatus\ =\{v\}\ 2;\l\
+|_16\ =\{v\}\ base_7-\>CTRL;\l\
+|_17\ =\ _16\ &\ 4294705151;\l\
+|_18\ =\ _17\ \|\ 262144;\l\
+|base_7-\>CTRL\ =\{v\}\ _18;\l\
+}"];
+
+	fn_46_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 5\>:\l\
+|LPUART_SetErrorInterrupts\ (base_7,\ 1);\l\
+|LPUART_SetIntMode\ (base_7,\ 196629,\ 1);\l\
+}"];
+
+	fn_46_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:150883496\<bb\ 6\>:\l\
+|#\ _2\ =\ PHI\ \<0(5),\ 2(2)\>\l\
+|return\ _2;\l\
+}"];
+
+	fn_46_basic_block_0:s -> fn_46_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_46_basic_block_2:s -> fn_46_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_46_basic_block_2:s -> fn_46_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_46_basic_block_3:s -> fn_46_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_46_basic_block_4:s -> fn_46_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_46_basic_block_4:s -> fn_46_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_46_basic_block_5:s -> fn_46_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_46_basic_block_6:s -> fn_46_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_46_basic_block_0:s -> fn_46_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_StartReceiveDataUsingDma" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_StartReceiveDataUsingDma ()";
+	subgraph cluster_47_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_47_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|_31\ =\{v\}\ base_13-\>CTRL;\l\
+|_32\ =\ _31\ &\ 262144;\l\
+|if\ (_32\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_47_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_47_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_47_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:184635922\<bb\ 2\>:\l\
+|lpuartState_14\ =\ s_lpuartStatePtr[instance_12(D)];\l\
+|_1\ =\{v\}\ lpuartState_14-\>isRxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [36.03%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+}"];
+
+	fn_47_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 3\>:\l\
+|base_13\ =\ s_lpuartBase[instance_12(D)];\l\
+|_2\ =\ lpuartState_14-\>rxDMAChannel;\l\
+|_3\ =\ &base_13-\>DATA;\l\
+|_4\ =\ (long\ unsigned\ int)\ _3;\l\
+|rxBuff.5_5\ =\ (long\ unsigned\ int)\ rxBuff_15(D);\l\
+|EDMA_DRV_ConfigMultiBlockTransfer\ (_2,\ 0,\ _4,\ rxBuff.5_5,\ 0,\ 1,\ rxSize_16(D),\ 1);\l\
+|_6\ =\ lpuartState_14-\>rxDMAChannel;\l\
+|instance.6_7\ =\ (void\ *)\ instance_12(D);\l\
+|EDMA_DRV_InstallCallback\ (_6,\ LPUART_DRV_RxDmaCallback,\ instance.6_7);\l\
+|_8\ =\ lpuartState_14-\>rxDMAChannel;\l\
+|EDMA_DRV_StartChannel\ (_8);\l\
+|lpuartState_14-\>rxBuff\ =\ rxBuff_15(D);\l\
+|lpuartState_14-\>rxSize\ =\{v\}\ 0;\l\
+|lpuartState_14-\>isRxBusy\ =\{v\}\ 1;\l\
+|lpuartState_14-\>receiveStatus\ =\{v\}\ 2;\l\
+|_28\ =\{v\}\ base_13-\>CTRL;\l\
+|_29\ =\ _28\ &\ 4294705151;\l\
+|_30\ =\ _29\ \|\ 262144;\l\
+|base_13-\>CTRL\ =\{v\}\ _30;\l\
+}"];
+
+	fn_47_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 5\>:\l\
+|LPUART_SetErrorInterrupts\ (base_13,\ 1);\l\
+|_25\ =\{v\}\ base_13-\>BAUD;\l\
+|_26\ =\ _25\ &\ 4292870143;\l\
+|_27\ =\ _26\ \|\ 2097152;\l\
+|base_13-\>BAUD\ =\{v\}\ _27;\l\
+}"];
+
+	fn_47_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:184635922\<bb\ 6\>:\l\
+|#\ _9\ =\ PHI\ \<0(5),\ 2(2)\>\l\
+|return\ _9;\l\
+}"];
+
+	fn_47_basic_block_0:s -> fn_47_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_47_basic_block_2:s -> fn_47_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_47_basic_block_2:s -> fn_47_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_47_basic_block_3:s -> fn_47_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_47_basic_block_4:s -> fn_47_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_47_basic_block_4:s -> fn_47_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_47_basic_block_5:s -> fn_47_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_47_basic_block_6:s -> fn_47_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_47_basic_block_0:s -> fn_47_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_CompleteReceiveDataUsingInt" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_CompleteReceiveDataUsingInt ()";
+	subgraph cluster_48_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_48_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|_19\ =\{v\}\ base_9-\>CTRL;\l\
+|_20\ =\ _19\ &\ 262144;\l\
+|if\ (_20\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_48_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_48_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_48_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|lpuartState_8\ =\ s_lpuartStatePtr[instance_7(D)];\l\
+|base_9\ =\ s_lpuartBase[instance_7(D)];\l\
+|_17\ =\{v\}\ base_9-\>CTRL;\l\
+|_18\ =\ _17\ &\ 4294705151;\l\
+|base_9-\>CTRL\ =\{v\}\ _18;\l\
+}"];
+
+	fn_48_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|LPUART_SetErrorInterrupts\ (base_9,\ 0);\l\
+|_16\ =\{v\}\ MEM[(const\ struct\ LPUART_Type\ *)base_9].DATA;\l\
+|LPUART_SetIntMode\ (base_9,\ 196629,\ 0);\l\
+|_1\ =\{v\}\ lpuartState_8-\>isRxBlocking;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_48_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38976828\<bb\ 5\>:\l\
+|_2\ =\ &lpuartState_8-\>rxComplete;\l\
+|OSIF_SemaPost\ (_2);\l\
+|lpuartState_8-\>isRxBlocking\ =\{v\}\ 0;\l\
+}"];
+
+	fn_48_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 6\>:\l\
+|lpuartState_8-\>isRxBusy\ =\{v\}\ 0;\l\
+|_3\ =\{v\}\ lpuartState_8-\>receiveStatus;\l\
+|if\ (_3\ ==\ 2)\l\
+\ \ goto\ \<bb\ 7\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [66.00%]\l\
+}"];
+
+	fn_48_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40157944\<bb\ 7\>:\l\
+|lpuartState_8-\>receiveStatus\ =\{v\}\ 0;\l\
+}"];
+
+	fn_48_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 8\>:\l\
+|return;\l\
+}"];
+
+	fn_48_basic_block_0:s -> fn_48_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_48_basic_block_2:s -> fn_48_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_48_basic_block_3:s -> fn_48_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_48_basic_block_3:s -> fn_48_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_48_basic_block_4:s -> fn_48_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_48_basic_block_4:s -> fn_48_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_48_basic_block_5:s -> fn_48_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_48_basic_block_6:s -> fn_48_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_48_basic_block_6:s -> fn_48_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_48_basic_block_7:s -> fn_48_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_48_basic_block_8:s -> fn_48_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_48_basic_block_0:s -> fn_48_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_StopRxDma" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_StopRxDma ()";
+	subgraph cluster_53_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_53_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|_22\ =\{v\}\ base_9-\>CTRL;\l\
+|_23\ =\ _22\ &\ 262144;\l\
+|if\ (_23\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_53_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_53_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_53_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|base_9\ =\ s_lpuartBase[instance_8(D)];\l\
+|lpuartState_10\ =\ s_lpuartStatePtr[instance_8(D)];\l\
+|_20\ =\{v\}\ base_9-\>CTRL;\l\
+|_21\ =\ _20\ &\ 4294705151;\l\
+|base_9-\>CTRL\ =\{v\}\ _21;\l\
+}"];
+
+	fn_53_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|LPUART_SetErrorInterrupts\ (base_9,\ 0);\l\
+|_18\ =\{v\}\ base_9-\>BAUD;\l\
+|_19\ =\ _18\ &\ 4292870143;\l\
+|base_9-\>BAUD\ =\{v\}\ _19;\l\
+|_17\ =\{v\}\ MEM[(const\ struct\ LPUART_Type\ *)base_9].DATA;\l\
+|_1\ =\ lpuartState_10-\>rxDMAChannel;\l\
+|EDMA_DRV_StopChannel\ (_1);\l\
+|_2\ =\{v\}\ lpuartState_10-\>isRxBlocking;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_53_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38976828\<bb\ 5\>:\l\
+|_3\ =\ &lpuartState_10-\>rxComplete;\l\
+|OSIF_SemaPost\ (_3);\l\
+|lpuartState_10-\>isRxBlocking\ =\{v\}\ 0;\l\
+}"];
+
+	fn_53_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 6\>:\l\
+|_4\ =\{v\}\ lpuartState_10-\>receiveStatus;\l\
+|if\ (_4\ ==\ 2)\l\
+\ \ goto\ \<bb\ 7\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [66.00%]\l\
+}"];
+
+	fn_53_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40157944\<bb\ 7\>:\l\
+|lpuartState_10-\>receiveStatus\ =\{v\}\ 0;\l\
+}"];
+
+	fn_53_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 8\>:\l\
+|lpuartState_10-\>isRxBusy\ =\{v\}\ 0;\l\
+|return;\l\
+}"];
+
+	fn_53_basic_block_0:s -> fn_53_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_53_basic_block_2:s -> fn_53_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_53_basic_block_3:s -> fn_53_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_53_basic_block_3:s -> fn_53_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_53_basic_block_4:s -> fn_53_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_53_basic_block_4:s -> fn_53_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_53_basic_block_5:s -> fn_53_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_53_basic_block_6:s -> fn_53_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_53_basic_block_6:s -> fn_53_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_53_basic_block_7:s -> fn_53_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_53_basic_block_8:s -> fn_53_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_53_basic_block_0:s -> fn_53_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_RxDmaCallback" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_RxDmaCallback ()";
+	fn_49_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_49_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_49_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|instance_21\ =\ (uint32_t)\ parameter_20(D);\l\
+|lpuartState_23\ =\ s_lpuartStatePtr[instance_21];\l\
+|base_24\ =\ s_lpuartBase[instance_21];\l\
+|if\ (status_25(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [79.76%]\l\
+}"];
+
+	fn_49_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:217325344\<bb\ 3\>:\l\
+|lpuartState_23-\>receiveStatus\ =\{v\}\ 1;\l\
+|LPUART_DRV_StopRxDma\ (instance_21);\l\
+|_1\ =\ lpuartState_23-\>rxCallback;\l\
+|if\ (_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [30.00%]\l\
+}"];
+
+	fn_49_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:152127742\<bb\ 4\>:\l\
+|_2\ =\ lpuartState_23-\>rxCallbackParam;\l\
+|_1\ (lpuartState_23,\ 3,\ _2);\l\
+}"];
+
+	fn_49_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:217325344\<bb\ 5\>:\l\
+|_36\ =\{v\}\ base_24-\>STAT;\l\
+|_37\ =\ _36\ &\ 1071661055;\l\
+|_38\ =\ _37\ \|\ 983040;\l\
+|base_24-\>STAT\ =\{v\}\ _38;\l\
+}"];
+
+	fn_49_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|_3\ =\{v\}\ lpuartState_23-\>receiveStatus;\l\
+|if\ (_3\ !=\ 2)\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_49_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 7\>:\l\
+|_4\ =\ lpuartState_23-\>rxCallback;\l\
+|if\ (_4\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [30.00%]\l\
+}"];
+
+	fn_49_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 8\>:\l\
+|_5\ =\ lpuartState_23-\>rxCallbackParam;\l\
+|_4\ (lpuartState_23,\ 0,\ _5);\l\
+}"];
+
+	fn_49_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 9\>:\l\
+|_6\ =\{v\}\ lpuartState_23-\>rxSize;\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_49_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 10\>:\l\
+|_7\ =\ lpuartState_23-\>rxDMAChannel;\l\
+|_8\ =\ lpuartState_23-\>rxBuff;\l\
+|_9\ =\ (long\ unsigned\ int)\ _8;\l\
+|EDMA_DRV_SetDestAddr\ (_7,\ _9);\l\
+|_10\ =\ lpuartState_23-\>rxDMAChannel;\l\
+|_11\ =\{v\}\ lpuartState_23-\>rxSize;\l\
+|EDMA_DRV_SetMajorLoopIterationCount\ (_10,\ _11);\l\
+|lpuartState_23-\>rxSize\ =\{v\}\ 0;\l\
+|_12\ =\ lpuartState_23-\>rxDMAChannel;\l\
+|EDMA_DRV_StartChannel\ (_12);\ [tail\ call]\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_49_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 11\>:\l\
+|LPUART_DRV_StopRxDma\ (instance_21);\l\
+|_13\ =\ lpuartState_23-\>rxCallback;\l\
+|if\ (_13\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 12\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [30.00%]\l\
+}"];
+
+	fn_49_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904820\<bb\ 12\>:\l\
+|_14\ =\ lpuartState_23-\>rxCallbackParam;\l\
+|_13\ (lpuartState_23,\ 2,\ _14);\l\
+}"];
+
+	fn_49_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 13\>:\l\
+|_39\ =\{v\}\ base_24-\>STAT;\l\
+|_40\ =\ _39\ &\ 1071661055;\l\
+|_41\ =\ _40\ \|\ 983040;\l\
+|base_24-\>STAT\ =\{v\}\ _41;\l\
+}"];
+
+	fn_49_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 14\>:\l\
+|return;\l\
+}"];
+
+	fn_49_basic_block_0:s -> fn_49_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_49_basic_block_2:s -> fn_49_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_49_basic_block_2:s -> fn_49_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_49_basic_block_3:s -> fn_49_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_49_basic_block_3:s -> fn_49_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_49_basic_block_4:s -> fn_49_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_49_basic_block_5:s -> fn_49_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_49_basic_block_6:s -> fn_49_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_49_basic_block_6:s -> fn_49_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_49_basic_block_7:s -> fn_49_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_49_basic_block_7:s -> fn_49_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_49_basic_block_8:s -> fn_49_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_49_basic_block_9:s -> fn_49_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_49_basic_block_9:s -> fn_49_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_49_basic_block_10:s -> fn_49_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_49_basic_block_11:s -> fn_49_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_49_basic_block_11:s -> fn_49_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_49_basic_block_12:s -> fn_49_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_49_basic_block_13:s -> fn_49_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_49_basic_block_14:s -> fn_49_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_49_basic_block_0:s -> fn_49_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_GetData" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_GetData ()";
+	fn_51_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_51_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_51_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_15\ =\ s_lpuartStatePtr[instance_14(D)];\l\
+|base_16\ =\ s_lpuartBase[instance_14(D)];\l\
+|rxBuff_17\ =\ lpuartState_15-\>rxBuff;\l\
+|_1\ =\ lpuartState_15-\>bitCountPerChar;\l\
+|if\ (_1\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_51_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_25\ =\{v\}\ base_16-\>DATA;\l\
+|_26\ =\ (unsigned\ char)\ _25;\l\
+|*rxBuff_17\ =\ _26;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_51_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 5\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_51_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 5\>:\l\
+|LPUART_Getchar9\ (base_16,\ &data);\l\
+|data.8_2\ =\ data;\l\
+|_3\ =\ (unsigned\ char)\ data.8_2;\l\
+|*rxBuff_17\ =\ _3;\l\
+|data.9_4\ =\ data;\l\
+|_5\ =\ data.9_4\ \>\>\ 8;\l\
+|_6\ =\ (unsigned\ char)\ _5;\l\
+|MEM[(uint8_t\ *)rxBuff_17\ +\ 1B]\ =\ _6;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_51_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 6\>:\l\
+|LPUART_Getchar10\ (base_16,\ &data);\l\
+|data.10_7\ =\ data;\l\
+|_8\ =\ (unsigned\ char)\ data.10_7;\l\
+|*rxBuff_17\ =\ _8;\l\
+|data.11_9\ =\ data;\l\
+|_10\ =\ data.11_9\ \>\>\ 8;\l\
+|_11\ =\ (unsigned\ char)\ _10;\l\
+|MEM[(uint8_t\ *)rxBuff_17\ +\ 1B]\ =\ _11;\l\
+}"];
+
+	fn_51_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|data\ =\{v\}\ \{CLOBBER\};\l\
+|return;\l\
+}"];
+
+	fn_51_basic_block_0:s -> fn_51_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_51_basic_block_2:s -> fn_51_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_51_basic_block_2:s -> fn_51_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_51_basic_block_3:s -> fn_51_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_51_basic_block_4:s -> fn_51_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_51_basic_block_4:s -> fn_51_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_51_basic_block_5:s -> fn_51_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_51_basic_block_6:s -> fn_51_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_51_basic_block_7:s -> fn_51_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_51_basic_block_0:s -> fn_51_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_GetDefaultConfig ()";
+	fn_18_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_18_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_18_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartUserConfig_2(D)-\>baudRate\ =\ 9600;\l\
+|MEM\ \<unsigned\ int\>\ [(void\ *)lpuartUserConfig_2(D)\ +\ 4B]\ =\ 16777216;\l\
+|MEM\ \<unsigned\ short\>\ [(unsigned\ char\ *)lpuartUserConfig_2(D)\ +\ 8B]\ =\ 0;\l\
+|return;\l\
+}"];
+
+	fn_18_basic_block_0:s -> fn_18_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_18_basic_block_2:s -> fn_18_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_18_basic_block_0:s -> fn_18_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_Deinit" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_Deinit ()";
+	subgraph cluster_20_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_20_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|_1\ =\ LPUART_GetStatusFlag\ (base_9,\ 131094);\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [11.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [89.00%]\l\
+}"];
+
+	}
+	fn_20_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_20_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_20_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|instanceClkName_8\ =\ s_lpuartClkNames[instance_7(D)];\l\
+|base_9\ =\ s_lpuartBase[instance_7(D)];\l\
+|lpuartState_10\ =\ s_lpuartStatePtr[instance_7(D)];\l\
+|CLOCK_SYS_GetFreq\ (instanceClkName_8,\ &lpuartSourceClock);\l\
+}"];
+
+	fn_20_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|_2\ =\ &lpuartState_10-\>rxComplete;\l\
+|OSIF_SemaDestroy\ (_2);\l\
+|_3\ =\ &lpuartState_10-\>txComplete;\l\
+|OSIF_SemaDestroy\ (_3);\l\
+|_4\ =\ s_lpuartRxTxIrqId[instance_7(D)];\l\
+|INT_SYS_DisableIRQ\ (_4);\l\
+|INT_SYS_InstallHandler\ (_4,\ DefaultISR,\ 0B);\l\
+|s_lpuartStatePtr[instance_7(D)]\ =\ 0B;\l\
+|lpuartSourceClock\ =\{v\}\ \{CLOBBER\};\l\
+|return\ 0;\l\
+}"];
+
+	fn_20_basic_block_0:s -> fn_20_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_20_basic_block_2:s -> fn_20_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_20_basic_block_3:s -> fn_20_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_20_basic_block_3:s -> fn_20_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_20_basic_block_4:s -> fn_20_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_20_basic_block_0:s -> fn_20_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_InstallRxCallback" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_InstallRxCallback ()";
+	fn_21_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_21_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_21_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_3\ =\ s_lpuartStatePtr[instance_2(D)];\l\
+|currentCallback_4\ =\ lpuartState_3-\>rxCallback;\l\
+|lpuartState_3-\>rxCallback\ =\ function_5(D);\l\
+|lpuartState_3-\>rxCallbackParam\ =\ callbackParam_7(D);\l\
+|return\ currentCallback_4;\l\
+}"];
+
+	fn_21_basic_block_0:s -> fn_21_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_21_basic_block_2:s -> fn_21_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_21_basic_block_0:s -> fn_21_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_InstallTxCallback" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_InstallTxCallback ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_3\ =\ s_lpuartStatePtr[instance_2(D)];\l\
+|currentCallback_4\ =\ lpuartState_3-\>txCallback;\l\
+|lpuartState_3-\>txCallback\ =\ function_5(D);\l\
+|lpuartState_3-\>txCallbackParam\ =\ callbackParam_7(D);\l\
+|return\ currentCallback_4;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_2:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_SendDataBlocking" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_SendDataBlocking ()";
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|lpuartState_9\ =\ s_lpuartStatePtr[instance_8(D)];\l\
+|lpuartState_9-\>isTxBlocking\ =\{v\}\ 1;\l\
+|_1\ =\ lpuartState_9-\>transferType;\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.00%]\l\
+}"];
+
+	fn_23_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:365072224\<bb\ 3\>:\l\
+|retVal_16\ =\ LPUART_DRV_StartSendDataUsingInt\ (instance_8(D),\ txBuff_11(D),\ txSize_12(D));\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_23_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669600\<bb\ 4\>:\l\
+|retVal_14\ =\ LPUART_DRV_StartSendDataUsingDma\ (instance_8(D),\ txBuff_11(D),\ txSize_12(D));\l\
+}"];
+
+	fn_23_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 5\>:\l\
+|#\ retVal_4\ =\ PHI\ \<retVal_16(3),\ retVal_14(4)\>\l\
+|if\ (retVal_4\ ==\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_23_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:953267990\<bb\ 6\>:\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_23_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 7\>:\l\
+|_2\ =\ &lpuartState_9-\>txComplete;\l\
+|syncStatus_19\ =\ OSIF_SemaWait\ (_2,\ timeout_17(D));\l\
+|if\ (syncStatus_19\ ==\ 3)\l\
+\ \ goto\ \<bb\ 8\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_23_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:120473833\<bb\ 8\>:\l\
+|lpuartState_9-\>isTxBlocking\ =\{v\}\ 0;\l\
+|lpuartState_9-\>transmitStatus\ =\{v\}\ 3;\l\
+|_3\ =\ lpuartState_9-\>transferType;\l\
+|if\ (_3\ ==\ 1)\l\
+\ \ goto\ \<bb\ 9\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [66.00%]\l\
+}"];
+
+	fn_23_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40961104\<bb\ 9\>:\l\
+|LPUART_DRV_CompleteSendDataUsingInt\ (instance_8(D));\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_23_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:79512729\<bb\ 10\>:\l\
+|LPUART_DRV_StopTxDma\ (instance_8(D));\l\
+}"];
+
+	fn_23_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 11\>:\l\
+|_24\ =\{v\}\ lpuartState_9-\>transmitStatus;\l\
+|return\ _24;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_2:s -> fn_23_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_23_basic_block_2:s -> fn_23_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_23_basic_block_3:s -> fn_23_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_4:s -> fn_23_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_5:s -> fn_23_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_23_basic_block_5:s -> fn_23_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_23_basic_block_6:s -> fn_23_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_7:s -> fn_23_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_23_basic_block_7:s -> fn_23_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_23_basic_block_8:s -> fn_23_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_23_basic_block_8:s -> fn_23_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_23_basic_block_9:s -> fn_23_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_10:s -> fn_23_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_11:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_SendDataPolling" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_SendDataPolling ()";
+	subgraph cluster_24_4 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 4";
+	labeljust=l;
+	penwidth=2;
+	fn_24_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:132709663\<bb\ 13\>:\l\
+|_31\ =\{v\}\ base_12-\>CTRL;\l\
+|_32\ =\ _31\ &\ 524288;\l\
+|if\ (_32\ !=\ 0)\l\
+\ \ goto\ \<bb\ 13\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_24_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	subgraph cluster_24_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey77";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_24_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|_2\ =\ LPUART_GetStatusFlag\ (base_12,\ 131095);\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [11.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [89.00%]\l\
+}"];
+
+	}
+	fn_24_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 6\>:\l\
+|#\ txBuff_40\ =\ PHI\ \<txBuff_14(D)(5),\ txBuff_33(11)\>\l\
+|#\ txSize_41\ =\ PHI\ \<txSize_15(D)(5),\ txSize_19(11)\>\l\
+}"];
+
+	fn_24_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 8\>:\l\
+|lpuartState_13-\>txBuff\ =\ txBuff_40;\l\
+|LPUART_DRV_PutData\ (instance_11(D));\l\
+|_3\ =\ lpuartState_13-\>bitCountPerChar;\l\
+|if\ (_3\ ==\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_24_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 9\>:\l\
+|txBuff_22\ =\ txBuff_40\ +\ 1;\l\
+|txSize_23\ =\ txSize_41\ +\ 4294967295;\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_24_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 10\>:\l\
+|txBuff_20\ =\ &MEM\ \<const\ uint8_t\>\ [(void\ *)txBuff_40\ +\ 2B];\l\
+|txSize_21\ =\ txSize_41\ +\ 4294967294;\l\
+}"];
+
+	fn_24_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 11\>:\l\
+|#\ txBuff_33\ =\ PHI\ \<txBuff_22(9),\ txBuff_20(10)\>\l\
+|#\ txSize_19\ =\ PHI\ \<txSize_23(9),\ txSize_21(10)\>\l\
+|if\ (txSize_19\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_24_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_24_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:132709663\<bb\ 4\>:\l\
+|_27\ =\{v\}\ base_12-\>CTRL;\l\
+|_28\ =\ _27\ &\ 524288;\l\
+|if\ (_28\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_24_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_24_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_24_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:18648522\<bb\ 2\>:\l\
+|lpuartState_13\ =\ s_lpuartStatePtr[instance_11(D)];\l\
+|_1\ =\{v\}\ lpuartState_13-\>isTxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 14\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+}"];
+
+	fn_24_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:14598063\<bb\ 3\>:\l\
+|base_12\ =\ s_lpuartBase[instance_11(D)];\l\
+|_24\ =\{v\}\ base_12-\>CTRL;\l\
+|_25\ =\ _24\ &\ 4294443007;\l\
+|_26\ =\ _25\ \|\ 524288;\l\
+|base_12-\>CTRL\ =\{v\}\ _26;\l\
+}"];
+
+	fn_24_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:14598063\<bb\ 5\>:\l\
+|if\ (txSize_15(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [11.00%]\l\
+}"];
+
+	fn_24_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:14598063\<bb\ 12\>:\l\
+|_29\ =\{v\}\ base_12-\>CTRL;\l\
+|_30\ =\ _29\ &\ 4294443007;\l\
+|base_12-\>CTRL\ =\{v\}\ _30;\l\
+}"];
+
+	fn_24_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:18648522\<bb\ 14\>:\l\
+|#\ _6\ =\ PHI\ \<2(2),\ 0(13)\>\l\
+|return\ _6;\l\
+}"];
+
+	fn_24_basic_block_0:s -> fn_24_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_2:s -> fn_24_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_24_basic_block_2:s -> fn_24_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_24_basic_block_3:s -> fn_24_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_4:s -> fn_24_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_24_basic_block_4:s -> fn_24_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_24_basic_block_5:s -> fn_24_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_24_basic_block_5:s -> fn_24_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_24_basic_block_6:s -> fn_24_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_7:s -> fn_24_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_24_basic_block_7:s -> fn_24_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_24_basic_block_8:s -> fn_24_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_8:s -> fn_24_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_9:s -> fn_24_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_10:s -> fn_24_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_11:s -> fn_24_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_24_basic_block_11:s -> fn_24_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_24_basic_block_12:s -> fn_24_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_13:s -> fn_24_basic_block_13:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_24_basic_block_13:s -> fn_24_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_24_basic_block_14:s -> fn_24_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_24_basic_block_0:s -> fn_24_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_SendData" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_SendData ()";
+	fn_25_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_25_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_25_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_6\ =\ s_lpuartStatePtr[instance_5(D)];\l\
+|lpuartState_6-\>isTxBlocking\ =\{v\}\ 0;\l\
+|_1\ =\ lpuartState_6-\>transferType;\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.00%]\l\
+}"];
+
+	fn_25_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:365072224\<bb\ 3\>:\l\
+|retVal_13\ =\ LPUART_DRV_StartSendDataUsingInt\ (instance_5(D),\ txBuff_8(D),\ txSize_9(D));\ [tail\ call]\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_25_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669601\<bb\ 4\>:\l\
+|retVal_11\ =\ LPUART_DRV_StartSendDataUsingDma\ (instance_5(D),\ txBuff_8(D),\ txSize_9(D));\ [tail\ call]\l\
+}"];
+
+	fn_25_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ retVal_2\ =\ PHI\ \<retVal_13(3),\ retVal_11(4)\>\l\
+|return\ retVal_2;\l\
+}"];
+
+	fn_25_basic_block_0:s -> fn_25_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_25_basic_block_2:s -> fn_25_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_25_basic_block_2:s -> fn_25_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_25_basic_block_3:s -> fn_25_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_25_basic_block_4:s -> fn_25_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_25_basic_block_5:s -> fn_25_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_25_basic_block_0:s -> fn_25_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_GetTransmitStatus" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_GetTransmitStatus ()";
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_9\ =\ s_lpuartStatePtr[instance_8(D)];\l\
+|if\ (bytesRemaining_10(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [30.00%]\l\
+}"];
+
+	fn_26_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 3\>:\l\
+|_1\ =\{v\}\ lpuartState_9-\>isTxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_26_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 4\>:\l\
+|_2\ =\ lpuartState_9-\>transferType;\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [48.88%]\l\
+}"];
+
+	fn_26_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:192113889\<bb\ 5\>:\l\
+|_3\ =\{v\}\ lpuartState_9-\>txSize;\l\
+|*bytesRemaining_10(D)\ =\ _3;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_26_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:183695751\<bb\ 6\>:\l\
+|_4\ =\ lpuartState_9-\>txDMAChannel;\l\
+|_5\ =\ EDMA_DRV_GetRemainingMajorIterationsCount\ (_4);\l\
+|*bytesRemaining_10(D)\ =\ _5;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_26_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 7\>:\l\
+|*bytesRemaining_10(D)\ =\ 0;\l\
+}"];
+
+	fn_26_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|_15\ =\{v\}\ lpuartState_9-\>transmitStatus;\l\
+|return\ _15;\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_2:s -> fn_26_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_26_basic_block_2:s -> fn_26_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_26_basic_block_3:s -> fn_26_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_3:s -> fn_26_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_4:s -> fn_26_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_26_basic_block_4:s -> fn_26_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_26_basic_block_5:s -> fn_26_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_6:s -> fn_26_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_7:s -> fn_26_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_8:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_AbortSendingData" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_AbortSendingData ()";
+	fn_27_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_27_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_27_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|lpuartState_6\ =\ s_lpuartStatePtr[instance_5(D)];\l\
+|_1\ =\{v\}\ lpuartState_6-\>isTxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [34.00%]\l\
+}"];
+
+	fn_27_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669600\<bb\ 3\>:\l\
+|lpuartState_6-\>transmitStatus\ =\{v\}\ 1538;\l\
+|_2\ =\ lpuartState_6-\>transferType;\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_27_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:240947666\<bb\ 4\>:\l\
+|LPUART_DRV_CompleteSendDataUsingInt\ (instance_5(D));\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_27_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:467721933\<bb\ 5\>:\l\
+|LPUART_DRV_StopTxDma\ (instance_5(D));\l\
+}"];
+
+	fn_27_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|return\ 0;\l\
+}"];
+
+	fn_27_basic_block_0:s -> fn_27_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_27_basic_block_2:s -> fn_27_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_27_basic_block_2:s -> fn_27_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_27_basic_block_3:s -> fn_27_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_27_basic_block_3:s -> fn_27_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_27_basic_block_4:s -> fn_27_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_27_basic_block_5:s -> fn_27_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_27_basic_block_6:s -> fn_27_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_27_basic_block_0:s -> fn_27_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_ReceiveDataBlocking" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_ReceiveDataBlocking ()";
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|lpuartState_9\ =\ s_lpuartStatePtr[instance_8(D)];\l\
+|lpuartState_9-\>isRxBlocking\ =\{v\}\ 1;\l\
+|_1\ =\ lpuartState_9-\>transferType;\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.00%]\l\
+}"];
+
+	fn_28_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:365072224\<bb\ 3\>:\l\
+|retVal_16\ =\ LPUART_DRV_StartReceiveDataUsingInt\ (instance_8(D),\ rxBuff_11(D),\ rxSize_12(D));\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_28_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669600\<bb\ 4\>:\l\
+|retVal_14\ =\ LPUART_DRV_StartReceiveDataUsingDma\ (instance_8(D),\ rxBuff_11(D),\ rxSize_12(D));\l\
+}"];
+
+	fn_28_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 5\>:\l\
+|#\ retVal_4\ =\ PHI\ \<retVal_16(3),\ retVal_14(4)\>\l\
+|if\ (retVal_4\ ==\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_28_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:953267990\<bb\ 6\>:\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_28_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 7\>:\l\
+|_2\ =\ &lpuartState_9-\>rxComplete;\l\
+|syncStatus_19\ =\ OSIF_SemaWait\ (_2,\ timeout_17(D));\l\
+|if\ (syncStatus_19\ ==\ 3)\l\
+\ \ goto\ \<bb\ 8\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_28_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:120473833\<bb\ 8\>:\l\
+|lpuartState_9-\>isRxBlocking\ =\{v\}\ 0;\l\
+|lpuartState_9-\>receiveStatus\ =\{v\}\ 3;\l\
+|_3\ =\ lpuartState_9-\>transferType;\l\
+|if\ (_3\ ==\ 1)\l\
+\ \ goto\ \<bb\ 9\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [66.00%]\l\
+}"];
+
+	fn_28_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40961104\<bb\ 9\>:\l\
+|LPUART_DRV_CompleteReceiveDataUsingInt\ (instance_8(D));\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_28_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:79512729\<bb\ 10\>:\l\
+|LPUART_DRV_StopRxDma\ (instance_8(D));\l\
+}"];
+
+	fn_28_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 11\>:\l\
+|_24\ =\{v\}\ lpuartState_9-\>receiveStatus;\l\
+|return\ _24;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_2:s -> fn_28_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_28_basic_block_2:s -> fn_28_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_28_basic_block_3:s -> fn_28_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_4:s -> fn_28_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_5:s -> fn_28_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_28_basic_block_5:s -> fn_28_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_28_basic_block_6:s -> fn_28_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_7:s -> fn_28_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_28_basic_block_7:s -> fn_28_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_28_basic_block_8:s -> fn_28_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_28_basic_block_8:s -> fn_28_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_28_basic_block_9:s -> fn_28_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_10:s -> fn_28_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_11:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_ReceiveDataPolling" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_ReceiveDataPolling ()";
+	subgraph cluster_29_4 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 4";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:23622320\<bb\ 11\>:\l\
+|_51\ =\{v\}\ base_23-\>CTRL;\l\
+|_52\ =\ _51\ &\ 262144;\l\
+|if\ (_52\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_29_5 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 5";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:23102629\<bb\ 15\>:\l\
+|_56\ =\{v\}\ base_23-\>CTRL;\l\
+|_57\ =\ _56\ &\ 262144;\l\
+|if\ (_57\ !=\ 0)\l\
+\ \ goto\ \<bb\ 15\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_29_6 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 6";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22594371\<bb\ 19\>:\l\
+|_61\ =\{v\}\ base_23-\>CTRL;\l\
+|_62\ =\ _61\ &\ 262144;\l\
+|if\ (_62\ !=\ 0)\l\
+\ \ goto\ \<bb\ 19\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_29_8 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 8";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:67608635\<bb\ 27\>:\l\
+|_70\ =\{v\}\ base_23-\>CTRL;\l\
+|_71\ =\ _70\ &\ 262144;\l\
+|if\ (_71\ !=\ 0)\l\
+\ \ goto\ \<bb\ 27\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_29_7 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 7";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22097295\<bb\ 23\>:\l\
+|_66\ =\{v\}\ base_23-\>CTRL;\l\
+|_67\ =\ _66\ &\ 262144;\l\
+|if\ (_67\ !=\ 0)\l\
+\ \ goto\ \<bb\ 23\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_29_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	subgraph cluster_29_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey77";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|_2\ =\ LPUART_GetStatusFlag\ (base_23,\ 131093);\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [11.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [89.00%]\l\
+}"];
+
+	}
+	fn_29_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:120768507\<bb\ 26\>:\l\
+|#\ rxBuff_9\ =\ PHI\ \<rxBuff_25(D)(4),\ rxBuff_8(21)\>\l\
+|#\ rxSize_11\ =\ PHI\ \<rxSize_26(D)(4),\ rxSize_10(21)\>\l\
+|if\ (rxSize_11\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [97.80%]\l\
+else\l\
+\ \ goto\ \<bb\ 25\>;\ [2.20%]\l\
+}"];
+
+	fn_29_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 6\>:\l\
+|lpuartState_24-\>rxBuff\ =\ rxBuff_9;\l\
+|LPUART_DRV_GetData\ (instance_22(D));\l\
+|_3\ =\ lpuartState_24-\>bitCountPerChar;\l\
+|if\ (_3\ ==\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_29_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 7\>:\l\
+|rxBuff_32\ =\ rxBuff_9\ +\ 1;\l\
+|rxSize_33\ =\ rxSize_11\ +\ 4294967295;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_29_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 8\>:\l\
+|rxBuff_30\ =\ &MEM\ \<uint8_t\>\ [(void\ *)rxBuff_9\ +\ 2B];\l\
+|rxSize_31\ =\ rxSize_11\ +\ 4294967294;\l\
+}"];
+
+	fn_29_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 9\>:\l\
+|#\ rxBuff_8\ =\ PHI\ \<rxBuff_32(7),\ rxBuff_30(8)\>\l\
+|#\ rxSize_10\ =\ PHI\ \<rxSize_33(7),\ rxSize_31(8)\>\l\
+|_4\ =\ LPUART_GetStatusFlag\ (base_23,\ 131089);\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [2.20%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [97.80%]\l\
+}"];
+
+	fn_29_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:115513145\<bb\ 13\>:\l\
+|_5\ =\ LPUART_GetStatusFlag\ (base_23,\ 131090);\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 14\>;\ [2.20%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [97.80%]\l\
+}"];
+
+	fn_29_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:112971856\<bb\ 17\>:\l\
+|_6\ =\ LPUART_GetStatusFlag\ (base_23,\ 131088);\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 18\>;\ [2.20%]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [97.80%]\l\
+}"];
+
+	fn_29_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:110486475\<bb\ 21\>:\l\
+|_7\ =\ LPUART_GetStatusFlag\ (base_23,\ 131091);\l\
+|if\ (_7\ !=\ 0)\l\
+\ \ goto\ \<bb\ 22\>;\ [2.20%]\l\
+else\l\
+\ \ goto\ \<bb\ 26\>;\ [97.80%]\l\
+}"];
+
+	}
+	subgraph cluster_29_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:115570317\<bb\ 4\>:\l\
+|_46\ =\{v\}\ base_23-\>CTRL;\l\
+|_47\ =\ _46\ &\ 262144;\l\
+|if\ (_47\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 26\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:16240080\<bb\ 2\>:\l\
+|lpuartState_24\ =\ s_lpuartStatePtr[instance_22(D)];\l\
+|_1\ =\{v\}\ lpuartState_24-\>isRxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 29\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+}"];
+
+	fn_29_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:12712735\<bb\ 3\>:\l\
+|base_23\ =\ s_lpuartBase[instance_22(D)];\l\
+|_43\ =\{v\}\ base_23-\>CTRL;\l\
+|_44\ =\ _43\ &\ 4294705151;\l\
+|_45\ =\ _44\ \|\ 262144;\l\
+|base_23-\>CTRL\ =\{v\}\ _45;\l\
+}"];
+
+	fn_29_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2598455\<bb\ 10\>:\l\
+|_48\ =\{v\}\ base_23-\>CTRL;\l\
+|_49\ =\ _48\ &\ 4294705151;\l\
+|base_23-\>CTRL\ =\{v\}\ _49;\l\
+}"];
+
+	fn_29_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2598455\<bb\ 12\>:\l\
+|LPUART_ClearStatusFlag\ (base_23,\ 131089);\l\
+goto\ \<bb\ 28\>;\ [100.00%]\l\
+}"];
+
+	fn_29_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2541289\<bb\ 14\>:\l\
+|_53\ =\{v\}\ base_23-\>CTRL;\l\
+|_54\ =\ _53\ &\ 4294705151;\l\
+|base_23-\>CTRL\ =\{v\}\ _54;\l\
+}"];
+
+	fn_29_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2541289\<bb\ 16\>:\l\
+|LPUART_ClearStatusFlag\ (base_23,\ 131090);\l\
+goto\ \<bb\ 28\>;\ [100.00%]\l\
+}"];
+
+	fn_29_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2485381\<bb\ 18\>:\l\
+|_58\ =\{v\}\ base_23-\>CTRL;\l\
+|_59\ =\ _58\ &\ 4294705151;\l\
+|base_23-\>CTRL\ =\{v\}\ _59;\l\
+}"];
+
+	fn_29_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2485381\<bb\ 20\>:\l\
+|LPUART_ClearStatusFlag\ (base_23,\ 131088);\l\
+goto\ \<bb\ 28\>;\ [100.00%]\l\
+}"];
+
+	fn_29_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2430702\<bb\ 22\>:\l\
+|_63\ =\{v\}\ base_23-\>CTRL;\l\
+|_64\ =\ _63\ &\ 4294705151;\l\
+|base_23-\>CTRL\ =\{v\}\ _64;\l\
+}"];
+
+	fn_29_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2430702\<bb\ 24\>:\l\
+|LPUART_ClearStatusFlag\ (base_23,\ 131091);\l\
+|if\ (rxSize_10\ ==\ 0)\l\
+\ \ goto\ \<bb\ 25\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [50.00%]\l\
+}"];
+
+	fn_29_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:7436950\<bb\ 25\>:\l\
+|_68\ =\{v\}\ base_23-\>CTRL;\l\
+|_69\ =\ _68\ &\ 4294705151;\l\
+|base_23-\>CTRL\ =\{v\}\ _69;\l\
+goto\ \<bb\ 27\>;\ [100.00%]\l\
+}"];
+
+	fn_29_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:12712735\<bb\ 28\>:\l\
+|#\ retVal_55\ =\ PHI\ \<1537(24),\ 1541(16),\ 1539(12),\ 1540(20),\ 0(27)\>\l\
+|_72\ =\{v\}\ MEM[(const\ struct\ LPUART_Type\ *)base_23].DATA;\l\
+}"];
+
+	fn_29_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:16240080\<bb\ 29\>:\l\
+|#\ _15\ =\ PHI\ \<retVal_55(28),\ 2(2)\>\l\
+|return\ _15;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_29_basic_block_3:s -> fn_29_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_4:s -> fn_29_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_29_basic_block_4:s -> fn_29_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_29_basic_block_5:s -> fn_29_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_29_basic_block_5:s -> fn_29_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_29_basic_block_6:s -> fn_29_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_6:s -> fn_29_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_7:s -> fn_29_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_8:s -> fn_29_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_9:s -> fn_29_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_29_basic_block_9:s -> fn_29_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[97%]"];
+	fn_29_basic_block_10:s -> fn_29_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_11:s -> fn_29_basic_block_11:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_29_basic_block_11:s -> fn_29_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_29_basic_block_12:s -> fn_29_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_13:s -> fn_29_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_29_basic_block_13:s -> fn_29_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[97%]"];
+	fn_29_basic_block_14:s -> fn_29_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_15:s -> fn_29_basic_block_15:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_29_basic_block_15:s -> fn_29_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_29_basic_block_16:s -> fn_29_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_17:s -> fn_29_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_29_basic_block_17:s -> fn_29_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[97%]"];
+	fn_29_basic_block_18:s -> fn_29_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_19:s -> fn_29_basic_block_19:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_29_basic_block_19:s -> fn_29_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_29_basic_block_20:s -> fn_29_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_21:s -> fn_29_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_29_basic_block_21:s -> fn_29_basic_block_26:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[97%]"];
+	fn_29_basic_block_22:s -> fn_29_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_23:s -> fn_29_basic_block_23:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_29_basic_block_23:s -> fn_29_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_29_basic_block_24:s -> fn_29_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_24:s -> fn_29_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_25:s -> fn_29_basic_block_27:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_26:s -> fn_29_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[97%]"];
+	fn_29_basic_block_26:s -> fn_29_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[2%]"];
+	fn_29_basic_block_27:s -> fn_29_basic_block_27:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_29_basic_block_27:s -> fn_29_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_29_basic_block_28:s -> fn_29_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_29:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_ReceiveData" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_ReceiveData ()";
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_6\ =\ s_lpuartStatePtr[instance_5(D)];\l\
+|lpuartState_6-\>isRxBlocking\ =\{v\}\ 0;\l\
+|_1\ =\ lpuartState_6-\>transferType;\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.00%]\l\
+}"];
+
+	fn_30_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:365072224\<bb\ 3\>:\l\
+|retVal_13\ =\ LPUART_DRV_StartReceiveDataUsingInt\ (instance_5(D),\ rxBuff_8(D),\ rxSize_9(D));\ [tail\ call]\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_30_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669601\<bb\ 4\>:\l\
+|retVal_11\ =\ LPUART_DRV_StartReceiveDataUsingDma\ (instance_5(D),\ rxBuff_8(D),\ rxSize_9(D));\ [tail\ call]\l\
+}"];
+
+	fn_30_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ retVal_2\ =\ PHI\ \<retVal_13(3),\ retVal_11(4)\>\l\
+|return\ retVal_2;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_30_basic_block_3:s -> fn_30_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_4:s -> fn_30_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_5:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_GetReceiveStatus" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_GetReceiveStatus ()";
+	fn_31_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_31_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_31_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_9\ =\ s_lpuartStatePtr[instance_8(D)];\l\
+|if\ (bytesRemaining_10(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [30.00%]\l\
+}"];
+
+	fn_31_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 3\>:\l\
+|_1\ =\{v\}\ lpuartState_9-\>isRxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_31_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 4\>:\l\
+|_2\ =\ lpuartState_9-\>transferType;\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [48.88%]\l\
+}"];
+
+	fn_31_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:192113889\<bb\ 5\>:\l\
+|_3\ =\{v\}\ lpuartState_9-\>rxSize;\l\
+|*bytesRemaining_10(D)\ =\ _3;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_31_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:183695751\<bb\ 6\>:\l\
+|_4\ =\ lpuartState_9-\>rxDMAChannel;\l\
+|_5\ =\ EDMA_DRV_GetRemainingMajorIterationsCount\ (_4);\l\
+|*bytesRemaining_10(D)\ =\ _5;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_31_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 7\>:\l\
+|*bytesRemaining_10(D)\ =\ 0;\l\
+}"];
+
+	fn_31_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|_15\ =\{v\}\ lpuartState_9-\>receiveStatus;\l\
+|return\ _15;\l\
+}"];
+
+	fn_31_basic_block_0:s -> fn_31_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_2:s -> fn_31_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_31_basic_block_2:s -> fn_31_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_31_basic_block_3:s -> fn_31_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_31_basic_block_3:s -> fn_31_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_31_basic_block_4:s -> fn_31_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_31_basic_block_4:s -> fn_31_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_31_basic_block_5:s -> fn_31_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_6:s -> fn_31_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_7:s -> fn_31_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_8:s -> fn_31_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_31_basic_block_0:s -> fn_31_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_AbortReceivingData" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_AbortReceivingData ()";
+	fn_32_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_32_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_32_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|lpuartState_6\ =\ s_lpuartStatePtr[instance_5(D)];\l\
+|_1\ =\{v\}\ lpuartState_6-\>isRxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [34.00%]\l\
+}"];
+
+	fn_32_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669600\<bb\ 3\>:\l\
+|lpuartState_6-\>receiveStatus\ =\{v\}\ 1538;\l\
+|_2\ =\ lpuartState_6-\>transferType;\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_32_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:240947666\<bb\ 4\>:\l\
+|LPUART_DRV_CompleteReceiveDataUsingInt\ (instance_5(D));\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_32_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:467721933\<bb\ 5\>:\l\
+|LPUART_DRV_StopRxDma\ (instance_5(D));\l\
+}"];
+
+	fn_32_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|return\ 0;\l\
+}"];
+
+	fn_32_basic_block_0:s -> fn_32_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_32_basic_block_4:s -> fn_32_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_5:s -> fn_32_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_6:s -> fn_32_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_32_basic_block_0:s -> fn_32_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_SetBaudRate" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_SetBaudRate ()";
+	subgraph cluster_33_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_33_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 11\>:\l\
+|#\ _70\ =\ PHI\ \<5(10),\ _15(16)\>\l\
+|#\ sbr_86\ =\ PHI\ \<sbr_39(10),\ sbr_17(16)\>\l\
+|#\ i_72\ =\ PHI\ \<5(10),\ i_48(16)\>\l\
+|#\ osr_75\ =\ PHI\ \<4(10),\ osr_20(16)\>\l\
+|#\ baudDiff_89\ =\ PHI\ \<baudDiff_23(10),\ baudDiff_24(16)\>\l\
+|_9\ =\ desiredBaudRate_38(D)\ *\ _70;\l\
+|_10\ =\ lpuartSourceClock.12_3\ /\ _9;\l\
+|_11\ =\ (int)\ i_72;\l\
+|_37\ =\ _10\ &\ 65535;\l\
+|_12\ =\ (int)\ _37;\l\
+|_13\ =\ _11\ *\ _12;\l\
+|_14\ =\ (long\ unsigned\ int)\ _13;\l\
+|calculatedBaud_45\ =\ lpuartSourceClock.12_3\ /\ _14;\l\
+|if\ (desiredBaudRate_38(D)\ \<\ calculatedBaud_45)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 12\>:\l\
+|tempDiff_47\ =\ calculatedBaud_45\ -\ desiredBaudRate_38(D);\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_33_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815112\<bb\ 13\>:\l\
+|tempDiff_46\ =\ desiredBaudRate_38(D)\ -\ calculatedBaud_45;\l\
+}"];
+
+	fn_33_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 14\>:\l\
+|#\ tempDiff_22\ =\ PHI\ \<tempDiff_47(12),\ tempDiff_46(13)\>\l\
+|if\ (tempDiff_22\ \<=\ baudDiff_89)\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:477815113\<bb\ 15\>:\l\
+|sbrTemp_44\ =\ (uint16_t)\ _10;\l\
+}"];
+
+	fn_33_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 16\>:\l\
+|#\ sbr_17\ =\ PHI\ \<sbrTemp_44(15),\ sbr_86(14)\>\l\
+|#\ osr_20\ =\ PHI\ \<_70(15),\ osr_75(14)\>\l\
+|#\ baudDiff_24\ =\ PHI\ \<tempDiff_22(15),\ baudDiff_89(14)\>\l\
+|i_48\ =\ i_72\ +\ 1;\l\
+|_15\ =\ (long\ unsigned\ int)\ i_48;\l\
+|if\ (_15\ \<=\ maxOsr_21)\l\
+\ \ goto\ \<bb\ 11\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_33_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_33_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_33_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:231499792\<bb\ 2\>:\l\
+|lpuartState_33\ =\ s_lpuartStatePtr[instance_30(D)];\l\
+|if\ (lpuartState_33\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [82.57%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [17.43%]\l\
+}"];
+
+	fn_33_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:191149378\<bb\ 3\>:\l\
+|_1\ =\{v\}\ lpuartState_33-\>isTxBusy;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 22\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [78.28%]\l\
+}"];
+
+	fn_33_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:149631733\<bb\ 4\>:\l\
+|_2\ =\{v\}\ lpuartState_33-\>isRxBusy;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 22\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [78.28%]\l\
+}"];
+
+	fn_33_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:157482133\<bb\ 5\>:\l\
+|instanceClkName_31\ =\ s_lpuartClkNames[instance_30(D)];\l\
+|base_32\ =\ s_lpuartBase[instance_30(D)];\l\
+|CLOCK_SYS_GetFreq\ (instanceClkName_31,\ &lpuartSourceClock);\l\
+|lpuartSourceClock.12_3\ =\ lpuartSourceClock;\l\
+|_4\ =\ desiredBaudRate_38(D)\ *\ 4;\l\
+|_5\ =\ lpuartSourceClock.12_3\ /\ _4;\l\
+|sbr_39\ =\ (uint16_t)\ _5;\l\
+|_34\ =\ _5\ &\ 65535;\l\
+|_7\ =\ _34\ *\ 4;\l\
+|calculatedBaud_40\ =\ lpuartSourceClock.12_3\ /\ _7;\l\
+|if\ (desiredBaudRate_38(D)\ \<\ calculatedBaud_40)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:78741067\<bb\ 6\>:\l\
+|baudDiff_42\ =\ calculatedBaud_40\ -\ desiredBaudRate_38(D);\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_33_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:78741067\<bb\ 7\>:\l\
+|baudDiff_41\ =\ desiredBaudRate_38(D)\ -\ calculatedBaud_40;\l\
+}"];
+
+	fn_33_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:157482133\<bb\ 8\>:\l\
+|#\ baudDiff_23\ =\ PHI\ \<baudDiff_42(6),\ baudDiff_41(7)\>\l\
+|maxOsr_43\ =\ lpuartSourceClock.12_3\ /\ desiredBaudRate_38(D);\l\
+|if\ (maxOsr_43\ \>\ 32)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:78741067\<bb\ 9\>:\l\
+|if\ (maxOsr_43\ \>\ 4)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [50.00%]\l\
+}"];
+
+	fn_33_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 10\>:\l\
+|#\ maxOsr_21\ =\ PHI\ \<32(8),\ maxOsr_43(9)\>\l\
+}"];
+
+	fn_33_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105086762\<bb\ 17\>:\l\
+|if\ (osr_20\ \<=\ 7)\l\
+\ \ goto\ \<bb\ 19\>;\ [42.93%]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [57.07%]\l\
+}"];
+
+	fn_33_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59977172\<bb\ 18\>:\l\
+|_104\ =\ osr_20\ +\ 4294967295;\l\
+|_106\ =\ _104\ \<\<\ 24;\l\
+|_108\ =\ _106\ &\ 520093696;\l\
+goto\ \<bb\ 21\>;\ [100.00%]\l\
+}"];
+
+	fn_33_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:45109590\<bb\ 19\>:\l\
+|_98\ =\ osr_20\ +\ 4294967295;\l\
+|_100\ =\ _98\ \<\<\ 24;\l\
+|_102\ =\ _100\ &\ 520093696;\l\
+}"];
+
+	fn_33_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:98426333\<bb\ 20\>:\l\
+|#\ sbr_50\ =\ PHI\ \<sbr_17(19),\ sbr_39(9)\>\l\
+|#\ prephitmp_103\ =\ PHI\ \<_102(19),\ 50331648(9)\>\l\
+|_53\ =\{v\}\ base_32-\>BAUD;\l\
+|_54\ =\ _53\ \|\ 131072;\l\
+|base_32-\>BAUD\ =\{v\}\ _54;\l\
+}"];
+
+	fn_33_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:157482133\<bb\ 21\>:\l\
+|#\ sbr_51\ =\ PHI\ \<sbr_50(20),\ sbr_17(18)\>\l\
+|#\ prephitmp_109\ =\ PHI\ \<prephitmp_103(20),\ _108(18)\>\l\
+|baudRegValTemp_59\ =\{v\}\ base_32-\>BAUD;\l\
+|baudRegValTemp_60\ =\ baudRegValTemp_59\ &\ 3774873599;\l\
+|baudRegValTemp_63\ =\ baudRegValTemp_60\ \|\ prephitmp_109;\l\
+|base_32-\>BAUD\ =\{v\}\ baudRegValTemp_63;\l\
+|baudRegValTemp_55\ =\{v\}\ base_32-\>BAUD;\l\
+|baudRegValTemp_56\ =\ baudRegValTemp_55\ &\ 4294959104;\l\
+|_35\ =\ sbr_51\ &\ 8191;\l\
+|_57\ =\ (long\ unsigned\ int)\ _35;\l\
+|baudRegValTemp_58\ =\ baudRegValTemp_56\ \|\ _57;\l\
+|base_32-\>BAUD\ =\{v\}\ baudRegValTemp_58;\l\
+}"];
+
+	fn_33_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:231499792\<bb\ 22\>:\l\
+|#\ _26\ =\ PHI\ \<0(21),\ 2(3),\ 2(4)\>\l\
+|lpuartSourceClock\ =\{v\}\ \{CLOBBER\};\l\
+|return\ _26;\l\
+}"];
+
+	fn_33_basic_block_0:s -> fn_33_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_2:s -> fn_33_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[82%]"];
+	fn_33_basic_block_2:s -> fn_33_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[17%]"];
+	fn_33_basic_block_3:s -> fn_33_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_33_basic_block_3:s -> fn_33_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_33_basic_block_4:s -> fn_33_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_33_basic_block_4:s -> fn_33_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_33_basic_block_5:s -> fn_33_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_5:s -> fn_33_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_6:s -> fn_33_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_7:s -> fn_33_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_8:s -> fn_33_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_8:s -> fn_33_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_9:s -> fn_33_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_9:s -> fn_33_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_10:s -> fn_33_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_11:s -> fn_33_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_11:s -> fn_33_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_12:s -> fn_33_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_13:s -> fn_33_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_14:s -> fn_33_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_14:s -> fn_33_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_33_basic_block_15:s -> fn_33_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_16:s -> fn_33_basic_block_11:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_33_basic_block_16:s -> fn_33_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_33_basic_block_17:s -> fn_33_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[42%]"];
+	fn_33_basic_block_17:s -> fn_33_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[57%]"];
+	fn_33_basic_block_18:s -> fn_33_basic_block_21:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_19:s -> fn_33_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_20:s -> fn_33_basic_block_21:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_21:s -> fn_33_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_22:s -> fn_33_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_33_basic_block_0:s -> fn_33_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_Init ()";
+	subgraph cluster_19_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_19_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1054951345\<bb\ 3\>:\l\
+|#\ ivtmp.164_62\ =\ PHI\ \<ivtmp.164_56(2),\ ivtmp.164_61(3)\>\l\
+|ivtmp.164_61\ =\ ivtmp.164_62\ +\ 1;\l\
+|_59\ =\ (void\ *)\ ivtmp.164_61;\l\
+|MEM[base:\ _59,\ offset:\ 0B]\ =\ 0;\l\
+|if\ (_58\ !=\ ivtmp.164_61)\l\
+\ \ goto\ \<bb\ 3\>;\ [98.22%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [1.78%]\l\
+}"];
+
+	}
+	fn_19_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_19_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_19_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:18790480\<bb\ 2\>:\l\
+|base_23\ =\ s_lpuartBase[instance_22(D)];\l\
+|instanceClkName_24\ =\ s_lpuartClkNames[instance_22(D)];\l\
+|CLOCK_SYS_GetFreq\ (instanceClkName_24,\ &lpuartSourceClock);\l\
+|_60\ =\ lpuartStatePtr_26(D)\ +\ 4294967295;\l\
+|ivtmp.164_56\ =\ (unsigned\ int)\ _60;\l\
+|_57\ =\ (unsigned\ int)\ lpuartStatePtr_26(D);\l\
+|_58\ =\ _57\ +\ 55;\l\
+}"];
+
+	fn_19_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:18790480\<bb\ 4\>:\l\
+|s_lpuartStatePtr[instance_22(D)]\ =\ lpuartStatePtr_26(D);\l\
+|_2\ =\ lpuartUserConfig_28(D)-\>transferType;\l\
+|lpuartStatePtr_26(D)-\>transferType\ =\ _2;\l\
+|_3\ =\ lpuartUserConfig_28(D)-\>bitCountPerChar;\l\
+|lpuartStatePtr_26(D)-\>bitCountPerChar\ =\ _3;\l\
+|_4\ =\ lpuartUserConfig_28(D)-\>rxDMAChannel;\l\
+|lpuartStatePtr_26(D)-\>rxDMAChannel\ =\ _4;\l\
+|_5\ =\ lpuartUserConfig_28(D)-\>txDMAChannel;\l\
+|lpuartStatePtr_26(D)-\>txDMAChannel\ =\ _5;\l\
+|LPUART_Init\ (base_23);\l\
+|_6\ =\ lpuartUserConfig_28(D)-\>baudRate;\l\
+|LPUART_DRV_SetBaudRate\ (instance_22(D),\ _6);\l\
+|_7\ =\ lpuartUserConfig_28(D)-\>parityMode;\l\
+|if\ (_7\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_19_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9395240\<bb\ 5\>:\l\
+|_8\ =\ lpuartUserConfig_28(D)-\>bitCountPerChar;\l\
+|LPUART_SetBitCountPerChar\ (base_23,\ _8,\ 1);\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_19_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9395240\<bb\ 6\>:\l\
+|_9\ =\ lpuartUserConfig_28(D)-\>bitCountPerChar;\l\
+|LPUART_SetBitCountPerChar\ (base_23,\ _9,\ 0);\l\
+}"];
+
+	fn_19_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:18790480\<bb\ 7\>:\l\
+|_10\ =\ lpuartUserConfig_28(D)-\>parityMode;\l\
+|LPUART_SetParityMode\ (base_23,\ _10);\l\
+|_11\ =\ lpuartUserConfig_28(D)-\>stopBitCount;\l\
+|_49\ =\{v\}\ base_23-\>BAUD;\l\
+|_50\ =\ _49\ &\ 4294959103;\l\
+|_51\ =\ (long\ unsigned\ int)\ _11;\l\
+|_52\ =\ _51\ \<\<\ 13;\l\
+|_53\ =\ _50\ \|\ _52;\l\
+|base_23-\>BAUD\ =\{v\}\ _53;\l\
+|lpuartStatePtr_26(D)-\>transmitStatus\ =\{v\}\ 0;\l\
+|lpuartStatePtr_26(D)-\>receiveStatus\ =\{v\}\ 0;\l\
+|_12\ =\ &lpuartStatePtr_26(D)-\>rxComplete;\l\
+|osStatusRxSem_41\ =\ OSIF_SemaCreate\ (_12,\ 0);\l\
+|_13\ =\ &lpuartStatePtr_26(D)-\>txComplete;\l\
+|osStatusTxSem_43\ =\ OSIF_SemaCreate\ (_13,\ 0);\l\
+|if\ (osStatusRxSem_41\ ==\ 1)\l\
+\ \ goto\ \<bb\ 10\>;\ [20.97%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [79.03%]\l\
+}"];
+
+	fn_19_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:14850116\<bb\ 8\>:\l\
+|if\ (osStatusTxSem_43\ ==\ 1)\l\
+\ \ goto\ \<bb\ 10\>;\ [35.01%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [64.99%]\l\
+}"];
+
+	fn_19_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9651091\<bb\ 9\>:\l\
+|_14\ =\ s_lpuartRxTxIrqId[instance_22(D)];\l\
+|_15\ =\ g_lpuartIsr[instance_22(D)];\l\
+|INT_SYS_InstallHandler\ (_14,\ _15,\ 0B);\l\
+|INT_SYS_EnableIRQ\ (_14);\l\
+}"];
+
+	fn_19_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:18790480\<bb\ 10\>:\l\
+|#\ _17\ =\ PHI\ \<osStatusRxSem_41(7),\ 0(9),\ osStatusTxSem_43(8)\>\l\
+|lpuartSourceClock\ =\{v\}\ \{CLOBBER\};\l\
+|return\ _17;\l\
+}"];
+
+	fn_19_basic_block_0:s -> fn_19_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_2:s -> fn_19_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_3:s -> fn_19_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[98%]"];
+	fn_19_basic_block_3:s -> fn_19_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[1%]"];
+	fn_19_basic_block_4:s -> fn_19_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_4:s -> fn_19_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_19_basic_block_5:s -> fn_19_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_6:s -> fn_19_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_7:s -> fn_19_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_19_basic_block_7:s -> fn_19_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_19_basic_block_8:s -> fn_19_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[35%]"];
+	fn_19_basic_block_8:s -> fn_19_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[64%]"];
+	fn_19_basic_block_9:s -> fn_19_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_19_basic_block_10:s -> fn_19_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_19_basic_block_0:s -> fn_19_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_GetBaudRate" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_GetBaudRate ()";
+	fn_34_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_34_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_34_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|instanceClkName_8\ =\ s_lpuartClkNames[instance_7(D)];\l\
+|base_9\ =\ s_lpuartBase[instance_7(D)];\l\
+|CLOCK_SYS_GetFreq\ (instanceClkName_8,\ &lpuartSourceClock);\l\
+|_18\ =\{v\}\ base_9-\>BAUD;\l\
+|_19\ =\ _18\ \>\>\ 24;\l\
+|_20\ =\ (unsigned\ char)\ _19;\l\
+|_21\ =\ _20\ &\ 31;\l\
+|_15\ =\{v\}\ base_9-\>BAUD;\l\
+|_16\ =\ (short\ unsigned\ int)\ _15;\l\
+|_17\ =\ _16\ &\ 8191;\l\
+|lpuartSourceClock.18_1\ =\ lpuartSourceClock;\l\
+|_11\ =\ _21\ +\ 1;\l\
+|_2\ =\ (long\ unsigned\ int)\ _11;\l\
+|_3\ =\ (long\ unsigned\ int)\ _17;\l\
+|_4\ =\ _2\ *\ _3;\l\
+|_5\ =\ lpuartSourceClock.18_1\ /\ _4;\l\
+|*configuredBaudRate_12(D)\ =\ _5;\l\
+|lpuartSourceClock\ =\{v\}\ \{CLOBBER\};\l\
+|return;\l\
+}"];
+
+	fn_34_basic_block_0:s -> fn_34_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_2:s -> fn_34_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_34_basic_block_0:s -> fn_34_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_SetTxBuffer" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_SetTxBuffer ()";
+	fn_35_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_35_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_35_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_3\ =\ s_lpuartStatePtr[instance_2(D)];\l\
+|lpuartState_3-\>txBuff\ =\ txBuff_4(D);\l\
+|lpuartState_3-\>txSize\ =\{v\}\ txSize_6(D);\l\
+|return\ 0;\l\
+}"];
+
+	fn_35_basic_block_0:s -> fn_35_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_35_basic_block_0:s -> fn_35_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_SetRxBuffer" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_SetRxBuffer ()";
+	fn_36_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_36_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_36_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|lpuartState_3\ =\ s_lpuartStatePtr[instance_2(D)];\l\
+|lpuartState_3-\>rxBuff\ =\ rxBuff_4(D);\l\
+|lpuartState_3-\>rxSize\ =\{v\}\ rxSize_6(D);\l\
+|return\ 0;\l\
+}"];
+
+	fn_36_basic_block_0:s -> fn_36_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_36_basic_block_0:s -> fn_36_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPUART_DRV_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="LPUART_DRV_IRQHandler ()";
+	fn_37_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_37_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_37_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|base_12\ =\ s_lpuartBase[instance_11(D)];\l\
+|lpuartState_23\ =\ s_lpuartStatePtr[instance_11(D)];\l\
+|_25\ =\ LPUART_GetStatusFlag\ (base_12,\ 131091);\l\
+|if\ (_25\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_37_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 3\>:\l\
+|lpuartState_23-\>receiveStatus\ =\{v\}\ 1537;\l\
+|_26\ =\ lpuartState_23-\>transferType;\l\
+|if\ (_26\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_37_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 4\>:\l\
+|LPUART_DRV_CompleteReceiveDataUsingInt\ (instance_11(D));\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 5\>:\l\
+|LPUART_DRV_StopRxDma\ (instance_11(D));\l\
+}"];
+
+	fn_37_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 6\>:\l\
+|_27\ =\ lpuartState_23-\>rxCallback;\l\
+|if\ (_27\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 7\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [30.00%]\l\
+}"];
+
+	fn_37_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 7\>:\l\
+|_28\ =\ lpuartState_23-\>rxCallbackParam;\l\
+|_27\ (lpuartState_23,\ 3,\ _28);\l\
+}"];
+
+	fn_37_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 8\>:\l\
+|_29\ =\{v\}\ MEM[(struct\ LPUART_Type\ *)base_12].STAT;\l\
+|_30\ =\ _29\ &\ 1071661055;\l\
+|_31\ =\ _30\ \|\ 983040;\l\
+|MEM[(struct\ LPUART_Type\ *)base_12].STAT\ =\{v\}\ _31;\l\
+}"];
+
+	fn_37_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|_32\ =\ LPUART_GetStatusFlag\ (base_12,\ 131089);\l\
+|if\ (_32\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+}"];
+
+	fn_37_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 10\>:\l\
+|lpuartState_23-\>receiveStatus\ =\{v\}\ 1539;\l\
+|_33\ =\ lpuartState_23-\>transferType;\l\
+|if\ (_33\ ==\ 1)\l\
+\ \ goto\ \<bb\ 11\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [66.00%]\l\
+}"];
+
+	fn_37_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 11\>:\l\
+|LPUART_DRV_CompleteReceiveDataUsingInt\ (instance_11(D));\l\
+goto\ \<bb\ 13\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 12\>:\l\
+|LPUART_DRV_StopRxDma\ (instance_11(D));\l\
+}"];
+
+	fn_37_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 13\>:\l\
+|_34\ =\ lpuartState_23-\>rxCallback;\l\
+|if\ (_34\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 14\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [30.00%]\l\
+}"];
+
+	fn_37_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 14\>:\l\
+|_35\ =\ lpuartState_23-\>rxCallbackParam;\l\
+|_34\ (lpuartState_23,\ 3,\ _35);\l\
+}"];
+
+	fn_37_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 15\>:\l\
+|_36\ =\{v\}\ MEM[(struct\ LPUART_Type\ *)base_12].STAT;\l\
+|_37\ =\ _36\ &\ 1071661055;\l\
+|_38\ =\ _37\ \|\ 983040;\l\
+|MEM[(struct\ LPUART_Type\ *)base_12].STAT\ =\{v\}\ _38;\l\
+}"];
+
+	fn_37_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 16\>:\l\
+|_39\ =\ LPUART_GetStatusFlag\ (base_12,\ 131088);\l\
+|if\ (_39\ !=\ 0)\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [50.00%]\l\
+}"];
+
+	fn_37_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 17\>:\l\
+|lpuartState_23-\>receiveStatus\ =\{v\}\ 1540;\l\
+|_40\ =\ lpuartState_23-\>transferType;\l\
+|if\ (_40\ ==\ 1)\l\
+\ \ goto\ \<bb\ 18\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [66.00%]\l\
+}"];
+
+	fn_37_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 18\>:\l\
+|LPUART_DRV_CompleteReceiveDataUsingInt\ (instance_11(D));\l\
+goto\ \<bb\ 20\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 19\>:\l\
+|LPUART_DRV_StopRxDma\ (instance_11(D));\l\
+}"];
+
+	fn_37_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 20\>:\l\
+|_41\ =\ lpuartState_23-\>rxCallback;\l\
+|if\ (_41\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 21\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [30.00%]\l\
+}"];
+
+	fn_37_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 21\>:\l\
+|_42\ =\ lpuartState_23-\>rxCallbackParam;\l\
+|_41\ (lpuartState_23,\ 3,\ _42);\l\
+}"];
+
+	fn_37_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 22\>:\l\
+|_43\ =\{v\}\ MEM[(struct\ LPUART_Type\ *)base_12].STAT;\l\
+|_44\ =\ _43\ &\ 1071661055;\l\
+|_45\ =\ _44\ \|\ 983040;\l\
+|MEM[(struct\ LPUART_Type\ *)base_12].STAT\ =\{v\}\ _45;\l\
+}"];
+
+	fn_37_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 23\>:\l\
+|_46\ =\ LPUART_GetStatusFlag\ (base_12,\ 131090);\l\
+|if\ (_46\ !=\ 0)\l\
+\ \ goto\ \<bb\ 24\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 30\>;\ [50.00%]\l\
+}"];
+
+	fn_37_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 24\>:\l\
+|lpuartState_23-\>receiveStatus\ =\{v\}\ 1541;\l\
+|_47\ =\ lpuartState_23-\>transferType;\l\
+|if\ (_47\ ==\ 1)\l\
+\ \ goto\ \<bb\ 25\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 26\>;\ [66.00%]\l\
+}"];
+
+	fn_37_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 25\>:\l\
+|LPUART_DRV_CompleteReceiveDataUsingInt\ (instance_11(D));\l\
+goto\ \<bb\ 27\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 26\>:\l\
+|LPUART_DRV_StopRxDma\ (instance_11(D));\l\
+}"];
+
+	fn_37_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 27\>:\l\
+|_48\ =\ lpuartState_23-\>rxCallback;\l\
+|if\ (_48\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 28\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 29\>;\ [30.00%]\l\
+}"];
+
+	fn_37_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 28\>:\l\
+|_49\ =\ lpuartState_23-\>rxCallbackParam;\l\
+|_48\ (lpuartState_23,\ 3,\ _49);\l\
+}"];
+
+	fn_37_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 29\>:\l\
+|_50\ =\{v\}\ MEM[(struct\ LPUART_Type\ *)base_12].STAT;\l\
+|_51\ =\ _50\ &\ 1071661055;\l\
+|_52\ =\ _51\ \|\ 983040;\l\
+|MEM[(struct\ LPUART_Type\ *)base_12].STAT\ =\{v\}\ _52;\l\
+}"];
+
+	fn_37_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 30\>:\l\
+|_1\ =\ LPUART_GetIntMode\ (base_12,\ 196629);\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 32\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 31\>;\ [67.00%]\l\
+}"];
+
+	fn_37_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1046730883\<bb\ 31\>:\l\
+goto\ \<bb\ 42\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 32\>:\l\
+|_2\ =\ LPUART_GetStatusFlag\ (base_12,\ 131093);\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 33\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 31\>;\ [67.00%]\l\
+}"];
+
+	fn_37_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930483\<bb\ 33\>:\l\
+|lpuartState_53\ =\ s_lpuartStatePtr[instance_11(D)];\l\
+|LPUART_DRV_GetData\ (instance_11(D));\l\
+|_54\ =\ lpuartState_53-\>bitCountPerChar;\l\
+|if\ (_54\ ==\ 0)\l\
+\ \ goto\ \<bb\ 34\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 35\>;\ [50.00%]\l\
+}"];
+
+	fn_37_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58465242\<bb\ 34\>:\l\
+|_55\ =\ lpuartState_53-\>rxBuff;\l\
+|_56\ =\ _55\ +\ 1;\l\
+|lpuartState_53-\>rxBuff\ =\ _56;\l\
+|_57\ =\{v\}\ lpuartState_53-\>rxSize;\l\
+|_58\ =\ _57\ +\ 4294967295;\l\
+|lpuartState_53-\>rxSize\ =\{v\}\ _58;\l\
+goto\ \<bb\ 36\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58465242\<bb\ 35\>:\l\
+|_59\ =\ lpuartState_53-\>rxBuff;\l\
+|_60\ =\ _59\ +\ 2;\l\
+|lpuartState_53-\>rxBuff\ =\ _60;\l\
+|_61\ =\{v\}\ lpuartState_53-\>rxSize;\l\
+|_62\ =\ _61\ +\ 4294967294;\l\
+|lpuartState_53-\>rxSize\ =\{v\}\ _62;\l\
+}"];
+
+	fn_37_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930483\<bb\ 36\>:\l\
+|_63\ =\{v\}\ lpuartState_53-\>rxSize;\l\
+|if\ (_63\ ==\ 0)\l\
+\ \ goto\ \<bb\ 37\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 39\>;\ [50.00%]\l\
+}"];
+
+	fn_37_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58465242\<bb\ 37\>:\l\
+|_64\ =\ lpuartState_53-\>rxCallback;\l\
+|if\ (_64\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 38\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 39\>;\ [30.00%]\l\
+}"];
+
+	fn_37_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40925669\<bb\ 38\>:\l\
+|_65\ =\ lpuartState_53-\>rxCallbackParam;\l\
+|_64\ (lpuartState_53,\ 0,\ _65);\l\
+}"];
+
+	fn_37_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930483\<bb\ 39\>:\l\
+|_66\ =\{v\}\ lpuartState_53-\>rxSize;\l\
+|if\ (_66\ ==\ 0)\l\
+\ \ goto\ \<bb\ 40\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 31\>;\ [67.00%]\l\
+}"];
+
+	fn_37_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38587059\<bb\ 40\>:\l\
+|LPUART_DRV_CompleteReceiveDataUsingInt\ (instance_11(D));\l\
+|_67\ =\ lpuartState_53-\>rxCallback;\l\
+|if\ (_67\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 41\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 31\>;\ [30.00%]\l\
+}"];
+
+	fn_37_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:27010942\<bb\ 41\>:\l\
+|_68\ =\ lpuartState_53-\>rxCallbackParam;\l\
+|_67\ (lpuartState_53,\ 2,\ _68);\l\
+}"];
+
+	fn_37_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741825\<bb\ 42\>:\l\
+|_3\ =\ LPUART_GetIntMode\ (base_12,\ 196631);\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 44\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 43\>;\ [67.00%]\l\
+}"];
+
+	fn_37_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1067374961\<bb\ 43\>:\l\
+goto\ \<bb\ 54\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 44\>:\l\
+|_4\ =\ LPUART_GetStatusFlag\ (base_12,\ 131095);\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 45\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 43\>;\ [67.00%]\l\
+}"];
+
+	fn_37_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930483\<bb\ 45\>:\l\
+|lpuartState_69\ =\ s_lpuartStatePtr[instance_11(D)];\l\
+|_71\ =\{v\}\ lpuartState_69-\>txSize;\l\
+|if\ (_71\ !=\ 0)\l\
+\ \ goto\ \<bb\ 46\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 43\>;\ [67.00%]\l\
+}"];
+
+	fn_37_basic_block_46 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38587059\<bb\ 46\>:\l\
+|LPUART_DRV_PutData\ (instance_11(D));\l\
+|_72\ =\ lpuartState_69-\>bitCountPerChar;\l\
+|if\ (_72\ ==\ 0)\l\
+\ \ goto\ \<bb\ 47\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 48\>;\ [50.00%]\l\
+}"];
+
+	fn_37_basic_block_47 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19293530\<bb\ 47\>:\l\
+|_73\ =\ lpuartState_69-\>txBuff;\l\
+|_74\ =\ _73\ +\ 1;\l\
+|lpuartState_69-\>txBuff\ =\ _74;\l\
+|_75\ =\{v\}\ lpuartState_69-\>txSize;\l\
+|_76\ =\ _75\ +\ 4294967295;\l\
+|lpuartState_69-\>txSize\ =\{v\}\ _76;\l\
+goto\ \<bb\ 49\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_48 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19293530\<bb\ 48\>:\l\
+|_77\ =\ lpuartState_69-\>txBuff;\l\
+|_78\ =\ _77\ +\ 2;\l\
+|lpuartState_69-\>txBuff\ =\ _78;\l\
+|_79\ =\{v\}\ lpuartState_69-\>txSize;\l\
+|_80\ =\ _79\ +\ 4294967294;\l\
+|lpuartState_69-\>txSize\ =\{v\}\ _80;\l\
+}"];
+
+	fn_37_basic_block_49 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38587059\<bb\ 49\>:\l\
+|_81\ =\{v\}\ lpuartState_69-\>txSize;\l\
+|if\ (_81\ ==\ 0)\l\
+\ \ goto\ \<bb\ 50\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 43\>;\ [50.00%]\l\
+}"];
+
+	fn_37_basic_block_50 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19293530\<bb\ 50\>:\l\
+|_82\ =\ lpuartState_69-\>txCallback;\l\
+|if\ (_82\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 51\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 52\>;\ [30.00%]\l\
+}"];
+
+	fn_37_basic_block_51 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:13505471\<bb\ 51\>:\l\
+|_83\ =\ lpuartState_69-\>txCallbackParam;\l\
+|_82\ (lpuartState_69,\ 1,\ _83);\l\
+}"];
+
+	fn_37_basic_block_52 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19293530\<bb\ 52\>:\l\
+|_84\ =\{v\}\ lpuartState_69-\>txSize;\l\
+|if\ (_84\ ==\ 0)\l\
+\ \ goto\ \<bb\ 53\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 43\>;\ [67.00%]\l\
+}"];
+
+	fn_37_basic_block_53 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:6366865\<bb\ 53\>:\l\
+|LPUART_SetIntMode\ (base_12,\ 196631,\ 0);\l\
+|LPUART_SetIntMode\ (base_12,\ 196630,\ 1);\l\
+}"];
+
+	fn_37_basic_block_54 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741825\<bb\ 54\>:\l\
+|_5\ =\ LPUART_GetIntMode\ (base_12,\ 196630);\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 56\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 55\>;\ [67.00%]\l\
+}"];
+
+	fn_37_basic_block_55 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1032816156\<bb\ 55\>:\l\
+goto\ \<bb\ 63\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_56 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 56\>:\l\
+|_6\ =\ LPUART_GetStatusFlag\ (base_12,\ 131094);\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 57\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 55\>;\ [67.00%]\l\
+}"];
+
+	fn_37_basic_block_57 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930483\<bb\ 57\>:\l\
+|lpuartState_85\ =\ s_lpuartStatePtr[instance_11(D)];\l\
+|_86\ =\{v\}\ lpuartState_85-\>txSize;\l\
+|if\ (_86\ ==\ 0)\l\
+\ \ goto\ \<bb\ 58\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 55\>;\ [50.00%]\l\
+}"];
+
+	fn_37_basic_block_58 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58465242\<bb\ 58\>:\l\
+|_87\ =\ lpuartState_85-\>transferType;\l\
+|if\ (_87\ ==\ 1)\l\
+\ \ goto\ \<bb\ 59\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 60\>;\ [66.00%]\l\
+}"];
+
+	fn_37_basic_block_59 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19878182\<bb\ 59\>:\l\
+|LPUART_DRV_CompleteSendDataUsingInt\ (instance_11(D));\l\
+goto\ \<bb\ 61\>;\ [100.00%]\l\
+}"];
+
+	fn_37_basic_block_60 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:38587059\<bb\ 60\>:\l\
+|LPUART_DRV_StopTxDma\ (instance_11(D));\l\
+}"];
+
+	fn_37_basic_block_61 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58465242\<bb\ 61\>:\l\
+|_88\ =\ lpuartState_85-\>txCallback;\l\
+|if\ (_88\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 62\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 55\>;\ [30.00%]\l\
+}"];
+
+	fn_37_basic_block_62 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40925669\<bb\ 62\>:\l\
+|_89\ =\ lpuartState_85-\>txCallbackParam;\l\
+|_88\ (lpuartState_85,\ 2,\ _89);\ [tail\ call]\l\
+}"];
+
+	fn_37_basic_block_63 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741825\<bb\ 63\>:\l\
+|return;\l\
+}"];
+
+	fn_37_basic_block_0:s -> fn_37_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_2:s -> fn_37_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_2:s -> fn_37_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_3:s -> fn_37_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_37_basic_block_3:s -> fn_37_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_37_basic_block_4:s -> fn_37_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_5:s -> fn_37_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_6:s -> fn_37_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_37_basic_block_6:s -> fn_37_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_37_basic_block_7:s -> fn_37_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_8:s -> fn_37_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_9:s -> fn_37_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_9:s -> fn_37_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_10:s -> fn_37_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_37_basic_block_10:s -> fn_37_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_37_basic_block_11:s -> fn_37_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_12:s -> fn_37_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_13:s -> fn_37_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_37_basic_block_13:s -> fn_37_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_37_basic_block_14:s -> fn_37_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_15:s -> fn_37_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_16:s -> fn_37_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_16:s -> fn_37_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_17:s -> fn_37_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_37_basic_block_17:s -> fn_37_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_37_basic_block_18:s -> fn_37_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_19:s -> fn_37_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_20:s -> fn_37_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_37_basic_block_20:s -> fn_37_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_37_basic_block_21:s -> fn_37_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_22:s -> fn_37_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_23:s -> fn_37_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_23:s -> fn_37_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_24:s -> fn_37_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_37_basic_block_24:s -> fn_37_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_37_basic_block_25:s -> fn_37_basic_block_27:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_26:s -> fn_37_basic_block_27:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_27:s -> fn_37_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_37_basic_block_27:s -> fn_37_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_37_basic_block_28:s -> fn_37_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_29:s -> fn_37_basic_block_30:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_30:s -> fn_37_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_30:s -> fn_37_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_31:s -> fn_37_basic_block_42:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_32:s -> fn_37_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_32:s -> fn_37_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_33:s -> fn_37_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_33:s -> fn_37_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_34:s -> fn_37_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_35:s -> fn_37_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_36:s -> fn_37_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_36:s -> fn_37_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_37:s -> fn_37_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_37_basic_block_37:s -> fn_37_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_37_basic_block_38:s -> fn_37_basic_block_39:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_39:s -> fn_37_basic_block_40:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_39:s -> fn_37_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_40:s -> fn_37_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_37_basic_block_40:s -> fn_37_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_37_basic_block_41:s -> fn_37_basic_block_42:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_42:s -> fn_37_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_42:s -> fn_37_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_43:s -> fn_37_basic_block_54:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_44:s -> fn_37_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_44:s -> fn_37_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_45:s -> fn_37_basic_block_46:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_45:s -> fn_37_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_46:s -> fn_37_basic_block_47:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_46:s -> fn_37_basic_block_48:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_47:s -> fn_37_basic_block_49:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_48:s -> fn_37_basic_block_49:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_49:s -> fn_37_basic_block_50:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_49:s -> fn_37_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_50:s -> fn_37_basic_block_51:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_37_basic_block_50:s -> fn_37_basic_block_52:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_37_basic_block_51:s -> fn_37_basic_block_52:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_52:s -> fn_37_basic_block_53:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_52:s -> fn_37_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_53:s -> fn_37_basic_block_54:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_54:s -> fn_37_basic_block_56:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_54:s -> fn_37_basic_block_55:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_55:s -> fn_37_basic_block_63:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_56:s -> fn_37_basic_block_57:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_37_basic_block_56:s -> fn_37_basic_block_55:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_37_basic_block_57:s -> fn_37_basic_block_58:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_57:s -> fn_37_basic_block_55:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_37_basic_block_58:s -> fn_37_basic_block_59:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_37_basic_block_58:s -> fn_37_basic_block_60:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_37_basic_block_59:s -> fn_37_basic_block_61:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_60:s -> fn_37_basic_block_61:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_61:s -> fn_37_basic_block_62:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_37_basic_block_61:s -> fn_37_basic_block_55:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_37_basic_block_62:s -> fn_37_basic_block_63:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_63:s -> fn_37_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_37_basic_block_0:s -> fn_37_basic_block_1:n [style="invis",constraint=true];
+}
+}

@@ -1,0 +1,13 @@
+
+;; Function ERM_Init (ERM_Init, funcdef_no=6, decl_uid=6316, cgraph_uid=7, symbol_order=6)
+
+ERM_Init (struct ERM_Type * const base)
+{
+  <bb 2> [local count: 1073741824]:
+  base_2(D)->CR0 ={v} 0;
+  base_2(D)->SR0 ={v} 4294967295;
+  return;
+
+}
+
+

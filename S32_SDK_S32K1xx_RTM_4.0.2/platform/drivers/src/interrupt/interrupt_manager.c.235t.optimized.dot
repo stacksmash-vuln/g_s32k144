@@ -1,0 +1,427 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/interrupt/interrupt_manager.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_INT_SYS_InstallHandler" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_InstallHandler ()";
+	fn_0_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_0_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_0_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (&__VECTOR_RAM\ !=\ &__VECTOR_TABLE)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [30.00%]\l\
+}"];
+
+	fn_0_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:322122544\<bb\ 3\>:\l\
+|if\ (&__DATA_ROM\ ==\ &__DATA_END)\l\
+\ \ goto\ \<bb\ 4\>;\ [30.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [70.00%]\l\
+}"];
+
+	fn_0_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:848256043\<bb\ 4\>:\l\
+|if\ (oldHandler_15(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 6\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [30.00%]\l\
+}"];
+
+	fn_0_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:254476810\<bb\ 5\>:\l\
+|_20\ =\ (sizetype)\ irqNumber_16(D);\l\
+|_22\ =\ _20\ +\ 16;\l\
+|_24\ =\ _22\ *\ 4;\l\
+|_26\ =\ &__VECTOR_RAM\ +\ _24;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_0_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:593779233\<bb\ 6\>:\l\
+|_1\ =\ (sizetype)\ irqNumber_16(D);\l\
+|_2\ =\ _1\ +\ 16;\l\
+|_3\ =\ _2\ *\ 4;\l\
+|_4\ =\ &__VECTOR_RAM\ +\ _3;\l\
+|_5\ =\ *_4;\l\
+|_6\ =\ (void\ (*\<T5ff\>)\ (void))\ _5;\l\
+|*oldHandler_15(D)\ =\ _6;\l\
+}"];
+
+	fn_0_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:848256043\<bb\ 7\>:\l\
+|#\ prephitmp_27\ =\ PHI\ \<_4(6),\ _26(5)\>\l\
+|newHandler.0_11\ =\ (long\ unsigned\ int)\ newHandler_18(D);\l\
+|MEM[(uint32_t\ *)prephitmp_27]\ =\ newHandler.0_11;\l\
+}"];
+
+	fn_0_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|return;\l\
+}"];
+
+	fn_0_basic_block_0:s -> fn_0_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_2:s -> fn_0_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_0_basic_block_2:s -> fn_0_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_0_basic_block_3:s -> fn_0_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_0_basic_block_3:s -> fn_0_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_0_basic_block_4:s -> fn_0_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_0_basic_block_4:s -> fn_0_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_0_basic_block_5:s -> fn_0_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_6:s -> fn_0_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_7:s -> fn_0_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_0_basic_block_8:s -> fn_0_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_0_basic_block_0:s -> fn_0_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_EnableIRQ" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_EnableIRQ ()";
+	fn_1_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_1_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_1_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|irqNumber.1_1\ =\ (unsigned\ char)\ irqNumber_7(D);\l\
+|_3\ =\ irqNumber.1_1\ &\ 31;\l\
+|_2\ =\ (long\ unsigned\ int)\ _3;\l\
+|_4\ =\ (long\ unsigned\ int)\ irqNumber_7(D);\l\
+|_5\ =\ _4\ \>\>\ 5;\l\
+|_6\ =\ 1\ \<\<\ _2;\l\
+|MEM[(struct\ S32_NVIC_Type\ *)3758153984B].ISER[_5]\ =\{v\}\ _6;\l\
+|return;\l\
+}"];
+
+	fn_1_basic_block_0:s -> fn_1_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_1_basic_block_2:s -> fn_1_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_1_basic_block_0:s -> fn_1_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_DisableIRQ" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_DisableIRQ ()";
+	fn_2_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_2_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_2_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|irqNumber.2_1\ =\ (unsigned\ char)\ irqNumber_7(D);\l\
+|_3\ =\ irqNumber.2_1\ &\ 31;\l\
+|_2\ =\ (long\ unsigned\ int)\ _3;\l\
+|_4\ =\ (long\ unsigned\ int)\ irqNumber_7(D);\l\
+|_5\ =\ _4\ \>\>\ 5;\l\
+|_6\ =\ 1\ \<\<\ _2;\l\
+|MEM[(struct\ S32_NVIC_Type\ *)3758153984B].ICER[_5]\ =\{v\}\ _6;\l\
+|return;\l\
+}"];
+
+	fn_2_basic_block_0:s -> fn_2_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_2_basic_block_2:s -> fn_2_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_2_basic_block_0:s -> fn_2_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_EnableIRQGlobal" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_EnableIRQGlobal ()";
+	fn_3_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_3_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_3_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|g_interruptDisableCount.3_1\ =\ g_interruptDisableCount;\l\
+|if\ (g_interruptDisableCount.3_1\ \>\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [59.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [41.00%]\l\
+}"];
+
+	fn_3_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:756987985\<bb\ 3\>:\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_3_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:633507681\<bb\ 4\>:\l\
+|_2\ =\ g_interruptDisableCount.3_1\ +\ -1;\l\
+|g_interruptDisableCount\ =\ _2;\l\
+|if\ (_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_3_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:316753840\<bb\ 5\>:\l\
+|__asm__\ __volatile__(\"cpsie\ i\"\ :\ \ :\ \ :\ \"memory\");\l\
+}"];
+
+	fn_3_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|return;\l\
+}"];
+
+	fn_3_basic_block_0:s -> fn_3_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_3_basic_block_2:s -> fn_3_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[59%]"];
+	fn_3_basic_block_2:s -> fn_3_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[41%]"];
+	fn_3_basic_block_3:s -> fn_3_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_3_basic_block_4:s -> fn_3_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_3_basic_block_4:s -> fn_3_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_3_basic_block_5:s -> fn_3_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_3_basic_block_6:s -> fn_3_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_3_basic_block_0:s -> fn_3_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_DisableIRQGlobal" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_DisableIRQGlobal ()";
+	fn_4_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_4_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_4_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|__asm__\ __volatile__(\"cpsid\ i\"\ :\ \ :\ \ :\ \"memory\");\l\
+|g_interruptDisableCount.6_1\ =\ g_interruptDisableCount;\l\
+|_2\ =\ g_interruptDisableCount.6_1\ +\ 1;\l\
+|g_interruptDisableCount\ =\ _2;\l\
+|return;\l\
+}"];
+
+	fn_4_basic_block_0:s -> fn_4_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_4_basic_block_2:s -> fn_4_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_4_basic_block_0:s -> fn_4_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_SetPriority" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_SetPriority ()";
+	fn_5_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_5_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_5_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (irqNumber_15(D)\ \<\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [41.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [59.00%]\l\
+}"];
+
+	fn_5_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:440234144\<bb\ 3\>:\l\
+|irqNumber.7_1\ =\ (unsigned\ char)\ irqNumber_15(D);\l\
+|_14\ =\ irqNumber.7_1\ &\ 15;\l\
+|intVectorId_19\ =\ (uint32_t)\ _14;\l\
+|regId_20\ =\ intVectorId_19\ \>\>\ 2;\l\
+|if\ (regId_20\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [34.00%]\l\
+}"];
+
+	fn_5_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:290554534\<bb\ 4\>:\l\
+|if\ (regId_20\ ==\ 2)\l\
+\ \ goto\ \<bb\ 6\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_5_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:191765991\<bb\ 5\>:\l\
+}"];
+
+	fn_5_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:440234144\<bb\ 6\>:\l\
+|#\ iftmp.8_12\ =\ PHI\ \<3758157080B(3),\ 3758157084B(4),\ 3758157088B(5)\>\l\
+|_2\ =\ (long\ unsigned\ int)\ priority_16(D);\l\
+|_3\ =\ _2\ \<\<\ 4;\l\
+|_8\ =\ irqNumber.7_1\ &\ 3;\l\
+|_4\ =\ (sizetype)\ _8;\l\
+|_5\ =\ iftmp.8_12\ +\ _4;\l\
+|_6\ =\ (unsigned\ char)\ _3;\l\
+|*_5\ =\{v\}\ _6;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_5_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:633507681\<bb\ 7\>:\l\
+|_7\ =\ (long\ unsigned\ int)\ priority_16(D);\l\
+|_9\ =\ _7\ \<\<\ 4;\l\
+|_10\ =\ (long\ unsigned\ int)\ irqNumber_15(D);\l\
+|_11\ =\ (unsigned\ char)\ _9;\l\
+|MEM[(struct\ S32_NVIC_Type\ *)3758153984B].IP[_10]\ =\{v\}\ _11;\l\
+}"];
+
+	fn_5_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|return;\l\
+}"];
+
+	fn_5_basic_block_0:s -> fn_5_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_2:s -> fn_5_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[41%]"];
+	fn_5_basic_block_2:s -> fn_5_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[59%]"];
+	fn_5_basic_block_3:s -> fn_5_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_5_basic_block_3:s -> fn_5_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_5_basic_block_4:s -> fn_5_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_5_basic_block_4:s -> fn_5_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_5_basic_block_5:s -> fn_5_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_6:s -> fn_5_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_7:s -> fn_5_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_8:s -> fn_5_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_5_basic_block_0:s -> fn_5_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_GetPriority" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_GetPriority ()";
+	fn_6_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_6_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_6_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (irqNumber_15(D)\ \<\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [41.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [59.00%]\l\
+}"];
+
+	fn_6_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:440234144\<bb\ 3\>:\l\
+|irqNumber.10_1\ =\ (unsigned\ char)\ irqNumber_15(D);\l\
+|_13\ =\ irqNumber.10_1\ &\ 15;\l\
+|intVectorId_18\ =\ (uint32_t)\ _13;\l\
+|regId_19\ =\ intVectorId_18\ \>\>\ 2;\l\
+|if\ (regId_19\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [34.00%]\l\
+}"];
+
+	fn_6_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:290554534\<bb\ 4\>:\l\
+|if\ (regId_19\ ==\ 2)\l\
+\ \ goto\ \<bb\ 6\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_6_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:191765991\<bb\ 5\>:\l\
+}"];
+
+	fn_6_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:440234144\<bb\ 6\>:\l\
+|#\ iftmp.11_12\ =\ PHI\ \<3758157080B(3),\ 3758157084B(4),\ 3758157088B(5)\>\l\
+|_14\ =\ irqNumber.10_1\ &\ 3;\l\
+|_2\ =\ (sizetype)\ _14;\l\
+|_3\ =\ iftmp.11_12\ +\ _2;\l\
+|_4\ =\{v\}\ *_3;\l\
+|_5\ =\ (int)\ _4;\l\
+|_6\ =\ _5\ \>\>\ 4;\l\
+|priority_20\ =\ (uint8_t)\ _6;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_6_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:633507681\<bb\ 7\>:\l\
+|_7\ =\ (long\ unsigned\ int)\ irqNumber_15(D);\l\
+|_8\ =\{v\}\ MEM[(struct\ S32_NVIC_Type\ *)3758153984B].IP[_7];\l\
+|_9\ =\ (int)\ _8;\l\
+|_10\ =\ _9\ \>\>\ 4;\l\
+|priority_17\ =\ (uint8_t)\ _10;\l\
+}"];
+
+	fn_6_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ priority_11\ =\ PHI\ \<priority_20(6),\ priority_17(7)\>\l\
+|return\ priority_11;\l\
+}"];
+
+	fn_6_basic_block_0:s -> fn_6_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[41%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[59%]"];
+	fn_6_basic_block_3:s -> fn_6_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_6_basic_block_3:s -> fn_6_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_6_basic_block_4:s -> fn_6_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_6_basic_block_4:s -> fn_6_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_6_basic_block_5:s -> fn_6_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_6:s -> fn_6_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_7:s -> fn_6_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_8:s -> fn_6_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_6_basic_block_0:s -> fn_6_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_ClearPending" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_ClearPending ()";
+	fn_7_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_7_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_7_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|irqNumber.13_1\ =\ (unsigned\ char)\ irqNumber_7(D);\l\
+|_3\ =\ irqNumber.13_1\ &\ 31;\l\
+|_2\ =\ (long\ unsigned\ int)\ _3;\l\
+|_4\ =\ (long\ unsigned\ int)\ irqNumber_7(D);\l\
+|_5\ =\ _4\ \>\>\ 5;\l\
+|_6\ =\ 1\ \<\<\ _2;\l\
+|MEM[(struct\ S32_NVIC_Type\ *)3758153984B].ICPR[_5]\ =\{v\}\ _6;\l\
+|return;\l\
+}"];
+
+	fn_7_basic_block_0:s -> fn_7_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_7_basic_block_0:s -> fn_7_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_SetPending" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_SetPending ()";
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|irqNumber.14_1\ =\ (unsigned\ char)\ irqNumber_7(D);\l\
+|_3\ =\ irqNumber.14_1\ &\ 31;\l\
+|_2\ =\ (long\ unsigned\ int)\ _3;\l\
+|_4\ =\ (long\ unsigned\ int)\ irqNumber_7(D);\l\
+|_5\ =\ _4\ \>\>\ 5;\l\
+|_6\ =\ 1\ \<\<\ _2;\l\
+|MEM[(struct\ S32_NVIC_Type\ *)3758153984B].ISPR[_5]\ =\{v\}\ _6;\l\
+|return;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_GetPending" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_GetPending ()";
+	fn_9_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_9_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_9_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\ (long\ unsigned\ int)\ irqNumber_8(D);\l\
+|_3\ =\ _2\ \>\>\ 5;\l\
+|_4\ =\{v\}\ MEM[(struct\ S32_NVIC_Type\ *)3758153984B].ISPR[_3];\l\
+|irqNumber.15_5\ =\ (unsigned\ char)\ irqNumber_8(D);\l\
+|_1\ =\ irqNumber.15_5\ &\ 31;\l\
+|_6\ =\ (long\ unsigned\ int)\ _1;\l\
+|_7\ =\ _4\ \>\>\ _6;\l\
+|_10\ =\ _7\ &\ 1;\l\
+|return\ _10;\l\
+}"];
+
+	fn_9_basic_block_0:s -> fn_9_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_9_basic_block_0:s -> fn_9_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_INT_SYS_GetActive" {
+	style="dashed";
+	color="black";
+	label="INT_SYS_GetActive ()";
+	fn_10_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_10_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_10_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\ (long\ unsigned\ int)\ irqNumber_8(D);\l\
+|_3\ =\ _2\ \>\>\ 5;\l\
+|_4\ =\{v\}\ MEM[(struct\ S32_NVIC_Type\ *)3758153984B].IABR[_3];\l\
+|irqNumber.16_5\ =\ (unsigned\ char)\ irqNumber_8(D);\l\
+|_1\ =\ irqNumber.16_5\ &\ 31;\l\
+|_6\ =\ (long\ unsigned\ int)\ _1;\l\
+|_7\ =\ _4\ \>\>\ _6;\l\
+|_10\ =\ _7\ &\ 1;\l\
+|return\ _10;\l\
+}"];
+
+	fn_10_basic_block_0:s -> fn_10_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_10_basic_block_0:s -> fn_10_basic_block_1:n [style="invis",constraint=true];
+}
+}

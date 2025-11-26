@@ -1,0 +1,3478 @@
+
+;; Function FLEXCAN_GetRxFifoMask (FLEXCAN_GetRxFifoMask, funcdef_no=59, decl_uid=7398, cgraph_uid=60, symbol_order=59)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+FLEXCAN_GetRxFifoMask (flexcan_msgbuff_id_type_t id_type, flexcan_rx_fifo_id_element_format_t formatType, uint32_t mask)
+{
+  uint32_t val;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+
+  <bb 2> [local count: 1073741824]:
+  if (formatType_11(D) == 1)
+    goto <bb 9>; [25.00%]
+  else
+    goto <bb 3>; [75.00%]
+
+  <bb 3> [local count: 1073741824]:
+  if (formatType_11(D) == 2)
+    goto <bb 13>; [33.33%]
+  else
+    goto <bb 4>; [66.67%]
+
+  <bb 4> [local count: 1073741824]:
+  if (formatType_11(D) == 0)
+    goto <bb 5>; [33.33%]
+  else
+    goto <bb 15>; [66.67%]
+
+  <bb 5> [local count: 268435456]:
+  val_17 = mask_13(D) & 3221225472;
+  if (id_type_12(D) == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 134217728]:
+  _1 = mask_13(D) << 19;
+  _2 = _1 & 1073217536;
+  val_19 = _2 | val_17;
+  goto <bb 15>; [100.00%]
+
+  <bb 7> [local count: 134217728]:
+  if (id_type_12(D) == 1)
+    goto <bb 8>; [34.00%]
+  else
+    goto <bb 15>; [66.00%]
+
+  <bb 8> [local count: 45634028]:
+  _3 = mask_13(D) << 1;
+  _4 = _3 & 1073741823;
+  val_18 = _4 | val_17;
+  goto <bb 15>; [100.00%]
+
+  <bb 9> [local count: 268435456]:
+  val_14 = mask_13(D) & 3221225472;
+  if (id_type_12(D) == 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 134217728]:
+  _5 = mask_13(D) << 19;
+  _6 = _5 & 1073217536;
+  val_16 = _6 | val_14;
+  goto <bb 15>; [100.00%]
+
+  <bb 11> [local count: 134217728]:
+  if (id_type_12(D) == 1)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 15>; [66.00%]
+
+  <bb 12> [local count: 45634028]:
+  _7 = mask_13(D) << 16;
+  _8 = _7 & 1073676288;
+  val_15 = _8 | val_14;
+  goto <bb 15>; [100.00%]
+
+  <bb 13> [local count: 268435456]:
+  if (id_type_12(D) <= 1)
+    goto <bb 14>; [41.00%]
+  else
+    goto <bb 15>; [59.00%]
+
+  <bb 14> [local count: 110058536]:
+  _9 = mask_13(D) << 24;
+
+  <bb 15> [local count: 1073741824]:
+  # val_10 = PHI <val_14(11), 0(4), _9(14), val_15(12), val_17(7), val_19(6), val_18(8), val_16(10), 0(13)>
+  return val_10;
+
+}
+
+
+
+;; Function FLEXCAN_GetMaxMbNum (FLEXCAN_GetMaxMbNum, funcdef_no=62, decl_uid=7394, cgraph_uid=63, symbol_order=62)
+
+Removing basic block 5
+Removing basic block 7
+Removing basic block 8
+FLEXCAN_GetMaxMbNum (const struct CAN_Type * base)
+{
+  uint32_t ret;
+
+  <bb 2> [local count: 268435456]:
+  if (base_7(D) == 1073889280B)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 3>; [70.00%]
+
+  <bb 3> [local count: 187904820]:
+  if (base_7(D) == 1073893376B)
+    goto <bb 6>; [42.86%]
+  else
+    goto <bb 4>; [57.14%]
+
+  <bb 4> [local count: 107374184]:
+  if (base_7(D) == 1073917952B)
+    goto <bb 6>; [75.00%]
+  else
+    goto <bb 5>; [25.00%]
+
+  <bb 5> [local count: 26843547]:
+
+  <bb 6> [local count: 268435456]:
+  # ret_25 = PHI <16(3), 16(4), 32(2), 0(5)>
+  return ret_25;
+
+}
+
+
+
+;; Function FLEXCAN_GetMsgBuffRegion (FLEXCAN_GetMsgBuffRegion, funcdef_no=64, decl_uid=7475, cgraph_uid=65, symbol_order=64)
+
+Removing basic block 5
+FLEXCAN_GetMsgBuffRegion (struct CAN_Type * base, uint32_t msgBuffIdx)
+{
+  uint32_t payloadSize;
+  uint32_t mb_index;
+  uint32_t ramBlockOffset;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _7;
+  sizetype _10;
+  volatile uint32_t * _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  sizetype _25;
+  unsigned char _46;
+  unsigned char _47;
+  long unsigned int _48;
+  long unsigned int _50;
+  long unsigned int prephitmp_51;
+  unsigned char _52;
+  long unsigned int _54;
+  long unsigned int prephitmp_55;
+
+  <bb 2> [local count: 1073741824]:
+  _16 ={v} MEM[(const struct CAN_Type *)base_9(D)].MCR;
+  _17 = _16 & 2048;
+  if (_17 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _18 ={v} MEM[(const struct CAN_Type *)base_9(D)].FDCTRL;
+  _19 = _18 >> 16;
+  _20 = _19 & 3;
+  _21 = _20 + 3;
+  payloadSize_22 = 1 << _21;
+  _46 = (unsigned char) payloadSize_22;
+  _47 = _46 + 8;
+  _48 = (long unsigned int) _47;
+  _50 = 512 / _48;
+  _52 = _47 >> 2;
+  _54 = (long unsigned int) _52;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_51 = PHI <_50(3), 32(2)>
+  # prephitmp_55 = PHI <_54(3), 4(2)>
+  _3 = msgBuffIdx_12(D) / prephitmp_51;
+  ramBlockOffset_13 = _3 * 128;
+  _4 = msgBuffIdx_12(D) % prephitmp_51;
+  _7 = _4 * prephitmp_55;
+  mb_index_14 = _7 + ramBlockOffset_13;
+  _10 = mb_index_14 + 32;
+  _25 = _10 * 4;
+  _15 = base_9(D) + _25;
+  return _15;
+
+}
+
+
+
+;; Function FLEXCAN_Enable (FLEXCAN_Enable, funcdef_no=65, decl_uid=7400, cgraph_uid=66, symbol_order=65)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FLEXCAN_Enable (struct CAN_Type * base)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+
+  <bb 2> [local count: 236223200]:
+  _1 ={v} base_14(D)->MCR;
+  _2 = _1 >> 20;
+  _3 = _2 & 1;
+  if (_3 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 118111600]:
+  _4 ={v} base_14(D)->MCR;
+  _5 = _4 & 2147483647;
+  base_14(D)->MCR ={v} _5;
+  _6 ={v} base_14(D)->MCR;
+  _7 = _6 & 3221225471;
+  base_14(D)->MCR ={v} _7;
+  _8 ={v} base_14(D)->MCR;
+  _9 = _8 & 4026531839;
+  base_14(D)->MCR ={v} _9;
+
+  <bb 4> [local count: 1073741824]:
+  _10 ={v} base_14(D)->MCR;
+  _11 = _10 & 134217728;
+  if (_11 != 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 236223200]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_Disable (FLEXCAN_Disable, funcdef_no=66, decl_uid=7402, cgraph_uid=67, symbol_order=66)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FLEXCAN_Disable (struct CAN_Type * base)
+{
+  long unsigned int _1;
+  signed int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 200189151]:
+  _1 ={v} base_9(D)->MCR;
+  _2 = (signed int) _1;
+  if (_2 >= 0)
+    goto <bb 3>; [59.00%]
+  else
+    goto <bb 5>; [41.00%]
+
+  <bb 3> [local count: 118111600]:
+  _3 ={v} base_9(D)->MCR;
+  _4 = _3 | 2147483648;
+  base_9(D)->MCR ={v} _4;
+
+  <bb 4> [local count: 1073741824]:
+  _5 ={v} base_9(D)->MCR;
+  _6 = _5 & 1048576;
+  if (_6 == 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 200189151]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_Init (FLEXCAN_Init, funcdef_no=67, decl_uid=7414, cgraph_uid=68, symbol_order=67)
+
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+FLEXCAN_Init (struct CAN_Type * base)
+{
+  unsigned int ivtmp.95;
+  unsigned int ivtmp.89;
+  uint32_t RAM_size;
+  volatile uint32_t * RAM;
+  uint32_t ret;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  volatile uint32_t * _31;
+  volatile uint32_t * _36;
+  unsigned int _44;
+  unsigned int _49;
+  unsigned int _58;
+  unsigned int _69;
+  volatile uint32_t * _70;
+  unsigned int _72;
+  unsigned int _76;
+
+  <bb 2> [local count: 118111600]:
+  _1 ={v} base_8(D)->MCR;
+  _2 = _1 | 33554432;
+  base_8(D)->MCR ={v} _2;
+
+  <bb 3> [local count: 1073741824]:
+  _3 ={v} base_8(D)->MCR;
+  _4 = _3 & 33554432;
+  if (_4 != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  _5 ={v} base_8(D)->MCR;
+  _6 = _5 | 4096;
+  base_8(D)->MCR ={v} _6;
+  if (base_8(D) == 1073889280B)
+    goto <bb 5>; [30.00%]
+  else
+    goto <bb 6>; [70.00%]
+
+  <bb 5> [local count: 35433480]:
+  RAM_64 = &MEM[(struct CAN_Type *)1073889280B].RAMn;
+  goto <bb 10>; [100.00%]
+
+  <bb 6> [local count: 82678120]:
+  if (base_8(D) == 1073893376B)
+    goto <bb 7>; [42.86%]
+  else
+    goto <bb 8>; [57.14%]
+
+  <bb 7> [local count: 35433480]:
+  RAM_61 = &MEM[(struct CAN_Type *)1073893376B].RAMn;
+  goto <bb 10>; [100.00%]
+
+  <bb 8> [local count: 47244640]:
+  if (base_8(D) == 1073917952B)
+    goto <bb 9>; [42.86%]
+  else
+    goto <bb 14>; [57.14%]
+
+  <bb 9> [local count: 35433480]:
+  RAM_66 = &MEM[(struct CAN_Type *)1073917952B].RAMn;
+
+  <bb 10> [local count: 105119324]:
+  # RAM_size_40 = PHI <64(7), 64(9), 128(5)>
+  # RAM_18 = PHI <RAM_61(7), RAM_66(9), RAM_64(5)>
+  # ret_68 = PHI <16(7), 16(9), 32(5)>
+  ivtmp.95_11 = (unsigned int) RAM_18;
+  _69 = RAM_size_40 * 4;
+  _76 = ivtmp.95_11 + _69;
+
+  <bb 11> [local count: 955630225]:
+  # ivtmp.95_34 = PHI <ivtmp.95_11(10), ivtmp.95_77(11)>
+  _31 = (volatile uint32_t *) ivtmp.95_34;
+  *_31 ={v} 0;
+  ivtmp.95_77 = ivtmp.95_34 + 4;
+  if (_76 != ivtmp.95_77)
+    goto <bb 11>; [89.00%]
+  else
+    goto <bb 12>; [11.00%]
+
+  <bb 12> [local count: 105119324]:
+  _70 = base_8(D) + 2176;
+  ivtmp.89_52 = (unsigned int) _70;
+  _58 = ret_68 * 4;
+  _49 = (unsigned int) base_8(D);
+  _72 = _49 + 2176;
+  _44 = _58 + _72;
+
+  <bb 13> [local count: 955630225]:
+  # ivtmp.89_60 = PHI <ivtmp.89_52(12), ivtmp.89_55(13)>
+  _36 = (volatile uint32_t *) ivtmp.89_60;
+  *_36 ={v} 0;
+  ivtmp.89_55 = ivtmp.89_60 + 4;
+  if (_44 != ivtmp.89_55)
+    goto <bb 13>; [89.00%]
+  else
+    goto <bb 14>; [11.00%]
+
+  <bb 14> [local count: 132116261]:
+  base_8(D)->RXMGMASK ={v} 4294967295;
+  base_8(D)->RX14MASK ={v} 4294967295;
+  base_8(D)->RX15MASK ={v} 4294967295;
+  base_8(D)->IMASK1 ={v} 0;
+  base_8(D)->IFLAG1 ={v} 4294967295;
+  base_8(D)->ESR1 ={v} 3866630;
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_SetTxMsgBuff (FLEXCAN_SetTxMsgBuff, funcdef_no=68, decl_uid=7482, cgraph_uid=69, symbol_order=68)
+
+Removing basic block 45
+Removing basic block 46
+Removing basic block 47
+Removing basic block 48
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+Removing basic block 57
+Removing basic block 58
+Removing basic block 59
+Removing basic block 60
+Removing basic block 61
+Removing basic block 62
+Removing basic block 63
+Removing basic block 64
+Removing basic block 65
+Removing basic block 66
+Removing basic block 67
+Removing basic block 68
+FLEXCAN_SetTxMsgBuff (struct CAN_Type * base, uint32_t msgBuffIdx, const struct flexcan_msgbuff_code_status_t * cs, uint32_t msgId, const uint8_t * msgData, const _Bool isRemote)
+{
+  unsigned int ivtmp.109;
+  uint32_t payloadSize;
+  uint32_t mb_index;
+  uint32_t ramBlockOffset;
+  uint32_t ret;
+  static const uint8_t payload_code[65] = "\x00\x01\x02\x03\x04\x05\x06\x07\b\t\t\t\t\n\n\n\n\v\v\v\v\f\f\f\f\r\r\r\r\r\r\r\r\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f\x0f";
+  volatile uint8_t * flexcan_mb_data;
+  status_t stat;
+  uint32_t databyte;
+  uint32_t flexcan_mb_config;
+  uint32_t val1;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _5;
+  sizetype _6;
+  _Bool _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  unsigned char _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  volatile uint32_t * _14;
+  const uint32_t * _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  sizetype _19;
+  long unsigned int _20;
+  volatile uint8_t * _21;
+  unsigned char _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  volatile uint8_t * _25;
+  unsigned char _26;
+  <unnamed type> _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _42;
+  _Bool _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  _Bool _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  const uint8_t * _53;
+  long unsigned int _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _62;
+  long unsigned int _64;
+  long unsigned int _66;
+  long unsigned int _69;
+  sizetype _70;
+  long unsigned int _107;
+  long unsigned int _108;
+  int _109;
+  unsigned char _110;
+  long unsigned int _112;
+  sizetype _113;
+  sizetype _115;
+  long unsigned int _116;
+  long unsigned int _117;
+  long unsigned int _118;
+  long unsigned int _119;
+  long unsigned int _120;
+  long unsigned int _121;
+  long unsigned int _129;
+  long unsigned int _131;
+  long unsigned int _134;
+  volatile uint32_t * _136;
+  unsigned char _137;
+  unsigned char _139;
+  long unsigned int _149;
+  unsigned char _151;
+  long unsigned int _154;
+  long unsigned int prephitmp_155;
+  unsigned char _157;
+  unsigned char _158;
+  long unsigned int prephitmp_167;
+  long unsigned int prephitmp_168;
+  long unsigned int prephitmp_170;
+  long unsigned int _171;
+  long unsigned int prephitmp_172;
+  long unsigned int _176;
+  long unsigned int _177;
+  long unsigned int _179;
+  long unsigned int _180;
+  volatile uint32_t * _182;
+  void * _186;
+  long unsigned int _187;
+  long unsigned int prephitmp_188;
+  long unsigned int _189;
+  long unsigned int prephitmp_190;
+  long unsigned int _191;
+  long unsigned int _192;
+  long unsigned int _193;
+  long unsigned int _195;
+  long unsigned int _196;
+  long unsigned int _197;
+  long unsigned int prephitmp_198;
+  long unsigned int prephitmp_205;
+  long unsigned int _206;
+  long unsigned int _208;
+  long unsigned int prephitmp_209;
+  long unsigned int _210;
+  long unsigned int prephitmp_211;
+
+  <bb 2> [local count: 409044501]:
+  _116 ={v} MEM[(const struct CAN_Type *)base_72(D)].MCR;
+  _117 = _116 & 2048;
+  if (_117 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 204522251]:
+  _118 ={v} MEM[(const struct CAN_Type *)base_72(D)].FDCTRL;
+  _119 = _118 >> 16;
+  _120 = _119 & 3;
+  _121 = _120 + 3;
+  payloadSize_122 = 1 << _121;
+  _158 = (unsigned char) payloadSize_122;
+  _157 = _158 + 8;
+  _149 = (long unsigned int) _157;
+  _154 = 512 / _149;
+  _151 = _157 >> 2;
+  _187 = (long unsigned int) _151;
+
+  <bb 4> [local count: 409044501]:
+  # prephitmp_155 = PHI <_154(3), 32(2)>
+  # prephitmp_188 = PHI <_187(3), 4(2)>
+  _1 ={v} base_72(D)->MCR;
+  _2 = _1 & 127;
+  if (_2 < msgBuffIdx_73(D))
+    goto <bb 43>; [50.00%]
+  else
+    goto <bb 42>; [50.00%]
+
+  <bb 5> [local count: 102261126]:
+  _5 ={v} base_72(D)->CTRL2;
+  goto <bb 40>; [100.00%]
+
+  <bb 6> [local count: 168730857]:
+  _107 ={v} MEM[(const struct CAN_Type *)base_72(D)].MCR;
+  _108 = _107 & 2048;
+  if (_108 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 7> [local count: 84365428]:
+  _7 = cs_80(D)->enable_brs;
+  if (_7 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 42182714]:
+  _8 ={v} base_72(D)->FDCTRL;
+  _9 = _8 | 2147483648;
+  base_72(D)->FDCTRL ={v} _9;
+
+  <bb 9> [local count: 168730857]:
+  _131 = msgBuffIdx_73(D) % prephitmp_155;
+  _134 = _131 * prephitmp_188;
+  _129 = msgBuffIdx_73(D) / prephitmp_155;
+  ramBlockOffset_130 = _129 * 128;
+  mb_index_135 = ramBlockOffset_130 + _134;
+  _113 = mb_index_135 + 32;
+  _6 = _113 * 4;
+  _136 = base_72(D) + _6;
+  _10 = cs_80(D)->dataLen;
+  _11 = (unsigned char) _10;
+  if (_11 <= 64)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 41>; [50.00%]
+
+  <bb 10> [local count: 84365428]:
+  _69 = _10 & 255;
+  _109 = (int) _69;
+  _110 = payload_code[_109];
+  ret_111 = (uint32_t) _110;
+  if (msgData_77(D) != 0B)
+    goto <bb 11>; [70.00%]
+  else
+    goto <bb 24>; [30.00%]
+
+  <bb 11> [local count: 59055800]:
+  if (ret_111 <= 8)
+    goto <bb 12>; [100.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 12> [local count: 59055800]:
+  _193 = ret_111 << 16;
+  _197 = _193 & 983040;
+  goto <bb 16>; [100.00%]
+
+  <bb 13> [local count: 29527900]:
+  _137 = _110 + 247;
+  if (_137 <= 6)
+    goto <bb 15>; [100.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 14> [local count: 0]:
+  _191 = ret_111 << 16;
+  _195 = _191 & 983040;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [local count: 29527900]:
+  _139 = CSWTCH.32[_137];
+  _189 = (long unsigned int) _139;
+  _192 = ret_111 << 16;
+  _196 = _192 & 983040;
+
+  <bb 16> [local count: 59055800]:
+  # prephitmp_190 = PHI <0(14), _189(15), ret_111(12)>
+  # prephitmp_198 = PHI <_195(14), _196(15), _197(12)>
+  _171 = _10 & 4294967292;
+  if (_171 != 0)
+    goto <bb 17>; [78.00%]
+  else
+    goto <bb 19>; [22.00%]
+
+  <bb 17> [local count: 105119324]:
+  # prephitmp_172 = PHI <prephitmp_190(16), 0(41)>
+  # prephitmp_168 = PHI <prephitmp_198(16), 983040(41)>
+
+  <bb 18> [local count: 955630225]:
+  # databyte_60 = PHI <0(17), databyte_89(18)>
+  _12 = databyte_60 >> 2;
+  _13 = _12 * 4;
+  _70 = _13 + 8;
+  _14 = _136 + _70;
+  _15 = msgData_77(D) + _13;
+  _16 = *_15;
+  __asm__ __volatile__("rev %0, %1" : "=r" *_14 : "r" _16);
+  databyte_89 = databyte_60 + 4;
+  _17 = cs_80(D)->dataLen;
+  _18 = _17 & 4294967292;
+  if (_18 > databyte_89)
+    goto <bb 18>; [89.00%]
+  else
+    goto <bb 19>; [11.00%]
+
+  <bb 19> [local count: 118111600]:
+  # databyte_4 = PHI <_171(16), databyte_89(18)>
+  # prephitmp_205 = PHI <_10(16), _17(18)>
+  # prephitmp_170 = PHI <prephitmp_190(16), prephitmp_172(18)>
+  # prephitmp_167 = PHI <prephitmp_198(16), prephitmp_168(18)>
+  flexcan_mb_data_76 = _136 + 8;
+  if (databyte_4 < prephitmp_205)
+    goto <bb 20>; [89.00%]
+  else
+    goto <bb 22>; [11.00%]
+
+  <bb 20> [local count: 105119324]:
+  _115 = databyte_4 + 4294967295;
+  _53 = msgData_77(D) + _115;
+  ivtmp.109_184 = (unsigned int) _53;
+
+  <bb 21> [local count: 955630225]:
+  # databyte_3 = PHI <databyte_4(20), databyte_87(21)>
+  # ivtmp.109_185 = PHI <ivtmp.109_184(20), ivtmp.109_123(21)>
+  _20 = databyte_3 ^ 3;
+  _21 = flexcan_mb_data_76 + _20;
+  ivtmp.109_123 = ivtmp.109_185 + 1;
+  _186 = (void *) ivtmp.109_123;
+  _22 = MEM[base: _186, offset: 0B];
+  *_21 ={v} _22;
+  databyte_87 = databyte_3 + 1;
+  _23 = cs_80(D)->dataLen;
+  if (_23 > databyte_87)
+    goto <bb 21>; [89.00%]
+  else
+    goto <bb 22>; [11.00%]
+
+  <bb 22> [local count: 118111600]:
+  # _112 = PHI <prephitmp_205(19), _23(21)>
+  if (_112 < prephitmp_170)
+    goto <bb 23>; [89.00%]
+  else
+    goto <bb 25>; [11.00%]
+
+  <bb 23> [local count: 955630225]:
+  # databyte_74 = PHI <_112(22), databyte_85(23)>
+  _24 = databyte_74 ^ 3;
+  _25 = flexcan_mb_data_76 + _24;
+  _26 = cs_80(D)->fd_padding;
+  *_25 ={v} _26;
+  databyte_85 = databyte_74 + 1;
+  if (databyte_85 != prephitmp_170)
+    goto <bb 23>; [89.00%]
+  else
+    goto <bb 25>; [11.00%]
+
+  <bb 24> [local count: 25309628]:
+  _206 = ret_111 << 16;
+  _208 = _206 & 983040;
+
+  <bb 25> [local count: 168730857]:
+  # prephitmp_209 = PHI <_208(24), prephitmp_167(22), prephitmp_167(23), 983040(41)>
+  _19 = mb_index_135 * 4;
+  _182 = base_72(D) + _19;
+  MEM[(volatile uint32_t *)_182 + 128B] ={v} 0;
+  MEM[(volatile uint32_t *)_136 + 4B] ={v} 0;
+  _28 = cs_80(D)->msgIdType;
+  if (_28 == 1)
+    goto <bb 26>; [34.00%]
+  else
+    goto <bb 27>; [66.00%]
+
+  <bb 26> [local count: 57368492]:
+  _29 ={v} MEM[(volatile uint32_t *)_136 + 4B];
+  _30 = _29 & 3758096384;
+  MEM[(volatile uint32_t *)_136 + 4B] ={v} _30;
+  _31 ={v} MEM[(volatile uint32_t *)_136 + 4B];
+  _32 = msgId_93(D) & 536870911;
+  _33 = _31 | _32;
+  MEM[(volatile uint32_t *)_136 + 4B] ={v} _33;
+  _210 = prephitmp_209 | 2097152;
+  goto <bb 29>; [100.00%]
+
+  <bb 27> [local count: 111362365]:
+  if (_28 == 0)
+    goto <bb 28>; [75.76%]
+  else
+    goto <bb 29>; [24.24%]
+
+  <bb 28> [local count: 84365428]:
+  _34 ={v} MEM[(volatile uint32_t *)_136 + 4B];
+  _35 = _34 & 3758358527;
+  MEM[(volatile uint32_t *)_136 + 4B] ={v} _35;
+  _36 ={v} MEM[(volatile uint32_t *)_136 + 4B];
+  _37 = msgId_93(D) << 18;
+  _38 = _37 & 536608768;
+  _39 = _36 | _38;
+  MEM[(volatile uint32_t *)_136 + 4B] ={v} _39;
+
+  <bb 29> [local count: 168730857]:
+  # prephitmp_211 = PHI <_210(26), prephitmp_209(28), prephitmp_209(27)>
+  _42 = cs_80(D)->code;
+  if (_42 != 15)
+    goto <bb 30>; [66.00%]
+  else
+    goto <bb 40>; [34.00%]
+
+  <bb 30> [local count: 111362365]:
+  if (_42 == 28)
+    goto <bb 31>; [34.00%]
+  else
+    goto <bb 32>; [66.00%]
+
+  <bb 31> [local count: 37863204]:
+  flexcan_mb_config_101 = prephitmp_211 | 1048576;
+  goto <bb 34>; [100.00%]
+
+  <bb 32> [local count: 73499160]:
+  if (isRemote_99(D) != 0)
+    goto <bb 33>; [50.00%]
+  else
+    goto <bb 34>; [50.00%]
+
+  <bb 33> [local count: 36749580]:
+  flexcan_mb_config_100 = prephitmp_211 | 1048576;
+
+  <bb 34> [local count: 111362365]:
+  # flexcan_mb_config_54 = PHI <flexcan_mb_config_101(31), flexcan_mb_config_100(33), prephitmp_211(32)>
+  _43 = cs_80(D)->fd_enable;
+  if (_43 != 0)
+    goto <bb 35>; [50.00%]
+  else
+    goto <bb 36>; [50.00%]
+
+  <bb 35> [local count: 55681182]:
+  _44 = _42 << 24;
+  _45 = _44 & 251658240;
+  _46 = _45 | flexcan_mb_config_54;
+  flexcan_mb_config_103 = _46 | 2147483648;
+  goto <bb 37>; [100.00%]
+
+  <bb 36> [local count: 55681182]:
+  _47 = _42 << 24;
+  _48 = _47 & 251658240;
+  flexcan_mb_config_102 = _48 | flexcan_mb_config_54;
+
+  <bb 37> [local count: 111362365]:
+  # flexcan_mb_config_55 = PHI <flexcan_mb_config_103(35), flexcan_mb_config_102(36)>
+  _49 = cs_80(D)->enable_brs;
+  if (_49 != 0)
+    goto <bb 38>; [50.00%]
+  else
+    goto <bb 39>; [50.00%]
+
+  <bb 38> [local count: 55681182]:
+  flexcan_mb_config_104 = flexcan_mb_config_55 | 1073741824;
+
+  <bb 39> [local count: 111362365]:
+  # flexcan_mb_config_56 = PHI <flexcan_mb_config_104(38), flexcan_mb_config_55(37)>
+  _50 ={v} MEM[(volatile uint32_t *)_182 + 128B];
+  _51 = _50 | flexcan_mb_config_56;
+  MEM[(volatile uint32_t *)_182 + 128B] ={v} _51;
+
+  <bb 40> [local count: 409044502]:
+  # stat_97 = PHI <768(5), 768(43), 0(39), 0(29), 768(44)>
+  return stat_97;
+
+  <bb 41> [local count: 84365429]:
+  if (msgData_77(D) != 0B)
+    goto <bb 17>; [70.00%]
+  else
+    goto <bb 25>; [30.00%]
+
+  <bb 42> [local count: 204522250]:
+  _176 ={v} base_72(D)->MCR;
+  _177 = _176 & 536870912;
+  if (_177 != 0)
+    goto <bb 44>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 43> [local count: 204522251]:
+  _179 ={v} base_72(D)->MCR;
+  _180 = _179 & 536870912;
+  if (_180 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 40>; [50.00%]
+
+  <bb 44> [local count: 102261125]:
+  _64 ={v} base_72(D)->CTRL2;
+  _59 = _64 >> 24;
+  val1_63 = _59 & 15;
+  _58 = val1_63 + 1;
+  _62 = _58 * 8;
+  _57 = _62 >> 2;
+  _66 = _57 + 5;
+  if (_66 >= msgBuffIdx_73(D))
+    goto <bb 40>; [35.00%]
+  else
+    goto <bb 6>; [65.00%]
+
+}
+
+
+
+;; Function FLEXCAN_AbortTxMsgBuff (FLEXCAN_AbortTxMsgBuff, funcdef_no=69, decl_uid=7485, cgraph_uid=70, symbol_order=69)
+
+Removing basic block 5
+FLEXCAN_AbortTxMsgBuff (struct CAN_Type * base, uint32_t msgBuffIdx)
+{
+  uint32_t payloadSize;
+  uint32_t mb_index;
+  uint32_t ramBlockOffset;
+  uint32_t flexcan_mb_config;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  sizetype _17;
+  long unsigned int _23;
+  long unsigned int _25;
+  long unsigned int _28;
+  volatile uint32_t * _40;
+  unsigned char _41;
+  unsigned char _43;
+  long unsigned int _45;
+  long unsigned int _47;
+  long unsigned int prephitmp_48;
+  unsigned char _49;
+  long unsigned int _51;
+  long unsigned int prephitmp_52;
+
+  <bb 2> [local count: 1073741824]:
+  _10 ={v} MEM[(const struct CAN_Type *)base_2(D)].MCR;
+  _11 = _10 & 2048;
+  if (_11 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _12 ={v} MEM[(const struct CAN_Type *)base_2(D)].FDCTRL;
+  _13 = _12 >> 16;
+  _14 = _13 & 3;
+  _15 = _14 + 3;
+  payloadSize_16 = 1 << _15;
+  _41 = (unsigned char) payloadSize_16;
+  _43 = _41 + 8;
+  _45 = (long unsigned int) _43;
+  _47 = 512 / _45;
+  _49 = _43 >> 2;
+  _51 = (long unsigned int) _49;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_48 = PHI <_47(3), 32(2)>
+  # prephitmp_52 = PHI <_51(3), 4(2)>
+  _23 = msgBuffIdx_3(D) / prephitmp_48;
+  ramBlockOffset_24 = _23 * 128;
+  _25 = msgBuffIdx_3(D) % prephitmp_48;
+  _28 = _25 * prephitmp_52;
+  mb_index_29 = ramBlockOffset_24 + _28;
+  _17 = mb_index_29 * 4;
+  _40 = base_2(D) + _17;
+  flexcan_mb_config_6 ={v} MEM[(volatile uint32_t *)_40 + 128B];
+  flexcan_mb_config_7 = flexcan_mb_config_6 & 4043309055;
+  flexcan_mb_config_8 = flexcan_mb_config_7 | 150994944;
+  MEM[(volatile uint32_t *)_40 + 128B] ={v} flexcan_mb_config_8;
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_ResetRxMsgBuff (FLEXCAN_ResetRxMsgBuff, funcdef_no=70, decl_uid=7488, cgraph_uid=71, symbol_order=70)
+
+Removing basic block 5
+FLEXCAN_ResetRxMsgBuff (struct CAN_Type * base, uint32_t msgBuffIdx)
+{
+  uint32_t payloadSize;
+  uint32_t mb_index;
+  uint32_t ramBlockOffset;
+  uint32_t flexcan_mb_config;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  sizetype _18;
+  long unsigned int _24;
+  long unsigned int _26;
+  long unsigned int _29;
+  volatile uint32_t * _41;
+  unsigned char _42;
+  unsigned char _44;
+  long unsigned int _46;
+  long unsigned int _48;
+  long unsigned int prephitmp_49;
+  unsigned char _50;
+  long unsigned int _52;
+  long unsigned int prephitmp_53;
+
+  <bb 2> [local count: 1073741824]:
+  _11 ={v} MEM[(const struct CAN_Type *)base_2(D)].MCR;
+  _12 = _11 & 2048;
+  if (_12 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _13 ={v} MEM[(const struct CAN_Type *)base_2(D)].FDCTRL;
+  _14 = _13 >> 16;
+  _15 = _14 & 3;
+  _16 = _15 + 3;
+  payloadSize_17 = 1 << _16;
+  _42 = (unsigned char) payloadSize_17;
+  _44 = _42 + 8;
+  _46 = (long unsigned int) _44;
+  _48 = 512 / _46;
+  _50 = _44 >> 2;
+  _52 = (long unsigned int) _50;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_49 = PHI <_48(3), 32(2)>
+  # prephitmp_53 = PHI <_52(3), 4(2)>
+  _24 = msgBuffIdx_3(D) / prephitmp_49;
+  ramBlockOffset_25 = _24 * 128;
+  _26 = msgBuffIdx_3(D) % prephitmp_49;
+  _29 = _26 * prephitmp_53;
+  mb_index_30 = ramBlockOffset_25 + _29;
+  _18 = mb_index_30 * 4;
+  _41 = base_2(D) + _18;
+  flexcan_mb_config_6 ={v} MEM[(volatile uint32_t *)_41 + 128B];
+  flexcan_mb_config_7 = flexcan_mb_config_6 & 4043309055;
+  MEM[(volatile uint32_t *)_41 + 128B] ={v} flexcan_mb_config_7;
+  flexcan_mb_config_9 = flexcan_mb_config_7 | 67108864;
+  MEM[(volatile uint32_t *)_41 + 128B] ={v} flexcan_mb_config_9;
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_SetRxMsgBuff (FLEXCAN_SetRxMsgBuff, funcdef_no=71, decl_uid=7493, cgraph_uid=72, symbol_order=71)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+FLEXCAN_SetRxMsgBuff (struct CAN_Type * base, uint32_t msgBuffIdx, const struct flexcan_msgbuff_code_status_t * cs, uint32_t msgId)
+{
+  uint32_t payloadSize;
+  uint32_t mb_index;
+  uint32_t ramBlockOffset;
+  status_t stat;
+  uint32_t val1;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  sizetype _6;
+  <unnamed type> _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  sizetype _42;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long unsigned int _65;
+  long unsigned int _66;
+  sizetype _68;
+  long unsigned int _74;
+  long unsigned int _76;
+  long unsigned int _79;
+  volatile uint32_t * _81;
+  long unsigned int _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  long unsigned int _97;
+  long unsigned int _98;
+  long unsigned int _99;
+  volatile uint32_t * _101;
+  unsigned char _102;
+  unsigned char _104;
+  long unsigned int _106;
+  long unsigned int _108;
+  long unsigned int prephitmp_109;
+  unsigned char _110;
+  long unsigned int _112;
+  long unsigned int prephitmp_113;
+
+  <bb 2> [local count: 1073741823]:
+  _61 ={v} MEM[(const struct CAN_Type *)base_38(D)].MCR;
+  _62 = _61 & 2048;
+  if (_62 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  _63 ={v} MEM[(const struct CAN_Type *)base_38(D)].FDCTRL;
+  _64 = _63 >> 16;
+  _65 = _64 & 3;
+  _66 = _65 + 3;
+  payloadSize_67 = 1 << _66;
+  _102 = (unsigned char) payloadSize_67;
+  _104 = _102 + 8;
+  _106 = (long unsigned int) _104;
+  _108 = 512 / _106;
+  _110 = _104 >> 2;
+  _112 = (long unsigned int) _110;
+
+  <bb 4> [local count: 1073741823]:
+  # prephitmp_109 = PHI <_108(3), 32(2)>
+  # prephitmp_113 = PHI <_112(3), 4(2)>
+  _1 ={v} base_38(D)->MCR;
+  _2 = _1 & 127;
+  if (_2 < msgBuffIdx_39(D))
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 5> [local count: 268435455]:
+  _5 ={v} base_38(D)->CTRL2;
+  goto <bb 12>; [100.00%]
+
+  <bb 6> [local count: 442918501]:
+  _76 = msgBuffIdx_39(D) % prephitmp_109;
+  _79 = _76 * prephitmp_113;
+  _74 = msgBuffIdx_39(D) / prephitmp_109;
+  ramBlockOffset_75 = _74 * 128;
+  mb_index_80 = ramBlockOffset_75 + _79;
+  _6 = mb_index_80 + 32;
+  _42 = _6 * 4;
+  _81 = base_38(D) + _42;
+  _68 = mb_index_80 * 4;
+  _101 = base_38(D) + _68;
+  MEM[(volatile uint32_t *)_101 + 128B] ={v} 0;
+  MEM[(volatile uint32_t *)_81 + 4B] ={v} 0;
+  _7 = cs_46(D)->msgIdType;
+  if (_7 == 1)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 150592292]:
+  _8 ={v} MEM[(volatile uint32_t *)_101 + 128B];
+  _9 = _8 | 2097152;
+  MEM[(volatile uint32_t *)_101 + 128B] ={v} _9;
+  _10 ={v} MEM[(volatile uint32_t *)_101 + 128B];
+  _11 = _10 & 4290772991;
+  MEM[(volatile uint32_t *)_101 + 128B] ={v} _11;
+  _12 ={v} MEM[(volatile uint32_t *)_81 + 4B];
+  _13 = _12 & 3758096384;
+  MEM[(volatile uint32_t *)_81 + 4B] ={v} _13;
+  _14 ={v} MEM[(volatile uint32_t *)_81 + 4B];
+  _15 = msgId_50(D) & 536870911;
+  _16 = _14 | _15;
+  MEM[(volatile uint32_t *)_81 + 4B] ={v} _16;
+  goto <bb 10>; [100.00%]
+
+  <bb 8> [local count: 292326209]:
+  if (_7 == 0)
+    goto <bb 9>; [75.76%]
+  else
+    goto <bb 10>; [24.24%]
+
+  <bb 9> [local count: 221459251]:
+  _17 ={v} MEM[(volatile uint32_t *)_101 + 128B];
+  _18 = _17 & 4288675839;
+  MEM[(volatile uint32_t *)_101 + 128B] ={v} _18;
+  _19 ={v} MEM[(volatile uint32_t *)_81 + 4B];
+  _20 = _19 & 3758358527;
+  MEM[(volatile uint32_t *)_81 + 4B] ={v} _20;
+  _21 ={v} MEM[(volatile uint32_t *)_81 + 4B];
+  _22 = msgId_50(D) << 18;
+  _23 = _22 & 536608768;
+  _24 = _21 | _23;
+  MEM[(volatile uint32_t *)_81 + 4B] ={v} _24;
+
+  <bb 10> [local count: 442918501]:
+  _25 = cs_46(D)->code;
+  if (_25 != 15)
+    goto <bb 11>; [66.00%]
+  else
+    goto <bb 12>; [34.00%]
+
+  <bb 11> [local count: 292326209]:
+  _26 ={v} MEM[(volatile uint32_t *)_101 + 128B];
+  _27 = _26 & 4043309055;
+  MEM[(volatile uint32_t *)_101 + 128B] ={v} _27;
+  _28 ={v} MEM[(volatile uint32_t *)_101 + 128B];
+  _29 = cs_46(D)->code;
+  _30 = _29 << 24;
+  _31 = _30 & 251658240;
+  _32 = _28 | _31;
+  MEM[(volatile uint32_t *)_101 + 128B] ={v} _32;
+
+  <bb 12> [local count: 1073741824]:
+  # stat_57 = PHI <768(5), 768(14), 0(11), 0(10), 768(15)>
+  return stat_57;
+
+  <bb 13> [local count: 536870912]:
+  _95 ={v} base_38(D)->MCR;
+  _96 = _95 & 536870912;
+  if (_96 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 14> [local count: 536870911]:
+  _98 ={v} base_38(D)->MCR;
+  _99 = _98 & 536870912;
+  if (_99 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 15> [local count: 268435456]:
+  _94 ={v} base_38(D)->CTRL2;
+  _97 = _94 >> 24;
+  val1_34 = _97 & 15;
+  _93 = val1_34 + 1;
+  _33 = _93 * 8;
+  _4 = _33 >> 2;
+  _3 = _4 + 5;
+  if (_3 >= msgBuffIdx_39(D))
+    goto <bb 12>; [35.00%]
+  else
+    goto <bb 6>; [65.00%]
+
+}
+
+
+
+;; Function FLEXCAN_GetMsgBuff (FLEXCAN_GetMsgBuff, funcdef_no=72, decl_uid=7497, cgraph_uid=73, symbol_order=72)
+
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+FLEXCAN_GetMsgBuff (struct CAN_Type * base, uint32_t msgBuffIdx, struct flexcan_msgbuff_t * msgBuff)
+{
+  unsigned int ivtmp.134;
+  uint32_t payloadSize;
+  uint32_t mb_index;
+  uint32_t ramBlockOffset;
+  uint32_t payloadSize;
+  uint8_t ret;
+  uint32_t payloadSize;
+  uint8_t payload_size;
+  uint8_t flexcan_mb_dlc_value;
+  uint32_t mbWord;
+  uint32_t * msgBuff_data_32;
+  uint8_t i;
+  long unsigned int _1;
+  long unsigned int _2;
+  unsigned char _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  unsigned char _9;
+  unsigned int _11;
+  const uint32_t * _12;
+  uint32_t * _13;
+  unsigned int _14;
+  sizetype _15;
+  sizetype _16;
+  unsigned char _17;
+  const uint8_t * _19;
+  sizetype _20;
+  unsigned char _21;
+  long unsigned int _37;
+  sizetype _38;
+  sizetype _42;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  sizetype _67;
+  long unsigned int _68;
+  long unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  long unsigned int _81;
+  long unsigned int _83;
+  long unsigned int _86;
+  volatile uint32_t * _88;
+  unsigned char _89;
+  unsigned char _91;
+  unsigned char _103;
+  long unsigned int cstore_104;
+  long unsigned int _107;
+  long unsigned int _108;
+  const uint32_t * _120;
+  void * _121;
+  uint8_t * _122;
+  signed short _123;
+  signed short _124;
+  sizetype _125;
+  unsigned char _126;
+  unsigned char _128;
+  long unsigned int _130;
+  long unsigned int _132;
+  long unsigned int prephitmp_133;
+  unsigned char _134;
+  long unsigned int _136;
+  long unsigned int prephitmp_137;
+  unsigned char _138;
+  unsigned char prephitmp_139;
+  unsigned char _140;
+  unsigned char prephitmp_141;
+  unsigned int _142;
+  unsigned int prephitmp_143;
+  unsigned int _144;
+  unsigned int _145;
+  unsigned int _147;
+  unsigned int _148;
+  unsigned int prephitmp_149;
+
+  <bb 2> [local count: 118111600]:
+  _68 ={v} MEM[(const struct CAN_Type *)base_29(D)].MCR;
+  _69 = _68 & 2048;
+  if (_69 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 59055800]:
+  _70 ={v} MEM[(const struct CAN_Type *)base_29(D)].FDCTRL;
+  _71 = _70 >> 16;
+  _72 = _71 & 3;
+  _73 = _72 + 3;
+  payloadSize_74 = 1 << _73;
+  _126 = (unsigned char) payloadSize_74;
+  _128 = _126 + 8;
+  _130 = (long unsigned int) _128;
+  _132 = 512 / _130;
+  _134 = _128 >> 2;
+  _136 = (long unsigned int) _134;
+
+  <bb 4> [local count: 118111600]:
+  # prephitmp_133 = PHI <_132(3), 32(2)>
+  # prephitmp_137 = PHI <_136(3), 4(2)>
+  _81 = msgBuffIdx_30(D) / prephitmp_133;
+  ramBlockOffset_82 = _81 * 128;
+  _83 = msgBuffIdx_30(D) % prephitmp_133;
+  _86 = _83 * prephitmp_137;
+  mb_index_87 = ramBlockOffset_82 + _86;
+  _15 = mb_index_87 + 32;
+  _16 = _15 * 4;
+  _88 = base_29(D) + _16;
+  msgBuff_data_32_35 = &msgBuff_34(D)->data;
+  _20 = mb_index_87 * 4;
+  _120 = base_29(D) + _20;
+  _1 ={v} MEM[(const uint32_t *)_120 + 128B];
+  _2 = _1 >> 16;
+  _3 = (unsigned char) _2;
+  flexcan_mb_dlc_value_36 = _3 & 15;
+  if (flexcan_mb_dlc_value_36 <= 8)
+    goto <bb 21>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 59055800]:
+  _89 = flexcan_mb_dlc_value_36 + 247;
+  _91 = CSWTCH.32[_89];
+  _37 ={v} MEM[(const struct CAN_Type *)base_29(D)].MCR;
+  _48 = _37 & 2048;
+  if (_48 == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 59055800]:
+  # ret_109 = PHI <_91(5), flexcan_mb_dlc_value_36(21)>
+  _49 ={v} MEM[(const struct CAN_Type *)base_29(D)].FDCTRL;
+  _50 = _49 >> 16;
+  _51 = _50 & 3;
+  _52 = _51 + 3;
+  payloadSize_53 = 1 << _52;
+  _138 = (unsigned char) payloadSize_53;
+
+  <bb 7> [local count: 73819750]:
+  # ret_110 = PHI <ret_109(6), _91(5)>
+  # prephitmp_139 = PHI <_138(6), 8(5)>
+  if (ret_110 > prephitmp_139)
+    goto <bb 9>; [80.00%]
+  else
+    goto <bb 8>; [20.00%]
+
+  <bb 8> [local count: 14763950]:
+  _144 = (unsigned int) ret_110;
+  _147 = _144 & 4294967292;
+  goto <bb 12>; [100.00%]
+
+  <bb 9> [local count: 59055800]:
+  _58 ={v} MEM[(const struct CAN_Type *)base_29(D)].MCR;
+  _59 = _58 & 2048;
+  if (_59 == 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 10> [local count: 29527900]:
+  _60 ={v} MEM[(const struct CAN_Type *)base_29(D)].FDCTRL;
+  _61 = _60 >> 16;
+  _62 = _61 & 3;
+  _63 = _62 + 3;
+  payloadSize_64 = 1 << _63;
+  _140 = (unsigned char) payloadSize_64;
+  _142 = payloadSize_64 & 4294967292;
+
+  <bb 11> [local count: 59055800]:
+  # prephitmp_141 = PHI <_140(10), 8(9)>
+  # prephitmp_143 = PHI <_142(10), 8(9)>
+
+  <bb 12> [local count: 118111600]:
+  # payload_size_24 = PHI <prephitmp_141(11), ret_110(8), flexcan_mb_dlc_value_36(22)>
+  # prephitmp_149 = PHI <prephitmp_143(11), _147(8), _148(22)>
+  msgBuff_34(D)->dataLen = payload_size_24;
+  _4 ={v} MEM[(const uint32_t *)_120 + 128B];
+  msgBuff_34(D)->cs = _4;
+  _5 = _4 & 2097152;
+  if (_5 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 13> [local count: 59055800]:
+  _6 ={v} MEM[(const uint32_t *)_88 + 4B];
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [local count: 59055800]:
+  _7 ={v} MEM[(const uint32_t *)_88 + 4B];
+  _8 = _7 >> 18;
+
+  <bb 15> [local count: 118111600]:
+  # cstore_104 = PHI <_6(13), _8(14)>
+  msgBuff_34(D)->msgId = cstore_104;
+  if (prephitmp_149 != 0)
+    goto <bb 16>; [89.00%]
+  else
+    goto <bb 17>; [11.00%]
+
+  <bb 16> [local count: 955630225]:
+  # i_94 = PHI <0(15), i_47(16)>
+  _9 = i_94 >> 2;
+  _124 = (signed short) _9;
+  _123 = (signed short) 4;
+  _11 = _124 w* _123;
+  _38 = _11 + 8;
+  _12 = _88 + _38;
+  mbWord_45 ={v} *_12;
+  _13 = msgBuff_data_32_35 + _11;
+  __asm__ __volatile__("rev %0, %1" : "=r" *_13 : "r" mbWord_45);
+  i_47 = i_94 + 4;
+  _14 = (unsigned int) i_47;
+  if (_14 < prephitmp_149)
+    goto <bb 16>; [89.00%]
+  else
+    goto <bb 17>; [11.00%]
+
+  <bb 17> [local count: 118111600]:
+  # i_56 = PHI <0(15), i_47(16)>
+  if (payload_size_24 > i_56)
+    goto <bb 19>; [89.00%]
+  else
+    goto <bb 18>; [11.00%]
+
+  <bb 18> [local count: 118111600]:
+  return;
+
+  <bb 19> [local count: 105119324]:
+  _125 = (sizetype) i_56;
+  _42 = _125 + 7;
+  _122 = msgBuff_34(D) + _42;
+  ivtmp.134_99 = (unsigned int) _122;
+
+  <bb 20> [local count: 955630225]:
+  # i_101 = PHI <i_56(19), i_44(20)>
+  # ivtmp.134_75 = PHI <ivtmp.134_99(19), ivtmp.134_54(20)>
+  _17 = i_101 ^ 3;
+  _103 = _17 + 8;
+  _67 = (sizetype) _103;
+  _19 = _88 + _67;
+  _21 ={v} *_19;
+  ivtmp.134_54 = ivtmp.134_75 + 1;
+  _121 = (void *) ivtmp.134_54;
+  MEM[base: _121, offset: 0B] = _21;
+  i_44 = i_101 + 1;
+  if (payload_size_24 != i_44)
+    goto <bb 20>; [89.00%]
+  else
+    goto <bb 18>; [11.00%]
+
+  <bb 21> [local count: 88583700]:
+  _107 ={v} MEM[(const struct CAN_Type *)base_29(D)].MCR;
+  _108 = _107 & 2048;
+  if (_108 == 0)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 22> [local count: 44291850]:
+  _145 = (unsigned int) flexcan_mb_dlc_value_36;
+  _148 = _145 & 4294967292;
+  goto <bb 12>; [100.00%]
+
+}
+
+
+
+;; Function FLEXCAN_LockRxMsgBuff (FLEXCAN_LockRxMsgBuff, funcdef_no=73, decl_uid=7500, cgraph_uid=74, symbol_order=73)
+
+Removing basic block 5
+FLEXCAN_LockRxMsgBuff (struct CAN_Type * base, uint32_t msgBuffIdx)
+{
+  uint32_t payloadSize;
+  uint32_t mb_index;
+  uint32_t ramBlockOffset;
+  long unsigned int vol.1_6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _20;
+  long unsigned int _22;
+  long unsigned int _25;
+  unsigned char _38;
+  unsigned char _40;
+  long unsigned int _42;
+  long unsigned int _44;
+  long unsigned int prephitmp_45;
+  unsigned char _46;
+  long unsigned int _48;
+  long unsigned int prephitmp_49;
+
+  <bb 2> [local count: 1073741824]:
+  _7 ={v} MEM[(const struct CAN_Type *)base_2(D)].MCR;
+  _8 = _7 & 2048;
+  if (_8 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _9 ={v} MEM[(const struct CAN_Type *)base_2(D)].FDCTRL;
+  _10 = _9 >> 16;
+  _11 = _10 & 3;
+  _12 = _11 + 3;
+  payloadSize_13 = 1 << _12;
+  _38 = (unsigned char) payloadSize_13;
+  _40 = _38 + 8;
+  _42 = (long unsigned int) _40;
+  _44 = 512 / _42;
+  _46 = _40 >> 2;
+  _48 = (long unsigned int) _46;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_45 = PHI <_44(3), 32(2)>
+  # prephitmp_49 = PHI <_48(3), 4(2)>
+  _20 = msgBuffIdx_3(D) / prephitmp_45;
+  ramBlockOffset_21 = _20 * 128;
+  _22 = msgBuffIdx_3(D) % prephitmp_45;
+  _25 = _22 * prephitmp_49;
+  mb_index_26 = ramBlockOffset_21 + _25;
+  vol.1_6 ={v} MEM <struct CAN_Type> [(const uint32_t *)base_2(D)].RAMn[mb_index_26];
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_EnableRxFifo (FLEXCAN_EnableRxFifo, funcdef_no=74, decl_uid=7506, cgraph_uid=75, symbol_order=74)
+
+Removing basic block 5
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+FLEXCAN_EnableRxFifo (struct CAN_Type * base, uint32_t numOfFilters)
+{
+  uint32_t ret;
+  status_t stat;
+  uint32_t i;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _14;
+  long unsigned int _21;
+
+  <bb 2> [local count: 236223200]:
+  if (base_13(D) == 1073889280B)
+    goto <bb 6>; [30.00%]
+  else
+    goto <bb 3>; [70.00%]
+
+  <bb 3> [local count: 165356241]:
+  if (base_13(D) == 1073893376B)
+    goto <bb 6>; [42.86%]
+  else
+    goto <bb 4>; [57.14%]
+
+  <bb 4> [local count: 94489282]:
+  if (base_13(D) == 1073917952B)
+    goto <bb 5>; [75.00%]
+  else
+    goto <bb 6>; [25.00%]
+
+  <bb 5> [local count: 70866959]:
+
+  <bb 6> [local count: 236223200]:
+  # ret_45 = PHI <16(3), 0(4), 32(2), 16(5)>
+  _14 ={v} MEM[(const struct CAN_Type *)base_13(D)].MCR;
+  _21 = _14 & 2048;
+  if (_21 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 118111600]:
+  _1 ={v} base_13(D)->MCR;
+  _2 = _1 | 536870912;
+  base_13(D)->MCR ={v} _2;
+  _3 ={v} base_13(D)->CTRL2;
+  _4 = _3 & 4043309055;
+  _5 = numOfFilters_16(D) << 24;
+  _6 = _5 & 251658240;
+  _7 = _4 | _6;
+  base_13(D)->CTRL2 ={v} _7;
+  base_13(D)->RXFGMASK ={v} 4294967295;
+  if (ret_45 != 0)
+    goto <bb 9>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 8> [local count: 118111600]:
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 955630225]:
+  # i_46 = PHI <_21(7), i_20(9)>
+  base_13(D)->RXIMR[i_46] ={v} 536870911;
+  i_20 = i_46 + 1;
+  if (i_20 != ret_45)
+    goto <bb 9>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 10> [local count: 236223200]:
+  # stat_22 = PHI <0(8), 1(6)>
+  return stat_22;
+
+}
+
+
+
+;; Function FLEXCAN_SetMaxMsgBuffNum (FLEXCAN_SetMaxMsgBuffNum, funcdef_no=75, decl_uid=7522, cgraph_uid=76, symbol_order=75)
+
+Removing basic block 10
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+FLEXCAN_SetMaxMsgBuffNum (struct CAN_Type * base, uint32_t maxMsgBuffNum)
+{
+  unsigned int ivtmp.154;
+  uint32_t payloadSize;
+  uint32_t mb_index;
+  uint32_t ramBlockOffset;
+  uint32_t payloadSize;
+  uint32_t mb_index;
+  uint32_t ramBlockOffset;
+  uint32_t ret;
+  uint32_t payloadSize;
+  uint32_t valEndMb;
+  status_t status;
+  uint8_t msgBuffIdx;
+  long unsigned int _1;
+  long unsigned int valEndMbPointer.2_2;
+  sizetype _3;
+  volatile uint32_t * _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  volatile uint8_t * _10;
+  long unsigned int _12;
+  sizetype _13;
+  sizetype _16;
+  long unsigned int _25;
+  sizetype _28;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _41;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _63;
+  long unsigned int _65;
+  long unsigned int _68;
+  volatile uint32_t * _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  long unsigned int _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  long unsigned int _84;
+  long unsigned int _86;
+  long unsigned int _89;
+  volatile uint32_t * _91;
+  unsigned int _94;
+  unsigned int _128;
+  unsigned int _130;
+  volatile uint8_t * _131;
+  long unsigned int _133;
+  long unsigned int prephitmp_134;
+  unsigned char _135;
+  unsigned char _137;
+  long unsigned int _139;
+  long unsigned int _141;
+  long unsigned int prephitmp_142;
+  unsigned char _143;
+  long unsigned int _145;
+  long unsigned int prephitmp_146;
+  unsigned char _149;
+  unsigned char _151;
+  long unsigned int _153;
+  long unsigned int _155;
+  long unsigned int prephitmp_156;
+  unsigned char _157;
+  long unsigned int _159;
+  long unsigned int prephitmp_160;
+
+  <bb 2> [local count: 69103256]:
+  _25 ={v} MEM[(const struct CAN_Type *)base_19(D)].MCR;
+  _34 = _25 & 2048;
+  if (_34 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 34551628]:
+  _35 ={v} MEM[(const struct CAN_Type *)base_19(D)].FDCTRL;
+  _36 = _35 >> 16;
+  _37 = _36 & 3;
+  _38 = _37 + 3;
+  payloadSize_39 = 1 << _38;
+  _133 = payloadSize_39 + 8;
+
+  <bb 4> [local count: 69103256]:
+  # payloadSize_40 = PHI <payloadSize_39(3), 8(2)>
+  # prephitmp_134 = PHI <_133(3), 16(2)>
+  _1 = maxMsgBuffNum_21(D) + 4294967295;
+  _50 ={v} MEM[(const struct CAN_Type *)base_19(D)].MCR;
+  _51 = _50 & 2048;
+  if (_51 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 34551628]:
+  _52 ={v} MEM[(const struct CAN_Type *)base_19(D)].FDCTRL;
+  _53 = _52 >> 16;
+  _54 = _53 & 3;
+  _55 = _54 + 3;
+  payloadSize_56 = 1 << _55;
+  _135 = (unsigned char) payloadSize_56;
+  _137 = _135 + 8;
+  _139 = (long unsigned int) _137;
+  _141 = 512 / _139;
+  _143 = _137 >> 2;
+  _145 = (long unsigned int) _143;
+
+  <bb 6> [local count: 69103256]:
+  # prephitmp_142 = PHI <_141(5), 32(4)>
+  # prephitmp_146 = PHI <_145(5), 4(4)>
+  _63 = _1 / prephitmp_142;
+  ramBlockOffset_64 = _63 * 128;
+  _65 = _1 % prephitmp_142;
+  _68 = _65 * prephitmp_146;
+  mb_index_69 = ramBlockOffset_64 + _68;
+  _3 = mb_index_69 + 32;
+  _16 = _3 * 4;
+  _70 = base_19(D) + _16;
+  valEndMbPointer.2_2 = (long unsigned int) _70;
+  valEndMb_24 = valEndMbPointer.2_2 + prephitmp_134;
+  _4 = &base_19(D)->RAMn[128];
+  _5 = (long unsigned int) _4;
+  if (_5 < valEndMb_24)
+    goto <bb 20>; [35.00%]
+  else
+    goto <bb 7>; [65.00%]
+
+  <bb 7> [local count: 44917117]:
+  if (base_19(D) == 1073889280B)
+    goto <bb 11>; [30.00%]
+  else
+    goto <bb 8>; [70.00%]
+
+  <bb 8> [local count: 31441982]:
+  if (base_19(D) == 1073893376B)
+    goto <bb 11>; [42.86%]
+  else
+    goto <bb 9>; [57.14%]
+
+  <bb 9> [local count: 17966847]:
+  if (base_19(D) == 1073917952B)
+    goto <bb 10>; [75.00%]
+  else
+    goto <bb 11>; [25.00%]
+
+  <bb 10> [local count: 13475135]:
+
+  <bb 11> [local count: 44917117]:
+  # ret_103 = PHI <0(9), 16(8), 32(7), 16(10)>
+  if (maxMsgBuffNum_21(D) > ret_103)
+    goto <bb 20>; [35.00%]
+  else
+    goto <bb 12>; [65.00%]
+
+  <bb 12> [local count: 29196126]:
+  _6 ={v} base_19(D)->MCR;
+  _7 = _6 & 4294967168;
+  _8 = _1 & 127;
+  _9 = _7 | _8;
+  base_19(D)->MCR ={v} _9;
+  _47 ={v} MEM[(const struct CAN_Type *)base_19(D)].MCR;
+  _48 = _47 & 536870912;
+  if (_48 == 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 13> [local count: 29196126]:
+  goto <bb 20>; [100.00%]
+
+  <bb 14> [local count: 14598063]:
+  if (maxMsgBuffNum_21(D) != 0)
+    goto <bb 15>; [89.00%]
+  else
+    goto <bb 13>; [11.00%]
+
+  <bb 15> [local count: 118111600]:
+  # _41 = PHI <_48(14), _12(19)>
+  # msgBuffIdx_15 = PHI <0(14), msgBuffIdx_31(19)>
+  _71 ={v} MEM[(const struct CAN_Type *)base_19(D)].MCR;
+  _72 = _71 & 2048;
+  if (_72 == 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 16> [local count: 59055800]:
+  _73 ={v} MEM[(const struct CAN_Type *)base_19(D)].FDCTRL;
+  _74 = _73 >> 16;
+  _75 = _74 & 3;
+  _76 = _75 + 3;
+  payloadSize_77 = 1 << _76;
+  _149 = (unsigned char) payloadSize_77;
+  _151 = _149 + 8;
+  _153 = (long unsigned int) _151;
+  _155 = 512 / _153;
+  _157 = _151 >> 2;
+  _159 = (long unsigned int) _157;
+
+  <bb 17> [local count: 118111600]:
+  # prephitmp_156 = PHI <_155(16), 32(15)>
+  # prephitmp_160 = PHI <_159(16), 4(15)>
+  _84 = _41 / prephitmp_156;
+  ramBlockOffset_85 = _84 * 128;
+  _86 = _41 % prephitmp_156;
+  _89 = _86 * prephitmp_160;
+  mb_index_90 = ramBlockOffset_85 + _89;
+  _28 = mb_index_90 + 32;
+  _13 = _28 * 4;
+  _91 = base_19(D) + _13;
+  MEM <struct CAN_Type> [(volatile uint32_t *)base_19(D)].RAMn[mb_index_90] ={v} 0;
+  MEM[(volatile uint32_t *)_91 + 4B] ={v} 0;
+  _131 = _91 + 8;
+  ivtmp.154_132 = (unsigned int) _131;
+  _130 = (unsigned int) _91;
+  _94 = payloadSize_40 + 8;
+  _128 = _94 + _130;
+
+  <bb 18> [local count: 955630225]:
+  # ivtmp.154_57 = PHI <ivtmp.154_132(17), ivtmp.154_78(18)>
+  _10 = (volatile uint8_t *) ivtmp.154_57;
+  *_10 ={v} 0;
+  ivtmp.154_78 = ivtmp.154_57 + 1;
+  if (ivtmp.154_78 != _128)
+    goto <bb 18>; [87.64%]
+  else
+    goto <bb 19>; [12.36%]
+
+  <bb 19> [local count: 118111600]:
+  msgBuffIdx_31 = msgBuffIdx_15 + 1;
+  _12 = (long unsigned int) msgBuffIdx_31;
+  if (_12 < maxMsgBuffNum_21(D))
+    goto <bb 15>; [89.00%]
+  else
+    goto <bb 13>; [11.00%]
+
+  <bb 20> [local count: 69103257]:
+  # status_11 = PHI <0(13), 768(6), 768(11)>
+  return status_11;
+
+}
+
+
+
+;; Function FLEXCAN_SetRxFifoFilter (FLEXCAN_SetRxFifoFilter, funcdef_no=76, decl_uid=7529, cgraph_uid=77, symbol_order=76)
+
+Removing basic block 5
+Removing basic block 13
+Removing basic block 15
+Removing basic block 39
+Removing basic block 41
+Removing basic block 42
+Removing basic block 45
+Removing basic block 46
+Removing basic block 47
+Removing basic block 48
+FLEXCAN_SetRxFifoFilter (struct CAN_Type * base, flexcan_rx_fifo_id_element_format_t idFormat, const struct flexcan_id_table_t * idFilterTable)
+{
+  unsigned int ivtmp.187;
+  unsigned int ivtmp.186;
+  unsigned int ivtmp.177;
+  unsigned int ivtmp.176;
+  unsigned int ivtmp.168;
+  unsigned int ivtmp.167;
+  uint32_t val;
+  uint32_t val2;
+  uint32_t val1;
+  uint32_t numOfFilters;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  _Bool _7;
+  _Bool _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  volatile uint32_t * _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  volatile uint32_t * _19;
+  long unsigned int _20;
+  void * _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  _Bool _28;
+  _Bool _32;
+  _Bool _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  volatile uint32_t * _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  volatile uint32_t * _45;
+  long unsigned int _46;
+  _Bool _47;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  volatile uint32_t * _64;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  _Bool _71;
+  volatile uint32_t * _73;
+  long unsigned int _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  volatile uint32_t * _80;
+  long unsigned int _81;
+  long unsigned int _82;
+  long unsigned int _83;
+  long unsigned int _84;
+  long unsigned int _85;
+  _Bool _89;
+  unsigned int _91;
+  long unsigned int _92;
+  long unsigned int _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  long unsigned int _97;
+  unsigned int _99;
+  long unsigned int _100;
+  long unsigned int _101;
+  long unsigned int _102;
+  long unsigned int _103;
+  long unsigned int _104;
+  long unsigned int _105;
+  _Bool _109;
+  long unsigned int _112;
+  long unsigned int _113;
+  long unsigned int _114;
+  long unsigned int _115;
+  long unsigned int _116;
+  long unsigned int _117;
+  long unsigned int _120;
+  long unsigned int _121;
+  long unsigned int _122;
+  long unsigned int _123;
+  long unsigned int _124;
+  long unsigned int _125;
+  _Bool _129;
+  long unsigned int _132;
+  long unsigned int _133;
+  long unsigned int _134;
+  long unsigned int _135;
+  long unsigned int _136;
+  long unsigned int _139;
+  long unsigned int _140;
+  long unsigned int _141;
+  long unsigned int _142;
+  long unsigned int _143;
+  long unsigned int _146;
+  long unsigned int _147;
+  unsigned int _151;
+  unsigned int _157;
+  unsigned int _160;
+  unsigned int _200;
+  long unsigned int _204;
+  void * _207;
+  long unsigned int _209;
+  volatile uint32_t * _210;
+  long unsigned int _214;
+  void * _233;
+  volatile uint32_t * _234;
+  volatile uint32_t * prephitmp_236;
+  unsigned int _241;
+  unsigned int _244;
+  volatile uint32_t * prephitmp_246;
+
+  <bb 2> [local count: 590557992]:
+  _1 ={v} base_167(D)->CTRL2;
+  _2 = _1 >> 24;
+  numOfFilters_170 = _2 & 15;
+  switch (idFormat_171(D)) <default: <L42> [0.00%], case 0: <L0> [25.00%], case 1: <L9> [25.00%], case 2: <L23> [25.00%], case 3: <L39> [25.00%]>
+
+  <bb 3> [local count: 118111600]:
+<L0>:
+  _3 ={v} base_167(D)->MCR;
+  _4 = _3 & 4294966527;
+  base_167(D)->MCR ={v} _4;
+  _214 = numOfFilters_170 + 1;
+  ivtmp.167_216 = (unsigned int) idFilterTable_174(D);
+  _210 = base_167(D) + 224;
+  ivtmp.168_211 = (unsigned int) _210;
+  _160 = _214 * 32;
+  _157 = (unsigned int) base_167(D);
+  _200 = _157 + 224;
+  _151 = _160 + _200;
+
+  <bb 4> [local count: 955630225]:
+  # ivtmp.167_222 = PHI <ivtmp.167_216(3), ivtmp.167_219(9)>
+  # ivtmp.168_215 = PHI <ivtmp.168_211(3), ivtmp.168_212(9)>
+  _207 = (void *) ivtmp.167_222;
+  _7 = MEM[base: _207, offset: 0B];
+  if (_7 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 477815113]:
+
+  <bb 6> [local count: 955630225]:
+  # val_155 = PHI <0(4), 2147483648(5)>
+  _8 = MEM[base: _207, offset: 1B];
+  if (_8 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 477815112]:
+  val_196 = val_155 | 1073741824;
+  _9 = MEM[base: _207, offset: 4B];
+  _10 = _9 << 1;
+  _11 = _10 & 1073741823;
+  _13 = (volatile uint32_t *) ivtmp.168_215;
+  _14 = _11 + val_196;
+  *_13 ={v} _14;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 477815112]:
+  _15 = MEM[base: _207, offset: 4B];
+  _16 = _15 << 19;
+  _17 = _16 & 1073217536;
+  _19 = (volatile uint32_t *) ivtmp.168_215;
+  _20 = _17 + val_155;
+  *_19 ={v} _20;
+
+  <bb 9> [local count: 955630225]:
+  ivtmp.167_219 = ivtmp.167_222 + 8;
+  ivtmp.168_212 = ivtmp.168_215 + 4;
+  if (_151 != ivtmp.168_212)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 10>; [11.00%]
+
+  <bb 10> [local count: 315357972]:
+  goto <bb 38>; [100.00%]
+
+  <bb 11> [local count: 118111600]:
+<L9>:
+  _23 ={v} base_167(D)->MCR;
+  _24 = _23 & 4294966527;
+  _25 = _24 | 256;
+  base_167(D)->MCR ={v} _25;
+  _209 = numOfFilters_170 + 1;
+  ivtmp.176_148 = (unsigned int) idFilterTable_174(D);
+  _64 = base_167(D) + 224;
+  ivtmp.177_65 = (unsigned int) _64;
+  _244 = _209 * 128;
+  _241 = ivtmp.176_148 + _244;
+
+  <bb 12> [local count: 955630225]:
+  # ivtmp.176_150 = PHI <ivtmp.176_148(11), ivtmp.176_149(22)>
+  # ivtmp.177_145 = PHI <ivtmp.177_65(11), ivtmp.177_144(22)>
+  _22 = (void *) ivtmp.176_150;
+  _28 = MEM[base: _22, offset: 0B];
+  if (_28 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 13> [local count: 477815113]:
+
+  <bb 14> [local count: 955630225]:
+  # val1_153 = PHI <0(12), 2147483648(13)>
+  _32 = MEM[base: _22, offset: 8B];
+  if (_32 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [local count: 477815113]:
+
+  <bb 16> [local count: 955630225]:
+  # val2_154 = PHI <0(14), 32768(15)>
+  _33 = MEM[base: _22, offset: 1B];
+  if (_33 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 17> [local count: 477815112]:
+  val1_187 = val1_153 | 1073741824;
+  _34 = MEM[base: _22, offset: 4B];
+  _35 = _34 >> 15;
+  _36 = _35 << 16;
+  _37 = _36 & 1073676288;
+  _39 = (volatile uint32_t *) ivtmp.177_145;
+  _40 = _37 + val1_187;
+  *_39 ={v} _40;
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [local count: 477815112]:
+  _41 = MEM[base: _22, offset: 4B];
+  _42 = _41 << 19;
+  _43 = _42 & 1073217536;
+  _45 = (volatile uint32_t *) ivtmp.177_145;
+  _46 = _43 + val1_153;
+  *_45 ={v} _46;
+
+  <bb 19> [local count: 955630225]:
+  # prephitmp_246 = PHI <_39(17), _45(18)>
+  _47 = MEM[base: _22, offset: 9B];
+  if (_47 != 0)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 21>; [50.00%]
+
+  <bb 20> [local count: 477815112]:
+  val2_190 = val2_154 | 16384;
+  _50 ={v} *prephitmp_246;
+  _51 = MEM[base: _22, offset: 12B];
+  _52 = _51 >> 15;
+  _53 = _52 & 16383;
+  _54 = _53 + val2_190;
+  _55 = _50 | _54;
+  *prephitmp_246 ={v} _55;
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 477815112]:
+  _58 ={v} *prephitmp_246;
+  _59 = MEM[base: _22, offset: 12B];
+  _60 = _59 << 3;
+  _61 = _60 & 16376;
+  _62 = _61 + val2_154;
+  _63 = _58 | _62;
+  *prephitmp_246 ={v} _63;
+
+  <bb 22> [local count: 955630225]:
+  ivtmp.176_149 = ivtmp.176_150 + 16;
+  ivtmp.177_144 = ivtmp.177_145 + 4;
+  if (ivtmp.176_149 != _241)
+    goto <bb 12>; [89.00%]
+  else
+    goto <bb 10>; [11.00%]
+
+  <bb 23> [local count: 118111600]:
+<L23>:
+  _66 ={v} base_167(D)->MCR;
+  _67 = _66 & 4294966527;
+  _68 = _67 | 512;
+  base_167(D)->MCR ={v} _68;
+  _204 = numOfFilters_170 + 1;
+  ivtmp.186_240 = (unsigned int) idFilterTable_174(D);
+  _234 = base_167(D) + 224;
+  ivtmp.187_235 = (unsigned int) _234;
+  _99 = _204 * 256;
+  _91 = _99 + ivtmp.186_240;
+
+  <bb 24> [local count: 955630225]:
+  # ivtmp.186_242 = PHI <ivtmp.186_240(23), ivtmp.186_239(36)>
+  # ivtmp.187_237 = PHI <ivtmp.187_235(23), ivtmp.187_238(36)>
+  _233 = (void *) ivtmp.186_242;
+  _71 = MEM[base: _233, offset: 1B];
+  if (_71 != 0)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 25> [local count: 477815112]:
+  _73 = (volatile uint32_t *) ivtmp.187_237;
+  _74 ={v} *_73;
+  _75 = MEM[base: _233, offset: 4B];
+  _76 = _75 >> 21;
+  _77 = _76 << 24;
+  _78 = _74 | _77;
+  *_73 ={v} _78;
+  goto <bb 27>; [100.00%]
+
+  <bb 26> [local count: 477815112]:
+  _80 = (volatile uint32_t *) ivtmp.187_237;
+  _81 ={v} *_80;
+  _82 = MEM[base: _233, offset: 4B];
+  _83 = _82 >> 3;
+  _84 = _83 << 24;
+  _85 = _81 | _84;
+  *_80 ={v} _85;
+
+  <bb 27> [local count: 955630225]:
+  # prephitmp_236 = PHI <_73(25), _80(26)>
+  _89 = MEM[base: _233, offset: 9B];
+  if (_89 != 0)
+    goto <bb 28>; [50.00%]
+  else
+    goto <bb 29>; [50.00%]
+
+  <bb 28> [local count: 477815112]:
+  _92 ={v} *prephitmp_236;
+  _93 = MEM[base: _233, offset: 12B];
+  _94 = _93 >> 21;
+  _95 = _94 << 16;
+  _96 = _95 & 16711680;
+  _97 = _92 | _96;
+  *prephitmp_236 ={v} _97;
+  goto <bb 30>; [100.00%]
+
+  <bb 29> [local count: 477815112]:
+  _100 ={v} *prephitmp_236;
+  _101 = MEM[base: _233, offset: 12B];
+  _102 = _101 >> 3;
+  _103 = _102 << 16;
+  _104 = _103 & 16711680;
+  _105 = _100 | _104;
+  *prephitmp_236 ={v} _105;
+
+  <bb 30> [local count: 955630225]:
+  _109 = MEM[base: _233, offset: 17B];
+  if (_109 != 0)
+    goto <bb 31>; [50.00%]
+  else
+    goto <bb 32>; [50.00%]
+
+  <bb 31> [local count: 477815112]:
+  _112 ={v} *prephitmp_236;
+  _113 = MEM[base: _233, offset: 20B];
+  _114 = _113 >> 21;
+  _115 = _114 << 8;
+  _116 = _115 & 65535;
+  _117 = _112 | _116;
+  *prephitmp_236 ={v} _117;
+  goto <bb 33>; [100.00%]
+
+  <bb 32> [local count: 477815112]:
+  _120 ={v} *prephitmp_236;
+  _121 = MEM[base: _233, offset: 20B];
+  _122 = _121 >> 3;
+  _123 = _122 << 8;
+  _124 = _123 & 65535;
+  _125 = _120 | _124;
+  *prephitmp_236 ={v} _125;
+
+  <bb 33> [local count: 955630225]:
+  _129 = MEM[base: _233, offset: 25B];
+  if (_129 != 0)
+    goto <bb 34>; [50.00%]
+  else
+    goto <bb 35>; [50.00%]
+
+  <bb 34> [local count: 477815112]:
+  _132 ={v} *prephitmp_236;
+  _133 = MEM[base: _233, offset: 28B];
+  _134 = _133 >> 21;
+  _135 = _134 & 255;
+  _136 = _132 | _135;
+  *prephitmp_236 ={v} _136;
+  goto <bb 36>; [100.00%]
+
+  <bb 35> [local count: 477815112]:
+  _139 ={v} *prephitmp_236;
+  _140 = MEM[base: _233, offset: 28B];
+  _141 = _140 >> 3;
+  _142 = _141 & 255;
+  _143 = _139 | _142;
+  *prephitmp_236 ={v} _143;
+
+  <bb 36> [local count: 955630225]:
+  ivtmp.186_239 = ivtmp.186_242 + 32;
+  ivtmp.187_238 = ivtmp.187_237 + 4;
+  if (_91 != ivtmp.186_239)
+    goto <bb 24>; [89.00%]
+  else
+    goto <bb 10>; [11.00%]
+
+  <bb 37> [local count: 118111600]:
+<L39>:
+  _146 ={v} base_167(D)->MCR;
+  _147 = _146 | 768;
+  base_167(D)->MCR ={v} _147;
+
+  <bb 38> [local count: 590558001]:
+<L42>:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_SetMsgBuffIntCmd (FLEXCAN_SetMsgBuffIntCmd, funcdef_no=77, decl_uid=7536, cgraph_uid=78, symbol_order=77)
+
+Removing basic block 7
+FLEXCAN_SetMsgBuffIntCmd (struct CAN_Type * base, uint32_t msgBuffIdx, _Bool enable)
+{
+  uint32_t temp;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  if (msgBuffIdx_8(D) <= 31)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  temp_9 = 1 << msgBuffIdx_8(D);
+  if (enable_11(D) != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _2 ={v} base_12(D)->IMASK1;
+  _3 = _2 | temp_9;
+  base_12(D)->IMASK1 ={v} _3;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 268435456]:
+  _4 ={v} base_12(D)->IMASK1;
+  _5 = ~temp_9;
+  _6 = _4 & _5;
+  base_12(D)->IMASK1 ={v} _6;
+
+  <bb 6> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function FLEXCAN_SetErrIntCmd (FLEXCAN_SetErrIntCmd, funcdef_no=78, decl_uid=7540, cgraph_uid=79, symbol_order=78)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+FLEXCAN_SetErrIntCmd (struct CAN_Type * base, flexcan_int_type_t errType, _Bool enable)
+{
+  uint32_t temp;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+
+  <bb 2> [local count: 1073741823]:
+  temp_20 = (uint32_t) errType_19(D);
+  if (enable_21(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  if (errType_19(D) == 1024)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 4> [local count: 354334800]:
+  if (errType_19(D) == 2048)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [local count: 303009945]:
+  _1 ={v} base_23(D)->MCR;
+  _2 = _1 | 2097152;
+  base_23(D)->MCR ={v} _2;
+
+  <bb 6> [local count: 536870913]:
+  if (errType_19(D) == 16384)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 182536112]:
+  _3 ={v} base_23(D)->CTRL2;
+  _4 = _3 | 2147483648;
+  base_23(D)->CTRL2 ={v} _4;
+
+  <bb 8> [local count: 536870913]:
+  _5 ={v} base_23(D)->CTRL1;
+  _6 = _5 | temp_20;
+  base_23(D)->CTRL1 ={v} _6;
+  goto <bb 13>; [100.00%]
+
+  <bb 9> [local count: 536870911]:
+  _7 ={v} base_23(D)->CTRL1;
+  _8 = ~temp_20;
+  _9 = _7 & _8;
+  base_23(D)->CTRL1 ={v} _9;
+  if (errType_19(D) == 16384)
+    goto <bb 10>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 10> [local count: 182536112]:
+  _10 ={v} base_23(D)->CTRL2;
+  _11 = _10 & 2147483647;
+  base_23(D)->CTRL2 ={v} _11;
+
+  <bb 11> [local count: 536870911]:
+  temp_26 ={v} base_23(D)->CTRL1;
+  _12 = temp_26 & 3072;
+  if (_12 == 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 268435456]:
+  _13 ={v} base_23(D)->MCR;
+  _14 = _13 & 4292870143;
+  base_23(D)->MCR ={v} _14;
+
+  <bb 13> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_ExitFreezeMode (FLEXCAN_ExitFreezeMode, funcdef_no=79, decl_uid=7452, cgraph_uid=80, symbol_order=79)
+
+Removing basic block 5
+FLEXCAN_ExitFreezeMode (struct CAN_Type * base)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 118111600]:
+  _1 ={v} base_8(D)->MCR;
+  _2 = _1 & 4026531839;
+  base_8(D)->MCR ={v} _2;
+  _3 ={v} base_8(D)->MCR;
+  _4 = _3 & 3221225471;
+  base_8(D)->MCR ={v} _4;
+
+  <bb 3> [local count: 1073741824]:
+  _5 ={v} base_8(D)->MCR;
+  _6 = _5 & 16777216;
+  if (_6 != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 4>; [11.00%]
+
+  <bb 4> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_EnterFreezeMode (FLEXCAN_EnterFreezeMode, funcdef_no=80, decl_uid=7454, cgraph_uid=81, symbol_order=80)
+
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+FLEXCAN_EnterFreezeMode (struct CAN_Type * base)
+{
+  uint32_t tempMCR;
+  uint32_t tempIMSK1;
+  uint32_t aux;
+  _Bool enabled;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  signed int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _54;
+  long unsigned int _55;
+
+  <bb 2> [local count: 229727060]:
+  _1 ={v} base_29(D)->MCR;
+  _2 = _1 | 1073741824;
+  base_29(D)->MCR ={v} _2;
+  _3 ={v} base_29(D)->MCR;
+  _4 = _3 | 268435456;
+  base_29(D)->MCR ={v} _4;
+  _5 ={v} base_29(D)->MCR;
+  _6 = (signed int) _5;
+  if (_6 >= 0)
+    goto <bb 4>; [59.00%]
+  else
+    goto <bb 3>; [41.00%]
+
+  <bb 3> [local count: 94188094]:
+  _7 ={v} base_29(D)->MCR;
+  _8 = _7 & 2147483647;
+  base_29(D)->MCR ={v} _8;
+
+  <bb 4> [local count: 229727060]:
+  # enabled_19 = PHI <0(3), 1(2)>
+  base_29(D)->TIMER ={v} 0;
+  _42 ={v} MEM[(const struct CAN_Type *)base_29(D)].MCR;
+  _43 = _42 & 2048;
+  if (_43 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 114863530]:
+  _54 ={v} MEM[(const struct CAN_Type *)base_29(D)].MCR;
+  _55 = _54 & 16777216;
+  if (_55 == 0)
+    goto <bb 9>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 6> [local count: 114863530]:
+  _50 ={v} MEM[(const struct CAN_Type *)base_29(D)].MCR;
+  _49 = _50 & 16777216;
+  if (_49 == 0)
+    goto <bb 7>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 7> [local count: 958878296]:
+  aux_35 ={v} base_29(D)->TIMER;
+  _44 ={v} MEM[(const struct CAN_Type *)base_29(D)].MCR;
+  _45 = _44 & 16777216;
+  if (_45 == 0)
+    goto <bb 8>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 8> [local count: 906139990]:
+  if (aux_35 <= 179)
+    goto <bb 7>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 9> [local count: 958878296]:
+  aux_34 ={v} base_29(D)->TIMER;
+  _46 ={v} MEM[(const struct CAN_Type *)base_29(D)].MCR;
+  _47 = _46 & 16777216;
+  if (_47 == 0)
+    goto <bb 10>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 10> [local count: 906139990]:
+  if (aux_34 <= 729)
+    goto <bb 9>; [94.50%]
+  else
+    goto <bb 11>; [5.50%]
+
+  <bb 11> [local count: 229727063]:
+  _9 ={v} base_29(D)->MCR;
+  _10 = _9 & 16777216;
+  if (_10 == 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 12> [local count: 114863531]:
+  tempIMSK1_36 ={v} base_29(D)->IMASK1;
+  tempMCR_37 ={v} base_29(D)->MCR;
+  _11 ={v} base_29(D)->MCR;
+  _12 = _11 | 33554432;
+  base_29(D)->MCR ={v} _12;
+
+  <bb 13> [local count: 1044213928]:
+  _13 ={v} base_29(D)->MCR;
+  _14 = _13 & 33554432;
+  if (_14 != 0)
+    goto <bb 13>; [89.00%]
+  else
+    goto <bb 14>; [11.00%]
+
+  <bb 14> [local count: 114863531]:
+  base_29(D)->IMASK1 ={v} tempIMSK1_36;
+  base_29(D)->MCR ={v} tempMCR_37;
+
+  <bb 15> [local count: 229727063]:
+  if (enabled_19 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 16> [local count: 114863531]:
+  _15 ={v} base_29(D)->MCR;
+  _16 = _15 | 2147483648;
+  base_29(D)->MCR ={v} _16;
+
+  <bb 17> [local count: 1044213928]:
+  _17 ={v} base_29(D)->MCR;
+  _18 = _17 & 1048576;
+  if (_18 == 0)
+    goto <bb 17>; [89.00%]
+  else
+    goto <bb 18>; [11.00%]
+
+  <bb 18> [local count: 229727063]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_ClearErrIntStatusFlag (FLEXCAN_ClearErrIntStatusFlag, funcdef_no=81, decl_uid=7566, cgraph_uid=82, symbol_order=81)
+
+Removing basic block 5
+FLEXCAN_ClearErrIntStatusFlag (struct CAN_Type * base)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int vol.4_7;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_5(D)->ESR1;
+  _2 = _1 & 3866630;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  base_5(D)->ESR1 ={v} 3145730;
+  vol.4_7 ={v} base_5(D)->ESR1;
+
+  <bb 4> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_ClearBusOffIntStatusFlag (FLEXCAN_ClearBusOffIntStatusFlag, funcdef_no=82, decl_uid=7568, cgraph_uid=83, symbol_order=82)
+
+Removing basic block 5
+FLEXCAN_ClearBusOffIntStatusFlag (struct CAN_Type * base)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int vol.5_7;
+
+  <bb 2> [local count: 1073741824]:
+  _1 ={v} base_5(D)->ESR1;
+  _2 = _1 & 720900;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  base_5(D)->ESR1 ={v} 720900;
+  vol.5_7 ={v} base_5(D)->ESR1;
+
+  <bb 4> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_ReadRxFifo (FLEXCAN_ReadRxFifo, funcdef_no=83, decl_uid=7532, cgraph_uid=84, symbol_order=83)
+
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+FLEXCAN_ReadRxFifo (const struct CAN_Type * base, struct flexcan_msgbuff_t * rxFifo)
+{
+  uint8_t ret;
+  uint8_t flexcan_mb_dlc_value;
+  uint32_t * msgData_32;
+  const uint32_t * flexcan_mb_data_32;
+  uint32_t mbWord;
+  uint32_t databyte;
+  long unsigned int _1;
+  long unsigned int _2;
+  unsigned char _3;
+  long unsigned int _4;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  const uint32_t * _12;
+  uint32_t * _13;
+  unsigned char _33;
+  unsigned char _35;
+  long unsigned int cstore_36;
+  long unsigned int _41;
+
+  <bb 2> [local count: 118111600]:
+  flexcan_mb_data_32_19 = &MEM <const uint32_t> [(void *)base_18(D) + 136B];
+  msgData_32_21 = &rxFifo_20(D)->data;
+  _1 ={v} MEM[(const uint32_t *)base_18(D) + 128B];
+  _2 = _1 >> 16;
+  _3 = (unsigned char) _2;
+  flexcan_mb_dlc_value_23 = _3 & 15;
+  if (flexcan_mb_dlc_value_23 <= 8)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 59055800]:
+  _33 = flexcan_mb_dlc_value_23 + 247;
+  _35 = CSWTCH.32[_33];
+
+  <bb 4> [local count: 118111600]:
+  # ret_32 = PHI <_35(3), flexcan_mb_dlc_value_23(2)>
+  rxFifo_20(D)->dataLen = ret_32;
+  _4 ={v} MEM[(const uint32_t *)base_18(D) + 128B];
+  rxFifo_20(D)->cs = _4;
+  _6 = _4 & 2097152;
+  if (_6 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 59055800]:
+  _7 ={v} MEM[(const uint32_t *)base_18(D) + 132B];
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 59055800]:
+  _8 ={v} MEM[(const uint32_t *)base_18(D) + 132B];
+  _9 = _8 >> 18;
+
+  <bb 7> [local count: 118111600]:
+  # cstore_36 = PHI <_7(5), _9(6)>
+  rxFifo_20(D)->msgId = cstore_36;
+  _41 = (long unsigned int) ret_32;
+  if (_41 != 0)
+    goto <bb 8>; [89.00%]
+  else
+    goto <bb 9>; [11.00%]
+
+  <bb 8> [local count: 955630225]:
+  # databyte_16 = PHI <0(7), databyte_31(8)>
+  _10 = databyte_16 >> 2;
+  _11 = _10 * 4;
+  _12 = flexcan_mb_data_32_19 + _11;
+  mbWord_29 ={v} *_12;
+  _13 = msgData_32_21 + _11;
+  __asm__ __volatile__("rev %0, %1" : "=r" *_13 : "r" mbWord_29);
+  databyte_31 = databyte_16 + 4;
+  if (databyte_31 < _41)
+    goto <bb 8>; [89.00%]
+  else
+    goto <bb 9>; [11.00%]
+
+  <bb 9> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_SetOperationMode (FLEXCAN_SetOperationMode, funcdef_no=84, decl_uid=7457, cgraph_uid=85, symbol_order=84)
+
+Removing basic block 9
+FLEXCAN_SetOperationMode (struct CAN_Type * base, flexcan_operation_modes_t mode)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _27;
+  long unsigned int _28;
+
+  <bb 2> [local count: 1073741824]:
+  switch (mode_16(D)) <default: <L7> [0.00%], case 0: <L2> [20.00%], case 1: <L3> [20.00%], case 2: <L4> [20.00%], case 3: <L0> [20.00%], case 4: <L1> [20.00%]>
+
+  <bb 3> [local count: 178956968]:
+<L0>:
+  FLEXCAN_EnterFreezeMode (base_18(D)); [tail call]
+  goto <bb 8>; [100.00%]
+
+  <bb 4> [local count: 178956968]:
+<L1>:
+  _1 ={v} base_18(D)->MCR;
+  _2 = _1 | 2147483648;
+  base_18(D)->MCR ={v} _2;
+  goto <bb 8>; [100.00%]
+
+  <bb 5> [local count: 178956968]:
+<L2>:
+  _3 ={v} base_18(D)->MCR;
+  _4 = _3 & 4286578687;
+  base_18(D)->MCR ={v} _4;
+  _5 ={v} base_18(D)->CTRL1;
+  _6 = _5 & 4294967287;
+  base_18(D)->CTRL1 ={v} _6;
+  _7 ={v} base_18(D)->CTRL1;
+  _8 = _7 & 4294963199;
+  base_18(D)->CTRL1 ={v} _8;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 178956968]:
+<L3>:
+  _9 ={v} base_18(D)->CTRL1;
+  _10 = _9 | 8;
+  base_18(D)->CTRL1 ={v} _10;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 178956968]:
+<L4>:
+  _11 ={v} base_18(D)->CTRL1;
+  _12 = _11 | 4096;
+  base_18(D)->CTRL1 ={v} _12;
+  _13 ={v} base_18(D)->CTRL1;
+  _14 = _13 & 4294967287;
+  base_18(D)->CTRL1 ={v} _14;
+  _27 ={v} base_18(D)->MCR;
+  _28 = _27 & 4294836223;
+  base_18(D)->MCR ={v} _28;
+
+  <bb 8> [local count: 1073741809]:
+<L7>:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_IsOutOfRangeMbIdx (FLEXCAN_IsOutOfRangeMbIdx, funcdef_no=85, decl_uid=7460, cgraph_uid=86, symbol_order=85)
+
+Removing basic block 6
+Removing basic block 7
+FLEXCAN_IsOutOfRangeMbIdx (const struct CAN_Type * base, uint32_t msgBuffIdx)
+{
+  uint32_t val1;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  _Bool _5;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  _Bool _17;
+
+  <bb 2> [local count: 1073741823]:
+  _1 ={v} base_7(D)->MCR;
+  _2 = _1 & 127;
+  if (_2 < msgBuffIdx_8(D))
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669600]:
+  _10 ={v} base_7(D)->MCR;
+  _11 = _10 & 536870912;
+  if (_11 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 354334800]:
+  _3 ={v} base_7(D)->CTRL2;
+  _4 = _3 >> 24;
+  val1_9 = _4 & 15;
+  _12 = val1_9 + 1;
+  _13 = _12 * 8;
+  _14 = _13 >> 2;
+  _15 = _14 + 5;
+  _17 = msgBuffIdx_8(D) <= _15;
+
+  <bb 5> [local count: 1073741824]:
+  # _5 = PHI <_17(4), 1(2), 0(3)>
+  return _5;
+
+}
+
+
+
+;; Function FLEXCAN_SetPayloadSize (FLEXCAN_SetPayloadSize, funcdef_no=86, decl_uid=7470, cgraph_uid=87, symbol_order=86)
+
+Removing basic block 5
+FLEXCAN_SetPayloadSize (struct CAN_Type * base, flexcan_fd_payload_size_t payloadSize)
+{
+  uint32_t tmp;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _11;
+  long unsigned int _12;
+
+  <bb 2> [local count: 1073741824]:
+  _11 ={v} MEM[(const struct CAN_Type *)base_5(D)].MCR;
+  _12 = _11 & 2048;
+  if (_12 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_6 ={v} base_5(D)->FDCTRL;
+  tmp_7 = tmp_6 & 4294770687;
+  _1 = (long unsigned int) payloadSize_8(D);
+  _2 = _1 << 16;
+  tmp_9 = _2 | tmp_7;
+  base_5(D)->FDCTRL ={v} tmp_9;
+
+  <bb 4> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FLEXCAN_GetPayloadSize (FLEXCAN_GetPayloadSize, funcdef_no=87, decl_uid=7472, cgraph_uid=88, symbol_order=87)
+
+Removing basic block 5
+FLEXCAN_GetPayloadSize (const struct CAN_Type * base)
+{
+  uint32_t payloadSize;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _10;
+  long unsigned int _11;
+  unsigned char _12;
+  unsigned char prephitmp_13;
+
+  <bb 2> [local count: 1073741824]:
+  _10 ={v} base_7(D)->MCR;
+  _11 = _10 & 2048;
+  if (_11 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _1 ={v} base_7(D)->FDCTRL;
+  _2 = _1 >> 16;
+  _3 = _2 & 3;
+  _4 = _3 + 3;
+  payloadSize_8 = 1 << _4;
+  _12 = (unsigned char) payloadSize_8;
+
+  <bb 4> [local count: 1073741824]:
+  # prephitmp_13 = PHI <_12(3), 8(2)>
+  return prephitmp_13;
+
+}
+
+
+
+;; Function FLEXCAN_ConfigPN (FLEXCAN_ConfigPN, funcdef_no=88, decl_uid=7684, cgraph_uid=89, symbol_order=88)
+
+Removing basic block 3
+Removing basic block 5
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+Removing basic block 39
+Removing basic block 40
+Removing basic block 41
+FLEXCAN_ConfigPN (struct CAN_Type * base, const struct flexcan_pn_config_t * pnConfig)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  _Bool _1;
+  _Bool _2;
+  short unsigned int _3;
+  <unnamed type> _4;
+  <unnamed type> _5;
+  <unnamed type> _6;
+  short unsigned int _7;
+  long unsigned int _8;
+  unsigned char _10;
+  unsigned char _11;
+  long unsigned int _12;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _40;
+  long unsigned int prephitmp_51;
+  long unsigned int _54;
+  unsigned char _57;
+  long unsigned int _58;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _77;
+  long unsigned int _91;
+  _Bool _99;
+  _Bool _100;
+  _Bool _101;
+  long unsigned int _102;
+  unsigned char _103;
+  _Bool _104;
+  long unsigned int _105;
+  _Bool _110;
+  long unsigned int load_dst_111;
+  long unsigned int _114;
+  long unsigned int _115;
+  long unsigned int _116;
+  long unsigned int _118;
+  long unsigned int _119;
+  long unsigned int iftmp.7_124;
+  long unsigned int load_dst_125;
+  long unsigned int iftmp.8_126;
+  long unsigned int load_dst_127;
+  long unsigned int _128;
+  long unsigned int _129;
+  long unsigned int _130;
+  long unsigned int _131;
+  <unnamed type> _132;
+  long unsigned int _133;
+  long unsigned int prephitmp_134;
+  long unsigned int _135;
+  long unsigned int _136;
+  long unsigned int _137;
+  long unsigned int _138;
+  long unsigned int _139;
+  long unsigned int _140;
+  long unsigned int _141;
+  long unsigned int _153;
+  long unsigned int _156;
+  long unsigned int _157;
+  long unsigned int load_dst_163;
+  <unnamed type> _165;
+  long unsigned int _167;
+
+  <bb 2> [local count: 1073741821]:
+  _1 = pnConfig_16(D)->wakeUpTimeout;
+  _2 = pnConfig_16(D)->wakeUpMatch;
+  _3 = pnConfig_16(D)->numMatches;
+  _4 = pnConfig_16(D)->filterComb;
+  _5 = pnConfig_16(D)->idFilterType;
+  _6 = pnConfig_16(D)->payloadFilterType;
+  tmp_122 ={v} base_17(D)->CTRL1_PN;
+  tmp_123 = tmp_122 & 4294705344;
+  if (_1 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+
+  <bb 4> [local count: 1073741821]:
+  # iftmp.7_124 = PHI <131072(2), 0(3)>
+  if (_2 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 536870911]:
+
+  <bb 6> [local count: 1073741821]:
+  # iftmp.8_126 = PHI <65536(4), 0(5)>
+  _128 = (long unsigned int) _3;
+  _129 = _128 << 8;
+  _130 = _129 & 65535;
+  _132 = _4 & 3;
+  _133 = (long unsigned int) _132;
+  _167 = tmp_123 | _133;
+  _115 = _130 | _167;
+  _135 = (long unsigned int) _5;
+  _136 = _135 << 2;
+  _137 = _136 & 12;
+  _114 = _115 | _137;
+  _139 = (long unsigned int) _6;
+  _140 = _139 << 4;
+  _141 = _140 & 48;
+  _12 = _114 | _141;
+  _8 = _12 | iftmp.7_124;
+  tmp_142 = _8 | iftmp.8_126;
+  base_17(D)->CTRL1_PN ={v} tmp_142;
+  _7 = pnConfig_16(D)->matchTimeout;
+  _21 ={v} base_17(D)->CTRL2_PN;
+  _22 = _21 & 4294901760;
+  _23 = (long unsigned int) _7;
+  _24 = _22 | _23;
+  base_17(D)->CTRL2_PN ={v} _24;
+  _103 = MEM <unsigned char> [(const struct flexcan_pn_config_t *)pnConfig_16(D) + 8B];
+  _104 = MEM <_Bool> [(const struct flexcan_pn_config_t *)pnConfig_16(D) + 9B];
+  _105 = MEM <uint32_t> [(const struct flexcan_pn_config_t *)pnConfig_16(D) + 12B];
+  tmp_108 ={v} base_17(D)->FLT_ID1;
+  tmp_109 = tmp_108 & 2147483648;
+  _110 = VIEW_CONVERT_EXPR<_Bool>(_103);
+  if (_110 != 0)
+    goto <bb 27>; [50.00%]
+  else
+    goto <bb 29>; [50.00%]
+
+  <bb 7> [local count: 268435456]:
+  tmp_19 = tmp_109 | 1073741824;
+
+  <bb 8> [local count: 536870910]:
+  # tmp_168 = PHI <tmp_18(30), tmp_19(7)>
+  _116 = _105 & 536870911;
+  tmp_117 = _116 | tmp_168;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 536870910]:
+  # tmp_169 = PHI <tmp_164(28), tmp_109(29)>
+  _118 = _105 << 18;
+  _119 = _118 & 536870911;
+  tmp_120 = _119 | tmp_169;
+
+  <bb 10> [local count: 1073741821]:
+  # tmp_121 = PHI <tmp_117(8), tmp_120(9)>
+  base_17(D)->FLT_ID1 ={v} tmp_121;
+  if (_5 == 0)
+    goto <bb 12>; [33.00%]
+  else
+    goto <bb 11>; [67.00%]
+
+  <bb 11> [local count: 719407022]:
+  if (_5 == 3)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 20>; [66.00%]
+
+  <bb 12> [local count: 598933190]:
+  _99 = MEM[(_Bool *)pnConfig_16(D) + 8B];
+  _100 = MEM[(_Bool *)pnConfig_16(D) + 16B];
+  _101 = MEM[(_Bool *)pnConfig_16(D) + 17B];
+  _102 = MEM[(long unsigned int *)pnConfig_16(D) + 20B];
+  tmp_143 ={v} base_17(D)->FLT_ID2_IDMASK;
+  tmp_144 = tmp_143 & 2147483648;
+  if (_100 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 13> [local count: 299466595]:
+  _131 = tmp_144 | 1073741824;
+
+  <bb 14> [local count: 598933190]:
+  # prephitmp_134 = PHI <_131(13), tmp_144(12)>
+  if (_101 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [local count: 299466595]:
+  _138 = prephitmp_134 | 536870912;
+
+  <bb 16> [local count: 598933190]:
+  # prephitmp_51 = PHI <_138(15), prephitmp_134(14)>
+  if (_99 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 17> [local count: 299466595]:
+  _153 = _102 & 536870911;
+  tmp_154 = prephitmp_51 | _153;
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [local count: 299466595]:
+  _156 = _102 << 18;
+  _157 = _156 & 536870911;
+  tmp_158 = prephitmp_51 | _157;
+
+  <bb 19> [local count: 598933190]:
+  # tmp_159 = PHI <tmp_154(17), tmp_158(18)>
+  base_17(D)->FLT_ID2_IDMASK ={v} tmp_159;
+  goto <bb 21>; [100.00%]
+
+  <bb 20> [local count: 474808632]:
+  _25 ={v} base_17(D)->FLT_ID2_IDMASK;
+  _26 = _25 | 1610612736;
+  base_17(D)->FLT_ID2_IDMASK ={v} _26;
+
+  <bb 21> [local count: 1073741823]:
+  _165 = _4 & 253;
+  if (_165 == 1)
+    goto <bb 23>; [34.00%]
+  else
+    goto <bb 22>; [66.00%]
+
+  <bb 22> [local count: 908656162]:
+  goto <bb 26>; [100.00%]
+
+  <bb 23> [local count: 606019891]:
+  _10 = pnConfig_16(D)->payloadFilter.dlcLow;
+  _11 = pnConfig_16(D)->payloadFilter.dlcHigh;
+  tmp_55 ={v} base_17(D)->FLT_DLC;
+  tmp_56 = tmp_55 & 4294967280;
+  _57 = _11 & 15;
+  _58 = (long unsigned int) _57;
+  tmp_59 = tmp_56 | _58;
+  _60 = (long unsigned int) _10;
+  _61 = _60 << 16;
+  _62 = _61 & 983040;
+  tmp_63 = tmp_59 | _62;
+  base_17(D)->FLT_DLC ={v} tmp_63;
+  load_dst_163 = MEM <long unsigned int> [(const uint8_t *)pnConfig_16(D) + 32B];
+  _54 = __builtin_bswap32 (load_dst_163);
+  base_17(D)->PL1_HI ={v} _54;
+  load_dst_111 = MEM <long unsigned int> [(const uint8_t *)pnConfig_16(D) + 28B];
+  _40 = __builtin_bswap32 (load_dst_111);
+  base_17(D)->PL1_LO ={v} _40;
+  if (_6 == 0)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 24>; [50.00%]
+
+  <bb 24> [local count: 303009945]:
+  if (_6 == 3)
+    goto <bb 25>; [34.00%]
+  else
+    goto <bb 22>; [66.00%]
+
+  <bb 25> [local count: 406033328]:
+  load_dst_127 = MEM <long unsigned int> [(const uint8_t *)pnConfig_16(D) + 40B];
+  _91 = __builtin_bswap32 (load_dst_127);
+  base_17(D)->PL2_PLMASK_HI ={v} _91;
+  load_dst_125 = MEM <long unsigned int> [(const uint8_t *)pnConfig_16(D) + 36B];
+  _77 = __builtin_bswap32 (load_dst_125);
+  base_17(D)->PL2_PLMASK_LO ={v} _77;
+
+  <bb 26> [local count: 1073741824]:
+  return;
+
+  <bb 27> [local count: 536870911]:
+  if (_104 != 0)
+    goto <bb 30>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 28> [local count: 268435456]:
+  tmp_164 = tmp_109 | 536870912;
+  goto <bb 9>; [100.00%]
+
+  <bb 29> [local count: 536870910]:
+  if (_104 != 0)
+    goto <bb 28>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 30> [local count: 268435450]:
+  tmp_18 = tmp_109 | 1610612736;
+  goto <bb 8>; [100.00%]
+
+}
+
+

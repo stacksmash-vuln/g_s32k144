@@ -1,0 +1,1135 @@
+
+;; Function prvCheckForValidListAndQueue (prvCheckForValidListAndQueue, funcdef_no=22, decl_uid=6363, cgraph_uid=23, symbol_order=28)
+
+Removing basic block 7
+Removing basic block 8
+prvCheckForValidListAndQueue ()
+{
+  struct QueueDefinition * xTimerQueue.19_1;
+  struct QueueDefinition * _2;
+
+  <bb 2> [local count: 1073741824]:
+  vPortEnterCritical ();
+  xTimerQueue.19_1 = xTimerQueue;
+  if (xTimerQueue.19_1 == 0B)
+    goto <bb 4>; [17.43%]
+  else
+    goto <bb 3>; [82.57%]
+
+  <bb 3> [local count: 973671008]:
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 187153200]:
+  vListInitialise (&xActiveTimerList1);
+  vListInitialise (&xActiveTimerList2);
+  pxCurrentTimerList = &xActiveTimerList1;
+  pxOverflowTimerList = &xActiveTimerList2;
+  _2 = xQueueGenericCreate (10, 16, 0);
+  xTimerQueue = _2;
+  if (_2 != 0B)
+    goto <bb 5>; [53.47%]
+  else
+    goto <bb 3>; [46.53%]
+
+  <bb 5> [local count: 100070816]:
+  vQueueAddToRegistry (_2, "TmrQ");
+
+  <bb 6> [local count: 1073741824]:
+  vPortExitCritical (); [tail call]
+  return;
+
+}
+
+
+
+;; Function xTimerCreateTimerTask (xTimerCreateTimerTask, funcdef_no=5, decl_uid=6325, cgraph_uid=6, symbol_order=11)
+
+Merging blocks 5 and 7
+Removing basic block 8
+Removing basic block 9
+xTimerCreateTimerTask ()
+{
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  struct QueueDefinition * xTimerQueue.0_1;
+
+  <bb 2> [local count: 14510487]:
+  prvCheckForValidListAndQueue ();
+  xTimerQueue.0_1 = xTimerQueue;
+  if (xTimerQueue.0_1 != 0B)
+    goto <bb 4>; [53.47%]
+  else
+    goto <bb 3>; [46.53%]
+
+  <bb 3> [local count: 10631109]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_7 : "i" 16 : "memory");
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 7758757]:
+  xReturn_5 = xTaskCreate (prvTimerTask, "Tmr Svc", 128, 0B, 3, &xTimerTaskHandle);
+  if (xReturn_5 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 1073741824]:
+  goto <bb 5>; [100.00%]
+
+  <bb 6> [local count: 3879379]:
+  return xReturn_5;
+
+}
+
+
+
+;; Function xTimerCreate (xTimerCreate, funcdef_no=6, decl_uid=6295, cgraph_uid=7, symbol_order=12)
+
+Merging blocks 6 and 10
+Removing basic block 11
+Removing basic block 12
+xTimerCreate (const char * const pcTimerName, const TickType_t xTimerPeriodInTicks, const UBaseType_t uxAutoReload, void * const pvTimerID, void (*TimerCallbackFunction_t) (struct tmrTimerControl *) pxCallbackFunction)
+{
+  uint32_t ulNewBASEPRI;
+  struct Timer_t * pxNewTimer;
+  struct ListItem_t * _13;
+  unsigned char _14;
+  unsigned char _15;
+
+  <bb 2> [local count: 1073741824]:
+  pxNewTimer_4 = pvPortMalloc (40);
+  if (pxNewTimer_4 != 0B)
+    goto <bb 4>; [53.47%]
+  else
+    goto <bb 3>; [46.53%]
+
+  <bb 3> [local count: 576358861]:
+  goto <bb 9>; [100.00%]
+
+  <bb 4> [local count: 574129751]:
+  pxNewTimer_4->ucStatus = 0;
+  if (xTimerPeriodInTicks_7(D) == 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 287064875]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_12 : "i" 16 : "memory");
+
+  <bb 6> [local count: 28993550133]:
+  goto <bb 6>; [100.00%]
+
+  <bb 7> [local count: 153493577]:
+  prvCheckForValidListAndQueue ();
+  pxNewTimer_4->pcTimerName = pcTimerName_6(D);
+  pxNewTimer_4->xTimerPeriodInTicks = xTimerPeriodInTicks_7(D);
+  pxNewTimer_4->pvTimerID = pvTimerID_9(D);
+  pxNewTimer_4->pxCallbackFunction = pxCallbackFunction_10(D);
+  _13 = &pxNewTimer_4->xTimerListItem;
+  vListInitialiseItem (_13);
+  if (uxAutoReload_8(D) != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 8> [local count: 76746802]:
+  _14 = pxNewTimer_4->ucStatus;
+  _15 = _14 | 4;
+  pxNewTimer_4->ucStatus = _15;
+
+  <bb 9> [local count: 786676949]:
+  return pxNewTimer_4;
+
+}
+
+
+
+;; Function xTimerGenericCommand (xTimerGenericCommand, funcdef_no=8, decl_uid=6331, cgraph_uid=9, symbol_order=14)
+
+Merging blocks 4 and 12
+Removing basic block 13
+xTimerGenericCommand (struct tmrTimerControl * xTimer, const BaseType_t xCommandID, const TickType_t xOptionalValue, BaseType_t * const pxHigherPriorityTaskWoken, const TickType_t xTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  struct DaemonTaskMessage_t xMessage;
+  BaseType_t xReturn;
+  struct QueueDefinition * xTimerQueue.22_1;
+  long int _2;
+  struct QueueDefinition * xTimerQueue.23_3;
+  struct QueueDefinition * xTimerQueue.24_4;
+
+  <bb 2> [local count: 35437027]:
+  if (xTimer_7(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_24 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  xTimerQueue.22_1 = xTimerQueue;
+  if (xTimerQueue.22_1 != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 11>; [30.00%]
+
+  <bb 6> [local count: 17364143]:
+  xMessage.xMessageID = xCommandID_9(D);
+  xMessage.u.xTimerParameters.xMessageValue = xOptionalValue_11(D);
+  xMessage.u.xTimerParameters.pxTimer = xTimer_7(D);
+  if (xCommandID_9(D) <= 5)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 7> [local count: 8682072]:
+  _2 = xTaskGetSchedulerState ();
+  if (_2 == 2)
+    goto <bb 8>; [34.00%]
+  else
+    goto <bb 9>; [66.00%]
+
+  <bb 8> [local count: 2951904]:
+  xTimerQueue.23_3 = xTimerQueue;
+  xReturn_22 = xQueueGenericSend (xTimerQueue.23_3, &xMessage, xTicksToWait_20(D), 0);
+  goto <bb 11>; [100.00%]
+
+  <bb 9> [local count: 5730167]:
+  xTimerQueue.24_4 = xTimerQueue;
+  xReturn_19 = xQueueGenericSend (xTimerQueue.24_4, &xMessage, 0, 0);
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 8682072]:
+  xReturn_16 = xQueueGenericSendFromISR (xTimerQueue.22_1, &xMessage, pxHigherPriorityTaskWoken_14(D), 0);
+
+  <bb 11> [local count: 24805919]:
+  # xReturn_5 = PHI <xReturn_22(8), xReturn_16(10), xReturn_19(9), 0(5)>
+  xMessage ={v} {CLOBBER};
+  return xReturn_5;
+
+}
+
+
+
+;; Function prvSwitchTimerLists (prvSwitchTimerLists, funcdef_no=21, decl_uid=6377, cgraph_uid=22, symbol_order=27)
+
+Merging blocks 8 and 13
+Removing basic block 14
+Removing basic block 15
+prvSwitchTimerLists ()
+{
+  uint32_t ulNewBASEPRI;
+  BaseType_t xResult;
+  struct Timer_t * pxTimer;
+  TickType_t xReloadTime;
+  TickType_t xNextExpireTime;
+  struct xLIST_ITEM * _2;
+  struct ListItem_t * _5;
+  void (*<T6f4>) (struct tmrTimerControl *) _6;
+  unsigned char _7;
+  long unsigned int _8;
+  struct List_t * pxCurrentTimerList.12_9;
+  struct List_t * pxCurrentTimerList.13_11;
+  long unsigned int _12;
+  struct List_t * pxOverflowTimerList.14_13;
+  unsigned char _26;
+
+  <bb 2> [local count: 60590511]:
+  goto <bb 10>; [100.00%]
+
+  <bb 3> [local count: 1014686024]:
+  _2 = pxCurrentTimerList.13_11->xListEnd.pxNext;
+  xNextExpireTime_19 = _2->xItemValue;
+  pxTimer_20 = _2->pvOwner;
+  _5 = &pxTimer_20->xTimerListItem;
+  uxListRemove (_5);
+  _6 = pxTimer_20->pxCallbackFunction;
+  _6 (pxTimer_20);
+  _7 = pxTimer_20->ucStatus;
+  _26 = _7 & 4;
+  if (_26 != 0)
+    goto <bb 4>; [5.50%]
+  else
+    goto <bb 11>; [94.50%]
+
+  <bb 4> [local count: 55807731]:
+  _8 = pxTimer_20->xTimerPeriodInTicks;
+  xReloadTime_23 = _8 + xNextExpireTime_19;
+  if (xNextExpireTime_19 < xReloadTime_23)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 27903865]:
+  pxTimer_20->xTimerListItem.xItemValue = xReloadTime_23;
+  pxTimer_20->xTimerListItem.pvOwner = pxTimer_20;
+  pxCurrentTimerList.12_9 = pxCurrentTimerList;
+  vListInsert (pxCurrentTimerList.12_9, _5);
+  goto <bb 9>; [100.00%]
+
+  <bb 6> [local count: 27903865]:
+  xResult_25 = xTimerGenericCommand (pxTimer_20, 0, xNextExpireTime_19, 0B, 0);
+  if (xResult_25 == 0)
+    goto <bb 7>; [5.50%]
+  else
+    goto <bb 9>; [94.50%]
+
+  <bb 7> [local count: 1534713]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_30 : "i" 16 : "memory");
+
+  <bb 8> [local count: 155005960]:
+  goto <bb 8>; [100.00%]
+
+  <bb 9> [local count: 54273017]:
+
+  <bb 10> [local count: 114863530]:
+
+  <bb 11> [local count: 1073741824]:
+  pxCurrentTimerList.13_11 = pxCurrentTimerList;
+  _12 ={v} pxCurrentTimerList.13_11->uxNumberOfItems;
+  if (_12 != 0)
+    goto <bb 3>; [94.50%]
+  else
+    goto <bb 12>; [5.50%]
+
+  <bb 12> [local count: 59055800]:
+  pxOverflowTimerList.14_13 = pxOverflowTimerList;
+  pxCurrentTimerList = pxOverflowTimerList.14_13;
+  pxOverflowTimerList = pxCurrentTimerList.13_11;
+  return;
+
+}
+
+
+
+;; Function prvTimerTask (prvTimerTask, funcdef_no=15, decl_uid=6365, cgraph_uid=16, symbol_order=21) (executed once)
+
+Merging blocks 13 and 57
+Merging blocks 34 and 55
+Merging blocks 38 and 56
+Removing basic block 58
+Removing basic block 59
+Removing basic block 60
+Removing basic block 61
+Removing basic block 62
+Removing basic block 63
+Removing basic block 64
+Removing basic block 65
+Removing basic block 66
+Removing basic block 67
+Removing basic block 68
+Removing basic block 69
+Removing basic block 70
+Removing basic block 71
+Removing basic block 72
+Removing basic block 73
+Removing basic block 74
+prvTimerTask (void * pvParameters)
+{
+  TickType_t xTimeNow;
+  static TickType_t xLastTime = 0;
+  BaseType_t xResult;
+  struct Timer_t * const pxTimer;
+  uint32_t ulNewBASEPRI;
+  TickType_t xTimeNow;
+  static TickType_t xLastTime = 0;
+  BaseType_t xListWasEmpty;
+  struct DaemonTaskMessage_t xMessage;
+  struct Timer_t * pxTimer;
+  BaseType_t xResult;
+  uint32_t ulNewBASEPRI;
+  uint32_t ulNewBASEPRI;
+  TickType_t xNextExpireTime;
+  struct List_t * pxCurrentTimerList.3_6;
+  long unsigned int _7;
+  struct xLIST_ITEM * _8;
+  long int _12;
+  void (*<T6f9>) (void *, uint32_t) _13;
+  void * _14;
+  long unsigned int _15;
+  long int _16;
+  struct xLIST * _18;
+  struct ListItem_t * _19;
+  long int _21;
+  unsigned char _23;
+  unsigned char _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  __complex__ long unsigned int _29;
+  void (*<T6f4>) (struct tmrTimerControl *) _30;
+  unsigned char _31;
+  unsigned char _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  unsigned char _39;
+  unsigned char _40;
+  unsigned char _42;
+  unsigned char _43;
+  long unsigned int _44;
+  long unsigned int _47;
+  unsigned char _49;
+  unsigned char _50;
+  unsigned char _51;
+  struct QueueDefinition * xTimerQueue.18_52;
+  long int _53;
+  struct List_t * pxOverflowTimerList.7_56;
+  long unsigned int _57;
+  struct QueueDefinition * xTimerQueue.8_58;
+  long unsigned int _59;
+  long int _61;
+  struct List_t * pxCurrentTimerList.15_64;
+  struct xLIST_ITEM * _65;
+  struct ListItem_t * _67;
+  unsigned char _68;
+  unsigned char _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  unsigned char _75;
+  void (*<T6f4>) (struct tmrTimerControl *) _76;
+  long unsigned int _77;
+  struct List_t * pxCurrentTimerList.17_80;
+  struct List_t * pxOverflowTimerList.16_83;
+  long unsigned int xLastTime.9_87;
+  long unsigned int _88;
+  long unsigned int xLastTime.9_89;
+  struct List_t * pxCurrentTimerList.17_91;
+  struct ListItem_t * _92;
+  struct List_t * pxOverflowTimerList.16_94;
+  struct ListItem_t * _95;
+  struct List_t * pxCurrentTimerList.17_100;
+  struct ListItem_t * _101;
+  struct List_t * pxOverflowTimerList.16_103;
+  struct ListItem_t * _104;
+  long int _112;
+  long unsigned int xLastTime.9_113;
+  _Bool _118;
+  long unsigned int _178;
+
+  <bb 2> [local count: 10631108]:
+  vApplicationDaemonTaskStartupHook ();
+
+  <bb 3> [local count: 761233473]:
+  pxCurrentTimerList.3_6 = pxCurrentTimerList;
+  _7 ={v} pxCurrentTimerList.3_6->uxNumberOfItems;
+  if (_7 == 0)
+    goto <bb 54>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 4> [local count: 380616743]:
+  _8 = pxCurrentTimerList.3_6->xListEnd.pxNext;
+  xNextExpireTime_9 = _8->xItemValue;
+  vTaskSuspendAll ();
+  xTimeNow_173 = xTaskGetTickCount ();
+  xLastTime.9_89 = xLastTime;
+  if (xLastTime.9_89 > xTimeNow_173)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 52>; [67.00%]
+
+  <bb 5> [local count: 251207047]:
+  # xTimeNow_93 = PHI <xTimeNow_173(4), xTimeNow_147(54)>
+  prvSwitchTimerLists ();
+  xLastTime = xTimeNow_93;
+  xTaskResumeAll ();
+  goto <bb 45>; [100.00%]
+
+  <bb 6> [local count: 84154356]:
+  xTaskResumeAll ();
+  pxCurrentTimerList.15_64 = pxCurrentTimerList;
+  _65 = pxCurrentTimerList.15_64->xListEnd.pxNext;
+  pxTimer_66 = _65->pvOwner;
+  _67 = &pxTimer_66->xTimerListItem;
+  uxListRemove (_67);
+  _68 = pxTimer_66->ucStatus;
+  _69 = _68 & 4;
+  if (_69 != 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 14>; [67.00%]
+
+  <bb 7> [local count: 27770933]:
+  _70 = pxTimer_66->xTimerPeriodInTicks;
+  _71 = xNextExpireTime_9 + _70;
+  pxTimer_66->xTimerListItem.xItemValue = _71;
+  pxTimer_66->xTimerListItem.pvOwner = pxTimer_66;
+  if (_71 <= xTimeNow_173)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 8> [local count: 13885466]:
+  _77 = xTimeNow_173 - xNextExpireTime_9;
+  if (_70 <= _77)
+    goto <bb 11>; [67.00%]
+  else
+    goto <bb 9>; [33.00%]
+
+  <bb 9> [local count: 4582203]:
+  pxOverflowTimerList.16_83 = pxOverflowTimerList;
+  vListInsert (pxOverflowTimerList.16_83, _67);
+  goto <bb 15>; [100.00%]
+
+  <bb 10> [local count: 9233841]:
+  pxCurrentTimerList.17_80 = pxCurrentTimerList;
+  vListInsert (pxCurrentTimerList.17_80, _67);
+  goto <bb 15>; [100.00%]
+
+  <bb 11> [local count: 9303262]:
+  xResult_73 = xTimerGenericCommand (pxTimer_66, 0, xNextExpireTime_9, 0B, 0);
+  if (xResult_73 == 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 12> [local count: 4582203]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_74 : "i" 16 : "memory");
+
+  <bb 13> [local count: 462802655]:
+  goto <bb 13>; [100.00%]
+
+  <bb 14> [local count: 56383423]:
+  _75 = _68 & 254;
+  pxTimer_66->ucStatus = _75;
+
+  <bb 15> [local count: 79572153]:
+  _76 = pxTimer_66->pxCallbackFunction;
+  _76 (pxTimer_66);
+  goto <bb 45>; [100.00%]
+
+  <bb 16> [local count: 425872070]:
+  # xListWasEmpty_60 = PHI <_112(53), 0(52)>
+  # xNextExpireTime_105 = PHI <_7(53), xNextExpireTime_9(52)>
+  # xTimeNow_123 = PHI <xTimeNow_147(53), xTimeNow_173(52)>
+  xTimerQueue.8_58 = xTimerQueue;
+  _59 = xNextExpireTime_105 - xTimeNow_123;
+  vQueueWaitForMessageRestricted (xTimerQueue.8_58, _59, xListWasEmpty_60);
+  _61 = xTaskResumeAll ();
+  if (_61 == 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 45>; [50.00%]
+
+  <bb 17> [local count: 212936035]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+  goto <bb 45>; [100.00%]
+
+  <bb 18> [local count: 12896713459]:
+  _12 = xMessage.xMessageID;
+  if (_12 < 0)
+    goto <bb 19>; [41.00%]
+  else
+    goto <bb 20>; [59.00%]
+
+  <bb 19> [local count: 12187394223]:
+  _13 = MEM[(const struct CallbackParameters_t *)&xMessage + 4B].pxCallbackFunction;
+  _14 = MEM[(const struct CallbackParameters_t *)&xMessage + 4B].pvParameter1;
+  _15 = MEM[(const struct CallbackParameters_t *)&xMessage + 4B].ulParameter2;
+  _13 (_14, _15);
+  _16 = xMessage.xMessageID;
+  if (_16 >= 0)
+    goto <bb 20>; [0.00%]
+  else
+    goto <bb 50>; [100.00%]
+
+  <bb 20> [local count: 7609060987]:
+  pxTimer_17 = xMessage.u.xTimerParameters.pxTimer;
+  _18 = pxTimer_17->xTimerListItem.pvContainer;
+  if (_18 != 0B)
+    goto <bb 21>; [53.47%]
+  else
+    goto <bb 22>; [46.53%]
+
+  <bb 21> [local count: 379272998]:
+  _19 = &pxTimer_17->xTimerListItem;
+  uxListRemove (_19);
+
+  <bb 22> [local count: 709319235]:
+  xTimeNow_86 = xTaskGetTickCount ();
+  xLastTime.9_87 = xLastTime;
+  if (xTimeNow_86 < xLastTime.9_87)
+    goto <bb 23>; [33.00%]
+  else
+    goto <bb 24>; [67.00%]
+
+  <bb 23> [local count: 234075345]:
+  prvSwitchTimerLists ();
+
+  <bb 24> [local count: 709319235]:
+  xLastTime = xTimeNow_86;
+  _21 = xMessage.xMessageID;
+  switch (_21) <default: <L14> [0.00%], case 0 ... 2: <L2> [50.00%], case 3: <L3> [20.00%], case 4: <L4> [20.00%], case 5: <L5> [10.00%], case 6 ... 7: <L2> [50.00%], case 8: <L3> [20.00%], case 9: <L4> [20.00%]>
+
+  <bb 25> [local count: 141863844]:
+<L2>:
+  _23 = pxTimer_17->ucStatus;
+  _24 = _23 | 1;
+  pxTimer_17->ucStatus = _24;
+  _25 = xMessage.u.xTimerParameters.xMessageValue;
+  _26 = pxTimer_17->xTimerPeriodInTicks;
+  _29 = .ADD_OVERFLOW (_25, _26);
+  _27 = REALPART_EXPR <_29>;
+  _178 = IMAGPART_EXPR <_29>;
+  pxTimer_17->xTimerListItem.xItemValue = _27;
+  pxTimer_17->xTimerListItem.pvOwner = pxTimer_17;
+  if (_27 <= xTimeNow_86)
+    goto <bb 26>; [50.00%]
+  else
+    goto <bb 28>; [50.00%]
+
+  <bb 26> [local count: 70931922]:
+  _88 = xTimeNow_86 - _25;
+  if (_26 <= _88)
+    goto <bb 31>; [67.00%]
+  else
+    goto <bb 27>; [33.00%]
+
+  <bb 27> [local count: 23407533]:
+  pxOverflowTimerList.16_94 = pxOverflowTimerList;
+  _95 = &pxTimer_17->xTimerListItem;
+  vListInsert (pxOverflowTimerList.16_94, _95);
+  goto <bb 47>; [100.00%]
+
+  <bb 28> [local count: 70931922]:
+  if (_25 > xTimeNow_86)
+    goto <bb 29>; [67.00%]
+  else
+    goto <bb 30>; [33.00%]
+
+  <bb 29> [local count: 47524389]:
+  if (_178 == 0)
+    goto <bb 31>; [50.00%]
+  else
+    goto <bb 30>; [50.00%]
+
+  <bb 30> [local count: 47169728]:
+  pxCurrentTimerList.17_91 = pxCurrentTimerList;
+  _92 = &pxTimer_17->xTimerListItem;
+  vListInsert (pxCurrentTimerList.17_91, _92);
+  goto <bb 47>; [100.00%]
+
+  <bb 31> [local count: 70931922]:
+  _30 = pxTimer_17->pxCallbackFunction;
+  _30 (pxTimer_17);
+  _31 = pxTimer_17->ucStatus;
+  _32 = _31 & 4;
+  if (_32 != 0)
+    goto <bb 32>; [33.00%]
+  else
+    goto <bb 46>; [67.00%]
+
+  <bb 32> [local count: 23407533]:
+  _33 = xMessage.u.xTimerParameters.xMessageValue;
+  _34 = pxTimer_17->xTimerPeriodInTicks;
+  _35 = _33 + _34;
+  xResult_36 = xTimerGenericCommand (pxTimer_17, 0, _35, 0B, 0);
+  if (xResult_36 == 0)
+    goto <bb 33>; [3.66%]
+  else
+    goto <bb 46>; [96.34%]
+
+  <bb 33> [local count: 856721]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_37 : "i" 16 : "memory");
+
+  <bb 34> [local count: 86528289]:
+  goto <bb 34>; [100.00%]
+
+  <bb 35> [local count: 141863844]:
+<L3>:
+  _39 = pxTimer_17->ucStatus;
+  _40 = _39 & 254;
+  pxTimer_17->ucStatus = _40;
+  goto <bb 47>; [100.00%]
+
+  <bb 36> [local count: 141863844]:
+<L4>:
+  _42 = pxTimer_17->ucStatus;
+  _43 = _42 | 1;
+  pxTimer_17->ucStatus = _43;
+  _44 = xMessage.u.xTimerParameters.xMessageValue;
+  pxTimer_17->xTimerPeriodInTicks = _44;
+  if (_44 == 0)
+    goto <bb 37>; [3.66%]
+  else
+    goto <bb 39>; [96.34%]
+
+  <bb 37> [local count: 5192222]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_45 : "i" 16 : "memory");
+
+  <bb 38> [local count: 524413888]:
+  goto <bb 38>; [100.00%]
+
+  <bb 39> [local count: 136671635]:
+  _47 = _44 + xTimeNow_86;
+  pxTimer_17->xTimerListItem.xItemValue = _47;
+  pxTimer_17->xTimerListItem.pvOwner = pxTimer_17;
+  if (_47 <= xTimeNow_86)
+    goto <bb 40>; [50.00%]
+  else
+    goto <bb 41>; [50.00%]
+
+  <bb 40> [local count: 22550825]:
+  pxOverflowTimerList.16_103 = pxOverflowTimerList;
+  _104 = &pxTimer_17->xTimerListItem;
+  vListInsert (pxOverflowTimerList.16_103, _104);
+  goto <bb 47>; [100.00%]
+
+  <bb 41> [local count: 68335818]:
+  pxCurrentTimerList.17_100 = pxCurrentTimerList;
+  _101 = &pxTimer_17->xTimerListItem;
+  vListInsert (pxCurrentTimerList.17_100, _101);
+  goto <bb 47>; [100.00%]
+
+  <bb 42> [local count: 141863844]:
+<L5>:
+  _49 = pxTimer_17->ucStatus;
+  _50 = _49 & 2;
+  if (_50 == 0)
+    goto <bb 43>; [33.00%]
+  else
+    goto <bb 44>; [67.00%]
+
+  <bb 43> [local count: 46815066]:
+  vPortFree (pxTimer_17);
+  goto <bb 47>; [100.00%]
+
+  <bb 44> [local count: 95048778]:
+  _51 = _49 & 254;
+  pxTimer_17->ucStatus = _51;
+  goto <bb 47>; [100.00%]
+
+  <bb 45> [local count: 756651270]:
+  goto <bb 48>; [100.00%]
+
+  <bb 46> [local count: 70075205]:
+
+  <bb 47> [local count: 515266797]:
+
+  <bb 48> [local count: 1459921591]:
+
+  <bb 49> [local count: 1459921587]:
+<L14>:
+
+  <bb 50> [local count: 13647315798]:
+  xTimerQueue.18_52 = xTimerQueue;
+  _53 = xQueueReceive (xTimerQueue.18_52, &xMessage, 0);
+  if (_53 != 0)
+    goto <bb 18>; [94.50%]
+  else
+    goto <bb 51>; [5.50%]
+
+  <bb 51> [local count: 750602365]:
+  xMessage ={v} {CLOBBER};
+  goto <bb 3>; [100.00%]
+
+  <bb 52> [local count: 255013213]:
+  xLastTime = xTimeNow_173;
+  if (xNextExpireTime_9 <= xTimeNow_173)
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 53> [local count: 255013213]:
+  xLastTime = xTimeNow_147;
+  pxOverflowTimerList.7_56 = pxOverflowTimerList;
+  _57 ={v} pxOverflowTimerList.7_56->uxNumberOfItems;
+  _118 = _57 == 0;
+  _112 = (long int) _118;
+  goto <bb 16>; [100.00%]
+
+  <bb 54> [local count: 380616737]:
+  vTaskSuspendAll ();
+  xTimeNow_147 = xTaskGetTickCount ();
+  xLastTime.9_113 = xLastTime;
+  if (xLastTime.9_113 > xTimeNow_147)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 53>; [67.00%]
+
+}
+
+
+
+;; Function xTimerGetTimerDaemonTaskHandle (xTimerGetTimerDaemonTaskHandle, funcdef_no=9, decl_uid=6304, cgraph_uid=10, symbol_order=15)
+
+Merging blocks 4 and 6
+xTimerGetTimerDaemonTaskHandle ()
+{
+  uint32_t ulNewBASEPRI;
+  struct tskTaskControlBlock * xTimerTaskHandle.26_1;
+
+  <bb 2> [local count: 35437027]:
+  xTimerTaskHandle.26_1 = xTimerTaskHandle;
+  if (xTimerTaskHandle.26_1 == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_3 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  return xTimerTaskHandle.26_1;
+
+}
+
+
+
+;; Function xTimerGetPeriod (xTimerGetPeriod, funcdef_no=10, decl_uid=6321, cgraph_uid=11, symbol_order=16)
+
+Merging blocks 4 and 6
+xTimerGetPeriod (struct tmrTimerControl * xTimer)
+{
+  uint32_t ulNewBASEPRI;
+  TickType_t _3;
+
+  <bb 2> [local count: 35437027]:
+  if (xTimer_1(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_4 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _3 = MEM[(struct Timer_t *)xTimer_1(D)].xTimerPeriodInTicks;
+  return _3;
+
+}
+
+
+
+;; Function vTimerSetReloadMode (vTimerSetReloadMode, funcdef_no=11, decl_uid=6319, cgraph_uid=12, symbol_order=17)
+
+Merging blocks 4 and 9
+vTimerSetReloadMode (struct tmrTimerControl * xTimer, const UBaseType_t uxAutoReload)
+{
+  uint32_t ulNewBASEPRI;
+  unsigned char _1;
+  unsigned char _2;
+  unsigned char _3;
+  unsigned char _4;
+  unsigned char cstore_16;
+
+  <bb 2> [local count: 22847857]:
+  if (xTimer_6(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_13 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  if (uxAutoReload_9(D) != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 6108375]:
+  _1 = MEM[(struct Timer_t *)xTimer_6(D)].ucStatus;
+  _2 = _1 | 4;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 6108375]:
+  _3 = MEM[(struct Timer_t *)xTimer_6(D)].ucStatus;
+  _4 = _3 & 251;
+
+  <bb 8> [local count: 12216749]:
+  # cstore_16 = PHI <_2(6), _4(7)>
+  MEM[(struct Timer_t *)xTimer_6(D)].ucStatus = cstore_16;
+  vPortExitCritical (); [tail call]
+  return;
+
+}
+
+
+
+;; Function xTimerGetExpiryTime (xTimerGetExpiryTime, funcdef_no=12, decl_uid=6323, cgraph_uid=13, symbol_order=18)
+
+Merging blocks 4 and 6
+xTimerGetExpiryTime (struct tmrTimerControl * xTimer)
+{
+  uint32_t ulNewBASEPRI;
+  TickType_t xReturn;
+
+  <bb 2> [local count: 35437027]:
+  if (xTimer_1(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_4 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  xReturn_3 = MEM[(struct Timer_t *)xTimer_1(D)].xTimerListItem.xItemValue;
+  return xReturn_3;
+
+}
+
+
+
+;; Function pcTimerGetName (pcTimerGetName, funcdef_no=13, decl_uid=6316, cgraph_uid=14, symbol_order=19)
+
+Merging blocks 4 and 6
+pcTimerGetName (struct tmrTimerControl * xTimer)
+{
+  uint32_t ulNewBASEPRI;
+  const char * _3;
+
+  <bb 2> [local count: 35437027]:
+  if (xTimer_1(D) == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_4 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 24805919]:
+  _3 = MEM[(struct Timer_t *)xTimer_1(D)].pcTimerName;
+  return _3;
+
+}
+
+
+
+;; Function xTimerIsTimerActive (xTimerIsTimerActive, funcdef_no=23, decl_uid=6302, cgraph_uid=24, symbol_order=29)
+
+Merging blocks 4 and 6
+xTimerIsTimerActive (struct tmrTimerControl * xTimer)
+{
+  uint32_t ulNewBASEPRI;
+  unsigned char _1;
+  long int _2;
+  unsigned char _4;
+
+  <bb 2> [local count: 22847857]:
+  if (xTimer_3(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_8 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  _1 = MEM[(struct Timer_t *)xTimer_3(D)].ucStatus;
+  _4 = _1 & 1;
+  _2 = (long int) _4;
+  vPortExitCritical ();
+  return _2;
+
+}
+
+
+
+;; Function pvTimerGetTimerID (pvTimerGetTimerID, funcdef_no=24, decl_uid=6297, cgraph_uid=25, symbol_order=30)
+
+Merging blocks 4 and 6
+pvTimerGetTimerID (struct tmrTimerControl * const xTimer)
+{
+  uint32_t ulNewBASEPRI;
+  void * pvReturn;
+
+  <bb 2> [local count: 22847857]:
+  if (xTimer_1(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_6 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  pvReturn_4 = MEM[(struct Timer_t *)xTimer_1(D)].pvTimerID;
+  vPortExitCritical ();
+  return pvReturn_4;
+
+}
+
+
+
+;; Function vTimerSetTimerID (vTimerSetTimerID, funcdef_no=25, decl_uid=6300, cgraph_uid=26, symbol_order=31)
+
+Merging blocks 4 and 6
+vTimerSetTimerID (struct tmrTimerControl * xTimer, void * pvNewID)
+{
+  uint32_t ulNewBASEPRI;
+
+  <bb 2> [local count: 22847857]:
+  if (xTimer_1(D) == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_7 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  vPortEnterCritical ();
+  MEM[(struct Timer_t *)xTimer_1(D)].pvTimerID = pvNewID_4(D);
+  vPortExitCritical (); [tail call]
+  return;
+
+}
+
+
+
+;; Function xTimerPendFunctionCallFromISR (xTimerPendFunctionCallFromISR, funcdef_no=26, decl_uid=6309, cgraph_uid=27, symbol_order=32)
+
+xTimerPendFunctionCallFromISR (void (*PendedFunction_t) (void *, uint32_t) xFunctionToPend, void * pvParameter1, uint32_t ulParameter2, BaseType_t * pxHigherPriorityTaskWoken)
+{
+  BaseType_t xReturn;
+  struct DaemonTaskMessage_t xMessage;
+  struct QueueDefinition * xTimerQueue.27_1;
+
+  <bb 2> [local count: 1073741824]:
+  xMessage.xMessageID = -2;
+  xMessage.u.xCallbackParameters.pxCallbackFunction = xFunctionToPend_4(D);
+  xMessage.u.xCallbackParameters.pvParameter1 = pvParameter1_6(D);
+  xMessage.u.xCallbackParameters.ulParameter2 = ulParameter2_8(D);
+  xTimerQueue.27_1 = xTimerQueue;
+  xReturn_12 = xQueueGenericSendFromISR (xTimerQueue.27_1, &xMessage, pxHigherPriorityTaskWoken_10(D), 0);
+  xMessage ={v} {CLOBBER};
+  return xReturn_12;
+
+}
+
+
+
+;; Function xTimerPendFunctionCall (xTimerPendFunctionCall, funcdef_no=27, decl_uid=6314, cgraph_uid=28, symbol_order=33)
+
+Merging blocks 4 and 6
+xTimerPendFunctionCall (void (*PendedFunction_t) (void *, uint32_t) xFunctionToPend, void * pvParameter1, uint32_t ulParameter2, TickType_t xTicksToWait)
+{
+  uint32_t ulNewBASEPRI;
+  BaseType_t xReturn;
+  struct DaemonTaskMessage_t xMessage;
+  struct QueueDefinition * xTimerQueue.28_1;
+
+  <bb 2> [local count: 22847857]:
+  xTimerQueue.28_1 = xTimerQueue;
+  if (xTimerQueue.28_1 == 0B)
+    goto <bb 3>; [46.53%]
+  else
+    goto <bb 5>; [53.47%]
+
+  <bb 3> [local count: 10631108]:
+  __asm__ __volatile__("	mov %0, %1												
+	msr basepri, %0											
+	isb														
+	dsb														
+" : "=r" ulNewBASEPRI_14 : "i" 16 : "memory");
+
+  <bb 4> [local count: 1073741824]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 12216749]:
+  xMessage.xMessageID = -1;
+  xMessage.u.xCallbackParameters.pxCallbackFunction = xFunctionToPend_4(D);
+  xMessage.u.xCallbackParameters.pvParameter1 = pvParameter1_6(D);
+  xMessage.u.xCallbackParameters.ulParameter2 = ulParameter2_8(D);
+  xReturn_12 = xQueueGenericSend (xTimerQueue.28_1, &xMessage, xTicksToWait_10(D), 0);
+  xMessage ={v} {CLOBBER};
+  return xReturn_12;
+
+}
+
+

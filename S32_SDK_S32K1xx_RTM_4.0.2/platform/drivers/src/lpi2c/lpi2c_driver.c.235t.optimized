@@ -1,0 +1,3611 @@
+
+;; Function LPI2C_DRV_ConfigureDmaTransfer (LPI2C_DRV_ConfigureDmaTransfer, funcdef_no=77, decl_uid=8145, cgraph_uid=78, symbol_order=84)
+
+LPI2C_DRV_ConfigureDmaTransfer (uint32_t instance, const struct lpi2c_dma_transfer_params_t * dmaTransParams)
+{
+  <unnamed type> _1;
+  unsigned char _2;
+  unsigned char _3;
+  unsigned char _4;
+  <unnamed type> _5;
+  uint8_t * _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  unsigned char _10;
+  unsigned char _11;
+  <unnamed type> _12;
+  long unsigned int _13;
+  uint8_t * _14;
+  long unsigned int _15;
+  long unsigned int _16;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = dmaTransParams_19(D)->transferDirection;
+  if (_1 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _2 = dmaTransParams_19(D)->dmaChannel;
+  _3 = g_lpi2cDMASrc[instance_22(D)][0];
+  EDMA_DRV_SetChannelRequestAndTrigger (_2, _3, 0);
+  _4 = dmaTransParams_19(D)->dmaChannel;
+  _5 = dmaTransParams_19(D)->dmaTransferType;
+  _6 = dmaTransParams_19(D)->bufferTransfer;
+  _7 = (long unsigned int) _6;
+  _8 = dmaTransParams_19(D)->i2cDataRegAddr;
+  _9 = dmaTransParams_19(D)->transferSize;
+  EDMA_DRV_ConfigMultiBlockTransfer (_4, _5, _7, _8, 0, 1, _9, 0); [tail call]
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _10 = dmaTransParams_19(D)->dmaChannel;
+  EDMA_DRV_SetChannelRequestAndTrigger (_10, 44, 0);
+  _11 = dmaTransParams_19(D)->dmaChannel;
+  _12 = dmaTransParams_19(D)->dmaTransferType;
+  _13 = dmaTransParams_19(D)->i2cDataRegAddr;
+  _14 = dmaTransParams_19(D)->bufferTransfer;
+  _15 = (long unsigned int) _14;
+  _16 = dmaTransParams_19(D)->transferSize;
+  EDMA_DRV_ConfigMultiBlockTransfer (_11, _12, _13, _15, 0, 1, _16, 0); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveStartDmaTransfer (LPI2C_DRV_SlaveStartDmaTransfer, funcdef_no=79, decl_uid=8156, cgraph_uid=80, symbol_order=86)
+
+LPI2C_DRV_SlaveStartDmaTransfer (uint32_t instance)
+{
+  uint32_t regValue;
+  uint32_t regValue;
+  struct lpi2c_dma_transfer_params_t dmaTransParams;
+  const struct lpi2c_slave_state_t * slave;
+  long unsigned int _1;
+  unsigned char _2;
+  volatile uint32_t * _3;
+  long unsigned int _4;
+  const uint8_t * _5;
+  unsigned char _6;
+  const uint32_t * _7;
+  long unsigned int _8;
+  uint8_t * _9;
+  long unsigned int _10;
+  unsigned char _11;
+  long unsigned int _12;
+  long int _13;
+  long int _14;
+  unsigned char _15;
+  long unsigned int _16;
+
+  <bb 2> [local count: 1073741824]:
+  slave_21 = g_lpi2cSlaveStatePtr[instance_20(D)];
+  _1 = slave_21->txSize;
+  if (_1 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _2 = slave_21->dmaChannel;
+  dmaTransParams.dmaChannel = _2;
+  dmaTransParams.dmaTransferType = 1;
+  _3 = &MEM[(struct LPI2C_Type *)1074159616B].STDR;
+  _4 = (long unsigned int) _3;
+  dmaTransParams.i2cDataRegAddr = _4;
+  _5 = slave_21->txBuff;
+  dmaTransParams.bufferTransfer = _5;
+  dmaTransParams.transferDirection = 0;
+  dmaTransParams.transferSize = _1;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  _6 = slave_21->dmaChannel;
+  dmaTransParams.dmaChannel = _6;
+  dmaTransParams.dmaTransferType = 0;
+  _7 = &MEM[(struct LPI2C_Type *)1074159616B].SRDR;
+  _8 = (long unsigned int) _7;
+  dmaTransParams.i2cDataRegAddr = _8;
+  _9 = slave_21->rxBuff;
+  dmaTransParams.bufferTransfer = _9;
+  dmaTransParams.transferDirection = 1;
+  _10 = slave_21->rxSize;
+  dmaTransParams.transferSize = _10;
+
+  <bb 5> [local count: 1073741824]:
+  LPI2C_DRV_ConfigureDmaTransfer (instance_20(D), &dmaTransParams);
+  _11 = dmaTransParams.dmaChannel;
+  _12 = slave_21->txSize;
+  _13 = (long int) _12;
+  _14 = -_13;
+  EDMA_DRV_SetSrcLastAddrAdjustment (_11, _14);
+  _15 = dmaTransParams.dmaChannel;
+  EDMA_DRV_StartChannel (_15);
+  _16 = slave_21->txSize;
+  if (_16 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 536870913]:
+  regValue_38 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_39 = regValue_38 & 4294967294;
+  regValue_40 = regValue_39 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_40;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 536870913]:
+  regValue_41 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_42 = regValue_41 & 4294967293;
+  regValue_43 = regValue_42 | 2;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_43;
+
+  <bb 8> [local count: 1073741824]:
+  dmaTransParams ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterEndTransfer.constprop (LPI2C_DRV_MasterEndTransfer.constprop.0, funcdef_no=123, decl_uid=9419, cgraph_uid=208, symbol_order=214)
+
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+LPI2C_DRV_MasterEndTransfer.constprop (struct lpi2c_master_state_t * master, _Bool sendStop, _Bool resetFIFO)
+{
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  <unnamed type> _4;
+  unsigned char _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_1 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_2 = tmp_1 & 4294960124;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_2;
+  _4 = master_3(D)->transferType;
+  if (_4 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  _5 = master_3(D)->dmaChannel;
+  EDMA_DRV_StopChannel (_5);
+  _6 = master_3(D)->rxSize;
+  if (_6 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 177167400]:
+  regValue_7 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_8 = regValue_7 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_8;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 177167400]:
+  regValue_9 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_10 = regValue_9 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_10;
+
+  <bb 6> [local count: 1073741824]:
+  if (resetFIFO_11(D) != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 536870913]:
+  regValue_12 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_13 = regValue_12 & 4294967039;
+  regValue_14 = regValue_13 | 256;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_14;
+  regValue_15 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_16 = regValue_15 & 4294966783;
+  regValue_17 = regValue_16 | 512;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_17;
+
+  <bb 8> [local count: 1073741824]:
+  if (sendStop_18(D) != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 9> [local count: 536870913]:
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} 512;
+
+  <bb 10> [local count: 1073741824]:
+  master_3(D)->txBuff = 0B;
+  master_3(D)->txSize = 0;
+  master_3(D)->rxBuff = 0B;
+  master_3(D)->rxSize = 0;
+  master_3(D)->i2cIdle ={v} 1;
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterQueueData.constprop (LPI2C_DRV_MasterQueueData.constprop.0, funcdef_no=122, decl_uid=9420, cgraph_uid=209, symbol_order=215)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+Removing basic block 14
+LPI2C_DRV_MasterQueueData.constprop (struct lpi2c_master_state_t * master)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  short unsigned int _3;
+  short unsigned int _7;
+  unsigned char _9;
+  unsigned char _10;
+  const uint8_t * _11;
+  unsigned char _12;
+  long unsigned int _13;
+  const uint8_t * _14;
+  long unsigned int _16;
+  short unsigned int _19;
+  const uint8_t * prephitmp_20;
+  const uint8_t * pretmp_21;
+  long unsigned int _22;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+
+  <bb 2> [local count: 337833909]:
+  tmp_1 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_4 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  _9 = MEM[(const struct lpi2c_master_state_t *)master_8(D)].cmdQueue.writeIdx;
+  _10 = MEM[(const struct lpi2c_master_state_t *)master_8(D)].cmdQueue.readIdx;
+  if (_9 == _10)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 337833910]:
+  return;
+
+  <bb 4> [local count: 114863530]:
+  _27 = master_8(D)->txSize;
+  if (_27 != 0)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 3>; [5.50%]
+
+  <bb 5> [local count: 108546036]:
+  tmp_5 = tmp_4 & 15;
+  tmp_6 = 1 << tmp_5;
+  _7 = (short unsigned int) tmp_6;
+  tmp_2 = tmp_1 & 7;
+  _3 = (short unsigned int) tmp_2;
+  if (_3 < _7)
+    goto <bb 6>; [94.50%]
+  else
+    goto <bb 3>; [5.50%]
+
+  <bb 6> [local count: 102576004]:
+  pretmp_21 = master_8(D)->txBuff;
+  _11 = pretmp_21 + _27;
+
+  <bb 7> [local count: 958878294]:
+  # prephitmp_20 = PHI <pretmp_21(6), _14(8)>
+  _12 = MEM[base: prephitmp_20, offset: 0B];
+  _13 = (long unsigned int) _12;
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} _13;
+  _14 = prephitmp_20 + 1;
+  master_8(D)->txBuff = _14;
+  _22 = (long unsigned int) pretmp_21;
+  _29 = _22 + _27;
+  _28 = (long unsigned int) _14;
+  _16 = _29 - _28;
+  master_8(D)->txSize = _16;
+  tmp_17 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_18 = tmp_17 & 7;
+  _19 = (short unsigned int) tmp_18;
+  if (_11 != _14)
+    goto <bb 8>; [94.50%]
+  else
+    goto <bb 3>; [5.50%]
+
+  <bb 8> [local count: 906139989]:
+  if (_7 > _19)
+    goto <bb 7>; [94.50%]
+  else
+    goto <bb 3>; [5.50%]
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterSendAddress.constprop (LPI2C_DRV_MasterSendAddress.constprop.0, funcdef_no=121, decl_uid=9421, cgraph_uid=210, symbol_order=216)
+
+Removing basic block 17
+LPI2C_DRV_MasterSendAddress.constprop (struct lpi2c_master_state_t * master, _Bool receive)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint8_t addrByte;
+  uint8_t addrByte;
+  _Bool _2;
+  short unsigned int _4;
+  unsigned char _5;
+  unsigned char _6;
+  unsigned char _7;
+  short unsigned int _13;
+  short unsigned int _14;
+  unsigned char _15;
+  unsigned char _16;
+  short unsigned int _27;
+  short unsigned int _31;
+  long unsigned int _34;
+  unsigned char _36;
+  int _37;
+  unsigned char _38;
+  short unsigned int _41;
+  short unsigned int _45;
+  long unsigned int _48;
+  long unsigned int _49;
+  unsigned char _50;
+  int _51;
+  unsigned char _52;
+  short unsigned int _55;
+  short unsigned int _59;
+  long unsigned int _62;
+  long unsigned int _63;
+  unsigned char _64;
+  int _65;
+  unsigned char _66;
+  short unsigned int _69;
+  short unsigned int _73;
+  long unsigned int _76;
+  long unsigned int _77;
+  unsigned char _78;
+  int _79;
+  unsigned char _80;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = master_1(D)->is10bitAddr;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _13 = master_1(D)->slaveAddress;
+  _14 = _13 >> 7;
+  _15 = (unsigned char) _14;
+  _16 = _15 & 6;
+  addrByte_17 = _16 + 240;
+  tmp_39 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_40 = tmp_39 & 7;
+  _41 = (short unsigned int) tmp_40;
+  tmp_42 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  tmp_43 = tmp_42 & 15;
+  tmp_44 = 1 << tmp_43;
+  _45 = (short unsigned int) tmp_44;
+  if (_41 < _45)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _48 = (long unsigned int) addrByte_17;
+  _49 = _48 + 1024;
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} _49;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 268435456]:
+  _50 = master_1(D)->cmdQueue.writeIdx;
+  _51 = (int) _50;
+  master_1(D)->cmdQueue.cmd[_51] = 4;
+  master_1(D)->cmdQueue.data[_51] = addrByte_17;
+  _52 = _50 + 1;
+  master_1(D)->cmdQueue.writeIdx = _52;
+
+  <bb 6> [local count: 536870913]:
+  addrByte_19 = (uint8_t) _13;
+  tmp_25 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_26 = tmp_25 & 7;
+  _27 = (short unsigned int) tmp_26;
+  tmp_28 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  tmp_29 = tmp_28 & 15;
+  tmp_30 = 1 << tmp_29;
+  _31 = (short unsigned int) tmp_30;
+  if (_27 < _31)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 268435456]:
+  _34 = (long unsigned int) addrByte_19;
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} _34;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 268435456]:
+  _36 = master_1(D)->cmdQueue.writeIdx;
+  _37 = (int) _36;
+  master_1(D)->cmdQueue.cmd[_37] = 0;
+  master_1(D)->cmdQueue.data[_37] = addrByte_19;
+  _38 = _36 + 1;
+  master_1(D)->cmdQueue.writeIdx = _38;
+
+  <bb 9> [local count: 536870913]:
+  if (receive_3(D) != 0)
+    goto <bb 10>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 10> [local count: 177167400]:
+  addrByte_24 = _16 + 241;
+  tmp_53 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_54 = tmp_53 & 7;
+  _55 = (short unsigned int) tmp_54;
+  tmp_56 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  tmp_57 = tmp_56 & 15;
+  tmp_58 = 1 << tmp_57;
+  _59 = (short unsigned int) tmp_58;
+  if (_55 < _59)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [local count: 88583700]:
+  _62 = (long unsigned int) addrByte_24;
+  _63 = _62 + 1024;
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} _63;
+  goto <bb 16>; [100.00%]
+
+  <bb 12> [local count: 88583700]:
+  _64 = master_1(D)->cmdQueue.writeIdx;
+  _65 = (int) _64;
+  master_1(D)->cmdQueue.cmd[_65] = 4;
+  master_1(D)->cmdQueue.data[_65] = addrByte_24;
+  _66 = _64 + 1;
+  master_1(D)->cmdQueue.writeIdx = _66;
+  goto <bb 16>; [100.00%]
+
+  <bb 13> [local count: 536870913]:
+  _4 = master_1(D)->slaveAddress;
+  _5 = (unsigned char) _4;
+  _6 = _5 << 1;
+  _7 = (unsigned char) receive_3(D);
+  addrByte_8 = _6 + _7;
+  tmp_67 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_68 = tmp_67 & 7;
+  _69 = (short unsigned int) tmp_68;
+  tmp_70 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  tmp_71 = tmp_70 & 15;
+  tmp_72 = 1 << tmp_71;
+  _73 = (short unsigned int) tmp_72;
+  if (_69 < _73)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 268435456]:
+  _76 = (long unsigned int) addrByte_8;
+  _77 = _76 + 1024;
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} _77;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [local count: 268435456]:
+  _78 = master_1(D)->cmdQueue.writeIdx;
+  _79 = (int) _78;
+  master_1(D)->cmdQueue.cmd[_79] = 4;
+  master_1(D)->cmdQueue.data[_79] = addrByte_8;
+  _80 = _78 + 1;
+  master_1(D)->cmdQueue.writeIdx = _80;
+
+  <bb 16> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterStartDmaTransfer (LPI2C_DRV_MasterStartDmaTransfer, funcdef_no=78, decl_uid=8148, cgraph_uid=79, symbol_order=85)
+
+LPI2C_DRV_MasterStartDmaTransfer (uint32_t instance)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t txBytes;
+  _Bool receive;
+  struct lpi2c_dma_transfer_params_t dmaTransParams;
+  struct lpi2c_master_state_t * master;
+  unsigned char _1;
+  long unsigned int _2;
+  short unsigned int _3;
+  short unsigned int _4;
+  volatile uint32_t * _5;
+  long unsigned int _6;
+  const uint8_t * _7;
+  const uint32_t * _8;
+  long unsigned int _9;
+  uint8_t * _10;
+  long unsigned int _11;
+  unsigned char _12;
+  unsigned char _13;
+  void * instance.3_14;
+  unsigned char _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  unsigned char _18;
+  unsigned char _19;
+  short unsigned int _50;
+  long unsigned int _51;
+  short unsigned int _67;
+  short unsigned int _71;
+  long unsigned int _74;
+  long unsigned int _75;
+  unsigned char _76;
+  int _77;
+  unsigned char _78;
+
+  <bb 2> [local count: 1073741824]:
+  master_25 = g_lpi2cMasterStatePtr[instance_24(D)];
+  _1 = master_25->dmaChannel;
+  dmaTransParams.dmaChannel = _1;
+  _2 = master_25->txSize;
+  if (_2 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_44 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  tmp_45 = tmp_44 & 15;
+  tmp_46 = 1 << tmp_45;
+  txBytes_47 = MIN_EXPR <_2, tmp_46>;
+  _3 = (short unsigned int) txBytes_47;
+  _4 = _3 + 65535;
+  tmp_48 ={v} MEM[(struct LPI2C_Type *)1074159616B].MFCR;
+  tmp_49 = tmp_48 & 4294967292;
+  _50 = _4 & 3;
+  _51 = (long unsigned int) _50;
+  tmp_52 = tmp_49 | _51;
+  MEM[(struct LPI2C_Type *)1074159616B].MFCR ={v} tmp_52;
+  dmaTransParams.dmaTransferType = 1;
+  _5 = &MEM[(struct LPI2C_Type *)1074159616B].MTDR;
+  _6 = (long unsigned int) _5;
+  dmaTransParams.i2cDataRegAddr = _6;
+  _7 = master_25->txBuff;
+  dmaTransParams.bufferTransfer = _7;
+  dmaTransParams.transferDirection = 0;
+  dmaTransParams.transferSize = _2;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  tmp_53 ={v} MEM[(struct LPI2C_Type *)1074159616B].MFCR;
+  tmp_54 = tmp_53 & 4294770687;
+  MEM[(struct LPI2C_Type *)1074159616B].MFCR ={v} tmp_54;
+  dmaTransParams.dmaTransferType = 0;
+  _8 = &MEM[(struct LPI2C_Type *)1074159616B].MRDR;
+  _9 = (long unsigned int) _8;
+  dmaTransParams.i2cDataRegAddr = _9;
+  _10 = master_25->rxBuff;
+  dmaTransParams.bufferTransfer = _10;
+  dmaTransParams.transferDirection = 1;
+  _11 = master_25->rxSize;
+  dmaTransParams.transferSize = _11;
+
+  <bb 5> [local count: 1073741824]:
+  # receive_20 = PHI <0(3), 1(4)>
+  LPI2C_DRV_ConfigureDmaTransfer (instance_24(D), &dmaTransParams);
+  _12 = dmaTransParams.dmaChannel;
+  EDMA_DRV_DisableRequestsOnTransferComplete (_12, 1);
+  _13 = dmaTransParams.dmaChannel;
+  instance.3_14 = (void *) instance_24(D);
+  EDMA_DRV_InstallCallback (_13, LPI2C_DRV_MasterCompleteDMATransfer, instance.3_14);
+  _15 = dmaTransParams.dmaChannel;
+  EDMA_DRV_StartChannel (_15);
+  LPI2C_DRV_MasterSendAddress.constprop (master_25, receive_20);
+  _16 = master_25->txSize;
+  if (_16 != 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 7>; [33.00%]
+
+  <bb 6> [local count: 719407025]:
+  regValue_55 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_56 = regValue_55 & 4294967294;
+  regValue_57 = regValue_56 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_57;
+  goto <bb 11>; [100.00%]
+
+  <bb 7> [local count: 354334800]:
+  _17 = master_25->rxSize;
+  _18 = (unsigned char) _17;
+  _19 = _18 + 255;
+  tmp_65 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_66 = tmp_65 & 7;
+  _67 = (short unsigned int) tmp_66;
+  tmp_68 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  tmp_69 = tmp_68 & 15;
+  tmp_70 = 1 << tmp_69;
+  _71 = (short unsigned int) tmp_70;
+  if (_67 < _71)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 177167400]:
+  _74 = (long unsigned int) _19;
+  _75 = _74 + 256;
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} _75;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 177167400]:
+  _76 = master_25->cmdQueue.writeIdx;
+  _77 = (int) _76;
+  master_25->cmdQueue.cmd[_77] = 1;
+  master_25->cmdQueue.data[_77] = _19;
+  _78 = _76 + 1;
+  master_25->cmdQueue.writeIdx = _78;
+
+  <bb 10> [local count: 354334800]:
+  regValue_58 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_59 = regValue_58 & 4294967293;
+  regValue_60 = regValue_59 | 2;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_60;
+
+  <bb 11> [local count: 1073741824]:
+  dmaTransParams ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveEndTransferHandler.constprop (LPI2C_DRV_SlaveEndTransferHandler.constprop.0, funcdef_no=130, decl_uid=9412, cgraph_uid=201, symbol_order=207)
+
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+LPI2C_DRV_SlaveEndTransferHandler.constprop (struct lpi2c_slave_state_t * slave)
+{
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  <unnamed type> _2;
+  unsigned char _3;
+  _Bool _4;
+  _Bool _5;
+  struct QueueDefinition * * _6;
+  void (*<T7d9>) (i2c_slave_event_t, void *) _7;
+  void * _8;
+  <unnamed type> _19;
+  long unsigned int _20;
+
+  <bb 2> [local count: 1073741824]:
+  _2 = slave_1(D)->transferType;
+  if (_2 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  _3 = slave_1(D)->dmaChannel;
+  EDMA_DRV_StopChannel (_3);
+
+  <bb 4> [local count: 1073741824]:
+  _4 = slave_1(D)->slaveListening;
+  if (_4 != 0)
+    goto <bb 5>; [67.00%]
+  else
+    goto <bb 6>; [33.00%]
+
+  <bb 5> [local count: 956811341]:
+  goto <bb 12>; [100.00%]
+
+  <bb 6> [local count: 354334800]:
+  tmp_17 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_18 = tmp_17 & 4294963448;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_18;
+  _19 = slave_1(D)->transferType;
+  if (_19 == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 7> [local count: 177167400]:
+  _20 = slave_1(D)->rxSize;
+  if (_20 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 88583700]:
+  regValue_21 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_22 = regValue_21 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_22;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 88583700]:
+  regValue_23 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_24 = regValue_23 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_24;
+
+  <bb 10> [local count: 354334800]:
+  regValue_25 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_26 = regValue_25 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_26;
+  slave_1(D)->isTransferInProgress ={v} 0;
+  slave_1(D)->rxBuff = 0B;
+  slave_1(D)->rxSize = 0;
+  slave_1(D)->txBuff = 0B;
+  slave_1(D)->txSize = 0;
+  slave_1(D)->repeatedStarts = 0;
+  _5 = slave_1(D)->blocking;
+  if (_5 != 0)
+    goto <bb 11>; [33.00%]
+  else
+    goto <bb 5>; [67.00%]
+
+  <bb 11> [local count: 116930483]:
+  _6 = &slave_1(D)->idleSemaphore;
+  OSIF_SemaPost (_6);
+
+  <bb 12> [local count: 1073741824]:
+  _7 = slave_1(D)->slaveCallback;
+  if (_7 != 0B)
+    goto <bb 13>; [70.00%]
+  else
+    goto <bb 14>; [30.00%]
+
+  <bb 13> [local count: 751619281]:
+  _8 = slave_1(D)->callbackParam;
+  _7 (4, _8); [tail call]
+
+  <bb 14> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterCompleteDMATransfer (LPI2C_DRV_MasterCompleteDMATransfer, funcdef_no=80, decl_uid=8069, cgraph_uid=81, symbol_order=87)
+
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+LPI2C_DRV_MasterCompleteDMATransfer (void * parameter, edma_chn_status_t status)
+{
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t instance;
+  struct lpi2c_master_state_t * master;
+  long unsigned int _1;
+  _Bool _2;
+  _Bool _3;
+  struct QueueDefinition * * _4;
+  void (*<T7de>) (i2c_master_event_t, void *) _5;
+  void * _6;
+  <unnamed type> _32;
+  unsigned char _33;
+  long unsigned int _34;
+
+  <bb 2> [local count: 1073741823]:
+  instance_11 = (uint32_t) parameter_10(D);
+  master_13 = g_lpi2cMasterStatePtr[instance_11];
+  _1 = master_13->txSize;
+  if (_1 != 0)
+    goto <bb 3>; [67.00%]
+  else
+    goto <bb 5>; [33.00%]
+
+  <bb 3> [local count: 719407024]:
+  if (status_14(D) != 1)
+    goto <bb 4>; [66.00%]
+  else
+    goto <bb 5>; [34.00%]
+
+  <bb 4> [local count: 474808633]:
+  master_13->txSize = 0;
+  tmp_25 ={v} MEM[(struct LPI2C_Type *)1074159616B].MFCR;
+  tmp_26 = tmp_25 & 4294967292;
+  MEM[(struct LPI2C_Type *)1074159616B].MFCR ={v} tmp_26;
+  regValue_23 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_24 = regValue_23 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_24;
+  tmp_21 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_22 = tmp_21 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_22;
+  goto <bb 18>; [100.00%]
+
+  <bb 5> [local count: 598933191]:
+  _2 = master_13->sendStop;
+  tmp_30 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_31 = tmp_30 & 4294960124;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_31;
+  _32 = master_13->transferType;
+  if (_32 == 0)
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 6> [local count: 197647952]:
+  _33 = master_13->dmaChannel;
+  EDMA_DRV_StopChannel (_33);
+  _34 = master_13->rxSize;
+  if (_34 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 98823976]:
+  regValue_35 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_36 = regValue_35 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_36;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 98823976]:
+  regValue_37 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_38 = regValue_37 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_38;
+
+  <bb 9> [local count: 598933191]:
+  if (_2 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 299466595]:
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} 512;
+
+  <bb 11> [local count: 598933191]:
+  master_13->txBuff = 0B;
+  master_13->txSize = 0;
+  master_13->rxBuff = 0B;
+  master_13->rxSize = 0;
+  master_13->i2cIdle ={v} 1;
+  _3 = master_13->blocking;
+  if (_3 != 0)
+    goto <bb 12>; [33.00%]
+  else
+    goto <bb 13>; [67.00%]
+
+  <bb 12> [local count: 197647952]:
+  _4 = &master_13->idleSemaphore;
+  OSIF_SemaPost (_4);
+
+  <bb 13> [local count: 598933191]:
+  if (status_14(D) == 1)
+    goto <bb 14>; [34.00%]
+  else
+    goto <bb 15>; [66.00%]
+
+  <bb 14> [local count: 203637287]:
+  master_13->status ={v} 1;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [local count: 395295904]:
+  master_13->status ={v} 0;
+
+  <bb 16> [local count: 598933191]:
+  _5 = master_13->masterCallback;
+  if (_5 != 0B)
+    goto <bb 17>; [70.00%]
+  else
+    goto <bb 18>; [30.00%]
+
+  <bb 17> [local count: 419253235]:
+  _6 = master_13->callbackParam;
+  _5 (4, _6); [tail call]
+
+  <bb 18> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterDeinit (LPI2C_DRV_MasterDeinit, funcdef_no=90, decl_uid=7211, cgraph_uid=91, symbol_order=97)
+
+LPI2C_DRV_MasterDeinit (uint32_t instance)
+{
+  uint32_t regValue;
+  const struct lpi2c_master_state_t * master;
+  struct QueueDefinition * const * _1;
+
+  <bb 2> [local count: 1073741824]:
+  master_4 = g_lpi2cMasterStatePtr[instance_3(D)];
+  _1 = &master_4->idleSemaphore;
+  OSIF_SemaDestroy (_1);
+  g_lpi2cMasterStatePtr[instance_3(D)] = 0B;
+  regValue_8 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_9 = regValue_8 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_9;
+  INT_SYS_DisableIRQ (24);
+  return 0;
+
+}
+
+
+
+;; Function LPI2C_DRV_SetMasterBusIdleTimeout (LPI2C_DRV_SetMasterBusIdleTimeout, funcdef_no=91, decl_uid=7297, cgraph_uid=92, symbol_order=98)
+
+LPI2C_DRV_SetMasterBusIdleTimeout (uint32_t instance, uint16_t timeout)
+{
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint16_t timeout_temp;
+  long unsigned int _9;
+
+  <bb 2> [local count: 1073741824]:
+  timeout_temp_13 = MIN_EXPR <timeout_1(D), 4095>;
+  regValue_11 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_12 = regValue_11 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_12;
+  tmp_6 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCFGR2;
+  tmp_7 = tmp_6 & 4294963200;
+  _9 = (long unsigned int) timeout_temp_13;
+  tmp_10 = tmp_7 | _9;
+  MEM[(struct LPI2C_Type *)1074159616B].MCFGR2 ={v} tmp_10;
+  regValue_3 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_4 = regValue_3 & 4294967294;
+  regValue_5 = regValue_4 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_5;
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterGetBaudRate (LPI2C_DRV_MasterGetBaudRate, funcdef_no=92, decl_uid=7214, cgraph_uid=93, symbol_order=99)
+
+LPI2C_DRV_MasterGetBaudRate (uint32_t instance, struct lpi2c_baud_rate_params_t * baudRate)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t inputClock;
+  long unsigned int inputClock.0_1;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _15;
+  long unsigned int _19;
+
+  <bb 2> [local count: 1073741824]:
+  CLOCK_SYS_GetFreq (68, &inputClock);
+  tmp_17 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MCFGR1;
+  tmp_18 = tmp_17 & 7;
+  tmp_14 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MCCR0;
+  _15 = tmp_14 >> 8;
+  tmp_16 = _15 & 63;
+  tmp_12 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MCCR0;
+  tmp_13 = tmp_12 & 63;
+  inputClock.0_1 = inputClock;
+  _19 = tmp_13 + 2;
+  _3 = tmp_16 + _19;
+  _4 = _3 << tmp_18;
+  _5 = inputClock.0_1 / _4;
+  baudRate_9(D)->baudRate = _5;
+  inputClock ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterSetBaudRate (LPI2C_DRV_MasterSetBaudRate, funcdef_no=93, decl_uid=7218, cgraph_uid=94, symbol_order=100)
+
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+LPI2C_DRV_MasterSetBaudRate (uint32_t instance, const lpi2c_mode_t operatingMode, const struct lpi2c_baud_rate_params_t baudRate)
+{
+  const long unsigned int baudRate$baudRate;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  struct lpi2c_master_state_t * master;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t clkTotal;
+  uint32_t prescaler;
+  uint32_t minPrescaler;
+  uint32_t inputClock;
+  const struct lpi2c_master_state_t * master;
+  _Bool _1;
+  long unsigned int inputClock.1_4;
+  long unsigned int _5;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  status_t _22;
+  long unsigned int _109;
+  long unsigned int _111;
+  long unsigned int _112;
+  long unsigned int _115;
+  long unsigned int _117;
+  long unsigned int _119;
+  long unsigned int _121;
+  long unsigned int prephitmp_122;
+  long unsigned int _123;
+  unsigned char _125;
+  long unsigned int _127;
+  long unsigned int _129;
+  long unsigned int prephitmp_130;
+  unsigned char _131;
+  long unsigned int _133;
+  long unsigned int prephitmp_134;
+  long unsigned int _135;
+  long unsigned int prephitmp_136;
+  long unsigned int prephitmp_138;
+  long unsigned int prephitmp_143;
+  long unsigned int prephitmp_145;
+  long unsigned int prephitmp_146;
+
+  <bb 2> [local count: 581183528]:
+  master_27 = g_lpi2cMasterStatePtr[instance_26(D)];
+  _1 ={v} master_27->i2cIdle;
+  if (_1 != 0)
+    goto <bb 3>; [63.97%]
+  else
+    goto <bb 12>; [36.03%]
+
+  <bb 3> [local count: 371783104]:
+  baudRate$baudRate_20 = baudRate.baudRate;
+  CLOCK_SYS_GetFreq (68, &inputClock);
+  regValue_43 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_44 = regValue_43 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_44;
+  if (baudRate$baudRate_20 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 4> [local count: 185891552]:
+  inputClock.1_4 = inputClock;
+  _5 = inputClock.1_4 + 4294967295;
+  _7 = baudRate$baudRate_20 * 128;
+  _8 = _5 / _7;
+  minPrescaler_32 = _8 + 1;
+
+  <bb 5> [local count: 939524098]:
+  # prescaler_93 = PHI <0(4), prescaler_33(6)>
+  _9 = 1 << prescaler_93;
+  if (_9 >= minPrescaler_32)
+    goto <bb 7>; [5.50%]
+  else
+    goto <bb 6>; [94.50%]
+
+  <bb 6> [local count: 887850272]:
+  prescaler_33 = prescaler_93 + 1;
+  if (prescaler_33 != 7)
+    goto <bb 5>; [84.88%]
+  else
+    goto <bb 7>; [15.12%]
+
+  <bb 7> [local count: 185891553]:
+  # prescaler_75 = PHI <prescaler_93(5), prescaler_33(6)>
+  _10 = baudRate$baudRate_20 << prescaler_75;
+  _11 = _10 >> 1;
+  _12 = inputClock.1_4 + _11;
+  clkTotal_34 = _12 / _10;
+  if (clkTotal_34 > 128)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 8> [local count: 92945777]:
+  if (clkTotal_34 <= 1)
+    goto <bb 11>; [73.54%]
+  else
+    goto <bb 9>; [26.46%]
+
+  <bb 9> [local count: 24591035]:
+  _109 = clkTotal_34 + 4294967294;
+  _111 = _109 >> 1;
+  _112 = MAX_EXPR <_111, 1>;
+  _115 = _109 - _111;
+  _117 = _112 >> 1;
+  _119 = MAX_EXPR <_117, 1>;
+  _121 = _112 << 8;
+  _123 = MAX_EXPR <_115, 3>;
+  _125 = (unsigned char) _123;
+  _127 = MAX_EXPR <_112, 2>;
+  _129 = _119 << 24;
+  _131 = _125 & 63;
+  _133 = (long unsigned int) _131;
+  _135 = _127 << 16;
+
+  <bb 10> [local count: 257459801]:
+  # prescaler_31 = PHI <7(3), prescaler_75(9), prescaler_75(7)>
+  # prephitmp_122 = PHI <16128(3), _121(9), 16128(7)>
+  # prephitmp_130 = PHI <520093696(3), _129(9), 520093696(7)>
+  # prephitmp_134 = PHI <63(3), _133(9), 63(7)>
+  # prephitmp_136 = PHI <4128768(3), _135(9), 4128768(7)>
+
+  <bb 11> [local count: 371783105]:
+  # prescaler_35 = PHI <prescaler_31(10), prescaler_75(8)>
+  # prephitmp_138 = PHI <prephitmp_122(10), 256(8)>
+  # prephitmp_143 = PHI <prephitmp_130(10), 16777216(8)>
+  # prephitmp_145 = PHI <prephitmp_134(10), 3(8)>
+  # prephitmp_146 = PHI <prephitmp_136(10), 131072(8)>
+  tmp_72 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCFGR1;
+  tmp_73 = tmp_72 & 4294967288;
+  tmp_76 = prescaler_35 | tmp_73;
+  MEM[(struct LPI2C_Type *)1074159616B].MCFGR1 ={v} tmp_76;
+  tmp_67 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCCR0;
+  tmp_68 = tmp_67 & 3238002687;
+  tmp_71 = tmp_68 | prephitmp_143;
+  MEM[(struct LPI2C_Type *)1074159616B].MCCR0 ={v} tmp_71;
+  tmp_63 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCCR0;
+  tmp_64 = tmp_63 & 4290838527;
+  tmp_66 = tmp_64 | prephitmp_146;
+  MEM[(struct LPI2C_Type *)1074159616B].MCCR0 ={v} tmp_66;
+  tmp_59 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCCR0;
+  tmp_60 = tmp_59 & 4294951167;
+  tmp_62 = tmp_60 | prephitmp_138;
+  MEM[(struct LPI2C_Type *)1074159616B].MCCR0 ={v} tmp_62;
+  tmp_54 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCCR0;
+  tmp_55 = tmp_54 & 4294967232;
+  tmp_58 = tmp_55 | prephitmp_145;
+  MEM[(struct LPI2C_Type *)1074159616B].MCCR0 ={v} tmp_58;
+  master_49 = g_lpi2cMasterStatePtr[instance_26(D)];
+  tmp_50 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCFGR1;
+  tmp_51 = tmp_50 & 4177526783;
+  MEM[(struct LPI2C_Type *)1074159616B].MCFGR1 ={v} tmp_51;
+  regValue_52 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCFGR1;
+  regValue_53 = regValue_52 & 4294966783;
+  MEM[(struct LPI2C_Type *)1074159616B].MCFGR1 ={v} regValue_53;
+  master_49->operatingMode = operatingMode_41(D);
+  regValue_46 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_47 = regValue_46 & 4294967294;
+  regValue_48 = regValue_47 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_48;
+
+  <bb 12> [local count: 581183529]:
+  # _22 = PHI <0(11), 2(2)>
+  inputClock ={v} {CLOBBER};
+  return _22;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterInit (LPI2C_DRV_MasterInit, funcdef_no=89, decl_uid=7209, cgraph_uid=90, symbol_order=96)
+
+LPI2C_DRV_MasterInit (uint32_t instance, const struct lpi2c_master_user_config_t * userConfigPtr, struct lpi2c_master_state_t * master)
+{
+  struct lpi2c_master_state_t * master;
+  uint32_t regValue;
+  struct lpi2c_baud_rate_params_t baudRate;
+  uint32_t inputClock;
+  short unsigned int _1;
+  _Bool _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  void (*<T7de>) (i2c_master_event_t, void *) _5;
+  void * _6;
+  long unsigned int _7;
+  struct QueueDefinition * * _8;
+  long unsigned int _9;
+  <unnamed type> _10;
+  short unsigned int _11;
+  _Bool _12;
+
+  <bb 2> [local count: 1073741824]:
+  CLOCK_SYS_GetFreq (68, &inputClock);
+  g_lpi2cMasterStatePtr[instance_15(D)] = master_16(D);
+  master_16(D)->rxBuff = 0B;
+  master_16(D)->rxSize = 0;
+  master_16(D)->txBuff = 0B;
+  master_16(D)->txSize = 0;
+  master_16(D)->status ={v} 0;
+  master_16(D)->i2cIdle ={v} 1;
+  _1 = userConfigPtr_24(D)->slaveAddress;
+  master_16(D)->slaveAddress = _1;
+  _2 = userConfigPtr_24(D)->is10bitAddr;
+  master_16(D)->is10bitAddr = _2;
+  _3 = userConfigPtr_24(D)->transferType;
+  master_16(D)->transferType = _3;
+  _4 = userConfigPtr_24(D)->dmaChannel;
+  master_16(D)->dmaChannel = _4;
+  _5 = userConfigPtr_24(D)->masterCallback;
+  master_16(D)->masterCallback = _5;
+  _6 = userConfigPtr_24(D)->callbackParam;
+  master_16(D)->callbackParam = _6;
+  master_16(D)->blocking = 0;
+  _7 = userConfigPtr_24(D)->baudRate;
+  master_16(D)->baudrate = _7;
+  master_16(D)->abortedTransfer = 0;
+  _8 = &master_16(D)->idleSemaphore;
+  OSIF_SemaCreate (_8, 0);
+  MEM <unsigned short> [(unsigned char *)master_16(D) + 10B] = 0;
+  INT_SYS_EnableIRQ (24);
+  LPI2C_Init (1074159616B);
+  _9 = userConfigPtr_24(D)->baudRate;
+  baudRate.baudRate = _9;
+  _10 = userConfigPtr_24(D)->operatingMode;
+  LPI2C_DRV_MasterSetBaudRate (instance_15(D), _10, baudRate);
+  _11 = userConfigPtr_24(D)->slaveAddress;
+  _12 = userConfigPtr_24(D)->is10bitAddr;
+  master_44 = g_lpi2cMasterStatePtr[instance_15(D)];
+  master_44->slaveAddress = _11;
+  master_44->is10bitAddr = _12;
+  regValue_41 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_42 = regValue_41 & 4294967294;
+  regValue_43 = regValue_42 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_43;
+  inputClock ={v} {CLOBBER};
+  baudRate ={v} {CLOBBER};
+  return 0;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterReinit.isra (LPI2C_DRV_MasterReinit.isra.0, funcdef_no=117, decl_uid=9425, cgraph_uid=214, symbol_order=220)
+
+LPI2C_DRV_MasterReinit.isra (uint32_t instance, struct lpi2c_master_state_t * master)
+{
+  struct lpi2c_baud_rate_params_t baudRate;
+  uint32_t regValue;
+  struct lpi2c_master_state_t * master;
+  long unsigned int _3;
+  <unnamed type> _4;
+  short unsigned int _5;
+  _Bool _6;
+
+  <bb 2> [local count: 1073741824]:
+  g_lpi2cMasterStatePtr[instance_2(D)] = master_1(D);
+  master_1(D)->txBuff = 0B;
+  master_1(D)->txSize = 0;
+  master_1(D)->rxBuff = 0B;
+  master_1(D)->rxSize = 0;
+  master_1(D)->i2cIdle ={v} 1;
+  MEM <unsigned short> [(unsigned char *)master_1(D) + 10B] = 0;
+  LPI2C_Init (1074159616B);
+  _3 = master_1(D)->baudrate;
+  baudRate.baudRate = _3;
+  _4 = master_1(D)->operatingMode;
+  LPI2C_DRV_MasterSetBaudRate (instance_2(D), _4, baudRate);
+  _5 = master_1(D)->slaveAddress;
+  _6 = master_1(D)->is10bitAddr;
+  master_7 = g_lpi2cMasterStatePtr[instance_2(D)];
+  master_7->slaveAddress = _5;
+  master_7->is10bitAddr = _6;
+  regValue_8 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_9 = regValue_8 & 4294967294;
+  regValue_10 = regValue_9 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_10;
+  baudRate ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterWaitTransferEnd (LPI2C_DRV_MasterWaitTransferEnd, funcdef_no=82, decl_uid=8176, cgraph_uid=83, symbol_order=89)
+
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+LPI2C_DRV_MasterWaitTransferEnd (uint32_t instance, uint32_t timeout)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  struct lpi2c_master_state_t * master;
+  status_t osifError;
+  struct QueueDefinition * * _1;
+  long unsigned int _2;
+  <unnamed type> _3;
+  unsigned char _4;
+  long unsigned int _5;
+  status_t _6;
+  status_t _21;
+  status_t _32;
+  long unsigned int _34;
+  long unsigned int _40;
+  long unsigned int _41;
+
+  <bb 2> [local count: 1073741824]:
+  master_14 = g_lpi2cMasterStatePtr[instance_13(D)];
+  _1 = &master_14->idleSemaphore;
+  osifError_17 = OSIF_SemaWait (_1, timeout_15(D));
+  if (osifError_17 == 3)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 15>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  _2 = master_14->txSize;
+  if (_2 != 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 5>; [67.00%]
+
+  <bb 4> [local count: 120473833]:
+  LPI2C_DRV_MasterEndTransfer.constprop (master_14, 0, 1);
+  master_14->status ={v} 3;
+  goto <bb 15>; [100.00%]
+
+  <bb 5> [local count: 244598391]:
+  _3 = master_14->transferType;
+  if (_3 == 0)
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 7>; [67.00%]
+
+  <bb 6> [local count: 80717469]:
+  _4 = master_14->dmaChannel;
+  EDMA_DRV_StopChannel (_4);
+
+  <bb 7> [local count: 244598391]:
+  tmp_36 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_37 = tmp_36 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_37;
+  tmp_33 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  _34 = tmp_33 >> 16;
+  tmp_35 = _34 & 7;
+  _5 = master_14->rxSize;
+  if (_5 == tmp_35)
+    goto <bb 8>; [34.00%]
+  else
+    goto <bb 10>; [66.00%]
+
+  <bb 8> [local count: 83163454]:
+  if (_5 == 0)
+    goto <bb 9>; [34.00%]
+  else
+    goto <bb 12>; [66.00%]
+
+  <bb 9> [local count: 28275575]:
+  master_14->status ={v} 0;
+  master_14->blocking = 0;
+  _21 ={v} master_14->status;
+  goto <bb 16>; [100.00%]
+
+  <bb 10> [local count: 161434937]:
+  if (_5 > tmp_35)
+    goto <bb 11>; [67.00%]
+  else
+    goto <bb 12>; [33.00%]
+
+  <bb 11> [local count: 108161408]:
+  master_14->abortedTransfer = 1;
+  tmp_38 ={v} MEM[(struct LPI2C_Type *)1074159616B].MFCR;
+  tmp_39 = tmp_38 & 4294770687;
+  _40 = tmp_35 << 16;
+  _41 = _40 & 196608;
+  tmp_42 = tmp_39 | _41;
+  MEM[(struct LPI2C_Type *)1074159616B].MFCR ={v} tmp_42;
+  master_14->status ={v} 3;
+
+  <bb 12> [local count: 216322816]:
+  tmp_43 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_44 = tmp_43 | 2;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_44;
+  osifError_25 = OSIF_SemaWait (_1, timeout_15(D));
+  if (osifError_25 == 3)
+    goto <bb 13>; [20.24%]
+  else
+    goto <bb 14>; [79.76%]
+
+  <bb 13> [local count: 43783738]:
+  LPI2C_DRV_MasterReinit.isra (instance_13(D), master_14);
+  master_14->status ={v} 3;
+
+  <bb 14> [local count: 216322816]:
+  master_14->abortedTransfer = 0;
+
+  <bb 15> [local count: 1045466250]:
+  master_14->blocking = 0;
+  _32 ={v} master_14->status;
+
+  <bb 16> [local count: 1073741824]:
+  # _6 = PHI <_21(9), _32(15)>
+  return _6;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterSetSlaveAddr (LPI2C_DRV_MasterSetSlaveAddr, funcdef_no=94, decl_uid=7222, cgraph_uid=95, symbol_order=101)
+
+LPI2C_DRV_MasterSetSlaveAddr (uint32_t instance, const uint16_t address, const _Bool is10bitAddr)
+{
+  struct lpi2c_master_state_t * master;
+
+  <bb 2> [local count: 1073741824]:
+  master_3 = g_lpi2cMasterStatePtr[instance_2(D)];
+  master_3->slaveAddress = address_4(D);
+  master_3->is10bitAddr = is10bitAddr_6(D);
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterSendData (LPI2C_DRV_MasterSendData, funcdef_no=95, decl_uid=7227, cgraph_uid=96, symbol_order=102)
+
+Removing basic block 7
+LPI2C_DRV_MasterSendData (uint32_t instance, const uint8_t * txBuff, uint32_t txSize, _Bool sendStop)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  struct lpi2c_master_state_t * master;
+  _Bool _1;
+  <unnamed type> _2;
+  status_t _3;
+
+  <bb 2> [local count: 1073741824]:
+  master_7 = g_lpi2cMasterStatePtr[instance_6(D)];
+  _1 ={v} master_7->i2cIdle;
+  if (_1 != 0)
+    goto <bb 3>; [78.28%]
+  else
+    goto <bb 6>; [21.72%]
+
+  <bb 3> [local count: 840525097]:
+  master_7->txBuff = txBuff_8(D);
+  master_7->txSize = txSize_10(D);
+  master_7->sendStop = sendStop_12(D);
+  master_7->i2cIdle ={v} 0;
+  master_7->status ={v} 2;
+  _2 = master_7->transferType;
+  if (_2 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 420262548]:
+  tmp_19 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_20 = tmp_19 | 7168;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_20;
+  LPI2C_DRV_MasterStartDmaTransfer (instance_6(D));
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 420262548]:
+  LPI2C_DRV_MasterSendAddress.constprop (master_7, 0);
+  LPI2C_DRV_MasterQueueData.constprop (master_7);
+  tmp_23 ={v} MEM[(struct LPI2C_Type *)1074159616B].MFCR;
+  tmp_24 = tmp_23 & 4294967292;
+  MEM[(struct LPI2C_Type *)1074159616B].MFCR ={v} tmp_24;
+  tmp_21 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_22 = tmp_21 | 7169;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_22;
+
+  <bb 6> [local count: 1073741824]:
+  # _3 = PHI <0(4), 0(5), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterSendDataBlocking (LPI2C_DRV_MasterSendDataBlocking, funcdef_no=96, decl_uid=7233, cgraph_uid=97, symbol_order=103)
+
+Removing basic block 5
+LPI2C_DRV_MasterSendDataBlocking (uint32_t instance, const uint8_t * txBuff, uint32_t txSize, _Bool sendStop, uint32_t timeout)
+{
+  struct lpi2c_master_state_t * master;
+  _Bool _1;
+  struct QueueDefinition * * _2;
+  status_t _3;
+  status_t _16;
+
+  <bb 2> [local count: 1073741824]:
+  master_7 = g_lpi2cMasterStatePtr[instance_6(D)];
+  _1 ={v} master_7->i2cIdle;
+  if (_1 != 0)
+    goto <bb 3>; [63.97%]
+  else
+    goto <bb 4>; [36.03%]
+
+  <bb 3> [local count: 686872649]:
+  master_7->blocking = 1;
+  _2 = &master_7->idleSemaphore;
+  OSIF_SemaWait (_2, 0);
+  LPI2C_DRV_MasterSendData (instance_6(D), txBuff_10(D), txSize_11(D), sendStop_12(D));
+  _16 = LPI2C_DRV_MasterWaitTransferEnd (instance_6(D), timeout_14(D)); [tail call]
+
+  <bb 4> [local count: 1073741824]:
+  # _3 = PHI <_16(3), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterAbortTransferData (LPI2C_DRV_MasterAbortTransferData, funcdef_no=97, decl_uid=7235, cgraph_uid=98, symbol_order=104)
+
+Removing basic block 9
+Removing basic block 10
+LPI2C_DRV_MasterAbortTransferData (uint32_t instance)
+{
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  struct lpi2c_master_state_t * master;
+  uint8_t * _1;
+  status_t _2;
+  <unnamed type> _11;
+  unsigned char _12;
+  long unsigned int _13;
+
+  <bb 2> [local count: 1073741824]:
+  master_6 = g_lpi2cMasterStatePtr[instance_5(D)];
+  _1 = master_6->rxBuff;
+  if (_1 != 0B)
+    goto <bb 8>; [56.78%]
+  else
+    goto <bb 3>; [43.22%]
+
+  <bb 3> [local count: 464071215]:
+  master_6->status ={v} 516;
+  tmp_9 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_10 = tmp_9 & 4294960124;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_10;
+  _11 = master_6->transferType;
+  if (_11 == 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 7>; [67.00%]
+
+  <bb 4> [local count: 153143500]:
+  _12 = master_6->dmaChannel;
+  EDMA_DRV_StopChannel (_12);
+  _13 = master_6->rxSize;
+  if (_13 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 76571750]:
+  regValue_14 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_15 = regValue_14 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_15;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 76571750]:
+  regValue_16 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_17 = regValue_16 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_17;
+
+  <bb 7> [local count: 464071216]:
+  regValue_18 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_19 = regValue_18 & 4294967039;
+  regValue_20 = regValue_19 | 256;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_20;
+  regValue_21 ={v} MEM[(struct LPI2C_Type *)1074159616B].MCR;
+  regValue_22 = regValue_21 & 4294966783;
+  regValue_23 = regValue_22 | 512;
+  MEM[(struct LPI2C_Type *)1074159616B].MCR ={v} regValue_23;
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} 512;
+  master_6->txBuff = 0B;
+  master_6->txSize = 0;
+  master_6->rxBuff = 0B;
+  master_6->rxSize = 0;
+  master_6->i2cIdle ={v} 1;
+
+  <bb 8> [local count: 1073741825]:
+  # _2 = PHI <0(7), 4(2)>
+  return _2;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterReceiveData (LPI2C_DRV_MasterReceiveData, funcdef_no=98, decl_uid=7240, cgraph_uid=99, symbol_order=105)
+
+Removing basic block 15
+LPI2C_DRV_MasterReceiveData (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize, _Bool sendStop)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint16_t rxBytes;
+  struct lpi2c_master_state_t * master;
+  _Bool _1;
+  <unnamed type> _2;
+  unsigned char _3;
+  unsigned char _4;
+  short unsigned int _5;
+  status_t _7;
+  long unsigned int _27;
+  short unsigned int _30;
+  unsigned char _32;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  short unsigned int _49;
+  short unsigned int _53;
+  long unsigned int _56;
+  long unsigned int _57;
+  unsigned char _58;
+  int _59;
+  unsigned char _60;
+  unsigned char pretmp_69;
+  unsigned char prephitmp_70;
+
+  <bb 2> [local count: 1073741824]:
+  master_11 = g_lpi2cMasterStatePtr[instance_10(D)];
+  _1 ={v} master_11->i2cIdle;
+  if (_1 != 0)
+    goto <bb 3>; [78.28%]
+  else
+    goto <bb 14>; [21.72%]
+
+  <bb 3> [local count: 840525097]:
+  master_11->rxSize = rxSize_12(D);
+  master_11->i2cIdle ={v} 0;
+  master_11->sendStop = sendStop_15(D);
+  master_11->rxBuff = rxBuff_17(D);
+  master_11->status ={v} 2;
+  _2 = master_11->transferType;
+  if (_2 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 420262548]:
+  tmp_23 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_25 = tmp_23 | 7168;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_25;
+  LPI2C_DRV_MasterStartDmaTransfer (instance_10(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 5> [local count: 420262548]:
+  LPI2C_DRV_MasterSendAddress.constprop (master_11, 1);
+  _3 = (unsigned char) rxSize_12(D);
+  _4 = _3 + 255;
+  tmp_47 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_48 = tmp_47 & 7;
+  _49 = (short unsigned int) tmp_48;
+  tmp_50 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  tmp_51 = tmp_50 & 15;
+  tmp_52 = 1 << tmp_51;
+  _53 = (short unsigned int) tmp_52;
+  if (_49 < _53)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 210131274]:
+  _56 = (long unsigned int) _4;
+  _57 = _56 + 256;
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} _57;
+  pretmp_69 = master_11->cmdQueue.writeIdx;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 210131274]:
+  _58 = master_11->cmdQueue.writeIdx;
+  _59 = (int) _58;
+  master_11->cmdQueue.cmd[_59] = 1;
+  master_11->cmdQueue.data[_59] = _4;
+  _60 = _58 + 1;
+  master_11->cmdQueue.writeIdx = _60;
+
+  <bb 8> [local count: 420262548]:
+  # prephitmp_70 = PHI <pretmp_69(6), _60(7)>
+  tmp_26 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  _27 = tmp_26 >> 8;
+  tmp_28 = _27 & 15;
+  tmp_29 = 1 << tmp_28;
+  if (rxSize_12(D) < tmp_29)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [local count: 210131274]:
+  _30 = (short unsigned int) tmp_29;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 210131274]:
+  rxBytes_22 = (uint16_t) _3;
+
+  <bb 11> [local count: 420262548]:
+  # rxBytes_6 = PHI <rxBytes_22(10), _30(9)>
+  _5 = rxBytes_6 + 65535;
+  tmp_33 ={v} MEM[(struct LPI2C_Type *)1074159616B].MFCR;
+  tmp_34 = tmp_33 & 4294770687;
+  _35 = (long unsigned int) _5;
+  _36 = _35 << 16;
+  _37 = _36 & 196608;
+  tmp_38 = tmp_34 | _37;
+  MEM[(struct LPI2C_Type *)1074159616B].MFCR ={v} tmp_38;
+  _32 = MEM[(const struct lpi2c_master_state_t *)master_11].cmdQueue.readIdx;
+  if (_32 != prephitmp_70)
+    goto <bb 12>; [66.00%]
+  else
+    goto <bb 13>; [34.00%]
+
+  <bb 12> [local count: 277373280]:
+  tmp_39 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_40 = tmp_39 | 7171;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_40;
+  goto <bb 14>; [100.00%]
+
+  <bb 13> [local count: 142889268]:
+  tmp_41 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_42 = tmp_41 | 7170;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_42;
+
+  <bb 14> [local count: 1073741824]:
+  # _7 = PHI <0(13), 0(12), 0(4), 2(2)>
+  return _7;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterReceiveDataBlocking (LPI2C_DRV_MasterReceiveDataBlocking, funcdef_no=99, decl_uid=7246, cgraph_uid=100, symbol_order=106)
+
+Removing basic block 5
+LPI2C_DRV_MasterReceiveDataBlocking (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize, _Bool sendStop, uint32_t timeout)
+{
+  struct lpi2c_master_state_t * master;
+  _Bool _1;
+  struct QueueDefinition * * _2;
+  status_t _3;
+  status_t _16;
+
+  <bb 2> [local count: 1073741824]:
+  master_7 = g_lpi2cMasterStatePtr[instance_6(D)];
+  _1 ={v} master_7->i2cIdle;
+  if (_1 != 0)
+    goto <bb 3>; [63.97%]
+  else
+    goto <bb 4>; [36.03%]
+
+  <bb 3> [local count: 686872649]:
+  master_7->blocking = 1;
+  _2 = &master_7->idleSemaphore;
+  OSIF_SemaWait (_2, 0);
+  LPI2C_DRV_MasterReceiveData (instance_6(D), rxBuff_10(D), rxSize_11(D), sendStop_12(D));
+  _16 = LPI2C_DRV_MasterWaitTransferEnd (instance_6(D), timeout_14(D)); [tail call]
+
+  <bb 4> [local count: 1073741824]:
+  # _3 = PHI <_16(3), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterGetTransferStatus (LPI2C_DRV_MasterGetTransferStatus, funcdef_no=100, decl_uid=7249, cgraph_uid=101, symbol_order=107)
+
+Removing basic block 10
+Removing basic block 11
+LPI2C_DRV_MasterGetTransferStatus (uint32_t instance, uint32_t * bytesRemaining)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  const struct lpi2c_master_state_t * master;
+  <unnamed type> _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  status_t _14;
+  long unsigned int _18;
+
+  <bb 2> [local count: 1073741823]:
+  master_9 = g_lpi2cMasterStatePtr[instance_8(D)];
+  if (bytesRemaining_10(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 9>; [30.00%]
+
+  <bb 3> [local count: 751619280]:
+  _1 = master_9->transferType;
+  if (_1 == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 9>; [66.00%]
+
+  <bb 4> [local count: 255550558]:
+  _2 = master_9->txSize;
+  if (_2 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 127775279]:
+  tmp_15 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_16 = tmp_15 & 7;
+  _3 = _2 + tmp_16;
+  *bytesRemaining_10(D) = _3;
+  goto <bb 9>; [100.00%]
+
+  <bb 6> [local count: 127775279]:
+  _4 = master_9->rxSize;
+  if (_4 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 63887639]:
+  tmp_17 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  _18 = tmp_17 >> 16;
+  tmp_19 = _18 & 7;
+  _5 = _4 - tmp_19;
+  *bytesRemaining_10(D) = _5;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 63887639]:
+  *bytesRemaining_10(D) = 0;
+
+  <bb 9> [local count: 1073741824]:
+  _14 ={v} master_9->status;
+  return _14;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterGetDefaultConfig (LPI2C_DRV_MasterGetDefaultConfig, funcdef_no=101, decl_uid=7292, cgraph_uid=102, symbol_order=108)
+
+LPI2C_DRV_MasterGetDefaultConfig (struct lpi2c_master_user_config_t * config)
+{
+  <bb 2> [local count: 1073741824]:
+  MEM <unsigned int> [(void *)config_2(D)] = 32;
+  config_2(D)->baudRate = 100000;
+  MEM <unsigned short> [(void *)config_2(D) + 8B] = 1;
+  config_2(D)->masterCallback = 0B;
+  config_2(D)->callbackParam = 0B;
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_MasterIRQHandler (LPI2C_DRV_MasterIRQHandler, funcdef_no=102, decl_uid=7251, cgraph_uid=103, symbol_order=109)
+
+Removing basic block 67
+Removing basic block 68
+Removing basic block 69
+Removing basic block 70
+Removing basic block 71
+Removing basic block 72
+Removing basic block 73
+Removing basic block 74
+Removing basic block 75
+Removing basic block 76
+Removing basic block 77
+Removing basic block 78
+Removing basic block 79
+Removing basic block 80
+Removing basic block 81
+Removing basic block 82
+Removing basic block 83
+Removing basic block 84
+Removing basic block 85
+Removing basic block 86
+Removing basic block 87
+Removing basic block 88
+Removing basic block 89
+Removing basic block 90
+Removing basic block 91
+Removing basic block 92
+Removing basic block 93
+Removing basic block 94
+LPI2C_DRV_MasterIRQHandler (uint32_t instance)
+{
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  struct lpi2c_master_state_t * master;
+  _Bool _1;
+  _Bool _2;
+  struct QueueDefinition * * _3;
+  _Bool _4;
+  struct QueueDefinition * * _5;
+  void (*<T7de>) (i2c_master_event_t, void *) _6;
+  void * _7;
+  _Bool _8;
+  struct QueueDefinition * * _9;
+  void (*<T7de>) (i2c_master_event_t, void *) _10;
+  void * _11;
+  _Bool _12;
+  struct QueueDefinition * * _13;
+  void (*<T7de>) (i2c_master_event_t, void *) _14;
+  void * _15;
+  long unsigned int pretmp_29;
+  _Bool _47;
+  long unsigned int _49;
+  _Bool _50;
+  long unsigned int _52;
+  _Bool _53;
+  long unsigned int _55;
+  _Bool _56;
+  long unsigned int _58;
+  _Bool _59;
+  unsigned char _63;
+  unsigned char _64;
+  const uint8_t * _65;
+  long unsigned int _66;
+  _Bool _67;
+  _Bool _68;
+  struct QueueDefinition * * _69;
+  void (*<T7de>) (i2c_master_event_t, void *) _70;
+  void * _71;
+  short unsigned int _76;
+  short unsigned int _80;
+  int _82;
+  <unnamed type> _83;
+  unsigned char _84;
+  long unsigned int _85;
+  long unsigned int _86;
+  long unsigned int _87;
+  long unsigned int _88;
+  unsigned char _89;
+  short unsigned int _92;
+  <unnamed type> _99;
+  unsigned char _100;
+  long unsigned int _101;
+  long unsigned int pretmp_108;
+  long unsigned int prephitmp_110;
+  uint8_t * _112;
+  unsigned char _114;
+  uint8_t * _115;
+  uint8_t * _116;
+  long unsigned int _117;
+  long unsigned int _118;
+  long unsigned int _120;
+  _Bool _125;
+  _Bool _126;
+  struct QueueDefinition * * _127;
+  void (*<T7de>) (i2c_master_event_t, void *) _128;
+  void * _129;
+  long unsigned int _131;
+  short unsigned int _133;
+  short unsigned int _134;
+  long unsigned int _137;
+  long unsigned int _138;
+  long unsigned int prephitmp_139;
+  <unnamed type> _143;
+  unsigned char _144;
+  long unsigned int _145;
+  unsigned char _157;
+  long unsigned int _206;
+
+  <bb 2> [local count: 1073741823]:
+  master_28 = g_lpi2cMasterStatePtr[instance_27(D)];
+  regValue_46 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MSR;
+  _47 = (_Bool) regValue_46;
+  if (_47 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 66>; [67.00%]
+
+  <bb 3> [local count: 354334799]:
+  _63 = MEM[(const struct lpi2c_master_state_t *)master_28].cmdQueue.writeIdx;
+  _64 = MEM[(const struct lpi2c_master_state_t *)master_28].cmdQueue.readIdx;
+  if (_63 != _64)
+    goto <bb 4>; [48.88%]
+  else
+    goto <bb 8>; [51.12%]
+
+  <bb 4> [local count: 173198849]:
+  tmp_74 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_75 = tmp_74 & 7;
+  _76 = (short unsigned int) tmp_75;
+  tmp_77 ={v} MEM[(const struct LPI2C_Type *)1074159616B].PARAM;
+  tmp_78 = tmp_77 & 15;
+  tmp_79 = 1 << tmp_78;
+  _80 = (short unsigned int) tmp_79;
+  if (_76 < _80)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 66>; [5.50%]
+
+  <bb 5> [local count: 1445860289]:
+  # _157 = PHI <_64(4), _89(6)>
+  _82 = (int) _157;
+  _83 = master_28->cmdQueue.cmd[_82];
+  _84 = master_28->cmdQueue.data[_82];
+  _85 = (long unsigned int) _83;
+  _86 = _85 << 8;
+  _87 = (long unsigned int) _84;
+  _88 = _86 + _87;
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} _88;
+  _89 = _157 + 1;
+  tmp_90 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  tmp_91 = tmp_90 & 7;
+  _92 = (short unsigned int) tmp_91;
+  if (_63 != _89)
+    goto <bb 6>; [94.50%]
+  else
+    goto <bb 7>; [5.50%]
+
+  <bb 6> [local count: 1366337973]:
+  if (_80 > _92)
+    goto <bb 5>; [94.50%]
+  else
+    goto <bb 65>; [5.50%]
+
+  <bb 7> [local count: 58887610]:
+  MEM <unsigned short> [(unsigned char *)master_28 + 10B] = 0;
+  goto <bb 22>; [100.00%]
+
+  <bb 8> [local count: 181135950]:
+  _65 = master_28->txBuff;
+  if (_65 != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 21>; [30.00%]
+
+  <bb 9> [local count: 126795166]:
+  _66 = master_28->txSize;
+  if (_66 == 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 10> [local count: 63397583]:
+  _67 = master_28->sendStop;
+  tmp_97 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_98 = tmp_97 & 4294960124;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_98;
+  _99 = master_28->transferType;
+  if (_99 == 0)
+    goto <bb 11>; [33.00%]
+  else
+    goto <bb 14>; [67.00%]
+
+  <bb 11> [local count: 20921203]:
+  _100 = master_28->dmaChannel;
+  EDMA_DRV_StopChannel (_100);
+  _101 = master_28->rxSize;
+  if (_101 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 10460601]:
+  regValue_102 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_103 = regValue_102 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_103;
+  goto <bb 14>; [100.00%]
+
+  <bb 13> [local count: 10460601]:
+  regValue_104 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_105 = regValue_104 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_105;
+
+  <bb 14> [local count: 63397583]:
+  if (_67 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [local count: 31698792]:
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} 512;
+
+  <bb 16> [local count: 63397583]:
+  master_28->txBuff = 0B;
+  master_28->txSize = 0;
+  master_28->rxBuff = 0B;
+  master_28->rxSize = 0;
+  master_28->i2cIdle ={v} 1;
+  _68 = master_28->blocking;
+  if (_68 != 0)
+    goto <bb 17>; [33.00%]
+  else
+    goto <bb 18>; [67.00%]
+
+  <bb 17> [local count: 20921203]:
+  _69 = &master_28->idleSemaphore;
+  OSIF_SemaPost (_69);
+
+  <bb 18> [local count: 63397583]:
+  master_28->status ={v} 0;
+  _70 = master_28->masterCallback;
+  if (_70 != 0B)
+    goto <bb 19>; [70.00%]
+  else
+    goto <bb 66>; [30.00%]
+
+  <bb 19> [local count: 44378308]:
+  _71 = master_28->callbackParam;
+  _70 (4, _71);
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 63397583]:
+  LPI2C_DRV_MasterQueueData.constprop (master_28);
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [local count: 54340785]:
+  tmp_72 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_73 = tmp_72 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_73;
+
+  <bb 22> [local count: 1073741828]:
+  regValue_48 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MSR;
+  _49 = regValue_48 >> 1;
+  _50 = (_Bool) _49;
+  if (_50 != 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 23> [local count: 613761566]:
+  goto <bb 46>; [100.00%]
+
+  <bb 24> [local count: 536870913]:
+  _1 = master_28->abortedTransfer;
+  if (_1 != 0)
+    goto <bb 27>; [67.00%]
+  else
+    goto <bb 25>; [33.00%]
+
+  <bb 25> [local count: 177167400]:
+  tmp_122 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  _206 = tmp_122 >> 16;
+  tmp_93 = _206 & 7;
+  if (tmp_93 != 0)
+    goto <bb 26>; [94.50%]
+  else
+    goto <bb 33>; [5.50%]
+
+  <bb 26> [local count: 167423193]:
+  pretmp_29 = master_28->rxSize;
+  goto <bb 31>; [100.00%]
+
+  <bb 27> [local count: 359703513]:
+  _2 = master_28->blocking;
+  if (_2 != 0)
+    goto <bb 28>; [33.00%]
+  else
+    goto <bb 29>; [67.00%]
+
+  <bb 28> [local count: 118702158]:
+  _3 = &master_28->idleSemaphore;
+  OSIF_SemaPost (_3);
+
+  <bb 29> [local count: 359703513]:
+  master_28->status ={v} 3;
+  LPI2C_DRV_MasterReinit.isra (instance_27(D), master_28);
+  goto <bb 46>; [100.00%]
+
+  <bb 30> [local count: 1478989672]:
+  _112 = master_28->rxBuff;
+  tmp_113 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MRDR;
+  _114 = (unsigned char) tmp_113;
+  *_112 = _114;
+  _115 = master_28->rxBuff;
+  _116 = _115 + 1;
+  master_28->rxBuff = _116;
+  _117 = master_28->rxSize;
+  _118 = _117 + 4294967295;
+  master_28->rxSize = _118;
+  tmp_119 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFSR;
+  _120 = tmp_119 >> 16;
+  tmp_121 = _120 & 7;
+  if (tmp_121 != 0)
+    goto <bb 31>; [94.50%]
+  else
+    goto <bb 34>; [5.50%]
+
+  <bb 31> [local count: 1565068435]:
+  # prephitmp_110 = PHI <pretmp_29(26), _118(30)>
+  if (prephitmp_110 != 0)
+    goto <bb 30>; [94.50%]
+  else
+    goto <bb 32>; [5.50%]
+
+  <bb 32> [local count: 86078763]:
+  _125 = master_28->sendStop;
+  tmp_141 ={v} MEM[(struct LPI2C_Type *)1074159616B].MIER;
+  tmp_142 = tmp_141 & 4294960124;
+  MEM[(struct LPI2C_Type *)1074159616B].MIER ={v} tmp_142;
+  _143 = master_28->transferType;
+  if (_143 == 0)
+    goto <bb 35>; [33.00%]
+  else
+    goto <bb 38>; [67.00%]
+
+  <bb 33> [local count: 9744207]:
+  pretmp_108 = master_28->rxSize;
+
+  <bb 34> [local count: 118702160]:
+  # prephitmp_139 = PHI <pretmp_108(33), _118(30)>
+  if (prephitmp_139 == 0)
+    goto <bb 32>; [0.00%]
+  else
+    goto <bb 44>; [100.00%]
+
+  <bb 35> [local count: 19293529]:
+  _144 = master_28->dmaChannel;
+  EDMA_DRV_StopChannel (_144);
+  _145 = master_28->rxSize;
+  if (_145 != 0)
+    goto <bb 36>; [50.00%]
+  else
+    goto <bb 37>; [50.00%]
+
+  <bb 36> [local count: 9646765]:
+  regValue_146 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_147 = regValue_146 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_147;
+  goto <bb 38>; [100.00%]
+
+  <bb 37> [local count: 9646765]:
+  regValue_148 ={v} MEM[(struct LPI2C_Type *)1074159616B].MDER;
+  regValue_149 = regValue_148 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].MDER ={v} regValue_149;
+
+  <bb 38> [local count: 58465242]:
+  if (_125 != 0)
+    goto <bb 39>; [50.00%]
+  else
+    goto <bb 40>; [50.00%]
+
+  <bb 39> [local count: 29232622]:
+  MEM[(struct LPI2C_Type *)1074159616B].MTDR ={v} 512;
+
+  <bb 40> [local count: 58465242]:
+  master_28->txBuff = 0B;
+  master_28->txSize = 0;
+  master_28->rxBuff = 0B;
+  master_28->rxSize = 0;
+  master_28->i2cIdle ={v} 1;
+  _126 = master_28->blocking;
+  if (_126 != 0)
+    goto <bb 41>; [33.00%]
+  else
+    goto <bb 42>; [67.00%]
+
+  <bb 41> [local count: 19293529]:
+  _127 = &master_28->idleSemaphore;
+  OSIF_SemaPost (_127);
+
+  <bb 42> [local count: 58465242]:
+  master_28->status ={v} 0;
+  _128 = master_28->masterCallback;
+  if (_128 != 0B)
+    goto <bb 43>; [70.00%]
+  else
+    goto <bb 23>; [30.00%]
+
+  <bb 43> [local count: 40925670]:
+  _129 = master_28->callbackParam;
+  _128 (4, _129);
+  goto <bb 46>; [100.00%]
+
+  <bb 44> [local count: 118702160]:
+  tmp_130 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MFCR;
+  _131 = tmp_130 >> 16;
+  tmp_132 = _131 & 3;
+  if (tmp_132 >= prephitmp_139)
+    goto <bb 45>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 45> [local count: 59351080]:
+  _133 = (short unsigned int) prephitmp_139;
+  _134 = _133 + 65535;
+  tmp_135 ={v} MEM[(struct LPI2C_Type *)1074159616B].MFCR;
+  tmp_136 = tmp_135 & 4294770687;
+  _137 = (long unsigned int) _134;
+  _138 = _137 << 16;
+  tmp_140 = tmp_136 | _138;
+  MEM[(struct LPI2C_Type *)1074159616B].MFCR ={v} tmp_140;
+
+  <bb 46> [local count: 1073741831]:
+  regValue_51 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MSR;
+  _52 = regValue_51 >> 12;
+  _53 = (_Bool) _52;
+  if (_53 != 0)
+    goto <bb 48>; [33.00%]
+  else
+    goto <bb 47>; [67.00%]
+
+  <bb 47> [local count: 825707469]:
+  goto <bb 52>; [100.00%]
+
+  <bb 48> [local count: 354334802]:
+  MEM[(struct LPI2C_Type *)1074159616B].MSR ={v} 4096;
+  master_28->status ={v} 1;
+  LPI2C_DRV_MasterEndTransfer.constprop (master_28, 0, 1);
+  _4 = master_28->blocking;
+  if (_4 != 0)
+    goto <bb 49>; [33.00%]
+  else
+    goto <bb 50>; [67.00%]
+
+  <bb 49> [local count: 116930485]:
+  _5 = &master_28->idleSemaphore;
+  OSIF_SemaPost (_5);
+
+  <bb 50> [local count: 354334802]:
+  _6 = master_28->masterCallback;
+  if (_6 != 0B)
+    goto <bb 51>; [70.00%]
+  else
+    goto <bb 47>; [30.00%]
+
+  <bb 51> [local count: 248034362]:
+  _7 = master_28->callbackParam;
+  _6 (4, _7);
+
+  <bb 52> [local count: 1073741831]:
+  regValue_54 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MSR;
+  _55 = regValue_54 >> 11;
+  _56 = (_Bool) _55;
+  if (_56 != 0)
+    goto <bb 54>; [33.00%]
+  else
+    goto <bb 53>; [67.00%]
+
+  <bb 53> [local count: 825707469]:
+  goto <bb 58>; [100.00%]
+
+  <bb 54> [local count: 354334802]:
+  MEM[(struct LPI2C_Type *)1074159616B].MSR ={v} 2048;
+  LPI2C_DRV_MasterEndTransfer.constprop (master_28, 0, 1);
+  _8 = master_28->blocking;
+  if (_8 != 0)
+    goto <bb 55>; [33.00%]
+  else
+    goto <bb 56>; [67.00%]
+
+  <bb 55> [local count: 116930485]:
+  _9 = &master_28->idleSemaphore;
+  OSIF_SemaPost (_9);
+
+  <bb 56> [local count: 354334802]:
+  master_28->status ={v} 515;
+  _10 = master_28->masterCallback;
+  if (_10 != 0B)
+    goto <bb 57>; [70.00%]
+  else
+    goto <bb 53>; [30.00%]
+
+  <bb 57> [local count: 248034362]:
+  _11 = master_28->callbackParam;
+  _10 (4, _11);
+
+  <bb 58> [local count: 1073741831]:
+  regValue_57 ={v} MEM[(const struct LPI2C_Type *)1074159616B].MSR;
+  _58 = regValue_57 >> 10;
+  _59 = (_Bool) _58;
+  if (_59 != 0)
+    goto <bb 59>; [50.00%]
+  else
+    goto <bb 64>; [50.00%]
+
+  <bb 59> [local count: 536870915]:
+  _12 = master_28->blocking;
+  if (_12 != 0)
+    goto <bb 60>; [33.00%]
+  else
+    goto <bb 61>; [67.00%]
+
+  <bb 60> [local count: 177167400]:
+  _13 = &master_28->idleSemaphore;
+  OSIF_SemaPost (_13);
+
+  <bb 61> [local count: 536870915]:
+  master_28->status ={v} 512;
+  LPI2C_DRV_MasterEndTransfer.constprop (master_28, 0, 1);
+  _14 = master_28->masterCallback;
+  if (_14 != 0B)
+    goto <bb 62>; [70.00%]
+  else
+    goto <bb 63>; [30.00%]
+
+  <bb 62> [local count: 375809643]:
+  _15 = master_28->callbackParam;
+  _14 (4, _15);
+
+  <bb 63> [local count: 536870916]:
+  MEM[(struct LPI2C_Type *)1074159616B].MSR ={v} 1024;
+
+  <bb 64> [local count: 1073741832]:
+  return;
+
+  <bb 65> [local count: 75148588]:
+  master_28->cmdQueue.readIdx = _89;
+
+  <bb 66> [local count: 822576896]:
+  goto <bb 22>; [100.00%]
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveInit (LPI2C_DRV_SlaveInit, funcdef_no=103, decl_uid=7255, cgraph_uid=104, symbol_order=110)
+
+Removing basic block 12
+Removing basic block 13
+LPI2C_DRV_SlaveInit (uint32_t instance, const struct lpi2c_slave_user_config_t * userConfigPtr, struct lpi2c_slave_state_t * slave)
+{
+  struct lpi2c_slave_state_t * slave;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t inputClock;
+  _Bool _1;
+  void (*<T7d9>) (i2c_slave_event_t, void *) _2;
+  void * _3;
+  <unnamed type> _4;
+  unsigned char _5;
+  _Bool _6;
+  struct QueueDefinition * * _7;
+  short unsigned int _8;
+  _Bool _9;
+  <unnamed type> _10;
+  _Bool _11;
+  <unnamed type> _12;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+
+  <bb 2> [local count: 1073741824]:
+  CLOCK_SYS_GetFreq (68, &inputClock);
+  g_lpi2cSlaveStatePtr[instance_19(D)] = slave_20(D);
+  slave_20(D)->status = 0;
+  _1 = userConfigPtr_23(D)->slaveListening;
+  slave_20(D)->slaveListening = _1;
+  _2 = userConfigPtr_23(D)->slaveCallback;
+  slave_20(D)->slaveCallback = _2;
+  _3 = userConfigPtr_23(D)->callbackParam;
+  slave_20(D)->callbackParam = _3;
+  slave_20(D)->txBuff = 0B;
+  slave_20(D)->rxBuff = 0B;
+  slave_20(D)->txSize = 0;
+  slave_20(D)->rxSize = 0;
+  _4 = userConfigPtr_23(D)->transferType;
+  slave_20(D)->transferType = _4;
+  _5 = userConfigPtr_23(D)->dmaChannel;
+  slave_20(D)->dmaChannel = _5;
+  slave_20(D)->isTransferInProgress ={v} 0;
+  slave_20(D)->blocking = 0;
+  _6 = userConfigPtr_23(D)->is10bitAddr;
+  slave_20(D)->is10bitAddress = _6;
+  slave_20(D)->repeatedStarts = 0;
+  _7 = &slave_20(D)->idleSemaphore;
+  OSIF_SemaCreate (_7, 0);
+  INT_SYS_EnableIRQ (25);
+  LPI2C_Init (1074159616B);
+  _8 = userConfigPtr_23(D)->slaveAddress;
+  tmp_42 ={v} MEM[(struct LPI2C_Type *)1074159616B].SAMR;
+  tmp_43 = tmp_42 & 4294965249;
+  _44 = (long unsigned int) _8;
+  _45 = _44 << 1;
+  _46 = _45 & 2046;
+  tmp_47 = tmp_43 | _46;
+  MEM[(struct LPI2C_Type *)1074159616B].SAMR ={v} tmp_47;
+  _9 = userConfigPtr_23(D)->is10bitAddr;
+  if (_9 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  tmp_48 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCFGR1;
+  tmp_49 = tmp_48 & 4294508543;
+  tmp_50 = tmp_49 | 65536;
+  MEM[(struct LPI2C_Type *)1074159616B].SCFGR1 ={v} tmp_50;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  tmp_51 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCFGR1;
+  tmp_52 = tmp_51 & 4294508543;
+  MEM[(struct LPI2C_Type *)1074159616B].SCFGR1 ={v} tmp_52;
+
+  <bb 5> [local count: 1073741824]:
+  _10 = userConfigPtr_23(D)->operatingMode;
+  slave_66 = g_lpi2cSlaveStatePtr[instance_19(D)];
+  regValue_67 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCFGR1;
+  regValue_68 = regValue_67 & 4294963199;
+  MEM[(struct LPI2C_Type *)1074159616B].SCFGR1 ={v} regValue_68;
+  regValue_69 ={v} MEM[(struct LPI2C_Type *)1074159616B].STAR;
+  regValue_70 = regValue_69 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].STAR ={v} regValue_70;
+  regValue_71 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCFGR1;
+  regValue_72 = regValue_71 & 4294967287;
+  MEM[(struct LPI2C_Type *)1074159616B].SCFGR1 ={v} regValue_72;
+  regValue_73 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCFGR1;
+  regValue_74 = regValue_73 & 4294967291;
+  regValue_75 = regValue_74 | 4;
+  MEM[(struct LPI2C_Type *)1074159616B].SCFGR1 ={v} regValue_75;
+  regValue_76 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCFGR1;
+  regValue_77 = regValue_76 & 4294967293;
+  regValue_78 = regValue_77 | 2;
+  MEM[(struct LPI2C_Type *)1074159616B].SCFGR1 ={v} regValue_78;
+  regValue_79 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCFGR1;
+  regValue_80 = regValue_79 & 4294967294;
+  regValue_81 = regValue_80 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].SCFGR1 ={v} regValue_81;
+  regValue_82 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCFGR1;
+  regValue_83 = regValue_82 & 4294959103;
+  MEM[(struct LPI2C_Type *)1074159616B].SCFGR1 ={v} regValue_83;
+  slave_66->operatingMode = _10;
+  _11 = userConfigPtr_23(D)->slaveListening;
+  if (_11 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 6> [local count: 536870913]:
+  _12 = slave_20(D)->transferType;
+  if (_12 == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 268435456]:
+  tmp_53 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_54 = tmp_53 | 3844;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_54;
+  goto <bb 10>; [100.00%]
+
+  <bb 8> [local count: 268435457]:
+  if (_12 == 1)
+    goto <bb 9>; [68.00%]
+  else
+    goto <bb 10>; [32.00%]
+
+  <bb 9> [local count: 182536112]:
+  tmp_55 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_56 = tmp_55 | 3846;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_56;
+
+  <bb 10> [local count: 536870913]:
+  regValue_57 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_58 = regValue_57 & 4294967294;
+  regValue_59 = regValue_58 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_59;
+
+  <bb 11> [local count: 1073741824]:
+  inputClock ={v} {CLOBBER};
+  return 0;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveDeinit (LPI2C_DRV_SlaveDeinit, funcdef_no=104, decl_uid=7257, cgraph_uid=105, symbol_order=111)
+
+Removing basic block 6
+Removing basic block 7
+LPI2C_DRV_SlaveDeinit (uint32_t instance)
+{
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  const struct lpi2c_slave_state_t * slave;
+  struct QueueDefinition * const * _1;
+  <unnamed type> _2;
+  _Bool _3;
+
+  <bb 2> [local count: 1073741824]:
+  slave_7 = g_lpi2cSlaveStatePtr[instance_6(D)];
+  _1 = &slave_7->idleSemaphore;
+  OSIF_SemaDestroy (_1);
+  _2 = slave_7->transferType;
+  if (_2 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _3 = slave_7->slaveListening;
+  if (_3 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  regValue_13 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_14 = regValue_13 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_14;
+  regValue_11 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_12 = regValue_11 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_12;
+
+  <bb 5> [local count: 1073741824]:
+  g_lpi2cSlaveStatePtr[instance_6(D)] = 0B;
+  regValue_15 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_16 = regValue_15 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_16;
+  INT_SYS_DisableIRQ (25);
+  return 0;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveSetTxBuffer (LPI2C_DRV_SlaveSetTxBuffer, funcdef_no=105, decl_uid=7261, cgraph_uid=106, symbol_order=112)
+
+LPI2C_DRV_SlaveSetTxBuffer (uint32_t instance, const uint8_t * txBuff, uint32_t txSize)
+{
+  struct lpi2c_slave_state_t * slave;
+
+  <bb 2> [local count: 1073741824]:
+  slave_3 = g_lpi2cSlaveStatePtr[instance_2(D)];
+  slave_3->txBuff = txBuff_4(D);
+  slave_3->txSize = txSize_6(D);
+  return 0;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveSetRxBuffer (LPI2C_DRV_SlaveSetRxBuffer, funcdef_no=106, decl_uid=7265, cgraph_uid=107, symbol_order=113)
+
+LPI2C_DRV_SlaveSetRxBuffer (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize)
+{
+  struct lpi2c_slave_state_t * slave;
+
+  <bb 2> [local count: 1073741824]:
+  slave_3 = g_lpi2cSlaveStatePtr[instance_2(D)];
+  slave_3->rxBuff = rxBuff_4(D);
+  slave_3->rxSize = rxSize_6(D);
+  return 0;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveSendData (LPI2C_DRV_SlaveSendData, funcdef_no=107, decl_uid=7269, cgraph_uid=108, symbol_order=114)
+
+Removing basic block 7
+LPI2C_DRV_SlaveSendData (uint32_t instance, const uint8_t * txBuff, uint32_t txSize)
+{
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t regValue;
+  struct lpi2c_slave_state_t * slave;
+  _Bool _1;
+  <unnamed type> _2;
+  status_t _3;
+
+  <bb 2> [local count: 1073741824]:
+  slave_7 = g_lpi2cSlaveStatePtr[instance_6(D)];
+  _1 ={v} slave_7->isTransferInProgress;
+  if (_1 != 0)
+    goto <bb 6>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 840525097]:
+  slave_7->txBuff = txBuff_8(D);
+  slave_7->txSize = txSize_10(D);
+  slave_7->status = 2;
+  _2 = slave_7->transferType;
+  if (_2 == 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 5>; [67.00%]
+
+  <bb 4> [local count: 277373280]:
+  tmp_19 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_20 = tmp_19 | 3844;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_20;
+  regValue_16 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_17 = regValue_16 & 4294967294;
+  regValue_18 = regValue_17 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_18;
+  slave_7->isTransferInProgress ={v} 1;
+  LPI2C_DRV_SlaveStartDmaTransfer (instance_6(D));
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 563151817]:
+  tmp_24 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_25 = tmp_24 | 3844;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_25;
+  regValue_21 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_22 = regValue_21 & 4294967294;
+  regValue_23 = regValue_22 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_23;
+  slave_7->isTransferInProgress ={v} 1;
+
+  <bb 6> [local count: 1073741824]:
+  # _3 = PHI <0(4), 0(5), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveSendDataBlocking (LPI2C_DRV_SlaveSendDataBlocking, funcdef_no=108, decl_uid=7274, cgraph_uid=109, symbol_order=115)
+
+Removing basic block 12
+Removing basic block 13
+LPI2C_DRV_SlaveSendDataBlocking (uint32_t instance, const uint8_t * txBuff, uint32_t txSize, uint32_t timeout)
+{
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  status_t osifError;
+  struct lpi2c_slave_state_t * slave;
+  struct lpi2c_slave_state_t * slave;
+  _Bool _1;
+  struct QueueDefinition * * _2;
+  status_t _3;
+  <unnamed type> prephitmp_14;
+  struct QueueDefinition * * _17;
+  <unnamed type> _22;
+  long unsigned int _23;
+  <unnamed type> pretmp_46;
+
+  <bb 2> [local count: 1073741824]:
+  slave_7 = g_lpi2cSlaveStatePtr[instance_6(D)];
+  _1 ={v} slave_7->isTransferInProgress;
+  if (_1 != 0)
+    goto <bb 11>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  slave_7->blocking = 1;
+  _2 = &slave_7->idleSemaphore;
+  OSIF_SemaWait (_2, 0);
+  LPI2C_DRV_SlaveSendData (instance_6(D), txBuff_10(D), txSize_11(D));
+  slave_16 = g_lpi2cSlaveStatePtr[instance_6(D)];
+  _17 = &slave_16->idleSemaphore;
+  osifError_18 = OSIF_SemaWait (_17, timeout_13(D));
+  if (osifError_18 == 3)
+    goto <bb 5>; [20.24%]
+  else
+    goto <bb 4>; [79.76%]
+
+  <bb 4> [local count: 547849626]:
+  pretmp_46 = slave_16->status;
+  goto <bb 10>; [100.00%]
+
+  <bb 5> [local count: 139023023]:
+  tmp_20 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_21 = tmp_20 & 4294963448;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_21;
+  _22 = slave_16->transferType;
+  if (_22 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 6> [local count: 69511512]:
+  _23 = slave_16->rxSize;
+  if (_23 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 34755756]:
+  regValue_24 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_25 = regValue_24 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_25;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 34755756]:
+  regValue_26 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_27 = regValue_26 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_27;
+
+  <bb 9> [local count: 139023023]:
+  regValue_28 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_29 = regValue_28 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_29;
+  slave_16->isTransferInProgress ={v} 0;
+  slave_16->rxBuff = 0B;
+  slave_16->rxSize = 0;
+  slave_16->txBuff = 0B;
+  slave_16->txSize = 0;
+  slave_16->repeatedStarts = 0;
+  slave_16->status = 3;
+
+  <bb 10> [local count: 686872650]:
+  # prephitmp_14 = PHI <osifError_18(9), pretmp_46(4)>
+  slave_16->blocking = 0;
+
+  <bb 11> [local count: 1073741825]:
+  # _3 = PHI <prephitmp_14(10), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveReceiveData (LPI2C_DRV_SlaveReceiveData, funcdef_no=109, decl_uid=7278, cgraph_uid=110, symbol_order=116)
+
+Removing basic block 7
+LPI2C_DRV_SlaveReceiveData (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize)
+{
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t regValue;
+  struct lpi2c_slave_state_t * slave;
+  _Bool _1;
+  <unnamed type> _2;
+  status_t _3;
+
+  <bb 2> [local count: 1073741824]:
+  slave_7 = g_lpi2cSlaveStatePtr[instance_6(D)];
+  _1 ={v} slave_7->isTransferInProgress;
+  if (_1 != 0)
+    goto <bb 6>; [21.72%]
+  else
+    goto <bb 3>; [78.28%]
+
+  <bb 3> [local count: 840525097]:
+  slave_7->rxBuff = rxBuff_8(D);
+  slave_7->rxSize = rxSize_10(D);
+  slave_7->status = 2;
+  _2 = slave_7->transferType;
+  if (_2 == 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 5>; [67.00%]
+
+  <bb 4> [local count: 277373280]:
+  tmp_19 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_20 = tmp_19 | 3844;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_20;
+  regValue_16 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_17 = regValue_16 & 4294967294;
+  regValue_18 = regValue_17 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_18;
+  slave_7->isTransferInProgress ={v} 1;
+  LPI2C_DRV_SlaveStartDmaTransfer (instance_6(D));
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 563151817]:
+  slave_7->isTransferInProgress ={v} 1;
+  tmp_24 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_25 = tmp_24 | 3846;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_25;
+  regValue_21 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_22 = regValue_21 & 4294967294;
+  regValue_23 = regValue_22 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_23;
+
+  <bb 6> [local count: 1073741824]:
+  # _3 = PHI <0(4), 0(5), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveReceiveDataBlocking (LPI2C_DRV_SlaveReceiveDataBlocking, funcdef_no=110, decl_uid=7283, cgraph_uid=111, symbol_order=117)
+
+Removing basic block 12
+Removing basic block 13
+LPI2C_DRV_SlaveReceiveDataBlocking (uint32_t instance, uint8_t * rxBuff, uint32_t rxSize, uint32_t timeout)
+{
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  status_t osifError;
+  struct lpi2c_slave_state_t * slave;
+  struct lpi2c_slave_state_t * slave;
+  _Bool _1;
+  struct QueueDefinition * * _2;
+  status_t _3;
+  <unnamed type> prephitmp_14;
+  struct QueueDefinition * * _17;
+  <unnamed type> _22;
+  long unsigned int _23;
+  <unnamed type> pretmp_46;
+
+  <bb 2> [local count: 1073741824]:
+  slave_7 = g_lpi2cSlaveStatePtr[instance_6(D)];
+  _1 ={v} slave_7->isTransferInProgress;
+  if (_1 != 0)
+    goto <bb 11>; [36.03%]
+  else
+    goto <bb 3>; [63.97%]
+
+  <bb 3> [local count: 686872649]:
+  slave_7->blocking = 1;
+  _2 = &slave_7->idleSemaphore;
+  OSIF_SemaWait (_2, 0);
+  LPI2C_DRV_SlaveReceiveData (instance_6(D), rxBuff_10(D), rxSize_11(D));
+  slave_16 = g_lpi2cSlaveStatePtr[instance_6(D)];
+  _17 = &slave_16->idleSemaphore;
+  osifError_18 = OSIF_SemaWait (_17, timeout_13(D));
+  if (osifError_18 == 3)
+    goto <bb 5>; [20.24%]
+  else
+    goto <bb 4>; [79.76%]
+
+  <bb 4> [local count: 547849626]:
+  pretmp_46 = slave_16->status;
+  goto <bb 10>; [100.00%]
+
+  <bb 5> [local count: 139023023]:
+  tmp_20 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_21 = tmp_20 & 4294963448;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_21;
+  _22 = slave_16->transferType;
+  if (_22 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 6> [local count: 69511512]:
+  _23 = slave_16->rxSize;
+  if (_23 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 34755756]:
+  regValue_24 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_25 = regValue_24 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_25;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 34755756]:
+  regValue_26 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_27 = regValue_26 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_27;
+
+  <bb 9> [local count: 139023023]:
+  regValue_28 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_29 = regValue_28 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_29;
+  slave_16->isTransferInProgress ={v} 0;
+  slave_16->rxBuff = 0B;
+  slave_16->rxSize = 0;
+  slave_16->txBuff = 0B;
+  slave_16->txSize = 0;
+  slave_16->repeatedStarts = 0;
+  slave_16->status = 3;
+
+  <bb 10> [local count: 686872650]:
+  # prephitmp_14 = PHI <osifError_18(9), pretmp_46(4)>
+  slave_16->blocking = 0;
+
+  <bb 11> [local count: 1073741825]:
+  # _3 = PHI <prephitmp_14(10), 2(2)>
+  return _3;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveGetTransferStatus (LPI2C_DRV_SlaveGetTransferStatus, funcdef_no=111, decl_uid=7286, cgraph_uid=112, symbol_order=118)
+
+Removing basic block 10
+Removing basic block 11
+LPI2C_DRV_SlaveGetTransferStatus (uint32_t instance, uint32_t * bytesRemaining)
+{
+  const struct lpi2c_slave_state_t * slave;
+  <unnamed type> _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  status_t _12;
+
+  <bb 2> [local count: 1073741823]:
+  slave_7 = g_lpi2cSlaveStatePtr[instance_6(D)];
+  if (bytesRemaining_8(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 9>; [30.00%]
+
+  <bb 3> [local count: 751619280]:
+  _1 = slave_7->transferType;
+  if (_1 == 1)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 9>; [66.00%]
+
+  <bb 4> [local count: 255550558]:
+  _2 = slave_7->txSize;
+  if (_2 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 127775279]:
+  *bytesRemaining_8(D) = _2;
+  goto <bb 9>; [100.00%]
+
+  <bb 6> [local count: 127775279]:
+  _3 = slave_7->rxSize;
+  if (_3 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 63887639]:
+  *bytesRemaining_8(D) = _3;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 63887639]:
+  *bytesRemaining_8(D) = 0;
+
+  <bb 9> [local count: 1073741824]:
+  _12 = slave_7->status;
+  return _12;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveAbortTransferData (LPI2C_DRV_SlaveAbortTransferData, funcdef_no=112, decl_uid=7288, cgraph_uid=113, symbol_order=119)
+
+Removing basic block 9
+Removing basic block 10
+LPI2C_DRV_SlaveAbortTransferData (uint32_t instance)
+{
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  struct lpi2c_slave_state_t * slave;
+  _Bool _1;
+  <unnamed type> _10;
+  long unsigned int _11;
+
+  <bb 2> [local count: 1073741824]:
+  slave_5 = g_lpi2cSlaveStatePtr[instance_4(D)];
+  _1 = slave_5->slaveListening;
+  if (_1 != 0)
+    goto <bb 8>; [67.00%]
+  else
+    goto <bb 3>; [33.00%]
+
+  <bb 3> [local count: 354334800]:
+  slave_5->status = 516;
+  tmp_8 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_9 = tmp_8 & 4294963448;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_9;
+  _10 = slave_5->transferType;
+  if (_10 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 4> [local count: 177167400]:
+  _11 = slave_5->rxSize;
+  if (_11 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 88583700]:
+  regValue_12 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_13 = regValue_12 & 4294967293;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_13;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 88583700]:
+  regValue_14 ={v} MEM[(struct LPI2C_Type *)1074159616B].SDER;
+  regValue_15 = regValue_14 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SDER ={v} regValue_15;
+
+  <bb 7> [local count: 354334800]:
+  regValue_16 ={v} MEM[(struct LPI2C_Type *)1074159616B].SCR;
+  regValue_17 = regValue_16 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SCR ={v} regValue_17;
+  slave_5->isTransferInProgress ={v} 0;
+  slave_5->rxBuff = 0B;
+  slave_5->rxSize = 0;
+  slave_5->txBuff = 0B;
+  slave_5->txSize = 0;
+  slave_5->repeatedStarts = 0;
+
+  <bb 8> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveGetDefaultConfig (LPI2C_DRV_SlaveGetDefaultConfig, funcdef_no=113, decl_uid=7294, cgraph_uid=114, symbol_order=120)
+
+LPI2C_DRV_SlaveGetDefaultConfig (struct lpi2c_slave_user_config_t * config)
+{
+  <bb 2> [local count: 1073741824]:
+  MEM <unsigned int> [(void *)config_2(D)] = 32;
+  MEM <unsigned short> [(void *)config_2(D) + 4B] = 257;
+  config_2(D)->dmaChannel = 0;
+  config_2(D)->slaveCallback = 0B;
+  config_2(D)->callbackParam = 0B;
+  return;
+
+}
+
+
+
+;; Function LPI2C_DRV_SlaveIRQHandler (LPI2C_DRV_SlaveIRQHandler, funcdef_no=115, decl_uid=7290, cgraph_uid=116, symbol_order=122)
+
+Removing basic block 46
+Removing basic block 47
+Removing basic block 48
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+Removing basic block 57
+Removing basic block 58
+Removing basic block 59
+Removing basic block 60
+Removing basic block 61
+Removing basic block 62
+Removing basic block 63
+Removing basic block 64
+Removing basic block 65
+Removing basic block 66
+Removing basic block 67
+Removing basic block 68
+Removing basic block 69
+Removing basic block 70
+Removing basic block 71
+Removing basic block 72
+Removing basic block 73
+Removing basic block 74
+Removing basic block 75
+Removing basic block 76
+LPI2C_DRV_SlaveIRQHandler (uint32_t instance)
+{
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t regValue;
+  uint32_t regValue;
+  uint32_t tmp;
+  uint32_t regValue;
+  struct lpi2c_slave_state_t * slave;
+  unsigned char _1;
+  unsigned char _2;
+  _Bool _3;
+  <unnamed type> _4;
+  long unsigned int _23;
+  _Bool _24;
+  long unsigned int _28;
+  _Bool _29;
+  long unsigned int _31;
+  _Bool _32;
+  long unsigned int _36;
+  _Bool _37;
+  _Bool _39;
+  long unsigned int _41;
+  long unsigned int _43;
+  _Bool _44;
+  long unsigned int _46;
+  unsigned int _54;
+  void (*<T7d9>) (i2c_slave_event_t, void *) _55;
+  _Bool _56;
+  void * _57;
+  <unnamed type> _58;
+  _Bool _61;
+  void (*<T7d9>) (i2c_slave_event_t, void *) _62;
+  _Bool _63;
+  void * _64;
+  <unnamed type> _65;
+  _Bool _66;
+  _Bool _67;
+  long unsigned int _68;
+  void (*<T7d9>) (i2c_slave_event_t, void *) _69;
+  void * _70;
+  long unsigned int _71;
+  const uint8_t * _72;
+  unsigned char _73;
+  long unsigned int _74;
+  const uint8_t * _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  void (*<T7d9>) (i2c_slave_event_t, void *) _78;
+  void * _79;
+  long unsigned int _80;
+  uint8_t * _82;
+  unsigned char _84;
+  uint8_t * _85;
+  uint8_t * _86;
+  long unsigned int _87;
+  long unsigned int _88;
+  long unsigned int _137;
+
+  <bb 2> [local count: 1073741823]:
+  slave_13 = g_lpi2cSlaveStatePtr[instance_12(D)];
+  regValue_22 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SSR;
+  _23 = regValue_22 >> 10;
+  _24 = (_Bool) _23;
+  if (_24 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  slave_13->status = 1;
+  MEM[(struct LPI2C_Type *)1074159616B].SSR ={v} 1024;
+  tmp_25 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_26 = tmp_25 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_26;
+  LPI2C_DRV_SlaveEndTransferHandler.constprop (slave_13); [tail call]
+  goto <bb 45>; [100.00%]
+
+  <bb 4> [local count: 719407024]:
+  regValue_30 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SSR;
+  _31 = regValue_30 >> 9;
+  _32 = (_Bool) _31;
+  regValue_27 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SSR;
+  _28 = regValue_27 >> 8;
+  _29 = (_Bool) _28;
+  if (_29 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 5> [local count: 359703512]:
+  _1 = slave_13->repeatedStarts;
+  _2 = _1 + 1;
+  slave_13->repeatedStarts = _2;
+  if (_2 == 1)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 6> [local count: 539555269]:
+  MEM[(struct LPI2C_Type *)1074159616B].SSR ={v} 512;
+  MEM[(struct LPI2C_Type *)1074159616B].SSR ={v} 256;
+  tmp_33 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_34 = tmp_33 & 4294967294;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_34;
+  _4 = slave_13->status;
+  if (_4 == 2)
+    goto <bb 10>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 7> [local count: 122299195]:
+  _3 = slave_13->is10bitAddress;
+  if (_3 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 8> [local count: 61149598]:
+  MEM[(struct LPI2C_Type *)1074159616B].SSR ={v} 256;
+  if (_32 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 9> [local count: 359703512]:
+  if (_32 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 10> [local count: 183448793]:
+  slave_13->status = 0;
+
+  <bb 11> [local count: 539555269]:
+  LPI2C_DRV_SlaveEndTransferHandler.constprop (slave_13); [tail call]
+  goto <bb 45>; [100.00%]
+
+  <bb 12> [local count: 210426555]:
+  regValue_35 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SSR;
+  _36 = regValue_35 >> 2;
+  _37 = (_Bool) _36;
+  if (_37 != 0)
+    goto <bb 13>; [33.00%]
+  else
+    goto <bb 29>; [67.00%]
+
+  <bb 13> [local count: 59351079]:
+  tmp_53 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SASR;
+  _54 = tmp_53 & 1;
+  if (_54 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 14> [local count: 29675540]:
+  _55 = slave_13->slaveCallback;
+  if (_55 != 0B)
+    goto <bb 15>; [70.00%]
+  else
+    goto <bb 17>; [30.00%]
+
+  <bb 15> [local count: 20772878]:
+  _56 = slave_13->slaveListening;
+  if (_56 != 0)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 16> [local count: 10386439]:
+  _57 = slave_13->callbackParam;
+  _55 (2, _57);
+
+  <bb 17> [local count: 29675540]:
+  _58 = slave_13->transferType;
+  if (_58 == 1)
+    goto <bb 18>; [34.00%]
+  else
+    goto <bb 19>; [66.00%]
+
+  <bb 18> [local count: 10089684]:
+  tmp_59 ={v} MEM[(struct LPI2C_Type *)1074159616B].SIER;
+  tmp_60 = tmp_59 | 1;
+  MEM[(struct LPI2C_Type *)1074159616B].SIER ={v} tmp_60;
+  slave_13->txUnderrunWarning = 0;
+  goto <bb 28>; [100.00%]
+
+  <bb 19> [local count: 19585856]:
+  slave_13->txUnderrunWarning = 0;
+  if (_58 == 0)
+    goto <bb 21>; [75.76%]
+  else
+    goto <bb 20>; [24.24%]
+
+  <bb 20> [local count: 29082029]:
+  goto <bb 28>; [100.00%]
+
+  <bb 21> [local count: 14837770]:
+  _61 = slave_13->slaveListening;
+  if (_61 != 0)
+    goto <bb 22>; [33.00%]
+  else
+    goto <bb 20>; [67.00%]
+
+  <bb 22> [local count: 9792928]:
+  LPI2C_DRV_SlaveStartDmaTransfer (instance_12(D));
+  goto <bb 28>; [100.00%]
+
+  <bb 23> [local count: 29675540]:
+  _62 = slave_13->slaveCallback;
+  if (_62 != 0B)
+    goto <bb 24>; [70.00%]
+  else
+    goto <bb 26>; [30.00%]
+
+  <bb 24> [local count: 20772878]:
+  _63 = slave_13->slaveListening;
+  if (_63 != 0)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 28>; [50.00%]
+
+  <bb 25> [local count: 10386439]:
+  _64 = slave_13->callbackParam;
+  _62 (3, _64);
+
+  <bb 26> [local count: 19289101]:
+  _65 = slave_13->transferType;
+  if (_65 == 0)
+    goto <bb 27>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 27> [local count: 9644550]:
+  _66 = slave_13->slaveListening;
+  if (_66 != 0)
+    goto <bb 22>; [50.77%]
+  else
+    goto <bb 20>; [49.23%]
+
+  <bb 28> [local count: 59351079]:
+  slave_13->status = 2;
+
+  <bb 29> [local count: 179851756]:
+  regValue_38 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SSR;
+  _39 = (_Bool) regValue_38;
+  if (_39 != 0)
+    goto <bb 30>; [50.00%]
+  else
+    goto <bb 38>; [50.00%]
+
+  <bb 30> [local count: 89925878]:
+  tmp_40 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SIER;
+  _41 = tmp_40 & 1;
+  if (_41 != 0)
+    goto <bb 31>; [50.00%]
+  else
+    goto <bb 38>; [50.00%]
+
+  <bb 31> [local count: 44962939]:
+  _67 = slave_13->txUnderrunWarning;
+  if (_67 != 0)
+    goto <bb 32>; [50.00%]
+  else
+    goto <bb 33>; [50.00%]
+
+  <bb 32> [local count: 22481470]:
+  slave_13->status = 513;
+
+  <bb 33> [local count: 44962939]:
+  _68 = slave_13->txSize;
+  if (_68 == 0)
+    goto <bb 34>; [50.00%]
+  else
+    goto <bb 37>; [50.00%]
+
+  <bb 34> [local count: 22481470]:
+  _69 = slave_13->slaveCallback;
+  if (_69 != 0B)
+    goto <bb 36>; [70.00%]
+  else
+    goto <bb 35>; [30.00%]
+
+  <bb 35> [local count: 22481470]:
+  slave_13->txUnderrunWarning = 1;
+  MEM[(struct LPI2C_Type *)1074159616B].STDR ={v} 255;
+  goto <bb 38>; [100.00%]
+
+  <bb 36> [local count: 15737029]:
+  _70 = slave_13->callbackParam;
+  _69 (1, _70);
+  _71 = slave_13->txSize;
+  if (_71 == 0)
+    goto <bb 35>; [100.00%]
+  else
+    goto <bb 37>; [0.00%]
+
+  <bb 37> [local count: 22481470]:
+  # _137 = PHI <_68(33), _71(36)>
+  _72 = slave_13->txBuff;
+  _73 = *_72;
+  _74 = (long unsigned int) _73;
+  MEM[(struct LPI2C_Type *)1074159616B].STDR ={v} _74;
+  _75 = _72 + 1;
+  slave_13->txBuff = _75;
+  _76 = _137 + 4294967295;
+  slave_13->txSize = _76;
+
+  <bb 38> [local count: 179851756]:
+  regValue_42 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SSR;
+  _43 = regValue_42 >> 1;
+  _44 = (_Bool) _43;
+  if (_44 != 0)
+    goto <bb 39>; [50.00%]
+  else
+    goto <bb 45>; [50.00%]
+
+  <bb 39> [local count: 89925878]:
+  tmp_45 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SIER;
+  _46 = tmp_45 & 2;
+  if (_46 != 0)
+    goto <bb 40>; [50.00%]
+  else
+    goto <bb 45>; [50.00%]
+
+  <bb 40> [local count: 44962939]:
+  _77 = slave_13->rxSize;
+  if (_77 == 0)
+    goto <bb 41>; [50.00%]
+  else
+    goto <bb 44>; [50.00%]
+
+  <bb 41> [local count: 22481470]:
+  _78 = slave_13->slaveCallback;
+  if (_78 != 0B)
+    goto <bb 43>; [70.00%]
+  else
+    goto <bb 42>; [30.00%]
+
+  <bb 42> [local count: 22481470]:
+  slave_13->status = 514;
+  tmp_81 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SRDR;
+  goto <bb 45>; [100.00%]
+
+  <bb 43> [local count: 15737029]:
+  _79 = slave_13->callbackParam;
+  _78 (0, _79);
+  _80 = slave_13->rxSize;
+  if (_80 == 0)
+    goto <bb 42>; [100.00%]
+  else
+    goto <bb 44>; [0.00%]
+
+  <bb 44> [local count: 22481470]:
+  _82 = slave_13->rxBuff;
+  tmp_83 ={v} MEM[(const struct LPI2C_Type *)1074159616B].SRDR;
+  _84 = (unsigned char) tmp_83;
+  *_82 = _84;
+  _85 = slave_13->rxBuff;
+  _86 = _85 + 1;
+  slave_13->rxBuff = _86;
+  _87 = slave_13->rxSize;
+  _88 = _87 + 4294967295;
+  slave_13->rxSize = _88;
+
+  <bb 45> [local count: 1073741824]:
+  return;
+
+}
+
+

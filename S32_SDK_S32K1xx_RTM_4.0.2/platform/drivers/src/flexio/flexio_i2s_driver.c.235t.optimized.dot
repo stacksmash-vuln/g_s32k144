@@ -1,0 +1,2894 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexio/flexio_i2s_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_FLEXIO_I2S_DRV_MasterStopTransfer" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterStopTransfer ()";
+	fn_58_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_58_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_58_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|resourceIndex_8\ =\ master_7(D)-\>flexioCommon.resourceIndex;\l\
+|_1\ =\ master_7(D)-\>flexioCommon.instance;\l\
+|baseAddr_9\ =\ g_flexioBase[_1];\l\
+|_16\ =\ (int)\ resourceIndex_8;\l\
+|_93\ =\ (signed\ short)\ resourceIndex_8;\l\
+|_94\ =\ (signed\ short)\ 4;\l\
+|_42\ =\ _93\ w*\ _94;\l\
+|_41\ =\ baseAddr_9\ +\ _42;\l\
+|tmp_17\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_41\ +\ 128B];\l\
+|tmp_18\ =\ tmp_17\ &\ 4294967288;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_41\ +\ 128B]\ =\{v\}\ tmp_18;\l\
+|_2\ =\ resourceIndex_8\ +\ 1;\l\
+|_13\ =\ (int)\ _2;\l\
+|_44\ =\ (signed\ short)\ _2;\l\
+|_46\ =\ (signed\ short)\ 4;\l\
+|_91\ =\ _44\ w*\ _46;\l\
+|_92\ =\ baseAddr_9\ +\ _91;\l\
+|tmp_14\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_92\ +\ 128B];\l\
+|tmp_15\ =\ tmp_14\ &\ 4294967288;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_92\ +\ 128B]\ =\{v\}\ tmp_15;\l\
+|tmp_11\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_41\ +\ 1024B];\l\
+|tmp_12\ =\ tmp_11\ &\ 4294967292;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_41\ +\ 1024B]\ =\{v\}\ tmp_12;\l\
+|_3\ =\ master_7(D)-\>master;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_58_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 3\>:\l\
+|_4\ =\ resourceIndex_8\ +\ 2;\l\
+|_19\ =\ (signed\ short)\ _4;\l\
+|_37\ =\ (signed\ short)\ 4;\l\
+|_103\ =\ _19\ w*\ _37;\l\
+|_104\ =\ baseAddr_9\ +\ _103;\l\
+|tmp_20\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_104\ +\ 1024B];\l\
+|tmp_21\ =\ tmp_20\ &\ 4294967292;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_104\ +\ 1024B]\ =\{v\}\ tmp_21;\l\
+}"];
+
+	fn_58_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|tmp_26\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_92\ +\ 1024B];\l\
+|tmp_27\ =\ tmp_26\ &\ 4294967292;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_92\ +\ 1024B]\ =\{v\}\ tmp_27;\l\
+|tmp_24\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_41\ +\ 128B];\l\
+|tmp_25\ =\ tmp_24\ &\ 4294770687;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_41\ +\ 128B]\ =\{v\}\ tmp_25;\l\
+|_23\ =\ 1\ \<\<\ _16;\l\
+|baseAddr_9-\>SHIFTERR\ =\{v\}\ _23;\l\
+|_22\ =\ 1\ \<\<\ _13;\l\
+|baseAddr_9-\>SHIFTERR\ =\{v\}\ _22;\l\
+|baseAddr_9-\>SHIFTSTAT\ =\{v\}\ _22;\l\
+|_40\ =\ master_7(D)-\>driverType;\l\
+|if\ (_40\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.67%]\l\
+}"];
+
+	fn_58_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|if\ (_40\ ==\ 2)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_58_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:357913944\<bb\ 6\>:\l\
+|_43\ =\ (unsigned\ char)\ _23;\l\
+|_47\ =\ (unsigned\ char)\ _22;\l\
+|_48\ =\ _43\ \|\ _47;\l\
+|tmp_49\ =\{v\}\ baseAddr_9-\>SHIFTSIEN;\l\
+|_50\ =\ (int)\ _48;\l\
+|_51\ =\ ~_50;\l\
+|_52\ =\ (long\ unsigned\ int)\ _51;\l\
+|tmp_53\ =\ tmp_49\ &\ _52;\l\
+|baseAddr_9-\>SHIFTSIEN\ =\{v\}\ tmp_53;\l\
+|tmp_54\ =\{v\}\ baseAddr_9-\>SHIFTEIEN;\l\
+|tmp_55\ =\ _52\ &\ tmp_54;\l\
+|baseAddr_9-\>SHIFTEIEN\ =\{v\}\ tmp_55;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_58_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:357913944\<bb\ 7\>:\l\
+|_56\ =\ master_7(D)-\>txDMAChannel;\l\
+|EDMA_DRV_StopChannel\ (_56);\l\
+|_57\ =\ master_7(D)-\>rxDMAChannel;\l\
+|EDMA_DRV_StopChannel\ (_57);\l\
+|_60\ =\ (unsigned\ char)\ _23;\l\
+|_64\ =\ (unsigned\ char)\ _22;\l\
+|_65\ =\ _60\ \|\ _64;\l\
+|tmp_66\ =\{v\}\ baseAddr_9-\>SHIFTSDEN;\l\
+|_67\ =\ (int)\ _65;\l\
+|_68\ =\ ~_67;\l\
+|_69\ =\ (long\ unsigned\ int)\ _68;\l\
+|tmp_70\ =\ tmp_66\ &\ _69;\l\
+|baseAddr_9-\>SHIFTSDEN\ =\{v\}\ tmp_70;\l\
+}"];
+
+	fn_58_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741831\<bb\ 8\>:\l\
+|master_7(D)-\>driverIdle\ =\ 1;\l\
+|master_7(D)-\>txData\ =\ 0B;\l\
+|master_7(D)-\>rxData\ =\ 0B;\l\
+|master_7(D)-\>txRemainingBytes\ =\ 0;\l\
+|master_7(D)-\>rxRemainingBytes\ =\ 0;\l\
+|_71\ =\ master_7(D)-\>blocking;\l\
+|if\ (_71\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [67.00%]\l\
+}"];
+
+	fn_58_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334802\<bb\ 9\>:\l\
+|_72\ =\ &master_7(D)-\>idleSemaphore;\l\
+|OSIF_SemaPost\ (_72);\ [tail\ call]\l\
+}"];
+
+	fn_58_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741831\<bb\ 10\>:\l\
+|return;\l\
+}"];
+
+	fn_58_basic_block_0:s -> fn_58_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_2:s -> fn_58_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_2:s -> fn_58_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_3:s -> fn_58_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_4:s -> fn_58_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_58_basic_block_4:s -> fn_58_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_58_basic_block_5:s -> fn_58_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_5:s -> fn_58_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_6:s -> fn_58_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_7:s -> fn_58_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_8:s -> fn_58_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_58_basic_block_8:s -> fn_58_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_58_basic_block_9:s -> fn_58_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_10:s -> fn_58_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_58_basic_block_0:s -> fn_58_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterCheckStatus" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterCheckStatus ()";
+	fn_62_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_62_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_62_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|_1\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].flexioCommon.instance;\l\
+|baseAddr_33\ =\ g_flexioBase[_1];\l\
+|resourceIndex_34\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].flexioCommon.resourceIndex;\l\
+|_2\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txData;\l\
+|if\ (_2\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619280\<bb\ 3\>:\l\
+|regValue_45\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)baseAddr_33].SHIFTERR;\l\
+|_46\ =\ (int)\ resourceIndex_34;\l\
+|_47\ =\ regValue_45\ \>\>\ _46;\l\
+|_48\ =\ (_Bool)\ _47;\l\
+|if\ (_48\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809639\<bb\ 4\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].status\ =\ 1792;\l\
+|_49\ =\ 1\ \<\<\ _46;\l\
+|baseAddr_33-\>SHIFTERR\ =\{v\}\ _49;\l\
+}"];
+
+	fn_62_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 5\>:\l\
+|_4\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].rxData;\l\
+|if\ (_4\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 7\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:322122544\<bb\ 6\>:\l\
+|_26\ =\ resourceIndex_34\ +\ 1;\l\
+|_121\ =\ (int)\ _26;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619280\<bb\ 7\>:\l\
+|_5\ =\ resourceIndex_34\ +\ 1;\l\
+|regValue_50\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)baseAddr_33].SHIFTERR;\l\
+|_51\ =\ (int)\ _5;\l\
+|_52\ =\ regValue_50\ \>\>\ _51;\l\
+|_53\ =\ (_Bool)\ _52;\l\
+|if\ (_53\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809639\<bb\ 8\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].status\ =\ 1793;\l\
+|_54\ =\ 1\ \<\<\ _51;\l\
+|baseAddr_33-\>SHIFTERR\ =\{v\}\ _54;\l\
+}"];
+
+	fn_62_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 9\>:\l\
+|#\ prephitmp_139\ =\ PHI\ \<_51(8),\ _121(6),\ _51(7)\>\l\
+|regValue_55\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)baseAddr_33].SHIFTSTAT;\l\
+|_57\ =\ regValue_55\ \>\>\ prephitmp_139;\l\
+|_58\ =\ (_Bool)\ _57;\l\
+|if\ (_58\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [67.00%]\l\
+}"];
+
+	fn_62_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334799\<bb\ 10\>:\l\
+|data_82\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)baseAddr_33].SHIFTBUFBIS[prephitmp_139];\l\
+|_83\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].rxRemainingBytes;\l\
+|if\ (_83\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 46\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 11\>:\l\
+|if\ (_4\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 13\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:53150219\<bb\ 12\>:\l\
+|pretmp_148\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].byteWidth;\l\
+|_150\ =\ (long\ unsigned\ int)\ pretmp_148;\l\
+|_145\ =\ _83\ -\ _150;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].rxRemainingBytes\ =\ _145;\l\
+goto\ \<bb\ 19\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:124017180\<bb\ 13\>:\l\
+|_85\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].byteWidth;\l\
+|if\ (_85\ ==\ 1)\l\
+\ \ goto\ \<bb\ 15\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [66.67%]\l\
+}"];
+
+	fn_62_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:124017180\<bb\ 14\>:\l\
+|if\ (_85\ ==\ 2)\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:41339060\<bb\ 15\>:\l\
+|_86\ =\ (unsigned\ char)\ data_82;\l\
+|*_4\ =\ _86;\l\
+|pretmp_77\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].rxData;\l\
+|pretmp_39\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].rxRemainingBytes;\l\
+goto\ \<bb\ 18\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:41339060\<bb\ 16\>:\l\
+|_87\ =\ (short\ unsigned\ int)\ data_82;\l\
+|MEM[(uint16_t\ *)_4]\ =\ _87;\l\
+goto\ \<bb\ 18\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:41339060\<bb\ 17\>:\l\
+|MEM[(uint32_t\ *)_4]\ =\ data_82;\l\
+|pretmp_138\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].rxRemainingBytes;\l\
+}"];
+
+	fn_62_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:124017182\<bb\ 18\>:\l\
+|#\ prephitmp_78\ =\ PHI\ \<pretmp_77(15),\ _4(16),\ _4(17)\>\l\
+|#\ prephitmp_109\ =\ PHI\ \<pretmp_39(15),\ _83(16),\ pretmp_138(17)\>\l\
+|_89\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].byteWidth;\l\
+|_90\ =\ (sizetype)\ _89;\l\
+|_91\ =\ prephitmp_78\ +\ _90;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].rxData\ =\ _91;\l\
+|_95\ =\ prephitmp_109\ -\ _90;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].rxRemainingBytes\ =\ _95;\l\
+|if\ (_91\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 20\>;\ [100.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [0.00%]\l\
+}"];
+
+	fn_62_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:53150220\<bb\ 19\>:\l\
+|pretmp_152\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txData;\l\
+goto\ \<bb\ 23\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:124017180\<bb\ 20\>:\l\
+|if\ (_95\ ==\ 0)\l\
+\ \ goto\ \<bb\ 21\>;\ [0.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 45\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:124017181\<bb\ 21\>:\l\
+|_9\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].callback;\l\
+|if\ (_9\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 22\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 44\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:86812027\<bb\ 22\>:\l\
+|_10\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].callbackParam;\l\
+|_9\ (0,\ _10);\l\
+|pretmp_153\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txData;\l\
+}"];
+
+	fn_62_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:912519490\<bb\ 23\>:\l\
+|#\ prephitmp_154\ =\ PHI\ \<pretmp_152(19),\ _2(9),\ pretmp_153(22),\ _2(46)\>\l\
+|if\ (prephitmp_154\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 25\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:994370831\<bb\ 24\>:\l\
+goto\ \<bb\ 37\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 25\>:\l\
+|#\ _132\ =\ PHI\ \<_84(44),\ prephitmp_154(23),\ _134(45)\>\l\
+|regValue_59\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)baseAddr_33].SHIFTSTAT;\l\
+|_60\ =\ (int)\ resourceIndex_34;\l\
+|_61\ =\ regValue_59\ \>\>\ _60;\l\
+|_62\ =\ (_Bool)\ _61;\l\
+|if\ (_62\ !=\ 0)\l\
+\ \ goto\ \<bb\ 26\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [67.00%]\l\
+}"];
+
+	fn_62_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:248034361\<bb\ 26\>:\l\
+|_99\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txRemainingBytes;\l\
+|if\ (_99\ ==\ 0)\l\
+\ \ goto\ \<bb\ 27\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [66.00%]\l\
+}"];
+
+	fn_62_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:124017182\<bb\ 27\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txData\ =\ 0B;\l\
+|_13\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].callback;\l\
+|if\ (_13\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 35\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 34\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:163702678\<bb\ 28\>:\l\
+|_100\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].byteWidth;\l\
+|if\ (_100\ ==\ 1)\l\
+\ \ goto\ \<bb\ 30\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 29\>;\ [66.67%]\l\
+}"];
+
+	fn_62_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:163702678\<bb\ 29\>:\l\
+|if\ (_100\ ==\ 2)\l\
+\ \ goto\ \<bb\ 31\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 32\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:54567559\<bb\ 30\>:\l\
+|_102\ =\ *_132;\l\
+|data_103\ =\ (uint32_t)\ _102;\l\
+goto\ \<bb\ 33\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:54567559\<bb\ 31\>:\l\
+|_105\ =\ MEM[(const\ uint16_t\ *)_132];\l\
+|data_106\ =\ (uint32_t)\ _105;\l\
+goto\ \<bb\ 33\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:54567559\<bb\ 32\>:\l\
+|data_108\ =\ MEM[(const\ uint32_t\ *)_132];\l\
+}"];
+
+	fn_62_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:163702679\<bb\ 33\>:\l\
+|#\ data_116\ =\ PHI\ \<data_103(30),\ data_106(31),\ data_108(32)\>\l\
+|_96\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].flexioCommon.instance;\l\
+|baseAddr_97\ =\ g_flexioBase[_96];\l\
+|resourceIndex_98\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].flexioCommon.resourceIndex;\l\
+|_110\ =\ (sizetype)\ _100;\l\
+|_111\ =\ _132\ +\ _110;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txData\ =\ _111;\l\
+|_112\ =\ _99\ -\ _110;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txRemainingBytes\ =\ _112;\l\
+|_113\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].bitsWidth;\l\
+|_114\ =\ (long\ unsigned\ int)\ _113;\l\
+|_115\ =\ 32\ -\ _114;\l\
+|data_117\ =\ data_116\ \<\<\ _115;\l\
+|_118\ =\ (int)\ resourceIndex_98;\l\
+|baseAddr_97-\>SHIFTBUFBIS[_118]\ =\{v\}\ data_117;\l\
+|if\ (_112\ ==\ 0)\l\
+\ \ goto\ \<bb\ 27\>;\ [24.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [75.76%]\l\
+}"];
+
+	fn_62_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:62008591\<bb\ 34\>:\l\
+|_16\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].driverType;\l\
+|if\ (_16\ ==\ 0)\l\
+\ \ goto\ \<bb\ 36\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [50.00%]\l\
+}"];
+
+	fn_62_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:86812027\<bb\ 35\>:\l\
+|_14\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].callbackParam;\l\
+|_13\ (1,\ _14);\l\
+|_15\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txRemainingBytes;\l\
+|if\ (_15\ ==\ 0)\l\
+\ \ goto\ \<bb\ 34\>;\ [28.57%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [71.43%]\l\
+}"];
+
+	fn_62_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:31004295\<bb\ 36\>:\l\
+|_17\ =\ 1\ \<\<\ _60;\l\
+|tmp_67\ =\{v\}\ baseAddr_33-\>SHIFTSIEN;\l\
+|_31\ =\ _17\ &\ 255;\l\
+|_68\ =\ (int)\ _31;\l\
+|_69\ =\ ~_68;\l\
+|_70\ =\ (long\ unsigned\ int)\ _69;\l\
+|tmp_71\ =\ tmp_67\ &\ _70;\l\
+|baseAddr_33-\>SHIFTSIEN\ =\{v\}\ tmp_71;\l\
+|tmp_65\ =\{v\}\ baseAddr_33-\>SHIFTEIEN;\l\
+|tmp_66\ =\ tmp_65\ &\ _70;\l\
+|baseAddr_33-\>SHIFTEIEN\ =\{v\}\ tmp_66;\l\
+|_18\ =\ 1\ \<\<\ prephitmp_139;\l\
+|tmp_63\ =\{v\}\ baseAddr_33-\>SHIFTSIEN;\l\
+|_3\ =\ _18\ &\ 255;\l\
+|tmp_64\ =\ _3\ \|\ tmp_63;\l\
+|baseAddr_33-\>SHIFTSIEN\ =\{v\}\ tmp_64;\l\
+}"];
+
+	fn_62_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1025375126\<bb\ 37\>:\l\
+|_19\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].rxRemainingBytes;\l\
+|if\ (_19\ ==\ 0)\l\
+\ \ goto\ \<bb\ 39\>;\ [51.27%]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [48.73%]\l\
+}"];
+
+	fn_62_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:697932186\<bb\ 38\>:\l\
+goto\ \<bb\ 43\>;\ [100.00%]\l\
+}"];
+
+	fn_62_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870914\<bb\ 39\>:\l\
+|_20\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].status;\l\
+|if\ (_20\ ==\ 2)\l\
+\ \ goto\ \<bb\ 40\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 41\>;\ [66.00%]\l\
+}"];
+
+	fn_62_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536113\<bb\ 40\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].status\ =\ 0;\l\
+}"];
+
+	fn_62_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870915\<bb\ 41\>:\l\
+|FLEXIO_I2S_DRV_MasterStopTransfer\ (stateStruct_30(D));\l\
+|_21\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].callback;\l\
+|if\ (_21\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 42\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809641\<bb\ 42\>:\l\
+|_22\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].callbackParam;\l\
+|_21\ (2,\ _22);\ [tail\ call]\l\
+}"];
+
+	fn_62_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741828\<bb\ 43\>:\l\
+|return;\l\
+}"];
+
+	fn_62_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:37205154\<bb\ 44\>:\l\
+|_84\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txData;\l\
+|if\ (_84\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 25\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 39\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:124017181\<bb\ 45\>:\l\
+|_134\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_30(D)].txData;\l\
+|if\ (_134\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 25\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_46 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 46\>:\l\
+|if\ (_4\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 21\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [30.00%]\l\
+}"];
+
+	fn_62_basic_block_0:s -> fn_62_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_2:s -> fn_62_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_2:s -> fn_62_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_3:s -> fn_62_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_3:s -> fn_62_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_4:s -> fn_62_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_5:s -> fn_62_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_5:s -> fn_62_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_6:s -> fn_62_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_7:s -> fn_62_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_7:s -> fn_62_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_8:s -> fn_62_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_9:s -> fn_62_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_62_basic_block_9:s -> fn_62_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_62_basic_block_10:s -> fn_62_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_10:s -> fn_62_basic_block_46:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_11:s -> fn_62_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_11:s -> fn_62_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_12:s -> fn_62_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_13:s -> fn_62_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_62_basic_block_13:s -> fn_62_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_62_basic_block_14:s -> fn_62_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_14:s -> fn_62_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_15:s -> fn_62_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_16:s -> fn_62_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_17:s -> fn_62_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_18:s -> fn_62_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_62_basic_block_18:s -> fn_62_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_62_basic_block_19:s -> fn_62_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_20:s -> fn_62_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_62_basic_block_20:s -> fn_62_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_62_basic_block_21:s -> fn_62_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_21:s -> fn_62_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_22:s -> fn_62_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_23:s -> fn_62_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_23:s -> fn_62_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_24:s -> fn_62_basic_block_37:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_25:s -> fn_62_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_62_basic_block_25:s -> fn_62_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_62_basic_block_26:s -> fn_62_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_62_basic_block_26:s -> fn_62_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_62_basic_block_27:s -> fn_62_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_27:s -> fn_62_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_28:s -> fn_62_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_62_basic_block_28:s -> fn_62_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_62_basic_block_29:s -> fn_62_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_29:s -> fn_62_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_30:s -> fn_62_basic_block_33:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_31:s -> fn_62_basic_block_33:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_32:s -> fn_62_basic_block_33:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_33:s -> fn_62_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true,label="[24%]"];
+	fn_62_basic_block_33:s -> fn_62_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_62_basic_block_34:s -> fn_62_basic_block_36:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_34:s -> fn_62_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_62_basic_block_35:s -> fn_62_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true,label="[28%]"];
+	fn_62_basic_block_35:s -> fn_62_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[71%]"];
+	fn_62_basic_block_36:s -> fn_62_basic_block_37:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_37:s -> fn_62_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_62_basic_block_37:s -> fn_62_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_62_basic_block_38:s -> fn_62_basic_block_43:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_39:s -> fn_62_basic_block_40:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_62_basic_block_39:s -> fn_62_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_62_basic_block_40:s -> fn_62_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_41:s -> fn_62_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_41:s -> fn_62_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_42:s -> fn_62_basic_block_43:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_62_basic_block_43:s -> fn_62_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_62_basic_block_44:s -> fn_62_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_44:s -> fn_62_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_45:s -> fn_62_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_45:s -> fn_62_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_46:s -> fn_62_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_62_basic_block_46:s -> fn_62_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_62_basic_block_0:s -> fn_62_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterStartDmaTransfer" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterStartDmaTransfer ()";
+	fn_67_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_67_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_67_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ master_34(D)-\>flexioCommon.instance;\l\
+|baseAddr_35\ =\ g_flexioBase[_1];\l\
+|resourceIndex_36\ =\ master_34(D)-\>flexioCommon.resourceIndex;\l\
+|_2\ =\ master_34(D)-\>txData;\l\
+|if\ (_2\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [53.47%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [46.53%]\l\
+}"];
+
+	fn_67_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:574129753\<bb\ 3\>:\l\
+|_3\ =\ master_34(D)-\>txDMAChannel;\l\
+|_4\ =\ (long\ unsigned\ int)\ _2;\l\
+|_50\ =\ (int)\ resourceIndex_36;\l\
+|_73\ =\ (sizetype)\ resourceIndex_36;\l\
+|_55\ =\ _73\ +\ 160;\l\
+|_69\ =\ _55\ *\ 4;\l\
+|_51\ =\ baseAddr_35\ +\ _69;\l\
+|_52\ =\ (long\ unsigned\ int)\ _51;\l\
+|_53\ =\ MEM[(const\ struct\ flexio_i2s_master_state_t\ *)master_34(D)].byteWidth;\l\
+|_54\ =\ (long\ unsigned\ int)\ _53;\l\
+|_72\ =\ 4\ -\ _54;\l\
+|addr_56\ =\ _52\ +\ _72;\l\
+|_5\ =\ _54\ +\ 4294967295;\l\
+|_6\ =\ dmaTransferSize[_5];\l\
+|_7\ =\ master_34(D)-\>txRemainingBytes;\l\
+|_8\ =\ _7\ /\ _54;\l\
+|EDMA_DRV_ConfigMultiBlockTransfer\ (_3,\ 1,\ _4,\ addr_56,\ _6,\ _54,\ _8,\ 1);\l\
+|master_34(D)-\>txRemainingBytes\ =\ 0;\l\
+|_9\ =\ master_34(D)-\>txDMAChannel;\l\
+|EDMA_DRV_InstallCallback\ (_9,\ FLEXIO_I2S_DRV_MasterEndDmaTxTransfer,\ master_34(D));\l\
+|_10\ =\ master_34(D)-\>txDMAChannel;\l\
+|EDMA_DRV_StartChannel\ (_10);\l\
+|_11\ =\ 1\ \<\<\ _50;\l\
+|requestMask_41\ =\ (uint8_t)\ _11;\l\
+|pretmp_98\ =\ MEM[(const\ struct\ flexio_i2s_master_state_t\ *)master_34(D)].flexioCommon.instance;\l\
+|pretmp_100\ =\ g_flexioBase[pretmp_98];\l\
+|pretmp_102\ =\ MEM[(const\ struct\ flexio_i2s_master_state_t\ *)master_34(D)].flexioCommon.resourceIndex;\l\
+}"];
+
+	fn_67_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ requestMask_30\ =\ PHI\ \<requestMask_41(3),\ 0(2)\>\l\
+|#\ prephitmp_101\ =\ PHI\ \<pretmp_100(3),\ baseAddr_35(2)\>\l\
+|#\ prephitmp_103\ =\ PHI\ \<pretmp_102(3),\ resourceIndex_36(2)\>\l\
+|_12\ =\ master_34(D)-\>rxData;\l\
+|if\ (_12\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [30.00%]\l\
+}"];
+
+	fn_67_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 5\>:\l\
+|addr_43\ =\ (uint32_t)\ _12;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_67_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:322122544\<bb\ 6\>:\l\
+|_13\ =\ &master_34(D)-\>dummyDmaData;\l\
+|addr_42\ =\ (uint32_t)\ _13;\l\
+}"];
+
+	fn_67_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|#\ addr_29\ =\ PHI\ \<addr_43(5),\ addr_42(6)\>\l\
+|_14\ =\ master_34(D)-\>rxDMAChannel;\l\
+|shifter_60\ =\ prephitmp_103\ +\ 1;\l\
+|_71\ =\ (sizetype)\ shifter_60;\l\
+|_68\ =\ _71\ +\ 160;\l\
+|_70\ =\ _68\ *\ 4;\l\
+|_62\ =\ prephitmp_101\ +\ _70;\l\
+|addr_63\ =\ (uint32_t)\ _62;\l\
+|_15\ =\ master_34(D)-\>byteWidth;\l\
+|_16\ =\ (unsigned\ int)\ _15;\l\
+|_17\ =\ _16\ +\ 4294967295;\l\
+|_18\ =\ dmaTransferSize[_17];\l\
+|_19\ =\ master_34(D)-\>rxRemainingBytes;\l\
+|_20\ =\ _19\ /\ _16;\l\
+|EDMA_DRV_ConfigMultiBlockTransfer\ (_14,\ 0,\ addr_63,\ addr_29,\ _18,\ _16,\ _20,\ 1);\l\
+|_21\ =\ master_34(D)-\>rxData;\l\
+|if\ (_21\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [17.43%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [82.57%]\l\
+}"];
+
+	fn_67_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187153200\<bb\ 8\>:\l\
+|_22\ =\ master_34(D)-\>rxDMAChannel;\l\
+|EDMA_DRV_SetDestOffset\ (_22,\ 0);\l\
+}"];
+
+	fn_67_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|master_34(D)-\>rxRemainingBytes\ =\ 0;\l\
+|_23\ =\ master_34(D)-\>rxDMAChannel;\l\
+|EDMA_DRV_InstallCallback\ (_23,\ FLEXIO_I2S_DRV_MasterEndDmaRxTransfer,\ master_34(D));\l\
+|_24\ =\ master_34(D)-\>rxDMAChannel;\l\
+|EDMA_DRV_StartChannel\ (_24);\l\
+|_25\ =\ resourceIndex_36\ +\ 1;\l\
+|_26\ =\ (int)\ _25;\l\
+|_27\ =\ 1\ \<\<\ _26;\l\
+|_28\ =\ (unsigned\ char)\ _27;\l\
+|requestMask_49\ =\ _28\ \|\ requestMask_30;\l\
+|tmp_64\ =\{v\}\ baseAddr_35-\>SHIFTSDEN;\l\
+|_65\ =\ (long\ unsigned\ int)\ requestMask_49;\l\
+|tmp_66\ =\ tmp_64\ \|\ _65;\l\
+|baseAddr_35-\>SHIFTSDEN\ =\{v\}\ tmp_66;\l\
+|return;\l\
+}"];
+
+	fn_67_basic_block_0:s -> fn_67_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_67_basic_block_2:s -> fn_67_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[53%]"];
+	fn_67_basic_block_2:s -> fn_67_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[46%]"];
+	fn_67_basic_block_3:s -> fn_67_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_67_basic_block_4:s -> fn_67_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_67_basic_block_4:s -> fn_67_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_67_basic_block_5:s -> fn_67_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_67_basic_block_6:s -> fn_67_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_67_basic_block_7:s -> fn_67_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[17%]"];
+	fn_67_basic_block_7:s -> fn_67_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[82%]"];
+	fn_67_basic_block_8:s -> fn_67_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_67_basic_block_9:s -> fn_67_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_67_basic_block_0:s -> fn_67_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterEndDmaRxTransfer" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterEndDmaRxTransfer ()";
+	fn_64_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_64_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_64_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxData;\l\
+|if\ (_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [30.00%]\l\
+}"];
+
+	fn_64_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 3\>:\l\
+|if\ (status_20(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_64_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:255550558\<bb\ 4\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].status\ =\ 1;\l\
+|_37\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxRemainingBytes;\l\
+|if\ (_37\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [50.00%]\l\
+}"];
+
+	fn_64_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334802\<bb\ 5\>:\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_64_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:496068722\<bb\ 6\>:\l\
+|_2\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].callback;\l\
+|if\ (_2\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 7\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [30.00%]\l\
+}"];
+
+	fn_64_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:347248107\<bb\ 7\>:\l\
+|_3\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].callbackParam;\l\
+|_2\ (0,\ _3);\l\
+|_4\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxRemainingBytes;\l\
+|if\ (_4\ ==\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_64_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:173624056\<bb\ 8\>:\l\
+|pretmp_34\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxData;\l\
+|dmaChn_23\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxDMAChannel;\l\
+|if\ (pretmp_34\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 13\>;\ [100.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [0.00%]\l\
+}"];
+
+	fn_64_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:409095633\<bb\ 9\>:\l\
+|_5\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].status;\l\
+|if\ (_5\ ==\ 2)\l\
+\ \ goto\ \<bb\ 10\>;\ [44.62%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [55.38%]\l\
+}"];
+
+	fn_64_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 10\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].status\ =\ 0;\l\
+}"];
+
+	fn_64_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 11\>:\l\
+|FLEXIO_I2S_DRV_MasterStopTransfer\ (stateStruct_18(D));\l\
+|_6\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].callback;\l\
+|if\ (_6\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 12\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [30.00%]\l\
+}"];
+
+	fn_64_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 12\>:\l\
+|_7\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].callbackParam;\l\
+|_6\ (2,\ _7);\ [tail\ call]\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_64_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 13\>:\l\
+|#\ _44\ =\ PHI\ \<_1(19),\ _1(21),\ pretmp_34(8)\>\l\
+|#\ dmaChn_50\ =\ PHI\ \<dmaChn_36(19),\ dmaChn_8(21),\ dmaChn_23(8)\>\l\
+|addr_25\ =\ (uint32_t)\ _44;\l\
+goto\ \<bb\ 15\>;\ [100.00%]\l\
+}"];
+
+	fn_64_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:161061272\<bb\ 14\>:\l\
+|#\ dmaChn_51\ =\ PHI\ \<dmaChn_35(17),\ dmaChn_23(8)\>\l\
+|_9\ =\ &MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].dummyDmaData;\l\
+|addr_24\ =\ (uint32_t)\ _9;\l\
+}"];
+
+	fn_64_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 15\>:\l\
+|#\ addr_14\ =\ PHI\ \<addr_25(13),\ addr_24(14)\>\l\
+|#\ dmaChn_52\ =\ PHI\ \<dmaChn_50(13),\ dmaChn_51(14)\>\l\
+|EDMA_DRV_SetDestAddr\ (dmaChn_52,\ addr_14);\l\
+|_10\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxRemainingBytes;\l\
+|_11\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].byteWidth;\l\
+|_12\ =\ (long\ unsigned\ int)\ _11;\l\
+|_13\ =\ _10\ /\ _12;\l\
+|EDMA_DRV_SetMajorLoopIterationCount\ (dmaChn_52,\ _13);\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxRemainingBytes\ =\ 0;\l\
+|EDMA_DRV_StartChannel\ (dmaChn_52);\ [tail\ call]\l\
+}"];
+
+	fn_64_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 16\>:\l\
+|return;\l\
+}"];
+
+	fn_64_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:161061271\<bb\ 17\>:\l\
+|dmaChn_35\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxDMAChannel;\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_64_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:322122544\<bb\ 18\>:\l\
+|_39\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxRemainingBytes;\l\
+|if\ (_39\ ==\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+}"];
+
+	fn_64_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:74410309\<bb\ 19\>:\l\
+|dmaChn_36\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxDMAChannel;\l\
+goto\ \<bb\ 13\>;\ [100.00%]\l\
+}"];
+
+	fn_64_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:148820615\<bb\ 20\>:\l\
+|_43\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxRemainingBytes;\l\
+|if\ (_43\ ==\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [50.00%]\l\
+}"];
+
+	fn_64_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:127775277\<bb\ 21\>:\l\
+|dmaChn_8\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_18(D)].rxDMAChannel;\l\
+goto\ \<bb\ 13\>;\ [100.00%]\l\
+}"];
+
+	fn_64_basic_block_0:s -> fn_64_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_2:s -> fn_64_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_64_basic_block_2:s -> fn_64_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_64_basic_block_3:s -> fn_64_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_64_basic_block_3:s -> fn_64_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_64_basic_block_4:s -> fn_64_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_64_basic_block_4:s -> fn_64_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_64_basic_block_5:s -> fn_64_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_6:s -> fn_64_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_64_basic_block_6:s -> fn_64_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_64_basic_block_7:s -> fn_64_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_64_basic_block_7:s -> fn_64_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_64_basic_block_8:s -> fn_64_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_64_basic_block_8:s -> fn_64_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_64_basic_block_9:s -> fn_64_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[44%]"];
+	fn_64_basic_block_9:s -> fn_64_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[55%]"];
+	fn_64_basic_block_10:s -> fn_64_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_11:s -> fn_64_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_64_basic_block_11:s -> fn_64_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_64_basic_block_12:s -> fn_64_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_13:s -> fn_64_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_14:s -> fn_64_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_15:s -> fn_64_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_16:s -> fn_64_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_64_basic_block_17:s -> fn_64_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_18:s -> fn_64_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_64_basic_block_18:s -> fn_64_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_64_basic_block_19:s -> fn_64_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_20:s -> fn_64_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_64_basic_block_20:s -> fn_64_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_64_basic_block_21:s -> fn_64_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_64_basic_block_0:s -> fn_64_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterEndDmaTxTransfer" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterEndDmaTxTransfer ()";
+	fn_63_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_63_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_63_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (status_16(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [11.56%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [88.44%]\l\
+}"];
+
+	fn_63_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:124124552\<bb\ 3\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].status\ =\ 1;\l\
+|FLEXIO_I2S_DRV_MasterStopTransfer\ (stateStruct_15(D));\l\
+|_1\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].callback;\l\
+|if\ (_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [30.00%]\l\
+}"];
+
+	fn_63_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:86887187\<bb\ 4\>:\l\
+|_2\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].callbackParam;\l\
+|_1\ (2,\ _2);\ [tail\ call]\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_63_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:949617273\<bb\ 5\>:\l\
+|_3\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].callback;\l\
+|if\ (_3\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 6\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [30.00%]\l\
+}"];
+
+	fn_63_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:664732094\<bb\ 6\>:\l\
+|_4\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].callbackParam;\l\
+|_3\ (1,\ _4);\l\
+}"];
+
+	fn_63_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:949617273\<bb\ 7\>:\l\
+|_5\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].txRemainingBytes;\l\
+|if\ (_5\ ==\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [33.00%]\l\
+}"];
+
+	fn_63_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:636243575\<bb\ 8\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].txData\ =\ 0B;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_63_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:313373698\<bb\ 9\>:\l\
+|dmaChn_19\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].txDMAChannel;\l\
+|_6\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].txData;\l\
+|_7\ =\ (long\ unsigned\ int)\ _6;\l\
+|EDMA_DRV_SetSrcAddr\ (dmaChn_19,\ _7);\l\
+|_8\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].txRemainingBytes;\l\
+|_9\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].byteWidth;\l\
+|_10\ =\ (long\ unsigned\ int)\ _9;\l\
+|_11\ =\ _8\ /\ _10;\l\
+|EDMA_DRV_SetMajorLoopIterationCount\ (dmaChn_19,\ _11);\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)stateStruct_15(D)].txRemainingBytes\ =\ 0;\l\
+|EDMA_DRV_StartChannel\ (dmaChn_19);\ [tail\ call]\l\
+}"];
+
+	fn_63_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|return;\l\
+}"];
+
+	fn_63_basic_block_0:s -> fn_63_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_63_basic_block_2:s -> fn_63_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_63_basic_block_2:s -> fn_63_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[88%]"];
+	fn_63_basic_block_3:s -> fn_63_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_63_basic_block_3:s -> fn_63_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_63_basic_block_4:s -> fn_63_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_63_basic_block_5:s -> fn_63_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_63_basic_block_5:s -> fn_63_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_63_basic_block_6:s -> fn_63_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_63_basic_block_7:s -> fn_63_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_63_basic_block_7:s -> fn_63_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_63_basic_block_8:s -> fn_63_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_63_basic_block_9:s -> fn_63_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_63_basic_block_10:s -> fn_63_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_63_basic_block_0:s -> fn_63_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterEnableTransfer.isra" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterEnableTransfer.isra ()";
+	fn_99_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_99_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_99_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|baseAddr_3\ =\ g_flexioBase[ISRA.80_30(D)];\l\
+|_21\ =\ (signed\ short)\ ISRA.81_29(D);\l\
+|_57\ =\ (signed\ short)\ 4;\l\
+|_2\ =\ _21\ w*\ _57;\l\
+|_1\ =\ baseAddr_3\ +\ _2;\l\
+|tmp_5\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_1\ +\ 128B];\l\
+|tmp_6\ =\ tmp_5\ &\ 4294967288;\l\
+|tmp_7\ =\ tmp_6\ \|\ 2;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_1\ +\ 128B]\ =\{v\}\ tmp_7;\l\
+|_8\ =\ ISRA.81_29(D)\ +\ 1;\l\
+|_40\ =\ (signed\ short)\ _8;\l\
+|_41\ =\ (signed\ short)\ 4;\l\
+|_55\ =\ _40\ w*\ _41;\l\
+|_56\ =\ baseAddr_3\ +\ _55;\l\
+|tmp_10\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_56\ +\ 128B];\l\
+|tmp_11\ =\ tmp_10\ &\ 4294967288;\l\
+|tmp_12\ =\ tmp_11\ \|\ 1;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_56\ +\ 128B]\ =\{v\}\ tmp_12;\l\
+|if\ (ISRA.82_34(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_99_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|tmp_14\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_1\ +\ 1024B];\l\
+|tmp_15\ =\ tmp_14\ &\ 4294967292;\l\
+|tmp_16\ =\ tmp_15\ \|\ 1;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_1\ +\ 1024B]\ =\{v\}\ tmp_16;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_99_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|tmp_17\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_1\ +\ 1024B];\l\
+|tmp_18\ =\ tmp_17\ &\ 4294967292;\l\
+|tmp_19\ =\ tmp_18\ \|\ 3;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_1\ +\ 1024B]\ =\{v\}\ tmp_19;\l\
+|_20\ =\ ISRA.81_29(D)\ +\ 2;\l\
+|_4\ =\ (signed\ short)\ _20;\l\
+|_9\ =\ (signed\ short)\ 4;\l\
+|_67\ =\ _4\ w*\ _9;\l\
+|_68\ =\ baseAddr_3\ +\ _67;\l\
+|tmp_22\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_68\ +\ 1024B];\l\
+|tmp_23\ =\ tmp_22\ &\ 4294967292;\l\
+|tmp_24\ =\ tmp_23\ \|\ 3;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_68\ +\ 1024B]\ =\{v\}\ tmp_24;\l\
+}"];
+
+	fn_99_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|tmp_25\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_56\ +\ 1024B];\l\
+|tmp_26\ =\ tmp_25\ &\ 4294967292;\l\
+|tmp_27\ =\ tmp_26\ \|\ 3;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_56\ +\ 1024B]\ =\{v\}\ tmp_27;\l\
+|return;\l\
+}"];
+
+	fn_99_basic_block_0:s -> fn_99_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_99_basic_block_2:s -> fn_99_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_99_basic_block_2:s -> fn_99_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_99_basic_block_3:s -> fn_99_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_99_basic_block_4:s -> fn_99_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_99_basic_block_5:s -> fn_99_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_99_basic_block_0:s -> fn_99_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterWaitTransferEnd" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterWaitTransferEnd ()";
+	subgraph cluster_59_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	subgraph cluster_59_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey77";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_59_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870940\<bb\ 10\>:\l\
+|_24\ =\ master_10(D)-\>driverType;\l\
+|if\ (_24\ ==\ 1)\l\
+\ \ goto\ \<bb\ 12\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [66.67%]\l\
+}"];
+
+	fn_59_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870940\<bb\ 11\>:\l\
+|if\ (_24\ ==\ 2)\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_59_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:178956981\<bb\ 12\>:\l\
+|FLEXIO_I2S_DRV_MasterCheckStatus\ (master_10(D));\l\
+|pretmp_30\ =\ master_10(D)-\>driverIdle;\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_59_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809663\<bb\ 9\>:\l\
+}"];
+
+	fn_59_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:178956981\<bb\ 13\>:\l\
+|_25\ =\ master_10(D)-\>rxDMAChannel;\l\
+|EDMA_DRV_GetRemainingMajorIterationsCount\ (_25);\l\
+|pretmp_27\ =\ master_10(D)-\>driverIdle;\l\
+}"];
+
+	fn_59_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435473\<bb\ 14\>:\l\
+|#\ prephitmp_22\ =\ PHI\ \<pretmp_27(13),\ pretmp_30(12)\>\l\
+|if\ (prephitmp_22\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [60.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [40.00%]\l\
+}"];
+
+	}
+	fn_59_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:697932216\<bb\ 7\>:\l\
+|#\ prephitmp_41\ =\ PHI\ \<pretmp_37(15),\ pretmp_40(4)\>\l\
+|if\ (prephitmp_41\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [91.41%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [8.59%]\l\
+}"];
+
+	fn_59_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:697932223\<bb\ 8\>:\l\
+|_29\ =\ master_10(D)-\>status;\l\
+|if\ (_29\ ==\ 2)\l\
+\ \ goto\ \<bb\ 15\>;\ [76.17%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [23.83%]\l\
+}"];
+
+	fn_59_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:531591707\<bb\ 15\>:\l\
+|pretmp_37\ =\ master_10(D)-\>driverIdle;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_59_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_59_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_59_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:472446400\<bb\ 2\>:\l\
+|_1\ =\ master_10(D)-\>driverType;\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [25.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [75.00%]\l\
+}"];
+
+	fn_59_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:472446400\<bb\ 3\>:\l\
+|_7\ =\ _1\ &\ 253;\l\
+|if\ (_7\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.67%]\l\
+}"];
+
+	fn_59_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 4\>:\l\
+|pretmp_40\ =\ master_10(D)-\>driverIdle;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_59_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111601\<bb\ 5\>:\l\
+|master_10(D)-\>blocking\ =\ 0;\l\
+|pretmp_36\ =\ master_10(D)-\>status;\l\
+goto\ \<bb\ 18\>;\ [100.00%]\l\
+}"];
+
+	fn_59_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:236223202\<bb\ 6\>:\l\
+|_2\ =\ &master_10(D)-\>idleSemaphore;\l\
+|osifError_16\ =\ OSIF_SemaWait\ (_2,\ timeout_11(D));\l\
+|master_10(D)-\>blocking\ =\ 0;\l\
+|if\ (osifError_16\ ==\ 3)\l\
+\ \ goto\ \<bb\ 17\>;\ [38.15%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [61.85%]\l\
+}"];
+
+	fn_59_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116276926\<bb\ 16\>:\l\
+|pretmp_3\ =\ master_10(D)-\>status;\l\
+goto\ \<bb\ 18\>;\ [100.00%]\l\
+}"];
+
+	fn_59_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:71717365\<bb\ 17\>:\l\
+|master_10(D)-\>status\ =\ 3;\l\
+|FLEXIO_I2S_DRV_MasterStopTransfer\ (master_10(D));\l\
+|pretmp_14\ =\ master_10(D)-\>status;\l\
+}"];
+
+	fn_59_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:472446407\<bb\ 18\>:\l\
+|#\ prephitmp_34\ =\ PHI\ \<_29(19),\ pretmp_14(17),\ pretmp_36(5),\ pretmp_3(16)\>\l\
+|return\ prephitmp_34;\l\
+}"];
+
+	fn_59_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:166340516\<bb\ 19\>:\l\
+|master_10(D)-\>blocking\ =\ 0;\l\
+goto\ \<bb\ 18\>;\ [100.00%]\l\
+}"];
+
+	fn_59_basic_block_0:s -> fn_59_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_2:s -> fn_59_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_59_basic_block_2:s -> fn_59_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_59_basic_block_3:s -> fn_59_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_59_basic_block_3:s -> fn_59_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_59_basic_block_4:s -> fn_59_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_5:s -> fn_59_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_6:s -> fn_59_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[38%]"];
+	fn_59_basic_block_6:s -> fn_59_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[61%]"];
+	fn_59_basic_block_7:s -> fn_59_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[8%]"];
+	fn_59_basic_block_7:s -> fn_59_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[91%]"];
+	fn_59_basic_block_8:s -> fn_59_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[76%]"];
+	fn_59_basic_block_8:s -> fn_59_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[23%]"];
+	fn_59_basic_block_9:s -> fn_59_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_59_basic_block_10:s -> fn_59_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_59_basic_block_10:s -> fn_59_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_59_basic_block_11:s -> fn_59_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_59_basic_block_11:s -> fn_59_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_59_basic_block_12:s -> fn_59_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_13:s -> fn_59_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_14:s -> fn_59_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[40%]"];
+	fn_59_basic_block_14:s -> fn_59_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[60%]"];
+	fn_59_basic_block_15:s -> fn_59_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_59_basic_block_16:s -> fn_59_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_17:s -> fn_59_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_18:s -> fn_59_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_59_basic_block_19:s -> fn_59_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_0:s -> fn_59_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterInit" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterInit ()";
+	fn_68_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_68_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_68_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741819\<bb\ 2\>:\l\
+|_1\ =\ g_flexioClock[instance_21(D)];\l\
+|CLOCK_SYS_GetFreq\ (_1,\ &inputClock);\l\
+|master_23(D)-\>flexioCommon.resourceCount\ =\ 2;\l\
+|retCode_26\ =\ FLEXIO_DRV_InitDriver\ (instance_21(D),\ master_23(D));\l\
+|if\ (retCode_26\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+}"];
+
+	fn_68_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669597\<bb\ 3\>:\l\
+|_2\ =\ userConfigPtr_27(D)-\>driverType;\l\
+|if\ (_2\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+}"];
+
+	fn_68_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:346397696\<bb\ 4\>:\l\
+|_3\ =\ &master_23(D)-\>idleSemaphore;\l\
+|OSIF_SemaCreate\ (_3,\ 0);\l\
+|pretmp_214\ =\ userConfigPtr_27(D)-\>driverType;\l\
+}"];
+
+	fn_68_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669597\<bb\ 5\>:\l\
+|#\ prephitmp_215\ =\ PHI\ \<pretmp_214(4),\ _2(3)\>\l\
+|master_23(D)-\>driverType\ =\ prephitmp_215;\l\
+|_5\ =\ userConfigPtr_27(D)-\>bitsWidth;\l\
+|master_23(D)-\>bitsWidth\ =\ _5;\l\
+|if\ (_5\ \<=\ 8)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_68_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334798\<bb\ 6\>:\l\
+|if\ (_5\ \<=\ 16)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_68_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167399\<bb\ 7\>:\l\
+}"];
+
+	fn_68_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669597\<bb\ 8\>:\l\
+|#\ byteWidth_31\ =\ PHI\ \<1(5),\ 2(6),\ 4(7)\>\l\
+|master_23(D)-\>byteWidth\ =\ byteWidth_31;\l\
+|master_23(D)-\>driverIdle\ =\ 1;\l\
+|_6\ =\ userConfigPtr_27(D)-\>callback;\l\
+|master_23(D)-\>callback\ =\ _6;\l\
+|_7\ =\ userConfigPtr_27(D)-\>callbackParam;\l\
+|master_23(D)-\>callbackParam\ =\ _7;\l\
+|master_23(D)-\>blocking\ =\ 0;\l\
+|master_23(D)-\>txData\ =\ 0B;\l\
+|master_23(D)-\>txRemainingBytes\ =\ 0;\l\
+|master_23(D)-\>rxData\ =\ 0B;\l\
+|master_23(D)-\>rxRemainingBytes\ =\ 0;\l\
+|master_23(D)-\>master\ =\ 1;\l\
+|master_23(D)-\>status\ =\ 0;\l\
+|inputClock.0_8\ =\ inputClock;\l\
+|_52\ =\ MEM[(long\ unsigned\ int\ *)master_23(D)\ +\ 4B];\l\
+|_53\ =\ MEM[(unsigned\ char\ *)master_23(D)\ +\ 9B];\l\
+|baseAddr_55\ =\ g_flexioBase[_52];\l\
+|_57\ =\ userConfigPtr_27(D)-\>baudRate;\l\
+|inputClock.3_58\ =\ (long\ int)\ inputClock.0_8;\l\
+|baudRate.4_59\ =\ (long\ int)\ _57;\l\
+|_60\ =\ inputClock.3_58\ +\ baudRate.4_59;\l\
+|_61\ =\ baudRate.4_59\ *\ 2;\l\
+|_62\ =\ _60\ /\ _61;\l\
+|tmpDiv_63\ =\ _62\ +\ -1;\l\
+|_64\ =\ MIN_EXPR\ \<tmpDiv_63,\ 255\>;\l\
+|tmpDiv_65\ =\ MAX_EXPR\ \<_64,\ 1\>;\l\
+|_66\ =\ (short\ unsigned\ int)\ tmpDiv_65;\l\
+|bits_68\ =\ (uint16_t)\ _5;\l\
+|_69\ =\ (int)\ _53;\l\
+|_43\ =\ (signed\ short)\ _53;\l\
+|_201\ =\ (signed\ short)\ 4;\l\
+|_213\ =\ _43\ w*\ _201;\l\
+|_212\ =\ baseAddr_55\ +\ _213;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_212\ +\ 256B]\ =\{v\}\ 1;\l\
+|_70\ =\ userConfigPtr_27(D)-\>txPin;\l\
+|_71\ =\ (long\ unsigned\ int)\ _70;\l\
+|_72\ =\ _71\ \<\<\ 8;\l\
+|_73\ =\ _72\ &\ 1792;\l\
+|_74\ =\ (long\ unsigned\ int)\ _53;\l\
+|_75\ =\ _74\ \<\<\ 24;\l\
+|_76\ =\ _75\ &\ 50331648;\l\
+|_77\ =\ _73\ \|\ _76;\l\
+|_203\ =\ (signed\ short)\ _53;\l\
+|_202\ =\ (signed\ short)\ 4;\l\
+|_210\ =\ _203\ w*\ _202;\l\
+|_209\ =\ baseAddr_55\ +\ _210;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_209\ +\ 128B]\ =\{v\}\ _77;\l\
+|_78\ =\ _53\ +\ 1;\l\
+|_79\ =\ (int)\ _78;\l\
+|_196\ =\ (signed\ short)\ _78;\l\
+|_194\ =\ (signed\ short)\ 4;\l\
+|_198\ =\ _196\ w*\ _194;\l\
+|_197\ =\ baseAddr_55\ +\ _198;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_197\ +\ 256B]\ =\{v\}\ 0;\l\
+|_80\ =\ userConfigPtr_27(D)-\>rxPin;\l\
+|_81\ =\ (long\ unsigned\ int)\ _80;\l\
+|_82\ =\ _81\ \<\<\ 8;\l\
+|_83\ =\ _82\ &\ 1792;\l\
+|_13\ =\ _76\ \|\ _83;\l\
+|_85\ =\ _13\ \|\ 8388608;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_197\ +\ 128B]\ =\{v\}\ _85;\l\
+|_86\ =\ bits_68\ \<\<\ 1;\l\
+|_87\ =\ _86\ +\ 65535;\l\
+|_88\ =\ _87\ \<\<\ 8;\l\
+|_89\ =\ _66\ +\ _88;\l\
+|_90\ =\ (long\ unsigned\ int)\ _89;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_209\ +\ 1280B]\ =\{v\}\ _90;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_209\ +\ 1152B]\ =\{v\}\ 514;\l\
+|_91\ =\ _53\ \<\<\ 2;\l\
+|_92\ =\ _91\ +\ 1;\l\
+|_93\ =\ userConfigPtr_27(D)-\>sckPin;\l\
+|_94\ =\ (long\ unsigned\ int)\ _93;\l\
+|_95\ =\ _94\ \<\<\ 8;\l\
+|_96\ =\ _95\ &\ 1792;\l\
+|_98\ =\ (long\ unsigned\ int)\ _92;\l\
+|_99\ =\ _98\ \<\<\ 24;\l\
+|_100\ =\ _99\ &\ 251658240;\l\
+|_9\ =\ _96\ \|\ _100;\l\
+|_101\ =\ _9\ \|\ 12779648;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_209\ +\ 1024B]\ =\{v\}\ _101;\l\
+|_102\ =\ _66\ +\ 1;\l\
+|_200\ =\ bits_68\ *\ _102;\l\
+|_104\ =\ _200\ *\ 2;\l\
+|_105\ =\ _104\ +\ 65535;\l\
+|_106\ =\ (long\ unsigned\ int)\ _105;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_197\ +\ 1280B]\ =\{v\}\ _106;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_197\ +\ 1152B]\ =\{v\}\ 256;\l\
+|_107\ =\ userConfigPtr_27(D)-\>wsPin;\l\
+|_108\ =\ (long\ unsigned\ int)\ _107;\l\
+|_109\ =\ _108\ \<\<\ 8;\l\
+|_110\ =\ _109\ &\ 1792;\l\
+|_111\ =\ _110\ \|\ 196736;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_197\ +\ 1024B]\ =\{v\}\ _111;\l\
+|if\ (prephitmp_215\ ==\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [66.67%]\l\
+}"];
+
+	fn_68_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669597\<bb\ 9\>:\l\
+|if\ (prephitmp_215\ ==\ 2)\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_68_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:236223201\<bb\ 10\>:\l\
+|master_23(D)-\>flexioCommon.isr\ =\ FLEXIO_I2S_DRV_MasterCheckStatus;\l\
+goto\ \<bb\ 12\>;\ [100.00%]\l\
+}"];
+
+	fn_68_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:236223201\<bb\ 11\>:\l\
+|_10\ =\ userConfigPtr_27(D)-\>rxDMAChannel;\l\
+|master_23(D)-\>rxDMAChannel\ =\ _10;\l\
+|_11\ =\ userConfigPtr_27(D)-\>txDMAChannel;\l\
+|master_23(D)-\>txDMAChannel\ =\ _11;\l\
+|dmaReqTx_47\ =\ g_flexioDMASrc[instance_21(D)][_69];\l\
+|dmaReqRx_48\ =\ g_flexioDMASrc[instance_21(D)][_79];\l\
+|EDMA_DRV_SetChannelRequestAndTrigger\ (_11,\ dmaReqTx_47,\ 0);\l\
+|_16\ =\ userConfigPtr_27(D)-\>rxDMAChannel;\l\
+|EDMA_DRV_SetChannelRequestAndTrigger\ (_16,\ dmaReqRx_48,\ 0);\l\
+}"];
+
+	fn_68_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 12\>:\l\
+|#\ _17\ =\ PHI\ \<retCode_26(11),\ retCode_26(2),\ retCode_26(10),\ retCode_26(9)\>\l\
+|inputClock\ =\{v\}\ \{CLOBBER\};\l\
+|return\ _17;\l\
+}"];
+
+	fn_68_basic_block_0:s -> fn_68_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_68_basic_block_2:s -> fn_68_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_68_basic_block_2:s -> fn_68_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_68_basic_block_3:s -> fn_68_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_68_basic_block_3:s -> fn_68_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_68_basic_block_4:s -> fn_68_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_68_basic_block_5:s -> fn_68_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_68_basic_block_5:s -> fn_68_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_68_basic_block_6:s -> fn_68_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_68_basic_block_6:s -> fn_68_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_68_basic_block_7:s -> fn_68_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_68_basic_block_8:s -> fn_68_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_68_basic_block_8:s -> fn_68_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_68_basic_block_9:s -> fn_68_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_68_basic_block_9:s -> fn_68_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_68_basic_block_10:s -> fn_68_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_68_basic_block_11:s -> fn_68_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_68_basic_block_12:s -> fn_68_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_68_basic_block_0:s -> fn_68_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterDeinit" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterDeinit ()";
+	fn_69_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_69_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_69_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ master_8(D)-\>driverIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+}"];
+
+	fn_69_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|_2\ =\ master_8(D)-\>driverType;\l\
+|if\ (_2\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+}"];
+
+	fn_69_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:410848664\<bb\ 4\>:\l\
+|_3\ =\ &master_8(D)-\>idleSemaphore;\l\
+|OSIF_SemaDestroy\ (_3);\l\
+}"];
+
+	fn_69_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 5\>:\l\
+|_11\ =\ FLEXIO_DRV_DeinitDriver\ (master_8(D));\ [tail\ call]\l\
+}"];
+
+	fn_69_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _4\ =\ PHI\ \<_11(5),\ 2(2)\>\l\
+|return\ _4;\l\
+}"];
+
+	fn_69_basic_block_0:s -> fn_69_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_69_basic_block_2:s -> fn_69_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_69_basic_block_2:s -> fn_69_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_69_basic_block_3:s -> fn_69_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_69_basic_block_3:s -> fn_69_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_69_basic_block_4:s -> fn_69_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_69_basic_block_5:s -> fn_69_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_69_basic_block_6:s -> fn_69_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_69_basic_block_0:s -> fn_69_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterSetConfig" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterSetConfig ()";
+	fn_70_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_70_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_70_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\ master_18(D)-\>driverIdle;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [36.03%]\l\
+}"];
+
+	fn_70_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 3\>:\l\
+|_1\ =\ master_18(D)-\>flexioCommon.instance;\l\
+|baseAddr_19\ =\ g_flexioBase[_1];\l\
+|resourceIndex_20\ =\ master_18(D)-\>flexioCommon.resourceIndex;\l\
+|_3\ =\ g_flexioClock[_1];\l\
+|CLOCK_SYS_GetFreq\ (_3,\ &inputClock);\l\
+|inputClock.6_4\ =\ inputClock;\l\
+|inputClock.3_32\ =\ (long\ int)\ inputClock.6_4;\l\
+|baudRate.4_33\ =\ (long\ int)\ baudRate_22(D);\l\
+|_34\ =\ inputClock.3_32\ +\ baudRate.4_33;\l\
+|_35\ =\ baudRate.4_33\ *\ 2;\l\
+|_36\ =\ _34\ /\ _35;\l\
+|tmpDiv_37\ =\ _36\ +\ -1;\l\
+|_38\ =\ MIN_EXPR\ \<tmpDiv_37,\ 255\>;\l\
+|tmpDiv_39\ =\ MAX_EXPR\ \<_38,\ 1\>;\l\
+|_40\ =\ (short\ unsigned\ int)\ tmpDiv_39;\l\
+|_5\ =\ (short\ unsigned\ int)\ bitsWidth_23(D);\l\
+|_6\ =\ _5\ \<\<\ 1;\l\
+|_7\ =\ _6\ +\ 65535;\l\
+|_8\ =\ _7\ \<\<\ 8;\l\
+|_9\ =\ _8\ +\ _40;\l\
+|_30\ =\ (int)\ resourceIndex_20;\l\
+|_31\ =\ (long\ unsigned\ int)\ _9;\l\
+|baseAddr_19-\>TIMCMP[_30]\ =\{v\}\ _31;\l\
+|_10\ =\ resourceIndex_20\ +\ 1;\l\
+|_11\ =\ _40\ +\ 1;\l\
+|_46\ =\ _5\ *\ _11;\l\
+|_13\ =\ _46\ *\ 2;\l\
+|_14\ =\ _13\ +\ 65535;\l\
+|_28\ =\ (int)\ _10;\l\
+|_29\ =\ (long\ unsigned\ int)\ _14;\l\
+|baseAddr_19-\>TIMCMP[_28]\ =\{v\}\ _29;\l\
+|master_18(D)-\>bitsWidth\ =\ bitsWidth_23(D);\l\
+|if\ (bitsWidth_23(D)\ \<=\ 8)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_70_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:343436324\<bb\ 4\>:\l\
+|if\ (bitsWidth_23(D)\ \<=\ 16)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_70_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 5\>:\l\
+}"];
+
+	fn_70_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 6\>:\l\
+|#\ byteWidth_25\ =\ PHI\ \<1(3),\ 2(4),\ 4(5)\>\l\
+|master_18(D)-\>byteWidth\ =\ byteWidth_25;\l\
+}"];
+
+	fn_70_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|#\ _15\ =\ PHI\ \<0(6),\ 2(2)\>\l\
+|inputClock\ =\{v\}\ \{CLOBBER\};\l\
+|return\ _15;\l\
+}"];
+
+	fn_70_basic_block_0:s -> fn_70_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_70_basic_block_2:s -> fn_70_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_70_basic_block_2:s -> fn_70_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_70_basic_block_3:s -> fn_70_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_70_basic_block_3:s -> fn_70_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_70_basic_block_4:s -> fn_70_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_70_basic_block_4:s -> fn_70_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_70_basic_block_5:s -> fn_70_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_70_basic_block_6:s -> fn_70_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_70_basic_block_7:s -> fn_70_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_70_basic_block_0:s -> fn_70_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterGetBaudRate" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterGetBaudRate ()";
+	fn_71_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_71_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_71_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ master_11(D)-\>flexioCommon.instance;\l\
+|baseAddr_12\ =\ g_flexioBase[_1];\l\
+|resourceIndex_13\ =\ master_11(D)-\>flexioCommon.resourceIndex;\l\
+|_2\ =\ g_flexioClock[_1];\l\
+|CLOCK_SYS_GetFreq\ (_2,\ &inputClock);\l\
+|_19\ =\ (int)\ resourceIndex_13;\l\
+|_20\ =\{v\}\ baseAddr_12-\>TIMCMP[_19];\l\
+|_21\ =\ (short\ unsigned\ int)\ _20;\l\
+|divider_15\ =\ _21\ &\ 255;\l\
+|_3\ =\ (long\ unsigned\ int)\ divider_15;\l\
+|inputClock.9_4\ =\ inputClock;\l\
+|_23\ =\ inputClock.9_4\ +\ 1;\l\
+|_6\ =\ _3\ +\ _23;\l\
+|_22\ =\ divider_15\ +\ 1;\l\
+|_7\ =\ (long\ unsigned\ int)\ _22;\l\
+|_8\ =\ _7\ *\ 2;\l\
+|_9\ =\ _6\ /\ _8;\l\
+|*baudRate_16(D)\ =\ _9;\l\
+|inputClock\ =\{v\}\ \{CLOBBER\};\l\
+|return\ 0;\l\
+}"];
+
+	fn_71_basic_block_0:s -> fn_71_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_71_basic_block_2:s -> fn_71_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_71_basic_block_0:s -> fn_71_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterSendData" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterSendData ()";
+	fn_72_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_72_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_72_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\ master_8(D)-\>driverIdle;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [36.03%]\l\
+}"];
+
+	fn_72_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 3\>:\l\
+|_1\ =\ master_8(D)-\>flexioCommon.instance;\l\
+|baseAddr_9\ =\ g_flexioBase[_1];\l\
+|resourceIndex_10\ =\ master_8(D)-\>flexioCommon.resourceIndex;\l\
+|master_8(D)-\>txData\ =\ txBuff_11(D);\l\
+|master_8(D)-\>txRemainingBytes\ =\ txSize_13(D);\l\
+|master_8(D)-\>rxRemainingBytes\ =\ txSize_13(D);\l\
+|master_8(D)-\>rxData\ =\ 0B;\l\
+|master_8(D)-\>status\ =\ 2;\l\
+|master_8(D)-\>driverIdle\ =\ 0;\l\
+|_22\ =\ (int)\ resourceIndex_10;\l\
+|_43\ =\ (signed\ short)\ resourceIndex_10;\l\
+|_41\ =\ (signed\ short)\ 4;\l\
+|_37\ =\ _43\ w*\ _41;\l\
+|_39\ =\ baseAddr_9\ +\ _37;\l\
+|tmp_23\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_39\ +\ 128B];\l\
+|tmp_24\ =\ tmp_23\ &\ 4294770687;\l\
+|tmp_26\ =\ tmp_24\ \|\ 196608;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_39\ +\ 128B]\ =\{v\}\ tmp_26;\l\
+|_34\ =\ MEM[(long\ unsigned\ int\ *)master_8(D)\ +\ 4B];\l\
+|_35\ =\ MEM[(unsigned\ char\ *)master_8(D)\ +\ 9B];\l\
+|_36\ =\ MEM[(_Bool\ *)master_8(D)\ +\ 36B];\l\
+|FLEXIO_I2S_DRV_MasterEnableTransfer.isra\ (_34,\ _35,\ _36);\l\
+|_3\ =\ master_8(D)-\>driverType;\l\
+|if\ (_3\ ==\ 1)\l\
+\ \ goto\ \<bb\ 7\>;\ [25.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [75.00%]\l\
+}"];
+
+	fn_72_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 4\>:\l\
+|if\ (_3\ ==\ 2)\l\
+\ \ goto\ \<bb\ 8\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.67%]\l\
+}"];
+
+	fn_72_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 5\>:\l\
+|if\ (_3\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [66.67%]\l\
+}"];
+
+	fn_72_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 6\>:\l\
+|_4\ =\ 1\ \<\<\ _22;\l\
+|tmp_29\ =\{v\}\ baseAddr_9-\>SHIFTSIEN;\l\
+|_25\ =\ _4\ &\ 255;\l\
+|tmp_30\ =\ _25\ \|\ tmp_29;\l\
+|baseAddr_9-\>SHIFTSIEN\ =\{v\}\ tmp_30;\l\
+|tmp_27\ =\{v\}\ baseAddr_9-\>SHIFTEIEN;\l\
+|tmp_28\ =\ _25\ \|\ tmp_27;\l\
+|baseAddr_9-\>SHIFTEIEN\ =\{v\}\ tmp_28;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_72_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 7\>:\l\
+|FLEXIO_I2S_DRV_MasterCheckStatus\ (master_8(D));\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_72_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 8\>:\l\
+|FLEXIO_I2S_DRV_MasterStartDmaTransfer\ (master_8(D));\l\
+}"];
+
+	fn_72_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|#\ _5\ =\ PHI\ \<0(8),\ 0(7),\ 0(6),\ 2(2),\ 0(5)\>\l\
+|return\ _5;\l\
+}"];
+
+	fn_72_basic_block_0:s -> fn_72_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_72_basic_block_2:s -> fn_72_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_72_basic_block_2:s -> fn_72_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_72_basic_block_3:s -> fn_72_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_72_basic_block_3:s -> fn_72_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_72_basic_block_4:s -> fn_72_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_72_basic_block_4:s -> fn_72_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_72_basic_block_5:s -> fn_72_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_72_basic_block_5:s -> fn_72_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_72_basic_block_6:s -> fn_72_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_72_basic_block_7:s -> fn_72_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_72_basic_block_8:s -> fn_72_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_72_basic_block_9:s -> fn_72_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_72_basic_block_0:s -> fn_72_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterSendDataBlocking" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterSendDataBlocking ()";
+	fn_73_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_73_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_73_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ master_8(D)-\>driverIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+}"];
+
+	fn_73_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|_2\ =\ master_8(D)-\>driverType;\l\
+|if\ (_2\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+}"];
+
+	fn_73_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:410848664\<bb\ 4\>:\l\
+|master_8(D)-\>blocking\ =\ 1;\l\
+|_3\ =\ &master_8(D)-\>idleSemaphore;\l\
+|OSIF_SemaWait\ (_3,\ 0);\l\
+}"];
+
+	fn_73_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 5\>:\l\
+|FLEXIO_I2S_DRV_MasterSendData\ (master_8(D),\ txBuff_11(D),\ txSize_12(D));\l\
+|_16\ =\ FLEXIO_I2S_DRV_MasterWaitTransferEnd\ (master_8(D),\ timeout_14(D));\ [tail\ call]\l\
+}"];
+
+	fn_73_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _4\ =\ PHI\ \<_16(5),\ 2(2)\>\l\
+|return\ _4;\l\
+}"];
+
+	fn_73_basic_block_0:s -> fn_73_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_73_basic_block_2:s -> fn_73_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_73_basic_block_2:s -> fn_73_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_73_basic_block_3:s -> fn_73_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_73_basic_block_3:s -> fn_73_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_73_basic_block_4:s -> fn_73_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_73_basic_block_5:s -> fn_73_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_73_basic_block_6:s -> fn_73_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_73_basic_block_0:s -> fn_73_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterReceiveData" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterReceiveData ()";
+	fn_74_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_74_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_74_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\ master_11(D)-\>driverIdle;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [36.03%]\l\
+}"];
+
+	fn_74_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 3\>:\l\
+|_1\ =\ master_11(D)-\>flexioCommon.instance;\l\
+|baseAddr_12\ =\ g_flexioBase[_1];\l\
+|resourceIndex_13\ =\ master_11(D)-\>flexioCommon.resourceIndex;\l\
+|master_11(D)-\>rxData\ =\ rxBuff_14(D);\l\
+|master_11(D)-\>rxRemainingBytes\ =\ rxSize_16(D);\l\
+|master_11(D)-\>txData\ =\ 0B;\l\
+|master_11(D)-\>txRemainingBytes\ =\ 0;\l\
+|master_11(D)-\>status\ =\ 2;\l\
+|master_11(D)-\>driverIdle\ =\ 0;\l\
+|_36\ =\ MEM[(_Bool\ *)master_11(D)\ +\ 36B];\l\
+|FLEXIO_I2S_DRV_MasterEnableTransfer.isra\ (_1,\ resourceIndex_13,\ _36);\l\
+|_3\ =\ master_11(D)-\>driverType;\l\
+|if\ (_3\ ==\ 1)\l\
+\ \ goto\ \<bb\ 7\>;\ [25.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [75.00%]\l\
+}"];
+
+	fn_74_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 4\>:\l\
+|if\ (_3\ ==\ 2)\l\
+\ \ goto\ \<bb\ 8\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.67%]\l\
+}"];
+
+	fn_74_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 5\>:\l\
+|if\ (_3\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [66.67%]\l\
+}"];
+
+	fn_74_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 6\>:\l\
+|_4\ =\ resourceIndex_13\ +\ 1;\l\
+|_5\ =\ (int)\ _4;\l\
+|_6\ =\ 1\ \<\<\ _5;\l\
+|tmp_28\ =\{v\}\ baseAddr_12-\>SHIFTSIEN;\l\
+|_25\ =\ _6\ &\ 255;\l\
+|tmp_29\ =\ _25\ \|\ tmp_28;\l\
+|baseAddr_12-\>SHIFTSIEN\ =\{v\}\ tmp_29;\l\
+|tmp_26\ =\{v\}\ baseAddr_12-\>SHIFTEIEN;\l\
+|tmp_27\ =\ _25\ \|\ tmp_26;\l\
+|baseAddr_12-\>SHIFTEIEN\ =\{v\}\ tmp_27;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_74_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 7\>:\l\
+|FLEXIO_I2S_DRV_MasterCheckStatus\ (master_11(D));\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_74_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 8\>:\l\
+|FLEXIO_I2S_DRV_MasterStartDmaTransfer\ (master_11(D));\l\
+}"];
+
+	fn_74_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 9\>:\l\
+|_30\ =\ (int)\ resourceIndex_13;\l\
+|baseAddr_12-\>SHIFTBUFBIS[_30]\ =\{v\}\ 0;\l\
+}"];
+
+	fn_74_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|#\ _7\ =\ PHI\ \<0(9),\ 2(2)\>\l\
+|return\ _7;\l\
+}"];
+
+	fn_74_basic_block_0:s -> fn_74_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_74_basic_block_2:s -> fn_74_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_74_basic_block_2:s -> fn_74_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_74_basic_block_3:s -> fn_74_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_74_basic_block_3:s -> fn_74_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_74_basic_block_4:s -> fn_74_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_74_basic_block_4:s -> fn_74_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_74_basic_block_5:s -> fn_74_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_74_basic_block_5:s -> fn_74_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_74_basic_block_6:s -> fn_74_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_74_basic_block_7:s -> fn_74_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_74_basic_block_8:s -> fn_74_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_74_basic_block_9:s -> fn_74_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_74_basic_block_10:s -> fn_74_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_74_basic_block_0:s -> fn_74_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterReceiveDataBlocking" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterReceiveDataBlocking ()";
+	fn_75_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_75_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_75_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ master_8(D)-\>driverIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+}"];
+
+	fn_75_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|_2\ =\ master_8(D)-\>driverType;\l\
+|if\ (_2\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+}"];
+
+	fn_75_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:410848664\<bb\ 4\>:\l\
+|master_8(D)-\>blocking\ =\ 1;\l\
+|_3\ =\ &master_8(D)-\>idleSemaphore;\l\
+|OSIF_SemaWait\ (_3,\ 0);\l\
+}"];
+
+	fn_75_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 5\>:\l\
+|FLEXIO_I2S_DRV_MasterReceiveData\ (master_8(D),\ rxBuff_11(D),\ rxSize_12(D));\l\
+|_16\ =\ FLEXIO_I2S_DRV_MasterWaitTransferEnd\ (master_8(D),\ timeout_14(D));\ [tail\ call]\l\
+}"];
+
+	fn_75_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _4\ =\ PHI\ \<_16(5),\ 2(2)\>\l\
+|return\ _4;\l\
+}"];
+
+	fn_75_basic_block_0:s -> fn_75_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_75_basic_block_2:s -> fn_75_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_75_basic_block_2:s -> fn_75_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_75_basic_block_3:s -> fn_75_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_75_basic_block_3:s -> fn_75_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_75_basic_block_4:s -> fn_75_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_75_basic_block_5:s -> fn_75_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_75_basic_block_6:s -> fn_75_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_75_basic_block_0:s -> fn_75_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterTransferAbort" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterTransferAbort ()";
+	fn_76_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_76_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_76_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ master_4(D)-\>driverIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [48.88%]\l\
+}"];
+
+	fn_76_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:524845000\<bb\ 3\>:\l\
+|master_4(D)-\>status\ =\ 1794;\l\
+|FLEXIO_I2S_DRV_MasterStopTransfer\ (master_4(D));\l\
+}"];
+
+	fn_76_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|return\ 0;\l\
+}"];
+
+	fn_76_basic_block_0:s -> fn_76_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_76_basic_block_2:s -> fn_76_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_76_basic_block_2:s -> fn_76_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_76_basic_block_3:s -> fn_76_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_76_basic_block_4:s -> fn_76_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_76_basic_block_0:s -> fn_76_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterGetStatus" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterGetStatus ()";
+	fn_77_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_77_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_77_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741819\<bb\ 2\>:\l\
+|remainingBytes_11\ =\ master_10(D)-\>rxRemainingBytes;\l\
+|_1\ =\ master_10(D)-\>driverIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_77_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870909\<bb\ 3\>:\l\
+|_2\ =\ master_10(D)-\>driverType;\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.67%]\l\
+}"];
+
+	fn_77_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870909\<bb\ 4\>:\l\
+|if\ (_2\ ==\ 2)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+}"];
+
+	fn_77_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:178956971\<bb\ 5\>:\l\
+|FLEXIO_I2S_DRV_MasterCheckStatus\ (master_10(D));\l\
+|pretmp_20\ =\ master_10(D)-\>driverIdle;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_77_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:178956971\<bb\ 6\>:\l\
+|_3\ =\ master_10(D)-\>rxDMAChannel;\l\
+|remainingBytes_13\ =\ EDMA_DRV_GetRemainingMajorIterationsCount\ (_3);\l\
+|pretmp_21\ =\ master_10(D)-\>driverIdle;\l\
+}"];
+
+	fn_77_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435458\<bb\ 7\>:\l\
+|#\ remainingBytes_5\ =\ PHI\ \<remainingBytes_13(6),\ remainingBytes_11(5)\>\l\
+|#\ prephitmp_19\ =\ PHI\ \<pretmp_21(6),\ pretmp_20(5)\>\l\
+|if\ (bytesRemaining_15(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [30.00%]\l\
+}"];
+
+	fn_77_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904822\<bb\ 8\>:\l\
+|*bytesRemaining_15(D)\ =\ remainingBytes_5;\l\
+}"];
+
+	fn_77_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435457\<bb\ 9\>:\l\
+|if\ (prephitmp_19\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [64.52%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [35.48%]\l\
+}"];
+
+	fn_77_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:697932185\<bb\ 10\>:\l\
+|_17\ =\ master_10(D)-\>status;\l\
+}"];
+
+	fn_77_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 11\>:\l\
+|#\ _6\ =\ PHI\ \<_17(10),\ 2(15),\ 2(9),\ 2(14)\>\l\
+|return\ _6;\l\
+}"];
+
+	fn_77_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870910\<bb\ 12\>:\l\
+|if\ (bytesRemaining_15(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 13\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [30.00%]\l\
+}"];
+
+	fn_77_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809639\<bb\ 13\>:\l\
+|*bytesRemaining_15(D)\ =\ remainingBytes_11;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_77_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435455\<bb\ 14\>:\l\
+|if\ (bytesRemaining_15(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 15\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [30.00%]\l\
+}"];
+
+	fn_77_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904819\<bb\ 15\>:\l\
+|*bytesRemaining_15(D)\ =\ remainingBytes_11;\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_77_basic_block_0:s -> fn_77_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_2:s -> fn_77_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_77_basic_block_2:s -> fn_77_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_77_basic_block_3:s -> fn_77_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_77_basic_block_3:s -> fn_77_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_77_basic_block_4:s -> fn_77_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_77_basic_block_4:s -> fn_77_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_77_basic_block_5:s -> fn_77_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_6:s -> fn_77_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_7:s -> fn_77_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_77_basic_block_7:s -> fn_77_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_77_basic_block_8:s -> fn_77_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_9:s -> fn_77_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[35%]"];
+	fn_77_basic_block_9:s -> fn_77_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[64%]"];
+	fn_77_basic_block_10:s -> fn_77_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_11:s -> fn_77_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_77_basic_block_12:s -> fn_77_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_77_basic_block_12:s -> fn_77_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_77_basic_block_13:s -> fn_77_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_14:s -> fn_77_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_77_basic_block_14:s -> fn_77_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_77_basic_block_15:s -> fn_77_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_0:s -> fn_77_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterSetRxBuffer" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterSetRxBuffer ()";
+	fn_78_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_78_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_78_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_2(D)-\>rxData\ =\ rxBuff_3(D);\l\
+|master_2(D)-\>rxRemainingBytes\ =\ rxSize_5(D);\l\
+|return\ 0;\l\
+}"];
+
+	fn_78_basic_block_0:s -> fn_78_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_78_basic_block_2:s -> fn_78_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_78_basic_block_0:s -> fn_78_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterSetTxBuffer" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterSetTxBuffer ()";
+	fn_79_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_79_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_79_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_4(D)-\>txData\ =\ txBuff_5(D);\l\
+|master_4(D)-\>txRemainingBytes\ =\ txSize_7(D);\l\
+|_1\ =\ master_4(D)-\>rxRemainingBytes;\l\
+|_2\ =\ _1\ +\ txSize_7(D);\l\
+|master_4(D)-\>rxRemainingBytes\ =\ _2;\l\
+|return\ 0;\l\
+}"];
+
+	fn_79_basic_block_0:s -> fn_79_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_79_basic_block_2:s -> fn_79_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_79_basic_block_0:s -> fn_79_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveInit" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveInit ()";
+	fn_80_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_80_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_80_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741819\<bb\ 2\>:\l\
+|slave_19(D)-\>flexioCommon.resourceCount\ =\ 3;\l\
+|retCode_23\ =\ FLEXIO_DRV_InitDriver\ (instance_21(D),\ slave_19(D));\l\
+|if\ (retCode_23\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+}"];
+
+	fn_80_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669597\<bb\ 3\>:\l\
+|_1\ =\ userConfigPtr_24(D)-\>driverType;\l\
+|if\ (_1\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+}"];
+
+	fn_80_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:346397696\<bb\ 4\>:\l\
+|_2\ =\ &slave_19(D)-\>idleSemaphore;\l\
+|OSIF_SemaCreate\ (_2,\ 0);\l\
+|pretmp_143\ =\ userConfigPtr_24(D)-\>driverType;\l\
+}"];
+
+	fn_80_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669597\<bb\ 5\>:\l\
+|#\ prephitmp_144\ =\ PHI\ \<pretmp_143(4),\ _1(3)\>\l\
+|slave_19(D)-\>driverType\ =\ prephitmp_144;\l\
+|_4\ =\ userConfigPtr_24(D)-\>bitsWidth;\l\
+|slave_19(D)-\>bitsWidth\ =\ _4;\l\
+|if\ (_4\ \<=\ 8)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_80_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334798\<bb\ 6\>:\l\
+|if\ (_4\ \<=\ 16)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_80_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167399\<bb\ 7\>:\l\
+}"];
+
+	fn_80_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669597\<bb\ 8\>:\l\
+|#\ byteWidth_28\ =\ PHI\ \<1(5),\ 2(6),\ 4(7)\>\l\
+|slave_19(D)-\>byteWidth\ =\ byteWidth_28;\l\
+|slave_19(D)-\>driverIdle\ =\ 1;\l\
+|_5\ =\ userConfigPtr_24(D)-\>callback;\l\
+|slave_19(D)-\>callback\ =\ _5;\l\
+|_6\ =\ userConfigPtr_24(D)-\>callbackParam;\l\
+|slave_19(D)-\>callbackParam\ =\ _6;\l\
+|slave_19(D)-\>blocking\ =\ 0;\l\
+|slave_19(D)-\>txData\ =\ 0B;\l\
+|slave_19(D)-\>txRemainingBytes\ =\ 0;\l\
+|slave_19(D)-\>rxData\ =\ 0B;\l\
+|slave_19(D)-\>rxRemainingBytes\ =\ 0;\l\
+|slave_19(D)-\>master\ =\ 0;\l\
+|slave_19(D)-\>status\ =\ 0;\l\
+|_48\ =\ MEM[(long\ unsigned\ int\ *)slave_19(D)\ +\ 4B];\l\
+|_49\ =\ MEM[(unsigned\ char\ *)slave_19(D)\ +\ 9B];\l\
+|_50\ =\ MEM[(unsigned\ char\ *)userConfigPtr_24(D)\ +\ 1B];\l\
+|_51\ =\ MEM[(unsigned\ char\ *)userConfigPtr_24(D)\ +\ 2B];\l\
+|_52\ =\ MEM[(unsigned\ char\ *)userConfigPtr_24(D)\ +\ 3B];\l\
+|_53\ =\ MEM[(unsigned\ char\ *)userConfigPtr_24(D)\ +\ 4B];\l\
+|_54\ =\ MEM[(unsigned\ char\ *)userConfigPtr_24(D)\ +\ 5B];\l\
+|baseAddr_56\ =\ g_flexioBase[_48];\l\
+|bits_59\ =\ (uint16_t)\ _50;\l\
+|_60\ =\ (int)\ _49;\l\
+|_93\ =\ (signed\ short)\ _49;\l\
+|_135\ =\ (signed\ short)\ 4;\l\
+|_141\ =\ _93\ w*\ _135;\l\
+|_140\ =\ baseAddr_56\ +\ _141;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_140\ +\ 256B]\ =\{v\}\ 0;\l\
+|_62\ =\ _49\ +\ 1;\l\
+|_63\ =\ (long\ unsigned\ int)\ _51;\l\
+|_64\ =\ _63\ \<\<\ 8;\l\
+|_65\ =\ _64\ &\ 1792;\l\
+|_66\ =\ (long\ unsigned\ int)\ _62;\l\
+|_67\ =\ _66\ \<\<\ 24;\l\
+|_68\ =\ _67\ &\ 50331648;\l\
+|_69\ =\ _65\ \|\ _68;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_140\ +\ 128B]\ =\{v\}\ _69;\l\
+|_70\ =\ (int)\ _62;\l\
+|_134\ =\ (signed\ short)\ _62;\l\
+|_75\ =\ (signed\ short)\ 4;\l\
+|_100\ =\ _134\ w*\ _75;\l\
+|_86\ =\ baseAddr_56\ +\ _100;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_86\ +\ 256B]\ =\{v\}\ 0;\l\
+|_72\ =\ (long\ unsigned\ int)\ _52;\l\
+|_73\ =\ _72\ \<\<\ 8;\l\
+|_74\ =\ _73\ &\ 1792;\l\
+|_11\ =\ _68\ \|\ _74;\l\
+|_76\ =\ _11\ \|\ 8388608;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_86\ +\ 128B]\ =\{v\}\ _76;\l\
+|_77\ =\ bits_59\ \<\<\ 2;\l\
+|_78\ =\ _77\ +\ 65533;\l\
+|_79\ =\ (long\ unsigned\ int)\ _78;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_140\ +\ 1280B]\ =\{v\}\ _79;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_140\ +\ 1152B]\ =\{v\}\ 3154944;\l\
+|_81\ =\ _53\ \<\<\ 1;\l\
+|_83\ =\ (long\ unsigned\ int)\ _54;\l\
+|_84\ =\ _83\ \<\<\ 8;\l\
+|_85\ =\ _84\ &\ 1792;\l\
+|_87\ =\ (long\ unsigned\ int)\ _81;\l\
+|_88\ =\ _87\ \<\<\ 24;\l\
+|_89\ =\ _88\ &\ 251658240;\l\
+|_13\ =\ _85\ \|\ _89;\l\
+|_90\ =\ _13\ \|\ 12583040;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_140\ +\ 1024B]\ =\{v\}\ _90;\l\
+|_91\ =\ _49\ +\ 2;\l\
+|_92\ =\ _77\ +\ 65532;\l\
+|_94\ =\ (long\ unsigned\ int)\ _92;\l\
+|_136\ =\ (signed\ short)\ _91;\l\
+|_139\ =\ (signed\ short)\ 4;\l\
+|_147\ =\ _136\ w*\ _139;\l\
+|_148\ =\ baseAddr_56\ +\ _147;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_148\ +\ 1280B]\ =\{v\}\ _94;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_148\ +\ 1152B]\ =\{v\}\ 2123008;\l\
+|_95\ =\ _49\ \<\<\ 2;\l\
+|_96\ =\ _95\ +\ 3;\l\
+|_97\ =\ (long\ unsigned\ int)\ _53;\l\
+|_98\ =\ _97\ \<\<\ 8;\l\
+|_99\ =\ _98\ &\ 1792;\l\
+|_101\ =\ (long\ unsigned\ int)\ _96;\l\
+|_102\ =\ _101\ \<\<\ 24;\l\
+|_103\ =\ _102\ &\ 251658240;\l\
+|_7\ =\ _99\ \|\ _103;\l\
+|_104\ =\ _7\ \|\ 4194304;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_148\ +\ 1024B]\ =\{v\}\ _104;\l\
+|_105\ =\ bits_59\ \<\<\ 1;\l\
+|_106\ =\ _105\ +\ 65535;\l\
+|_107\ =\ (long\ unsigned\ int)\ _106;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_86\ +\ 1280B]\ =\{v\}\ _107;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_86\ +\ 1152B]\ =\{v\}\ 2110720;\l\
+|_108\ =\ _91\ \<\<\ 2;\l\
+|_109\ =\ _108\ +\ 3;\l\
+|_111\ =\ (long\ unsigned\ int)\ _109;\l\
+|_112\ =\ _111\ \<\<\ 24;\l\
+|_113\ =\ _112\ &\ 251658240;\l\
+|_55\ =\ _99\ \|\ _113;\l\
+|_114\ =\ _55\ \|\ 4194432;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_86\ +\ 1024B]\ =\{v\}\ _114;\l\
+|if\ (prephitmp_144\ ==\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [66.67%]\l\
+}"];
+
+	fn_80_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:708669597\<bb\ 9\>:\l\
+|if\ (prephitmp_144\ ==\ 2)\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_80_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:236223201\<bb\ 10\>:\l\
+|slave_19(D)-\>flexioCommon.isr\ =\ FLEXIO_I2S_DRV_MasterCheckStatus;\l\
+goto\ \<bb\ 12\>;\ [100.00%]\l\
+}"];
+
+	fn_80_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:236223201\<bb\ 11\>:\l\
+|_8\ =\ userConfigPtr_24(D)-\>rxDMAChannel;\l\
+|slave_19(D)-\>rxDMAChannel\ =\ _8;\l\
+|_9\ =\ userConfigPtr_24(D)-\>txDMAChannel;\l\
+|slave_19(D)-\>txDMAChannel\ =\ _9;\l\
+|dmaReqTx_44\ =\ g_flexioDMASrc[instance_21(D)][_60];\l\
+|dmaReqRx_45\ =\ g_flexioDMASrc[instance_21(D)][_70];\l\
+|EDMA_DRV_SetChannelRequestAndTrigger\ (_9,\ dmaReqTx_44,\ 0);\l\
+|_14\ =\ userConfigPtr_24(D)-\>rxDMAChannel;\l\
+|EDMA_DRV_SetChannelRequestAndTrigger\ (_14,\ dmaReqRx_45,\ 0);\l\
+}"];
+
+	fn_80_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 12\>:\l\
+|#\ _15\ =\ PHI\ \<retCode_23(11),\ retCode_23(2),\ retCode_23(10),\ retCode_23(9)\>\l\
+|return\ _15;\l\
+}"];
+
+	fn_80_basic_block_0:s -> fn_80_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_2:s -> fn_80_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_80_basic_block_2:s -> fn_80_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_80_basic_block_3:s -> fn_80_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_80_basic_block_3:s -> fn_80_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_80_basic_block_4:s -> fn_80_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_5:s -> fn_80_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_5:s -> fn_80_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_6:s -> fn_80_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_6:s -> fn_80_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_7:s -> fn_80_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_8:s -> fn_80_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_80_basic_block_8:s -> fn_80_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_80_basic_block_9:s -> fn_80_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_9:s -> fn_80_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_10:s -> fn_80_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_11:s -> fn_80_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_12:s -> fn_80_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_80_basic_block_0:s -> fn_80_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveSetConfig" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveSetConfig ()";
+	fn_81_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_81_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_81_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\ slave_14(D)-\>driverIdle;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [21.72%]\l\
+}"];
+
+	fn_81_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|_1\ =\ slave_14(D)-\>flexioCommon.instance;\l\
+|baseAddr_15\ =\ g_flexioBase[_1];\l\
+|resourceIndex_16\ =\ slave_14(D)-\>flexioCommon.resourceIndex;\l\
+|slave_14(D)-\>bitsWidth\ =\ bitsWidth_17(D);\l\
+|if\ (bitsWidth_17(D)\ \<=\ 8)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_81_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:420262548\<bb\ 4\>:\l\
+|if\ (bitsWidth_17(D)\ \<=\ 16)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_81_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:210131274\<bb\ 5\>:\l\
+}"];
+
+	fn_81_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 6\>:\l\
+|#\ byteWidth_26\ =\ PHI\ \<1(3),\ 2(4),\ 4(5)\>\l\
+|slave_14(D)-\>byteWidth\ =\ byteWidth_26;\l\
+|_3\ =\ (short\ unsigned\ int)\ bitsWidth_17(D);\l\
+|_4\ =\ _3\ \<\<\ 2;\l\
+|_5\ =\ _4\ +\ 65533;\l\
+|_24\ =\ (int)\ resourceIndex_16;\l\
+|_25\ =\ (long\ unsigned\ int)\ _5;\l\
+|baseAddr_15-\>TIMCMP[_24]\ =\{v\}\ _25;\l\
+|_6\ =\ resourceIndex_16\ +\ 2;\l\
+|_7\ =\ _4\ +\ 65532;\l\
+|_22\ =\ (int)\ _6;\l\
+|_23\ =\ (long\ unsigned\ int)\ _7;\l\
+|baseAddr_15-\>TIMCMP[_22]\ =\{v\}\ _23;\l\
+|_8\ =\ resourceIndex_16\ +\ 1;\l\
+|_9\ =\ _3\ \<\<\ 1;\l\
+|_10\ =\ _9\ +\ 65535;\l\
+|_19\ =\ (int)\ _8;\l\
+|_21\ =\ (long\ unsigned\ int)\ _10;\l\
+|baseAddr_15-\>TIMCMP[_19]\ =\{v\}\ _21;\l\
+}"];
+
+	fn_81_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 7\>:\l\
+|#\ _11\ =\ PHI\ \<0(6),\ 2(2)\>\l\
+|return\ _11;\l\
+}"];
+
+	fn_81_basic_block_0:s -> fn_81_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_81_basic_block_2:s -> fn_81_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_81_basic_block_2:s -> fn_81_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_81_basic_block_3:s -> fn_81_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_81_basic_block_3:s -> fn_81_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_81_basic_block_4:s -> fn_81_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_81_basic_block_4:s -> fn_81_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_81_basic_block_5:s -> fn_81_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_81_basic_block_6:s -> fn_81_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_81_basic_block_7:s -> fn_81_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_81_basic_block_0:s -> fn_81_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_MasterGetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_MasterGetDefaultConfig ()";
+	fn_82_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_82_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_82_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|userConfigPtr_2(D)-\>driverType\ =\ 0;\l\
+|userConfigPtr_2(D)-\>baudRate\ =\ 256000;\l\
+|MEM\ \<unsigned\ int\>\ [(unsigned\ char\ *)userConfigPtr_2(D)\ +\ 8B]\ =\ 33619984;\l\
+|userConfigPtr_2(D)-\>wsPin\ =\ 3;\l\
+|userConfigPtr_2(D)-\>callback\ =\ 0B;\l\
+|userConfigPtr_2(D)-\>callbackParam\ =\ 0B;\l\
+|MEM\ \<unsigned\ short\>\ [(unsigned\ char\ *)userConfigPtr_2(D)\ +\ 24B]\ =\ 65535;\l\
+|return;\l\
+}"];
+
+	fn_82_basic_block_0:s -> fn_82_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_82_basic_block_2:s -> fn_82_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_82_basic_block_0:s -> fn_82_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveGetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveGetDefaultConfig ()";
+	fn_83_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_83_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_83_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM\ \<unsigned\ int\>\ [(void\ *)userConfigPtr_2(D)]\ =\ 16781312;\l\
+|MEM\ \<unsigned\ short\>\ [(unsigned\ char\ *)userConfigPtr_2(D)\ +\ 4B]\ =\ 770;\l\
+|userConfigPtr_2(D)-\>callback\ =\ 0B;\l\
+|userConfigPtr_2(D)-\>callbackParam\ =\ 0B;\l\
+|MEM\ \<unsigned\ short\>\ [(unsigned\ char\ *)userConfigPtr_2(D)\ +\ 16B]\ =\ 65535;\l\
+|return;\l\
+}"];
+
+	fn_83_basic_block_0:s -> fn_83_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_83_basic_block_2:s -> fn_83_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_83_basic_block_0:s -> fn_83_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveDeinit" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveDeinit ()";
+	fn_84_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_84_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_84_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_5\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverIdle;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+}"];
+
+	fn_84_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|_6\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverType;\l\
+|if\ (_6\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+}"];
+
+	fn_84_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:410848664\<bb\ 4\>:\l\
+|_7\ =\ &MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].idleSemaphore;\l\
+|OSIF_SemaDestroy\ (_7);\l\
+}"];
+
+	fn_84_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 5\>:\l\
+|_8\ =\ FLEXIO_DRV_DeinitDriver\ (slave_2(D));\ [tail\ call]\l\
+}"];
+
+	fn_84_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _9\ =\ PHI\ \<_8(5),\ 2(2)\>\l\
+|return\ _9;\l\
+}"];
+
+	fn_84_basic_block_0:s -> fn_84_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_84_basic_block_2:s -> fn_84_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_84_basic_block_2:s -> fn_84_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_84_basic_block_3:s -> fn_84_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_84_basic_block_3:s -> fn_84_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_84_basic_block_4:s -> fn_84_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_84_basic_block_5:s -> fn_84_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_84_basic_block_6:s -> fn_84_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_84_basic_block_0:s -> fn_84_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveSendData" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveSendData ()";
+	fn_85_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_85_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_85_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_6\ =\ FLEXIO_I2S_DRV_MasterSendData\ (slave_2(D),\ txBuff_3(D),\ txSize_4(D));\ [tail\ call]\l\
+|return\ _6;\l\
+}"];
+
+	fn_85_basic_block_0:s -> fn_85_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_85_basic_block_2:s -> fn_85_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_85_basic_block_0:s -> fn_85_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveSendDataBlocking" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveSendDataBlocking ()";
+	fn_86_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_86_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_86_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_8\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverIdle;\l\
+|if\ (_8\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+}"];
+
+	fn_86_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|_9\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverType;\l\
+|if\ (_9\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+}"];
+
+	fn_86_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:410848664\<bb\ 4\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].blocking\ =\ 1;\l\
+|_10\ =\ &MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].idleSemaphore;\l\
+|OSIF_SemaWait\ (_10,\ 0);\l\
+}"];
+
+	fn_86_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 5\>:\l\
+|FLEXIO_I2S_DRV_MasterSendData\ (slave_2(D),\ txBuff_3(D),\ txSize_4(D));\l\
+|_11\ =\ FLEXIO_I2S_DRV_MasterWaitTransferEnd\ (slave_2(D),\ timeout_5(D));\ [tail\ call]\l\
+}"];
+
+	fn_86_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _12\ =\ PHI\ \<_11(5),\ 2(2)\>\l\
+|return\ _12;\l\
+}"];
+
+	fn_86_basic_block_0:s -> fn_86_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_86_basic_block_2:s -> fn_86_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_86_basic_block_2:s -> fn_86_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_86_basic_block_3:s -> fn_86_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_86_basic_block_3:s -> fn_86_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_86_basic_block_4:s -> fn_86_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_86_basic_block_5:s -> fn_86_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_86_basic_block_6:s -> fn_86_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_86_basic_block_0:s -> fn_86_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveReceiveData" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveReceiveData ()";
+	fn_87_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_87_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_87_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_10\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverIdle;\l\
+|if\ (_10\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [36.03%]\l\
+}"];
+
+	fn_87_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 3\>:\l\
+|_7\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].flexioCommon.instance;\l\
+|baseAddr_8\ =\ g_flexioBase[_7];\l\
+|resourceIndex_9\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].flexioCommon.resourceIndex;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].rxData\ =\ rxBuff_3(D);\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].rxRemainingBytes\ =\ rxSize_4(D);\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].txData\ =\ 0B;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].txRemainingBytes\ =\ 0;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].status\ =\ 2;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverIdle\ =\ 0;\l\
+|_24\ =\ MEM[(_Bool\ *)slave_2(D)\ +\ 36B];\l\
+|FLEXIO_I2S_DRV_MasterEnableTransfer.isra\ (_7,\ resourceIndex_9,\ _24);\l\
+|_11\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverType;\l\
+|if\ (_11\ ==\ 1)\l\
+\ \ goto\ \<bb\ 7\>;\ [25.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [75.00%]\l\
+}"];
+
+	fn_87_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 4\>:\l\
+|if\ (_11\ ==\ 2)\l\
+\ \ goto\ \<bb\ 8\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.67%]\l\
+}"];
+
+	fn_87_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 5\>:\l\
+|if\ (_11\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [66.67%]\l\
+}"];
+
+	fn_87_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 6\>:\l\
+|_12\ =\ resourceIndex_9\ +\ 1;\l\
+|_13\ =\ (int)\ _12;\l\
+|_14\ =\ 1\ \<\<\ _13;\l\
+|tmp_15\ =\{v\}\ baseAddr_8-\>SHIFTSIEN;\l\
+|_16\ =\ _14\ &\ 255;\l\
+|tmp_17\ =\ tmp_15\ \|\ _16;\l\
+|baseAddr_8-\>SHIFTSIEN\ =\{v\}\ tmp_17;\l\
+|tmp_18\ =\{v\}\ baseAddr_8-\>SHIFTEIEN;\l\
+|tmp_19\ =\ _16\ \|\ tmp_18;\l\
+|baseAddr_8-\>SHIFTEIEN\ =\{v\}\ tmp_19;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_87_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 7\>:\l\
+|FLEXIO_I2S_DRV_MasterCheckStatus\ (slave_2(D));\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_87_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:171718162\<bb\ 8\>:\l\
+|FLEXIO_I2S_DRV_MasterStartDmaTransfer\ (slave_2(D));\l\
+}"];
+
+	fn_87_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 9\>:\l\
+|_20\ =\ (int)\ resourceIndex_9;\l\
+|baseAddr_8-\>SHIFTBUFBIS[_20]\ =\{v\}\ 0;\l\
+}"];
+
+	fn_87_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|#\ _21\ =\ PHI\ \<0(9),\ 2(2)\>\l\
+|return\ _21;\l\
+}"];
+
+	fn_87_basic_block_0:s -> fn_87_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_87_basic_block_2:s -> fn_87_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_87_basic_block_2:s -> fn_87_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_87_basic_block_3:s -> fn_87_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_87_basic_block_3:s -> fn_87_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_87_basic_block_4:s -> fn_87_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_87_basic_block_4:s -> fn_87_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_87_basic_block_5:s -> fn_87_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_87_basic_block_5:s -> fn_87_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_87_basic_block_6:s -> fn_87_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_87_basic_block_7:s -> fn_87_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_87_basic_block_8:s -> fn_87_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_87_basic_block_9:s -> fn_87_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_87_basic_block_10:s -> fn_87_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_87_basic_block_0:s -> fn_87_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveReceiveDataBlocking" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveReceiveDataBlocking ()";
+	fn_88_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_88_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_88_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_8\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverIdle;\l\
+|if\ (_8\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+}"];
+
+	fn_88_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|_9\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverType;\l\
+|if\ (_9\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [51.12%]\l\
+}"];
+
+	fn_88_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:410848664\<bb\ 4\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].blocking\ =\ 1;\l\
+|_10\ =\ &MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].idleSemaphore;\l\
+|OSIF_SemaWait\ (_10,\ 0);\l\
+}"];
+
+	fn_88_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 5\>:\l\
+|FLEXIO_I2S_DRV_MasterReceiveData\ (slave_2(D),\ rxBuff_3(D),\ rxSize_4(D));\l\
+|_11\ =\ FLEXIO_I2S_DRV_MasterWaitTransferEnd\ (slave_2(D),\ timeout_5(D));\ [tail\ call]\l\
+}"];
+
+	fn_88_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _12\ =\ PHI\ \<_11(5),\ 2(2)\>\l\
+|return\ _12;\l\
+}"];
+
+	fn_88_basic_block_0:s -> fn_88_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_88_basic_block_2:s -> fn_88_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_88_basic_block_2:s -> fn_88_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_88_basic_block_3:s -> fn_88_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_88_basic_block_3:s -> fn_88_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_88_basic_block_4:s -> fn_88_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_88_basic_block_5:s -> fn_88_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_88_basic_block_6:s -> fn_88_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_88_basic_block_0:s -> fn_88_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveTransferAbort" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveTransferAbort ()";
+	fn_94_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_94_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_94_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_5\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverIdle;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [51.12%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [48.88%]\l\
+}"];
+
+	fn_94_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:524845000\<bb\ 3\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].status\ =\ 1794;\l\
+|FLEXIO_I2S_DRV_MasterStopTransfer\ (slave_2(D));\l\
+}"];
+
+	fn_94_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|return\ 0;\l\
+}"];
+
+	fn_94_basic_block_0:s -> fn_94_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_94_basic_block_2:s -> fn_94_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_94_basic_block_2:s -> fn_94_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_94_basic_block_3:s -> fn_94_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_94_basic_block_4:s -> fn_94_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_94_basic_block_0:s -> fn_94_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveGetStatus" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveGetStatus ()";
+	fn_90_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_90_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_90_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|remainingBytes_6\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].rxRemainingBytes;\l\
+|_7\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverIdle;\l\
+|if\ (_7\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_90_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 3\>:\l\
+|_8\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverType;\l\
+|if\ (_8\ ==\ 1)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [66.67%]\l\
+}"];
+
+	fn_90_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 4\>:\l\
+|if\ (_8\ ==\ 2)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+}"];
+
+	fn_90_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:178956972\<bb\ 5\>:\l\
+|FLEXIO_I2S_DRV_MasterCheckStatus\ (slave_2(D));\l\
+|pretmp_4\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverIdle;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_90_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:178956972\<bb\ 6\>:\l\
+|_9\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].rxDMAChannel;\l\
+|remainingBytes_10\ =\ EDMA_DRV_GetRemainingMajorIterationsCount\ (_9);\l\
+|pretmp_21\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].driverIdle;\l\
+}"];
+
+	fn_90_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435460\<bb\ 7\>:\l\
+|#\ remainingBytes_11\ =\ PHI\ \<remainingBytes_10(6),\ remainingBytes_6(5)\>\l\
+|#\ prephitmp_5\ =\ PHI\ \<pretmp_21(6),\ pretmp_4(5)\>\l\
+|if\ (bytesRemaining_3(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [30.00%]\l\
+}"];
+
+	fn_90_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904826\<bb\ 8\>:\l\
+|*bytesRemaining_3(D)\ =\ remainingBytes_11;\l\
+}"];
+
+	fn_90_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435460\<bb\ 9\>:\l\
+|if\ (prephitmp_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [64.52%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [35.48%]\l\
+}"];
+
+	fn_90_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:697932189\<bb\ 10\>:\l\
+|_13\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].status;\l\
+}"];
+
+	fn_90_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741829\<bb\ 11\>:\l\
+|#\ _14\ =\ PHI\ \<_13(10),\ 2(15),\ 2(9),\ 2(14)\>\l\
+|return\ _14;\l\
+}"];
+
+	fn_90_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 12\>:\l\
+|if\ (bytesRemaining_3(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 13\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [30.00%]\l\
+}"];
+
+	fn_90_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 13\>:\l\
+|*bytesRemaining_3(D)\ =\ remainingBytes_6;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_90_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 14\>:\l\
+|if\ (bytesRemaining_3(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 15\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [30.00%]\l\
+}"];
+
+	fn_90_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187904818\<bb\ 15\>:\l\
+|*bytesRemaining_3(D)\ =\ remainingBytes_6;\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_90_basic_block_0:s -> fn_90_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_90_basic_block_2:s -> fn_90_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_90_basic_block_2:s -> fn_90_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_90_basic_block_3:s -> fn_90_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_90_basic_block_3:s -> fn_90_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_90_basic_block_4:s -> fn_90_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_90_basic_block_4:s -> fn_90_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_90_basic_block_5:s -> fn_90_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_90_basic_block_6:s -> fn_90_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_90_basic_block_7:s -> fn_90_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_90_basic_block_7:s -> fn_90_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_90_basic_block_8:s -> fn_90_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_90_basic_block_9:s -> fn_90_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[35%]"];
+	fn_90_basic_block_9:s -> fn_90_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[64%]"];
+	fn_90_basic_block_10:s -> fn_90_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_90_basic_block_11:s -> fn_90_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_90_basic_block_12:s -> fn_90_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_90_basic_block_12:s -> fn_90_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_90_basic_block_13:s -> fn_90_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_90_basic_block_14:s -> fn_90_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_90_basic_block_14:s -> fn_90_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_90_basic_block_15:s -> fn_90_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_90_basic_block_0:s -> fn_90_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveSetRxBuffer" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveSetRxBuffer ()";
+	fn_96_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_96_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_96_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].rxData\ =\ rxBuff_3(D);\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].rxRemainingBytes\ =\ rxSize_4(D);\l\
+|return\ 0;\l\
+}"];
+
+	fn_96_basic_block_0:s -> fn_96_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_96_basic_block_2:s -> fn_96_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_96_basic_block_0:s -> fn_96_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_I2S_DRV_SlaveSetTxBuffer" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_I2S_DRV_SlaveSetTxBuffer ()";
+	fn_92_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_92_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_92_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].txData\ =\ txBuff_3(D);\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].txRemainingBytes\ =\ txSize_4(D);\l\
+|_5\ =\ MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].rxRemainingBytes;\l\
+|_6\ =\ txSize_4(D)\ +\ _5;\l\
+|MEM[(struct\ flexio_i2s_master_state_t\ *)slave_2(D)].rxRemainingBytes\ =\ _6;\l\
+|return\ 0;\l\
+}"];
+
+	fn_92_basic_block_0:s -> fn_92_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_92_basic_block_2:s -> fn_92_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_92_basic_block_0:s -> fn_92_basic_block_1:n [style="invis",constraint=true];
+}
+}

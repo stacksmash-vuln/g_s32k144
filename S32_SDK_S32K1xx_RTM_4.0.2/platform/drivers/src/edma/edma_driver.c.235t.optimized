@@ -1,0 +1,1917 @@
+
+;; Function EDMA_DRV_PushConfigToSTCD.part.0 (EDMA_DRV_PushConfigToSTCD.part.0, funcdef_no=66, decl_uid=7946, cgraph_uid=110, symbol_order=114)
+
+Removing basic block 6
+Removing basic block 8
+Removing basic block 10
+EDMA_DRV_PushConfigToSTCD.part.0 (const struct edma_transfer_config_t * config, struct edma_software_tcd_t * stcd)
+{
+  uint8_t * sructPtr;
+  <unnamed type> _6;
+  short unsigned int _7;
+  short unsigned int _8;
+  <unnamed type> _9;
+  short unsigned int _10;
+  short unsigned int _11;
+  short unsigned int _12;
+  <unnamed type> _14;
+  short unsigned int _15;
+  short unsigned int _16;
+  short unsigned int _17;
+  <unnamed type> _19;
+  <unnamed type> _20;
+  short unsigned int _21;
+  short unsigned int _22;
+  long unsigned int _24;
+  short int _25;
+  long unsigned int _26;
+  long int _27;
+  long unsigned int _28;
+  short int _29;
+  struct edma_loop_transfer_config_t * _30;
+  long unsigned int _31;
+  short unsigned int _32;
+  _Bool _33;
+  long unsigned int _34;
+  long int _35;
+  long int _36;
+  short unsigned int _41;
+  struct edma_software_tcd_t * _66;
+  _Bool _68;
+  short unsigned int prephitmp_69;
+  _Bool _71;
+  short unsigned int _79;
+
+  <bb 2> [local count: 118111600]:
+  _66 = stcd_23(D) + 32;
+
+  <bb 3> [local count: 955630225]:
+  # sructPtr_75 = PHI <stcd_23(D)(2), sructPtr_2(3)>
+  MEM[base: sructPtr_75, offset: 0B] = 0;
+  sructPtr_2 = sructPtr_75 + 1;
+  if (sructPtr_2 != _66)
+    goto <bb 3>; [87.64%]
+  else
+    goto <bb 4>; [12.36%]
+
+  <bb 4> [local count: 118111600]:
+  _6 = config_5(D)->srcModulo;
+  _7 = (short unsigned int) _6;
+  _8 = _7 << 11;
+  _9 = config_5(D)->srcTransferSize;
+  _10 = (short unsigned int) _9;
+  _11 = _10 << 8;
+  _12 = _11 & 1792;
+  _14 = config_5(D)->destModulo;
+  _15 = (short unsigned int) _14;
+  _16 = _15 << 3;
+  _17 = _16 & 255;
+  _19 = config_5(D)->destTransferSize;
+  _20 = _19 & 7;
+  _21 = (short unsigned int) _20;
+  _79 = _8 | _21;
+  _41 = _12 | _79;
+  _22 = _17 | _41;
+  stcd_23(D)->ATTR = _22;
+  _24 = config_5(D)->srcAddr;
+  stcd_23(D)->SADDR = _24;
+  _25 = config_5(D)->srcOffset;
+  stcd_23(D)->SOFF = _25;
+  _26 = config_5(D)->minorByteTransferCount;
+  stcd_23(D)->NBYTES = _26;
+  _27 = config_5(D)->srcLastAddrAdjust;
+  stcd_23(D)->SLAST = _27;
+  _28 = config_5(D)->destAddr;
+  stcd_23(D)->DADDR = _28;
+  _29 = config_5(D)->destOffset;
+  stcd_23(D)->DOFF = _29;
+  _30 = config_5(D)->loopTransferConfig;
+  _31 = _30->majorLoopIterationCount;
+  _32 = (short unsigned int) _31;
+  stcd_23(D)->CITER = _32;
+  _33 = config_5(D)->scatterGatherEnable;
+  if (_33 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 5> [local count: 59055800]:
+  _34 = config_5(D)->scatterGatherNextDescAddr;
+  _35 = (long int) _34;
+  stcd_23(D)->DLAST_SGA = _35;
+  _71 = config_5(D)->interruptEnable;
+  if (_71 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 29527900]:
+  goto <bb 9>; [100.00%]
+
+  <bb 7> [local count: 59055800]:
+  _36 = config_5(D)->destLastAddrAdjust;
+  stcd_23(D)->DLAST_SGA = _36;
+  _68 = config_5(D)->interruptEnable;
+  if (_68 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 8> [local count: 29527900]:
+
+  <bb 9> [local count: 118111600]:
+  # prephitmp_69 = PHI <2(7), 18(5), 16(6), 0(8)>
+  stcd_23(D)->CSR = prephitmp_69;
+  stcd_23(D)->BITER = _32;
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_Deinit (EDMA_DRV_Deinit, funcdef_no=29, decl_uid=6442, cgraph_uid=30, symbol_order=34)
+
+Removing basic block 13
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+EDMA_DRV_Deinit ()
+{
+  unsigned int ivtmp.152;
+  uint8_t dmaChannel;
+  struct edma_chn_state_t * chnState;
+  uint8_t * sructPtr;
+  const struct edma_chn_state_t * chnState;
+  uint32_t index;
+  struct edma_state_t * s_virtEdmaState.2_1;
+  unsigned char _3;
+  struct edma_chn_state_t * _4;
+  void * _22;
+  int _23;
+  <unnamed type> prephitmp_27;
+  struct edma_state_t * s_virtEdmaState.12_29;
+  <unnamed type> pretmp_30;
+  struct edma_state_t * prephitmp_36;
+  unsigned int _38;
+  unsigned int _39;
+  struct edma_state_t * pretmp_41;
+
+  <bb 2> [local count: 90194308]:
+  INT_SYS_DisableIRQ (16);
+  s_virtEdmaState.2_1 = s_virtEdmaState;
+  if (s_virtEdmaState.2_1 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 12>; [30.00%]
+
+  <bb 3> [local count: 1010605814]:
+  # index_43 = PHI <index_18(9), 0(2)>
+  # prephitmp_36 = PHI <pretmp_41(9), s_virtEdmaState.2_1(2)>
+  chnState_16 ={v} prephitmp_36->virtChnState[index_43];
+  if (chnState_16 != 0B)
+    goto <bb 4>; [53.47%]
+  else
+    goto <bb 7>; [46.53%]
+
+  <bb 4> [local count: 540370927]:
+  _3 = chnState_16->virtChn;
+  dmaChannel_21 = _3 & 15;
+  _23 = (int) _3;
+  chnState_24 ={v} prephitmp_36->virtChnState[_23];
+  EDMA_SetDmaRequestCmd (1073774592B, dmaChannel_21, 0);
+  _4 = chnState_24 + 16;
+
+  <bb 5> [local count: 4372092073]:
+  # sructPtr_47 = PHI <chnState_24(4), sructPtr_26(5)>
+  MEM[base: sructPtr_47, offset: 0B] = 0;
+  sructPtr_26 = sructPtr_47 + 1;
+  if (_4 != sructPtr_26)
+    goto <bb 5>; [87.64%]
+  else
+    goto <bb 6>; [12.36%]
+
+  <bb 6> [local count: 540370927]:
+  s_virtEdmaState.12_29 = s_virtEdmaState;
+  s_virtEdmaState.12_29->virtChnState[_23] ={v} 0B;
+
+  <bb 7> [local count: 1010605814]:
+  index_18 = index_43 + 1;
+  if (index_18 != 16)
+    goto <bb 9>; [93.75%]
+  else
+    goto <bb 8>; [6.25%]
+
+  <bb 8> [local count: 63136013]:
+  ivtmp.152_5 = (unsigned int) &MEM <const IRQn_Type[16]> [(void *)&s_edmaIrqId + 1B];
+  _39 = (unsigned int) &s_edmaIrqId;
+  _38 = _39 + 16;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 947469801]:
+  pretmp_41 = s_virtEdmaState;
+  goto <bb 3>; [100.00%]
+
+  <bb 10> [local count: 1010605814]:
+  # prephitmp_27 = PHI <pretmp_30(11), 0(8)>
+  # ivtmp.152_6 = PHI <ivtmp.152_9(11), ivtmp.152_5(8)>
+  INT_SYS_DisableIRQ (prephitmp_27);
+  if (ivtmp.152_6 != _38)
+    goto <bb 11>; [93.75%]
+  else
+    goto <bb 12>; [6.25%]
+
+  <bb 11> [local count: 947469801]:
+  _22 = (void *) ivtmp.152_6;
+  pretmp_30 = MEM[base: _22, offset: 0B];
+  ivtmp.152_9 = ivtmp.152_6 + 1;
+  goto <bb 10>; [100.00%]
+
+  <bb 12> [local count: 90194308]:
+  s_virtEdmaState = 0B;
+  return 0;
+
+}
+
+
+
+;; Function EDMA_DRV_InstallCallback (EDMA_DRV_InstallCallback, funcdef_no=31, decl_uid=6540, cgraph_uid=32, symbol_order=36)
+
+EDMA_DRV_InstallCallback (uint8_t virtualChannel, void (*edma_callback_t) (void *, edma_chn_status_t) callback, void * parameter)
+{
+  struct edma_state_t * s_virtEdmaState.9_1;
+  int _2;
+  struct edma_chn_state_t * _3;
+  struct edma_chn_state_t * _4;
+
+  <bb 2> [local count: 1073741824]:
+  s_virtEdmaState.9_1 = s_virtEdmaState;
+  _2 = (int) virtualChannel_6(D);
+  _3 ={v} s_virtEdmaState.9_1->virtChnState[_2];
+  _3->callback = callback_7(D);
+  _4 ={v} s_virtEdmaState.9_1->virtChnState[_2];
+  _4->parameter = parameter_9(D);
+  return 0;
+
+}
+
+
+
+;; Function EDMA_DRV_ReleaseChannel (EDMA_DRV_ReleaseChannel, funcdef_no=32, decl_uid=6447, cgraph_uid=33, symbol_order=37)
+
+Removing basic block 5
+EDMA_DRV_ReleaseChannel (uint8_t virtualChannel)
+{
+  uint8_t * sructPtr;
+  struct edma_chn_state_t * chnState;
+  uint8_t dmaChannel;
+  struct edma_state_t * s_virtEdmaState.11_1;
+  int _2;
+  struct edma_state_t * s_virtEdmaState.12_3;
+  struct edma_chn_state_t * _10;
+
+  <bb 2> [local count: 118111600]:
+  dmaChannel_5 = virtualChannel_4(D) & 15;
+  s_virtEdmaState.11_1 = s_virtEdmaState;
+  _2 = (int) virtualChannel_4(D);
+  chnState_7 ={v} s_virtEdmaState.11_1->virtChnState[_2];
+  EDMA_SetDmaRequestCmd (1073774592B, dmaChannel_5, 0);
+  _10 = chnState_7 + 16;
+
+  <bb 3> [local count: 955630225]:
+  # sructPtr_21 = PHI <chnState_7(2), sructPtr_11(3)>
+  MEM[base: sructPtr_21, offset: 0B] = 0;
+  sructPtr_11 = sructPtr_21 + 1;
+  if (_10 != sructPtr_11)
+    goto <bb 3>; [87.64%]
+  else
+    goto <bb 4>; [12.36%]
+
+  <bb 4> [local count: 118111600]:
+  s_virtEdmaState.12_3 = s_virtEdmaState;
+  s_virtEdmaState.12_3->virtChnState[_2] ={v} 0B;
+  return 0;
+
+}
+
+
+
+;; Function EDMA_DRV_IRQHandler (EDMA_DRV_IRQHandler, funcdef_no=35, decl_uid=6747, cgraph_uid=36, symbol_order=40)
+
+Removing basic block 6
+Removing basic block 7
+EDMA_DRV_IRQHandler (uint8_t virtualChannel)
+{
+  uint8_t dmaChannel;
+  const struct edma_chn_state_t * chnState;
+  struct edma_state_t * s_virtEdmaState.13_1;
+  int _2;
+  void (*<T616>) (void *, edma_chn_status_t) _3;
+  void * _4;
+  <unnamed type> _5;
+
+  <bb 2> [local count: 1073741824]:
+  s_virtEdmaState.13_1 = s_virtEdmaState;
+  _2 = (int) virtualChannel_8(D);
+  chnState_9 ={v} s_virtEdmaState.13_1->virtChnState[_2];
+  dmaChannel_11 = virtualChannel_8(D) & 15;
+  MEM[(struct DMA_Type *)1073774592B].CDNE ={v} dmaChannel_11;
+  MEM[(struct DMA_Type *)1073774592B].CINT ={v} dmaChannel_11;
+  if (chnState_9 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _3 = chnState_9->callback;
+  if (_3 != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 4> [local count: 526133498]:
+  _4 = chnState_9->parameter;
+  _5 ={v} chnState_9->status;
+  _3 (_4, _5); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_ErrorIRQHandler (EDMA_DRV_ErrorIRQHandler, funcdef_no=36, decl_uid=6749, cgraph_uid=37, symbol_order=41)
+
+Removing basic block 7
+Removing basic block 8
+EDMA_DRV_ErrorIRQHandler (uint8_t virtualChannel)
+{
+  struct edma_chn_state_t * chnState;
+  uint8_t dmaChannel;
+  struct edma_state_t * s_virtEdmaState.14_1;
+  int _2;
+  void (*<T616>) (void *, edma_chn_status_t) _3;
+  void * _4;
+  <unnamed type> _5;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_8 = virtualChannel_7(D) & 15;
+  EDMA_SetDmaRequestCmd (1073774592B, dmaChannel_8, 0);
+  s_virtEdmaState.14_1 = s_virtEdmaState;
+  _2 = (int) virtualChannel_7(D);
+  chnState_11 ={v} s_virtEdmaState.14_1->virtChnState[_2];
+  if (chnState_11 != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 3>; [30.00%]
+
+  <bb 3> [local count: 547608326]:
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 751619281]:
+  MEM[(struct DMA_Type *)1073774592B].CDNE ={v} dmaChannel_8;
+  MEM[(struct DMA_Type *)1073774592B].CINT ={v} dmaChannel_8;
+  MEM[(struct DMA_Type *)1073774592B].CERR ={v} dmaChannel_8;
+  chnState_11->status ={v} 1;
+  _3 = chnState_11->callback;
+  if (_3 != 0B)
+    goto <bb 5>; [70.00%]
+  else
+    goto <bb 3>; [30.00%]
+
+  <bb 5> [local count: 526133498]:
+  _4 = chnState_11->parameter;
+  _5 ={v} chnState_11->status;
+  _3 (_4, _5); [tail call]
+
+  <bb 6> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_ConfigSingleBlockTransfer (EDMA_DRV_ConfigSingleBlockTransfer, funcdef_no=37, decl_uid=6460, cgraph_uid=38, symbol_order=42)
+
+Removing basic block 10
+Removing basic block 11
+EDMA_DRV_ConfigSingleBlockTransfer (uint8_t virtualChannel, edma_transfer_type_t type, uint32_t srcAddr, uint32_t destAddr, edma_transfer_size_t transferSize, uint32_t dataBufferSize)
+{
+  uint16_t regValTemp;
+  uint32_t regValTemp;
+  status_t retStatus;
+  uint8_t dmaChannel;
+  int _1;
+  unsigned int _2;
+  long unsigned int _3;
+  signed char transferOffset.15_4;
+  signed char transferOffset.16_5;
+  signed char transferOffset.17_6;
+  struct edma_state_t * s_virtEdmaState.19_7;
+  int _8;
+  struct edma_chn_state_t * _9;
+  unsigned int _14;
+  int _27;
+  short unsigned int offset.22_31;
+  short unsigned int offset.21_32;
+  short unsigned int offset.21_33;
+  signed short regValTemp.24_36;
+  signed short _37;
+  sizetype _52;
+  struct DMA_Type * _53;
+  signed short _63;
+  signed short _64;
+
+  <bb 2> [local count: 1073741819]:
+  _1 = (int) transferSize_16(D);
+  _2 = 1 << _1;
+  _14 = _2 & 255;
+  _3 = dataBufferSize_17(D) % _14;
+  if (_3 != 0)
+    goto <bb 9>; [67.00%]
+  else
+    goto <bb 3>; [33.00%]
+
+  <bb 3> [local count: 354334798]:
+  dmaChannel_13 = virtualChannel_12(D) & 15;
+  EDMA_TCDClearReg (1073774592B, dmaChannel_13);
+  regValTemp_28 ={v} MEM[(struct DMA_Type *)1073774592B].CR;
+  regValTemp_29 = regValTemp_28 & 4294967167;
+  regValTemp_30 = regValTemp_29 | 128;
+  MEM[(struct DMA_Type *)1073774592B].CR ={v} regValTemp_30;
+  _27 = (int) dmaChannel_13;
+  _63 = (signed short) dmaChannel_13;
+  _64 = (signed short) 32;
+  _52 = _63 w* _64;
+  _53 = 1073774592B + _52;
+  MEM <volatile uint32_t> [(struct DMA_Type *)_53 + 4096B] ={v} srcAddr_20(D);
+  MEM[(struct DMA_Type *)1073774592B].TCD[_27].DADDR ={v} destAddr_21(D);
+  EDMA_TCDSetAttribute (1073774592B, dmaChannel_13, 0, 0, transferSize_16(D), transferSize_16(D));
+  switch (type_23(D)) <default: <L11> [0.00%], case 0: <L12> [25.00%], case 1: <L4> [25.00%], case 2: <L5> [25.00%], case 3: <L13> [25.00%]>
+
+  <bb 4> [local count: 70866961]:
+<L12>:
+  MEM <volatile uint16_t> [(struct DMA_Type *)_53 + 4100B] ={v} 0;
+  transferOffset.15_4 = (signed char) _2;
+  offset.22_31 = (short unsigned int) transferOffset.15_4;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_27].DOFF ={v} offset.22_31;
+  goto <bb 8>; [100.00%]
+
+  <bb 5> [local count: 70866961]:
+<L4>:
+  transferOffset.16_5 = (signed char) _2;
+  offset.21_32 = (short unsigned int) transferOffset.16_5;
+  MEM <volatile uint16_t> [(struct DMA_Type *)_53 + 4100B] ={v} offset.21_32;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_27].DOFF ={v} 0;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 70866961]:
+<L5>:
+  transferOffset.17_6 = (signed char) _2;
+  offset.21_33 = (short unsigned int) transferOffset.17_6;
+  MEM <volatile uint16_t> [(struct DMA_Type *)_53 + 4100B] ={v} offset.21_33;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_27].DOFF ={v} offset.21_33;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 70866961]:
+<L13>:
+  MEM <volatile uint16_t> [(struct DMA_Type *)_53 + 4100B] ={v} 0;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_27].DOFF ={v} 0;
+
+  <bb 8> [local count: 354334803]:
+<L11>:
+  EDMA_TCDSetNbytes (1073774592B, dmaChannel_13, dataBufferSize_17(D));
+  EDMA_TCDSetMajorCount (1073774592B, dmaChannel_13, 1);
+  regValTemp_34 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_27].CSR;
+  regValTemp_35 = regValTemp_34 & 65533;
+  regValTemp.24_36 = (signed short) regValTemp_35;
+  _37 = regValTemp.24_36 | 2;
+  regValTemp_38 = (uint16_t) _37;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_27].CSR ={v} regValTemp_38;
+  s_virtEdmaState.19_7 = s_virtEdmaState;
+  _8 = (int) virtualChannel_12(D);
+  _9 ={v} s_virtEdmaState.19_7->virtChnState[_8];
+  _9->status ={v} 0;
+
+  <bb 9> [local count: 1073741824]:
+  # retStatus_15 = PHI <0(8), 1(2)>
+  return retStatus_15;
+
+}
+
+
+
+;; Function EDMA_DRV_ConfigMultiBlockTransfer (EDMA_DRV_ConfigMultiBlockTransfer, funcdef_no=38, decl_uid=6469, cgraph_uid=39, symbol_order=43)
+
+Removing basic block 4
+Removing basic block 7
+EDMA_DRV_ConfigMultiBlockTransfer (uint8_t virtualChannel, edma_transfer_type_t type, uint32_t srcAddr, uint32_t destAddr, edma_transfer_size_t transferSize, uint32_t blockSize, uint32_t blockCount, _Bool disableReqOnCompletion)
+{
+  uint16_t regValTemp;
+  status_t retStatus;
+  uint8_t dmaChannel;
+  int _15;
+  signed short regValTemp.26_18;
+  signed short iftmp.25_19;
+  signed short _20;
+
+  <bb 2> [local count: 1073741824]:
+  retStatus_11 = EDMA_DRV_ConfigSingleBlockTransfer (virtualChannel_2(D), type_5(D), srcAddr_6(D), destAddr_7(D), transferSize_8(D), blockSize_9(D));
+  if (retStatus_11 == 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  dmaChannel_3 = virtualChannel_2(D) & 15;
+  EDMA_TCDSetMajorCount (1073774592B, dmaChannel_3, blockCount_12(D));
+  _15 = (int) dmaChannel_3;
+  regValTemp_16 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_15].CSR;
+  regValTemp_17 = regValTemp_16 & 65527;
+  if (disableReqOnCompletion_14(D) != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 4> [local count: 177167400]:
+
+  <bb 5> [local count: 354334800]:
+  # iftmp.25_19 = PHI <8(3), 0(4)>
+  regValTemp.26_18 = (signed short) regValTemp_17;
+  _20 = regValTemp.26_18 | iftmp.25_19;
+  regValTemp_21 = (uint16_t) _20;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_15].CSR ={v} regValTemp_21;
+
+  <bb 6> [local count: 1073741824]:
+  return retStatus_11;
+
+}
+
+
+
+;; Function EDMA_DRV_StartChannel (EDMA_DRV_StartChannel, funcdef_no=41, decl_uid=6484, cgraph_uid=42, symbol_order=46)
+
+EDMA_DRV_StartChannel (uint8_t virtualChannel)
+{
+  uint8_t dmaChannel;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  EDMA_SetDmaRequestCmd (1073774592B, dmaChannel_2, 1);
+  return 0;
+
+}
+
+
+
+;; Function EDMA_DRV_StopChannel (EDMA_DRV_StopChannel, funcdef_no=42, decl_uid=6486, cgraph_uid=43, symbol_order=47)
+
+EDMA_DRV_StopChannel (uint8_t virtualChannel)
+{
+  uint8_t dmaChannel;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  EDMA_SetDmaRequestCmd (1073774592B, dmaChannel_2, 0);
+  return 0;
+
+}
+
+
+
+;; Function EDMA_DRV_SetChannelRequestAndTrigger (EDMA_DRV_SetChannelRequestAndTrigger, funcdef_no=43, decl_uid=6490, cgraph_uid=44, symbol_order=48)
+
+Removing basic block 3
+EDMA_DRV_SetChannelRequestAndTrigger (uint8_t virtualChannel, uint8_t request, _Bool enableTrigger)
+{
+  uint32_t regIndex;
+  uint8_t regValTemp;
+  uint8_t regValTemp;
+  uint8_t regValTemp;
+  uint8_t regValTemp;
+  signed char regValTemp.41_7;
+  signed char _8;
+  signed char regValTemp.39_12;
+  signed char iftmp.38_13;
+  signed char _14;
+  signed char source.36_18;
+  signed char _19;
+  signed char regValTemp.37_20;
+  signed char _21;
+
+  <bb 2> [local count: 1073741824]:
+  regIndex_23 = (uint32_t) virtualChannel_2(D);
+  regValTemp_24 ={v} MEM[(struct DMAMUX_Type *)1073876992B].CHCFG[regIndex_23];
+  regValTemp_25 = regValTemp_24 & 127;
+  MEM[(struct DMAMUX_Type *)1073876992B].CHCFG[regIndex_23] ={v} regValTemp_25;
+  regValTemp_16 ={v} MEM[(struct DMAMUX_Type *)1073876992B].CHCFG[regIndex_23];
+  regValTemp_17 = regValTemp_16 & 192;
+  source.36_18 = (signed char) request_1(D);
+  _19 = source.36_18 & 63;
+  regValTemp.37_20 = (signed char) regValTemp_17;
+  _21 = _19 | regValTemp.37_20;
+  regValTemp_22 = (uint8_t) _21;
+  MEM[(struct DMAMUX_Type *)1073876992B].CHCFG[regIndex_23] ={v} regValTemp_22;
+  regValTemp_10 ={v} MEM[(struct DMAMUX_Type *)1073876992B].CHCFG[regIndex_23];
+  regValTemp_11 = regValTemp_10 & 191;
+  if (enableTrigger_4(D) != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+
+  <bb 4> [local count: 1073741824]:
+  # iftmp.38_13 = PHI <64(2), 0(3)>
+  regValTemp.39_12 = (signed char) regValTemp_11;
+  _14 = regValTemp.39_12 | iftmp.38_13;
+  regValTemp_15 = (uint8_t) _14;
+  MEM[(struct DMAMUX_Type *)1073876992B].CHCFG[regIndex_23] ={v} regValTemp_15;
+  regValTemp_5 ={v} MEM[(struct DMAMUX_Type *)1073876992B].CHCFG[regIndex_23];
+  regValTemp_6 = regValTemp_5 & 127;
+  regValTemp.41_7 = (signed char) regValTemp_6;
+  _8 = regValTemp.41_7 | -128;
+  regValTemp_9 = (uint8_t) _8;
+  MEM[(struct DMAMUX_Type *)1073876992B].CHCFG[regIndex_23] ={v} regValTemp_9;
+  return 0;
+
+}
+
+
+
+;; Function EDMA_DRV_ChannelInit (EDMA_DRV_ChannelInit, funcdef_no=30, decl_uid=6445, cgraph_uid=31, symbol_order=35)
+
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+EDMA_DRV_ChannelInit (struct edma_chn_state_t * edmaChannelState, const struct edma_channel_config_t * edmaChannelConfig)
+{
+  uint8_t regValTemp;
+  uint8_t index;
+  uint8_t * sructPtr;
+  status_t retStatus;
+  uint8_t dmaChannel;
+  unsigned char _1;
+  unsigned char _2;
+  <unnamed type> _3;
+  _Bool _4;
+  struct edma_state_t * s_virtEdmaState.4_5;
+  signed short _6;
+  struct edma_chn_state_t * _7;
+  struct edma_chn_state_t * _8;
+  <unnamed type> _9;
+  unsigned char _10;
+  void (*<T616>) (void *, edma_chn_status_t) _11;
+  void * _12;
+  struct edma_chn_state_t * _29;
+  sizetype _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  struct edma_state_t * _34;
+  int _36;
+  signed char priority.7_39;
+  signed char _40;
+  signed char regValTemp.8_41;
+  signed char _42;
+  struct edma_state_t * s_virtEdmaState.9_44;
+  int _45;
+  struct edma_chn_state_t * _46;
+  struct edma_chn_state_t * _47;
+  signed short _56;
+
+  <bb 2> [local count: 118111600]:
+  _1 = edmaChannelConfig_17(D)->virtChnConfig;
+  dmaChannel_18 = _1 & 15;
+  _29 = edmaChannelState_19(D) + 16;
+
+  <bb 3> [local count: 955630225]:
+  # sructPtr_65 = PHI <edmaChannelState_19(D)(2), sructPtr_28(3)>
+  MEM[base: sructPtr_65, offset: 0B] = 0;
+  sructPtr_28 = sructPtr_65 + 1;
+  if (sructPtr_28 != _29)
+    goto <bb 3>; [87.64%]
+  else
+    goto <bb 4>; [12.36%]
+
+  <bb 4> [local count: 118111600]:
+  _2 = edmaChannelConfig_17(D)->virtChnConfig;
+  _3 = edmaChannelConfig_17(D)->source;
+  _4 = edmaChannelConfig_17(D)->enableTrigger;
+  retStatus_21 = EDMA_DRV_SetChannelRequestAndTrigger (_2, _3, _4);
+  EDMA_TCDClearReg (1073774592B, dmaChannel_18);
+  if (retStatus_21 == 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 5> [local count: 38976828]:
+  s_virtEdmaState.4_5 = s_virtEdmaState;
+  _6 = (signed short) _1;
+  _56 = (signed short) 4;
+  _30 = _6 w* _56;
+  _34 = s_virtEdmaState.4_5 + _30;
+  MEM <struct edma_chn_state_t * volatile> [(struct edma_state_t *)_34] ={v} edmaChannelState_19(D);
+  _7 ={v} MEM <struct edma_chn_state_t * volatile> [(struct edma_state_t *)_34];
+  _7->virtChn = _1;
+  _8 ={v} MEM <struct edma_chn_state_t * volatile> [(struct edma_state_t *)_34];
+  _8->status ={v} 0;
+  EDMA_SetErrorIntCmd (1073774592B, dmaChannel_18, 1);
+  _31 ={v} MEM[(const struct DMA_Type *)1073774592B].CR;
+  _32 = _31 >> 2;
+  _33 = _32 & 1;
+  if (_33 == 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 6> [local count: 19488414]:
+  _9 = edmaChannelConfig_17(D)->channelPriority;
+  if (_9 != 255)
+    goto <bb 7>; [66.00%]
+  else
+    goto <bb 8>; [34.00%]
+
+  <bb 7> [local count: 12862353]:
+  index_35 = dmaChannel_18 ^ 3;
+  _36 = (int) index_35;
+  regValTemp_37 ={v} MEM[(struct DMA_Type *)1073774592B].DCHPRI[_36];
+  regValTemp_38 = regValTemp_37 & 240;
+  priority.7_39 = (signed char) _9;
+  _40 = priority.7_39 & 15;
+  regValTemp.8_41 = (signed char) regValTemp_38;
+  _42 = _40 | regValTemp.8_41;
+  regValTemp_43 = (uint8_t) _42;
+  MEM[(struct DMA_Type *)1073774592B].DCHPRI[_36] ={v} regValTemp_43;
+
+  <bb 8> [local count: 38976828]:
+  _10 = edmaChannelConfig_17(D)->virtChnConfig;
+  _11 = edmaChannelConfig_17(D)->callback;
+  _12 = edmaChannelConfig_17(D)->callbackParam;
+  s_virtEdmaState.9_44 = s_virtEdmaState;
+  _45 = (int) _10;
+  _46 ={v} s_virtEdmaState.9_44->virtChnState[_45];
+  _46->callback = _11;
+  _47 ={v} s_virtEdmaState.9_44->virtChnState[_45];
+  _47->parameter = _12;
+
+  <bb 9> [local count: 118111600]:
+  # retStatus_13 = PHI <retStatus_21(8), retStatus_21(4)>
+  return retStatus_13;
+
+}
+
+
+
+;; Function EDMA_DRV_Init (EDMA_DRV_Init, funcdef_no=28, decl_uid=6440, cgraph_uid=29, symbol_order=33)
+
+Removing basic block 14
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 24
+EDMA_DRV_Init (struct edma_state_t * edmaState, const struct edma_user_config_t * userConfig, struct edma_chn_state_t * const * chnStateArray, const struct edma_channel_config_t * const * chnConfigArray, uint32_t chnCount)
+{
+  unsigned int ivtmp.245;
+  unsigned int ivtmp.227;
+  unsigned int ivtmp.224;
+  uint32_t regValTemp;
+  uint32_t regValTemp;
+  uint8_t * sructPtr;
+  status_t chnInitStatus;
+  status_t edmaStatus;
+  uint32_t index;
+  <unnamed type> _1;
+  _Bool _2;
+  struct edma_chn_state_t * _5;
+  const struct edma_channel_config_t * _7;
+  struct edma_state_t * _8;
+  long unsigned int _16;
+  struct edma_chn_state_t * const * _18;
+  long unsigned int prephitmp_19;
+  <unnamed type> prephitmp_38;
+  <unnamed type> pretmp_40;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  void * _56;
+  unsigned int _57;
+  void * _58;
+  unsigned int _60;
+  void * _61;
+  const struct edma_channel_config_t * const * _67;
+
+  <bb 2> [local count: 63136016]:
+  s_virtEdmaState = edmaState_23(D);
+  _8 = edmaState_23(D) + 64;
+
+  <bb 3> [local count: 510827770]:
+  # sructPtr_72 = PHI <edmaState_23(D)(2), sructPtr_39(3)>
+  MEM[base: sructPtr_72, offset: 0B] = 0;
+  sructPtr_39 = sructPtr_72 + 1;
+  if (_8 != sructPtr_39)
+    goto <bb 3>; [87.64%]
+  else
+    goto <bb 5>; [12.36%]
+
+  <bb 4> [local count: 63136016]:
+  # prephitmp_19 = PHI <_16(6), regValTemp_43(5)>
+  MEM[(struct DMA_Type *)1073774592B].CR ={v} prephitmp_19;
+  INT_SYS_EnableIRQ (16);
+  ivtmp.245_9 = (unsigned int) &MEM <const IRQn_Type[16]> [(void *)&s_edmaIrqId + 1B];
+  _60 = (unsigned int) &s_edmaIrqId;
+  _57 = _60 + 16;
+  goto <bb 8>; [100.00%]
+
+  <bb 5> [local count: 63136016]:
+  EDMA_Init (1073774592B);
+  _1 = userConfig_37(D)->chnArbitration;
+  regValTemp_46 ={v} MEM[(struct DMA_Type *)1073774592B].CR;
+  regValTemp_47 = regValTemp_46 & 4294967291;
+  _48 = (long unsigned int) _1;
+  _49 = _48 << 2;
+  _50 = _49 & 4;
+  regValTemp_51 = regValTemp_47 | _50;
+  MEM[(struct DMA_Type *)1073774592B].CR ={v} regValTemp_51;
+  _2 = userConfig_37(D)->haltOnError;
+  regValTemp_42 ={v} MEM[(struct DMA_Type *)1073774592B].CR;
+  regValTemp_43 = regValTemp_42 & 4294967279;
+  if (_2 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 6> [local count: 31568008]:
+  _16 = regValTemp_43 | 16;
+  goto <bb 4>; [100.00%]
+
+  <bb 7> [local count: 947469796]:
+  _56 = (void *) ivtmp.245_17;
+  pretmp_40 = MEM[base: _56, offset: 0B];
+  ivtmp.245_59 = ivtmp.245_17 + 1;
+
+  <bb 8> [local count: 1010605809]:
+  # prephitmp_38 = PHI <0(4), pretmp_40(7)>
+  # ivtmp.245_17 = PHI <ivtmp.245_9(4), ivtmp.245_59(7)>
+  INT_SYS_EnableIRQ (prephitmp_38);
+  if (ivtmp.245_17 != _57)
+    goto <bb 7>; [93.75%]
+  else
+    goto <bb 9>; [6.25%]
+
+  <bb 9> [local count: 63136016]:
+  DMAMUX_Init (1073876992B);
+  if (chnStateArray_25(D) != 0B)
+    goto <bb 10>; [70.00%]
+  else
+    goto <bb 16>; [30.00%]
+
+  <bb 10> [local count: 44195211]:
+  if (chnConfigArray_26(D) != 0B)
+    goto <bb 11>; [70.00%]
+  else
+    goto <bb 16>; [30.00%]
+
+  <bb 11> [local count: 30936648]:
+  if (chnCount_27(D) != 0)
+    goto <bb 12>; [89.00%]
+  else
+    goto <bb 16>; [11.00%]
+
+  <bb 12> [local count: 27533617]:
+  _18 = chnStateArray_25(D) + 4294967292;
+  ivtmp.224_62 = (unsigned int) _18;
+  _67 = chnConfigArray_26(D) + 4294967292;
+  ivtmp.227_32 = (unsigned int) _67;
+
+  <bb 13> [local count: 250305609]:
+  # index_66 = PHI <0(12), index_30(15)>
+  # edmaStatus_65 = PHI <0(12), edmaStatus_13(15)>
+  # ivtmp.224_69 = PHI <ivtmp.224_62(12), ivtmp.224_68(15)>
+  # ivtmp.227_12 = PHI <ivtmp.227_32(12), ivtmp.227_45(15)>
+  ivtmp.224_68 = ivtmp.224_69 + 4;
+  _58 = (void *) ivtmp.224_68;
+  _5 = MEM[base: _58, offset: 0B];
+  ivtmp.227_45 = ivtmp.227_12 + 4;
+  _61 = (void *) ivtmp.227_45;
+  _7 = MEM[base: _61, offset: 0B];
+  chnInitStatus_29 = EDMA_DRV_ChannelInit (_5, _7);
+  if (chnInitStatus_29 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 125152805]:
+
+  <bb 15> [local count: 250305609]:
+  # edmaStatus_13 = PHI <edmaStatus_65(13), chnInitStatus_29(14)>
+  index_30 = index_66 + 1;
+  if (chnCount_27(D) != index_30)
+    goto <bb 13>; [89.00%]
+  else
+    goto <bb 16>; [11.00%]
+
+  <bb 16> [local count: 63136016]:
+  # edmaStatus_15 = PHI <0(11), 0(10), 0(9), edmaStatus_13(15)>
+  return edmaStatus_15;
+
+}
+
+
+
+;; Function EDMA_DRV_ClearTCD (EDMA_DRV_ClearTCD, funcdef_no=44, decl_uid=6492, cgraph_uid=45, symbol_order=49)
+
+EDMA_DRV_ClearTCD (uint8_t virtualChannel)
+{
+  uint8_t dmaChannel;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  EDMA_TCDClearReg (1073774592B, dmaChannel_2); [tail call]
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetSrcAddr (EDMA_DRV_SetSrcAddr, funcdef_no=45, decl_uid=6495, cgraph_uid=46, symbol_order=50)
+
+EDMA_DRV_SetSrcAddr (uint8_t virtualChannel, uint32_t address)
+{
+  uint8_t dmaChannel;
+  int _5;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  _5 = (int) dmaChannel_2;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_5].SADDR ={v} address_4(D);
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetSrcOffset (EDMA_DRV_SetSrcOffset, funcdef_no=46, decl_uid=6498, cgraph_uid=47, symbol_order=51)
+
+EDMA_DRV_SetSrcOffset (uint8_t virtualChannel, int16_t offset)
+{
+  uint8_t dmaChannel;
+  int _5;
+  short unsigned int offset.21_6;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  _5 = (int) dmaChannel_2;
+  offset.21_6 = (short unsigned int) offset_4(D);
+  MEM[(struct DMA_Type *)1073774592B].TCD[_5].SOFF ={v} offset.21_6;
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetSrcReadChunkSize (EDMA_DRV_SetSrcReadChunkSize, funcdef_no=47, decl_uid=6501, cgraph_uid=48, symbol_order=52)
+
+EDMA_DRV_SetSrcReadChunkSize (uint8_t virtualChannel, edma_transfer_size_t size)
+{
+  uint16_t regValTemp;
+  uint8_t dmaChannel;
+  signed short _5;
+  short unsigned int _8;
+  short unsigned int _9;
+  signed short _10;
+  signed short _11;
+  signed short regValTemp.42_12;
+  signed short _13;
+  sizetype _17;
+  struct DMA_Type * _18;
+  signed short _19;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  _5 = (signed short) dmaChannel_2;
+  _19 = (signed short) 32;
+  _17 = _5 w* _19;
+  _18 = 1073774592B + _17;
+  regValTemp_6 ={v} MEM <volatile uint16_t> [(struct DMA_Type *)_18 + 4102B];
+  regValTemp_7 = regValTemp_6 & 63743;
+  _8 = (short unsigned int) size_4(D);
+  _9 = _8 << 8;
+  _10 = (signed short) _9;
+  _11 = _10 & 1792;
+  regValTemp.42_12 = (signed short) regValTemp_7;
+  _13 = _11 | regValTemp.42_12;
+  regValTemp_14 = (uint16_t) _13;
+  MEM <volatile uint16_t> [(struct DMA_Type *)_18 + 4102B] ={v} regValTemp_14;
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetSrcLastAddrAdjustment (EDMA_DRV_SetSrcLastAddrAdjustment, funcdef_no=48, decl_uid=6504, cgraph_uid=49, symbol_order=53)
+
+EDMA_DRV_SetSrcLastAddrAdjustment (uint8_t virtualChannel, int32_t adjust)
+{
+  uint8_t dmaChannel;
+  int _5;
+  long unsigned int size.43_6;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  _5 = (int) dmaChannel_2;
+  size.43_6 = (long unsigned int) adjust_4(D);
+  MEM[(struct DMA_Type *)1073774592B].TCD[_5].SLAST ={v} size.43_6;
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetDestLastAddrAdjustment (EDMA_DRV_SetDestLastAddrAdjustment, funcdef_no=49, decl_uid=6516, cgraph_uid=50, symbol_order=54)
+
+EDMA_DRV_SetDestLastAddrAdjustment (uint8_t virtualChannel, int32_t adjust)
+{
+  uint8_t dmaChannel;
+  int _5;
+  long unsigned int adjust.44_6;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  _5 = (int) dmaChannel_2;
+  adjust.44_6 = (long unsigned int) adjust_4(D);
+  MEM[(struct DMA_Type *)1073774592B].TCD[_5].DLASTSGA ={v} adjust.44_6;
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetDestAddr (EDMA_DRV_SetDestAddr, funcdef_no=50, decl_uid=6507, cgraph_uid=51, symbol_order=55)
+
+EDMA_DRV_SetDestAddr (uint8_t virtualChannel, uint32_t address)
+{
+  uint8_t dmaChannel;
+  int _5;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  _5 = (int) dmaChannel_2;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_5].DADDR ={v} address_4(D);
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetDestOffset (EDMA_DRV_SetDestOffset, funcdef_no=51, decl_uid=6510, cgraph_uid=52, symbol_order=56)
+
+EDMA_DRV_SetDestOffset (uint8_t virtualChannel, int16_t offset)
+{
+  uint8_t dmaChannel;
+  int _5;
+  short unsigned int offset.22_6;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  _5 = (int) dmaChannel_2;
+  offset.22_6 = (short unsigned int) offset_4(D);
+  MEM[(struct DMA_Type *)1073774592B].TCD[_5].DOFF ={v} offset.22_6;
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetDestWriteChunkSize (EDMA_DRV_SetDestWriteChunkSize, funcdef_no=52, decl_uid=6513, cgraph_uid=53, symbol_order=57)
+
+EDMA_DRV_SetDestWriteChunkSize (uint8_t virtualChannel, edma_transfer_size_t size)
+{
+  uint16_t regValTemp;
+  uint8_t dmaChannel;
+  signed short _5;
+  <unnamed type> _8;
+  signed short _9;
+  signed short regValTemp.45_10;
+  signed short _11;
+  sizetype _15;
+  struct DMA_Type * _16;
+  signed short _17;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  _5 = (signed short) dmaChannel_2;
+  _17 = (signed short) 32;
+  _15 = _5 w* _17;
+  _16 = 1073774592B + _15;
+  regValTemp_6 ={v} MEM <volatile uint16_t> [(struct DMA_Type *)_16 + 4102B];
+  regValTemp_7 = regValTemp_6 & 65528;
+  _8 = size_4(D) & 7;
+  _9 = (signed short) _8;
+  regValTemp.45_10 = (signed short) regValTemp_7;
+  _11 = _9 | regValTemp.45_10;
+  regValTemp_12 = (uint16_t) _11;
+  MEM <volatile uint16_t> [(struct DMA_Type *)_16 + 4102B] ={v} regValTemp_12;
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetMinorLoopBlockSize (EDMA_DRV_SetMinorLoopBlockSize, funcdef_no=53, decl_uid=6519, cgraph_uid=54, symbol_order=58)
+
+EDMA_DRV_SetMinorLoopBlockSize (uint8_t virtualChannel, uint32_t nbytes)
+{
+  uint8_t dmaChannel;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  EDMA_TCDSetNbytes (1073774592B, dmaChannel_2, nbytes_4(D)); [tail call]
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_SetMajorLoopIterationCount (EDMA_DRV_SetMajorLoopIterationCount, funcdef_no=54, decl_uid=6522, cgraph_uid=55, symbol_order=59)
+
+EDMA_DRV_SetMajorLoopIterationCount (uint8_t virtualChannel, uint32_t majorLoopCount)
+{
+  uint8_t dmaChannel;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  EDMA_TCDSetMajorCount (1073774592B, dmaChannel_2, majorLoopCount_4(D)); [tail call]
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_GetRemainingMajorIterationsCount (EDMA_DRV_GetRemainingMajorIterationsCount, funcdef_no=55, decl_uid=6524, cgraph_uid=56, symbol_order=60)
+
+EDMA_DRV_GetRemainingMajorIterationsCount (uint8_t virtualChannel)
+{
+  uint32_t count;
+  uint8_t dmaChannel;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  count_5 = EDMA_TCDGetCurrentMajorCount (1073774592B, dmaChannel_2); [tail call]
+  return count_5;
+
+}
+
+
+
+;; Function EDMA_DRV_SetScatterGatherLink (EDMA_DRV_SetScatterGatherLink, funcdef_no=56, decl_uid=6527, cgraph_uid=57, symbol_order=61)
+
+EDMA_DRV_SetScatterGatherLink (uint8_t virtualChannel, uint32_t nextTCDAddr)
+{
+  uint8_t dmaChannel;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  EDMA_TCDSetScatterGatherLink (1073774592B, dmaChannel_2, nextTCDAddr_4(D)); [tail call]
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_DisableRequestsOnTransferComplete (EDMA_DRV_DisableRequestsOnTransferComplete, funcdef_no=57, decl_uid=6530, cgraph_uid=58, symbol_order=62)
+
+Removing basic block 3
+EDMA_DRV_DisableRequestsOnTransferComplete (uint8_t virtualChannel, _Bool disable)
+{
+  uint16_t regValTemp;
+  uint8_t dmaChannel;
+  int _5;
+  signed short regValTemp.26_8;
+  signed short iftmp.25_9;
+  signed short _10;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  _5 = (int) dmaChannel_2;
+  regValTemp_6 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_5].CSR;
+  regValTemp_7 = regValTemp_6 & 65527;
+  if (disable_4(D) != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870912]:
+
+  <bb 4> [local count: 1073741824]:
+  # iftmp.25_9 = PHI <8(2), 0(3)>
+  regValTemp.26_8 = (signed short) regValTemp_7;
+  _10 = regValTemp.26_8 | iftmp.25_9;
+  regValTemp_11 = (uint16_t) _10;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_5].CSR ={v} regValTemp_11;
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_ConfigureInterrupt (EDMA_DRV_ConfigureInterrupt, funcdef_no=58, decl_uid=6534, cgraph_uid=59, symbol_order=63)
+
+Removing basic block 7
+Removing basic block 10
+Removing basic block 13
+EDMA_DRV_ConfigureInterrupt (uint8_t virtualChannel, edma_channel_interrupt_t intSrc, _Bool enable)
+{
+  uint16_t regValTemp;
+  uint16_t regValTemp;
+  uint8_t dmaChannel;
+  int _8;
+  signed short regValTemp.47_11;
+  signed short iftmp.46_12;
+  signed short _13;
+  int _15;
+  signed short regValTemp.24_18;
+  signed short iftmp.23_19;
+  signed short _20;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_3 = virtualChannel_2(D) & 15;
+  if (intSrc_4(D) == 1)
+    goto <bb 6>; [25.00%]
+  else
+    goto <bb 3>; [75.00%]
+
+  <bb 3> [local count: 1073741824]:
+  if (intSrc_4(D) == 2)
+    goto <bb 9>; [33.33%]
+  else
+    goto <bb 4>; [66.67%]
+
+  <bb 4> [local count: 1073741824]:
+  if (intSrc_4(D) == 0)
+    goto <bb 5>; [33.33%]
+  else
+    goto <bb 12>; [66.67%]
+
+  <bb 5> [local count: 268435456]:
+  EDMA_SetErrorIntCmd (1073774592B, dmaChannel_3, enable_6(D)); [tail call]
+  goto <bb 12>; [100.00%]
+
+  <bb 6> [local count: 268435456]:
+  _8 = (int) dmaChannel_3;
+  regValTemp_9 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_8].CSR;
+  regValTemp_10 = regValTemp_9 & 65531;
+  if (enable_6(D) != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 7> [local count: 134217728]:
+
+  <bb 8> [local count: 268435456]:
+  # iftmp.46_12 = PHI <4(6), 0(7)>
+  regValTemp.47_11 = (signed short) regValTemp_10;
+  _13 = regValTemp.47_11 | iftmp.46_12;
+  regValTemp_14 = (uint16_t) _13;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_8].CSR ={v} regValTemp_14;
+  goto <bb 12>; [100.00%]
+
+  <bb 9> [local count: 268435456]:
+  _15 = (int) dmaChannel_3;
+  regValTemp_16 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_15].CSR;
+  regValTemp_17 = regValTemp_16 & 65533;
+  if (enable_6(D) != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 10> [local count: 134217728]:
+
+  <bb 11> [local count: 268435456]:
+  # iftmp.23_19 = PHI <2(9), 0(10)>
+  regValTemp.24_18 = (signed short) regValTemp_17;
+  _20 = regValTemp.24_18 | iftmp.23_19;
+  regValTemp_21 = (uint16_t) _20;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_15].CSR ={v} regValTemp_21;
+
+  <bb 12> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_CancelTransfer (EDMA_DRV_CancelTransfer, funcdef_no=59, decl_uid=6482, cgraph_uid=60, symbol_order=64)
+
+EDMA_DRV_CancelTransfer (_Bool error)
+{
+  <bb 2> [local count: 118111600]:
+  if (error_5(D) != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 477815112]:
+  EDMA_CancelTransferWithError (1073774592B); [tail call]
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 477815112]:
+  EDMA_CancelTransfer (1073774592B); [tail call]
+
+  <bb 5> [local count: 118111600]:
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_TriggerSwRequest (EDMA_DRV_TriggerSwRequest, funcdef_no=60, decl_uid=6536, cgraph_uid=61, symbol_order=65)
+
+EDMA_DRV_TriggerSwRequest (uint8_t virtualChannel)
+{
+  uint8_t dmaChannel;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_2 = virtualChannel_1(D) & 15;
+  MEM[(struct DMA_Type *)1073774592B].SSRT ={v} dmaChannel_2;
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_PushConfigToSTCD (EDMA_DRV_PushConfigToSTCD, funcdef_no=61, decl_uid=6453, cgraph_uid=62, symbol_order=66)
+
+Removing basic block 6
+Removing basic block 7
+EDMA_DRV_PushConfigToSTCD (const struct edma_transfer_config_t * config, struct edma_software_tcd_t * stcd)
+{
+  <bb 2> [local count: 241044080]:
+  if (config_3(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 3> [local count: 168730857]:
+  if (stcd_5(D) != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 4> [local count: 118111600]:
+  EDMA_DRV_PushConfigToSTCD.part.0 (config_3(D), stcd_5(D)); [tail call]
+
+  <bb 5> [local count: 241044080]:
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_PushConfigToReg (EDMA_DRV_PushConfigToReg, funcdef_no=62, decl_uid=6450, cgraph_uid=63, symbol_order=67)
+
+Removing basic block 6
+Removing basic block 17
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+EDMA_DRV_PushConfigToReg (uint8_t virtualChannel, const struct edma_transfer_config_t * tcd)
+{
+  uint32_t regValTemp;
+  uint32_t regValTemp;
+  uint16_t regValTemp;
+  uint16_t regValTemp;
+  uint16_t regValTemp;
+  uint16_t regValTemp;
+  uint8_t dmaChannel;
+  long unsigned int _1;
+  long unsigned int _2;
+  <unnamed type> _3;
+  <unnamed type> _4;
+  <unnamed type> _5;
+  <unnamed type> _6;
+  short int _7;
+  short int _8;
+  long int _9;
+  _Bool _10;
+  long unsigned int _11;
+  long int _12;
+  _Bool _13;
+  struct edma_loop_transfer_config_t * _14;
+  _Bool _15;
+  signed short _16;
+  _Bool _17;
+  long unsigned int _18;
+  long int _19;
+  long unsigned int _20;
+  struct edma_loop_transfer_config_t * _21;
+  unsigned char _22;
+  long unsigned int _23;
+  _Bool _24;
+  struct edma_loop_transfer_config_t * _25;
+  unsigned char _26;
+  _Bool _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int prephitmp_42;
+  long unsigned int size.43_49;
+  short unsigned int offset.22_50;
+  short unsigned int offset.21_51;
+  int _52;
+  signed short regValTemp.51_55;
+  signed short _56;
+  long unsigned int adjust.44_58;
+  signed short regValTemp.24_63;
+  signed short iftmp.23_64;
+  signed short _65;
+  long unsigned int prephitmp_76;
+  short unsigned int _79;
+  short unsigned int _80;
+  signed short _81;
+  signed short _82;
+  signed short regValTemp.54_83;
+  signed short _84;
+  signed short regValTemp.56_88;
+  signed short iftmp.55_89;
+  signed short _90;
+  long unsigned int _92;
+  long unsigned int _93;
+  long unsigned int _94;
+  sizetype _98;
+  long unsigned int _100;
+  long unsigned int _101;
+  long unsigned int _102;
+  struct DMA_Type * _103;
+  signed short _107;
+
+  <bb 2> [local count: 1073741824]:
+  dmaChannel_35 = virtualChannel_34(D) & 15;
+  EDMA_TCDClearReg (1073774592B, dmaChannel_35);
+  _1 = tcd_38(D)->srcAddr;
+  _52 = (int) dmaChannel_35;
+  _107 = (signed short) dmaChannel_35;
+  _16 = (signed short) 32;
+  _98 = _107 w* _16;
+  _103 = 1073774592B + _98;
+  MEM <volatile uint32_t> [(struct DMA_Type *)_103 + 4096B] ={v} _1;
+  _2 = tcd_38(D)->destAddr;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].DADDR ={v} _2;
+  _3 = tcd_38(D)->srcModulo;
+  _4 = tcd_38(D)->destModulo;
+  _5 = tcd_38(D)->srcTransferSize;
+  _6 = tcd_38(D)->destTransferSize;
+  EDMA_TCDSetAttribute (1073774592B, dmaChannel_35, _3, _4, _5, _6);
+  _7 = tcd_38(D)->srcOffset;
+  offset.21_51 = (short unsigned int) _7;
+  MEM <volatile uint16_t> [(struct DMA_Type *)_103 + 4100B] ={v} offset.21_51;
+  _8 = tcd_38(D)->destOffset;
+  offset.22_50 = (short unsigned int) _8;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].DOFF ={v} offset.22_50;
+  _9 = tcd_38(D)->srcLastAddrAdjust;
+  size.43_49 = (long unsigned int) _9;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].SLAST ={v} size.43_49;
+  _10 = tcd_38(D)->scatterGatherEnable;
+  if (_10 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  regValTemp_53 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR;
+  regValTemp_54 = regValTemp_53 & 65519;
+  regValTemp.51_55 = (signed short) regValTemp_54;
+  _56 = regValTemp.51_55 | 16;
+  regValTemp_57 = (uint16_t) _56;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR ={v} regValTemp_57;
+  _11 = tcd_38(D)->scatterGatherNextDescAddr;
+  EDMA_TCDSetScatterGatherLink (1073774592B, dmaChannel_35, _11);
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [local count: 719407025]:
+  regValTemp_59 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR;
+  regValTemp_60 = regValTemp_59 & 65519;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR ={v} regValTemp_60;
+  _12 = tcd_38(D)->destLastAddrAdjust;
+  adjust.44_58 = (long unsigned int) _12;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].DLASTSGA ={v} adjust.44_58;
+
+  <bb 5> [local count: 1073741824]:
+  _13 = tcd_38(D)->interruptEnable;
+  regValTemp_61 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR;
+  regValTemp_62 = regValTemp_61 & 65533;
+  if (_13 != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 6> [local count: 536870912]:
+
+  <bb 7> [local count: 1073741824]:
+  # iftmp.23_64 = PHI <2(5), 0(6)>
+  regValTemp.24_63 = (signed short) regValTemp_62;
+  _65 = regValTemp.24_63 | iftmp.23_64;
+  regValTemp_66 = (uint16_t) _65;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR ={v} regValTemp_66;
+  _14 = tcd_38(D)->loopTransferConfig;
+  if (_14 != 0B)
+    goto <bb 8>; [70.00%]
+  else
+    goto <bb 19>; [30.00%]
+
+  <bb 8> [local count: 751619281]:
+  _100 ={v} MEM[(struct DMA_Type *)1073774592B].CR;
+  _101 = _100 >> 7;
+  _102 = _101 & 1;
+  if (_102 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 9> [local count: 375809640]:
+  _15 = _14->srcOffsetEnable;
+  regValTemp_104 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_52].NBYTES.MLOFFYES;
+  regValTemp_105 = regValTemp_104 & 2147483647;
+  if (_15 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 10> [local count: 187904820]:
+  _29 = regValTemp_105 | 2147483648;
+
+  <bb 11> [local count: 375809640]:
+  # prephitmp_76 = PHI <_29(10), regValTemp_105(9)>
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].NBYTES.MLOFFYES ={v} prephitmp_76;
+
+  <bb 12> [local count: 751619281]:
+  _92 ={v} MEM[(struct DMA_Type *)1073774592B].CR;
+  _93 = _92 >> 7;
+  _94 = _93 & 1;
+  if (_94 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 13> [local count: 375809640]:
+  _17 = _14->dstOffsetEnable;
+  regValTemp_96 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_52].NBYTES.MLOFFYES;
+  regValTemp_97 = regValTemp_96 & 3221225471;
+  if (_17 != 0)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 14> [local count: 187904820]:
+  _18 = regValTemp_97 | 1073741824;
+
+  <bb 15> [local count: 375809640]:
+  # prephitmp_42 = PHI <_18(14), regValTemp_97(13)>
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].NBYTES.MLOFFYES ={v} prephitmp_42;
+
+  <bb 16> [local count: 751619281]:
+  _19 = _14->minorLoopOffset;
+  EDMA_TCDSetMinorLoopOffset (1073774592B, dmaChannel_35, _19);
+  _20 = tcd_38(D)->minorByteTransferCount;
+  EDMA_TCDSetNbytes (1073774592B, dmaChannel_35, _20);
+  _21 = tcd_38(D)->loopTransferConfig;
+  _22 = _21->minorLoopChnLinkNumber;
+  _23 = (long unsigned int) _22;
+  _24 = _21->minorLoopChnLinkEnable;
+  EDMA_TCDSetChannelMinorLink (1073774592B, dmaChannel_35, _23, _24);
+  _25 = tcd_38(D)->loopTransferConfig;
+  _26 = _25->majorLoopChnLinkNumber;
+  _28 = _25->majorLoopChnLinkEnable;
+  regValTemp_77 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR;
+  regValTemp_78 = regValTemp_77 & 61695;
+  _79 = (short unsigned int) _26;
+  _80 = _79 << 8;
+  _81 = (signed short) _80;
+  _82 = _81 & 3840;
+  regValTemp.54_83 = (signed short) regValTemp_78;
+  _84 = _82 | regValTemp.54_83;
+  regValTemp_85 = (uint16_t) _84;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR ={v} regValTemp_85;
+  regValTemp_86 ={v} MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR;
+  regValTemp_87 = regValTemp_86 & 65503;
+  if (_28 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 17> [local count: 375809641]:
+
+  <bb 18> [local count: 751619281]:
+  # iftmp.55_89 = PHI <32(16), 0(17)>
+  regValTemp.56_88 = (signed short) regValTemp_87;
+  _90 = regValTemp.56_88 | iftmp.55_89;
+  regValTemp_91 = (uint16_t) _90;
+  MEM[(struct DMA_Type *)1073774592B].TCD[_52].CSR ={v} regValTemp_91;
+  _30 = _25->majorLoopIterationCount;
+  EDMA_TCDSetMajorCount (1073774592B, dmaChannel_35, _30); [tail call]
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 322122544]:
+  _31 = tcd_38(D)->minorByteTransferCount;
+  EDMA_TCDSetNbytes (1073774592B, dmaChannel_35, _31); [tail call]
+
+  <bb 20> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function EDMA_DRV_ConfigLoopTransfer (EDMA_DRV_ConfigLoopTransfer, funcdef_no=39, decl_uid=6472, cgraph_uid=40, symbol_order=44)
+
+EDMA_DRV_ConfigLoopTransfer (uint8_t virtualChannel, const struct edma_transfer_config_t * transferConfig)
+{
+  uint32_t regValTemp;
+  struct edma_state_t * s_virtEdmaState.27_1;
+  int _2;
+  struct edma_chn_state_t * _3;
+
+  <bb 2> [local count: 1073741824]:
+  regValTemp_9 ={v} MEM[(struct DMA_Type *)1073774592B].CR;
+  regValTemp_10 = regValTemp_9 & 4294967167;
+  regValTemp_11 = regValTemp_10 | 128;
+  MEM[(struct DMA_Type *)1073774592B].CR ={v} regValTemp_11;
+  EDMA_DRV_PushConfigToReg (virtualChannel_4(D), transferConfig_6(D));
+  s_virtEdmaState.27_1 = s_virtEdmaState;
+  _2 = (int) virtualChannel_4(D);
+  _3 ={v} s_virtEdmaState.27_1->virtChnState[_2];
+  _3->status ={v} 0;
+  return 0;
+
+}
+
+
+
+;; Function EDMA_DRV_ConfigScatterGatherTransfer (EDMA_DRV_ConfigScatterGatherTransfer, funcdef_no=40, decl_uid=6480, cgraph_uid=41, symbol_order=45)
+
+Removing basic block 25
+Removing basic block 26
+Removing basic block 27
+Removing basic block 28
+Removing basic block 29
+Removing basic block 30
+Removing basic block 31
+Removing basic block 32
+Removing basic block 33
+Removing basic block 34
+Removing basic block 35
+EDMA_DRV_ConfigScatterGatherTransfer (uint8_t virtualChannel, struct edma_software_tcd_t * stcd, edma_transfer_size_t transferSize, uint32_t bytesOnEachRequest, const struct edma_scatter_gather_list_t * srcList, const struct edma_scatter_gather_list_t * destList, uint8_t tcdCount)
+{
+  unsigned int ivtmp.324;
+  unsigned int ivtmp.323;
+  unsigned int ivtmp.321;
+  uint8_t * sructPtr;
+  uint8_t * sructPtr;
+  status_t retStatus;
+  struct edma_transfer_config_t edmaTransferConfig;
+  struct edma_loop_transfer_config_t edmaLoopConfig;
+  uint32_t stcdAlignedAddr;
+  uint8_t i;
+  long unsigned int stcd.28_1;
+  long unsigned int _2;
+  struct edma_state_t * s_virtEdmaState.29_3;
+  int _4;
+  struct edma_chn_state_t * _5;
+  int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _12;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  <unnamed type> _17;
+  <unnamed type> _18;
+  struct edma_loop_transfer_config_t * _19;
+  long unsigned int _20;
+  short int transferOffset.30_21;
+  short int transferOffset.31_22;
+  short int transferOffset.32_23;
+  unsigned char _24;
+  struct edma_software_tcd_t * _29;
+  long unsigned int _38;
+  void * _95;
+  long unsigned int _99;
+  void * _105;
+  _Bool _113;
+  <unnamed type> _114;
+  long unsigned int cstore_115;
+
+  <bb 2> [local count: 113328204]:
+  stcd.28_1 = (long unsigned int) stcd_39(D);
+  _2 = stcd.28_1 + 31;
+  stcdAlignedAddr_40 = _2 & 4294967264;
+  s_virtEdmaState.29_3 = s_virtEdmaState;
+  _4 = (int) virtualChannel_43(D);
+  _5 ={v} s_virtEdmaState.29_3->virtChnState[_4];
+  _5->status ={v} 0;
+  _6 = (int) transferSize_45(D);
+  _7 = 1 << _6;
+  _38 = _7 & 65535;
+  _8 = bytesOnEachRequest_46(D) % _38;
+
+  <bb 3> [local count: 916928202]:
+  # sructPtr_121 = PHI <&edmaTransferConfig(2), sructPtr_87(3)>
+  MEM[base: sructPtr_121, offset: 0B] = 0;
+  sructPtr_87 = sructPtr_121 + 1;
+  if (&MEM <struct edma_transfer_config_t> [(void *)&edmaTransferConfig + 48B] != sructPtr_87)
+    goto <bb 3>; [87.64%]
+  else
+    goto <bb 4>; [12.36%]
+
+  <bb 4> [local count: 916928202]:
+  # sructPtr_119 = PHI <&edmaLoopConfig(3), sructPtr_83(4)>
+  MEM[base: sructPtr_119, offset: 0B] = 0;
+  sructPtr_83 = sructPtr_119 + 1;
+  if (&MEM <struct edma_loop_transfer_config_t> [(void *)&edmaLoopConfig + 16B] != sructPtr_83)
+    goto <bb 4>; [87.64%]
+  else
+    goto <bb 5>; [12.36%]
+
+  <bb 5> [local count: 113328204]:
+  edmaTransferConfig.srcLastAddrAdjust = 0;
+  edmaTransferConfig.destLastAddrAdjust = 0;
+  MEM <unsigned short> [(<unnamed type> *)&edmaTransferConfig + 24B] = 0;
+  edmaTransferConfig.srcTransferSize = transferSize_45(D);
+  edmaTransferConfig.destTransferSize = transferSize_45(D);
+  edmaTransferConfig.minorByteTransferCount = bytesOnEachRequest_46(D);
+  edmaTransferConfig.interruptEnable = 1;
+  edmaTransferConfig.scatterGatherEnable = 1;
+  edmaTransferConfig.loopTransferConfig = &edmaLoopConfig;
+  MEM <unsigned short> [(_Bool *)&edmaLoopConfig + 4B] = 0;
+  edmaLoopConfig.minorLoopChnLinkEnable = 0;
+  edmaLoopConfig.majorLoopChnLinkEnable = 0;
+  if (tcdCount_61(D) != 0)
+    goto <bb 6>; [97.25%]
+  else
+    goto <bb 23>; [2.75%]
+
+  <bb 6> [local count: 110211678]:
+  if (_8 == 0)
+    goto <bb 8>; [97.25%]
+  else
+    goto <bb 7>; [2.75%]
+
+  <bb 7> [local count: 58115251]:
+  goto <bb 24>; [100.00%]
+
+  <bb 8> [local count: 107180856]:
+  ivtmp.321_118 = (unsigned int) srcList_62(D);
+  ivtmp.323_31 = (unsigned int) destList_64(D);
+  ivtmp.324_108 = stcdAlignedAddr_40 + 4294967264;
+
+  <bb 9> [local count: 1015498033]:
+  # i_77 = PHI <0(8), i_79(22)>
+  # ivtmp.321_90 = PHI <ivtmp.321_118(8), ivtmp.321_84(22)>
+  # ivtmp.323_86 = PHI <ivtmp.323_31(8), ivtmp.323_82(22)>
+  # ivtmp.324_116 = PHI <ivtmp.324_108(8), ivtmp.324_107(22)>
+  _105 = (void *) ivtmp.321_90;
+  _12 = MEM[base: _105, offset: 0B];
+  edmaTransferConfig.srcAddr = _12;
+  _95 = (void *) ivtmp.323_86;
+  _14 = MEM[base: _95, offset: 0B];
+  edmaTransferConfig.destAddr = _14;
+  _15 = MEM[base: _105, offset: 4B];
+  _16 = MEM[base: _95, offset: 4B];
+  if (_15 != _16)
+    goto <bb 7>; [2.75%]
+  else
+    goto <bb 10>; [97.25%]
+
+  <bb 10> [local count: 987571834]:
+  _17 = MEM[base: _105, offset: 8B];
+  _18 = MEM[base: _95, offset: 8B];
+  if (_17 != _18)
+    goto <bb 7>; [2.75%]
+  else
+    goto <bb 11>; [97.25%]
+
+  <bb 11> [local count: 960413605]:
+  _19 = edmaTransferConfig.loopTransferConfig;
+  _20 = _15 / bytesOnEachRequest_46(D);
+  _19->majorLoopIterationCount = _20;
+  switch (_17) <default: <L23> [0.00%], case 0: <L6> [25.00%], case 1: <L7> [25.00%], case 2: <L8> [25.00%], case 3: <L9> [25.00%]>
+
+  <bb 12> [local count: 192082724]:
+<L6>:
+  edmaTransferConfig.srcOffset = 0;
+  transferOffset.30_21 = (short int) _7;
+  edmaTransferConfig.destOffset = transferOffset.30_21;
+  goto <bb 16>; [100.00%]
+
+  <bb 13> [local count: 192082724]:
+<L7>:
+  transferOffset.31_22 = (short int) _7;
+  edmaTransferConfig.srcOffset = transferOffset.31_22;
+  edmaTransferConfig.destOffset = 0;
+  goto <bb 16>; [100.00%]
+
+  <bb 14> [local count: 192082724]:
+<L8>:
+  transferOffset.32_23 = (short int) _7;
+  edmaTransferConfig.srcOffset = transferOffset.32_23;
+  edmaTransferConfig.destOffset = transferOffset.32_23;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [local count: 192082724]:
+<L9>:
+  edmaTransferConfig.srcOffset = 0;
+  edmaTransferConfig.destOffset = 0;
+
+  <bb 16> [local count: 960413620]:
+<L23>:
+  _24 = tcdCount_61(D) + 255;
+  if (_24 == i_77)
+    goto <bb 18>; [34.00%]
+  else
+    goto <bb 17>; [66.00%]
+
+  <bb 17> [local count: 633872986]:
+  _99 = ivtmp.324_116 + 32;
+
+  <bb 18> [local count: 960413620]:
+  # cstore_115 = PHI <_99(17), _8(16)>
+  edmaTransferConfig.scatterGatherNextDescAddr = cstore_115;
+  if (i_77 == 0)
+    goto <bb 19>; [21.69%]
+  else
+    goto <bb 20>; [78.31%]
+
+  <bb 19> [local count: 208313713]:
+  EDMA_DRV_PushConfigToReg (virtualChannel_43(D), &edmaTransferConfig);
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [local count: 752099908]:
+  _29 = (struct edma_software_tcd_t *) ivtmp.324_116;
+  if (ivtmp.324_116 != 0)
+    goto <bb 21>; [70.00%]
+  else
+    goto <bb 22>; [30.00%]
+
+  <bb 21> [local count: 526469937]:
+  EDMA_DRV_PushConfigToSTCD.part.0 (&edmaTransferConfig, _29);
+
+  <bb 22> [local count: 960413622]:
+  i_79 = i_77 + 1;
+  ivtmp.321_84 = ivtmp.321_90 + 12;
+  ivtmp.323_82 = ivtmp.323_86 + 12;
+  ivtmp.324_107 = ivtmp.324_116 + 32;
+  if (tcdCount_61(D) != i_79)
+    goto <bb 9>; [97.25%]
+  else
+    goto <bb 24>; [2.75%]
+
+  <bb 23> [local count: 3116526]:
+  _113 = _8 != 0;
+  _114 = (<unnamed type>) _113;
+
+  <bb 24> [local count: 113328219]:
+  # retStatus_32 = PHI <1(7), _114(23), 0(22)>
+  edmaLoopConfig ={v} {CLOBBER};
+  edmaTransferConfig ={v} {CLOBBER};
+  return retStatus_32;
+
+}
+
+
+
+;; Function EDMA_DRV_GetChannelStatus (EDMA_DRV_GetChannelStatus, funcdef_no=63, decl_uid=6542, cgraph_uid=64, symbol_order=68)
+
+EDMA_DRV_GetChannelStatus (uint8_t virtualChannel)
+{
+  struct edma_state_t * s_virtEdmaState.57_1;
+  int _2;
+  struct edma_chn_state_t * _3;
+  edma_chn_status_t _6;
+
+  <bb 2> [local count: 1073741824]:
+  s_virtEdmaState.57_1 = s_virtEdmaState;
+  _2 = (int) virtualChannel_5(D);
+  _3 ={v} s_virtEdmaState.57_1->virtChnState[_2];
+  _6 ={v} _3->status;
+  return _6;
+
+}
+
+
+
+;; Function EDMA_DRV_GetDmaRegBaseAddr (EDMA_DRV_GetDmaRegBaseAddr, funcdef_no=64, decl_uid=6745, cgraph_uid=65, symbol_order=69)
+
+EDMA_DRV_GetDmaRegBaseAddr (uint32_t instance)
+{
+  <bb 2> [local count: 1073741824]:
+  return 1073774592B;
+
+}
+
+

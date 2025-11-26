@@ -1,0 +1,36 @@
+
+;; Function LPUART0_IrqHandler (LPUART0_IrqHandler, funcdef_no=0, decl_uid=6225, cgraph_uid=1, symbol_order=0)
+
+LPUART0_IrqHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  LPUART_DRV_IRQHandler (0); [tail call]
+  return;
+
+}
+
+
+
+;; Function LPUART1_IrqHandler (LPUART1_IrqHandler, funcdef_no=1, decl_uid=6227, cgraph_uid=2, symbol_order=1)
+
+LPUART1_IrqHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  LPUART_DRV_IRQHandler (1); [tail call]
+  return;
+
+}
+
+
+
+;; Function LPUART2_IrqHandler (LPUART2_IrqHandler, funcdef_no=2, decl_uid=6229, cgraph_uid=3, symbol_order=2)
+
+LPUART2_IrqHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  LPUART_DRV_IRQHandler (2); [tail call]
+  return;
+
+}
+
+

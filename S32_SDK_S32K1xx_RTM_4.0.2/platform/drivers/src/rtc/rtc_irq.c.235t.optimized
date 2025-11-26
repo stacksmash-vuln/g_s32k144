@@ -1,0 +1,24 @@
+
+;; Function RTC_IRQHandler (RTC_IRQHandler, funcdef_no=0, decl_uid=6450, cgraph_uid=1, symbol_order=0)
+
+RTC_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  RTC_DRV_IRQHandler (0); [tail call]
+  return;
+
+}
+
+
+
+;; Function RTC_Seconds_IRQHandler (RTC_Seconds_IRQHandler, funcdef_no=1, decl_uid=6452, cgraph_uid=2, symbol_order=1)
+
+RTC_Seconds_IRQHandler ()
+{
+  <bb 2> [local count: 1073741824]:
+  RTC_DRV_SecondsIRQHandler (0); [tail call]
+  return;
+
+}
+
+

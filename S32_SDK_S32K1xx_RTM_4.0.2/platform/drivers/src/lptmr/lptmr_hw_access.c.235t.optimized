@@ -1,0 +1,19 @@
+
+;; Function LPTMR_Init (LPTMR_Init, funcdef_no=26, decl_uid=6388, cgraph_uid=27, symbol_order=26)
+
+LPTMR_Init (struct LPTMR_Type * const base)
+{
+  uint32_t tmp;
+
+  <bb 2> [local count: 1073741824]:
+  tmp_3 ={v} base_2(D)->CSR;
+  tmp_4 = tmp_3 & 4294967166;
+  base_2(D)->CSR ={v} tmp_4;
+  base_2(D)->CSR ={v} 0;
+  base_2(D)->PSR ={v} 0;
+  base_2(D)->CMR ={v} 0;
+  return;
+
+}
+
+

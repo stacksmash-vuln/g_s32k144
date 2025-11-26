@@ -1,0 +1,25 @@
+var settings_8h =
+[
+    [ "AES_MAX_KEY_SIZE", "settings_8h.html#ac3c936c490fa55c6836a5bcf0e5de40b", null ],
+    [ "ECC_DECODE_EXTRA", "settings_8h.html#a108d84c8515e036491ff64ad18a52179", null ],
+    [ "FREERTOS", "settings_8h.html#a9456fd056224d02c4ded337ed8007edf", null ],
+    [ "HAVE_AES_CBC", "settings_8h.html#a26f4fa126b418ab325a1963778e180dc", null ],
+    [ "HAVE_AES_DECRYPT", "settings_8h.html#a03f7c948369fdb9acb58f950b5fdd042", null ],
+    [ "HAVE_ALL_CURVES", "settings_8h.html#a5e267cb5ea8bf9e7dddad5a087246f28", null ],
+    [ "NO_DH", "settings_8h.html#a80f7452a61210d7bcb0ad59aaf600bfb", null ],
+    [ "NO_DSA", "settings_8h.html#aed916aa8b71fbdcf140051cf0ac47611", null ],
+    [ "NO_HC128", "settings_8h.html#a4ac30654e67e206d019dc7949c3fb524", null ],
+    [ "NO_SHA512", "settings_8h.html#adc63a3075e1466c97931eefa4489c0a8", null ],
+    [ "NO_WRITEV", "settings_8h.html#a7cb2bc5dd18d959101fbf0fdf47bcbcb", null ],
+    [ "RSA_DECODE_EXTRA", "settings_8h.html#a7353a31c0a833e9bad1a46658182061e", null ],
+    [ "USE_WOLFSSL_MEMORY", "settings_8h.html#a1514aba973f499216148fd334ec73fbe", null ],
+    [ "WC_ASYNC_DEV_SIZE", "settings_8h.html#a9e332bd924fb1170b85bc7d202e35d3c", null ],
+    [ "WOLFSSL_ALERT_COUNT_MAX", "settings_8h.html#aed2e114f36ee3721f34b3058fc233396", null ],
+    [ "WOLFSSL_GENERAL_ALIGNMENT", "settings_8h.html#a35a315abca2d7e61bfbad42854072e46", null ],
+    [ "WOLFSSL_LWIP", "settings_8h.html#aeaf133d15062b79b323d1c5beca69b6d", null ],
+    [ "WOLFSSL_MIN_AUTH_TAG_SZ", "settings_8h.html#ab9cbabf2b5eeb87e2f0f200e054a6b2c", null ],
+    [ "XFREE", "settings_8h.html#ae01000fa5e9e2efb6dd8caad44b4c8ce", null ],
+    [ "XGEN_ALIGN", "settings_8h.html#ae62b3f181294c2e53ee8f627354a5a4c", null ],
+    [ "XMALLOC", "settings_8h.html#a37539bad9b545151ac99cdd910181c76", null ],
+    [ "XSTREAM_ALIGN", "settings_8h.html#a3bf8d68fac41eaef582ce2fda2a0af4c", null ]
+];

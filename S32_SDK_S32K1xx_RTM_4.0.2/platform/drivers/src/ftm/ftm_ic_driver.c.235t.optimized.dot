@@ -1,0 +1,1846 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/ftm/ftm_ic_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_FTM_DRV_InputCaptureHandler" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_InputCaptureHandler ()";
+	fn_164_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_164_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_164_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_18\ =\ ftmStatePtr[instance_17(D)];\l\
+|ftmBase_19\ =\ g_ftmBase[instance_17(D)];\l\
+|channel_21\ =\ channelPair_20(D)\ \<\<\ 1;\l\
+|_28\ =\{v\}\ MEM[(const\ struct\ FTM_Type\ *)ftmBase_19].COMBINE;\l\
+|_59\ =\ (signed\ short)\ channelPair_20(D);\l\
+|_66\ =\ (signed\ short)\ 8;\l\
+|_30\ =\ _59\ w*\ _66;\l\
+|_31\ =\ 4\ \<\<\ _30;\l\
+|_32\ =\ _28\ &\ _31;\l\
+|if\ (_32\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_164_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_36\ =\ (int)\ channel_21;\l\
+|_33\ =\ (signed\ short)\ channel_21;\l\
+|_12\ =\ (signed\ short)\ 8;\l\
+|_70\ =\ _33\ w*\ _12;\l\
+|_71\ =\ ftmBase_19\ +\ _70;\l\
+|_37\ =\{v\}\ MEM\ \<const\ uint32_t\>\ [(const\ struct\ FTM_Type\ *)_71\ +\ 16B];\l\
+|_38\ =\ (short\ unsigned\ int)\ _37;\l\
+|_1\ =\ channel_21\ +\ 1;\l\
+|_64\ =\ (signed\ short)\ _1;\l\
+|_76\ =\ (signed\ short)\ 8;\l\
+|_82\ =\ _64\ w*\ _76;\l\
+|_83\ =\ ftmBase_19\ +\ _82;\l\
+|_34\ =\{v\}\ MEM\ \<const\ uint32_t\>\ [(const\ struct\ FTM_Type\ *)_83\ +\ 16B];\l\
+|_35\ =\ (short\ unsigned\ int)\ _34;\l\
+|if\ (_35\ \<=\ _38)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_164_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|_2\ =\ state_18-\>ftmModValue;\l\
+|_24\ =\ _35\ -\ _38;\l\
+|_4\ =\ _2\ +\ _24;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_164_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 5\>:\l\
+|_5\ =\ _35\ -\ _38;\l\
+}"];
+
+	fn_164_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 6\>:\l\
+|#\ cstore_58\ =\ PHI\ \<_4(4),\ _5(5)\>\l\
+|state_18-\>measurementResults[_36]\ =\ cstore_58;\l\
+|_42\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_71\ +\ 12B];\l\
+|_43\ =\ _42\ &\ 4294967167;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_71\ +\ 12B]\ =\{v\}\ _43;\l\
+|vol.3_44\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_71\ +\ 12B];\l\
+|_39\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_83\ +\ 12B];\l\
+|_40\ =\ _39\ &\ 4294967167;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_83\ +\ 12B]\ =\{v\}\ _40;\l\
+|vol.3_41\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_83\ +\ 12B];\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_164_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 7\>:\l\
+|_45\ =\ (int)\ channel_21;\l\
+|_46\ =\{v\}\ MEM[(const\ struct\ FTM_Type\ *)ftmBase_19].CONTROLS[_45].CnSC;\l\
+|_47\ =\ _46\ &\ 128;\l\
+|if\ (_47\ ==\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_164_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 8\>:\l\
+|channel_22\ =\ channel_21\ +\ 1;\l\
+|_13\ =\ (int)\ channel_22;\l\
+}"];
+
+	fn_164_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 9\>:\l\
+|#\ prephitmp_3\ =\ PHI\ \<_13(8),\ _45(7)\>\l\
+|_11\ =\ (sizetype)\ prephitmp_3;\l\
+|_6\ =\ _11\ *\ 8;\l\
+|_7\ =\ ftmBase_19\ +\ _6;\l\
+|_51\ =\{v\}\ MEM\ \<const\ uint32_t\>\ [(const\ struct\ FTM_Type\ *)_7\ +\ 16B];\l\
+|_52\ =\ (short\ unsigned\ int)\ _51;\l\
+|state_18-\>measurementResults[prephitmp_3]\ =\ _52;\l\
+|_48\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_7\ +\ 12B];\l\
+|_49\ =\ _48\ &\ 4294967167;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_7\ +\ 12B]\ =\{v\}\ _49;\l\
+|vol.3_50\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_7\ +\ 12B];\l\
+}"];
+
+	fn_164_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|#\ prephitmp_25\ =\ PHI\ \<_36(6),\ prephitmp_3(9)\>\l\
+|_53\ =\{v\}\ MEM[(const\ struct\ FTM_Type\ *)ftmBase_19].MOD;\l\
+|_54\ =\ (short\ unsigned\ int)\ _53;\l\
+|state_18-\>ftmModValue\ =\ _54;\l\
+|_93\ =\ (sizetype)\ prephitmp_25;\l\
+|_94\ =\ _93\ *\ 4;\l\
+|_95\ =\ state_18\ +\ _94;\l\
+|_8\ =\ MEM\ \<void\ (*ic_callback_t)\ (ic_event_t,\ void\ *)\>\ [(struct\ ftm_state_t\ *)_95\ +\ 60B];\l\
+|if\ (_8\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 11\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [30.00%]\l\
+}"];
+
+	fn_164_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 11\>:\l\
+|_9\ =\ state_18-\>enableNotification[prephitmp_25];\l\
+|if\ (_9\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+}"];
+
+	fn_164_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809640\<bb\ 12\>:\l\
+|_10\ =\ MEM\ \<void\ *\>\ [(struct\ ftm_state_t\ *)_95\ +\ 28B];\l\
+|_8\ (0,\ _10);\ [tail\ call]\l\
+}"];
+
+	fn_164_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 13\>:\l\
+|return;\l\
+}"];
+
+	fn_164_basic_block_0:s -> fn_164_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_164_basic_block_2:s -> fn_164_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_164_basic_block_2:s -> fn_164_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_164_basic_block_3:s -> fn_164_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_164_basic_block_3:s -> fn_164_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_164_basic_block_4:s -> fn_164_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_164_basic_block_5:s -> fn_164_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_164_basic_block_6:s -> fn_164_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_164_basic_block_7:s -> fn_164_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_164_basic_block_7:s -> fn_164_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_164_basic_block_8:s -> fn_164_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_164_basic_block_9:s -> fn_164_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_164_basic_block_10:s -> fn_164_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_164_basic_block_10:s -> fn_164_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_164_basic_block_11:s -> fn_164_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_164_basic_block_11:s -> fn_164_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_164_basic_block_12:s -> fn_164_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_164_basic_block_13:s -> fn_164_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_164_basic_block_0:s -> fn_164_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_DRV_InitInputCapture" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_InitInputCapture ()";
+	subgraph cluster_142_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_142_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1014686024\<bb\ 10\>:\l\
+|#\ ivtmp.52_188\ =\ PHI\ \<0(9),\ ivtmp.52_175(24)\>\l\
+|_3\ =\ param_40(D)-\>inputChConfig;\l\
+|_270\ =\ ivtmp.52_188\ &\ 255;\l\
+|_5\ =\ _270\ *\ 16;\l\
+|_6\ =\ _3\ +\ _5;\l\
+|hwChannel_42\ =\ _6-\>hwChannelId;\l\
+|chnlPairNum_43\ =\ hwChannel_42\ \>\>\ 1;\l\
+|_7\ =\ (int)\ hwChannel_42;\l\
+|_8\ =\ _6-\>channelsCallbacksParams;\l\
+|_209\ =\ (signed\ short)\ hwChannel_42;\l\
+|_17\ =\ (signed\ short)\ 4;\l\
+|_158\ =\ _209\ w*\ _17;\l\
+|_157\ =\ state_38\ +\ _158;\l\
+|MEM\ \<void\ *\>\ [(struct\ ftm_state_t\ *)_157\ +\ 28B]\ =\ _8;\l\
+|_9\ =\ _6-\>channelsCallbacks;\l\
+|MEM\ \<void\ (*ic_callback_t)\ (ic_event_t,\ void\ *)\>\ [(struct\ ftm_state_t\ *)_157\ +\ 60B]\ =\ _9;\l\
+|state_38-\>enableNotification[_7]\ =\ 1;\l\
+|if\ (hwChannel_42\ \<=\ 3)\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+}"];
+
+	fn_142_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:507343012\<bb\ 11\>:\l\
+|_10\ =\ _6-\>filterEn;\l\
+|if\ (_10\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+}"];
+
+	fn_142_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1014686024\<bb\ 14\>:\l\
+|#\ prephitmp_52\ =\ PHI\ \<_27(13),\ _215(12),\ _6(10)\>\l\
+|_15\ =\ prephitmp_52-\>inputMode;\l\
+|if\ (_15\ ==\ 0)\l\
+\ \ goto\ \<bb\ 15\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [67.00%]\l\
+}"];
+
+	fn_142_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:253671506\<bb\ 12\>:\l\
+|_11\ =\ _6-\>filterValue;\l\
+|_12\ =\ (unsigned\ char)\ _11;\l\
+|FTM_DRV_SetChnInputCaptureFilter\ (ftmBase_37,\ hwChannel_42,\ _12);\l\
+|pretmp_134\ =\ param_40(D)-\>inputChConfig;\l\
+|_215\ =\ pretmp_134\ +\ _5;\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:253671506\<bb\ 13\>:\l\
+|FTM_DRV_SetChnInputCaptureFilter\ (ftmBase_37,\ hwChannel_42,\ 0);\l\
+|pretmp_135\ =\ param_40(D)-\>inputChConfig;\l\
+|_27\ =\ pretmp_135\ +\ _5;\l\
+}"];
+
+	fn_142_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:334846386\<bb\ 15\>:\l\
+|_104\ =\{v\}\ ftmBase_37-\>COMBINE;\l\
+|_53\ =\ (signed\ short)\ chnlPairNum_43;\l\
+|_208\ =\ (signed\ short)\ 8;\l\
+|_106\ =\ _53\ w*\ _208;\l\
+|_107\ =\ 4\ \<\<\ _106;\l\
+|_108\ =\ ~_107;\l\
+|_109\ =\ _104\ &\ _108;\l\
+|ftmBase_37-\>COMBINE\ =\{v\}\ _109;\l\
+|_207\ =\ (signed\ short)\ hwChannel_42;\l\
+|_222\ =\ (signed\ short)\ 8;\l\
+|_356\ =\ _207\ w*\ _222;\l\
+|_357\ =\ ftmBase_37\ +\ _356;\l\
+|_72\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B];\l\
+|_73\ =\ _72\ &\ 4294967279;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B]\ =\{v\}\ _73;\l\
+|_74\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B];\l\
+|_75\ =\ _74\ &\ 4294967263;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B]\ =\{v\}\ _75;\l\
+|_18\ =\ prephitmp_52-\>edgeAlignement;\l\
+|_92\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B];\l\
+|_93\ =\ _92\ &\ 4294967291;\l\
+|_94\ =\ (long\ unsigned\ int)\ _18;\l\
+|_95\ =\ _94\ \<\<\ 2;\l\
+|_96\ =\ _95\ &\ 4;\l\
+|_97\ =\ _93\ \|\ _96;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B]\ =\{v\}\ _97;\l\
+|_98\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B];\l\
+|_99\ =\ _98\ &\ 4294967287;\l\
+|_100\ =\ _94\ \>\>\ 1;\l\
+|_101\ =\ _100\ \<\<\ 3;\l\
+|_102\ =\ _101\ &\ 8;\l\
+|_103\ =\ _99\ \|\ _102;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B]\ =\{v\}\ _103;\l\
+|_70\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B];\l\
+|_71\ =\ _70\ \|\ 64;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_357\ +\ 12B]\ =\{v\}\ _71;\l\
+|_19\ =\ g_ftmIrqId[instance_36(D)][_7];\l\
+|INT_SYS_EnableIRQ\ (_19);\l\
+goto\ \<bb\ 24\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:679839639\<bb\ 16\>:\l\
+|if\ (_15\ ==\ 1)\l\
+\ \ goto\ \<bb\ 17\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [79.76%]\l\
+}"];
+
+	fn_142_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:958878295\<bb\ 24\>:\l\
+|_20\ =\ param_40(D)-\>nNumChannels;\l\
+|ivtmp.52_175\ =\ ivtmp.52_188\ +\ 1;\l\
+|index_173\ =\ (uint8_t)\ ivtmp.52_175;\l\
+|if\ (_20\ \>\ index_173)\l\
+\ \ goto\ \<bb\ 10\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [5.50%]\l\
+}"];
+
+	fn_142_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:137599542\<bb\ 17\>:\l\
+|measurementType_49\ =\ prephitmp_52-\>measurementType;\l\
+|contModeEn_50\ =\ prephitmp_52-\>continuousModeEn;\l\
+|_112\ =\{v\}\ ftmBase_37-\>COMBINE;\l\
+|_269\ =\ (signed\ short)\ chnlPairNum_43;\l\
+|_14\ =\ (signed\ short)\ 8;\l\
+|_114\ =\ _269\ w*\ _14;\l\
+|_115\ =\ 4\ \<\<\ _114;\l\
+|_116\ =\ _112\ \|\ _115;\l\
+|ftmBase_37-\>COMBINE\ =\{v\}\ _116;\l\
+|_117\ =\{v\}\ ftmBase_37-\>COMBINE;\l\
+|_118\ =\ 8\ \<\<\ _114;\l\
+|_119\ =\ _117\ \|\ _118;\l\
+|ftmBase_37-\>COMBINE\ =\{v\}\ _119;\l\
+|if\ (contModeEn_50\ !=\ 0)\l\
+\ \ goto\ \<bb\ 18\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [50.00%]\l\
+}"];
+
+	fn_142_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:68799771\<bb\ 18\>:\l\
+|_4\ =\ (signed\ short)\ hwChannel_42;\l\
+|_232\ =\ (signed\ short)\ 8;\l\
+|_225\ =\ _4\ w*\ _232;\l\
+|_223\ =\ ftmBase_37\ +\ _225;\l\
+|_121\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_223\ +\ 12B];\l\
+|_122\ =\ _121\ &\ 4294967279;\l\
+|_123\ =\ _122\ \|\ 16;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_223\ +\ 12B]\ =\{v\}\ _123;\l\
+|_124\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_223\ +\ 12B];\l\
+|_125\ =\ _124\ &\ 4294967263;\l\
+|_126\ =\ _125\ \|\ 32;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_223\ +\ 12B]\ =\{v\}\ _126;\l\
+goto\ \<bb\ 20\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:68799771\<bb\ 19\>:\l\
+|_174\ =\ (signed\ short)\ hwChannel_42;\l\
+|_244\ =\ (signed\ short)\ 8;\l\
+|_211\ =\ _174\ w*\ _244;\l\
+|_137\ =\ ftmBase_37\ +\ _211;\l\
+|_128\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_137\ +\ 12B];\l\
+|_129\ =\ _128\ &\ 4294967279;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_137\ +\ 12B]\ =\{v\}\ _129;\l\
+|_130\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_137\ +\ 12B];\l\
+|_131\ =\ _130\ &\ 4294967263;\l\
+|_132\ =\ _131\ \|\ 32;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_137\ +\ 12B]\ =\{v\}\ _132;\l\
+}"];
+
+	fn_142_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:137599542\<bb\ 20\>:\l\
+|if\ (measurementType_49\ ==\ 3)\l\
+\ \ goto\ \<bb\ 31\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [66.00%]\l\
+}"];
+
+	fn_142_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:26404802\<bb\ 31\>:\l\
+|_86\ =\ (signed\ short)\ hwChannel_42;\l\
+|_133\ =\ (signed\ short)\ 8;\l\
+|_326\ =\ _86\ w*\ _133;\l\
+|_327\ =\ ftmBase_37\ +\ _326;\l\
+|_250\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_327\ +\ 12B];\l\
+|_251\ =\ _250\ &\ 4294967291;\l\
+|_252\ =\ _251\ \|\ 4;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_327\ +\ 12B]\ =\{v\}\ _252;\l\
+|_254\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_327\ +\ 12B];\l\
+|_255\ =\ _254\ &\ 4294967287;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_327\ +\ 12B]\ =\{v\}\ _255;\l\
+|_139\ =\ hwChannel_42\ +\ 1;\l\
+|_140\ =\ (int)\ _139;\l\
+|_234\ =\ (signed\ short)\ _139;\l\
+|_136\ =\ (signed\ short)\ 8;\l\
+|_338\ =\ _234\ w*\ _136;\l\
+|_339\ =\ ftmBase_37\ +\ _338;\l\
+|_141\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_339\ +\ 12B];\l\
+|_142\ =\ _141\ &\ 4294967291;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_339\ +\ 12B]\ =\{v\}\ _142;\l\
+|_143\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_339\ +\ 12B];\l\
+|_144\ =\ _143\ &\ 4294967287;\l\
+|_145\ =\ _144\ \|\ 8;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_339\ +\ 12B]\ =\{v\}\ _145;\l\
+goto\ \<bb\ 29\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:90815697\<bb\ 21\>:\l\
+|if\ (measurementType_49\ ==\ 1)\l\
+\ \ goto\ \<bb\ 32\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [66.00%]\l\
+}"];
+
+	fn_142_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:92583069\<bb\ 29\>:\l\
+|#\ prephitmp_202\ =\ PHI\ \<_167(34),\ _160(33),\ _147(32),\ _140(31)\>\l\
+|_349\ =\ (sizetype)\ prephitmp_202;\l\
+|_350\ =\ _349\ *\ 8;\l\
+|_351\ =\ ftmBase_37\ +\ _350;\l\
+|_236\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_351\ +\ 12B];\l\
+|_237\ =\ _236\ \|\ 64;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_351\ +\ 12B]\ =\{v\}\ _237;\l\
+|_239\ =\ g_ftmIrqId[instance_36(D)][_7];\l\
+|INT_SYS_EnableIRQ\ (_239);\l\
+goto\ \<bb\ 24\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:51256380\<bb\ 32\>:\l\
+|_268\ =\ (signed\ short)\ hwChannel_42;\l\
+|_206\ =\ (signed\ short)\ 8;\l\
+|_302\ =\ _268\ w*\ _206;\l\
+|_303\ =\ ftmBase_37\ +\ _302;\l\
+|_257\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_303\ +\ 12B];\l\
+|_258\ =\ _257\ &\ 4294967291;\l\
+|_259\ =\ _258\ \|\ 4;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_303\ +\ 12B]\ =\{v\}\ _259;\l\
+|_261\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_303\ +\ 12B];\l\
+|_262\ =\ _261\ &\ 4294967287;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_303\ +\ 12B]\ =\{v\}\ _262;\l\
+|_146\ =\ hwChannel_42\ +\ 1;\l\
+|_147\ =\ (int)\ _146;\l\
+|_221\ =\ (signed\ short)\ _146;\l\
+|_220\ =\ (signed\ short)\ 8;\l\
+|_314\ =\ _221\ w*\ _220;\l\
+|_315\ =\ ftmBase_37\ +\ _314;\l\
+|_148\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_315\ +\ 12B];\l\
+|_149\ =\ _148\ &\ 4294967291;\l\
+|_150\ =\ _149\ \|\ 4;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_315\ +\ 12B]\ =\{v\}\ _150;\l\
+|_151\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_315\ +\ 12B];\l\
+|_152\ =\ _151\ &\ 4294967287;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_315\ +\ 12B]\ =\{v\}\ _152;\l\
+goto\ \<bb\ 29\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59938360\<bb\ 22\>:\l\
+|if\ (measurementType_49\ ==\ 4)\l\
+\ \ goto\ \<bb\ 33\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [66.00%]\l\
+}"];
+
+	fn_142_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:11501932\<bb\ 33\>:\l\
+|_111\ =\ (signed\ short)\ hwChannel_42;\l\
+|_264\ =\ (signed\ short)\ 8;\l\
+|_278\ =\ _111\ w*\ _264;\l\
+|_279\ =\ ftmBase_37\ +\ _278;\l\
+|_32\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_279\ +\ 12B];\l\
+|_24\ =\ _32\ &\ 4294967291;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_279\ +\ 12B]\ =\{v\}\ _24;\l\
+|_229\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_279\ +\ 12B];\l\
+|_231\ =\ _229\ &\ 4294967287;\l\
+|_230\ =\ _231\ \|\ 8;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_279\ +\ 12B]\ =\{v\}\ _230;\l\
+|_159\ =\ hwChannel_42\ +\ 1;\l\
+|_160\ =\ (int)\ _159;\l\
+|_127\ =\ (signed\ short)\ _159;\l\
+|_26\ =\ (signed\ short)\ 8;\l\
+|_290\ =\ _127\ w*\ _26;\l\
+|_291\ =\ ftmBase_37\ +\ _290;\l\
+|_161\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_291\ +\ 12B];\l\
+|_162\ =\ _161\ &\ 4294967291;\l\
+|_163\ =\ _162\ \|\ 4;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_291\ +\ 12B]\ =\{v\}\ _163;\l\
+|_164\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_291\ +\ 12B];\l\
+|_165\ =\ _164\ &\ 4294967287;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_291\ +\ 12B]\ =\{v\}\ _165;\l\
+goto\ \<bb\ 29\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:39559317\<bb\ 23\>:\l\
+|if\ (measurementType_49\ ==\ 2)\l\
+\ \ goto\ \<bb\ 34\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 30\>;\ [66.00%]\l\
+}"];
+
+	fn_142_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22327279\<bb\ 34\>:\l\
+|_51\ =\ (signed\ short)\ hwChannel_42;\l\
+|_31\ =\ (signed\ short)\ 8;\l\
+|_213\ =\ _51\ w*\ _31;\l\
+|_216\ =\ ftmBase_37\ +\ _213;\l\
+|_200\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_216\ +\ 12B];\l\
+|_195\ =\ _200\ &\ 4294967291;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_216\ +\ 12B]\ =\{v\}\ _195;\l\
+|_181\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_216\ +\ 12B];\l\
+|_179\ =\ _181\ &\ 4294967287;\l\
+|_178\ =\ _179\ \|\ 8;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_216\ +\ 12B]\ =\{v\}\ _178;\l\
+|_166\ =\ hwChannel_42\ +\ 1;\l\
+|_167\ =\ (int)\ _166;\l\
+|_110\ =\ (signed\ short)\ _166;\l\
+|_212\ =\ (signed\ short)\ 8;\l\
+|_266\ =\ _110\ w*\ _212;\l\
+|_267\ =\ ftmBase_37\ +\ _266;\l\
+|_168\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_267\ +\ 12B];\l\
+|_169\ =\ _168\ &\ 4294967291;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_267\ +\ 12B]\ =\{v\}\ _169;\l\
+|_170\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_267\ +\ 12B];\l\
+|_171\ =\ _170\ &\ 4294967287;\l\
+|_172\ =\ _171\ \|\ 8;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_267\ +\ 12B]\ =\{v\}\ _172;\l\
+goto\ \<bb\ 29\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_142_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_142_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_142_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:209781074\<bb\ 2\>:\l\
+|state_38\ =\ ftmStatePtr[instance_36(D)];\l\
+|if\ (state_38\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [30.00%]\l\
+}"];
+
+	fn_142_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:112149582\<bb\ 3\>:\l\
+goto\ \<bb\ 27\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:146846752\<bb\ 4\>:\l\
+|ftmBase_37\ =\ g_ftmBase[instance_36(D)];\l\
+|_1\ =\ state_38-\>ftmMode;\l\
+|if\ (_1\ ==\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_142_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:73423376\<bb\ 5\>:\l\
+|if\ (_1\ ==\ 3)\l\
+\ \ goto\ \<bb\ 8\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_142_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:48459428\<bb\ 6\>:\l\
+|if\ (_1\ ==\ 8)\l\
+\ \ goto\ \<bb\ 8\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+}"];
+
+	fn_142_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:57431765\<bb\ 7\>:\l\
+|_66\ =\{v\}\ ftmBase_37-\>SC;\l\
+|_67\ =\ _66\ &\ 4294967271;\l\
+|ftmBase_37-\>SC\ =\{v\}\ _67;\l\
+|_64\ =\{v\}\ ftmBase_37-\>CNTIN;\l\
+|_65\ =\ _64\ &\ 4294901760;\l\
+|ftmBase_37-\>CNTIN\ =\{v\}\ _65;\l\
+|_2\ =\ param_40(D)-\>nMaxCountValue;\l\
+|_60\ =\{v\}\ ftmBase_37-\>MOD;\l\
+|_61\ =\ _60\ &\ 4294901760;\l\
+|_62\ =\ (long\ unsigned\ int)\ _2;\l\
+|_63\ =\ _61\ \|\ _62;\l\
+|ftmBase_37-\>MOD\ =\{v\}\ _63;\l\
+|_58\ =\{v\}\ ftmBase_37-\>SC;\l\
+|_59\ =\ _58\ &\ 4294967263;\l\
+|ftmBase_37-\>SC\ =\{v\}\ _59;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:57431765\<bb\ 8\>:\l\
+|state_38-\>ftmMode\ =\ 8;\l\
+}"];
+
+	fn_142_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:114863530\<bb\ 9\>:\l\
+|_68\ =\{v\}\ MEM[(const\ struct\ FTM_Type\ *)ftmBase_37].MOD;\l\
+|_69\ =\ (short\ unsigned\ int)\ _68;\l\
+|state_38-\>ftmModValue\ =\ _69;\l\
+|_120\ =\ param_40(D)-\>nNumChannels;\l\
+|if\ (_120\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [5.50%]\l\
+}"];
+
+	fn_142_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:28715883\<bb\ 25\>:\l\
+|state_38-\>ftmMode\ =\ 1;\l\
+|_22\ =\ state_38-\>ftmClockSource;\l\
+|_76\ =\{v\}\ ftmBase_37-\>SC;\l\
+|_77\ =\ _76\ &\ 4294967271;\l\
+|_78\ =\ (long\ unsigned\ int)\ _22;\l\
+|_79\ =\ _78\ \<\<\ 3;\l\
+|_80\ =\ _79\ &\ 24;\l\
+|_81\ =\ _77\ \|\ _80;\l\
+|ftmBase_37-\>SC\ =\{v\}\ _81;\l\
+goto\ \<bb\ 27\>;\ [100.00%]\l\
+}"];
+
+	fn_142_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19526800\<bb\ 26\>:\l\
+|state_38-\>ftmMode\ =\ 3;\l\
+}"];
+
+	fn_142_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:209781075\<bb\ 27\>:\l\
+|#\ retStatus_28\ =\ PHI\ \<1(26),\ 1(3),\ 0(25),\ 0(28)\>\l\
+|return\ retStatus_28;\l\
+}"];
+
+	fn_142_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59055800\<bb\ 28\>:\l\
+|_21\ =\ state_38-\>ftmMode;\l\
+|if\ (_21\ ==\ 0)\l\
+\ \ goto\ \<bb\ 25\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 27\>;\ [50.00%]\l\
+}"];
+
+	fn_142_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:26109149\<bb\ 30\>:\l\
+|_243\ =\ hwChannel_42\ +\ 1;\l\
+|_156\ =\ (signed\ short)\ _243;\l\
+|_25\ =\ (signed\ short)\ 8;\l\
+|_218\ =\ _156\ w*\ _25;\l\
+|_219\ =\ ftmBase_37\ +\ _218;\l\
+|_245\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_219\ +\ 12B];\l\
+|_246\ =\ _245\ \|\ 64;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_219\ +\ 12B]\ =\{v\}\ _246;\l\
+|_248\ =\ g_ftmIrqId[instance_36(D)][_7];\l\
+|INT_SYS_EnableIRQ\ (_248);\l\
+|_23\ =\ state_38-\>ftmMode;\l\
+|if\ (_23\ ==\ 8)\l\
+\ \ goto\ \<bb\ 26\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+}"];
+
+	fn_142_basic_block_0:s -> fn_142_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_2:s -> fn_142_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_142_basic_block_2:s -> fn_142_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_142_basic_block_3:s -> fn_142_basic_block_27:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_4:s -> fn_142_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_4:s -> fn_142_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_5:s -> fn_142_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_142_basic_block_5:s -> fn_142_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_142_basic_block_6:s -> fn_142_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_142_basic_block_6:s -> fn_142_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_142_basic_block_7:s -> fn_142_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_8:s -> fn_142_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_9:s -> fn_142_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_142_basic_block_9:s -> fn_142_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_142_basic_block_10:s -> fn_142_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_10:s -> fn_142_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_11:s -> fn_142_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_11:s -> fn_142_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_12:s -> fn_142_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_13:s -> fn_142_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_14:s -> fn_142_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_142_basic_block_14:s -> fn_142_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_142_basic_block_15:s -> fn_142_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_16:s -> fn_142_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_142_basic_block_16:s -> fn_142_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_142_basic_block_17:s -> fn_142_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_17:s -> fn_142_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_18:s -> fn_142_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_19:s -> fn_142_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_20:s -> fn_142_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_142_basic_block_20:s -> fn_142_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_142_basic_block_21:s -> fn_142_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_142_basic_block_21:s -> fn_142_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_142_basic_block_22:s -> fn_142_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_142_basic_block_22:s -> fn_142_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_142_basic_block_23:s -> fn_142_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_142_basic_block_23:s -> fn_142_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_142_basic_block_24:s -> fn_142_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[94%]"];
+	fn_142_basic_block_24:s -> fn_142_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_142_basic_block_25:s -> fn_142_basic_block_27:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_26:s -> fn_142_basic_block_27:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_27:s -> fn_142_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_142_basic_block_28:s -> fn_142_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_28:s -> fn_142_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_142_basic_block_29:s -> fn_142_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_30:s -> fn_142_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_142_basic_block_30:s -> fn_142_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_142_basic_block_31:s -> fn_142_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_32:s -> fn_142_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_33:s -> fn_142_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_34:s -> fn_142_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_142_basic_block_0:s -> fn_142_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_DRV_DeinitInputCapture" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_DeinitInputCapture ()";
+	subgraph cluster_143_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_143_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:944999082\<bb\ 12\>:\l\
+|#\ ivtmp.69_103\ =\ PHI\ \<ivtmp.69_101(11),\ ivtmp.69_102(12)\>\l\
+|_97\ =\ (void\ *)\ ivtmp.69_103;\l\
+|MEM[base:\ _97,\ offset:\ 0B]\ =\ 0B;\l\
+|ivtmp.69_102\ =\ ivtmp.69_103\ +\ 4;\l\
+|_94\ =\ (void\ *)\ ivtmp.69_102;\l\
+|MEM[base:\ _94,\ offset:\ 28B]\ =\ 0B;\l\
+|if\ (_95\ !=\ ivtmp.69_102)\l\
+\ \ goto\ \<bb\ 12\>;\ [87.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [12.50%]\l\
+}"];
+
+	}
+	subgraph cluster_143_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_143_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 5\>:\l\
+|#\ ivtmp.74_91\ =\ PHI\ \<0(4),\ ivtmp.74_89(7)\>\l\
+|_2\ =\ param_22(D)-\>inputChConfig;\l\
+|_107\ =\ ivtmp.74_91\ &\ 255;\l\
+|_4\ =\ _107\ *\ 16;\l\
+|_5\ =\ _2\ +\ _4;\l\
+|hwChannel_28\ =\ _5-\>hwChannelId;\l\
+|chnlPairNum_29\ =\ hwChannel_28\ \>\>\ 1;\l\
+|if\ (hwChannel_28\ \<=\ 3)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [67.00%]\l\
+}"];
+
+	fn_143_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:315357972\<bb\ 6\>:\l\
+|FTM_DRV_SetChnInputCaptureFilter\ (ftmBase_20,\ hwChannel_28,\ 0);\l\
+}"];
+
+	fn_143_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:955630225\<bb\ 7\>:\l\
+|_62\ =\{v\}\ ftmBase_20-\>COMBINE;\l\
+|_84\ =\ (signed\ short)\ chnlPairNum_29;\l\
+|_57\ =\ (signed\ short)\ 8;\l\
+|_64\ =\ _84\ w*\ _57;\l\
+|_65\ =\ 1\ \<\<\ _64;\l\
+|_66\ =\ ~_65;\l\
+|_67\ =\ _62\ &\ _66;\l\
+|ftmBase_20-\>COMBINE\ =\{v\}\ _67;\l\
+|_82\ =\{v\}\ ftmBase_20-\>COMBINE;\l\
+|_85\ =\ 4\ \<\<\ _64;\l\
+|_86\ =\ ~_85;\l\
+|_87\ =\ _82\ &\ _86;\l\
+|ftmBase_20-\>COMBINE\ =\{v\}\ _87;\l\
+|_46\ =\ (signed\ short)\ hwChannel_28;\l\
+|_3\ =\ (signed\ short)\ 8;\l\
+|_9\ =\ _46\ w*\ _3;\l\
+|_27\ =\ ftmBase_20\ +\ _9;\l\
+|_58\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_27\ +\ 12B];\l\
+|_59\ =\ _58\ &\ 4294967291;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_27\ +\ 12B]\ =\{v\}\ _59;\l\
+|_60\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_27\ +\ 12B];\l\
+|_61\ =\ _60\ &\ 4294967287;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_27\ +\ 12B]\ =\{v\}\ _61;\l\
+|_55\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_27\ +\ 12B];\l\
+|_56\ =\ _55\ &\ 4294967231;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_27\ +\ 12B]\ =\{v\}\ _56;\l\
+|_51\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_27\ +\ 12B];\l\
+|_52\ =\ _51\ &\ 4294967167;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_27\ +\ 12B]\ =\{v\}\ _52;\l\
+|vol.3_53\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_27\ +\ 12B];\l\
+|_6\ =\ hwChannel_28\ \|\ 1;\l\
+|_16\ =\ (signed\ short)\ _6;\l\
+|_109\ =\ (signed\ short)\ 8;\l\
+|_124\ =\ _16\ w*\ _109;\l\
+|_125\ =\ ftmBase_20\ +\ _124;\l\
+|_47\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_125\ +\ 12B];\l\
+|_48\ =\ _47\ &\ 4294967291;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_125\ +\ 12B]\ =\{v\}\ _48;\l\
+|_49\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_125\ +\ 12B];\l\
+|_50\ =\ _49\ &\ 4294967287;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_125\ +\ 12B]\ =\{v\}\ _50;\l\
+|_44\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_125\ +\ 12B];\l\
+|_45\ =\ _44\ &\ 4294967231;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_125\ +\ 12B]\ =\{v\}\ _45;\l\
+|_41\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_125\ +\ 12B];\l\
+|_42\ =\ _41\ &\ 4294967167;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_125\ +\ 12B]\ =\{v\}\ _42;\l\
+|vol.3_43\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_125\ +\ 12B];\l\
+|_7\ =\ param_22(D)-\>nNumChannels;\l\
+|ivtmp.74_89\ =\ ivtmp.74_91\ +\ 1;\l\
+|index_54\ =\ (uint8_t)\ ivtmp.74_89;\l\
+|if\ (_7\ \>\ index_54)\l\
+\ \ goto\ \<bb\ 5\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_143_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_143_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_143_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 2\>:\l\
+|ftmBase_20\ =\ g_ftmBase[instance_19(D)];\l\
+|state_21\ =\ ftmStatePtr[instance_19(D)];\l\
+|_1\ =\ state_21-\>ftmMode;\l\
+|if\ (_1\ !=\ 8)\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [34.00%]\l\
+}"];
+
+	fn_143_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:77953656\<bb\ 3\>:\l\
+|_39\ =\{v\}\ ftmBase_20-\>SC;\l\
+|_40\ =\ _39\ &\ 4294967271;\l\
+|ftmBase_20-\>SC\ =\{v\}\ _40;\l\
+|_37\ =\{v\}\ ftmBase_20-\>CNTIN;\l\
+|_38\ =\ _37\ &\ 4294901760;\l\
+|ftmBase_20-\>CNTIN\ =\{v\}\ _38;\l\
+|_34\ =\{v\}\ ftmBase_20-\>MOD;\l\
+|_35\ =\ _34\ &\ 4294901760;\l\
+|_36\ =\ _35\ \|\ 65535;\l\
+|ftmBase_20-\>MOD\ =\{v\}\ _36;\l\
+|_32\ =\{v\}\ ftmBase_20-\>SC;\l\
+|_33\ =\ _32\ &\ 4294967263;\l\
+|ftmBase_20-\>SC\ =\{v\}\ _33;\l\
+|_93\ =\ param_22(D)-\>nNumChannels;\l\
+|if\ (_93\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [11.00%]\l\
+}"];
+
+	fn_143_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 4\>:\l\
+}"];
+
+	fn_143_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:105119324\<bb\ 8\>:\l\
+|_8\ =\ state_21-\>ftmMode;\l\
+|if\ (_8\ ==\ 8)\l\
+\ \ goto\ \<bb\ 9\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [66.00%]\l\
+}"];
+
+	fn_143_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40157944\<bb\ 9\>:\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_143_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:77953656\<bb\ 10\>:\l\
+}"];
+
+	fn_143_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 11\>:\l\
+|#\ cstore_17\ =\ PHI\ \<3(9),\ 0(10)\>\l\
+|state_21-\>ftmMode\ =\ cstore_17;\l\
+|_100\ =\ state_21\ +\ 28;\l\
+|ivtmp.69_101\ =\ (unsigned\ int)\ _100;\l\
+|_96\ =\ (unsigned\ int)\ state_21;\l\
+|_95\ =\ _96\ +\ 60;\l\
+}"];
+
+	fn_143_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118111600\<bb\ 13\>:\l\
+|return\ 0;\l\
+}"];
+
+	fn_143_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40157944\<bb\ 14\>:\l\
+|_73\ =\ param_22(D)-\>nNumChannels;\l\
+|if\ (_73\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [11.00%]\l\
+}"];
+
+	fn_143_basic_block_0:s -> fn_143_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_143_basic_block_2:s -> fn_143_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_143_basic_block_2:s -> fn_143_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_143_basic_block_3:s -> fn_143_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_143_basic_block_3:s -> fn_143_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_143_basic_block_4:s -> fn_143_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_143_basic_block_5:s -> fn_143_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_143_basic_block_5:s -> fn_143_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_143_basic_block_6:s -> fn_143_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_143_basic_block_7:s -> fn_143_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_143_basic_block_7:s -> fn_143_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_143_basic_block_8:s -> fn_143_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_143_basic_block_8:s -> fn_143_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_143_basic_block_9:s -> fn_143_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_143_basic_block_10:s -> fn_143_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_143_basic_block_11:s -> fn_143_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_143_basic_block_12:s -> fn_143_basic_block_12:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[87%]"];
+	fn_143_basic_block_12:s -> fn_143_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_143_basic_block_13:s -> fn_143_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_143_basic_block_14:s -> fn_143_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_143_basic_block_14:s -> fn_143_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_143_basic_block_0:s -> fn_143_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_DRV_GetInputCaptureMeasurement" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_GetInputCaptureMeasurement ()";
+	fn_144_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_144_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_144_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_5\ =\ ftmStatePtr[instance_4(D)];\l\
+|if\ (state_5\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [30.00%]\l\
+}"];
+
+	fn_144_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 3\>:\l\
+|_1\ =\ (int)\ channel_6(D);\l\
+|value_7\ =\ state_5-\>measurementResults[_1];\l\
+}"];
+
+	fn_144_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ value_2\ =\ PHI\ \<value_7(3),\ 0(2)\>\l\
+|return\ value_2;\l\
+}"];
+
+	fn_144_basic_block_0:s -> fn_144_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_144_basic_block_2:s -> fn_144_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_144_basic_block_2:s -> fn_144_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_144_basic_block_3:s -> fn_144_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_144_basic_block_4:s -> fn_144_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_144_basic_block_0:s -> fn_144_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_DRV_StartNewSignalMeasurement" {
+	style="dashed";
+	color="black";
+	label="FTM_DRV_StartNewSignalMeasurement ()";
+	fn_145_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_145_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_145_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|ftmBase_6\ =\ g_ftmBase[instance_5(D)];\l\
+|_42\ =\ (signed\ short)\ channel_7(D);\l\
+|_56\ =\ (signed\ short)\ 8;\l\
+|_39\ =\ _42\ w*\ _56;\l\
+|_40\ =\ ftmBase_6\ +\ _39;\l\
+|_10\ =\{v\}\ MEM\ \<const\ uint32_t\>\ [(const\ struct\ FTM_Type\ *)_40\ +\ 12B];\l\
+|_11\ =\ _10\ \>\>\ 4;\l\
+|_12\ =\ (unsigned\ char)\ _11;\l\
+|retValue_13\ =\ _12\ &\ 1;\l\
+|_14\ =\{v\}\ MEM\ \<const\ uint32_t\>\ [(const\ struct\ FTM_Type\ *)_40\ +\ 12B];\l\
+|_15\ =\ _14\ \>\>\ 5;\l\
+|_16\ =\ (unsigned\ char)\ _15;\l\
+|_17\ =\ _16\ \<\<\ 1;\l\
+|_18\ =\ _17\ &\ 2;\l\
+|retValue_19\ =\ retValue_13\ \|\ _18;\l\
+|if\ (retValue_19\ ==\ 2)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_145_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:365072224\<bb\ 3\>:\l\
+|_20\ =\{v\}\ MEM[(const\ struct\ FTM_Type\ *)ftmBase_6].COMBINE;\l\
+|chnlPairNum_8\ =\ channel_7(D)\ \>\>\ 1;\l\
+|_43\ =\ (signed\ short)\ chnlPairNum_8;\l\
+|_41\ =\ (signed\ short)\ 8;\l\
+|_22\ =\ _43\ w*\ _41;\l\
+|_23\ =\ 4\ \<\<\ _22;\l\
+|_24\ =\ _20\ &\ _23;\l\
+|if\ (_24\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_145_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 4\>:\l\
+|_1\ =\ channel_7(D)\ +\ 1;\l\
+|_9\ =\ (signed\ short)\ _1;\l\
+|_31\ =\ (signed\ short)\ 8;\l\
+|_54\ =\ _9\ w*\ _31;\l\
+|_55\ =\ ftmBase_6\ +\ _54;\l\
+|_32\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_55\ +\ 12B];\l\
+|_33\ =\ _32\ &\ 4294967167;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_55\ +\ 12B]\ =\{v\}\ _33;\l\
+|vol.3_34\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_55\ +\ 12B];\l\
+|_28\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_40\ +\ 12B];\l\
+|_29\ =\ _28\ &\ 4294967167;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_40\ +\ 12B]\ =\{v\}\ _29;\l\
+|vol.3_30\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_40\ +\ 12B];\l\
+|_25\ =\{v\}\ ftmBase_6-\>COMBINE;\l\
+|_26\ =\ 8\ \<\<\ _22;\l\
+|_27\ =\ _25\ \|\ _26;\l\
+|ftmBase_6-\>COMBINE\ =\{v\}\ _27;\l\
+}"];
+
+	fn_145_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ retStatus_2\ =\ PHI\ \<0(4),\ 1(2),\ 0(3)\>\l\
+|return\ retStatus_2;\l\
+}"];
+
+	fn_145_basic_block_0:s -> fn_145_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_145_basic_block_2:s -> fn_145_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_145_basic_block_2:s -> fn_145_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_145_basic_block_3:s -> fn_145_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_145_basic_block_3:s -> fn_145_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_145_basic_block_4:s -> fn_145_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_145_basic_block_5:s -> fn_145_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_145_basic_block_0:s -> fn_145_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM_IC_DRV_SetChannelMode" {
+	style="dashed";
+	color="black";
+	label="FTM_IC_DRV_SetChannelMode ()";
+	fn_146_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_146_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_146_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|ftmBase_9\ =\ g_ftmBase[instance_8(D)];\l\
+|if\ (inputMode_12(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_146_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 3\>:\l\
+|_123\ =\ (signed\ short)\ channel_10(D);\l\
+|_70\ =\ (signed\ short)\ 8;\l\
+|_195\ =\ _123\ w*\ _70;\l\
+|_196\ =\ ftmBase_9\ +\ _195;\l\
+|_18\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_196\ +\ 12B];\l\
+|_19\ =\ _18\ &\ 4294967291;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_196\ +\ 12B]\ =\{v\}\ _19;\l\
+|_20\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_196\ +\ 12B];\l\
+|_21\ =\ _20\ &\ 4294967287;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_196\ +\ 12B]\ =\{v\}\ _21;\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_146_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870911\<bb\ 4\>:\l\
+|channelPair_11\ =\ channel_10(D)\ \>\>\ 1;\l\
+|_1\ =\ inputMode_12(D)\ +\ 255;\l\
+|if\ (_1\ \<=\ 2)\l\
+\ \ goto\ \<bb\ 5\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_146_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 5\>:\l\
+|_83\ =\{v\}\ ftmBase_9-\>COMBINE;\l\
+|_106\ =\ (signed\ short)\ channelPair_11;\l\
+|_122\ =\ (signed\ short)\ 8;\l\
+|_85\ =\ _106\ w*\ _122;\l\
+|_86\ =\ 4\ \<\<\ _85;\l\
+|_87\ =\ ~_86;\l\
+|_88\ =\ _83\ &\ _87;\l\
+|ftmBase_9-\>COMBINE\ =\{v\}\ _88;\l\
+|_50\ =\ (signed\ short)\ channel_10(D);\l\
+|_98\ =\ (signed\ short)\ 8;\l\
+|_165\ =\ _50\ w*\ _98;\l\
+|_166\ =\ ftmBase_9\ +\ _165;\l\
+|_25\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B];\l\
+|_26\ =\ _25\ &\ 4294967279;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B]\ =\{v\}\ _26;\l\
+|_27\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B];\l\
+|_28\ =\ _27\ &\ 4294967263;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B]\ =\{v\}\ _28;\l\
+|_71\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B];\l\
+|_72\ =\ _71\ &\ 4294967291;\l\
+|_73\ =\ (long\ unsigned\ int)\ inputMode_12(D);\l\
+|_74\ =\ _73\ \<\<\ 2;\l\
+|_75\ =\ _74\ &\ 4;\l\
+|_76\ =\ _72\ \|\ _75;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B]\ =\{v\}\ _76;\l\
+|_77\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B];\l\
+|_78\ =\ _77\ &\ 4294967287;\l\
+|_79\ =\ _73\ \>\>\ 1;\l\
+|_80\ =\ _79\ \<\<\ 3;\l\
+|_82\ =\ _78\ \|\ _80;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B]\ =\{v\}\ _82;\l\
+|_22\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B];\l\
+|_23\ =\ _22\ \|\ 64;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_166\ +\ 12B]\ =\{v\}\ _23;\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_146_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:359703512\<bb\ 6\>:\l\
+|_32\ =\{v\}\ ftmBase_9-\>COMBINE;\l\
+|_102\ =\ (signed\ short)\ channelPair_11;\l\
+|_107\ =\ (signed\ short)\ 8;\l\
+|_34\ =\ _102\ w*\ _107;\l\
+|_35\ =\ 4\ \<\<\ _34;\l\
+|_36\ =\ _32\ \|\ _35;\l\
+|ftmBase_9-\>COMBINE\ =\{v\}\ _36;\l\
+|_29\ =\{v\}\ ftmBase_9-\>COMBINE;\l\
+|_30\ =\ 8\ \<\<\ _34;\l\
+|_31\ =\ _29\ \|\ _30;\l\
+|ftmBase_9-\>COMBINE\ =\{v\}\ _31;\l\
+|if\ (enableContinuousCapture_13(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_146_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:179851756\<bb\ 7\>:\l\
+|_37\ =\ (int)\ channel_10(D);\l\
+|_89\ =\ (signed\ short)\ channel_10(D);\l\
+|_94\ =\ (signed\ short)\ 8;\l\
+|_112\ =\ _89\ w*\ _94;\l\
+|_92\ =\ ftmBase_9\ +\ _112;\l\
+|_38\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_92\ +\ 12B];\l\
+|_39\ =\ _38\ &\ 4294967279;\l\
+|_40\ =\ _39\ \|\ 16;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_92\ +\ 12B]\ =\{v\}\ _40;\l\
+|_41\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_92\ +\ 12B];\l\
+|_42\ =\ _41\ &\ 4294967263;\l\
+|_43\ =\ _42\ \|\ 32;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_92\ +\ 12B]\ =\{v\}\ _43;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_146_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:179851756\<bb\ 8\>:\l\
+|_44\ =\ (int)\ channel_10(D);\l\
+|_17\ =\ (signed\ short)\ channel_10(D);\l\
+|_24\ =\ (signed\ short)\ 8;\l\
+|_3\ =\ _17\ w*\ _24;\l\
+|_124\ =\ ftmBase_9\ +\ _3;\l\
+|_45\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_124\ +\ 12B];\l\
+|_46\ =\ _45\ &\ 4294967279;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_124\ +\ 12B]\ =\{v\}\ _46;\l\
+|_47\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_124\ +\ 12B];\l\
+|_48\ =\ _47\ &\ 4294967263;\l\
+|_49\ =\ _48\ \|\ 32;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_124\ +\ 12B]\ =\{v\}\ _49;\l\
+}"];
+
+	fn_146_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:359703512\<bb\ 9\>:\l\
+|#\ prephitmp_81\ =\ PHI\ \<_37(7),\ _44(8)\>\l\
+|if\ (inputMode_12(D)\ ==\ 6)\l\
+\ \ goto\ \<bb\ 13\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [66.00%]\l\
+}"];
+
+	fn_146_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:237404316\<bb\ 10\>:\l\
+|if\ (inputMode_12(D)\ ==\ 4)\l\
+\ \ goto\ \<bb\ 13\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [66.00%]\l\
+}"];
+
+	fn_146_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:156686848\<bb\ 11\>:\l\
+|if\ (inputMode_12(D)\ ==\ 5)\l\
+\ \ goto\ \<bb\ 12\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [66.00%]\l\
+}"];
+
+	fn_146_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:53273529\<bb\ 12\>:\l\
+}"];
+
+	fn_146_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:359703512\<bb\ 13\>:\l\
+|#\ prephitmp_16\ =\ PHI\ \<0(9),\ 4(10),\ 4(11),\ 0(12)\>\l\
+|#\ prephitmp_100\ =\ PHI\ \<8(9),\ 0(10),\ 0(11),\ 8(12)\>\l\
+|#\ prephitmp_64\ =\ PHI\ \<4(9),\ 4(10),\ 0(11),\ 0(12)\>\l\
+|#\ prephitmp_15\ =\ PHI\ \<0(9),\ 0(10),\ 8(11),\ 8(12)\>\l\
+|_128\ =\ (sizetype)\ prephitmp_81;\l\
+|_129\ =\ _128\ *\ 8;\l\
+|_130\ =\ ftmBase_9\ +\ _129;\l\
+|_103\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_130\ +\ 12B];\l\
+|_104\ =\ _103\ &\ 4294967291;\l\
+|_108\ =\ prephitmp_64\ \|\ _104;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_130\ +\ 12B]\ =\{v\}\ _108;\l\
+|_109\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_130\ +\ 12B];\l\
+|_110\ =\ _109\ &\ 4294967287;\l\
+|_114\ =\ prephitmp_15\ \|\ _110;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_130\ +\ 12B]\ =\{v\}\ _114;\l\
+|_2\ =\ channel_10(D)\ +\ 1;\l\
+|_93\ =\ (signed\ short)\ _2;\l\
+|_105\ =\ (signed\ short)\ 8;\l\
+|_147\ =\ _93\ w*\ _105;\l\
+|_148\ =\ ftmBase_9\ +\ _147;\l\
+|_90\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_148\ +\ 12B];\l\
+|_91\ =\ _90\ &\ 4294967291;\l\
+|_95\ =\ prephitmp_16\ \|\ _91;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_148\ +\ 12B]\ =\{v\}\ _95;\l\
+|_96\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_148\ +\ 12B];\l\
+|_97\ =\ _96\ &\ 4294967287;\l\
+|_101\ =\ _97\ \|\ prephitmp_100;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_148\ +\ 12B]\ =\{v\}\ _101;\l\
+|_54\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_130\ +\ 12B];\l\
+|_55\ =\ _54\ &\ 4294967231;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_130\ +\ 12B]\ =\{v\}\ _55;\l\
+|_51\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_148\ +\ 12B];\l\
+|_52\ =\ _51\ \|\ 64;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FTM_Type\ *)_148\ +\ 12B]\ =\{v\}\ _52;\l\
+}"];
+
+	fn_146_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 14\>:\l\
+|return\ 0;\l\
+}"];
+
+	fn_146_basic_block_0:s -> fn_146_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_146_basic_block_2:s -> fn_146_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_146_basic_block_2:s -> fn_146_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_146_basic_block_3:s -> fn_146_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_146_basic_block_4:s -> fn_146_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_146_basic_block_4:s -> fn_146_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_146_basic_block_5:s -> fn_146_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_146_basic_block_6:s -> fn_146_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_146_basic_block_6:s -> fn_146_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_146_basic_block_7:s -> fn_146_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_146_basic_block_8:s -> fn_146_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_146_basic_block_9:s -> fn_146_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_146_basic_block_9:s -> fn_146_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_146_basic_block_10:s -> fn_146_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_146_basic_block_10:s -> fn_146_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_146_basic_block_11:s -> fn_146_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_146_basic_block_11:s -> fn_146_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_146_basic_block_12:s -> fn_146_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_146_basic_block_13:s -> fn_146_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_146_basic_block_14:s -> fn_146_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_146_basic_block_0:s -> fn_146_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM0_Ch0_Ch1_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM0_Ch0_Ch1_IRQHandler ()";
+	fn_147_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_147_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_147_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[0];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_147_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_147_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (0,\ 0);\ [tail\ call]\l\
+}"];
+
+	fn_147_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_147_basic_block_0:s -> fn_147_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_147_basic_block_2:s -> fn_147_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_147_basic_block_2:s -> fn_147_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_147_basic_block_3:s -> fn_147_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_147_basic_block_3:s -> fn_147_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_147_basic_block_4:s -> fn_147_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_147_basic_block_5:s -> fn_147_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_147_basic_block_0:s -> fn_147_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM0_Ch2_Ch3_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM0_Ch2_Ch3_IRQHandler ()";
+	fn_148_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_148_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_148_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[0];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_148_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_148_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (0,\ 1);\ [tail\ call]\l\
+}"];
+
+	fn_148_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_148_basic_block_0:s -> fn_148_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_148_basic_block_2:s -> fn_148_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_148_basic_block_2:s -> fn_148_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_148_basic_block_3:s -> fn_148_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_148_basic_block_3:s -> fn_148_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_148_basic_block_4:s -> fn_148_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_148_basic_block_5:s -> fn_148_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_148_basic_block_0:s -> fn_148_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM0_Ch4_Ch5_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM0_Ch4_Ch5_IRQHandler ()";
+	fn_149_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_149_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_149_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[0];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_149_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_149_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (0,\ 2);\ [tail\ call]\l\
+}"];
+
+	fn_149_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_149_basic_block_0:s -> fn_149_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_149_basic_block_2:s -> fn_149_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_149_basic_block_2:s -> fn_149_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_149_basic_block_3:s -> fn_149_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_149_basic_block_3:s -> fn_149_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_149_basic_block_4:s -> fn_149_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_149_basic_block_5:s -> fn_149_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_149_basic_block_0:s -> fn_149_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM0_Ch6_Ch7_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM0_Ch6_Ch7_IRQHandler ()";
+	fn_150_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_150_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_150_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[0];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_150_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_150_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (0,\ 3);\ [tail\ call]\l\
+}"];
+
+	fn_150_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_150_basic_block_0:s -> fn_150_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_150_basic_block_2:s -> fn_150_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_150_basic_block_2:s -> fn_150_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_150_basic_block_3:s -> fn_150_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_150_basic_block_3:s -> fn_150_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_150_basic_block_4:s -> fn_150_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_150_basic_block_5:s -> fn_150_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_150_basic_block_0:s -> fn_150_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM1_Ch0_Ch1_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM1_Ch0_Ch1_IRQHandler ()";
+	fn_151_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_151_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_151_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[1];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_151_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_151_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (1,\ 0);\ [tail\ call]\l\
+}"];
+
+	fn_151_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_151_basic_block_0:s -> fn_151_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_151_basic_block_2:s -> fn_151_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_151_basic_block_2:s -> fn_151_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_151_basic_block_3:s -> fn_151_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_151_basic_block_3:s -> fn_151_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_151_basic_block_4:s -> fn_151_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_151_basic_block_5:s -> fn_151_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_151_basic_block_0:s -> fn_151_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM1_Ch2_Ch3_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM1_Ch2_Ch3_IRQHandler ()";
+	fn_152_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_152_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_152_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[1];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_152_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_152_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (1,\ 1);\ [tail\ call]\l\
+}"];
+
+	fn_152_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_152_basic_block_0:s -> fn_152_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_152_basic_block_2:s -> fn_152_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_152_basic_block_2:s -> fn_152_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_152_basic_block_3:s -> fn_152_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_152_basic_block_3:s -> fn_152_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_152_basic_block_4:s -> fn_152_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_152_basic_block_5:s -> fn_152_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_152_basic_block_0:s -> fn_152_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM1_Ch4_Ch5_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM1_Ch4_Ch5_IRQHandler ()";
+	fn_153_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_153_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_153_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[1];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_153_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_153_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (1,\ 2);\ [tail\ call]\l\
+}"];
+
+	fn_153_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_153_basic_block_0:s -> fn_153_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_153_basic_block_2:s -> fn_153_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_153_basic_block_2:s -> fn_153_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_153_basic_block_3:s -> fn_153_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_153_basic_block_3:s -> fn_153_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_153_basic_block_4:s -> fn_153_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_153_basic_block_5:s -> fn_153_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_153_basic_block_0:s -> fn_153_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM1_Ch6_Ch7_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM1_Ch6_Ch7_IRQHandler ()";
+	fn_154_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_154_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_154_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[1];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_154_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_154_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (1,\ 3);\ [tail\ call]\l\
+}"];
+
+	fn_154_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_154_basic_block_0:s -> fn_154_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_154_basic_block_2:s -> fn_154_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_154_basic_block_2:s -> fn_154_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_154_basic_block_3:s -> fn_154_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_154_basic_block_3:s -> fn_154_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_154_basic_block_4:s -> fn_154_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_154_basic_block_5:s -> fn_154_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_154_basic_block_0:s -> fn_154_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM2_Ch0_Ch1_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM2_Ch0_Ch1_IRQHandler ()";
+	fn_155_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_155_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_155_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[2];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_155_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_155_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (2,\ 0);\ [tail\ call]\l\
+}"];
+
+	fn_155_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_155_basic_block_0:s -> fn_155_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_155_basic_block_2:s -> fn_155_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_155_basic_block_2:s -> fn_155_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_155_basic_block_3:s -> fn_155_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_155_basic_block_3:s -> fn_155_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_155_basic_block_4:s -> fn_155_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_155_basic_block_5:s -> fn_155_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_155_basic_block_0:s -> fn_155_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM2_Ch2_Ch3_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM2_Ch2_Ch3_IRQHandler ()";
+	fn_156_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_156_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_156_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[2];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_156_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_156_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (2,\ 1);\ [tail\ call]\l\
+}"];
+
+	fn_156_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_156_basic_block_0:s -> fn_156_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_156_basic_block_2:s -> fn_156_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_156_basic_block_2:s -> fn_156_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_156_basic_block_3:s -> fn_156_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_156_basic_block_3:s -> fn_156_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_156_basic_block_4:s -> fn_156_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_156_basic_block_5:s -> fn_156_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_156_basic_block_0:s -> fn_156_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM2_Ch4_Ch5_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM2_Ch4_Ch5_IRQHandler ()";
+	fn_157_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_157_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_157_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[2];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_157_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_157_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (2,\ 2);\ [tail\ call]\l\
+}"];
+
+	fn_157_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_157_basic_block_0:s -> fn_157_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_157_basic_block_2:s -> fn_157_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_157_basic_block_2:s -> fn_157_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_157_basic_block_3:s -> fn_157_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_157_basic_block_3:s -> fn_157_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_157_basic_block_4:s -> fn_157_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_157_basic_block_5:s -> fn_157_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_157_basic_block_0:s -> fn_157_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM2_Ch6_Ch7_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM2_Ch6_Ch7_IRQHandler ()";
+	fn_158_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_158_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_158_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[2];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_158_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_158_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (2,\ 3);\ [tail\ call]\l\
+}"];
+
+	fn_158_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_158_basic_block_0:s -> fn_158_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_158_basic_block_2:s -> fn_158_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_158_basic_block_2:s -> fn_158_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_158_basic_block_3:s -> fn_158_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_158_basic_block_3:s -> fn_158_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_158_basic_block_4:s -> fn_158_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_158_basic_block_5:s -> fn_158_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_158_basic_block_0:s -> fn_158_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM3_Ch0_Ch1_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM3_Ch0_Ch1_IRQHandler ()";
+	fn_159_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_159_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_159_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[3];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_159_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_159_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (3,\ 0);\ [tail\ call]\l\
+}"];
+
+	fn_159_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_159_basic_block_0:s -> fn_159_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_159_basic_block_2:s -> fn_159_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_159_basic_block_2:s -> fn_159_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_159_basic_block_3:s -> fn_159_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_159_basic_block_3:s -> fn_159_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_159_basic_block_4:s -> fn_159_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_159_basic_block_5:s -> fn_159_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_159_basic_block_0:s -> fn_159_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM3_Ch2_Ch3_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM3_Ch2_Ch3_IRQHandler ()";
+	fn_160_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_160_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_160_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[3];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_160_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_160_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (3,\ 1);\ [tail\ call]\l\
+}"];
+
+	fn_160_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_160_basic_block_0:s -> fn_160_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_160_basic_block_2:s -> fn_160_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_160_basic_block_2:s -> fn_160_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_160_basic_block_3:s -> fn_160_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_160_basic_block_3:s -> fn_160_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_160_basic_block_4:s -> fn_160_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_160_basic_block_5:s -> fn_160_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_160_basic_block_0:s -> fn_160_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM3_Ch4_Ch5_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM3_Ch4_Ch5_IRQHandler ()";
+	fn_161_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_161_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_161_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[3];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_161_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_161_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (3,\ 2);\ [tail\ call]\l\
+}"];
+
+	fn_161_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_161_basic_block_0:s -> fn_161_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_161_basic_block_2:s -> fn_161_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_161_basic_block_2:s -> fn_161_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_161_basic_block_3:s -> fn_161_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_161_basic_block_3:s -> fn_161_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_161_basic_block_4:s -> fn_161_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_161_basic_block_5:s -> fn_161_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_161_basic_block_0:s -> fn_161_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FTM3_Ch6_Ch7_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FTM3_Ch6_Ch7_IRQHandler ()";
+	fn_162_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_162_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_162_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|state_3\ =\ ftmStatePtr[3];\l\
+|_4\ =\ state_3-\>ftmMode;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [16.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [83.50%]\l\
+}"];
+
+	fn_162_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 3\>:\l\
+|if\ (_4\ ==\ 8)\l\
+\ \ goto\ \<bb\ 4\>;\ [19.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [80.24%]\l\
+}"];
+
+	fn_162_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 4\>:\l\
+|FTM_DRV_InputCaptureHandler\ (3,\ 3);\ [tail\ call]\l\
+}"];
+
+	fn_162_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_162_basic_block_0:s -> fn_162_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_162_basic_block_2:s -> fn_162_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[83%]"];
+	fn_162_basic_block_2:s -> fn_162_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[16%]"];
+	fn_162_basic_block_3:s -> fn_162_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[80%]"];
+	fn_162_basic_block_3:s -> fn_162_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[19%]"];
+	fn_162_basic_block_4:s -> fn_162_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_162_basic_block_5:s -> fn_162_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_162_basic_block_0:s -> fn_162_basic_block_1:n [style="invis",constraint=true];
+}
+}

@@ -1,0 +1,213 @@
+
+;; Function EIM_DRV_Init (EIM_DRV_Init, funcdef_no=8, decl_uid=6209, cgraph_uid=9, symbol_order=9)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+EIM_DRV_Init (uint32_t instance, uint8_t channelCnt, const struct eim_user_channel_config_t * channelConfigArr)
+{
+  unsigned int ivtmp.21;
+  uint32_t temp;
+  uint32_t temp;
+  sizetype _1;
+  struct EIM_Type * _2;
+  long unsigned int _10;
+  long unsigned int _12;
+  long unsigned int _13;
+  unsigned char _15;
+  unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  unsigned int _21;
+  unsigned char _22;
+  long unsigned int _23;
+  long unsigned int _25;
+  long unsigned int _26;
+  _Bool _27;
+  long unsigned int _31;
+  unsigned int _38;
+  unsigned int _46;
+  signed short _48;
+  unsigned char _51;
+  signed short _53;
+  void * _55;
+
+  <bb 2> [local count: 118111600]:
+  if (channelCnt_7(D) != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 3> [local count: 105119324]:
+  ivtmp.21_56 = (unsigned int) channelConfigArr_8(D);
+  _51 = channelCnt_7(D) + 255;
+  _53 = (signed short) 12;
+  _38 = ivtmp.21_56 + 12;
+  _48 = (signed short) _51;
+  _46 = WIDEN_MULT_PLUS_EXPR <_53, _48, _38>;
+
+  <bb 4> [local count: 955630225]:
+  # ivtmp.21_40 = PHI <ivtmp.21_56(3), ivtmp.21_57(4)>
+  _55 = (void *) ivtmp.21_40;
+  _15 = MEM[base: _55, offset: 0B];
+  temp_16 ={v} MEM[(struct EIM_Type *)1073844224B].EICHEN;
+  _17 = (unsigned int) _15;
+  _18 = 2147483648 >> _17;
+  _19 = ~_18;
+  temp_20 = temp_16 & _19;
+  _21 = 31 - _17;
+  MEM[(struct EIM_Type *)1073844224B].EICHEN ={v} temp_20;
+  _22 = MEM[base: _55, offset: 1B];
+  _23 = (long unsigned int) _22;
+  _25 = _23 << 25;
+  _1 = _17 * 256;
+  _2 = 1073844224B + _1;
+  MEM <volatile uint32_t> [(struct EIM_Type *)_2 + 256B] ={v} _25;
+  _26 = MEM[base: _55, offset: 4B];
+  MEM <volatile uint32_t> [(struct EIM_Type *)_2 + 260B] ={v} _26;
+  _27 = MEM[base: _55, offset: 8B];
+  temp_28 ={v} MEM[(struct EIM_Type *)1073844224B].EICHEN;
+  temp_29 = _19 & temp_28;
+  _10 = (long unsigned int) _27;
+  _31 = _10 << _21;
+  temp_32 = temp_29 | _31;
+  MEM[(struct EIM_Type *)1073844224B].EICHEN ={v} temp_32;
+  ivtmp.21_57 = ivtmp.21_40 + 12;
+  if (_46 != ivtmp.21_57)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 5> [local count: 118111600]:
+  _12 ={v} MEM[(struct EIM_Type *)1073844224B].EIMCR;
+  _13 = _12 | 1;
+  MEM[(struct EIM_Type *)1073844224B].EIMCR ={v} _13;
+  return;
+
+}
+
+
+
+;; Function EIM_DRV_Deinit (EIM_DRV_Deinit, funcdef_no=9, decl_uid=6211, cgraph_uid=10, symbol_order=10)
+
+EIM_DRV_Deinit (uint32_t instance)
+{
+  long unsigned int _3;
+  long unsigned int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _3 ={v} MEM[(struct EIM_Type *)1073844224B].EIMCR;
+  _4 = _3 & 4294967294;
+  MEM[(struct EIM_Type *)1073844224B].EIMCR ={v} _4;
+  EIM_InitChannel (1073844224B); [tail call]
+  return;
+
+}
+
+
+
+;; Function EIM_DRV_ConfigChannel (EIM_DRV_ConfigChannel, funcdef_no=10, decl_uid=6214, cgraph_uid=11, symbol_order=11)
+
+EIM_DRV_ConfigChannel (uint32_t instance, const struct eim_user_channel_config_t * userChannelConfig)
+{
+  uint32_t temp;
+  uint32_t temp;
+  unsigned char _1;
+  unsigned char _2;
+  long unsigned int _3;
+  _Bool _4;
+  long unsigned int _10;
+  long unsigned int _12;
+  long unsigned int _14;
+  unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  unsigned int _20;
+  long unsigned int _25;
+  sizetype _26;
+  struct EIM_Type * _27;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = userChannelConfig_6(D)->channel;
+  temp_15 ={v} MEM[(struct EIM_Type *)1073844224B].EICHEN;
+  _16 = (unsigned int) _1;
+  _17 = 2147483648 >> _16;
+  _18 = ~_17;
+  temp_19 = temp_15 & _18;
+  _20 = 31 - _16;
+  MEM[(struct EIM_Type *)1073844224B].EICHEN ={v} temp_19;
+  _2 = userChannelConfig_6(D)->checkBitMask;
+  _12 = (long unsigned int) _2;
+  _14 = _12 << 25;
+  _26 = _16 * 256;
+  _27 = 1073844224B + _26;
+  MEM <volatile uint32_t> [(struct EIM_Type *)_27 + 256B] ={v} _14;
+  _3 = userChannelConfig_6(D)->dataMask;
+  MEM <volatile uint32_t> [(struct EIM_Type *)_27 + 260B] ={v} _3;
+  _4 = userChannelConfig_6(D)->enable;
+  temp_7 ={v} MEM[(struct EIM_Type *)1073844224B].EICHEN;
+  temp_8 = temp_7 & _18;
+  _25 = (long unsigned int) _4;
+  _10 = _25 << _20;
+  temp_11 = temp_8 | _10;
+  MEM[(struct EIM_Type *)1073844224B].EICHEN ={v} temp_11;
+  return;
+
+}
+
+
+
+;; Function EIM_DRV_GetChannelConfig (EIM_DRV_GetChannelConfig, funcdef_no=11, decl_uid=6218, cgraph_uid=12, symbol_order=12)
+
+EIM_DRV_GetChannelConfig (uint32_t instance, uint8_t channel, struct eim_user_channel_config_t * channelConfig)
+{
+  long unsigned int _8;
+  unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  _Bool _12;
+  long unsigned int _13;
+  long unsigned int _15;
+  long unsigned int _16;
+  unsigned char _17;
+  sizetype _18;
+  sizetype _19;
+  const struct EIM_Type * _20;
+
+  <bb 2> [local count: 1073741824]:
+  channelConfig_2(D)->channel = channel_3(D);
+  _18 = (sizetype) channel_3(D);
+  _19 = _18 * 256;
+  _20 = 1073844224B + _19;
+  _15 ={v} MEM <const uint32_t> [(const struct EIM_Type *)_20 + 256B];
+  _16 = _15 >> 25;
+  _17 = (unsigned char) _16;
+  channelConfig_2(D)->checkBitMask = _17;
+  _13 ={v} MEM <const uint32_t> [(const struct EIM_Type *)_20 + 260B];
+  channelConfig_2(D)->dataMask = _13;
+  _8 ={v} MEM[(const struct EIM_Type *)1073844224B].EICHEN;
+  _9 = (unsigned int) channel_3(D);
+  _10 = 2147483648 >> _9;
+  _11 = _8 & _10;
+  _12 = _11 != 0;
+  channelConfig_2(D)->enable = _12;
+  return;
+
+}
+
+
+
+;; Function EIM_DRV_GetDefaultConfig (EIM_DRV_GetDefaultConfig, funcdef_no=12, decl_uid=6221, cgraph_uid=13, symbol_order=13)
+
+EIM_DRV_GetDefaultConfig (uint8_t channel, struct eim_user_channel_config_t * channelConfig)
+{
+  <bb 2> [local count: 1073741824]:
+  channelConfig_2(D)->channel = channel_3(D);
+  channelConfig_2(D)->checkBitMask = 1;
+  channelConfig_2(D)->dataMask = 0;
+  channelConfig_2(D)->enable = 1;
+  return;
+
+}
+
+

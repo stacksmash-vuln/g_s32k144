@@ -1,0 +1,3 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_irq.c:115:6:LPSPI0_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_irq.c:127:6:LPSPI1_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpspi/lpspi_irq.c:139:6:LPSPI2_IRQHandler	0	static

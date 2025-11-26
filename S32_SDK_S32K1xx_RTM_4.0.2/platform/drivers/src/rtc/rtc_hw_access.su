@@ -1,0 +1,6 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/rtc/rtc_hw_access.c:43:10:RTC_Enable	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/rtc/rtc_hw_access.c:72:10:RTC_Disable	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/rtc/rtc_hw_access.c:97:10:RTC_SetTimeSecondsRegister	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/rtc/rtc_hw_access.c:124:10:RTC_ConfigureRegisterLock	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/rtc/rtc_hw_access.c:171:6:RTC_IsRegisterLocked	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/rtc/rtc_hw_access.c:205:10:RTC_ConfigureClockOut	0	static

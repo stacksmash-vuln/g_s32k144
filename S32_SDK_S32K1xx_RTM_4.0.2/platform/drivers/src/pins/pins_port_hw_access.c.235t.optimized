@@ -1,0 +1,455 @@
+
+;; Function PINS_GetAdcInterleaveVal (PINS_GetAdcInterleaveVal, funcdef_no=21, decl_uid=6557, cgraph_uid=22, symbol_order=21)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+PINS_GetAdcInterleaveVal (const struct PORT_Type * base, const uint32_t pinPortIdx, const uint32_t currentVal)
+{
+  uint32_t adcInterleaveVal;
+  uint32_t adcInterleaveVal;
+
+  <bb 2> [local count: 1073741824]:
+  if (base_3(D) == 1074044928B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 10>; [70.00%]
+
+  <bb 3> [local count: 322122544]:
+  switch (pinPortIdx_4(D)) <default: <L20> [64.71%], case 0: <L22> [5.88%], case 1: <L23> [5.88%], case 13: <L24> [5.88%], case 14: <L25> [5.88%], case 15: <L26> [5.88%], case 16: <L27> [5.88%]>
+
+  <bb 4> [local count: 46017506]:
+<L22>:
+  adcInterleaveVal_9 = currentVal_5(D) | 1;
+  goto <bb 15>; [100.00%]
+
+  <bb 5> [local count: 46017506]:
+<L23>:
+  adcInterleaveVal_10 = currentVal_5(D) | 2;
+  goto <bb 15>; [100.00%]
+
+  <bb 6> [local count: 46017506]:
+<L24>:
+  adcInterleaveVal_11 = currentVal_5(D) | 4;
+  goto <bb 15>; [100.00%]
+
+  <bb 7> [local count: 46017506]:
+<L25>:
+  adcInterleaveVal_12 = currentVal_5(D) | 8;
+  goto <bb 15>; [100.00%]
+
+  <bb 8> [local count: 46017506]:
+<L26>:
+  adcInterleaveVal_13 = currentVal_5(D) & 14;
+  goto <bb 15>; [100.00%]
+
+  <bb 9> [local count: 46017506]:
+<L27>:
+  adcInterleaveVal_14 = currentVal_5(D) & 13;
+  goto <bb 15>; [100.00%]
+
+  <bb 10> [local count: 751619281]:
+  if (base_3(D) == 1074049024B)
+    goto <bb 11>; [44.32%]
+  else
+    goto <bb 15>; [55.68%]
+
+  <bb 11> [local count: 333117664]:
+  if (pinPortIdx_4(D) == 0)
+    goto <bb 13>; [33.33%]
+  else
+    goto <bb 12>; [66.67%]
+
+  <bb 12> [local count: 333117664]:
+  if (pinPortIdx_4(D) == 1)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 13> [local count: 111039222]:
+  adcInterleaveVal_7 = currentVal_5(D) & 11;
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [local count: 111039222]:
+  adcInterleaveVal_6 = currentVal_5(D) & 7;
+
+  <bb 15> [local count: 1073741825]:
+  # adcInterleaveVal_1 = PHI <255(3), 255(10), adcInterleaveVal_6(14), adcInterleaveVal_9(4), adcInterleaveVal_7(13), adcInterleaveVal_10(5), adcInterleaveVal_14(9), adcInterleaveVal_13(8), adcInterleaveVal_12(7), adcInterleaveVal_11(6), 255(12)>
+<L20>:
+  return adcInterleaveVal_1;
+
+}
+
+
+
+;; Function PINS_Init (PINS_Init, funcdef_no=22, decl_uid=6431, cgraph_uid=23, symbol_order=22)
+
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+Removing basic block 24
+Removing basic block 25
+PINS_Init (const struct pin_settings_config_t * config)
+{
+  pins_channel_type_t pinsValues;
+  uint32_t interleaveVal;
+  uint32_t chipCtlReg;
+  port_mux_t muxing;
+  uint32_t digitalFilters;
+  uint32_t directions;
+  uint32_t regValue;
+  struct PORT_Type * _1;
+  long unsigned int _2;
+  <unnamed type> _3;
+  _Bool _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  <unnamed type> _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  _Bool _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  <unnamed type> _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  _Bool _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  _Bool _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  struct GPIO_Type * _33;
+  <unnamed type> _34;
+  unsigned char _35;
+  long unsigned int _78;
+  long unsigned int _79;
+  long unsigned int _108;
+  long unsigned int _110;
+  long unsigned int _112;
+  long unsigned int _114;
+  long unsigned int prephitmp_115;
+
+  <bb 2> [local count: 1073741819]:
+  _1 = config_44(D)->base;
+  _2 = config_44(D)->pinPortIdx;
+  regValue_45 ={v} _1->PCR[_2];
+  _3 = config_44(D)->pullConfig;
+  if (_3 == 1)
+    goto <bb 6>; [25.00%]
+  else
+    goto <bb 3>; [75.00%]
+
+  <bb 3> [local count: 1073741819]:
+  if (_3 == 2)
+    goto <bb 7>; [33.33%]
+  else
+    goto <bb 4>; [66.67%]
+
+  <bb 4> [local count: 1073741819]:
+  if (_3 == 0)
+    goto <bb 5>; [33.33%]
+  else
+    goto <bb 8>; [66.67%]
+
+  <bb 5> [local count: 268435455]:
+  regValue_49 = regValue_45 & 4294967293;
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [local count: 268435455]:
+  regValue_47 = regValue_45 & 4294967294;
+  regValue_48 = regValue_47 | 2;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [local count: 268435455]:
+  regValue_46 = regValue_45 | 3;
+
+  <bb 8> [local count: 1073741819]:
+  # regValue_36 = PHI <regValue_49(5), regValue_48(6), regValue_46(7), regValue_45(4)>
+  regValue_50 = regValue_36 & 4294967279;
+  _4 = config_44(D)->passiveFilter;
+  _5 = (long unsigned int) _4;
+  _6 = _5 << 4;
+  regValue_51 = _6 | regValue_50;
+  regValue_52 = regValue_51 & 4294967231;
+  _7 = config_44(D)->driveSelect;
+  _8 = (long unsigned int) _7;
+  _9 = _8 << 6;
+  _10 = _9 & 64;
+  regValue_53 = _10 | regValue_52;
+  regValue_54 = regValue_53 & 4294965503;
+  muxing_55 = config_44(D)->mux;
+  if (muxing_55 == 8)
+    goto <bb 10>; [34.00%]
+  else
+    goto <bb 9>; [66.00%]
+
+  <bb 9> [local count: 708669597]:
+  _108 = (long unsigned int) muxing_55;
+  _110 = _108 << 8;
+  _112 = _110 & 1792;
+  _114 = regValue_54 | _112;
+  goto <bb 12>; [100.00%]
+
+  <bb 10> [local count: 365072222]:
+  _11 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  chipCtlReg_56 = _11 & 15;
+  interleaveVal_58 = PINS_GetAdcInterleaveVal (_1, _2, chipCtlReg_56);
+  if (interleaveVal_58 != 255)
+    goto <bb 11>; [66.00%]
+  else
+    goto <bb 12>; [34.00%]
+
+  <bb 11> [local count: 240947665]:
+  _12 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _13 = _12 & 4294967280;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _13;
+  _14 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _15 = interleaveVal_58 & 15;
+  _16 = _14 | _15;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _16;
+
+  <bb 12> [local count: 1073741821]:
+  # prephitmp_115 = PHI <_114(9), regValue_54(11), regValue_54(10)>
+  regValue_62 = prephitmp_115 & 4294934527;
+  _20 = config_44(D)->pinLock;
+  _21 = (long unsigned int) _20;
+  _22 = _21 << 15;
+  regValue_63 = _22 | regValue_62;
+  regValue_64 = regValue_63 & 4293984255;
+  _23 = config_44(D)->intConfig;
+  _24 = (long unsigned int) _23;
+  _25 = _24 << 16;
+  _26 = _25 & 983040;
+  regValue_65 = _26 | regValue_64;
+  _27 = config_44(D)->clearIntFlag;
+  if (_27 != 0)
+    goto <bb 13>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 13> [local count: 536870910]:
+  regValue_66 = regValue_65 & 4278190079;
+  regValue_67 = regValue_66 | 16777216;
+
+  <bb 14> [local count: 1073741821]:
+  # regValue_37 = PHI <regValue_67(13), regValue_65(12)>
+  _1->PCR[_2] ={v} regValue_37;
+  digitalFilters_69 ={v} _1->DFER;
+  _28 = 1 << _2;
+  _29 = ~_28;
+  digitalFilters_70 = _29 & digitalFilters_69;
+  _30 = config_44(D)->digitalFilter;
+  _31 = (long unsigned int) _30;
+  _32 = _31 << _2;
+  digitalFilters_71 = _32 | digitalFilters_70;
+  _1->DFER ={v} digitalFilters_71;
+  if (muxing_55 == 1)
+    goto <bb 15>; [34.00%]
+  else
+    goto <bb 20>; [66.00%]
+
+  <bb 15> [local count: 365072223]:
+  _33 = config_44(D)->gpioBase;
+  directions_73 ={v} _33->PDDR;
+  _34 = config_44(D)->direction;
+  if (_34 == 0)
+    goto <bb 17>; [33.33%]
+  else
+    goto <bb 16>; [66.67%]
+
+  <bb 16> [local count: 365072223]:
+  if (_34 == 1)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 17> [local count: 121690742]:
+  directions_75 = _29 & directions_73;
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [local count: 124124558]:
+  directions_74 = _28 | directions_73;
+  _35 = config_44(D)->initValue;
+  pinsValues_57 ={v} _33->PDOR;
+  pinsValues_77 = _29 & pinsValues_57;
+  _78 = (long unsigned int) _35;
+  _79 = _78 << _2;
+  pinsValues_80 = pinsValues_77 | _79;
+  _33->PDOR ={v} pinsValues_80;
+
+  <bb 19> [local count: 365072226]:
+  # directions_93 = PHI <directions_75(17), directions_74(18), directions_73(16)>
+  _33->PDDR ={v} directions_93;
+
+  <bb 20> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function PINS_SetMuxModeSel (PINS_SetMuxModeSel, funcdef_no=23, decl_uid=6447, cgraph_uid=24, symbol_order=23)
+
+Removing basic block 7
+PINS_SetMuxModeSel (struct PORT_Type * const base, uint32_t pin, port_mux_t mux)
+{
+  uint32_t interleaveVal;
+  uint32_t chipCtlReg;
+  uint32_t regValue;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _24;
+  long unsigned int _29;
+  long unsigned int _31;
+  long unsigned int prephitmp_32;
+
+  <bb 2> [local count: 1073741823]:
+  regValue_15 ={v} base_13(D)->PCR[pin_14(D)];
+  if (mux_16(D) == 8)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669599]:
+  _24 = (long unsigned int) mux_16(D);
+  _29 = _24 << 8;
+  _31 = _29 & 1792;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 365072224]:
+  _1 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  chipCtlReg_17 = _1 & 15;
+  interleaveVal_18 = PINS_GetAdcInterleaveVal (base_13(D), pin_14(D), chipCtlReg_17);
+  if (interleaveVal_18 != 255)
+    goto <bb 5>; [66.00%]
+  else
+    goto <bb 6>; [34.00%]
+
+  <bb 5> [local count: 240947666]:
+  _2 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _3 = _2 & 4294967280;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _3;
+  _4 ={v} MEM[(struct SIM_Type *)1074036736B].CHIPCTL;
+  _5 = interleaveVal_18 & 15;
+  _6 = _4 | _5;
+  MEM[(struct SIM_Type *)1074036736B].CHIPCTL ={v} _6;
+
+  <bb 6> [local count: 1073741824]:
+  # prephitmp_32 = PHI <_31(3), 0(5), 0(4)>
+  regValue_21 = regValue_15 & 4294965503;
+  regValue_22 = regValue_21 | prephitmp_32;
+  base_13(D)->PCR[pin_14(D)] ={v} regValue_22;
+  return;
+
+}
+
+
+
+;; Function PINS_SetGlobalPinControl (PINS_SetGlobalPinControl, funcdef_no=24, decl_uid=6487, cgraph_uid=25, symbol_order=24)
+
+Removing basic block 7
+PINS_SetGlobalPinControl (struct PORT_Type * const base, uint16_t pins, uint16_t value, port_global_control_pins_t halfPort)
+{
+  uint16_t mask;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+
+  <bb 2> [local count: 1073741817]:
+  mask_11 = value_10(D) & 34643;
+  if (halfPort_12(D) == 0)
+    goto <bb 4>; [33.33%]
+  else
+    goto <bb 3>; [66.67%]
+
+  <bb 3> [local count: 1073741817]:
+  if (halfPort_12(D) == 1)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 357913942]:
+  _1 = (long unsigned int) pins_14(D);
+  _2 = _1 << 16;
+  _3 = (long unsigned int) mask_11;
+  _4 = _2 | _3;
+  base_15(D)->GPCLR ={v} _4;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 357913942]:
+  _5 = (long unsigned int) pins_14(D);
+  _6 = _5 << 16;
+  _7 = (long unsigned int) mask_11;
+  _8 = _6 | _7;
+  base_15(D)->GPCHR ={v} _8;
+
+  <bb 6> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function PINS_SetGlobalIntControl (PINS_SetGlobalIntControl, funcdef_no=25, decl_uid=6492, cgraph_uid=26, symbol_order=25)
+
+Removing basic block 7
+PINS_SetGlobalIntControl (struct PORT_Type * const base, uint16_t pins, uint16_t value, port_global_control_pins_t halfPort)
+{
+  uint32_t mask;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+
+  <bb 2> [local count: 1073741817]:
+  _1 = (long unsigned int) value_8(D);
+  _2 = _1 << 16;
+  mask_9 = _2 & 983040;
+  if (halfPort_10(D) == 0)
+    goto <bb 4>; [33.33%]
+  else
+    goto <bb 3>; [66.67%]
+
+  <bb 3> [local count: 1073741817]:
+  if (halfPort_10(D) == 1)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 4> [local count: 357913942]:
+  _3 = (long unsigned int) pins_12(D);
+  _4 = _3 | mask_9;
+  base_13(D)->GICLR ={v} _4;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 357913942]:
+  _5 = (long unsigned int) pins_12(D);
+  _6 = _5 | mask_9;
+  base_13(D)->GICHR ={v} _6;
+
+  <bb 6> [local count: 1073741824]:
+  return;
+
+}
+
+

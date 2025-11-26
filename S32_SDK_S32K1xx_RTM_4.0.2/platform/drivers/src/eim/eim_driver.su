@@ -1,0 +1,5 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/eim/eim_driver.c:62:6:EIM_DRV_Init	12	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/eim/eim_driver.c:92:6:EIM_DRV_Deinit	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/eim/eim_driver.c:115:6:EIM_DRV_ConfigChannel	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/eim/eim_driver.c:145:6:EIM_DRV_GetChannelConfig	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/eim/eim_driver.c:176:6:EIM_DRV_GetDefaultConfig	0	static

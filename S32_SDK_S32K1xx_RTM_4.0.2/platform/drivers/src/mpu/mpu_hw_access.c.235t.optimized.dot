@@ -1,0 +1,240 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/mpu/mpu_hw_access.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_MPU_SetRegionAddr" {
+	style="dashed";
+	color="black";
+	label="MPU_SetRegionAddr ()";
+	fn_6_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_6_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_6_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ (signed\ short)\ regionNum_2(D);\l\
+|_12\ =\ (signed\ short)\ 16;\l\
+|_10\ =\ _1\ w*\ _12;\l\
+|_11\ =\ base_4(D)\ +\ _10;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ MPU_Type\ *)_11\ +\ 1024B]\ =\{v\}\ startAddr_5(D);\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ MPU_Type\ *)_11\ +\ 1028B]\ =\{v\}\ endAddr_7(D);\l\
+|return;\l\
+}"];
+
+	fn_6_basic_block_0:s -> fn_6_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_6_basic_block_0:s -> fn_6_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_MPU_SetMasterAccessRight" {
+	style="dashed";
+	color="black";
+	label="MPU_SetMasterAccessRight ()";
+	fn_7_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_7_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_7_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ masterAccRight_22(D)-\>masterNum;\l\
+|masterNum_23\ =\ (uint32_t)\ _1;\l\
+|if\ (masterNum_23\ \<=\ 3)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_2\ =\ masterAccRight_22(D)-\>accessRight;\l\
+|_25\ =\ _2\ &\ 31;\l\
+|accRight_27\ =\ (uint32_t)\ _25;\l\
+|if\ (masterNum_23\ \<=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [41.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [59.00%]\l\
+}"];
+
+	fn_7_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:220117072\<bb\ 4\>:\l\
+|_3\ =\ masterAccRight_22(D)-\>processIdentifierEnable;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_7_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:110058536\<bb\ 5\>:\l\
+|_13\ =\ _25\ \|\ 32;\l\
+|_37\ =\ (long\ unsigned\ int)\ _13;\l\
+}"];
+
+	fn_7_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:220117072\<bb\ 6\>:\l\
+|#\ prephitmp_43\ =\ PHI\ \<_37(5),\ accRight_27(4)\>\l\
+}"];
+
+	fn_7_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 7\>:\l\
+|#\ accRight_16\ =\ PHI\ \<prephitmp_43(6),\ accRight_27(3)\>\l\
+|_45\ =\ (signed\ short)\ _1;\l\
+|_44\ =\ (signed\ short)\ 6;\l\
+|accShift_29\ =\ _45\ w*\ _44;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_7_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 8\>:\l\
+|_4\ =\ masterAccRight_22(D)-\>accessRight;\l\
+|_5\ =\ (long\ unsigned\ int)\ _4;\l\
+|_6\ =\ _5\ \>\>\ 5;\l\
+|_7\ =\ _6\ \<\<\ 24;\l\
+|_8\ =\ _7\ &\ 16777216;\l\
+|_9\ =\ _5\ \>\>\ 6;\l\
+|_10\ =\ _9\ \<\<\ 25;\l\
+|_11\ =\ _10\ &\ 33554432;\l\
+|accRight_24\ =\ _8\ \|\ _11;\l\
+|_12\ =\ masterNum_23\ +\ 4294967292;\l\
+|accShift_26\ =\ _12\ *\ 2;\l\
+}"];
+
+	fn_7_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|#\ accRight_17\ =\ PHI\ \<accRight_16(7),\ accRight_24(8)\>\l\
+|#\ accMask_18\ =\ PHI\ \<63(7),\ 50331648(8)\>\l\
+|#\ accShift_19\ =\ PHI\ \<accShift_29(7),\ accShift_26(8)\>\l\
+|accRight_30\ =\ accRight_17\ \<\<\ accShift_19;\l\
+|accMask_31\ =\ accMask_18\ \<\<\ accShift_19;\l\
+|_38\ =\ (signed\ short)\ regionNum_32(D);\l\
+|_28\ =\ (signed\ short)\ 4;\l\
+|_42\ =\ _38\ w*\ _28;\l\
+|_41\ =\ base_33(D)\ +\ _42;\l\
+|temp_34\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ MPU_Type\ *)_41\ +\ 2048B];\l\
+|_14\ =\ ~accMask_31;\l\
+|_15\ =\ _14\ &\ temp_34;\l\
+|temp_35\ =\ _15\ \|\ accRight_30;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ MPU_Type\ *)_41\ +\ 2048B]\ =\{v\}\ temp_35;\l\
+|return;\l\
+}"];
+
+	fn_7_basic_block_0:s -> fn_7_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_3:s -> fn_7_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[41%]"];
+	fn_7_basic_block_3:s -> fn_7_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[59%]"];
+	fn_7_basic_block_4:s -> fn_7_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_4:s -> fn_7_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_7_basic_block_5:s -> fn_7_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_6:s -> fn_7_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_7:s -> fn_7_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_8:s -> fn_7_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_9:s -> fn_7_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_7_basic_block_0:s -> fn_7_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_MPU_InitRegion" {
+	style="dashed";
+	color="black";
+	label="MPU_InitRegion ()";
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|if\ (regionNum_3(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_8_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|base_5(D)-\>RGDAAC[0]\ =\{v\}\ 6420447;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_8_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_1\ =\ (int)\ regionNum_3(D);\l\
+|base_5(D)-\>RGD[_1].WORD3\ =\{v\}\ 0;\l\
+|base_5(D)-\>RGD[_1].WORD2\ =\{v\}\ 0;\l\
+|_16\ =\ (signed\ short)\ regionNum_3(D);\l\
+|_15\ =\ (signed\ short)\ 16;\l\
+|_11\ =\ _16\ w*\ _15;\l\
+|_13\ =\ base_5(D)\ +\ _11;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ MPU_Type\ *)_13\ +\ 1028B]\ =\{v\}\ 31;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ MPU_Type\ *)_13\ +\ 1024B]\ =\{v\}\ 0;\l\
+}"];
+
+	fn_8_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_8_basic_block_3:s -> fn_8_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_4:s -> fn_8_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_5:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_MPU_GetErrorInfo" {
+	style="dashed";
+	color="black";
+	label="MPU_GetErrorInfo ()";
+	fn_9_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_9_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_9_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ (signed\ short)\ slaveNum_15(D);\l\
+|_29\ =\ (signed\ short)\ 8;\l\
+|_26\ =\ _1\ w*\ _29;\l\
+|_28\ =\ base_17(D)\ +\ _26;\l\
+|temp_18\ =\{v\}\ MEM\ \<const\ uint32_t\>\ [(const\ struct\ MPU_Type\ *)_28\ +\ 20B];\l\
+|_2\ =\ temp_18\ \>\>\ 16;\l\
+|_3\ =\ (short\ unsigned\ int)\ _2;\l\
+|errInfoPtr_19(D)-\>accessCtr\ =\ _3;\l\
+|_4\ =\ temp_18\ \>\>\ 4;\l\
+|_5\ =\ (unsigned\ char)\ _4;\l\
+|_6\ =\ _5\ &\ 15;\l\
+|errInfoPtr_19(D)-\>master\ =\ _6;\l\
+|_7\ =\ temp_18\ \>\>\ 1;\l\
+|_8\ =\ _7\ &\ 7;\l\
+|_9\ =\ (\<unnamed\ type\>)\ _8;\l\
+|errInfoPtr_19(D)-\>attributes\ =\ _9;\l\
+|_10\ =\ (unsigned\ char)\ temp_18;\l\
+|_11\ =\ _10\ &\ 1;\l\
+|errInfoPtr_19(D)-\>accessType\ =\ _11;\l\
+|_12\ =\{v\}\ MEM\ \<const\ uint32_t\>\ [(const\ struct\ MPU_Type\ *)_28\ +\ 16B];\l\
+|errInfoPtr_19(D)-\>addr\ =\ _12;\l\
+|_13\ =\ temp_18\ \>\>\ 8;\l\
+|_14\ =\ (unsigned\ char)\ _13;\l\
+|errInfoPtr_19(D)-\>processorIdentification\ =\ _14;\l\
+|return;\l\
+}"];
+
+	fn_9_basic_block_0:s -> fn_9_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_9_basic_block_0:s -> fn_9_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_MPU_GetDefaultMasterAccRight" {
+	style="dashed";
+	color="black";
+	label="MPU_GetDefaultMasterAccRight ()";
+	fn_10_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_10_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_10_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|masterAccRight_3(D)-\>masterNum\ =\ masterNum_4(D);\l\
+|if\ (masterNum_4(D)\ \<=\ 3)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_10_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 3\>:\l\
+}"];
+
+	fn_10_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ cstore_10\ =\ PHI\ \<7(2),\ 224(3)\>\l\
+|masterAccRight_3(D)-\>accessRight\ =\ cstore_10;\l\
+|masterAccRight_3(D)-\>processIdentifierEnable\ =\ 0;\l\
+|return;\l\
+}"];
+
+	fn_10_basic_block_0:s -> fn_10_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_10_basic_block_3:s -> fn_10_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_4:s -> fn_10_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_10_basic_block_0:s -> fn_10_basic_block_1:n [style="invis",constraint=true];
+}
+}

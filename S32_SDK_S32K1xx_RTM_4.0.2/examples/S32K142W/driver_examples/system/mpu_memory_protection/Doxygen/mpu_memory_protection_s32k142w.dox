@@ -1,0 +1,84 @@
+/*!
+    @page mpu_memory_protection_s32k142w_group MPU Memory Protect Unit
+    @brief Basic application that presents the project scenarios for S32 SDK
+
+    ## Application description ##
+    _____
+    The purpose of this demo application is to show you how to use the Memory Protection Unit of the S32K142W MCU with this SDK.
+
+    In this example, MPU regions are configured to have access rights
+    as following:
+
+   Region  | Core  |  Debugger |  DMA  |   Address
+  ---------|-------|-----------|-------|------------------------
+      0    |  ---  |   rwx     |  rwx  |0x00000000 - 0xFFFFFFFF
+      1    |  rwx  |   rwx     |  rwx  |0x00000000 - 0x0007FEFF
+      2    |  -wx  |   rwx     |  rwx  |0x0007FF00 - 0x0007FF1F
+      3    |  r--  |   rwx     |  rwx  |0x0007FF00 - 0x0007FF1F
+      4    |  rwx  |   rwx     |  rwx  |0x0007FF20 - 0xFFFFFFFF
+
+    ## Boards supported ##
+    ______
+    The following boards are supported by this application:
+    - Daughter Card S32K14xCVD-Q64 PCB RevX2 SCH RevA1 with S32K142W
+    - Mother Board S32K-MB PCB RevA SCH RevB
+    - Board XS32K14WEVB-Q064
+
+    Run the example
+        1. After reset, MPU will be initialized according to configuration above.
+        2. Read flash memory at address 0x0007FF04 is permitted.
+        3. Press button (SW) on the board to ignore read permission by disabling region 3.
+        4. Read flash memory at address 0x0007FF04 is violated.
+        5. MPU report the detail of error access on slave port 0 (Crossbar slave port 0 -> Flash Controller).
+
+    Verification
+        1. LED1 on indicate that MPU initialization successful.
+        2. LED0 on (LED1 off) indicate that there is violated read access reported by MPU.
+
+    ## Prerequisites ##
+    ______
+    To run the example you will need to have the following items:
+    - 1 Daughter Card S32K14xCVD-Q64 PCB RevX2 SCH RevA1 with S32K142W
+    - 1 Mother Board S32K-MB PCB RevA SCH RevB
+    - 1 Board XS32K14WEVB-Q064
+    - 1 Power Adapter 12V (if the board cannot be powered from the USB port)
+    - 1 Personal Computer
+    - 1 PEmicro Debugger
+
+    ## Hardware Wiring ##
+    ______
+    The following connections must be done to for this example application to work:
+
+    PIN FUNCTION         | S32K-MB                            | XS32K14WEVB-Q064
+    ---------------------|------------------------------------|------------------------------------
+    LED0 (\b PTC0/PTE0)  | LED0 - JP49                        | LED GREEN - D11
+    LED1 (\b PTC1/PTE7)  | LED1 - JP50                        | LED RED - D11
+    SW (\b PTB12/PTD2)   | BUTTON0 - J69(2-3), J70(1-2), JP39 | SW2
+
+        ## How to run ##
+    ______
+
+    #### 1. Importing the project into the workspace ####
+    After opening S32 Design Studio, go to \b File -> \b New \b S32DS \b Project \b From... and select \b mpu_memory_protection_s32k142w. Then click on \b Finish. \n
+    The project should now be copied into you current workspace.
+    #### 2. Generating the S32CT configuration ####
+    The example will run without an active configuration, however if any changes are required, a configuration needs to be generated.
+    The initial configuration will have the same settings as the default example settings.
+    Right click on the current project, then click "Open S32 Configuration" (it has blue chip symbol on the top of the toolbar).
+    In S32 Configuration menu, click on the desired configuration (Pins, Clock, Peripherals, etc.). Clicking on any one of those will generate all the components.
+    Pay attention to any error and warning message. If any configured value is invalid, they will be shown for user.
+    Make the desired changes (if any) then click "Update Code"."
+    #### 3. Building the project ####
+    Select the configuration to be built \b FLASH (Debug_FLASH) or \b RAM (Debug_RAM) by left clicking on the downward arrow corresponding to the \b build button(@image hammer.png).
+    Wait for the build action to be completed before continuing to the next step.
+    #### 4. Running the project ####
+    Go to \b Run and select \b Debug \b Configurations. There will be two debug configurations for this project:
+     Configuration Name                                    | Description
+     ------------------------------------------------------|---------------------------------------------------------
+     \b mpu_memory_protection_s32k142w_debug_ram_pemicro   | Debug the RAM configuration using PEMicro debuggers
+     \b mpu_memory_protection_s32k142w_debug_flash_pemicro | Debug the FLASH configuration using PEMicro debuggers
+    \n Select the desired debug configuration and click on \b Launch. Now the perspective will change to the \b Debug \b Perspective. \n
+    Use the controls to control the program flow.
+
+    @note For more detailed information related to S32 Design Studio usage please consult the available documentation.
+*/

@@ -1,0 +1,345 @@
+
+;; Function MPU_DRV_Deinit (MPU_DRV_Deinit, funcdef_no=7, decl_uid=6360, cgraph_uid=8, symbol_order=8)
+
+Removing basic block 5
+MPU_DRV_Deinit (uint32_t instance)
+{
+  unsigned int ivtmp.28;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _22;
+  long unsigned int _23;
+  unsigned char _24;
+  long unsigned int _28;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _39;
+  long unsigned int _44;
+  long unsigned int _45;
+  long unsigned int _50;
+  long unsigned int _55;
+  long unsigned int _56;
+  long unsigned int _61;
+
+  <bb 2> [local count: 119292720]:
+  _9 ={v} MEM[(struct MPU_Type *)1073795072B].CESR;
+  _10 = _9 & 4294967294;
+  MEM[(struct MPU_Type *)1073795072B].CESR ={v} _10;
+  _22 ={v} MEM[(struct MPU_Type *)1073795072B].CESR;
+  _23 = _22 & 268435455;
+  _28 = _23 | 2147483648;
+  MEM[(struct MPU_Type *)1073795072B].CESR ={v} _28;
+  _33 ={v} MEM[(struct MPU_Type *)1073795072B].CESR;
+  _34 = _33 & 268435455;
+  _39 = _34 | 1073741824;
+  MEM[(struct MPU_Type *)1073795072B].CESR ={v} _39;
+  _44 ={v} MEM[(struct MPU_Type *)1073795072B].CESR;
+  _45 = _44 & 268435455;
+  _50 = _45 | 536870912;
+  MEM[(struct MPU_Type *)1073795072B].CESR ={v} _50;
+  _55 ={v} MEM[(struct MPU_Type *)1073795072B].CESR;
+  _56 = _55 & 268435455;
+  _61 = _56 | 268435456;
+  MEM[(struct MPU_Type *)1073795072B].CESR ={v} _61;
+
+  <bb 3> [local count: 954449105]:
+  # ivtmp.28_26 = PHI <0(2), ivtmp.28_25(3)>
+  _24 = (unsigned char) ivtmp.28_26;
+  MPU_InitRegion (1073795072B, _24);
+  ivtmp.28_25 = ivtmp.28_26 + 1;
+  if (ivtmp.28_25 != 8)
+    goto <bb 3>; [87.50%]
+  else
+    goto <bb 4>; [12.50%]
+
+  <bb 4> [local count: 119292720]:
+  return;
+
+}
+
+
+
+;; Function MPU_DRV_SetRegionAddr (MPU_DRV_SetRegionAddr, funcdef_no=8, decl_uid=6365, cgraph_uid=9, symbol_order=9)
+
+MPU_DRV_SetRegionAddr (uint32_t instance, uint8_t regionNum, uint32_t startAddr, uint32_t endAddr)
+{
+  int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+
+  <bb 2> [local count: 1073741824]:
+  MPU_SetRegionAddr (1073795072B, regionNum_2(D), startAddr_3(D), endAddr_4(D));
+  _6 = (int) regionNum_2(D);
+  _7 ={v} MEM[(struct MPU_Type *)1073795072B].RGD[_6].WORD3;
+  _8 = _7 & 4294967294;
+  _9 = _8 | 1;
+  MEM[(struct MPU_Type *)1073795072B].RGD[_6].WORD3 ={v} _9;
+  return;
+
+}
+
+
+
+;; Function MPU_DRV_SetRegionConfig (MPU_DRV_SetRegionConfig, funcdef_no=9, decl_uid=6369, cgraph_uid=10, symbol_order=10)
+
+Removing basic block 8
+Removing basic block 9
+Removing basic block 10
+MPU_DRV_SetRegionConfig (uint32_t instance, uint8_t regionNum, const struct mpu_user_config_t * userConfigPtr)
+{
+  unsigned int ivtmp.47;
+  status_t returnCode;
+  const struct mpu_master_access_right_t * _1;
+  const struct mpu_master_access_right_t * _4;
+  unsigned char _5;
+  long unsigned int _17;
+  long unsigned int _18;
+  unsigned char _19;
+  int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  unsigned char _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+
+  <bb 2> [local count: 312727306]:
+
+  <bb 3> [local count: 805306369]:
+  # ivtmp.47_45 = PHI <0(2), ivtmp.47_11(4)>
+  _1 = userConfigPtr_13(D)->masterAccRight;
+  _4 = _1 + ivtmp.47_45;
+  _5 = _4->masterNum;
+  if (_5 <= 7)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 6>; [5.50%]
+
+  <bb 4> [local count: 761014520]:
+  MPU_SetMasterAccessRight (1073795072B, regionNum_14(D), _4);
+  ivtmp.47_11 = ivtmp.47_45 + 3;
+  if (ivtmp.47_11 != 9)
+    goto <bb 3>; [64.73%]
+  else
+    goto <bb 7>; [35.27%]
+
+  <bb 5> [local count: 51600005]:
+  _17 = userConfigPtr_13(D)->startAddr;
+  _18 = userConfigPtr_13(D)->endAddr;
+  MPU_SetRegionAddr (1073795072B, regionNum_14(D), _17, _18);
+  _19 = userConfigPtr_13(D)->processIdentifier;
+  _20 = (int) regionNum_14(D);
+  _21 ={v} MEM[(struct MPU_Type *)1073795072B].RGD[_20].WORD3;
+  _22 = _21 & 16777215;
+  _23 = (long unsigned int) _19;
+  _24 = _23 << 24;
+  _25 = _22 | _24;
+  MEM[(struct MPU_Type *)1073795072B].RGD[_20].WORD3 ={v} _25;
+  _26 = userConfigPtr_13(D)->processIdMask;
+  _27 ={v} MEM[(struct MPU_Type *)1073795072B].RGD[_20].WORD3;
+  _28 = _27 & 4278255615;
+  _29 = (long unsigned int) _26;
+  _30 = _29 << 16;
+  _31 = _28 | _30;
+  MEM[(struct MPU_Type *)1073795072B].RGD[_20].WORD3 ={v} _31;
+  _32 ={v} MEM[(struct MPU_Type *)1073795072B].RGD[_20].WORD3;
+  _33 = _32 & 4294967294;
+  _34 = _33 | 1;
+  MEM[(struct MPU_Type *)1073795072B].RGD[_20].WORD3 ={v} _34;
+
+  <bb 6> [local count: 312727306]:
+  # returnCode_50 = PHI <1(3), 0(5), 0(7)>
+  return returnCode_50;
+
+  <bb 7> [local count: 268435456]:
+  if (regionNum_14(D) != 0)
+    goto <bb 5>; [19.22%]
+  else
+    goto <bb 6>; [80.78%]
+
+}
+
+
+
+;; Function MPU_DRV_Init (MPU_DRV_Init, funcdef_no=6, decl_uid=6358, cgraph_uid=7, symbol_order=7)
+
+Removing basic block 8
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+MPU_DRV_Init (uint32_t instance, uint8_t regionCnt, const struct mpu_user_config_t * userConfigArr)
+{
+  unsigned int ivtmp.55;
+  uint8_t regionNum;
+  status_t retStatus;
+  const struct mpu_user_config_t * _3;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+
+  <bb 2> [local count: 114863530]:
+  MPU_DRV_Deinit (instance_11(D));
+  if (regionCnt_13(D) != 0)
+    goto <bb 3>; [94.50%]
+  else
+    goto <bb 7>; [5.50%]
+
+  <bb 3> [local count: 108546036]:
+  ivtmp.55_6 = (unsigned int) userConfigArr_14(D);
+
+  <bb 4> [local count: 1014686026]:
+  # regionNum_26 = PHI <0(3), regionNum_17(5)>
+  # ivtmp.55_8 = PHI <ivtmp.55_6(3), ivtmp.55_7(5)>
+  _3 = (const struct mpu_user_config_t *) ivtmp.55_8;
+  retStatus_16 = MPU_DRV_SetRegionConfig (instance_11(D), regionNum_26, _3);
+  if (retStatus_16 != 0)
+    goto <bb 6>; [5.50%]
+  else
+    goto <bb 5>; [94.50%]
+
+  <bb 5> [local count: 958878296]:
+  regionNum_17 = regionNum_26 + 1;
+  ivtmp.55_7 = ivtmp.55_8 + 16;
+  if (regionCnt_13(D) != regionNum_17)
+    goto <bb 4>; [94.50%]
+  else
+    goto <bb 7>; [5.50%]
+
+  <bb 6> [local count: 114863531]:
+  # retStatus_29 = PHI <0(7), retStatus_16(4)>
+  return retStatus_29;
+
+  <bb 7> [local count: 59055800]:
+  _18 ={v} MEM[(struct MPU_Type *)1073795072B].CESR;
+  _19 = _18 & 4294967294;
+  _20 = _19 | 1;
+  MEM[(struct MPU_Type *)1073795072B].CESR ={v} _20;
+  goto <bb 6>; [100.00%]
+
+}
+
+
+
+;; Function MPU_DRV_SetMasterAccessRights (MPU_DRV_SetMasterAccessRights, funcdef_no=10, decl_uid=6373, cgraph_uid=11, symbol_order=11)
+
+Removing basic block 5
+MPU_DRV_SetMasterAccessRights (uint32_t instance, uint8_t regionNum, const struct mpu_master_access_right_t * accessRightsPtr)
+{
+  status_t returnCode;
+  unsigned char _1;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = accessRightsPtr_5(D)->masterNum;
+  if (_1 <= 7)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  MPU_SetMasterAccessRight (1073795072B, regionNum_6(D), accessRightsPtr_5(D));
+
+  <bb 4> [local count: 1073741824]:
+  # returnCode_2 = PHI <0(3), 1(2)>
+  return returnCode_2;
+
+}
+
+
+
+;; Function MPU_DRV_GetDetailErrorAccessInfo (MPU_DRV_GetDetailErrorAccessInfo, funcdef_no=11, decl_uid=6377, cgraph_uid=12, symbol_order=12)
+
+Removing basic block 5
+MPU_DRV_GetDetailErrorAccessInfo (uint32_t instance, uint8_t slavePortNum, struct mpu_access_err_info_t * errInfoPtr)
+{
+  long unsigned int _6;
+  unsigned int _7;
+  unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  _Bool _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+
+  <bb 2> [local count: 1073741824]:
+  _6 ={v} MEM[(const struct MPU_Type *)1073795072B].CESR;
+  _7 = (unsigned int) slavePortNum_2(D);
+  _8 = 3 - _7;
+  _9 = 1 << _8;
+  _10 = _9 << 28;
+  _11 = _6 & _10;
+  _12 = _11 != 0;
+  if (_11 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 3> [local count: 354334800]:
+  MPU_GetErrorInfo (1073795072B, slavePortNum_2(D), errInfoPtr_4(D));
+  _13 ={v} MEM[(struct MPU_Type *)1073795072B].CESR;
+  _14 = _13 & 268435455;
+  _15 = _10 | _14;
+  MEM[(struct MPU_Type *)1073795072B].CESR ={v} _15;
+
+  <bb 4> [local count: 1073741824]:
+  return _12;
+
+}
+
+
+
+;; Function MPU_DRV_GetDefaultRegionConfig (MPU_DRV_GetDefaultRegionConfig, funcdef_no=12, decl_uid=6379, cgraph_uid=13, symbol_order=13)
+
+MPU_DRV_GetDefaultRegionConfig (struct mpu_master_access_right_t * masterAccRight)
+{
+  struct mpu_master_access_right_t * _5;
+  struct mpu_master_access_right_t * _40;
+
+  <bb 2> [local count: 268435458]:
+  MPU_GetDefaultMasterAccRight (0, masterAccRight_10(D));
+  _40 = masterAccRight_10(D) + 3;
+  MPU_GetDefaultMasterAccRight (1, _40);
+  _5 = masterAccRight_10(D) + 6;
+  MPU_GetDefaultMasterAccRight (2, _5);
+  <retval>.startAddr = 0;
+  <retval>.endAddr = 4294967295;
+  <retval>.masterAccRight = masterAccRight_10(D);
+  MEM <unsigned short> [(unsigned char *)&<retval> + 12B] = 0;
+  return <retval>;
+
+}
+
+
+
+;; Function MPU_DRV_EnableRegion (MPU_DRV_EnableRegion, funcdef_no=13, decl_uid=6383, cgraph_uid=14, symbol_order=14)
+
+MPU_DRV_EnableRegion (uint32_t instance, uint8_t regionNum, _Bool enable)
+{
+  int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _8;
+  long unsigned int _10;
+
+  <bb 2> [local count: 1073741824]:
+  _4 = (int) regionNum_2(D);
+  _5 ={v} MEM[(struct MPU_Type *)1073795072B].RGD[_4].WORD3;
+  _6 = _5 & 4294967294;
+  _10 = (long unsigned int) enable_3(D);
+  _8 = _6 | _10;
+  MEM[(struct MPU_Type *)1073795072B].RGD[_4].WORD3 ={v} _8;
+  return;
+
+}
+
+

@@ -1,0 +1,331 @@
+
+;; Function OSIF_TimeDelay (OSIF_TimeDelay, funcdef_no=6, decl_uid=6766, cgraph_uid=7, symbol_order=6)
+
+OSIF_TimeDelay (uint32_t delay)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = delay_3(D) * 10000;
+  _2 = _1 / 1000;
+  vTaskDelay (_2); [tail call]
+  return;
+
+}
+
+
+
+;; Function OSIF_GetMilliseconds (OSIF_GetMilliseconds, funcdef_no=7, decl_uid=6768, cgraph_uid=8, symbol_order=7)
+
+OSIF_GetMilliseconds ()
+{
+  long unsigned int _1;
+  long long unsigned int _3;
+  long long unsigned int _4;
+  uint32_t _7;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = xTaskGetTickCount ();
+  _3 = _1 w* 1000;
+  _4 = _3 / 10000;
+  _7 = (uint32_t) _4;
+  return _7;
+
+}
+
+
+
+;; Function OSIF_MutexLock (OSIF_MutexLock, funcdef_no=8, decl_uid=6771, cgraph_uid=9, symbol_order=8)
+
+Removing basic block 9
+Removing basic block 10
+Removing basic block 11
+Removing basic block 12
+Removing basic block 13
+OSIF_MutexLock (struct QueueDefinition * const * const pMutex, const uint32_t timeout)
+{
+  struct QueueDefinition * mutex_handle;
+  BaseType_t operation_status;
+  struct tskTaskControlBlock * current_task_handle;
+  struct tskTaskControlBlock * mutex_holder_handle;
+  status_t osif_ret_code;
+  uint32_t timeoutTicks;
+  long unsigned int _1;
+
+  <bb 2> [local count: 1073741824]:
+  if (pMutex_5(D) != 0B)
+    goto <bb 4>; [53.47%]
+  else
+    goto <bb 3>; [46.53%]
+
+  <bb 3> [local count: 696096497]:
+  goto <bb 8>; [100.00%]
+
+  <bb 4> [local count: 574129753]:
+  mutex_handle_7 = *pMutex_5(D);
+  mutex_holder_handle_9 = xQueueGetMutexHolder (mutex_handle_7);
+  current_task_handle_11 = xTaskGetCurrentTaskHandle ();
+  if (mutex_holder_handle_9 == current_task_handle_11)
+    goto <bb 8>; [30.00%]
+  else
+    goto <bb 5>; [70.00%]
+
+  <bb 5> [local count: 401890828]:
+  if (timeout_12(D) == 4294967295)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 6> [local count: 265247945]:
+  _1 = timeout_12(D) * 10000;
+  timeoutTicks_13 = _1 / 1000;
+
+  <bb 7> [local count: 401890828]:
+  # timeoutTicks_2 = PHI <timeoutTicks_13(6), timeout_12(D)(5)>
+  operation_status_15 = xQueueSemaphoreTake (mutex_handle_7, timeoutTicks_2);
+  if (operation_status_15 == 1)
+    goto <bb 3>; [48.89%]
+  else
+    goto <bb 8>; [51.11%]
+
+  <bb 8> [local count: 1073741824]:
+  # osif_ret_code_3 = PHI <1(4), 0(3), 3(7)>
+  return osif_ret_code_3;
+
+}
+
+
+
+;; Function OSIF_MutexUnlock (OSIF_MutexUnlock, funcdef_no=9, decl_uid=6773, cgraph_uid=10, symbol_order=9)
+
+Removing basic block 6
+Removing basic block 7
+OSIF_MutexUnlock (struct QueueDefinition * const * const pMutex)
+{
+  struct QueueDefinition * mutex_handle;
+  BaseType_t operation_status;
+  struct tskTaskControlBlock * current_task_handle;
+  struct tskTaskControlBlock * mutex_holder_handle;
+  status_t osif_ret_code;
+  _Bool _1;
+
+  <bb 2> [local count: 1073741824]:
+  if (pMutex_4(D) != 0B)
+    goto <bb 3>; [53.47%]
+  else
+    goto <bb 5>; [46.53%]
+
+  <bb 3> [local count: 574129753]:
+  mutex_handle_6 = *pMutex_4(D);
+  mutex_holder_handle_8 = xQueueGetMutexHolder (mutex_handle_6);
+  current_task_handle_10 = xTaskGetCurrentTaskHandle ();
+  if (mutex_holder_handle_8 != current_task_handle_10)
+    goto <bb 5>; [82.57%]
+  else
+    goto <bb 4>; [17.43%]
+
+  <bb 4> [local count: 100070816]:
+  operation_status_12 = xQueueGenericSend (mutex_handle_6, 0B, 0, 0);
+  _1 = operation_status_12 != 1;
+  osif_ret_code_13 = (status_t) _1;
+
+  <bb 5> [local count: 1073741824]:
+  # osif_ret_code_2 = PHI <osif_ret_code_13(4), 0(2), 1(3)>
+  return osif_ret_code_2;
+
+}
+
+
+
+;; Function OSIF_MutexCreate (OSIF_MutexCreate, funcdef_no=10, decl_uid=6775, cgraph_uid=11, symbol_order=10)
+
+Removing basic block 5
+OSIF_MutexCreate (struct QueueDefinition * * const pMutex)
+{
+  status_t osif_ret_code;
+  struct QueueDefinition * _1;
+  _Bool _8;
+  <unnamed type> _9;
+
+  <bb 2> [local count: 1073741824]:
+  if (pMutex_4(D) != 0B)
+    goto <bb 3>; [53.47%]
+  else
+    goto <bb 4>; [46.53%]
+
+  <bb 3> [local count: 574129753]:
+  _1 = xQueueCreateMutex (1);
+  *pMutex_4(D) = _1;
+  _8 = _1 == 0B;
+  _9 = (<unnamed type>) _8;
+
+  <bb 4> [local count: 1073741824]:
+  # osif_ret_code_2 = PHI <_9(3), 0(2)>
+  return osif_ret_code_2;
+
+}
+
+
+
+;; Function OSIF_MutexDestroy (OSIF_MutexDestroy, funcdef_no=11, decl_uid=6777, cgraph_uid=12, symbol_order=11)
+
+Removing basic block 5
+OSIF_MutexDestroy (struct QueueDefinition * const * const pMutex)
+{
+  struct QueueDefinition * mutex_handle;
+
+  <bb 2> [local count: 1073741824]:
+  if (pMutex_2(D) != 0B)
+    goto <bb 3>; [53.47%]
+  else
+    goto <bb 4>; [46.53%]
+
+  <bb 3> [local count: 574129753]:
+  mutex_handle_4 = *pMutex_2(D);
+  vQueueDelete (mutex_handle_4);
+
+  <bb 4> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function OSIF_SemaWait (OSIF_SemaWait, funcdef_no=12, decl_uid=6780, cgraph_uid=13, symbol_order=12)
+
+Removing basic block 5
+Removing basic block 7
+OSIF_SemaWait (struct QueueDefinition * * const pSem, const uint32_t timeout)
+{
+  BaseType_t operation_status;
+  uint32_t timeoutTicks;
+  struct QueueDefinition * sem_handle;
+  long unsigned int _1;
+  status_t iftmp.1_3;
+
+  <bb 2> [local count: 1073741824]:
+  sem_handle_6 = *pSem_5(D);
+  if (timeout_7(D) == 4294967295)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669601]:
+  _1 = timeout_7(D) * 10000;
+  timeoutTicks_8 = _1 / 1000;
+
+  <bb 4> [local count: 1073741824]:
+  # timeoutTicks_2 = PHI <timeoutTicks_8(3), timeout_7(D)(2)>
+  operation_status_10 = xQueueSemaphoreTake (sem_handle_6, timeoutTicks_2);
+  if (operation_status_10 == 1)
+    goto <bb 6>; [48.89%]
+  else
+    goto <bb 5>; [51.11%]
+
+  <bb 5> [local count: 548789448]:
+
+  <bb 6> [local count: 1073741824]:
+  # iftmp.1_3 = PHI <0(4), 3(5)>
+  return iftmp.1_3;
+
+}
+
+
+
+;; Function OSIF_SemaPost (OSIF_SemaPost, funcdef_no=13, decl_uid=6782, cgraph_uid=14, symbol_order=13)
+
+Removing basic block 9
+Removing basic block 10
+OSIF_SemaPost (struct QueueDefinition * * const pSem)
+{
+  uint32_t ipsr_code;
+  BaseType_t taskWoken;
+  struct QueueDefinition * sem_handle;
+  status_t osif_ret_code;
+  BaseType_t operation_status;
+  long int taskWoken.2_1;
+  _Bool _2;
+  long unsigned int _19;
+
+  <bb 2> [local count: 1073741824]:
+  sem_handle_8 = *pSem_7(D);
+  _19 ={v} MEM[(struct S32_SCB_Type *)3758153728B].ICSR;
+  ipsr_code_20 = _19 & 511;
+  if (ipsr_code_20 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 3>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  operation_status_10 = xQueueGenericSend (sem_handle_8, 0B, 0, 0);
+  goto <bb 8>; [100.00%]
+
+  <bb 4> [local count: 536870913]:
+  taskWoken = 0;
+  operation_status_13 = xQueueGiveFromISR (sem_handle_8, &taskWoken);
+  if (operation_status_13 == 1)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 7>; [66.00%]
+
+  <bb 5> [local count: 182536112]:
+  taskWoken.2_1 = taskWoken;
+  if (taskWoken.2_1 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 91268056]:
+  MEM[(volatile uint32_t *)3758157060B] ={v} 268435456;
+  __asm__ __volatile__("dsb" :  :  : "memory");
+  __asm__ __volatile__("isb");
+
+  <bb 7> [local count: 536870913]:
+  taskWoken ={v} {CLOBBER};
+
+  <bb 8> [local count: 1073741824]:
+  # operation_status_3 = PHI <operation_status_13(7), operation_status_10(3)>
+  _2 = operation_status_3 != 1;
+  osif_ret_code_18 = (status_t) _2;
+  return osif_ret_code_18;
+
+}
+
+
+
+;; Function OSIF_SemaCreate (OSIF_SemaCreate, funcdef_no=14, decl_uid=6785, cgraph_uid=15, symbol_order=14)
+
+OSIF_SemaCreate (struct QueueDefinition * * const pSem, const uint8_t initValue)
+{
+  long unsigned int _1;
+  struct QueueDefinition * _2;
+  _Bool _9;
+  <unnamed type> _10;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = (long unsigned int) initValue_4(D);
+  _2 = xQueueCreateCountingSemaphore (255, _1);
+  *pSem_7(D) = _2;
+  _9 = _2 == 0B;
+  _10 = (<unnamed type>) _9;
+  return _10;
+
+}
+
+
+
+;; Function OSIF_SemaDestroy (OSIF_SemaDestroy, funcdef_no=15, decl_uid=6787, cgraph_uid=16, symbol_order=15)
+
+OSIF_SemaDestroy (struct QueueDefinition * const * const pSem)
+{
+  struct QueueDefinition * sem_handle;
+
+  <bb 2> [local count: 1073741824]:
+  sem_handle_3 = *pSem_2(D);
+  vQueueDelete (sem_handle_3);
+  return 0;
+
+}
+
+

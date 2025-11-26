@@ -1,0 +1,2001 @@
+
+;; Function FTM_DRV_InputCaptureHandler (FTM_DRV_InputCaptureHandler, funcdef_no=164, decl_uid=7655, cgraph_uid=165, symbol_order=164)
+
+Removing basic block 14
+Removing basic block 15
+Removing basic block 16
+FTM_DRV_InputCaptureHandler (uint32_t instance, uint8_t channelPair)
+{
+  uint8_t channel;
+  struct FTM_Type * ftmBase;
+  struct ftm_state_t * state;
+  unsigned char _1;
+  short unsigned int _2;
+  int prephitmp_3;
+  short unsigned int _4;
+  short unsigned int _5;
+  sizetype _6;
+  const struct FTM_Type * _7;
+  void (*<T650>) (ic_event_t, void *) _8;
+  _Bool _9;
+  void * _10;
+  sizetype _11;
+  signed short _12;
+  int _13;
+  short unsigned int _24;
+  int prephitmp_25;
+  long unsigned int _28;
+  unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  signed short _33;
+  long unsigned int _34;
+  short unsigned int _35;
+  int _36;
+  long unsigned int _37;
+  short unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int vol.3_41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int vol.3_44;
+  int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int vol.3_50;
+  long unsigned int _51;
+  short unsigned int _52;
+  long unsigned int _53;
+  short unsigned int _54;
+  short unsigned int cstore_58;
+  signed short _59;
+  signed short _64;
+  signed short _66;
+  sizetype _70;
+  const struct FTM_Type * _71;
+  signed short _76;
+  sizetype _82;
+  const struct FTM_Type * _83;
+  sizetype _93;
+  sizetype _94;
+  struct ftm_state_t * _95;
+
+  <bb 2> [local count: 1073741824]:
+  state_18 = ftmStatePtr[instance_17(D)];
+  ftmBase_19 = g_ftmBase[instance_17(D)];
+  channel_21 = channelPair_20(D) << 1;
+  _28 ={v} MEM[(const struct FTM_Type *)ftmBase_19].COMBINE;
+  _59 = (signed short) channelPair_20(D);
+  _66 = (signed short) 8;
+  _30 = _59 w* _66;
+  _31 = 4 << _30;
+  _32 = _28 & _31;
+  if (_32 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 3> [local count: 536870913]:
+  _36 = (int) channel_21;
+  _33 = (signed short) channel_21;
+  _12 = (signed short) 8;
+  _70 = _33 w* _12;
+  _71 = ftmBase_19 + _70;
+  _37 ={v} MEM <const uint32_t> [(const struct FTM_Type *)_71 + 16B];
+  _38 = (short unsigned int) _37;
+  _1 = channel_21 + 1;
+  _64 = (signed short) _1;
+  _76 = (signed short) 8;
+  _82 = _64 w* _76;
+  _83 = ftmBase_19 + _82;
+  _34 ={v} MEM <const uint32_t> [(const struct FTM_Type *)_83 + 16B];
+  _35 = (short unsigned int) _34;
+  if (_35 <= _38)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 268435456]:
+  _2 = state_18->ftmModValue;
+  _24 = _35 - _38;
+  _4 = _2 + _24;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [local count: 268435456]:
+  _5 = _35 - _38;
+
+  <bb 6> [local count: 536870913]:
+  # cstore_58 = PHI <_4(4), _5(5)>
+  state_18->measurementResults[_36] = cstore_58;
+  _42 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_71 + 12B];
+  _43 = _42 & 4294967167;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_71 + 12B] ={v} _43;
+  vol.3_44 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_71 + 12B];
+  _39 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_83 + 12B];
+  _40 = _39 & 4294967167;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_83 + 12B] ={v} _40;
+  vol.3_41 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_83 + 12B];
+  goto <bb 10>; [100.00%]
+
+  <bb 7> [local count: 536870913]:
+  _45 = (int) channel_21;
+  _46 ={v} MEM[(const struct FTM_Type *)ftmBase_19].CONTROLS[_45].CnSC;
+  _47 = _46 & 128;
+  if (_47 == 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 268435456]:
+  channel_22 = channel_21 + 1;
+  _13 = (int) channel_22;
+
+  <bb 9> [local count: 536870913]:
+  # prephitmp_3 = PHI <_13(8), _45(7)>
+  _11 = (sizetype) prephitmp_3;
+  _6 = _11 * 8;
+  _7 = ftmBase_19 + _6;
+  _51 ={v} MEM <const uint32_t> [(const struct FTM_Type *)_7 + 16B];
+  _52 = (short unsigned int) _51;
+  state_18->measurementResults[prephitmp_3] = _52;
+  _48 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_7 + 12B];
+  _49 = _48 & 4294967167;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_7 + 12B] ={v} _49;
+  vol.3_50 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_7 + 12B];
+
+  <bb 10> [local count: 1073741824]:
+  # prephitmp_25 = PHI <_36(6), prephitmp_3(9)>
+  _53 ={v} MEM[(const struct FTM_Type *)ftmBase_19].MOD;
+  _54 = (short unsigned int) _53;
+  state_18->ftmModValue = _54;
+  _93 = (sizetype) prephitmp_25;
+  _94 = _93 * 4;
+  _95 = state_18 + _94;
+  _8 = MEM <void (*ic_callback_t) (ic_event_t, void *)> [(struct ftm_state_t *)_95 + 60B];
+  if (_8 != 0B)
+    goto <bb 11>; [70.00%]
+  else
+    goto <bb 13>; [30.00%]
+
+  <bb 11> [local count: 751619281]:
+  _9 = state_18->enableNotification[prephitmp_25];
+  if (_9 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 375809640]:
+  _10 = MEM <void *> [(struct ftm_state_t *)_95 + 28B];
+  _8 (0, _10); [tail call]
+
+  <bb 13> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM_DRV_InitInputCapture (FTM_DRV_InitInputCapture, funcdef_no=142, decl_uid=6790, cgraph_uid=143, symbol_order=142)
+
+Removing basic block 35
+Removing basic block 36
+Removing basic block 37
+Removing basic block 38
+Removing basic block 39
+Removing basic block 40
+Removing basic block 41
+Removing basic block 42
+Removing basic block 43
+Removing basic block 44
+Removing basic block 45
+Removing basic block 46
+FTM_DRV_InitInputCapture (uint32_t instance, const struct ftm_input_param_t * param)
+{
+  unsigned int ivtmp.52;
+  status_t retStatus;
+  struct ftm_state_t * state;
+  ftm_signal_measurement_mode_t measurementType;
+  _Bool contModeEn;
+  uint8_t hwChannel;
+  uint8_t index;
+  uint8_t chnlPairNum;
+  struct FTM_Type * ftmBase;
+  <unnamed type> _1;
+  short unsigned int _2;
+  struct ftm_input_ch_param_t * _3;
+  signed short _4;
+  unsigned int _5;
+  struct ftm_input_ch_param_t * _6;
+  int _7;
+  void * _8;
+  void (*<T650>) (ic_event_t, void *) _9;
+  _Bool _10;
+  short unsigned int _11;
+  unsigned char _12;
+  signed short _14;
+  <unnamed type> _15;
+  signed short _17;
+  <unnamed type> _18;
+  <unnamed type> _19;
+  unsigned char _20;
+  <unnamed type> _21;
+  <unnamed type> _22;
+  <unnamed type> _23;
+  long unsigned int _24;
+  signed short _25;
+  signed short _26;
+  struct ftm_input_ch_param_t * _27;
+  signed short _31;
+  long unsigned int _32;
+  signed short _51;
+  struct ftm_input_ch_param_t * prephitmp_52;
+  signed short _53;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long unsigned int _65;
+  long unsigned int _66;
+  long unsigned int _67;
+  long unsigned int _68;
+  short unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  long unsigned int _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  long unsigned int _79;
+  long unsigned int _80;
+  long unsigned int _81;
+  signed short _86;
+  long unsigned int _92;
+  long unsigned int _93;
+  long unsigned int _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  long unsigned int _97;
+  long unsigned int _98;
+  long unsigned int _99;
+  long unsigned int _100;
+  long unsigned int _101;
+  long unsigned int _102;
+  long unsigned int _103;
+  long unsigned int _104;
+  unsigned int _106;
+  long unsigned int _107;
+  long unsigned int _108;
+  long unsigned int _109;
+  signed short _110;
+  signed short _111;
+  long unsigned int _112;
+  unsigned int _114;
+  long unsigned int _115;
+  long unsigned int _116;
+  long unsigned int _117;
+  long unsigned int _118;
+  long unsigned int _119;
+  unsigned char _120;
+  long unsigned int _121;
+  long unsigned int _122;
+  long unsigned int _123;
+  long unsigned int _124;
+  long unsigned int _125;
+  long unsigned int _126;
+  signed short _127;
+  long unsigned int _128;
+  long unsigned int _129;
+  long unsigned int _130;
+  long unsigned int _131;
+  long unsigned int _132;
+  signed short _133;
+  struct ftm_input_ch_param_t * pretmp_134;
+  struct ftm_input_ch_param_t * pretmp_135;
+  signed short _136;
+  struct FTM_Type * _137;
+  unsigned char _139;
+  int _140;
+  long unsigned int _141;
+  long unsigned int _142;
+  long unsigned int _143;
+  long unsigned int _144;
+  long unsigned int _145;
+  unsigned char _146;
+  int _147;
+  long unsigned int _148;
+  long unsigned int _149;
+  long unsigned int _150;
+  long unsigned int _151;
+  long unsigned int _152;
+  signed short _156;
+  struct ftm_state_t * _157;
+  sizetype _158;
+  unsigned char _159;
+  int _160;
+  long unsigned int _161;
+  long unsigned int _162;
+  long unsigned int _163;
+  long unsigned int _164;
+  long unsigned int _165;
+  unsigned char _166;
+  int _167;
+  long unsigned int _168;
+  long unsigned int _169;
+  long unsigned int _170;
+  long unsigned int _171;
+  long unsigned int _172;
+  signed short _174;
+  long unsigned int _178;
+  long unsigned int _179;
+  long unsigned int _181;
+  long unsigned int _195;
+  long unsigned int _200;
+  int prephitmp_202;
+  signed short _206;
+  signed short _207;
+  signed short _208;
+  signed short _209;
+  sizetype _211;
+  signed short _212;
+  sizetype _213;
+  struct ftm_input_ch_param_t * _215;
+  struct FTM_Type * _216;
+  sizetype _218;
+  struct FTM_Type * _219;
+  signed short _220;
+  signed short _221;
+  signed short _222;
+  struct FTM_Type * _223;
+  sizetype _225;
+  long unsigned int _229;
+  long unsigned int _230;
+  long unsigned int _231;
+  signed short _232;
+  signed short _234;
+  long unsigned int _236;
+  long unsigned int _237;
+  <unnamed type> _239;
+  unsigned char _243;
+  signed short _244;
+  long unsigned int _245;
+  long unsigned int _246;
+  <unnamed type> _248;
+  long unsigned int _250;
+  long unsigned int _251;
+  long unsigned int _252;
+  long unsigned int _254;
+  long unsigned int _255;
+  long unsigned int _257;
+  long unsigned int _258;
+  long unsigned int _259;
+  long unsigned int _261;
+  long unsigned int _262;
+  signed short _264;
+  sizetype _266;
+  struct FTM_Type * _267;
+  signed short _268;
+  signed short _269;
+  unsigned int _270;
+  sizetype _278;
+  struct FTM_Type * _279;
+  sizetype _290;
+  struct FTM_Type * _291;
+  sizetype _302;
+  struct FTM_Type * _303;
+  sizetype _314;
+  struct FTM_Type * _315;
+  sizetype _326;
+  struct FTM_Type * _327;
+  sizetype _338;
+  struct FTM_Type * _339;
+  sizetype _349;
+  sizetype _350;
+  struct FTM_Type * _351;
+  sizetype _356;
+  struct FTM_Type * _357;
+
+  <bb 2> [local count: 209781074]:
+  state_38 = ftmStatePtr[instance_36(D)];
+  if (state_38 != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 3>; [30.00%]
+
+  <bb 3> [local count: 112149582]:
+  goto <bb 27>; [100.00%]
+
+  <bb 4> [local count: 146846752]:
+  ftmBase_37 = g_ftmBase[instance_36(D)];
+  _1 = state_38->ftmMode;
+  if (_1 == 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [local count: 73423376]:
+  if (_1 == 3)
+    goto <bb 8>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 6> [local count: 48459428]:
+  if (_1 == 8)
+    goto <bb 8>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 7> [local count: 57431765]:
+  _66 ={v} ftmBase_37->SC;
+  _67 = _66 & 4294967271;
+  ftmBase_37->SC ={v} _67;
+  _64 ={v} ftmBase_37->CNTIN;
+  _65 = _64 & 4294901760;
+  ftmBase_37->CNTIN ={v} _65;
+  _2 = param_40(D)->nMaxCountValue;
+  _60 ={v} ftmBase_37->MOD;
+  _61 = _60 & 4294901760;
+  _62 = (long unsigned int) _2;
+  _63 = _61 | _62;
+  ftmBase_37->MOD ={v} _63;
+  _58 ={v} ftmBase_37->SC;
+  _59 = _58 & 4294967263;
+  ftmBase_37->SC ={v} _59;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 57431765]:
+  state_38->ftmMode = 8;
+
+  <bb 9> [local count: 114863530]:
+  _68 ={v} MEM[(const struct FTM_Type *)ftmBase_37].MOD;
+  _69 = (short unsigned int) _68;
+  state_38->ftmModValue = _69;
+  _120 = param_40(D)->nNumChannels;
+  if (_120 != 0)
+    goto <bb 10>; [94.50%]
+  else
+    goto <bb 28>; [5.50%]
+
+  <bb 10> [local count: 1014686024]:
+  # ivtmp.52_188 = PHI <0(9), ivtmp.52_175(24)>
+  _3 = param_40(D)->inputChConfig;
+  _270 = ivtmp.52_188 & 255;
+  _5 = _270 * 16;
+  _6 = _3 + _5;
+  hwChannel_42 = _6->hwChannelId;
+  chnlPairNum_43 = hwChannel_42 >> 1;
+  _7 = (int) hwChannel_42;
+  _8 = _6->channelsCallbacksParams;
+  _209 = (signed short) hwChannel_42;
+  _17 = (signed short) 4;
+  _158 = _209 w* _17;
+  _157 = state_38 + _158;
+  MEM <void *> [(struct ftm_state_t *)_157 + 28B] = _8;
+  _9 = _6->channelsCallbacks;
+  MEM <void (*ic_callback_t) (ic_event_t, void *)> [(struct ftm_state_t *)_157 + 60B] = _9;
+  state_38->enableNotification[_7] = 1;
+  if (hwChannel_42 <= 3)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 14>; [50.00%]
+
+  <bb 11> [local count: 507343012]:
+  _10 = _6->filterEn;
+  if (_10 != 0)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [local count: 253671506]:
+  _11 = _6->filterValue;
+  _12 = (unsigned char) _11;
+  FTM_DRV_SetChnInputCaptureFilter (ftmBase_37, hwChannel_42, _12);
+  pretmp_134 = param_40(D)->inputChConfig;
+  _215 = pretmp_134 + _5;
+  goto <bb 14>; [100.00%]
+
+  <bb 13> [local count: 253671506]:
+  FTM_DRV_SetChnInputCaptureFilter (ftmBase_37, hwChannel_42, 0);
+  pretmp_135 = param_40(D)->inputChConfig;
+  _27 = pretmp_135 + _5;
+
+  <bb 14> [local count: 1014686024]:
+  # prephitmp_52 = PHI <_27(13), _215(12), _6(10)>
+  _15 = prephitmp_52->inputMode;
+  if (_15 == 0)
+    goto <bb 15>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 15> [local count: 334846386]:
+  _104 ={v} ftmBase_37->COMBINE;
+  _53 = (signed short) chnlPairNum_43;
+  _208 = (signed short) 8;
+  _106 = _53 w* _208;
+  _107 = 4 << _106;
+  _108 = ~_107;
+  _109 = _104 & _108;
+  ftmBase_37->COMBINE ={v} _109;
+  _207 = (signed short) hwChannel_42;
+  _222 = (signed short) 8;
+  _356 = _207 w* _222;
+  _357 = ftmBase_37 + _356;
+  _72 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B];
+  _73 = _72 & 4294967279;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B] ={v} _73;
+  _74 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B];
+  _75 = _74 & 4294967263;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B] ={v} _75;
+  _18 = prephitmp_52->edgeAlignement;
+  _92 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B];
+  _93 = _92 & 4294967291;
+  _94 = (long unsigned int) _18;
+  _95 = _94 << 2;
+  _96 = _95 & 4;
+  _97 = _93 | _96;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B] ={v} _97;
+  _98 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B];
+  _99 = _98 & 4294967287;
+  _100 = _94 >> 1;
+  _101 = _100 << 3;
+  _102 = _101 & 8;
+  _103 = _99 | _102;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B] ={v} _103;
+  _70 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B];
+  _71 = _70 | 64;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_357 + 12B] ={v} _71;
+  _19 = g_ftmIrqId[instance_36(D)][_7];
+  INT_SYS_EnableIRQ (_19);
+  goto <bb 24>; [100.00%]
+
+  <bb 16> [local count: 679839639]:
+  if (_15 == 1)
+    goto <bb 17>; [20.24%]
+  else
+    goto <bb 24>; [79.76%]
+
+  <bb 17> [local count: 137599542]:
+  measurementType_49 = prephitmp_52->measurementType;
+  contModeEn_50 = prephitmp_52->continuousModeEn;
+  _112 ={v} ftmBase_37->COMBINE;
+  _269 = (signed short) chnlPairNum_43;
+  _14 = (signed short) 8;
+  _114 = _269 w* _14;
+  _115 = 4 << _114;
+  _116 = _112 | _115;
+  ftmBase_37->COMBINE ={v} _116;
+  _117 ={v} ftmBase_37->COMBINE;
+  _118 = 8 << _114;
+  _119 = _117 | _118;
+  ftmBase_37->COMBINE ={v} _119;
+  if (contModeEn_50 != 0)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 18> [local count: 68799771]:
+  _4 = (signed short) hwChannel_42;
+  _232 = (signed short) 8;
+  _225 = _4 w* _232;
+  _223 = ftmBase_37 + _225;
+  _121 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_223 + 12B];
+  _122 = _121 & 4294967279;
+  _123 = _122 | 16;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_223 + 12B] ={v} _123;
+  _124 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_223 + 12B];
+  _125 = _124 & 4294967263;
+  _126 = _125 | 32;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_223 + 12B] ={v} _126;
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [local count: 68799771]:
+  _174 = (signed short) hwChannel_42;
+  _244 = (signed short) 8;
+  _211 = _174 w* _244;
+  _137 = ftmBase_37 + _211;
+  _128 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_137 + 12B];
+  _129 = _128 & 4294967279;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_137 + 12B] ={v} _129;
+  _130 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_137 + 12B];
+  _131 = _130 & 4294967263;
+  _132 = _131 | 32;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_137 + 12B] ={v} _132;
+
+  <bb 20> [local count: 137599542]:
+  if (measurementType_49 == 3)
+    goto <bb 31>; [34.00%]
+  else
+    goto <bb 21>; [66.00%]
+
+  <bb 21> [local count: 90815697]:
+  if (measurementType_49 == 1)
+    goto <bb 32>; [34.00%]
+  else
+    goto <bb 22>; [66.00%]
+
+  <bb 22> [local count: 59938360]:
+  if (measurementType_49 == 4)
+    goto <bb 33>; [34.00%]
+  else
+    goto <bb 23>; [66.00%]
+
+  <bb 23> [local count: 39559317]:
+  if (measurementType_49 == 2)
+    goto <bb 34>; [34.00%]
+  else
+    goto <bb 30>; [66.00%]
+
+  <bb 24> [local count: 958878295]:
+  _20 = param_40(D)->nNumChannels;
+  ivtmp.52_175 = ivtmp.52_188 + 1;
+  index_173 = (uint8_t) ivtmp.52_175;
+  if (_20 > index_173)
+    goto <bb 10>; [94.50%]
+  else
+    goto <bb 28>; [5.50%]
+
+  <bb 25> [local count: 28715883]:
+  state_38->ftmMode = 1;
+  _22 = state_38->ftmClockSource;
+  _76 ={v} ftmBase_37->SC;
+  _77 = _76 & 4294967271;
+  _78 = (long unsigned int) _22;
+  _79 = _78 << 3;
+  _80 = _79 & 24;
+  _81 = _77 | _80;
+  ftmBase_37->SC ={v} _81;
+  goto <bb 27>; [100.00%]
+
+  <bb 26> [local count: 19526800]:
+  state_38->ftmMode = 3;
+
+  <bb 27> [local count: 209781075]:
+  # retStatus_28 = PHI <1(26), 1(3), 0(25), 0(28)>
+  return retStatus_28;
+
+  <bb 28> [local count: 59055800]:
+  _21 = state_38->ftmMode;
+  if (_21 == 0)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 27>; [50.00%]
+
+  <bb 29> [local count: 92583069]:
+  # prephitmp_202 = PHI <_167(34), _160(33), _147(32), _140(31)>
+  _349 = (sizetype) prephitmp_202;
+  _350 = _349 * 8;
+  _351 = ftmBase_37 + _350;
+  _236 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_351 + 12B];
+  _237 = _236 | 64;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_351 + 12B] ={v} _237;
+  _239 = g_ftmIrqId[instance_36(D)][_7];
+  INT_SYS_EnableIRQ (_239);
+  goto <bb 24>; [100.00%]
+
+  <bb 30> [local count: 26109149]:
+  _243 = hwChannel_42 + 1;
+  _156 = (signed short) _243;
+  _25 = (signed short) 8;
+  _218 = _156 w* _25;
+  _219 = ftmBase_37 + _218;
+  _245 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_219 + 12B];
+  _246 = _245 | 64;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_219 + 12B] ={v} _246;
+  _248 = g_ftmIrqId[instance_36(D)][_7];
+  INT_SYS_EnableIRQ (_248);
+  _23 = state_38->ftmMode;
+  if (_23 == 8)
+    goto <bb 26>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 31> [local count: 26404802]:
+  _86 = (signed short) hwChannel_42;
+  _133 = (signed short) 8;
+  _326 = _86 w* _133;
+  _327 = ftmBase_37 + _326;
+  _250 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_327 + 12B];
+  _251 = _250 & 4294967291;
+  _252 = _251 | 4;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_327 + 12B] ={v} _252;
+  _254 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_327 + 12B];
+  _255 = _254 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_327 + 12B] ={v} _255;
+  _139 = hwChannel_42 + 1;
+  _140 = (int) _139;
+  _234 = (signed short) _139;
+  _136 = (signed short) 8;
+  _338 = _234 w* _136;
+  _339 = ftmBase_37 + _338;
+  _141 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_339 + 12B];
+  _142 = _141 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_339 + 12B] ={v} _142;
+  _143 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_339 + 12B];
+  _144 = _143 & 4294967287;
+  _145 = _144 | 8;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_339 + 12B] ={v} _145;
+  goto <bb 29>; [100.00%]
+
+  <bb 32> [local count: 51256380]:
+  _268 = (signed short) hwChannel_42;
+  _206 = (signed short) 8;
+  _302 = _268 w* _206;
+  _303 = ftmBase_37 + _302;
+  _257 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_303 + 12B];
+  _258 = _257 & 4294967291;
+  _259 = _258 | 4;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_303 + 12B] ={v} _259;
+  _261 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_303 + 12B];
+  _262 = _261 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_303 + 12B] ={v} _262;
+  _146 = hwChannel_42 + 1;
+  _147 = (int) _146;
+  _221 = (signed short) _146;
+  _220 = (signed short) 8;
+  _314 = _221 w* _220;
+  _315 = ftmBase_37 + _314;
+  _148 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_315 + 12B];
+  _149 = _148 & 4294967291;
+  _150 = _149 | 4;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_315 + 12B] ={v} _150;
+  _151 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_315 + 12B];
+  _152 = _151 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_315 + 12B] ={v} _152;
+  goto <bb 29>; [100.00%]
+
+  <bb 33> [local count: 11501932]:
+  _111 = (signed short) hwChannel_42;
+  _264 = (signed short) 8;
+  _278 = _111 w* _264;
+  _279 = ftmBase_37 + _278;
+  _32 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_279 + 12B];
+  _24 = _32 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_279 + 12B] ={v} _24;
+  _229 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_279 + 12B];
+  _231 = _229 & 4294967287;
+  _230 = _231 | 8;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_279 + 12B] ={v} _230;
+  _159 = hwChannel_42 + 1;
+  _160 = (int) _159;
+  _127 = (signed short) _159;
+  _26 = (signed short) 8;
+  _290 = _127 w* _26;
+  _291 = ftmBase_37 + _290;
+  _161 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_291 + 12B];
+  _162 = _161 & 4294967291;
+  _163 = _162 | 4;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_291 + 12B] ={v} _163;
+  _164 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_291 + 12B];
+  _165 = _164 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_291 + 12B] ={v} _165;
+  goto <bb 29>; [100.00%]
+
+  <bb 34> [local count: 22327279]:
+  _51 = (signed short) hwChannel_42;
+  _31 = (signed short) 8;
+  _213 = _51 w* _31;
+  _216 = ftmBase_37 + _213;
+  _200 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_216 + 12B];
+  _195 = _200 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_216 + 12B] ={v} _195;
+  _181 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_216 + 12B];
+  _179 = _181 & 4294967287;
+  _178 = _179 | 8;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_216 + 12B] ={v} _178;
+  _166 = hwChannel_42 + 1;
+  _167 = (int) _166;
+  _110 = (signed short) _166;
+  _212 = (signed short) 8;
+  _266 = _110 w* _212;
+  _267 = ftmBase_37 + _266;
+  _168 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_267 + 12B];
+  _169 = _168 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_267 + 12B] ={v} _169;
+  _170 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_267 + 12B];
+  _171 = _170 & 4294967287;
+  _172 = _171 | 8;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_267 + 12B] ={v} _172;
+  goto <bb 29>; [100.00%]
+
+}
+
+
+
+;; Function FTM_DRV_DeinitInputCapture (FTM_DRV_DeinitInputCapture, funcdef_no=143, decl_uid=6793, cgraph_uid=144, symbol_order=143)
+
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+FTM_DRV_DeinitInputCapture (uint32_t instance, const struct ftm_input_param_t * param)
+{
+  unsigned int ivtmp.74;
+  unsigned int ivtmp.69;
+  struct ftm_state_t * state;
+  uint8_t hwChannel;
+  uint8_t index;
+  uint8_t chnlPairNum;
+  struct FTM_Type * ftmBase;
+  <unnamed type> _1;
+  struct ftm_input_ch_param_t * _2;
+  signed short _3;
+  unsigned int _4;
+  struct ftm_input_ch_param_t * _5;
+  unsigned char _6;
+  unsigned char _7;
+  <unnamed type> _8;
+  sizetype _9;
+  signed short _16;
+  <unnamed type> cstore_17;
+  struct FTM_Type * _27;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int vol.3_43;
+  long unsigned int _44;
+  long unsigned int _45;
+  signed short _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int vol.3_53;
+  long unsigned int _55;
+  long unsigned int _56;
+  signed short _57;
+  long unsigned int _58;
+  long unsigned int _59;
+  long unsigned int _60;
+  long unsigned int _61;
+  long unsigned int _62;
+  long unsigned int _64;
+  unsigned int _65;
+  unsigned int _66;
+  long unsigned int _67;
+  unsigned char _73;
+  long unsigned int _82;
+  signed short _84;
+  long unsigned int _85;
+  long unsigned int _86;
+  long unsigned int _87;
+  unsigned char _93;
+  void * _94;
+  unsigned int _95;
+  unsigned int _96;
+  void * _97;
+  struct ftm_state_t * _100;
+  unsigned int _107;
+  signed short _109;
+  sizetype _124;
+  struct FTM_Type * _125;
+
+  <bb 2> [local count: 118111600]:
+  ftmBase_20 = g_ftmBase[instance_19(D)];
+  state_21 = ftmStatePtr[instance_19(D)];
+  _1 = state_21->ftmMode;
+  if (_1 != 8)
+    goto <bb 3>; [66.00%]
+  else
+    goto <bb 14>; [34.00%]
+
+  <bb 3> [local count: 77953656]:
+  _39 ={v} ftmBase_20->SC;
+  _40 = _39 & 4294967271;
+  ftmBase_20->SC ={v} _40;
+  _37 ={v} ftmBase_20->CNTIN;
+  _38 = _37 & 4294901760;
+  ftmBase_20->CNTIN ={v} _38;
+  _34 ={v} ftmBase_20->MOD;
+  _35 = _34 & 4294901760;
+  _36 = _35 | 65535;
+  ftmBase_20->MOD ={v} _36;
+  _32 ={v} ftmBase_20->SC;
+  _33 = _32 & 4294967263;
+  ftmBase_20->SC ={v} _33;
+  _93 = param_22(D)->nNumChannels;
+  if (_93 != 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 10>; [11.00%]
+
+  <bb 4> [local count: 105119324]:
+
+  <bb 5> [local count: 955630225]:
+  # ivtmp.74_91 = PHI <0(4), ivtmp.74_89(7)>
+  _2 = param_22(D)->inputChConfig;
+  _107 = ivtmp.74_91 & 255;
+  _4 = _107 * 16;
+  _5 = _2 + _4;
+  hwChannel_28 = _5->hwChannelId;
+  chnlPairNum_29 = hwChannel_28 >> 1;
+  if (hwChannel_28 <= 3)
+    goto <bb 6>; [33.00%]
+  else
+    goto <bb 7>; [67.00%]
+
+  <bb 6> [local count: 315357972]:
+  FTM_DRV_SetChnInputCaptureFilter (ftmBase_20, hwChannel_28, 0);
+
+  <bb 7> [local count: 955630225]:
+  _62 ={v} ftmBase_20->COMBINE;
+  _84 = (signed short) chnlPairNum_29;
+  _57 = (signed short) 8;
+  _64 = _84 w* _57;
+  _65 = 1 << _64;
+  _66 = ~_65;
+  _67 = _62 & _66;
+  ftmBase_20->COMBINE ={v} _67;
+  _82 ={v} ftmBase_20->COMBINE;
+  _85 = 4 << _64;
+  _86 = ~_85;
+  _87 = _82 & _86;
+  ftmBase_20->COMBINE ={v} _87;
+  _46 = (signed short) hwChannel_28;
+  _3 = (signed short) 8;
+  _9 = _46 w* _3;
+  _27 = ftmBase_20 + _9;
+  _58 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_27 + 12B];
+  _59 = _58 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_27 + 12B] ={v} _59;
+  _60 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_27 + 12B];
+  _61 = _60 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_27 + 12B] ={v} _61;
+  _55 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_27 + 12B];
+  _56 = _55 & 4294967231;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_27 + 12B] ={v} _56;
+  _51 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_27 + 12B];
+  _52 = _51 & 4294967167;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_27 + 12B] ={v} _52;
+  vol.3_53 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_27 + 12B];
+  _6 = hwChannel_28 | 1;
+  _16 = (signed short) _6;
+  _109 = (signed short) 8;
+  _124 = _16 w* _109;
+  _125 = ftmBase_20 + _124;
+  _47 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_125 + 12B];
+  _48 = _47 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_125 + 12B] ={v} _48;
+  _49 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_125 + 12B];
+  _50 = _49 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_125 + 12B] ={v} _50;
+  _44 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_125 + 12B];
+  _45 = _44 & 4294967231;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_125 + 12B] ={v} _45;
+  _41 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_125 + 12B];
+  _42 = _41 & 4294967167;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_125 + 12B] ={v} _42;
+  vol.3_43 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_125 + 12B];
+  _7 = param_22(D)->nNumChannels;
+  ivtmp.74_89 = ivtmp.74_91 + 1;
+  index_54 = (uint8_t) ivtmp.74_89;
+  if (_7 > index_54)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 8>; [11.00%]
+
+  <bb 8> [local count: 105119324]:
+  _8 = state_21->ftmMode;
+  if (_8 == 8)
+    goto <bb 9>; [34.00%]
+  else
+    goto <bb 10>; [66.00%]
+
+  <bb 9> [local count: 40157944]:
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [local count: 77953656]:
+
+  <bb 11> [local count: 118111600]:
+  # cstore_17 = PHI <3(9), 0(10)>
+  state_21->ftmMode = cstore_17;
+  _100 = state_21 + 28;
+  ivtmp.69_101 = (unsigned int) _100;
+  _96 = (unsigned int) state_21;
+  _95 = _96 + 60;
+
+  <bb 12> [local count: 944999082]:
+  # ivtmp.69_103 = PHI <ivtmp.69_101(11), ivtmp.69_102(12)>
+  _97 = (void *) ivtmp.69_103;
+  MEM[base: _97, offset: 0B] = 0B;
+  ivtmp.69_102 = ivtmp.69_103 + 4;
+  _94 = (void *) ivtmp.69_102;
+  MEM[base: _94, offset: 28B] = 0B;
+  if (_95 != ivtmp.69_102)
+    goto <bb 12>; [87.50%]
+  else
+    goto <bb 13>; [12.50%]
+
+  <bb 13> [local count: 118111600]:
+  return 0;
+
+  <bb 14> [local count: 40157944]:
+  _73 = param_22(D)->nNumChannels;
+  if (_73 != 0)
+    goto <bb 4>; [89.00%]
+  else
+    goto <bb 9>; [11.00%]
+
+}
+
+
+
+;; Function FTM_DRV_GetInputCaptureMeasurement (FTM_DRV_GetInputCaptureMeasurement, funcdef_no=144, decl_uid=6796, cgraph_uid=145, symbol_order=144)
+
+Removing basic block 5
+FTM_DRV_GetInputCaptureMeasurement (uint32_t instance, uint8_t channel)
+{
+  uint16_t value;
+  const struct ftm_state_t * state;
+  int _1;
+
+  <bb 2> [local count: 1073741824]:
+  state_5 = ftmStatePtr[instance_4(D)];
+  if (state_5 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [local count: 751619281]:
+  _1 = (int) channel_6(D);
+  value_7 = state_5->measurementResults[_1];
+
+  <bb 4> [local count: 1073741824]:
+  # value_2 = PHI <value_7(3), 0(2)>
+  return value_2;
+
+}
+
+
+
+;; Function FTM_DRV_StartNewSignalMeasurement (FTM_DRV_StartNewSignalMeasurement, funcdef_no=145, decl_uid=6799, cgraph_uid=146, symbol_order=145)
+
+Removing basic block 6
+Removing basic block 7
+FTM_DRV_StartNewSignalMeasurement (uint32_t instance, uint8_t channel)
+{
+  uint8_t retValue;
+  status_t retStatus;
+  uint8_t chnlPairNum;
+  struct FTM_Type * ftmBase;
+  unsigned char _1;
+  signed short _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  unsigned char _12;
+  long unsigned int _14;
+  long unsigned int _15;
+  unsigned char _16;
+  unsigned char _17;
+  unsigned char _18;
+  long unsigned int _20;
+  unsigned int _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int vol.3_30;
+  signed short _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  long unsigned int vol.3_34;
+  sizetype _39;
+  const struct FTM_Type * _40;
+  signed short _41;
+  signed short _42;
+  signed short _43;
+  sizetype _54;
+  struct FTM_Type * _55;
+  signed short _56;
+
+  <bb 2> [local count: 1073741824]:
+  ftmBase_6 = g_ftmBase[instance_5(D)];
+  _42 = (signed short) channel_7(D);
+  _56 = (signed short) 8;
+  _39 = _42 w* _56;
+  _40 = ftmBase_6 + _39;
+  _10 ={v} MEM <const uint32_t> [(const struct FTM_Type *)_40 + 12B];
+  _11 = _10 >> 4;
+  _12 = (unsigned char) _11;
+  retValue_13 = _12 & 1;
+  _14 ={v} MEM <const uint32_t> [(const struct FTM_Type *)_40 + 12B];
+  _15 = _14 >> 5;
+  _16 = (unsigned char) _15;
+  _17 = _16 << 1;
+  _18 = _17 & 2;
+  retValue_19 = retValue_13 | _18;
+  if (retValue_19 == 2)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 5>; [66.00%]
+
+  <bb 3> [local count: 365072224]:
+  _20 ={v} MEM[(const struct FTM_Type *)ftmBase_6].COMBINE;
+  chnlPairNum_8 = channel_7(D) >> 1;
+  _43 = (signed short) chnlPairNum_8;
+  _41 = (signed short) 8;
+  _22 = _43 w* _41;
+  _23 = 4 << _22;
+  _24 = _20 & _23;
+  if (_24 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [local count: 182536112]:
+  _1 = channel_7(D) + 1;
+  _9 = (signed short) _1;
+  _31 = (signed short) 8;
+  _54 = _9 w* _31;
+  _55 = ftmBase_6 + _54;
+  _32 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_55 + 12B];
+  _33 = _32 & 4294967167;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_55 + 12B] ={v} _33;
+  vol.3_34 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_55 + 12B];
+  _28 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_40 + 12B];
+  _29 = _28 & 4294967167;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_40 + 12B] ={v} _29;
+  vol.3_30 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_40 + 12B];
+  _25 ={v} ftmBase_6->COMBINE;
+  _26 = 8 << _22;
+  _27 = _25 | _26;
+  ftmBase_6->COMBINE ={v} _27;
+
+  <bb 5> [local count: 1073741824]:
+  # retStatus_2 = PHI <0(4), 1(2), 0(3)>
+  return retStatus_2;
+
+}
+
+
+
+;; Function FTM_IC_DRV_SetChannelMode (FTM_IC_DRV_SetChannelMode, funcdef_no=146, decl_uid=6804, cgraph_uid=147, symbol_order=146)
+
+Removing basic block 12
+Removing basic block 15
+Removing basic block 16
+FTM_IC_DRV_SetChannelMode (uint32_t instance, uint8_t channel, ftm_ic_op_mode_t inputMode, _Bool enableContinuousCapture)
+{
+  uint8_t channelPair;
+  struct FTM_Type * ftmBase;
+  unsigned char _1;
+  unsigned char _2;
+  sizetype _3;
+  long unsigned int prephitmp_15;
+  long unsigned int prephitmp_16;
+  signed short _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  signed short _24;
+  long unsigned int _25;
+  long unsigned int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  long unsigned int _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  unsigned int _34;
+  long unsigned int _35;
+  long unsigned int _36;
+  int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  int _44;
+  long unsigned int _45;
+  long unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  signed short _50;
+  long unsigned int _51;
+  long unsigned int _52;
+  long unsigned int _54;
+  long unsigned int _55;
+  long unsigned int prephitmp_64;
+  signed short _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  long unsigned int _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  long unsigned int _79;
+  long unsigned int _80;
+  int prephitmp_81;
+  long unsigned int _82;
+  long unsigned int _83;
+  unsigned int _85;
+  long unsigned int _86;
+  long unsigned int _87;
+  long unsigned int _88;
+  signed short _89;
+  long unsigned int _90;
+  long unsigned int _91;
+  struct FTM_Type * _92;
+  signed short _93;
+  signed short _94;
+  long unsigned int _95;
+  long unsigned int _96;
+  long unsigned int _97;
+  signed short _98;
+  long unsigned int prephitmp_100;
+  long unsigned int _101;
+  signed short _102;
+  long unsigned int _103;
+  long unsigned int _104;
+  signed short _105;
+  signed short _106;
+  signed short _107;
+  long unsigned int _108;
+  long unsigned int _109;
+  long unsigned int _110;
+  sizetype _112;
+  long unsigned int _114;
+  signed short _122;
+  signed short _123;
+  struct FTM_Type * _124;
+  sizetype _128;
+  sizetype _129;
+  struct FTM_Type * _130;
+  sizetype _147;
+  struct FTM_Type * _148;
+  sizetype _165;
+  struct FTM_Type * _166;
+  sizetype _195;
+  struct FTM_Type * _196;
+
+  <bb 2> [local count: 1073741823]:
+  ftmBase_9 = g_ftmBase[instance_8(D)];
+  if (inputMode_12(D) == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [local count: 536870911]:
+  _123 = (signed short) channel_10(D);
+  _70 = (signed short) 8;
+  _195 = _123 w* _70;
+  _196 = ftmBase_9 + _195;
+  _18 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_196 + 12B];
+  _19 = _18 & 4294967291;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_196 + 12B] ={v} _19;
+  _20 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_196 + 12B];
+  _21 = _20 & 4294967287;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_196 + 12B] ={v} _21;
+  goto <bb 14>; [100.00%]
+
+  <bb 4> [local count: 536870911]:
+  channelPair_11 = channel_10(D) >> 1;
+  _1 = inputMode_12(D) + 255;
+  if (_1 <= 2)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 177167400]:
+  _83 ={v} ftmBase_9->COMBINE;
+  _106 = (signed short) channelPair_11;
+  _122 = (signed short) 8;
+  _85 = _106 w* _122;
+  _86 = 4 << _85;
+  _87 = ~_86;
+  _88 = _83 & _87;
+  ftmBase_9->COMBINE ={v} _88;
+  _50 = (signed short) channel_10(D);
+  _98 = (signed short) 8;
+  _165 = _50 w* _98;
+  _166 = ftmBase_9 + _165;
+  _25 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B];
+  _26 = _25 & 4294967279;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B] ={v} _26;
+  _27 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B];
+  _28 = _27 & 4294967263;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B] ={v} _28;
+  _71 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B];
+  _72 = _71 & 4294967291;
+  _73 = (long unsigned int) inputMode_12(D);
+  _74 = _73 << 2;
+  _75 = _74 & 4;
+  _76 = _72 | _75;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B] ={v} _76;
+  _77 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B];
+  _78 = _77 & 4294967287;
+  _79 = _73 >> 1;
+  _80 = _79 << 3;
+  _82 = _78 | _80;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B] ={v} _82;
+  _22 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B];
+  _23 = _22 | 64;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_166 + 12B] ={v} _23;
+  goto <bb 14>; [100.00%]
+
+  <bb 6> [local count: 359703512]:
+  _32 ={v} ftmBase_9->COMBINE;
+  _102 = (signed short) channelPair_11;
+  _107 = (signed short) 8;
+  _34 = _102 w* _107;
+  _35 = 4 << _34;
+  _36 = _32 | _35;
+  ftmBase_9->COMBINE ={v} _36;
+  _29 ={v} ftmBase_9->COMBINE;
+  _30 = 8 << _34;
+  _31 = _29 | _30;
+  ftmBase_9->COMBINE ={v} _31;
+  if (enableContinuousCapture_13(D) != 0)
+    goto <bb 7>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 7> [local count: 179851756]:
+  _37 = (int) channel_10(D);
+  _89 = (signed short) channel_10(D);
+  _94 = (signed short) 8;
+  _112 = _89 w* _94;
+  _92 = ftmBase_9 + _112;
+  _38 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_92 + 12B];
+  _39 = _38 & 4294967279;
+  _40 = _39 | 16;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_92 + 12B] ={v} _40;
+  _41 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_92 + 12B];
+  _42 = _41 & 4294967263;
+  _43 = _42 | 32;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_92 + 12B] ={v} _43;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [local count: 179851756]:
+  _44 = (int) channel_10(D);
+  _17 = (signed short) channel_10(D);
+  _24 = (signed short) 8;
+  _3 = _17 w* _24;
+  _124 = ftmBase_9 + _3;
+  _45 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_124 + 12B];
+  _46 = _45 & 4294967279;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_124 + 12B] ={v} _46;
+  _47 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_124 + 12B];
+  _48 = _47 & 4294967263;
+  _49 = _48 | 32;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_124 + 12B] ={v} _49;
+
+  <bb 9> [local count: 359703512]:
+  # prephitmp_81 = PHI <_37(7), _44(8)>
+  if (inputMode_12(D) == 6)
+    goto <bb 13>; [34.00%]
+  else
+    goto <bb 10>; [66.00%]
+
+  <bb 10> [local count: 237404316]:
+  if (inputMode_12(D) == 4)
+    goto <bb 13>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 11> [local count: 156686848]:
+  if (inputMode_12(D) == 5)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 13>; [66.00%]
+
+  <bb 12> [local count: 53273529]:
+
+  <bb 13> [local count: 359703512]:
+  # prephitmp_16 = PHI <0(9), 4(10), 4(11), 0(12)>
+  # prephitmp_100 = PHI <8(9), 0(10), 0(11), 8(12)>
+  # prephitmp_64 = PHI <4(9), 4(10), 0(11), 0(12)>
+  # prephitmp_15 = PHI <0(9), 0(10), 8(11), 8(12)>
+  _128 = (sizetype) prephitmp_81;
+  _129 = _128 * 8;
+  _130 = ftmBase_9 + _129;
+  _103 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_130 + 12B];
+  _104 = _103 & 4294967291;
+  _108 = prephitmp_64 | _104;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_130 + 12B] ={v} _108;
+  _109 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_130 + 12B];
+  _110 = _109 & 4294967287;
+  _114 = prephitmp_15 | _110;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_130 + 12B] ={v} _114;
+  _2 = channel_10(D) + 1;
+  _93 = (signed short) _2;
+  _105 = (signed short) 8;
+  _147 = _93 w* _105;
+  _148 = ftmBase_9 + _147;
+  _90 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_148 + 12B];
+  _91 = _90 & 4294967291;
+  _95 = prephitmp_16 | _91;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_148 + 12B] ={v} _95;
+  _96 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_148 + 12B];
+  _97 = _96 & 4294967287;
+  _101 = _97 | prephitmp_100;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_148 + 12B] ={v} _101;
+  _54 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_130 + 12B];
+  _55 = _54 & 4294967231;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_130 + 12B] ={v} _55;
+  _51 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_148 + 12B];
+  _52 = _51 | 64;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_148 + 12B] ={v} _52;
+
+  <bb 14> [local count: 1073741824]:
+  return 0;
+
+}
+
+
+
+;; Function FTM0_Ch0_Ch1_IRQHandler (FTM0_Ch0_Ch1_IRQHandler, funcdef_no=147, decl_uid=7665, cgraph_uid=148, symbol_order=147)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM0_Ch0_Ch1_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[0];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (0, 0); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM0_Ch2_Ch3_IRQHandler (FTM0_Ch2_Ch3_IRQHandler, funcdef_no=148, decl_uid=7667, cgraph_uid=149, symbol_order=148)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM0_Ch2_Ch3_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[0];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (0, 1); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM0_Ch4_Ch5_IRQHandler (FTM0_Ch4_Ch5_IRQHandler, funcdef_no=149, decl_uid=7669, cgraph_uid=150, symbol_order=149)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM0_Ch4_Ch5_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[0];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (0, 2); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM0_Ch6_Ch7_IRQHandler (FTM0_Ch6_Ch7_IRQHandler, funcdef_no=150, decl_uid=7671, cgraph_uid=151, symbol_order=150)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM0_Ch6_Ch7_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[0];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (0, 3); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM1_Ch0_Ch1_IRQHandler (FTM1_Ch0_Ch1_IRQHandler, funcdef_no=151, decl_uid=7673, cgraph_uid=152, symbol_order=151)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM1_Ch0_Ch1_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[1];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (1, 0); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM1_Ch2_Ch3_IRQHandler (FTM1_Ch2_Ch3_IRQHandler, funcdef_no=152, decl_uid=7675, cgraph_uid=153, symbol_order=152)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM1_Ch2_Ch3_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[1];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (1, 1); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM1_Ch4_Ch5_IRQHandler (FTM1_Ch4_Ch5_IRQHandler, funcdef_no=153, decl_uid=7677, cgraph_uid=154, symbol_order=153)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM1_Ch4_Ch5_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[1];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (1, 2); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM1_Ch6_Ch7_IRQHandler (FTM1_Ch6_Ch7_IRQHandler, funcdef_no=154, decl_uid=7679, cgraph_uid=155, symbol_order=154)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM1_Ch6_Ch7_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[1];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (1, 3); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM2_Ch0_Ch1_IRQHandler (FTM2_Ch0_Ch1_IRQHandler, funcdef_no=155, decl_uid=7681, cgraph_uid=156, symbol_order=155)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM2_Ch0_Ch1_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[2];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (2, 0); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM2_Ch2_Ch3_IRQHandler (FTM2_Ch2_Ch3_IRQHandler, funcdef_no=156, decl_uid=7683, cgraph_uid=157, symbol_order=156)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM2_Ch2_Ch3_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[2];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (2, 1); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM2_Ch4_Ch5_IRQHandler (FTM2_Ch4_Ch5_IRQHandler, funcdef_no=157, decl_uid=7685, cgraph_uid=158, symbol_order=157)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM2_Ch4_Ch5_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[2];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (2, 2); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM2_Ch6_Ch7_IRQHandler (FTM2_Ch6_Ch7_IRQHandler, funcdef_no=158, decl_uid=7687, cgraph_uid=159, symbol_order=158)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM2_Ch6_Ch7_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[2];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (2, 3); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM3_Ch0_Ch1_IRQHandler (FTM3_Ch0_Ch1_IRQHandler, funcdef_no=159, decl_uid=7689, cgraph_uid=160, symbol_order=159)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM3_Ch0_Ch1_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[3];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (3, 0); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM3_Ch2_Ch3_IRQHandler (FTM3_Ch2_Ch3_IRQHandler, funcdef_no=160, decl_uid=7691, cgraph_uid=161, symbol_order=160)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM3_Ch2_Ch3_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[3];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (3, 1); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM3_Ch4_Ch5_IRQHandler (FTM3_Ch4_Ch5_IRQHandler, funcdef_no=161, decl_uid=7693, cgraph_uid=162, symbol_order=161)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM3_Ch4_Ch5_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[3];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (3, 2); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM3_Ch6_Ch7_IRQHandler (FTM3_Ch6_Ch7_IRQHandler, funcdef_no=162, decl_uid=7695, cgraph_uid=163, symbol_order=162)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+FTM3_Ch6_Ch7_IRQHandler ()
+{
+  const struct ftm_state_t * state;
+  <unnamed type> _4;
+
+  <bb 2> [local count: 1073741824]:
+  state_3 = ftmStatePtr[3];
+  _4 = state_3->ftmMode;
+  if (_4 == 1)
+    goto <bb 4>; [16.50%]
+  else
+    goto <bb 3>; [83.50%]
+
+  <bb 3> [local count: 1073741824]:
+  if (_4 == 8)
+    goto <bb 4>; [19.76%]
+  else
+    goto <bb 5>; [80.24%]
+
+  <bb 4> [local count: 354334800]:
+  FTM_DRV_InputCaptureHandler (3, 3); [tail call]
+
+  <bb 5> [local count: 1073741824]:
+  return;
+
+}
+
+

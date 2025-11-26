@@ -1,0 +1,754 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F/port.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_prvPortStartFirstTask" {
+	style="dashed";
+	color="black";
+	label="prvPortStartFirstTask ()";
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|__asm__\ __volatile__(\"\ ldr\ r0,\ =0xE000ED08\ 	\l\
+\ ldr\ r0,\ [r0]\ 			\l\
+\ ldr\ r0,\ [r0]\ 			\l\
+\ msr\ msp,\ r0			\l\
+\ mov\ r0,\ #0			\l\
+\ msr\ control,\ r0		\l\
+\ cpsie\ i				\l\
+\ cpsie\ f				\l\
+\ dsb					\l\
+\ isb					\l\
+\ svc\ 0					\l\
+\ nop					\l\
+\");\l\
+|return;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_vPortEnableVFP" {
+	style="dashed";
+	color="black";
+	label="vPortEnableVFP ()";
+	fn_16_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_16_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_16_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|__asm__\ __volatile__(\"	ldr.w\ r0,\ =0xE000ED88		\l\
+	ldr\ r1,\ [r0]				\l\
+								\l\
+	orr\ r1,\ r1,\ #(\ 0xf\ \<\<\ 20\ )	\l\
+	str\ r1,\ [r0]				\l\
+	bx\ r14						\");\l\
+|return;\l\
+}"];
+
+	fn_16_basic_block_0:s -> fn_16_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_16_basic_block_2:s -> fn_16_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_16_basic_block_0:s -> fn_16_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_prvTaskExitError" {
+	style="dashed";
+	color="black";
+	label="prvTaskExitError ()";
+	subgraph cluster_6_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_6_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_6_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_6_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:49787559\<bb\ 6\>:\l\
+|ulDummy.4_2\ =\{v\}\ ulDummy;\l\
+|if\ (ulDummy.4_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_6_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_6_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_6_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:16107739\<bb\ 2\>:\l\
+|ulDummy\ =\{v\}\ 0;\l\
+|uxCriticalNesting.3_1\ =\ uxCriticalNesting;\l\
+|if\ (uxCriticalNesting.3_1\ !=\ 4294967295)\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [34.00%]\l\
+}"];
+
+	fn_6_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 3\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_8\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_6_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:5476631\<bb\ 5\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_6\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_6_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:5476631\<bb\ 7\>:\l\
+|return;\l\
+}"];
+
+	fn_6_basic_block_0:s -> fn_6_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_6_basic_block_2:s -> fn_6_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_6_basic_block_3:s -> fn_6_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_4:s -> fn_6_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_6_basic_block_5:s -> fn_6_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_6_basic_block_6:s -> fn_6_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_6_basic_block_6:s -> fn_6_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_6_basic_block_7:s -> fn_6_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_6_basic_block_0:s -> fn_6_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_pxPortInitialiseStack" {
+	style="dashed";
+	color="black";
+	label="pxPortInitialiseStack ()";
+	fn_5_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_5_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_5_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM[(StackType_t\ *)pxTopOfStack_5(D)\ +\ 4294967292B]\ =\ 16777216;\l\
+|pxCode.0_1\ =\ (long\ unsigned\ int)\ pxCode_8(D);\l\
+|_2\ =\ pxCode.0_1\ &\ 4294967294;\l\
+|MEM[(StackType_t\ *)pxTopOfStack_5(D)\ +\ 4294967288B]\ =\ _2;\l\
+|prvTaskExitError.1_3\ =\ (long\ unsigned\ int)\ prvTaskExitError;\l\
+|MEM[(StackType_t\ *)pxTopOfStack_5(D)\ +\ 4294967284B]\ =\ prvTaskExitError.1_3;\l\
+|pvParameters.2_4\ =\ (long\ unsigned\ int)\ pvParameters_11(D);\l\
+|MEM[(StackType_t\ *)pxTopOfStack_5(D)\ +\ 4294967264B]\ =\ pvParameters.2_4;\l\
+|MEM[(StackType_t\ *)pxTopOfStack_5(D)\ +\ 4294967260B]\ =\ 4294967293;\l\
+|pxTopOfStack_14\ =\ &MEM\ \<StackType_t\>\ [(void\ *)pxTopOfStack_5(D)\ +\ 4294967228B];\l\
+|return\ pxTopOfStack_14;\l\
+}"];
+
+	fn_5_basic_block_0:s -> fn_5_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_5_basic_block_2:s -> fn_5_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_5_basic_block_0:s -> fn_5_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_SVC_Handler" {
+	style="dashed";
+	color="black";
+	label="SVC_Handler ()";
+	fn_7_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_7_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_7_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|__asm__\ __volatile__(\"	ldr	r3,\ pxCurrentTCBConst2		\l\
+	ldr\ r1,\ [r3]					\l\
+	ldr\ r0,\ [r1]					\l\
+	ldmia\ r0!,\ \{r4-r11,\ r14\}		\l\
+	msr\ psp,\ r0						\l\
+	isb								\l\
+	mov\ r0,\ #0\ 						\l\
+	msr	basepri,\ r0					\l\
+	bx\ r14							\l\
+									\l\
+	.align\ 4						\l\
+pxCurrentTCBConst2:\ .word\ pxCurrentTCB				\l\
+\");\l\
+|return;\l\
+}"];
+
+	fn_7_basic_block_0:s -> fn_7_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_7_basic_block_2:s -> fn_7_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_7_basic_block_0:s -> fn_7_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_vPortEndScheduler" {
+	style="dashed";
+	color="black";
+	label="vPortEndScheduler ()";
+	subgraph cluster_10_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_10_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_10_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_10_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_10_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:16107739\<bb\ 2\>:\l\
+|uxCriticalNesting.13_1\ =\ uxCriticalNesting;\l\
+|if\ (uxCriticalNesting.13_1\ !=\ 1000)\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [34.00%]\l\
+}"];
+
+	fn_10_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 3\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_3\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_10_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:5476631\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_10_basic_block_0:s -> fn_10_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_10_basic_block_2:s -> fn_10_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_10_basic_block_3:s -> fn_10_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_10_basic_block_4:s -> fn_10_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_10_basic_block_5:s -> fn_10_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_10_basic_block_0:s -> fn_10_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_vPortEnterCritical" {
+	style="dashed";
+	color="black";
+	label="vPortEnterCritical ()";
+	subgraph cluster_11_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_11_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_11_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_11_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_11_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:62535929\<bb\ 2\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_7\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+|uxCriticalNesting.14_1\ =\ uxCriticalNesting;\l\
+|_2\ =\ uxCriticalNesting.14_1\ +\ 1;\l\
+|uxCriticalNesting\ =\ _2;\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_11_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:21262216\<bb\ 3\>:\l\
+|_3\ =\{v\}\ MEM[(volatile\ uint32_t\ *)3758157060B];\l\
+|_4\ =\ _3\ &\ 255;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_11_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 4\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_8\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_11_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:51904821\<bb\ 6\>:\l\
+|return;\l\
+}"];
+
+	fn_11_basic_block_0:s -> fn_11_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_11_basic_block_2:s -> fn_11_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_11_basic_block_2:s -> fn_11_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_11_basic_block_3:s -> fn_11_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_11_basic_block_3:s -> fn_11_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_11_basic_block_4:s -> fn_11_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_11_basic_block_5:s -> fn_11_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_11_basic_block_6:s -> fn_11_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_11_basic_block_0:s -> fn_11_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_vPortExitCritical" {
+	style="dashed";
+	color="black";
+	label="vPortExitCritical ()";
+	subgraph cluster_12_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_12_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_12_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_12_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_12_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:21262216\<bb\ 2\>:\l\
+|uxCriticalNesting.16_1\ =\ uxCriticalNesting;\l\
+|if\ (uxCriticalNesting.16_1\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_12_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 3\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_6\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_12_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 5\>:\l\
+|_2\ =\ uxCriticalNesting.16_1\ +\ 4294967295;\l\
+|uxCriticalNesting\ =\ _2;\l\
+|if\ (_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_12_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:5315554\<bb\ 6\>:\l\
+|__asm__\ __volatile__(\"	msr\ basepri,\ %0	\"\ :\ \ :\ \"r\"\ 0\ :\ \"memory\");\l\
+}"];
+
+	fn_12_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 7\>:\l\
+|return;\l\
+}"];
+
+	fn_12_basic_block_0:s -> fn_12_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_12_basic_block_2:s -> fn_12_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_12_basic_block_2:s -> fn_12_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_12_basic_block_3:s -> fn_12_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_12_basic_block_4:s -> fn_12_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_12_basic_block_5:s -> fn_12_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_12_basic_block_5:s -> fn_12_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_12_basic_block_6:s -> fn_12_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_12_basic_block_7:s -> fn_12_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_12_basic_block_0:s -> fn_12_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_PendSV_Handler" {
+	style="dashed";
+	color="black";
+	label="PendSV_Handler ()";
+	fn_13_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_13_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_13_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|__asm__\ __volatile__(\"	mrs\ r0,\ psp							\l\
+	isb									\l\
+										\l\
+	ldr	r3,\ pxCurrentTCBConst			\l\
+	ldr	r2,\ [r3]						\l\
+										\l\
+	tst\ r14,\ #0x10						\l\
+	it\ eq								\l\
+	vstmdbeq\ r0!,\ \{s16-s31\}				\l\
+										\l\
+	stmdb\ r0!,\ \{r4-r11,\ r14\}			\l\
+	str\ r0,\ [r2]						\l\
+										\l\
+	stmdb\ sp!,\ \{r0,\ r3\}					\l\
+	mov\ r0,\ %0\ 							\l\
+	msr\ basepri,\ r0						\l\
+	dsb									\l\
+	isb									\l\
+	bl\ vTaskSwitchContext				\l\
+	mov\ r0,\ #0							\l\
+	msr\ basepri,\ r0						\l\
+	ldmia\ sp!,\ \{r0,\ r3\}					\l\
+										\l\
+	ldr\ r1,\ [r3]						\l\
+	ldr\ r0,\ [r1]						\l\
+										\l\
+	ldmia\ r0!,\ \{r4-r11,\ r14\}			\l\
+										\l\
+	tst\ r14,\ #0x10						\l\
+	it\ eq								\l\
+	vldmiaeq\ r0!,\ \{s16-s31\}				\l\
+										\l\
+	msr\ psp,\ r0							\l\
+	isb									\l\
+										\l\
+										\l\
+	bx\ r14								\l\
+										\l\
+	.align\ 4							\l\
+pxCurrentTCBConst:\ .word\ pxCurrentTCB	\l\
+\"\ :\ \ :\ \"i\"\ 16);\l\
+|return;\l\
+}"];
+
+	fn_13_basic_block_0:s -> fn_13_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_13_basic_block_2:s -> fn_13_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_13_basic_block_0:s -> fn_13_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_SysTick_Handler" {
+	style="dashed";
+	color="black";
+	label="SysTick_Handler ()";
+	fn_14_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_14_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_14_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_6\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+|_1\ =\ xTaskIncrementTick\ ();\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_14_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|MEM[(volatile\ uint32_t\ *)3758157060B]\ =\{v\}\ 268435456;\l\
+}"];
+
+	fn_14_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|__asm__\ __volatile__(\"	msr\ basepri,\ %0	\"\ :\ \ :\ \"r\"\ 0\ :\ \"memory\");\l\
+|return;\l\
+}"];
+
+	fn_14_basic_block_0:s -> fn_14_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_14_basic_block_2:s -> fn_14_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_14_basic_block_2:s -> fn_14_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_14_basic_block_3:s -> fn_14_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_14_basic_block_4:s -> fn_14_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_14_basic_block_0:s -> fn_14_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_vPortSetupTimerInterrupt" {
+	style="dashed";
+	color="black";
+	label="vPortSetupTimerInterrupt ()";
+	fn_15_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_15_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_15_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM[(volatile\ uint32_t\ *)3758153744B]\ =\{v\}\ 0;\l\
+|MEM[(volatile\ uint32_t\ *)3758153752B]\ =\{v\}\ 0;\l\
+|MEM[(volatile\ uint32_t\ *)3758153748B]\ =\{v\}\ 4799;\l\
+|MEM[(volatile\ uint32_t\ *)3758153744B]\ =\{v\}\ 7;\l\
+|return;\l\
+}"];
+
+	fn_15_basic_block_0:s -> fn_15_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_15_basic_block_2:s -> fn_15_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_15_basic_block_0:s -> fn_15_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_xPortStartScheduler" {
+	style="dashed";
+	color="black";
+	label="xPortStartScheduler ()";
+	subgraph cluster_9_4 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 4";
+	labeljust=l;
+	penwidth=2;
+	fn_9_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1050765437\<bb\ 4\>:\l\
+goto\ \<bb\ 4\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_9_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_9_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:693505186\<bb\ 7\>:\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_9_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_9_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 13\>:\l\
+goto\ \<bb\ 13\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_9_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_9_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:107842689\<bb\ 10\>:\l\
+|#\ ivtmp.74_44\ =\ PHI\ \<6(8),\ ivtmp.74_17(10)\>\l\
+|ucMaxPriorityValue.7_11\ =\{v\}\ ucMaxPriorityValue;\l\
+|_12\ =\ ucMaxPriorityValue.7_11\ \<\<\ 1;\l\
+|ucMaxPriorityValue\ =\{v\}\ _12;\l\
+|ucMaxPriorityValue.8_13\ =\{v\}\ ucMaxPriorityValue;\l\
+|_2\ =\ (signed\ char)\ ucMaxPriorityValue.8_13;\l\
+|ivtmp.74_17\ =\ ivtmp.74_44\ +\ 4294967295;\l\
+|if\ (_2\ \<\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_9_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_9_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_9_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:30598879\<bb\ 2\>:\l\
+|_1\ =\{v\}\ MEM[(volatile\ uint32_t\ *)3758157056B];\l\
+|if\ (_1\ ==\ 1091551857)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_9_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10403619\<bb\ 3\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_46\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_9_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:20195260\<bb\ 5\>:\l\
+|_3\ =\{v\}\ MEM[(volatile\ uint32_t\ *)3758157056B];\l\
+|if\ (_3\ ==\ 1091551856)\l\
+\ \ goto\ \<bb\ 6\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [66.00%]\l\
+}"];
+
+	fn_9_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:6866389\<bb\ 6\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_47\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_9_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:13328872\<bb\ 8\>:\l\
+|_4\ =\{v\}\ MEM[(volatile\ uint8_t\ *)3758154752B];\l\
+|_5\ =\ (long\ unsigned\ int)\ _4;\l\
+|ulOriginalPriority\ =\{v\}\ _5;\l\
+|MEM[(volatile\ uint8_t\ *)3758154752B]\ =\{v\}\ 255;\l\
+|_6\ =\{v\}\ MEM[(volatile\ uint8_t\ *)3758154752B];\l\
+|ucMaxPriorityValue\ =\{v\}\ _6;\l\
+|ucMaxPriorityValue.5_7\ =\{v\}\ ucMaxPriorityValue;\l\
+|_8\ =\ ucMaxPriorityValue.5_7\ &\ 16;\l\
+|ucMaxSysCallPriority\ =\ _8;\l\
+|ulMaxPRIGROUPValue\ =\ 7;\l\
+|ucMaxPriorityValue.8_53\ =\{v\}\ ucMaxPriorityValue;\l\
+|_54\ =\ (signed\ char)\ ucMaxPriorityValue.8_53;\l\
+|if\ (_54\ \<\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [11.00%]\l\
+}"];
+
+	fn_9_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 9\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_48\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+goto\ \<bb\ 13\>;\ [100.00%]\l\
+}"];
+
+	fn_9_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:11862696\<bb\ 11\>:\l\
+|_15\ =\ 7\ -\ ivtmp.74_44;\l\
+|if\ (_15\ !=\ 4)\l\
+\ \ goto\ \<bb\ 12\>;\ [77.26%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [22.74%]\l\
+}"];
+
+	fn_9_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9164932\<bb\ 12\>:\l\
+|ulMaxPRIGROUPValue\ =\ ivtmp.74_44;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_9_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2697764\<bb\ 14\>:\l\
+|ulMaxPRIGROUPValue\ =\ 768;\l\
+|ulOriginalPriority.12_18\ =\{v\}\ ulOriginalPriority;\l\
+|_19\ =\ (unsigned\ char)\ ulOriginalPriority.12_18;\l\
+|MEM[(volatile\ uint8_t\ *)3758154752B]\ =\{v\}\ _19;\l\
+|_20\ =\{v\}\ MEM[(volatile\ uint32_t\ *)3758157088B];\l\
+|_21\ =\ _20\ \|\ 15728640;\l\
+|MEM[(volatile\ uint32_t\ *)3758157088B]\ =\{v\}\ _21;\l\
+|_22\ =\{v\}\ MEM[(volatile\ uint32_t\ *)3758157088B];\l\
+|_23\ =\ _22\ \|\ 4026531840;\l\
+|MEM[(volatile\ uint32_t\ *)3758157088B]\ =\{v\}\ _23;\l\
+|vPortSetupTimerInterrupt\ ();\l\
+|uxCriticalNesting\ =\ 0;\l\
+|vPortEnableVFP\ ();\l\
+|_24\ =\{v\}\ MEM[(volatile\ uint32_t\ *)3758157620B];\l\
+|_25\ =\ _24\ \|\ 3221225472;\l\
+|MEM[(volatile\ uint32_t\ *)3758157620B]\ =\{v\}\ _25;\l\
+|prvPortStartFirstTask\ ();\l\
+|vTaskSwitchContext\ ();\l\
+|prvTaskExitError\ ();\l\
+|return\ 0;\l\
+}"];
+
+	fn_9_basic_block_0:s -> fn_9_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_9_basic_block_2:s -> fn_9_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_9_basic_block_3:s -> fn_9_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_4:s -> fn_9_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_9_basic_block_5:s -> fn_9_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_9_basic_block_5:s -> fn_9_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_9_basic_block_6:s -> fn_9_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_7:s -> fn_9_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_9_basic_block_8:s -> fn_9_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_9_basic_block_8:s -> fn_9_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_9_basic_block_9:s -> fn_9_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_10:s -> fn_9_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_9_basic_block_10:s -> fn_9_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_9_basic_block_11:s -> fn_9_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[77%]"];
+	fn_9_basic_block_11:s -> fn_9_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[22%]"];
+	fn_9_basic_block_12:s -> fn_9_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_9_basic_block_13:s -> fn_9_basic_block_13:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_9_basic_block_14:s -> fn_9_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_9_basic_block_0:s -> fn_9_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_vPortValidateInterruptPriority" {
+	style="dashed";
+	color="black";
+	label="vPortValidateInterruptPriority ()";
+	subgraph cluster_17_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_17_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:715827884\<bb\ 5\>:\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	}
+	subgraph cluster_17_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_17_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	}
+	fn_17_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_17_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_17_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:28349621\<bb\ 2\>:\l\
+|__asm__\ __volatile__(\"mrs\ %0,\ ipsr\"\ :\ \"=r\"\ ulCurrentInterrupt_8\ :\ \ :\ \"memory\");\l\
+|if\ (ulCurrentInterrupt_8\ \>\ 15)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_17_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:14174811\<bb\ 3\>:\l\
+|_1\ =\ 3758154736B\ +\ ulCurrentInterrupt_8;\l\
+|ucCurrentPriority_9\ =\{v\}\ *_1;\l\
+|ucMaxSysCallPriority.19_2\ =\ ucMaxSysCallPriority;\l\
+|if\ (ucMaxSysCallPriority.19_2\ \>\ ucCurrentPriority_9)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_17_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:7087405\<bb\ 4\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_10\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_17_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:21262216\<bb\ 6\>:\l\
+|_3\ =\{v\}\ MEM[(volatile\ uint32_t\ *)3758157068B];\l\
+|_4\ =\ _3\ &\ 1792;\l\
+|ulMaxPRIGROUPValue.20_5\ =\ ulMaxPRIGROUPValue;\l\
+|if\ (_4\ \>\ ulMaxPRIGROUPValue.20_5)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_17_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 7\>:\l\
+|__asm__\ __volatile__(\"	mov\ %0,\ %1												\l\
+	msr\ basepri,\ %0											\l\
+	isb														\l\
+	dsb														\l\
+\"\ :\ \"=r\"\ ulNewBASEPRI_11\ :\ \"i\"\ 16\ :\ \"memory\");\l\
+}"];
+
+	fn_17_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10631108\<bb\ 9\>:\l\
+|return;\l\
+}"];
+
+	fn_17_basic_block_0:s -> fn_17_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_2:s -> fn_17_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_2:s -> fn_17_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_3:s -> fn_17_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_3:s -> fn_17_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_4:s -> fn_17_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_5:s -> fn_17_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_17_basic_block_6:s -> fn_17_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_6:s -> fn_17_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_17_basic_block_7:s -> fn_17_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_17_basic_block_8:s -> fn_17_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[100%]"];
+	fn_17_basic_block_9:s -> fn_17_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_17_basic_block_0:s -> fn_17_basic_block_1:n [style="invis",constraint=true];
+}
+}

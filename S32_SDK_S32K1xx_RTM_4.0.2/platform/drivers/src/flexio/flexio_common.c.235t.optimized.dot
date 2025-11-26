@@ -1,0 +1,489 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexio/flexio_common.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_FLEXIO_DRV_InitDevice" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_DRV_InitDevice ()";
+	fn_52_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_52_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_52_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ g_flexioDeviceStatePtr[instance_8(D)];\l\
+|if\ (_1\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [17.43%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [82.57%]\l\
+}"];
+
+	fn_52_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:187153200\<bb\ 3\>:\l\
+|_2\ =\ &deviceState_9(D)-\>resourceLock;\l\
+|OSIF_MutexCreate\ (_2);\l\
+|regValue_19\ =\{v\}\ MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL;\l\
+|regValue_20\ =\ regValue_19\ &\ 4294967293;\l\
+|regValue_21\ =\ regValue_20\ \|\ 2;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL\ =\{v\}\ regValue_21;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL\ =\{v\}\ 0;\l\
+|INT_SYS_EnableIRQ\ (69);\l\
+|regValue_16\ =\{v\}\ MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL;\l\
+|regValue_17\ =\ regValue_16\ &\ 4294967294;\l\
+|regValue_18\ =\ regValue_17\ \|\ 1;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL\ =\{v\}\ regValue_18;\l\
+|deviceState_9(D)-\>resourceAllocation\ =\ 0;\l\
+|deviceState_9(D)-\>flexioStatePtr[0]\ =\ 0B;\l\
+|deviceState_9(D)-\>flexioStatePtr[1]\ =\ 0B;\l\
+|deviceState_9(D)-\>flexioStatePtr[2]\ =\ 0B;\l\
+|deviceState_9(D)-\>flexioStatePtr[3]\ =\ 0B;\l\
+|g_flexioDeviceStatePtr[instance_8(D)]\ =\ deviceState_9(D);\l\
+}"];
+
+	fn_52_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|return\ 0;\l\
+}"];
+
+	fn_52_basic_block_0:s -> fn_52_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_52_basic_block_2:s -> fn_52_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[17%]"];
+	fn_52_basic_block_2:s -> fn_52_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[82%]"];
+	fn_52_basic_block_3:s -> fn_52_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_52_basic_block_4:s -> fn_52_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_52_basic_block_0:s -> fn_52_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_DRV_DeinitDevice" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_DRV_DeinitDevice ()";
+	fn_53_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_53_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_53_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|regValue_8\ =\{v\}\ MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL;\l\
+|regValue_9\ =\ regValue_8\ &\ 4294967293;\l\
+|regValue_10\ =\ regValue_9\ \|\ 2;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL\ =\{v\}\ regValue_10;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL\ =\{v\}\ 0;\l\
+|INT_SYS_DisableIRQ\ (69);\l\
+|_1\ =\ g_flexioDeviceStatePtr[instance_5(D)];\l\
+|_2\ =\ &_1-\>resourceLock;\l\
+|OSIF_MutexDestroy\ (_2);\l\
+|g_flexioDeviceStatePtr[instance_5(D)]\ =\ 0B;\l\
+|return\ 0;\l\
+}"];
+
+	fn_53_basic_block_0:s -> fn_53_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_53_basic_block_2:s -> fn_53_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_53_basic_block_0:s -> fn_53_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_DRV_Reset" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_DRV_Reset ()";
+	fn_54_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_54_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_54_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|regValue_2\ =\{v\}\ MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL;\l\
+|regValue_3\ =\ regValue_2\ &\ 4294967293;\l\
+|regValue_4\ =\ regValue_3\ \|\ 2;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL\ =\{v\}\ regValue_4;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].CTRL\ =\{v\}\ 0;\l\
+|return\ 0;\l\
+}"];
+
+	fn_54_basic_block_0:s -> fn_54_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_54_basic_block_2:s -> fn_54_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_54_basic_block_0:s -> fn_54_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_DRV_InitDriver" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_DRV_InitDriver ()";
+	subgraph cluster_58_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_58_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2119761656\<bb\ 11\>:\l\
+|#\ _36\ =\ PHI\ \<_98(10),\ _50(11)\>\l\
+|#\ resource_102\ =\ PHI\ \<_23(10),\ resource_69(11)\>\l\
+|_108\ =\ (sizetype)\ _36;\l\
+|_109\ =\ _108\ *\ 4;\l\
+|_2\ =\ 1074110464B\ +\ _109;\l\
+|tmp_51\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_2\ +\ 128B];\l\
+|tmp_52\ =\ tmp_51\ &\ 4294967288;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_2\ +\ 128B]\ =\{v\}\ tmp_52;\l\
+|tmp_53\ =\{v\}\ MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_2\ +\ 1024B];\l\
+|tmp_54\ =\ tmp_53\ &\ 4294967292;\l\
+|MEM\ \<volatile\ uint32_t\>\ [(struct\ FLEXIO_Type\ *)_2\ +\ 1024B]\ =\{v\}\ tmp_54;\l\
+|_55\ =\ 1\ \<\<\ _36;\l\
+|tmp_56\ =\{v\}\ MEM[(struct\ FLEXIO_Type\ *)1074110464B].SHIFTSIEN;\l\
+|_57\ =\ _55\ &\ 255;\l\
+|_58\ =\ (int)\ _57;\l\
+|_59\ =\ ~_58;\l\
+|_60\ =\ (long\ unsigned\ int)\ _59;\l\
+|tmp_61\ =\ tmp_56\ &\ _60;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].SHIFTSIEN\ =\{v\}\ tmp_61;\l\
+|tmp_62\ =\{v\}\ MEM[(struct\ FLEXIO_Type\ *)1074110464B].SHIFTEIEN;\l\
+|tmp_63\ =\ _60\ &\ tmp_62;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].SHIFTEIEN\ =\{v\}\ tmp_63;\l\
+|tmp_64\ =\{v\}\ MEM[(struct\ FLEXIO_Type\ *)1074110464B].TIMIEN;\l\
+|tmp_65\ =\ _60\ &\ tmp_64;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].TIMIEN\ =\{v\}\ tmp_65;\l\
+|tmp_66\ =\{v\}\ MEM[(struct\ FLEXIO_Type\ *)1074110464B].SHIFTSDEN;\l\
+|tmp_67\ =\ _60\ &\ tmp_66;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].SHIFTSDEN\ =\{v\}\ tmp_67;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].SHIFTSTAT\ =\{v\}\ _55;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].SHIFTERR\ =\{v\}\ _55;\l\
+|MEM[(struct\ FLEXIO_Type\ *)1074110464B].TIMSTAT\ =\{v\}\ _55;\l\
+|resource_69\ =\ resource_102\ +\ 1;\l\
+|_50\ =\ (int)\ resource_69;\l\
+|if\ (_15\ \>\ _50)\l\
+\ \ goto\ \<bb\ 11\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_58_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_58_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:858993469\<bb\ 7\>:\l\
+|#\ ivtmp.64_101\ =\ PHI\ \<ivtmp.64_99(5),\ ivtmp.64_100(9)\>\l\
+|_4\ =\ (struct\ flexio_common_state_t\ *\ *)\ ivtmp.64_101;\l\
+|_5\ =\ MEM[base:\ _4,\ offset:\ 0B];\l\
+|ivtmp.64_100\ =\ ivtmp.64_101\ +\ 4;\l\
+|if\ (_5\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [5.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [94.50%]\l\
+}"];
+
+	fn_58_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:811748828\<bb\ 9\>:\l\
+|if\ (_93\ !=\ ivtmp.64_100)\l\
+\ \ goto\ \<bb\ 7\>;\ [73.54%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [26.46%]\l\
+}"];
+
+	}
+	subgraph cluster_58_4 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 4";
+	labeljust=l;
+	penwidth=2;
+	fn_58_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:3109714054\<bb\ 4\>:\l\
+|#\ mask_45\ =\ PHI\ \<mask_48(3),\ mask_32(6)\>\l\
+|#\ count_42\ =\ PHI\ \<count_6(3),\ 0(6)\>\l\
+|count_6\ =\ count_42\ +\ 1;\l\
+|mask_48\ =\ mask_45\ \<\<\ 1;\l\
+|_92\ =\ count_6\ +\ step_26;\l\
+|if\ (_28\ \>=\ _92)\l\
+\ \ goto\ \<bb\ 3\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [5.50%]\l\
+}"];
+
+	fn_58_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:2938679785\<bb\ 3\>:\l\
+|_35\ =\ resourceAllocation_25\ &\ mask_48;\l\
+|if\ (_35\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	}
+	fn_58_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_58_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_58_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:396959106\<bb\ 2\>:\l\
+|_24\ =\ g_flexioDeviceStatePtr[instance_12(D)];\l\
+|resourceAllocation_25\ =\ _24-\>resourceAllocation;\l\
+|step_26\ =\ driver_13(D)-\>resourceCount;\l\
+|tmp_27\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)1074110464B].PARAM;\l\
+|_28\ =\ (unsigned\ char)\ tmp_27;\l\
+|_29\ =\ (int)\ step_26;\l\
+|_30\ =\ 1\ \<\<\ _29;\l\
+|_31\ =\ (unsigned\ char)\ _30;\l\
+|mask_32\ =\ _31\ +\ 255;\l\
+|_33\ =\ &_24-\>resourceLock;\l\
+|OSIF_MutexLock\ (_33,\ 4294967295);\l\
+|if\ (step_26\ \<=\ _28)\l\
+\ \ goto\ \<bb\ 6\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [5.50%]\l\
+}"];
+
+	fn_58_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1656903071\<bb\ 5\>:\l\
+|#\ mask_44\ =\ PHI\ \<mask_48(3),\ mask_32(6)\>\l\
+|#\ count_95\ =\ PHI\ \<count_6(3),\ _73(6)\>\l\
+|driver_13(D)-\>resourceIndex\ =\ count_95;\l\
+|_37\ =\ g_flexioDeviceStatePtr[instance_12(D)];\l\
+|_38\ =\ _37-\>resourceAllocation;\l\
+|_39\ =\ _38\ \|\ mask_44;\l\
+|_37-\>resourceAllocation\ =\ _39;\l\
+|_41\ =\ &_37-\>resourceLock;\l\
+|OSIF_MutexUnlock\ (_41);\l\
+|_1\ =\ g_flexioDeviceStatePtr[instance_12(D)];\l\
+|_97\ =\ _1\ +\ 8;\l\
+|ivtmp.64_99\ =\ (unsigned\ int)\ _97;\l\
+|_94\ =\ (unsigned\ int)\ _1;\l\
+|_93\ =\ _94\ +\ 24;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_58_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375126356\<bb\ 6\>:\l\
+|_73\ =\ resourceAllocation_25\ &\ mask_32;\l\
+|if\ (_73\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_58_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:47244641\<bb\ 8\>:\l\
+|*_4\ =\ driver_13(D);\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_58_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:261993011\<bb\ 10\>:\l\
+|_22\ =\ MEM[(unsigned\ char\ *)driver_13(D)\ +\ 8B];\l\
+|_23\ =\ MEM[(unsigned\ char\ *)driver_13(D)\ +\ 9B];\l\
+|_98\ =\ (int)\ _23;\l\
+|_103\ =\ (int)\ _22;\l\
+|_15\ =\ _98\ +\ _103;\l\
+|if\ (_15\ \>\ _98)\l\
+\ \ goto\ \<bb\ 11\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [11.00%]\l\
+}"];
+
+	fn_58_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:261993012\<bb\ 12\>:\l\
+|driver_13(D)-\>isr\ =\ 0B;\l\
+|driver_13(D)-\>instance\ =\ instance_12(D);\l\
+}"];
+
+	fn_58_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:396959109\<bb\ 13\>:\l\
+|#\ _8\ =\ PHI\ \<0(12),\ 1(14)\>\l\
+|return\ _8;\l\
+}"];
+
+	fn_58_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:134966098\<bb\ 14\>:\l\
+|_105\ =\ g_flexioDeviceStatePtr[instance_12(D)];\l\
+|_106\ =\ &_105-\>resourceLock;\l\
+|OSIF_MutexUnlock\ (_106);\l\
+goto\ \<bb\ 13\>;\ [100.00%]\l\
+}"];
+
+	fn_58_basic_block_0:s -> fn_58_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_2:s -> fn_58_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_58_basic_block_2:s -> fn_58_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_58_basic_block_3:s -> fn_58_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_3:s -> fn_58_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[50%]"];
+	fn_58_basic_block_4:s -> fn_58_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_58_basic_block_4:s -> fn_58_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_58_basic_block_5:s -> fn_58_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_6:s -> fn_58_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_6:s -> fn_58_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_58_basic_block_7:s -> fn_58_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_58_basic_block_7:s -> fn_58_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_58_basic_block_8:s -> fn_58_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_9:s -> fn_58_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[73%]"];
+	fn_58_basic_block_9:s -> fn_58_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[26%]"];
+	fn_58_basic_block_10:s -> fn_58_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_58_basic_block_10:s -> fn_58_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_58_basic_block_11:s -> fn_58_basic_block_11:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_58_basic_block_11:s -> fn_58_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_58_basic_block_12:s -> fn_58_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_13:s -> fn_58_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_58_basic_block_14:s -> fn_58_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_58_basic_block_0:s -> fn_58_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_DRV_DeinitDriver" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_DRV_DeinitDriver ()";
+	subgraph cluster_59_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_59_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:858993457\<bb\ 3\>:\l\
+|#\ ivtmp.84_52\ =\ PHI\ \<ivtmp.84_50(2),\ ivtmp.84_51(5)\>\l\
+|_4\ =\ (struct\ flexio_common_state_t\ *\ *)\ ivtmp.84_52;\l\
+|_5\ =\ MEM[base:\ _4,\ offset:\ 0B];\l\
+|ivtmp.84_51\ =\ ivtmp.84_52\ +\ 4;\l\
+|if\ (_5\ ==\ driver_10(D))\l\
+\ \ goto\ \<bb\ 4\>;\ [5.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [94.50%]\l\
+}"];
+
+	fn_59_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:811748817\<bb\ 5\>:\l\
+|if\ (_46\ !=\ ivtmp.84_51)\l\
+\ \ goto\ \<bb\ 3\>;\ [73.54%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [26.46%]\l\
+}"];
+
+	}
+	fn_59_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_59_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_59_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:261993008\<bb\ 2\>:\l\
+|instance_11\ =\ driver_10(D)-\>instance;\l\
+|_1\ =\ g_flexioDeviceStatePtr[instance_11];\l\
+|_49\ =\ _1\ +\ 8;\l\
+|ivtmp.84_50\ =\ (unsigned\ int)\ _49;\l\
+|_47\ =\ (unsigned\ int)\ _1;\l\
+|_46\ =\ _47\ +\ 24;\l\
+}"];
+
+	fn_59_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:47244640\<bb\ 4\>:\l\
+|*_4\ =\ 0B;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_59_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:261993008\<bb\ 6\>:\l\
+|_16\ =\ MEM[(unsigned\ char\ *)driver_10(D)\ +\ 8B];\l\
+|_17\ =\ MEM[(unsigned\ char\ *)driver_10(D)\ +\ 9B];\l\
+|_19\ =\ (int)\ _16;\l\
+|_20\ =\ 1\ \<\<\ _19;\l\
+|_21\ =\ (unsigned\ char)\ _20;\l\
+|mask_22\ =\ _21\ +\ 255;\l\
+|_23\ =\ (int)\ mask_22;\l\
+|_25\ =\ (int)\ _17;\l\
+|_26\ =\ _23\ \<\<\ _25;\l\
+|mask_27\ =\ (uint8_t)\ _26;\l\
+|_29\ =\ &_1-\>resourceLock;\l\
+|OSIF_MutexLock\ (_29,\ 4294967295);\l\
+|_30\ =\ g_flexioDeviceStatePtr[instance_11];\l\
+|_31\ =\ _30-\>resourceAllocation;\l\
+|_32\ =\ ~mask_27;\l\
+|_33\ =\ _31\ &\ _32;\l\
+|_30-\>resourceAllocation\ =\ _33;\l\
+|_34\ =\ &_30-\>resourceLock;\l\
+|OSIF_MutexUnlock\ (_34);\l\
+|return\ 0;\l\
+}"];
+
+	fn_59_basic_block_0:s -> fn_59_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_2:s -> fn_59_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_3:s -> fn_59_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_59_basic_block_3:s -> fn_59_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_59_basic_block_4:s -> fn_59_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_59_basic_block_5:s -> fn_59_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[73%]"];
+	fn_59_basic_block_5:s -> fn_59_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[26%]"];
+	fn_59_basic_block_6:s -> fn_59_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_59_basic_block_0:s -> fn_59_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_FLEXIO_IRQHandler" {
+	style="dashed";
+	color="black";
+	label="FLEXIO_IRQHandler ()";
+	subgraph cluster_60_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_60_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:858993457\<bb\ 3\>:\l\
+|#\ ivtmp.98_12\ =\ PHI\ \<ivtmp.98_33(2),\ ivtmp.98_14(7)\>\l\
+|ivtmp.98_14\ =\ ivtmp.98_12\ +\ 4;\l\
+|_34\ =\ (void\ *)\ ivtmp.98_14;\l\
+|driverState_23\ =\ MEM[base:\ _34,\ offset:\ 0B];\l\
+|if\ (driverState_23\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [30.00%]\l\
+}"];
+
+	fn_60_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:601295423\<bb\ 4\>:\l\
+|_5\ =\ driverState_23-\>isr;\l\
+|if\ (_5\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [30.00%]\l\
+}"];
+
+	fn_60_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:858993458\<bb\ 7\>:\l\
+|if\ (ivtmp.98_14\ !=\ _41)\l\
+\ \ goto\ \<bb\ 3\>;\ [75.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [25.00%]\l\
+}"];
+
+	fn_60_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:420906797\<bb\ 5\>:\l\
+|_6\ =\ driverState_23-\>resourceCount;\l\
+|_7\ =\ (int)\ _6;\l\
+|_8\ =\ 1\ \<\<\ _7;\l\
+|_9\ =\ _8\ +\ 4294967295;\l\
+|_10\ =\ driverState_23-\>resourceIndex;\l\
+|_11\ =\ (int)\ _10;\l\
+|resourceMask_24\ =\ _9\ \<\<\ _11;\l\
+|_17\ =\ shifterEvents_19\ \|\ shifterErrorEvents_20;\l\
+|_37\ =\ _17\ \|\ timerEvents_21;\l\
+|_36\ =\ resourceMask_24\ &\ _37;\l\
+|if\ (_36\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [87.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [12.50%]\l\
+}"];
+
+	fn_60_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:368293448\<bb\ 6\>:\l\
+|_5\ (driverState_23);\l\
+}"];
+
+	}
+	fn_60_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_60_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_60_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:214748368\<bb\ 2\>:\l\
+|_32\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)1074110464B].SHIFTSIEN;\l\
+|_31\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)1074110464B].SHIFTSTAT;\l\
+|shifterEvents_19\ =\ _31\ &\ _32;\l\
+|_30\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)1074110464B].SHIFTEIEN;\l\
+|_29\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)1074110464B].SHIFTERR;\l\
+|shifterErrorEvents_20\ =\ _29\ &\ _30;\l\
+|_28\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)1074110464B].TIMIEN;\l\
+|_27\ =\{v\}\ MEM[(const\ struct\ FLEXIO_Type\ *)1074110464B].TIMSTAT;\l\
+|timerEvents_21\ =\ _27\ &\ _28;\l\
+|_1\ =\ g_flexioDeviceStatePtr[0];\l\
+|_35\ =\ _1\ +\ 4;\l\
+|ivtmp.98_33\ =\ (unsigned\ int)\ _35;\l\
+|_40\ =\ (unsigned\ int)\ _1;\l\
+|_41\ =\ _40\ +\ 20;\l\
+}"];
+
+	fn_60_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:214748368\<bb\ 8\>:\l\
+|return;\l\
+}"];
+
+	fn_60_basic_block_0:s -> fn_60_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_60_basic_block_2:s -> fn_60_basic_block_3:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_60_basic_block_3:s -> fn_60_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_60_basic_block_3:s -> fn_60_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_60_basic_block_4:s -> fn_60_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_60_basic_block_4:s -> fn_60_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_60_basic_block_5:s -> fn_60_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[87%]"];
+	fn_60_basic_block_5:s -> fn_60_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[12%]"];
+	fn_60_basic_block_6:s -> fn_60_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_60_basic_block_7:s -> fn_60_basic_block_3:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[75%]"];
+	fn_60_basic_block_7:s -> fn_60_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_60_basic_block_8:s -> fn_60_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_60_basic_block_0:s -> fn_60_basic_block_1:n [style="invis",constraint=true];
+}
+}

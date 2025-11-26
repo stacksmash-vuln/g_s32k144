@@ -1,0 +1,28 @@
+var struct_s_a_i___type =
+[
+    [ "PARAM", "struct_s_a_i___type.html#aecf4c04595fd544b547ded0e511a568c", null ],
+    [ "RCR1", "struct_s_a_i___type.html#a3bb79000c1e3355082f35e3b61823961", null ],
+    [ "RCR2", "struct_s_a_i___type.html#a31790e813627048e75c99e8534a8dade", null ],
+    [ "RCR3", "struct_s_a_i___type.html#a9d86d1f4f9b1cb85820542b18f6e4c8a", null ],
+    [ "RCR4", "struct_s_a_i___type.html#a1cee0c377c67dd5e286996566bf25557", null ],
+    [ "RCR5", "struct_s_a_i___type.html#a5b65347c63004ffea786088301b4efce", null ],
+    [ "RCSR", "struct_s_a_i___type.html#af32bc22123e67186b34fa65fc280ebc2", null ],
+    [ "RDR", "struct_s_a_i___type.html#a7fdad77505530bec24d16dd760f59257", null ],
+    [ "RESERVED_0", "struct_s_a_i___type.html#a4398e5001fa061061fe95e2ceef7a31a", null ],
+    [ "RESERVED_1", "struct_s_a_i___type.html#a751eb9bad252d2a0d98a9d0f0c8ae7d4", null ],
+    [ "RESERVED_2", "struct_s_a_i___type.html#a4d58743dc4c7920712e3ffa155b08886", null ],
+    [ "RESERVED_3", "struct_s_a_i___type.html#a60bc672e606a9afd2f1acea711c99ac7", null ],
+    [ "RESERVED_4", "struct_s_a_i___type.html#a942227c181b38371ccaf6ec4e7bc5abc", null ],
+    [ "RFR", "struct_s_a_i___type.html#a9940d0c08613df08e647a0e7cc98f7f0", null ],
+    [ "RMR", "struct_s_a_i___type.html#a6dd639358716f14729bbc577fb3ea58f", null ],
+    [ "TCR1", "struct_s_a_i___type.html#a4c91e8edf88a628f3e832b093257c5a4", null ],
+    [ "TCR2", "struct_s_a_i___type.html#a94793eaec09553e180e27dac5a621203", null ],
+    [ "TCR3", "struct_s_a_i___type.html#a4c887e2dfac0fbf0d4098e688cb87832", null ],
+    [ "TCR4", "struct_s_a_i___type.html#a1d6145cddc49889cac04bece24526c31", null ],
+    [ "TCR5", "struct_s_a_i___type.html#a93f4a10cfc9c205f82a3663df6b369eb", null ],
+    [ "TCSR", "struct_s_a_i___type.html#a0c669080e8ad1736b2e68435390c0c91", null ],
+    [ "TDR", "struct_s_a_i___type.html#aab4ddcd87f0f50985738de1fa4d7742a", null ],
+    [ "TFR", "struct_s_a_i___type.html#a6c159833d1c2b576eb9f7fdaaf14338d", null ],
+    [ "TMR", "struct_s_a_i___type.html#a5f2d7ba5cbe20fbc986663daa133a93d", null ],
+    [ "VERID", "struct_s_a_i___type.html#ab7c35534225a1aae1c9121a1964fc40a", null ]
+];

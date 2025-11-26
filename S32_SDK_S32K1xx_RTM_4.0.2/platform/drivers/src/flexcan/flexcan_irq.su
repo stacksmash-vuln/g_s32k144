@@ -1,0 +1,13 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:64:6:CAN0_ORed_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:71:6:CAN0_Error_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:80:6:CAN0_Wake_Up_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:89:6:CAN0_ORed_0_15_MB_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:96:6:CAN0_ORed_16_31_MB_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:116:6:CAN1_ORed_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:123:6:CAN1_Error_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:130:6:CAN1_ORed_0_15_MB_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:137:6:CAN1_ORed_16_31_MB_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:157:6:CAN2_ORed_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:164:6:CAN2_Error_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:171:6:CAN2_ORed_0_15_MB_IRQHandler	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/flexcan/flexcan_irq.c:178:6:CAN2_ORed_16_31_MB_IRQHandler	0	static

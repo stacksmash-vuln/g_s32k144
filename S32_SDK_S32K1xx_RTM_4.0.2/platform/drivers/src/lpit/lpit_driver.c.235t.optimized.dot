@@ -1,0 +1,979 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpit/lpit_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_LPIT_DRV_GetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_GetDefaultConfig ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|config_2(D)-\>enableRunInDebug\ =\ 0;\l\
+|config_2(D)-\>enableRunInDoze\ =\ 0;\l\
+|return;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_22_basic_block_2:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_GetDefaultChanConfig" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_GetDefaultChanConfig ()";
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM\ \<unsigned\ short\>\ [(void\ *)config_2(D)]\ =\ 256;\l\
+|config_2(D)-\>period\ =\ 1000000;\l\
+|config_2(D)-\>triggerSource\ =\ 0;\l\
+|config_2(D)-\>triggerSelect\ =\ 0;\l\
+|MEM\ \<unsigned\ int\>\ [(_Bool\ *)config_2(D)\ +\ 16B]\ =\ 0;\l\
+|config_2(D)-\>isInterruptEnabled\ =\ 1;\l\
+|return;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_23_basic_block_2:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_Init" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_Init ()";
+	subgraph cluster_24_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_24_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:8687547547\<bb\ 6\>:\l\
+|delay.3_34\ =\{v\}\ delay;\l\
+|_35\ =\ delay.3_34\ +\ 4294967295;\l\
+|delay\ =\{v\}\ _35;\l\
+|__asm__\ __volatile__(\"nop\");\l\
+|__asm__\ __volatile__(\"nop\");\l\
+|__asm__\ __volatile__(\"nop\");\l\
+|delay.4_36\ =\{v\}\ delay;\l\
+|if\ (delay.4_36\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	}
+	subgraph cluster_24_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_24_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:8687547547\<bb\ 4\>:\l\
+|delay.1_39\ =\{v\}\ delay;\l\
+|_40\ =\ delay.1_39\ +\ 4294967295;\l\
+|delay\ =\{v\}\ _40;\l\
+|__asm__\ __volatile__(\"nop\");\l\
+|__asm__\ __volatile__(\"nop\");\l\
+|__asm__\ __volatile__(\"nop\");\l\
+|delay.2_41\ =\{v\}\ delay;\l\
+|if\ (delay.2_41\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [11.00%]\l\
+}"];
+
+	}
+	fn_24_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_24_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_24_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_44\ =\ instance_7(D)\ *\ 4;\l\
+|_1\ =\ &s_lpitSourceClockFrequency\ +\ _44;\l\
+|CLOCK_SYS_GetFreq\ (69,\ _1);\l\
+|core_freq\ =\ 0;\l\
+|CLOCK_SYS_GetFreq\ (0,\ &core_freq);\l\
+|lpit_freq_12\ =\ s_lpitSourceClockFrequency[instance_7(D)];\l\
+|_2\ =\ lpit_freq_12\ \>\>\ 1;\l\
+|core_freq.0_3\ =\ core_freq;\l\
+|_4\ =\ _2\ +\ core_freq.0_3;\l\
+|core_to_per_clock_ratio_13\ =\ _4\ /\ lpit_freq_12;\l\
+|delay\ =\{v\}\ core_to_per_clock_ratio_13;\l\
+|_37\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MCR;\l\
+|_38\ =\ _37\ \|\ 2;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MCR\ =\{v\}\ _38;\l\
+|delay.2_60\ =\{v\}\ delay;\l\
+|if\ (delay.2_60\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [11.00%]\l\
+}"];
+
+	fn_24_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741825\<bb\ 3\>:\l\
+|_42\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MCR;\l\
+|_43\ =\ _42\ &\ 4294967293;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MCR\ =\{v\}\ _43;\l\
+|delay\ =\{v\}\ core_to_per_clock_ratio_13;\l\
+|_32\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MCR;\l\
+|_33\ =\ _32\ \|\ 1;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MCR\ =\{v\}\ _33;\l\
+|delay.4_15\ =\{v\}\ delay;\l\
+|if\ (delay.4_15\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [89.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [11.00%]\l\
+}"];
+
+	fn_24_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741825\<bb\ 5\>:\l\
+|_5\ =\ userConfig_16(D)-\>enableRunInDebug;\l\
+|_23\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MCR;\l\
+|_24\ =\ _23\ &\ 4294967287;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MCR\ =\{v\}\ _24;\l\
+|_25\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MCR;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_24_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 7\>:\l\
+|_14\ =\ _25\ \|\ 8;\l\
+}"];
+
+	fn_24_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ prephitmp_45\ =\ PHI\ \<_14(7),\ _25(5)\>\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MCR\ =\{v\}\ prephitmp_45;\l\
+|_6\ =\ userConfig_16(D)-\>enableRunInDoze;\l\
+|_18\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MCR;\l\
+|_19\ =\ _18\ &\ 4294967291;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MCR\ =\{v\}\ _19;\l\
+|_20\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MCR;\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_24_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 9\>:\l\
+|_59\ =\ _20\ \|\ 4;\l\
+}"];
+
+	fn_24_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|#\ prephitmp_65\ =\ PHI\ \<_59(9),\ _20(8)\>\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MCR\ =\{v\}\ prephitmp_65;\l\
+|core_freq\ =\{v\}\ \{CLOBBER\};\l\
+|return;\l\
+}"];
+
+	fn_24_basic_block_0:s -> fn_24_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_2:s -> fn_24_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_24_basic_block_2:s -> fn_24_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_24_basic_block_3:s -> fn_24_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[89%]"];
+	fn_24_basic_block_3:s -> fn_24_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_24_basic_block_4:s -> fn_24_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_24_basic_block_4:s -> fn_24_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_24_basic_block_5:s -> fn_24_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_5:s -> fn_24_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_6:s -> fn_24_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[89%]"];
+	fn_24_basic_block_6:s -> fn_24_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[11%]"];
+	fn_24_basic_block_7:s -> fn_24_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_8:s -> fn_24_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_8:s -> fn_24_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_24_basic_block_9:s -> fn_24_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_24_basic_block_10:s -> fn_24_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_24_basic_block_0:s -> fn_24_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_Deinit" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_Deinit ()";
+	fn_25_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_25_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_25_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MCR;\l\
+|_3\ =\ _2\ &\ 4294967294;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MCR\ =\{v\}\ _3;\l\
+|return;\l\
+}"];
+
+	fn_25_basic_block_0:s -> fn_25_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_25_basic_block_2:s -> fn_25_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_25_basic_block_0:s -> fn_25_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_StartTimerChannels" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_StartTimerChannels ()";
+	fn_27_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_27_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_27_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_3\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].SETTEN;\l\
+|_4\ =\ mask_2(D)\ \|\ _3;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].SETTEN\ =\{v\}\ _4;\l\
+|return;\l\
+}"];
+
+	fn_27_basic_block_0:s -> fn_27_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_27_basic_block_2:s -> fn_27_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_27_basic_block_0:s -> fn_27_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_StopTimerChannels" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_StopTimerChannels ()";
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_3\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].CLRTEN;\l\
+|_4\ =\ mask_2(D)\ \|\ _3;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].CLRTEN\ =\{v\}\ _4;\l\
+|return;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_28_basic_block_2:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_SetTimerPeriodByUs" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_SetTimerPeriodByUs ()";
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_23\ =\ instance_10(D)\ *\ 4;\l\
+|_1\ =\ &s_lpitSourceClockFrequency\ +\ _23;\l\
+|CLOCK_SYS_GetFreq\ (69,\ _1);\l\
+|_3\ =\ s_lpitSourceClockFrequency[instance_10(D)];\l\
+|count_14\ =\ periodUs_13(D)\ w*\ _3;\l\
+|_5\ =\ count_14\ /\ 1000000;\l\
+|count_15\ =\ _5\ +\ 18446744073709551615;\l\
+|_19\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].TMR[channel_16(D)].TCTRL;\l\
+|_20\ =\ _19\ \>\>\ 2;\l\
+|tmp_21\ =\ _20\ &\ 3;\l\
+|_22\ =\ tmp_21\ +\ 4294967295;\l\
+|if\ (_22\ \<=\ 2)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_29_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 3\>:\l\
+|if\ (count_15\ \<=\ 4294967295)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_29_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|if\ (count_15\ \<=\ 4294967295)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_29_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435457\<bb\ 5\>:\l\
+|if\ (tmp_21\ ==\ 1)\l\
+\ \ goto\ \<bb\ 6\>;\ [67.33%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [32.67%]\l\
+}"];
+
+	fn_29_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 6\>:\l\
+|if\ (count_15\ \>\ 131070)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_29_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:91268056\<bb\ 7\>:\l\
+|if\ (count_15\ \>\ 65535)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_29_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:45634028\<bb\ 8\>:\l\
+|_6\ =\ _5\ +\ 18446744073709486079;\l\
+|_7\ =\ _6\ \<\<\ 16;\l\
+|count_18\ =\ _7\ \|\ 65535;\l\
+}"];
+
+	fn_29_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:445602856\<bb\ 9\>:\l\
+|#\ count_26\ =\ PHI\ \<count_15(5),\ count_15(3),\ count_18(8),\ count_15(7)\>\l\
+|_8\ =\ (long\ unsigned\ int)\ count_26;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_16(D)].TVAL\ =\{v\}\ _8;\l\
+}"];
+
+	fn_29_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|#\ reVal_17\ =\ PHI\ \<1(4),\ 0(9),\ 1(3),\ 1(6)\>\l\
+|return\ reVal_17;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_2:s -> fn_29_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_3:s -> fn_29_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_3:s -> fn_29_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_4:s -> fn_29_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_4:s -> fn_29_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_5:s -> fn_29_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_29_basic_block_5:s -> fn_29_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[32%]"];
+	fn_29_basic_block_6:s -> fn_29_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_6:s -> fn_29_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_7:s -> fn_29_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_7:s -> fn_29_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_29_basic_block_8:s -> fn_29_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_9:s -> fn_29_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_29_basic_block_10:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_InitChannel" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_InitChannel ()";
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM\ \<signed\ char\>\ [(IRQn_Type[4]\ *)&lpitIrqId]\ =\ 48;\l\
+|MEM\ \<signed\ char\>\ [(IRQn_Type[4]\ *)&lpitIrqId\ +\ 1B]\ =\ 49;\l\
+|MEM\ \<signed\ char\>\ [(IRQn_Type[4]\ *)&lpitIrqId\ +\ 2B]\ =\ 50;\l\
+|MEM\ \<signed\ char\>\ [(IRQn_Type[4]\ *)&lpitIrqId\ +\ 3B]\ =\ 51;\l\
+|if\ (channel_20(D)\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_26_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_1\ =\ userChannelConfig_21(D)-\>chainChannel;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 18\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [50.00%]\l\
+}"];
+
+	fn_26_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870912\<bb\ 4\>:\l\
+|_2\ =\ userChannelConfig_21(D)-\>chainChannel;\l\
+|_41\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_42\ =\ _41\ &\ 4294967293;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _42;\l\
+|_43\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [75.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [25.00%]\l\
+}"];
+
+	fn_26_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:402653184\<bb\ 5\>:\l\
+|_111\ =\ _43\ \|\ 2;\l\
+}"];
+
+	fn_26_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:805306369\<bb\ 6\>:\l\
+|#\ prephitmp_112\ =\ PHI\ \<_99(19),\ _111(5),\ _43(4)\>\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ prephitmp_112;\l\
+|_3\ =\ userChannelConfig_21(D)-\>timerMode;\l\
+|_34\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_35\ =\ _34\ &\ 4294967283;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _35;\l\
+|_36\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_37\ =\ (long\ unsigned\ int)\ _3;\l\
+|_38\ =\ _37\ \<\<\ 2;\l\
+|_39\ =\ _38\ &\ 12;\l\
+|_40\ =\ _36\ \|\ _39;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _40;\l\
+|_4\ =\ userChannelConfig_21(D)-\>periodUnits;\l\
+|if\ (_4\ ==\ 1)\l\
+\ \ goto\ \<bb\ 7\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [79.76%]\l\
+}"];
+
+	fn_26_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:162994008\<bb\ 7\>:\l\
+|_5\ =\ userChannelConfig_21(D)-\>period;\l\
+|reVal_25\ =\ LPIT_DRV_SetTimerPeriodByUs\ (instance_23(D),\ channel_20(D),\ _5);\l\
+|if\ (reVal_25\ ==\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [50.00%]\l\
+}"];
+
+	fn_26_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:642312361\<bb\ 8\>:\l\
+|_6\ =\ userChannelConfig_21(D)-\>period;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TVAL\ =\{v\}\ _6;\l\
+}"];
+
+	fn_26_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:723809365\<bb\ 9\>:\l\
+|_7\ =\ userChannelConfig_21(D)-\>triggerSource;\l\
+|_67\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_68\ =\ _67\ &\ 4286578687;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _68;\l\
+|_69\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_70\ =\ (long\ unsigned\ int)\ _7;\l\
+|_71\ =\ _70\ \<\<\ 23;\l\
+|_72\ =\ _71\ &\ 8388608;\l\
+|_73\ =\ _69\ \|\ _72;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _73;\l\
+|_8\ =\ userChannelConfig_21(D)-\>triggerSelect;\l\
+|_61\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_62\ =\ _61\ &\ 4043309055;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _62;\l\
+|_63\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_64\ =\ _8\ \<\<\ 24;\l\
+|_65\ =\ _64\ &\ 251658240;\l\
+|_66\ =\ _63\ \|\ _65;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _66;\l\
+|_9\ =\ userChannelConfig_21(D)-\>enableReloadOnTrigger;\l\
+|_56\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_57\ =\ _56\ &\ 4294705151;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _57;\l\
+|_58\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|if\ (_9\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_26_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:361904683\<bb\ 10\>:\l\
+|_113\ =\ _58\ \|\ 262144;\l\
+}"];
+
+	fn_26_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:723809365\<bb\ 11\>:\l\
+|#\ prephitmp_114\ =\ PHI\ \<_113(10),\ _58(9)\>\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ prephitmp_114;\l\
+|_10\ =\ userChannelConfig_21(D)-\>enableStopOnInterrupt;\l\
+|_51\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_52\ =\ _51\ &\ 4294836223;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _52;\l\
+|_53\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|if\ (_10\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+}"];
+
+	fn_26_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:361904683\<bb\ 12\>:\l\
+|_115\ =\ _53\ \|\ 131072;\l\
+}"];
+
+	fn_26_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:723809365\<bb\ 13\>:\l\
+|#\ prephitmp_116\ =\ PHI\ \<_115(12),\ _53(11)\>\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ prephitmp_116;\l\
+|_11\ =\ userChannelConfig_21(D)-\>enableStartOnTrigger;\l\
+|_46\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|_47\ =\ _46\ &\ 4294901759;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ _47;\l\
+|_48\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL;\l\
+|if\ (_11\ !=\ 0)\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+}"];
+
+	fn_26_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:361904683\<bb\ 14\>:\l\
+|_117\ =\ _48\ \|\ 65536;\l\
+}"];
+
+	fn_26_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:723809365\<bb\ 15\>:\l\
+|#\ prephitmp_118\ =\ PHI\ \<_117(14),\ _48(13)\>\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_20(D)].TCTRL\ =\{v\}\ prephitmp_118;\l\
+|_12\ =\ userChannelConfig_21(D)-\>isInterruptEnabled;\l\
+|if\ (_12\ !=\ 0)\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+}"];
+
+	fn_26_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:361904682\<bb\ 16\>:\l\
+|_13\ =\ 1\ \<\<\ channel_20(D);\l\
+|_74\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MIER;\l\
+|_75\ =\ _13\ \|\ _74;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MIER\ =\{v\}\ _75;\l\
+|_14\ =\ lpitIrqId[channel_20(D)];\l\
+|INT_SYS_EnableIRQ\ (_14);\l\
+goto\ \<bb\ 18\>;\ [100.00%]\l\
+}"];
+
+	fn_26_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:361904682\<bb\ 17\>:\l\
+|_15\ =\ 1\ \<\<\ channel_20(D);\l\
+|_76\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MIER;\l\
+|_77\ =\ ~_15;\l\
+|_78\ =\ _76\ &\ _77;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MIER\ =\{v\}\ _78;\l\
+|_16\ =\ lpitIrqId[channel_20(D)];\l\
+|INT_SYS_DisableIRQ\ (_16);\l\
+}"];
+
+	fn_26_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 18\>:\l\
+|#\ reVal_17\ =\ PHI\ \<1(3),\ 0(17),\ 0(16),\ reVal_25(7)\>\l\
+|lpitIrqId\ =\{v\}\ \{CLOBBER\};\l\
+|return\ reVal_17;\l\
+}"];
+
+	fn_26_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435457\<bb\ 19\>:\l\
+|_102\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[0].TCTRL;\l\
+|_103\ =\ _102\ &\ 4294967293;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[0].TCTRL\ =\{v\}\ _103;\l\
+|_99\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[0].TCTRL;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_2:s -> fn_26_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_2:s -> fn_26_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_3:s -> fn_26_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_3:s -> fn_26_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_4:s -> fn_26_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_26_basic_block_4:s -> fn_26_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[25%]"];
+	fn_26_basic_block_5:s -> fn_26_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_6:s -> fn_26_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_26_basic_block_6:s -> fn_26_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_26_basic_block_7:s -> fn_26_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_7:s -> fn_26_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_8:s -> fn_26_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_9:s -> fn_26_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_9:s -> fn_26_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_10:s -> fn_26_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_11:s -> fn_26_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_11:s -> fn_26_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_12:s -> fn_26_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_13:s -> fn_26_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_13:s -> fn_26_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_14:s -> fn_26_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_15:s -> fn_26_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_15:s -> fn_26_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_26_basic_block_16:s -> fn_26_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_17:s -> fn_26_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_18:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_26_basic_block_19:s -> fn_26_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_SetTimerPeriodInDual16ModeByUs" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_SetTimerPeriodInDual16ModeByUs ()";
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_25\ =\ instance_12(D)\ *\ 4;\l\
+|_1\ =\ &s_lpitSourceClockFrequency\ +\ _25;\l\
+|CLOCK_SYS_GetFreq\ (69,\ _1);\l\
+|_3\ =\ s_lpitSourceClockFrequency[instance_12(D)];\l\
+|_24\ =\ (unsigned\ int)\ periodHigh_15(D);\l\
+|periodHighCount_16\ =\ _3\ w*\ _24;\l\
+|_5\ =\ periodHighCount_16\ /\ 1000000;\l\
+|periodHighCount_17\ =\ _5\ +\ 18446744073709551615;\l\
+|if\ (periodHighCount_17\ \>\ 65535)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+}"];
+
+	fn_30_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_26\ =\ (unsigned\ int)\ periodLow_18(D);\l\
+|periodLowCount_19\ =\ _3\ w*\ _26;\l\
+|_7\ =\ periodLowCount_19\ /\ 1000000;\l\
+|periodLowCount_20\ =\ _7\ +\ 18446744073709551615;\l\
+|if\ (periodLowCount_20\ \>\ 65535)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_30_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|_8\ =\ periodHighCount_17\ \<\<\ 16;\l\
+|periodCount_21\ =\ _8\ \|\ periodLowCount_20;\l\
+|_9\ =\ (long\ unsigned\ int)\ periodCount_21;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_22(D)].TVAL\ =\{v\}\ _9;\l\
+}"];
+
+	fn_30_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ reVal_10\ =\ PHI\ \<1(2),\ 0(4),\ 1(3)\>\l\
+|return\ reVal_10;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_30_basic_block_2:s -> fn_30_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_30_basic_block_3:s -> fn_30_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_30_basic_block_3:s -> fn_30_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_30_basic_block_4:s -> fn_30_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_30_basic_block_5:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_GetTimerPeriodByUs" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_GetTimerPeriodByUs ()";
+	fn_31_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_31_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_31_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_31\ =\ instance_19(D)\ *\ 4;\l\
+|_2\ =\ &s_lpitSourceClockFrequency\ +\ _31;\l\
+|CLOCK_SYS_GetFreq\ (69,\ _2);\l\
+|_32\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].TMR[channel_22(D)].TVAL;\l\
+|currentPeriod_23\ =\ (uint64_t)\ _32;\l\
+|_27\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].TMR[channel_22(D)].TCTRL;\l\
+|_28\ =\ _27\ \>\>\ 2;\l\
+|tmp_29\ =\ _28\ &\ 3;\l\
+|_30\ =\ tmp_29\ +\ 4294967295;\l\
+|if\ (_30\ \<=\ 2)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_31_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|if\ (tmp_29\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [66.00%]\l\
+}"];
+
+	fn_31_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 4\>:\l\
+|if\ (currentPeriod_23\ \>\ 65535)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_31_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:91268056\<bb\ 5\>:\l\
+|_3\ =\ currentPeriod_23\ \>\>\ 16;\l\
+|_1\ =\ _32\ &\ 65535;\l\
+|_4\ =\ (long\ long\ unsigned\ int)\ _1;\l\
+|_5\ =\ _3\ +\ _4;\l\
+|_6\ =\ _5\ *\ 1000000;\l\
+|_7\ =\ _6\ +\ 2000000;\l\
+|_8\ =\ s_lpitSourceClockFrequency[instance_19(D)];\l\
+|_9\ =\ (long\ long\ unsigned\ int)\ _8;\l\
+|currentPeriod_26\ =\ _7\ /\ _9;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_31_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:91268056\<bb\ 6\>:\l\
+|_10\ =\ currentPeriod_23\ +\ 1;\l\
+|_11\ =\ _10\ *\ 1000000;\l\
+|_12\ =\ s_lpitSourceClockFrequency[instance_19(D)];\l\
+|_13\ =\ (long\ long\ unsigned\ int)\ _12;\l\
+|currentPeriod_25\ =\ _11\ /\ _13;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_31_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:891205713\<bb\ 7\>:\l\
+|_14\ =\ currentPeriod_23\ +\ 1;\l\
+|_15\ =\ _14\ *\ 1000000;\l\
+|_16\ =\ s_lpitSourceClockFrequency[instance_19(D)];\l\
+|_17\ =\ (long\ long\ unsigned\ int)\ _16;\l\
+|currentPeriod_24\ =\ _15\ /\ _17;\l\
+}"];
+
+	fn_31_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|#\ currentPeriod_18\ =\ PHI\ \<currentPeriod_25(6),\ currentPeriod_24(7),\ currentPeriod_26(5)\>\l\
+|return\ currentPeriod_18;\l\
+}"];
+
+	fn_31_basic_block_0:s -> fn_31_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_2:s -> fn_31_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_31_basic_block_2:s -> fn_31_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_31_basic_block_3:s -> fn_31_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_31_basic_block_3:s -> fn_31_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_31_basic_block_4:s -> fn_31_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_31_basic_block_4:s -> fn_31_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_31_basic_block_5:s -> fn_31_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_6:s -> fn_31_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_7:s -> fn_31_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_31_basic_block_8:s -> fn_31_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_31_basic_block_0:s -> fn_31_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_GetCurrentTimerUs" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_GetCurrentTimerUs ()";
+	fn_32_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_32_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_32_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_24\ =\ instance_13(D)\ *\ 4;\l\
+|_1\ =\ &s_lpitSourceClockFrequency\ +\ _24;\l\
+|CLOCK_SYS_GetFreq\ (69,\ _1);\l\
+|_25\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].TMR[channel_16(D)].CVAL;\l\
+|currentTime_17\ =\ (uint64_t)\ _25;\l\
+|_20\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].TMR[channel_16(D)].TCTRL;\l\
+|_21\ =\ _20\ \>\>\ 2;\l\
+|tmp_22\ =\ _21\ &\ 3;\l\
+|_23\ =\ tmp_22\ +\ 4294967295;\l\
+|if\ (_23\ \<=\ 2)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_32_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|if\ (tmp_22\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_32_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 4\>:\l\
+|_2\ =\ currentTime_17\ \>\>\ 16;\l\
+|_12\ =\ _25\ &\ 65535;\l\
+|_3\ =\ (long\ long\ unsigned\ int)\ _12;\l\
+|_4\ =\ _2\ +\ _3;\l\
+|_5\ =\ _4\ *\ 1000000;\l\
+|_6\ =\ s_lpitSourceClockFrequency[instance_13(D)];\l\
+|_7\ =\ (long\ long\ unsigned\ int)\ _6;\l\
+|currentTime_19\ =\ _5\ /\ _7;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_32_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:891205713\<bb\ 5\>:\l\
+|_8\ =\ _25\ w*\ 1000000;\l\
+|_9\ =\ s_lpitSourceClockFrequency[instance_13(D)];\l\
+|_10\ =\ (long\ long\ unsigned\ int)\ _9;\l\
+|currentTime_18\ =\ _8\ /\ _10;\l\
+}"];
+
+	fn_32_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ currentTime_11\ =\ PHI\ \<currentTime_19(4),\ currentTime_18(5)\>\l\
+|return\ currentTime_11;\l\
+}"];
+
+	fn_32_basic_block_0:s -> fn_32_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_2:s -> fn_32_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_32_basic_block_3:s -> fn_32_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_32_basic_block_4:s -> fn_32_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_5:s -> fn_32_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_32_basic_block_6:s -> fn_32_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_32_basic_block_0:s -> fn_32_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_SetTimerPeriodByCount" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_SetTimerPeriodByCount ()";
+	fn_33_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_33_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_33_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_2(D)].TVAL\ =\{v\}\ count_3(D);\l\
+|return;\l\
+}"];
+
+	fn_33_basic_block_0:s -> fn_33_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_33_basic_block_2:s -> fn_33_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_33_basic_block_0:s -> fn_33_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_SetTimerPeriodInDual16ModeByCount" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_SetTimerPeriodInDual16ModeByCount ()";
+	fn_34_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_34_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_34_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ (long\ unsigned\ int)\ periodHigh_4(D);\l\
+|_2\ =\ _1\ \<\<\ 16;\l\
+|_3\ =\ (long\ unsigned\ int)\ periodLow_5(D);\l\
+|period_6\ =\ _2\ \|\ _3;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].TMR[channel_8(D)].TVAL\ =\{v\}\ period_6;\l\
+|return;\l\
+}"];
+
+	fn_34_basic_block_0:s -> fn_34_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_34_basic_block_2:s -> fn_34_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_34_basic_block_0:s -> fn_34_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_GetTimerPeriodByCount" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_GetTimerPeriodByCount ()";
+	fn_35_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_35_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_35_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_12\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].TMR[channel_5(D)].TVAL;\l\
+|_7\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].TMR[channel_5(D)].TCTRL;\l\
+|_8\ =\ _7\ \>\>\ 2;\l\
+|tmp_9\ =\ _8\ &\ 3;\l\
+|_10\ =\ tmp_9\ +\ 4294967295;\l\
+|if\ (_10\ \<=\ 2)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_35_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|if\ (tmp_9\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_35_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 4\>:\l\
+|_1\ =\ _12\ \>\>\ 16;\l\
+|_2\ =\ _12\ &\ 65535;\l\
+|currentPeriod_6\ =\ _1\ +\ _2;\l\
+}"];
+
+	fn_35_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ currentPeriod_3\ =\ PHI\ \<_12(2),\ currentPeriod_6(4),\ _12(3)\>\l\
+|return\ currentPeriod_3;\l\
+}"];
+
+	fn_35_basic_block_0:s -> fn_35_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_2:s -> fn_35_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_35_basic_block_3:s -> fn_35_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_35_basic_block_3:s -> fn_35_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_35_basic_block_4:s -> fn_35_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_35_basic_block_5:s -> fn_35_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_35_basic_block_0:s -> fn_35_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_GetCurrentTimerCount" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_GetCurrentTimerCount ()";
+	fn_36_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_36_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_36_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_12\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].TMR[channel_5(D)].CVAL;\l\
+|_7\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].TMR[channel_5(D)].TCTRL;\l\
+|_8\ =\ _7\ \>\>\ 2;\l\
+|tmp_9\ =\ _8\ &\ 3;\l\
+|_10\ =\ tmp_9\ +\ 4294967295;\l\
+|if\ (_10\ \<=\ 2)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_36_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|if\ (tmp_9\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [66.00%]\l\
+}"];
+
+	fn_36_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 4\>:\l\
+|_1\ =\ _12\ \>\>\ 16;\l\
+|_2\ =\ _12\ &\ 65535;\l\
+|currentTime_6\ =\ _1\ +\ _2;\l\
+}"];
+
+	fn_36_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ currentTime_3\ =\ PHI\ \<_12(2),\ currentTime_6(4),\ _12(3)\>\l\
+|return\ currentTime_3;\l\
+}"];
+
+	fn_36_basic_block_0:s -> fn_36_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_2:s -> fn_36_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_36_basic_block_3:s -> fn_36_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_36_basic_block_3:s -> fn_36_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_36_basic_block_4:s -> fn_36_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_36_basic_block_5:s -> fn_36_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_36_basic_block_0:s -> fn_36_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_EnableTimerChannelInterrupt" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_EnableTimerChannelInterrupt ()";
+	fn_37_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_37_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_37_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_3\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MIER;\l\
+|_4\ =\ mask_2(D)\ \|\ _3;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MIER\ =\{v\}\ _4;\l\
+|return;\l\
+}"];
+
+	fn_37_basic_block_0:s -> fn_37_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_37_basic_block_2:s -> fn_37_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_37_basic_block_0:s -> fn_37_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_DisableTimerChannelInterrupt" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_DisableTimerChannelInterrupt ()";
+	fn_38_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_38_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_38_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_3\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MIER;\l\
+|_4\ =\ ~mask_2(D);\l\
+|_5\ =\ _3\ &\ _4;\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MIER\ =\{v\}\ _5;\l\
+|return;\l\
+}"];
+
+	fn_38_basic_block_0:s -> fn_38_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_38_basic_block_2:s -> fn_38_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_38_basic_block_0:s -> fn_38_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_GetInterruptFlagTimerChannels" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_GetInterruptFlagTimerChannels ()";
+	fn_39_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_39_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_39_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_3\ =\{v\}\ MEM[(const\ struct\ LPIT_Type\ *)1073967104B].MSR;\l\
+|_4\ =\ mask_2(D)\ &\ _3;\l\
+|return\ _4;\l\
+}"];
+
+	fn_39_basic_block_0:s -> fn_39_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_39_basic_block_2:s -> fn_39_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_39_basic_block_0:s -> fn_39_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPIT_DRV_ClearInterruptFlagTimerChannels" {
+	style="dashed";
+	color="black";
+	label="LPIT_DRV_ClearInterruptFlagTimerChannels ()";
+	fn_40_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_40_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_40_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM[(struct\ LPIT_Type\ *)1073967104B].MSR\ =\{v\}\ mask_2(D);\l\
+|vol.11_3\ =\{v\}\ MEM[(struct\ LPIT_Type\ *)1073967104B].MSR;\l\
+|return;\l\
+}"];
+
+	fn_40_basic_block_0:s -> fn_40_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_40_basic_block_2:s -> fn_40_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_40_basic_block_0:s -> fn_40_basic_block_1:n [style="invis",constraint=true];
+}
+}

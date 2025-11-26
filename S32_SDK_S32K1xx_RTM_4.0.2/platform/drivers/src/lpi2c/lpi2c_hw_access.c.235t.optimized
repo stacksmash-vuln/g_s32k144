@@ -1,0 +1,24 @@
+
+;; Function LPI2C_Init (LPI2C_Init, funcdef_no=67, decl_uid=7617, cgraph_uid=68, symbol_order=67)
+
+LPI2C_Init (struct LPI2C_Type * baseAddr)
+{
+  uint32_t regValue;
+  uint32_t regValue;
+
+  <bb 2> [local count: 1073741824]:
+  regValue_8 ={v} baseAddr_2(D)->MCR;
+  regValue_9 = regValue_8 & 4294967293;
+  regValue_10 = regValue_9 | 2;
+  baseAddr_2(D)->MCR ={v} regValue_10;
+  regValue_5 ={v} baseAddr_2(D)->SCR;
+  regValue_6 = regValue_5 & 4294967293;
+  regValue_7 = regValue_6 | 2;
+  baseAddr_2(D)->SCR ={v} regValue_7;
+  baseAddr_2(D)->MCR ={v} 0;
+  baseAddr_2(D)->SCR ={v} 0;
+  return;
+
+}
+
+

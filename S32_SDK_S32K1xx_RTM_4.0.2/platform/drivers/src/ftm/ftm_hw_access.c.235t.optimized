@@ -1,0 +1,246 @@
+
+;; Function FTM_DRV_InitModule (FTM_DRV_InitModule, funcdef_no=141, decl_uid=7583, cgraph_uid=142, symbol_order=141)
+
+FTM_DRV_InitModule (struct FTM_Type * const ftmBase, ftm_clock_ps_t ftmClockPrescaler)
+{
+  long unsigned int _4;
+  long unsigned int _5;
+  <unnamed type> _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+
+  <bb 2> [local count: 1073741824]:
+  _9 ={v} ftmBase_2(D)->MODE;
+  _10 = _9 & 4294967294;
+  _11 = _10 | 1;
+  ftmBase_2(D)->MODE ={v} _11;
+  _4 ={v} ftmBase_2(D)->SC;
+  _5 = _4 & 4294967288;
+  _6 = ftmClockPrescaler_3(D) & 7;
+  _7 = (long unsigned int) _6;
+  _8 = _5 | _7;
+  ftmBase_2(D)->SC ={v} _8;
+  return;
+
+}
+
+
+
+;; Function FTM_DRV_Reset (FTM_DRV_Reset, funcdef_no=142, decl_uid=7580, cgraph_uid=143, symbol_order=142)
+
+Removing basic block 5
+FTM_DRV_Reset (struct FTM_Type * const ftmBase)
+{
+  unsigned int ivtmp.17;
+  struct FTM_Type * _2;
+  long unsigned int vol.0_6;
+  long unsigned int vol.1_9;
+  long unsigned int vol.2_14;
+  long unsigned int vol.3_21;
+  long unsigned int vol.4_34;
+  sizetype _42;
+
+  <bb 2> [local count: 119292720]:
+  vol.0_6 ={v} ftmBase_5(D)->FMS;
+  ftmBase_5(D)->FMS ={v} 0;
+  ftmBase_5(D)->MODE ={v} 4;
+  vol.1_9 ={v} ftmBase_5(D)->SC;
+  ftmBase_5(D)->SC ={v} 0;
+  ftmBase_5(D)->CNT ={v} 0;
+  ftmBase_5(D)->MOD ={v} 0;
+  ftmBase_5(D)->CNTIN ={v} 0;
+  vol.2_14 ={v} ftmBase_5(D)->STATUS;
+  ftmBase_5(D)->STATUS ={v} 0;
+  ftmBase_5(D)->SYNC ={v} 0;
+  ftmBase_5(D)->OUTINIT ={v} 0;
+  ftmBase_5(D)->OUTMASK ={v} 0;
+  ftmBase_5(D)->COMBINE ={v} 0;
+  ftmBase_5(D)->DEADTIME ={v} 0;
+  vol.3_21 ={v} ftmBase_5(D)->EXTTRIG;
+  ftmBase_5(D)->EXTTRIG ={v} 0;
+  ftmBase_5(D)->POL ={v} 0;
+  ftmBase_5(D)->FILTER ={v} 0;
+  ftmBase_5(D)->FLTCTRL ={v} 0;
+  ftmBase_5(D)->QDCTRL ={v} 0;
+  ftmBase_5(D)->CONF ={v} 0;
+  ftmBase_5(D)->FLTPOL ={v} 0;
+  ftmBase_5(D)->SYNCONF ={v} 0;
+  ftmBase_5(D)->INVCTRL ={v} 0;
+  ftmBase_5(D)->SWOCTRL ={v} 0;
+  ftmBase_5(D)->PWMLOAD ={v} 0;
+  ftmBase_5(D)->HCR ={v} 0;
+
+  <bb 3> [local count: 954449105]:
+  # ivtmp.17_41 = PHI <0(2), ivtmp.17_40(3)>
+  _42 = ivtmp.17_41 * 8;
+  _2 = ftmBase_5(D) + _42;
+  vol.4_34 ={v} MEM <volatile uint32_t> [(struct FTM_Type *)_2 + 12B];
+  MEM <volatile uint32_t> [(struct FTM_Type *)_2 + 12B] ={v} 0;
+  MEM <volatile uint32_t> [(struct FTM_Type *)_2 + 16B] ={v} 0;
+  ivtmp.17_40 = ivtmp.17_41 + 1;
+  if (ivtmp.17_40 != 8)
+    goto <bb 3>; [87.50%]
+  else
+    goto <bb 4>; [12.50%]
+
+  <bb 4> [local count: 119292720]:
+  return;
+
+}
+
+
+
+;; Function FTM_DRV_SetChnTriggerCmd (FTM_DRV_SetChnTriggerCmd, funcdef_no=143, decl_uid=7587, cgraph_uid=144, symbol_order=143)
+
+FTM_DRV_SetChnTriggerCmd (struct FTM_Type * const ftmBase, uint8_t channel, _Bool enable)
+{
+  uint32_t value;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+
+  <bb 2> [local count: 1073741824]:
+  if (channel_13(D) <= 1)
+    goto <bb 3>; [41.00%]
+  else
+    goto <bb 4>; [59.00%]
+
+  <bb 3> [local count: 440234144]:
+  _1 = (long unsigned int) channel_13(D);
+  value_16 = 16 << _1;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 633507681]:
+  if (channel_13(D) <= 5)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 316753840]:
+  _2 = (long unsigned int) channel_13(D);
+  _3 = _2 + 4294967294;
+  value_15 = 1 << _3;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 316753840]:
+  _4 = (long unsigned int) channel_13(D);
+  _5 = _4 + 4294967290;
+  value_14 = 256 << _5;
+
+  <bb 7> [local count: 1073741824]:
+  # value_11 = PHI <value_16(3), value_15(5), value_14(6)>
+  if (enable_17(D) != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 536870913]:
+  _6 ={v} ftmBase_19(D)->EXTTRIG;
+  _7 = _6 | value_11;
+  ftmBase_19(D)->EXTTRIG ={v} _7;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [local count: 536870913]:
+  _8 ={v} ftmBase_19(D)->EXTTRIG;
+  _9 = ~value_11;
+  _10 = _8 & _9;
+  ftmBase_19(D)->EXTTRIG ={v} _10;
+
+  <bb 10> [local count: 1073741824]:
+  return;
+
+}
+
+
+
+;; Function FTM_DRV_SetChnInputCaptureFilter (FTM_DRV_SetChnInputCaptureFilter, funcdef_no=144, decl_uid=7591, cgraph_uid=145, symbol_order=144)
+
+Removing basic block 8
+FTM_DRV_SetChnInputCaptureFilter (struct FTM_Type * const ftmBase, uint8_t channel, uint8_t value)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  unsigned char _32;
+
+  <bb 2> [local count: 1073741809]:
+  switch (channel_24(D)) <default: <L6> [0.00%], case 0: <L0> [25.00%], case 1: <L1> [25.00%], case 2: <L2> [25.00%], case 3: <L3> [25.00%]>
+
+  <bb 3> [local count: 214748365]:
+<L0>:
+  _1 ={v} ftmBase_26(D)->FILTER;
+  _2 = _1 & 4294967280;
+  _32 = value_27(D) & 15;
+  _3 = (long unsigned int) _32;
+  _4 = _2 | _3;
+  ftmBase_26(D)->FILTER ={v} _4;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [local count: 214748365]:
+<L1>:
+  _5 ={v} ftmBase_26(D)->FILTER;
+  _6 = _5 & 4294967055;
+  _7 = (long unsigned int) value_27(D);
+  _8 = _7 << 4;
+  _9 = _8 & 255;
+  _10 = _6 | _9;
+  ftmBase_26(D)->FILTER ={v} _10;
+  goto <bb 7>; [100.00%]
+
+  <bb 5> [local count: 214748365]:
+<L2>:
+  _11 ={v} ftmBase_26(D)->FILTER;
+  _12 = _11 & 4294963455;
+  _13 = (long unsigned int) value_27(D);
+  _14 = _13 << 8;
+  _15 = _14 & 3840;
+  _16 = _12 | _15;
+  ftmBase_26(D)->FILTER ={v} _16;
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [local count: 214748365]:
+<L3>:
+  _17 ={v} ftmBase_26(D)->FILTER;
+  _18 = _17 & 4294905855;
+  _19 = (long unsigned int) value_27(D);
+  _20 = _19 << 12;
+  _21 = _20 & 65535;
+  _22 = _18 | _21;
+  ftmBase_26(D)->FILTER ={v} _22;
+
+  <bb 7> [local count: 1073741824]:
+<L6>:
+  return;
+
+}
+
+

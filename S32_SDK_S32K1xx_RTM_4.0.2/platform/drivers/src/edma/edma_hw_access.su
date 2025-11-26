@@ -1,0 +1,14 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:31:6:EDMA_Init	32	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:77:6:EDMA_CancelTransfer	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:102:6:EDMA_CancelTransferWithError	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:127:6:EDMA_SetErrorIntCmd	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:158:6:EDMA_SetDmaRequestCmd	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:226:6:EDMA_TCDClearReg	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:254:6:EDMA_TCDSetAttribute	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:272:6:EDMA_TCDSetNbytes	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:326:6:EDMA_TCDSetMinorLoopOffset	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:372:6:EDMA_TCDSetScatterGatherLink	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:385:6:EDMA_TCDSetChannelMinorLink	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:459:6:EDMA_TCDSetMajorCount	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:497:10:EDMA_TCDGetCurrentMajorCount	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/edma/edma_hw_access.c:520:6:DMAMUX_Init	0	static

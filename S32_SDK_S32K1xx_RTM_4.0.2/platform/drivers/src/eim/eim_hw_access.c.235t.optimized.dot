@@ -1,0 +1,29 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/eim/eim_hw_access.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_EIM_InitChannel" {
+	style="dashed";
+	color="black";
+	label="EIM_InitChannel ()";
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:357878152\<bb\ 2\>:\l\
+|temp_17\ =\{v\}\ base_4(D)-\>EICHEN;\l\
+|temp_21\ =\ temp_17\ &\ 2147483647;\l\
+|base_4(D)-\>EICHEN\ =\{v\}\ temp_21;\l\
+|base_4(D)-\>EICHDn[0].WORD0\ =\{v\}\ 0;\l\
+|base_4(D)-\>EICHDn[0].WORD1\ =\{v\}\ 0;\l\
+|temp_29\ =\{v\}\ base_4(D)-\>EICHEN;\l\
+|temp_33\ =\ temp_29\ &\ 3221225471;\l\
+|base_4(D)-\>EICHEN\ =\{v\}\ temp_33;\l\
+|base_4(D)-\>EICHDn[1].WORD0\ =\{v\}\ 0;\l\
+|base_4(D)-\>EICHDn[1].WORD1\ =\{v\}\ 0;\l\
+|return;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_8_basic_block_2:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+}

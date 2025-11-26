@@ -1,0 +1,3800 @@
+digraph "/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/lpi2c/lpi2c_driver.c.235t.optimized" {
+overlap=false;
+subgraph "cluster_LPI2C_DRV_ConfigureDmaTransfer" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_ConfigureDmaTransfer ()";
+	fn_77_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_77_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_77_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_1\ =\ dmaTransParams_19(D)-\>transferDirection;\l\
+|if\ (_1\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_77_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_2\ =\ dmaTransParams_19(D)-\>dmaChannel;\l\
+|_3\ =\ g_lpi2cDMASrc[instance_22(D)][0];\l\
+|EDMA_DRV_SetChannelRequestAndTrigger\ (_2,\ _3,\ 0);\l\
+|_4\ =\ dmaTransParams_19(D)-\>dmaChannel;\l\
+|_5\ =\ dmaTransParams_19(D)-\>dmaTransferType;\l\
+|_6\ =\ dmaTransParams_19(D)-\>bufferTransfer;\l\
+|_7\ =\ (long\ unsigned\ int)\ _6;\l\
+|_8\ =\ dmaTransParams_19(D)-\>i2cDataRegAddr;\l\
+|_9\ =\ dmaTransParams_19(D)-\>transferSize;\l\
+|EDMA_DRV_ConfigMultiBlockTransfer\ (_4,\ _5,\ _7,\ _8,\ 0,\ 1,\ _9,\ 0);\ [tail\ call]\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_77_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_10\ =\ dmaTransParams_19(D)-\>dmaChannel;\l\
+|EDMA_DRV_SetChannelRequestAndTrigger\ (_10,\ 44,\ 0);\l\
+|_11\ =\ dmaTransParams_19(D)-\>dmaChannel;\l\
+|_12\ =\ dmaTransParams_19(D)-\>dmaTransferType;\l\
+|_13\ =\ dmaTransParams_19(D)-\>i2cDataRegAddr;\l\
+|_14\ =\ dmaTransParams_19(D)-\>bufferTransfer;\l\
+|_15\ =\ (long\ unsigned\ int)\ _14;\l\
+|_16\ =\ dmaTransParams_19(D)-\>transferSize;\l\
+|EDMA_DRV_ConfigMultiBlockTransfer\ (_11,\ _12,\ _13,\ _15,\ 0,\ 1,\ _16,\ 0);\ [tail\ call]\l\
+}"];
+
+	fn_77_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_77_basic_block_0:s -> fn_77_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_2:s -> fn_77_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_77_basic_block_2:s -> fn_77_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_77_basic_block_3:s -> fn_77_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_4:s -> fn_77_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_77_basic_block_5:s -> fn_77_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_77_basic_block_0:s -> fn_77_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveStartDmaTransfer" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveStartDmaTransfer ()";
+	fn_79_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_79_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_79_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|slave_21\ =\ g_lpi2cSlaveStatePtr[instance_20(D)];\l\
+|_1\ =\ slave_21-\>txSize;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_79_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_2\ =\ slave_21-\>dmaChannel;\l\
+|dmaTransParams.dmaChannel\ =\ _2;\l\
+|dmaTransParams.dmaTransferType\ =\ 1;\l\
+|_3\ =\ &MEM[(struct\ LPI2C_Type\ *)1074159616B].STDR;\l\
+|_4\ =\ (long\ unsigned\ int)\ _3;\l\
+|dmaTransParams.i2cDataRegAddr\ =\ _4;\l\
+|_5\ =\ slave_21-\>txBuff;\l\
+|dmaTransParams.bufferTransfer\ =\ _5;\l\
+|dmaTransParams.transferDirection\ =\ 0;\l\
+|dmaTransParams.transferSize\ =\ _1;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_79_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|_6\ =\ slave_21-\>dmaChannel;\l\
+|dmaTransParams.dmaChannel\ =\ _6;\l\
+|dmaTransParams.dmaTransferType\ =\ 0;\l\
+|_7\ =\ &MEM[(struct\ LPI2C_Type\ *)1074159616B].SRDR;\l\
+|_8\ =\ (long\ unsigned\ int)\ _7;\l\
+|dmaTransParams.i2cDataRegAddr\ =\ _8;\l\
+|_9\ =\ slave_21-\>rxBuff;\l\
+|dmaTransParams.bufferTransfer\ =\ _9;\l\
+|dmaTransParams.transferDirection\ =\ 1;\l\
+|_10\ =\ slave_21-\>rxSize;\l\
+|dmaTransParams.transferSize\ =\ _10;\l\
+}"];
+
+	fn_79_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|LPI2C_DRV_ConfigureDmaTransfer\ (instance_20(D),\ &dmaTransParams);\l\
+|_11\ =\ dmaTransParams.dmaChannel;\l\
+|_12\ =\ slave_21-\>txSize;\l\
+|_13\ =\ (long\ int)\ _12;\l\
+|_14\ =\ -_13;\l\
+|EDMA_DRV_SetSrcLastAddrAdjustment\ (_11,\ _14);\l\
+|_15\ =\ dmaTransParams.dmaChannel;\l\
+|EDMA_DRV_StartChannel\ (_15);\l\
+|_16\ =\ slave_21-\>txSize;\l\
+|if\ (_16\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_79_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 6\>:\l\
+|regValue_38\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_39\ =\ regValue_38\ &\ 4294967294;\l\
+|regValue_40\ =\ regValue_39\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_40;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_79_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 7\>:\l\
+|regValue_41\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_42\ =\ regValue_41\ &\ 4294967293;\l\
+|regValue_43\ =\ regValue_42\ \|\ 2;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_43;\l\
+}"];
+
+	fn_79_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|dmaTransParams\ =\{v\}\ \{CLOBBER\};\l\
+|return;\l\
+}"];
+
+	fn_79_basic_block_0:s -> fn_79_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_79_basic_block_2:s -> fn_79_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_79_basic_block_2:s -> fn_79_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_79_basic_block_3:s -> fn_79_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_79_basic_block_4:s -> fn_79_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_79_basic_block_5:s -> fn_79_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_79_basic_block_5:s -> fn_79_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_79_basic_block_6:s -> fn_79_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_79_basic_block_7:s -> fn_79_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_79_basic_block_8:s -> fn_79_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_79_basic_block_0:s -> fn_79_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterEndTransfer.constprop" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterEndTransfer.constprop ()";
+	fn_123_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_123_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_123_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|tmp_1\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_2\ =\ tmp_1\ &\ 4294960124;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_2;\l\
+|_4\ =\ master_3(D)-\>transferType;\l\
+|if\ (_4\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+}"];
+
+	fn_123_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|_5\ =\ master_3(D)-\>dmaChannel;\l\
+|EDMA_DRV_StopChannel\ (_5);\l\
+|_6\ =\ master_3(D)-\>rxSize;\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_123_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 4\>:\l\
+|regValue_7\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_8\ =\ regValue_7\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_8;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_123_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 5\>:\l\
+|regValue_9\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_10\ =\ regValue_9\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_10;\l\
+}"];
+
+	fn_123_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|if\ (resetFIFO_11(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_123_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 7\>:\l\
+|regValue_12\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_13\ =\ regValue_12\ &\ 4294967039;\l\
+|regValue_14\ =\ regValue_13\ \|\ 256;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_14;\l\
+|regValue_15\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_16\ =\ regValue_15\ &\ 4294966783;\l\
+|regValue_17\ =\ regValue_16\ \|\ 512;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_17;\l\
+}"];
+
+	fn_123_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|if\ (sendStop_18(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_123_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 9\>:\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ 512;\l\
+}"];
+
+	fn_123_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 10\>:\l\
+|master_3(D)-\>txBuff\ =\ 0B;\l\
+|master_3(D)-\>txSize\ =\ 0;\l\
+|master_3(D)-\>rxBuff\ =\ 0B;\l\
+|master_3(D)-\>rxSize\ =\ 0;\l\
+|master_3(D)-\>i2cIdle\ =\{v\}\ 1;\l\
+|return;\l\
+}"];
+
+	fn_123_basic_block_0:s -> fn_123_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_123_basic_block_2:s -> fn_123_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_123_basic_block_2:s -> fn_123_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_123_basic_block_3:s -> fn_123_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_123_basic_block_3:s -> fn_123_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_123_basic_block_4:s -> fn_123_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_123_basic_block_5:s -> fn_123_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_123_basic_block_6:s -> fn_123_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_123_basic_block_6:s -> fn_123_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_123_basic_block_7:s -> fn_123_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_123_basic_block_8:s -> fn_123_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_123_basic_block_8:s -> fn_123_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_123_basic_block_9:s -> fn_123_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_123_basic_block_10:s -> fn_123_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_123_basic_block_0:s -> fn_123_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterQueueData.constprop" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterQueueData.constprop ()";
+	subgraph cluster_122_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_122_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:958878294\<bb\ 7\>:\l\
+|#\ prephitmp_20\ =\ PHI\ \<pretmp_21(6),\ _14(8)\>\l\
+|_12\ =\ MEM[base:\ prephitmp_20,\ offset:\ 0B];\l\
+|_13\ =\ (long\ unsigned\ int)\ _12;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ _13;\l\
+|_14\ =\ prephitmp_20\ +\ 1;\l\
+|master_8(D)-\>txBuff\ =\ _14;\l\
+|_22\ =\ (long\ unsigned\ int)\ pretmp_21;\l\
+|_29\ =\ _22\ +\ _27;\l\
+|_28\ =\ (long\ unsigned\ int)\ _14;\l\
+|_16\ =\ _29\ -\ _28;\l\
+|master_8(D)-\>txSize\ =\ _16;\l\
+|tmp_17\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_18\ =\ tmp_17\ &\ 7;\l\
+|_19\ =\ (short\ unsigned\ int)\ tmp_18;\l\
+|if\ (_11\ !=\ _14)\l\
+\ \ goto\ \<bb\ 8\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [5.50%]\l\
+}"];
+
+	fn_122_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:906139989\<bb\ 8\>:\l\
+|if\ (_7\ \>\ _19)\l\
+\ \ goto\ \<bb\ 7\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [5.50%]\l\
+}"];
+
+	}
+	fn_122_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_122_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_122_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:337833909\<bb\ 2\>:\l\
+|tmp_1\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_4\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|_9\ =\ MEM[(const\ struct\ lpi2c_master_state_t\ *)master_8(D)].cmdQueue.writeIdx;\l\
+|_10\ =\ MEM[(const\ struct\ lpi2c_master_state_t\ *)master_8(D)].cmdQueue.readIdx;\l\
+|if\ (_9\ ==\ _10)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [66.00%]\l\
+}"];
+
+	fn_122_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:337833910\<bb\ 3\>:\l\
+|return;\l\
+}"];
+
+	fn_122_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:114863530\<bb\ 4\>:\l\
+|_27\ =\ master_8(D)-\>txSize;\l\
+|if\ (_27\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [5.50%]\l\
+}"];
+
+	fn_122_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:108546036\<bb\ 5\>:\l\
+|tmp_5\ =\ tmp_4\ &\ 15;\l\
+|tmp_6\ =\ 1\ \<\<\ tmp_5;\l\
+|_7\ =\ (short\ unsigned\ int)\ tmp_6;\l\
+|tmp_2\ =\ tmp_1\ &\ 7;\l\
+|_3\ =\ (short\ unsigned\ int)\ tmp_2;\l\
+|if\ (_3\ \<\ _7)\l\
+\ \ goto\ \<bb\ 6\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [5.50%]\l\
+}"];
+
+	fn_122_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:102576004\<bb\ 6\>:\l\
+|pretmp_21\ =\ master_8(D)-\>txBuff;\l\
+|_11\ =\ pretmp_21\ +\ _27;\l\
+}"];
+
+	fn_122_basic_block_0:s -> fn_122_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_122_basic_block_2:s -> fn_122_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_122_basic_block_2:s -> fn_122_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_122_basic_block_3:s -> fn_122_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_122_basic_block_4:s -> fn_122_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_122_basic_block_4:s -> fn_122_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_122_basic_block_5:s -> fn_122_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_122_basic_block_5:s -> fn_122_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_122_basic_block_6:s -> fn_122_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_122_basic_block_7:s -> fn_122_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_122_basic_block_7:s -> fn_122_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_122_basic_block_8:s -> fn_122_basic_block_7:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[94%]"];
+	fn_122_basic_block_8:s -> fn_122_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_122_basic_block_0:s -> fn_122_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterSendAddress.constprop" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterSendAddress.constprop ()";
+	fn_121_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_121_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_121_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\ master_1(D)-\>is10bitAddr;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+}"];
+
+	fn_121_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_13\ =\ master_1(D)-\>slaveAddress;\l\
+|_14\ =\ _13\ \>\>\ 7;\l\
+|_15\ =\ (unsigned\ char)\ _14;\l\
+|_16\ =\ _15\ &\ 6;\l\
+|addrByte_17\ =\ _16\ +\ 240;\l\
+|tmp_39\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_40\ =\ tmp_39\ &\ 7;\l\
+|_41\ =\ (short\ unsigned\ int)\ tmp_40;\l\
+|tmp_42\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|tmp_43\ =\ tmp_42\ &\ 15;\l\
+|tmp_44\ =\ 1\ \<\<\ tmp_43;\l\
+|_45\ =\ (short\ unsigned\ int)\ tmp_44;\l\
+|if\ (_41\ \<\ _45)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_121_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|_48\ =\ (long\ unsigned\ int)\ addrByte_17;\l\
+|_49\ =\ _48\ +\ 1024;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ _49;\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_121_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 5\>:\l\
+|_50\ =\ master_1(D)-\>cmdQueue.writeIdx;\l\
+|_51\ =\ (int)\ _50;\l\
+|master_1(D)-\>cmdQueue.cmd[_51]\ =\ 4;\l\
+|master_1(D)-\>cmdQueue.data[_51]\ =\ addrByte_17;\l\
+|_52\ =\ _50\ +\ 1;\l\
+|master_1(D)-\>cmdQueue.writeIdx\ =\ _52;\l\
+}"];
+
+	fn_121_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 6\>:\l\
+|addrByte_19\ =\ (uint8_t)\ _13;\l\
+|tmp_25\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_26\ =\ tmp_25\ &\ 7;\l\
+|_27\ =\ (short\ unsigned\ int)\ tmp_26;\l\
+|tmp_28\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|tmp_29\ =\ tmp_28\ &\ 15;\l\
+|tmp_30\ =\ 1\ \<\<\ tmp_29;\l\
+|_31\ =\ (short\ unsigned\ int)\ tmp_30;\l\
+|if\ (_27\ \<\ _31)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_121_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 7\>:\l\
+|_34\ =\ (long\ unsigned\ int)\ addrByte_19;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ _34;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_121_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 8\>:\l\
+|_36\ =\ master_1(D)-\>cmdQueue.writeIdx;\l\
+|_37\ =\ (int)\ _36;\l\
+|master_1(D)-\>cmdQueue.cmd[_37]\ =\ 0;\l\
+|master_1(D)-\>cmdQueue.data[_37]\ =\ addrByte_19;\l\
+|_38\ =\ _36\ +\ 1;\l\
+|master_1(D)-\>cmdQueue.writeIdx\ =\ _38;\l\
+}"];
+
+	fn_121_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 9\>:\l\
+|if\ (receive_3(D)\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [67.00%]\l\
+}"];
+
+	fn_121_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 10\>:\l\
+|addrByte_24\ =\ _16\ +\ 241;\l\
+|tmp_53\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_54\ =\ tmp_53\ &\ 7;\l\
+|_55\ =\ (short\ unsigned\ int)\ tmp_54;\l\
+|tmp_56\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|tmp_57\ =\ tmp_56\ &\ 15;\l\
+|tmp_58\ =\ 1\ \<\<\ tmp_57;\l\
+|_59\ =\ (short\ unsigned\ int)\ tmp_58;\l\
+|if\ (_55\ \<\ _59)\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_121_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 11\>:\l\
+|_62\ =\ (long\ unsigned\ int)\ addrByte_24;\l\
+|_63\ =\ _62\ +\ 1024;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ _63;\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_121_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 12\>:\l\
+|_64\ =\ master_1(D)-\>cmdQueue.writeIdx;\l\
+|_65\ =\ (int)\ _64;\l\
+|master_1(D)-\>cmdQueue.cmd[_65]\ =\ 4;\l\
+|master_1(D)-\>cmdQueue.data[_65]\ =\ addrByte_24;\l\
+|_66\ =\ _64\ +\ 1;\l\
+|master_1(D)-\>cmdQueue.writeIdx\ =\ _66;\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_121_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 13\>:\l\
+|_4\ =\ master_1(D)-\>slaveAddress;\l\
+|_5\ =\ (unsigned\ char)\ _4;\l\
+|_6\ =\ _5\ \<\<\ 1;\l\
+|_7\ =\ (unsigned\ char)\ receive_3(D);\l\
+|addrByte_8\ =\ _6\ +\ _7;\l\
+|tmp_67\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_68\ =\ tmp_67\ &\ 7;\l\
+|_69\ =\ (short\ unsigned\ int)\ tmp_68;\l\
+|tmp_70\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|tmp_71\ =\ tmp_70\ &\ 15;\l\
+|tmp_72\ =\ 1\ \<\<\ tmp_71;\l\
+|_73\ =\ (short\ unsigned\ int)\ tmp_72;\l\
+|if\ (_69\ \<\ _73)\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+}"];
+
+	fn_121_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 14\>:\l\
+|_76\ =\ (long\ unsigned\ int)\ addrByte_8;\l\
+|_77\ =\ _76\ +\ 1024;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ _77;\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_121_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 15\>:\l\
+|_78\ =\ master_1(D)-\>cmdQueue.writeIdx;\l\
+|_79\ =\ (int)\ _78;\l\
+|master_1(D)-\>cmdQueue.cmd[_79]\ =\ 4;\l\
+|master_1(D)-\>cmdQueue.data[_79]\ =\ addrByte_8;\l\
+|_80\ =\ _78\ +\ 1;\l\
+|master_1(D)-\>cmdQueue.writeIdx\ =\ _80;\l\
+}"];
+
+	fn_121_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 16\>:\l\
+|return;\l\
+}"];
+
+	fn_121_basic_block_0:s -> fn_121_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_121_basic_block_2:s -> fn_121_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_2:s -> fn_121_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_3:s -> fn_121_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_3:s -> fn_121_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_4:s -> fn_121_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_121_basic_block_5:s -> fn_121_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_121_basic_block_6:s -> fn_121_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_6:s -> fn_121_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_7:s -> fn_121_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_121_basic_block_8:s -> fn_121_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_121_basic_block_9:s -> fn_121_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_121_basic_block_9:s -> fn_121_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_121_basic_block_10:s -> fn_121_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_10:s -> fn_121_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_11:s -> fn_121_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_121_basic_block_12:s -> fn_121_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_121_basic_block_13:s -> fn_121_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_13:s -> fn_121_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_121_basic_block_14:s -> fn_121_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_121_basic_block_15:s -> fn_121_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_121_basic_block_16:s -> fn_121_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_121_basic_block_0:s -> fn_121_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterStartDmaTransfer" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterStartDmaTransfer ()";
+	fn_78_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_78_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_78_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_25\ =\ g_lpi2cMasterStatePtr[instance_24(D)];\l\
+|_1\ =\ master_25-\>dmaChannel;\l\
+|dmaTransParams.dmaChannel\ =\ _1;\l\
+|_2\ =\ master_25-\>txSize;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_78_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|tmp_44\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|tmp_45\ =\ tmp_44\ &\ 15;\l\
+|tmp_46\ =\ 1\ \<\<\ tmp_45;\l\
+|txBytes_47\ =\ MIN_EXPR\ \<_2,\ tmp_46\>;\l\
+|_3\ =\ (short\ unsigned\ int)\ txBytes_47;\l\
+|_4\ =\ _3\ +\ 65535;\l\
+|tmp_48\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR;\l\
+|tmp_49\ =\ tmp_48\ &\ 4294967292;\l\
+|_50\ =\ _4\ &\ 3;\l\
+|_51\ =\ (long\ unsigned\ int)\ _50;\l\
+|tmp_52\ =\ tmp_49\ \|\ _51;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR\ =\{v\}\ tmp_52;\l\
+|dmaTransParams.dmaTransferType\ =\ 1;\l\
+|_5\ =\ &MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR;\l\
+|_6\ =\ (long\ unsigned\ int)\ _5;\l\
+|dmaTransParams.i2cDataRegAddr\ =\ _6;\l\
+|_7\ =\ master_25-\>txBuff;\l\
+|dmaTransParams.bufferTransfer\ =\ _7;\l\
+|dmaTransParams.transferDirection\ =\ 0;\l\
+|dmaTransParams.transferSize\ =\ _2;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_78_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|tmp_53\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR;\l\
+|tmp_54\ =\ tmp_53\ &\ 4294770687;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR\ =\{v\}\ tmp_54;\l\
+|dmaTransParams.dmaTransferType\ =\ 0;\l\
+|_8\ =\ &MEM[(struct\ LPI2C_Type\ *)1074159616B].MRDR;\l\
+|_9\ =\ (long\ unsigned\ int)\ _8;\l\
+|dmaTransParams.i2cDataRegAddr\ =\ _9;\l\
+|_10\ =\ master_25-\>rxBuff;\l\
+|dmaTransParams.bufferTransfer\ =\ _10;\l\
+|dmaTransParams.transferDirection\ =\ 1;\l\
+|_11\ =\ master_25-\>rxSize;\l\
+|dmaTransParams.transferSize\ =\ _11;\l\
+}"];
+
+	fn_78_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|#\ receive_20\ =\ PHI\ \<0(3),\ 1(4)\>\l\
+|LPI2C_DRV_ConfigureDmaTransfer\ (instance_24(D),\ &dmaTransParams);\l\
+|_12\ =\ dmaTransParams.dmaChannel;\l\
+|EDMA_DRV_DisableRequestsOnTransferComplete\ (_12,\ 1);\l\
+|_13\ =\ dmaTransParams.dmaChannel;\l\
+|instance.3_14\ =\ (void\ *)\ instance_24(D);\l\
+|EDMA_DRV_InstallCallback\ (_13,\ LPI2C_DRV_MasterCompleteDMATransfer,\ instance.3_14);\l\
+|_15\ =\ dmaTransParams.dmaChannel;\l\
+|EDMA_DRV_StartChannel\ (_15);\l\
+|LPI2C_DRV_MasterSendAddress.constprop\ (master_25,\ receive_20);\l\
+|_16\ =\ master_25-\>txSize;\l\
+|if\ (_16\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [33.00%]\l\
+}"];
+
+	fn_78_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:719407025\<bb\ 6\>:\l\
+|regValue_55\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_56\ =\ regValue_55\ &\ 4294967294;\l\
+|regValue_57\ =\ regValue_56\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_57;\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_78_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 7\>:\l\
+|_17\ =\ master_25-\>rxSize;\l\
+|_18\ =\ (unsigned\ char)\ _17;\l\
+|_19\ =\ _18\ +\ 255;\l\
+|tmp_65\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_66\ =\ tmp_65\ &\ 7;\l\
+|_67\ =\ (short\ unsigned\ int)\ tmp_66;\l\
+|tmp_68\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|tmp_69\ =\ tmp_68\ &\ 15;\l\
+|tmp_70\ =\ 1\ \<\<\ tmp_69;\l\
+|_71\ =\ (short\ unsigned\ int)\ tmp_70;\l\
+|if\ (_67\ \<\ _71)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_78_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 8\>:\l\
+|_74\ =\ (long\ unsigned\ int)\ _19;\l\
+|_75\ =\ _74\ +\ 256;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ _75;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_78_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 9\>:\l\
+|_76\ =\ master_25-\>cmdQueue.writeIdx;\l\
+|_77\ =\ (int)\ _76;\l\
+|master_25-\>cmdQueue.cmd[_77]\ =\ 1;\l\
+|master_25-\>cmdQueue.data[_77]\ =\ _19;\l\
+|_78\ =\ _76\ +\ 1;\l\
+|master_25-\>cmdQueue.writeIdx\ =\ _78;\l\
+}"];
+
+	fn_78_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 10\>:\l\
+|regValue_58\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_59\ =\ regValue_58\ &\ 4294967293;\l\
+|regValue_60\ =\ regValue_59\ \|\ 2;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_60;\l\
+}"];
+
+	fn_78_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 11\>:\l\
+|dmaTransParams\ =\{v\}\ \{CLOBBER\};\l\
+|return;\l\
+}"];
+
+	fn_78_basic_block_0:s -> fn_78_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_78_basic_block_2:s -> fn_78_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_78_basic_block_2:s -> fn_78_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_78_basic_block_3:s -> fn_78_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_78_basic_block_4:s -> fn_78_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_78_basic_block_5:s -> fn_78_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_78_basic_block_5:s -> fn_78_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_78_basic_block_6:s -> fn_78_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_78_basic_block_7:s -> fn_78_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_78_basic_block_7:s -> fn_78_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_78_basic_block_8:s -> fn_78_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_78_basic_block_9:s -> fn_78_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_78_basic_block_10:s -> fn_78_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_78_basic_block_11:s -> fn_78_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_78_basic_block_0:s -> fn_78_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveEndTransferHandler.constprop" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveEndTransferHandler.constprop ()";
+	fn_130_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_130_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_130_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|_2\ =\ slave_1(D)-\>transferType;\l\
+|if\ (_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [67.00%]\l\
+}"];
+
+	fn_130_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|_3\ =\ slave_1(D)-\>dmaChannel;\l\
+|EDMA_DRV_StopChannel\ (_3);\l\
+}"];
+
+	fn_130_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|_4\ =\ slave_1(D)-\>slaveListening;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [33.00%]\l\
+}"];
+
+	fn_130_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:956811341\<bb\ 5\>:\l\
+goto\ \<bb\ 12\>;\ [100.00%]\l\
+}"];
+
+	fn_130_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 6\>:\l\
+|tmp_17\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_18\ =\ tmp_17\ &\ 4294963448;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_18;\l\
+|_19\ =\ slave_1(D)-\>transferType;\l\
+|if\ (_19\ ==\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_130_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 7\>:\l\
+|_20\ =\ slave_1(D)-\>rxSize;\l\
+|if\ (_20\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_130_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 8\>:\l\
+|regValue_21\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_22\ =\ regValue_21\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_22;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_130_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 9\>:\l\
+|regValue_23\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_24\ =\ regValue_23\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_24;\l\
+}"];
+
+	fn_130_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 10\>:\l\
+|regValue_25\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_26\ =\ regValue_25\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_26;\l\
+|slave_1(D)-\>isTransferInProgress\ =\{v\}\ 0;\l\
+|slave_1(D)-\>rxBuff\ =\ 0B;\l\
+|slave_1(D)-\>rxSize\ =\ 0;\l\
+|slave_1(D)-\>txBuff\ =\ 0B;\l\
+|slave_1(D)-\>txSize\ =\ 0;\l\
+|slave_1(D)-\>repeatedStarts\ =\ 0;\l\
+|_5\ =\ slave_1(D)-\>blocking;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [67.00%]\l\
+}"];
+
+	fn_130_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930483\<bb\ 11\>:\l\
+|_6\ =\ &slave_1(D)-\>idleSemaphore;\l\
+|OSIF_SemaPost\ (_6);\l\
+}"];
+
+	fn_130_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 12\>:\l\
+|_7\ =\ slave_1(D)-\>slaveCallback;\l\
+|if\ (_7\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 13\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [30.00%]\l\
+}"];
+
+	fn_130_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619281\<bb\ 13\>:\l\
+|_8\ =\ slave_1(D)-\>callbackParam;\l\
+|_7\ (4,\ _8);\ [tail\ call]\l\
+}"];
+
+	fn_130_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 14\>:\l\
+|return;\l\
+}"];
+
+	fn_130_basic_block_0:s -> fn_130_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_130_basic_block_2:s -> fn_130_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_130_basic_block_2:s -> fn_130_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_130_basic_block_3:s -> fn_130_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_130_basic_block_4:s -> fn_130_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_130_basic_block_4:s -> fn_130_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_130_basic_block_5:s -> fn_130_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_130_basic_block_6:s -> fn_130_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_130_basic_block_6:s -> fn_130_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_130_basic_block_7:s -> fn_130_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_130_basic_block_7:s -> fn_130_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_130_basic_block_8:s -> fn_130_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_130_basic_block_9:s -> fn_130_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_130_basic_block_10:s -> fn_130_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_130_basic_block_10:s -> fn_130_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_130_basic_block_11:s -> fn_130_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_130_basic_block_12:s -> fn_130_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_130_basic_block_12:s -> fn_130_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_130_basic_block_13:s -> fn_130_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_130_basic_block_14:s -> fn_130_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_130_basic_block_0:s -> fn_130_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterCompleteDMATransfer" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterCompleteDMATransfer ()";
+	fn_80_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_80_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_80_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|instance_11\ =\ (uint32_t)\ parameter_10(D);\l\
+|master_13\ =\ g_lpi2cMasterStatePtr[instance_11];\l\
+|_1\ =\ master_13-\>txSize;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [33.00%]\l\
+}"];
+
+	fn_80_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:719407024\<bb\ 3\>:\l\
+|if\ (status_14(D)\ !=\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [34.00%]\l\
+}"];
+
+	fn_80_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:474808633\<bb\ 4\>:\l\
+|master_13-\>txSize\ =\ 0;\l\
+|tmp_25\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR;\l\
+|tmp_26\ =\ tmp_25\ &\ 4294967292;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR\ =\{v\}\ tmp_26;\l\
+|regValue_23\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_24\ =\ regValue_23\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_24;\l\
+|tmp_21\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_22\ =\ tmp_21\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_22;\l\
+goto\ \<bb\ 18\>;\ [100.00%]\l\
+}"];
+
+	fn_80_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:598933191\<bb\ 5\>:\l\
+|_2\ =\ master_13-\>sendStop;\l\
+|tmp_30\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_31\ =\ tmp_30\ &\ 4294960124;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_31;\l\
+|_32\ =\ master_13-\>transferType;\l\
+|if\ (_32\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [67.00%]\l\
+}"];
+
+	fn_80_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:197647952\<bb\ 6\>:\l\
+|_33\ =\ master_13-\>dmaChannel;\l\
+|EDMA_DRV_StopChannel\ (_33);\l\
+|_34\ =\ master_13-\>rxSize;\l\
+|if\ (_34\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_80_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:98823976\<bb\ 7\>:\l\
+|regValue_35\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_36\ =\ regValue_35\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_36;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_80_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:98823976\<bb\ 8\>:\l\
+|regValue_37\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_38\ =\ regValue_37\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_38;\l\
+}"];
+
+	fn_80_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:598933191\<bb\ 9\>:\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_80_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:299466595\<bb\ 10\>:\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ 512;\l\
+}"];
+
+	fn_80_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:598933191\<bb\ 11\>:\l\
+|master_13-\>txBuff\ =\ 0B;\l\
+|master_13-\>txSize\ =\ 0;\l\
+|master_13-\>rxBuff\ =\ 0B;\l\
+|master_13-\>rxSize\ =\ 0;\l\
+|master_13-\>i2cIdle\ =\{v\}\ 1;\l\
+|_3\ =\ master_13-\>blocking;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [67.00%]\l\
+}"];
+
+	fn_80_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:197647952\<bb\ 12\>:\l\
+|_4\ =\ &master_13-\>idleSemaphore;\l\
+|OSIF_SemaPost\ (_4);\l\
+}"];
+
+	fn_80_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:598933191\<bb\ 13\>:\l\
+|if\ (status_14(D)\ ==\ 1)\l\
+\ \ goto\ \<bb\ 14\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [66.00%]\l\
+}"];
+
+	fn_80_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:203637287\<bb\ 14\>:\l\
+|master_13-\>status\ =\{v\}\ 1;\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_80_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:395295904\<bb\ 15\>:\l\
+|master_13-\>status\ =\{v\}\ 0;\l\
+}"];
+
+	fn_80_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:598933191\<bb\ 16\>:\l\
+|_5\ =\ master_13-\>masterCallback;\l\
+|if\ (_5\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 17\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [30.00%]\l\
+}"];
+
+	fn_80_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:419253235\<bb\ 17\>:\l\
+|_6\ =\ master_13-\>callbackParam;\l\
+|_5\ (4,\ _6);\ [tail\ call]\l\
+}"];
+
+	fn_80_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 18\>:\l\
+|return;\l\
+}"];
+
+	fn_80_basic_block_0:s -> fn_80_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_2:s -> fn_80_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_80_basic_block_2:s -> fn_80_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_80_basic_block_3:s -> fn_80_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_80_basic_block_3:s -> fn_80_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_80_basic_block_4:s -> fn_80_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_5:s -> fn_80_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_80_basic_block_5:s -> fn_80_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_80_basic_block_6:s -> fn_80_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_6:s -> fn_80_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_7:s -> fn_80_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_8:s -> fn_80_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_9:s -> fn_80_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_9:s -> fn_80_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_80_basic_block_10:s -> fn_80_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_11:s -> fn_80_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_80_basic_block_11:s -> fn_80_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_80_basic_block_12:s -> fn_80_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_13:s -> fn_80_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_80_basic_block_13:s -> fn_80_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_80_basic_block_14:s -> fn_80_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_15:s -> fn_80_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_16:s -> fn_80_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_80_basic_block_16:s -> fn_80_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_80_basic_block_17:s -> fn_80_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_80_basic_block_18:s -> fn_80_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_80_basic_block_0:s -> fn_80_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterDeinit" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterDeinit ()";
+	fn_90_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_90_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_90_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_4\ =\ g_lpi2cMasterStatePtr[instance_3(D)];\l\
+|_1\ =\ &master_4-\>idleSemaphore;\l\
+|OSIF_SemaDestroy\ (_1);\l\
+|g_lpi2cMasterStatePtr[instance_3(D)]\ =\ 0B;\l\
+|regValue_8\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_9\ =\ regValue_8\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_9;\l\
+|INT_SYS_DisableIRQ\ (24);\l\
+|return\ 0;\l\
+}"];
+
+	fn_90_basic_block_0:s -> fn_90_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_90_basic_block_2:s -> fn_90_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_90_basic_block_0:s -> fn_90_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SetMasterBusIdleTimeout" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SetMasterBusIdleTimeout ()";
+	fn_91_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_91_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_91_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|timeout_temp_13\ =\ MIN_EXPR\ \<timeout_1(D),\ 4095\>;\l\
+|regValue_11\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_12\ =\ regValue_11\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_12;\l\
+|tmp_6\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCFGR2;\l\
+|tmp_7\ =\ tmp_6\ &\ 4294963200;\l\
+|_9\ =\ (long\ unsigned\ int)\ timeout_temp_13;\l\
+|tmp_10\ =\ tmp_7\ \|\ _9;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCFGR2\ =\{v\}\ tmp_10;\l\
+|regValue_3\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_4\ =\ regValue_3\ &\ 4294967294;\l\
+|regValue_5\ =\ regValue_4\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_5;\l\
+|return;\l\
+}"];
+
+	fn_91_basic_block_0:s -> fn_91_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_91_basic_block_2:s -> fn_91_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_91_basic_block_0:s -> fn_91_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterGetBaudRate" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterGetBaudRate ()";
+	fn_92_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_92_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_92_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|CLOCK_SYS_GetFreq\ (68,\ &inputClock);\l\
+|tmp_17\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MCFGR1;\l\
+|tmp_18\ =\ tmp_17\ &\ 7;\l\
+|tmp_14\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MCCR0;\l\
+|_15\ =\ tmp_14\ \>\>\ 8;\l\
+|tmp_16\ =\ _15\ &\ 63;\l\
+|tmp_12\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MCCR0;\l\
+|tmp_13\ =\ tmp_12\ &\ 63;\l\
+|inputClock.0_1\ =\ inputClock;\l\
+|_19\ =\ tmp_13\ +\ 2;\l\
+|_3\ =\ tmp_16\ +\ _19;\l\
+|_4\ =\ _3\ \<\<\ tmp_18;\l\
+|_5\ =\ inputClock.0_1\ /\ _4;\l\
+|baudRate_9(D)-\>baudRate\ =\ _5;\l\
+|inputClock\ =\{v\}\ \{CLOBBER\};\l\
+|return;\l\
+}"];
+
+	fn_92_basic_block_0:s -> fn_92_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_92_basic_block_2:s -> fn_92_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_92_basic_block_0:s -> fn_92_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterSetBaudRate" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterSetBaudRate ()";
+	subgraph cluster_93_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_93_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:939524098\<bb\ 5\>:\l\
+|#\ prescaler_93\ =\ PHI\ \<0(4),\ prescaler_33(6)\>\l\
+|_9\ =\ 1\ \<\<\ prescaler_93;\l\
+|if\ (_9\ \>=\ minPrescaler_32)\l\
+\ \ goto\ \<bb\ 7\>;\ [5.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [94.50%]\l\
+}"];
+
+	fn_93_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:887850272\<bb\ 6\>:\l\
+|prescaler_33\ =\ prescaler_93\ +\ 1;\l\
+|if\ (prescaler_33\ !=\ 7)\l\
+\ \ goto\ \<bb\ 5\>;\ [84.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [15.12%]\l\
+}"];
+
+	}
+	fn_93_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_93_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_93_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:581183528\<bb\ 2\>:\l\
+|master_27\ =\ g_lpi2cMasterStatePtr[instance_26(D)];\l\
+|_1\ =\{v\}\ master_27-\>i2cIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [36.03%]\l\
+}"];
+
+	fn_93_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:371783104\<bb\ 3\>:\l\
+|baudRate$baudRate_20\ =\ baudRate.baudRate;\l\
+|CLOCK_SYS_GetFreq\ (68,\ &inputClock);\l\
+|regValue_43\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_44\ =\ regValue_43\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_44;\l\
+|if\ (baudRate$baudRate_20\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+}"];
+
+	fn_93_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:185891552\<bb\ 4\>:\l\
+|inputClock.1_4\ =\ inputClock;\l\
+|_5\ =\ inputClock.1_4\ +\ 4294967295;\l\
+|_7\ =\ baudRate$baudRate_20\ *\ 128;\l\
+|_8\ =\ _5\ /\ _7;\l\
+|minPrescaler_32\ =\ _8\ +\ 1;\l\
+}"];
+
+	fn_93_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:185891553\<bb\ 7\>:\l\
+|#\ prescaler_75\ =\ PHI\ \<prescaler_93(5),\ prescaler_33(6)\>\l\
+|_10\ =\ baudRate$baudRate_20\ \<\<\ prescaler_75;\l\
+|_11\ =\ _10\ \>\>\ 1;\l\
+|_12\ =\ inputClock.1_4\ +\ _11;\l\
+|clkTotal_34\ =\ _12\ /\ _10;\l\
+|if\ (clkTotal_34\ \>\ 128)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_93_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:92945777\<bb\ 8\>:\l\
+|if\ (clkTotal_34\ \<=\ 1)\l\
+\ \ goto\ \<bb\ 11\>;\ [73.54%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [26.46%]\l\
+}"];
+
+	fn_93_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:24591035\<bb\ 9\>:\l\
+|_109\ =\ clkTotal_34\ +\ 4294967294;\l\
+|_111\ =\ _109\ \>\>\ 1;\l\
+|_112\ =\ MAX_EXPR\ \<_111,\ 1\>;\l\
+|_115\ =\ _109\ -\ _111;\l\
+|_117\ =\ _112\ \>\>\ 1;\l\
+|_119\ =\ MAX_EXPR\ \<_117,\ 1\>;\l\
+|_121\ =\ _112\ \<\<\ 8;\l\
+|_123\ =\ MAX_EXPR\ \<_115,\ 3\>;\l\
+|_125\ =\ (unsigned\ char)\ _123;\l\
+|_127\ =\ MAX_EXPR\ \<_112,\ 2\>;\l\
+|_129\ =\ _119\ \<\<\ 24;\l\
+|_131\ =\ _125\ &\ 63;\l\
+|_133\ =\ (long\ unsigned\ int)\ _131;\l\
+|_135\ =\ _127\ \<\<\ 16;\l\
+}"];
+
+	fn_93_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:257459801\<bb\ 10\>:\l\
+|#\ prescaler_31\ =\ PHI\ \<7(3),\ prescaler_75(9),\ prescaler_75(7)\>\l\
+|#\ prephitmp_122\ =\ PHI\ \<16128(3),\ _121(9),\ 16128(7)\>\l\
+|#\ prephitmp_130\ =\ PHI\ \<520093696(3),\ _129(9),\ 520093696(7)\>\l\
+|#\ prephitmp_134\ =\ PHI\ \<63(3),\ _133(9),\ 63(7)\>\l\
+|#\ prephitmp_136\ =\ PHI\ \<4128768(3),\ _135(9),\ 4128768(7)\>\l\
+}"];
+
+	fn_93_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:371783105\<bb\ 11\>:\l\
+|#\ prescaler_35\ =\ PHI\ \<prescaler_31(10),\ prescaler_75(8)\>\l\
+|#\ prephitmp_138\ =\ PHI\ \<prephitmp_122(10),\ 256(8)\>\l\
+|#\ prephitmp_143\ =\ PHI\ \<prephitmp_130(10),\ 16777216(8)\>\l\
+|#\ prephitmp_145\ =\ PHI\ \<prephitmp_134(10),\ 3(8)\>\l\
+|#\ prephitmp_146\ =\ PHI\ \<prephitmp_136(10),\ 131072(8)\>\l\
+|tmp_72\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCFGR1;\l\
+|tmp_73\ =\ tmp_72\ &\ 4294967288;\l\
+|tmp_76\ =\ prescaler_35\ \|\ tmp_73;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCFGR1\ =\{v\}\ tmp_76;\l\
+|tmp_67\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCCR0;\l\
+|tmp_68\ =\ tmp_67\ &\ 3238002687;\l\
+|tmp_71\ =\ tmp_68\ \|\ prephitmp_143;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCCR0\ =\{v\}\ tmp_71;\l\
+|tmp_63\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCCR0;\l\
+|tmp_64\ =\ tmp_63\ &\ 4290838527;\l\
+|tmp_66\ =\ tmp_64\ \|\ prephitmp_146;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCCR0\ =\{v\}\ tmp_66;\l\
+|tmp_59\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCCR0;\l\
+|tmp_60\ =\ tmp_59\ &\ 4294951167;\l\
+|tmp_62\ =\ tmp_60\ \|\ prephitmp_138;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCCR0\ =\{v\}\ tmp_62;\l\
+|tmp_54\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCCR0;\l\
+|tmp_55\ =\ tmp_54\ &\ 4294967232;\l\
+|tmp_58\ =\ tmp_55\ \|\ prephitmp_145;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCCR0\ =\{v\}\ tmp_58;\l\
+|master_49\ =\ g_lpi2cMasterStatePtr[instance_26(D)];\l\
+|tmp_50\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCFGR1;\l\
+|tmp_51\ =\ tmp_50\ &\ 4177526783;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCFGR1\ =\{v\}\ tmp_51;\l\
+|regValue_52\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCFGR1;\l\
+|regValue_53\ =\ regValue_52\ &\ 4294966783;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCFGR1\ =\{v\}\ regValue_53;\l\
+|master_49-\>operatingMode\ =\ operatingMode_41(D);\l\
+|regValue_46\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_47\ =\ regValue_46\ &\ 4294967294;\l\
+|regValue_48\ =\ regValue_47\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_48;\l\
+}"];
+
+	fn_93_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:581183529\<bb\ 12\>:\l\
+|#\ _22\ =\ PHI\ \<0(11),\ 2(2)\>\l\
+|inputClock\ =\{v\}\ \{CLOBBER\};\l\
+|return\ _22;\l\
+}"];
+
+	fn_93_basic_block_0:s -> fn_93_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_93_basic_block_2:s -> fn_93_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_93_basic_block_2:s -> fn_93_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_93_basic_block_3:s -> fn_93_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_93_basic_block_3:s -> fn_93_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_93_basic_block_4:s -> fn_93_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_93_basic_block_5:s -> fn_93_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_93_basic_block_5:s -> fn_93_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_93_basic_block_6:s -> fn_93_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[84%]"];
+	fn_93_basic_block_6:s -> fn_93_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[15%]"];
+	fn_93_basic_block_7:s -> fn_93_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_93_basic_block_7:s -> fn_93_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_93_basic_block_8:s -> fn_93_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[73%]"];
+	fn_93_basic_block_8:s -> fn_93_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[26%]"];
+	fn_93_basic_block_9:s -> fn_93_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_93_basic_block_10:s -> fn_93_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_93_basic_block_11:s -> fn_93_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_93_basic_block_12:s -> fn_93_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_93_basic_block_0:s -> fn_93_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterInit" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterInit ()";
+	fn_89_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_89_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_89_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|CLOCK_SYS_GetFreq\ (68,\ &inputClock);\l\
+|g_lpi2cMasterStatePtr[instance_15(D)]\ =\ master_16(D);\l\
+|master_16(D)-\>rxBuff\ =\ 0B;\l\
+|master_16(D)-\>rxSize\ =\ 0;\l\
+|master_16(D)-\>txBuff\ =\ 0B;\l\
+|master_16(D)-\>txSize\ =\ 0;\l\
+|master_16(D)-\>status\ =\{v\}\ 0;\l\
+|master_16(D)-\>i2cIdle\ =\{v\}\ 1;\l\
+|_1\ =\ userConfigPtr_24(D)-\>slaveAddress;\l\
+|master_16(D)-\>slaveAddress\ =\ _1;\l\
+|_2\ =\ userConfigPtr_24(D)-\>is10bitAddr;\l\
+|master_16(D)-\>is10bitAddr\ =\ _2;\l\
+|_3\ =\ userConfigPtr_24(D)-\>transferType;\l\
+|master_16(D)-\>transferType\ =\ _3;\l\
+|_4\ =\ userConfigPtr_24(D)-\>dmaChannel;\l\
+|master_16(D)-\>dmaChannel\ =\ _4;\l\
+|_5\ =\ userConfigPtr_24(D)-\>masterCallback;\l\
+|master_16(D)-\>masterCallback\ =\ _5;\l\
+|_6\ =\ userConfigPtr_24(D)-\>callbackParam;\l\
+|master_16(D)-\>callbackParam\ =\ _6;\l\
+|master_16(D)-\>blocking\ =\ 0;\l\
+|_7\ =\ userConfigPtr_24(D)-\>baudRate;\l\
+|master_16(D)-\>baudrate\ =\ _7;\l\
+|master_16(D)-\>abortedTransfer\ =\ 0;\l\
+|_8\ =\ &master_16(D)-\>idleSemaphore;\l\
+|OSIF_SemaCreate\ (_8,\ 0);\l\
+|MEM\ \<unsigned\ short\>\ [(unsigned\ char\ *)master_16(D)\ +\ 10B]\ =\ 0;\l\
+|INT_SYS_EnableIRQ\ (24);\l\
+|LPI2C_Init\ (1074159616B);\l\
+|_9\ =\ userConfigPtr_24(D)-\>baudRate;\l\
+|baudRate.baudRate\ =\ _9;\l\
+|_10\ =\ userConfigPtr_24(D)-\>operatingMode;\l\
+|LPI2C_DRV_MasterSetBaudRate\ (instance_15(D),\ _10,\ baudRate);\l\
+|_11\ =\ userConfigPtr_24(D)-\>slaveAddress;\l\
+|_12\ =\ userConfigPtr_24(D)-\>is10bitAddr;\l\
+|master_44\ =\ g_lpi2cMasterStatePtr[instance_15(D)];\l\
+|master_44-\>slaveAddress\ =\ _11;\l\
+|master_44-\>is10bitAddr\ =\ _12;\l\
+|regValue_41\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_42\ =\ regValue_41\ &\ 4294967294;\l\
+|regValue_43\ =\ regValue_42\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_43;\l\
+|inputClock\ =\{v\}\ \{CLOBBER\};\l\
+|baudRate\ =\{v\}\ \{CLOBBER\};\l\
+|return\ 0;\l\
+}"];
+
+	fn_89_basic_block_0:s -> fn_89_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_89_basic_block_2:s -> fn_89_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_89_basic_block_0:s -> fn_89_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterReinit.isra" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterReinit.isra ()";
+	fn_117_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_117_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_117_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|g_lpi2cMasterStatePtr[instance_2(D)]\ =\ master_1(D);\l\
+|master_1(D)-\>txBuff\ =\ 0B;\l\
+|master_1(D)-\>txSize\ =\ 0;\l\
+|master_1(D)-\>rxBuff\ =\ 0B;\l\
+|master_1(D)-\>rxSize\ =\ 0;\l\
+|master_1(D)-\>i2cIdle\ =\{v\}\ 1;\l\
+|MEM\ \<unsigned\ short\>\ [(unsigned\ char\ *)master_1(D)\ +\ 10B]\ =\ 0;\l\
+|LPI2C_Init\ (1074159616B);\l\
+|_3\ =\ master_1(D)-\>baudrate;\l\
+|baudRate.baudRate\ =\ _3;\l\
+|_4\ =\ master_1(D)-\>operatingMode;\l\
+|LPI2C_DRV_MasterSetBaudRate\ (instance_2(D),\ _4,\ baudRate);\l\
+|_5\ =\ master_1(D)-\>slaveAddress;\l\
+|_6\ =\ master_1(D)-\>is10bitAddr;\l\
+|master_7\ =\ g_lpi2cMasterStatePtr[instance_2(D)];\l\
+|master_7-\>slaveAddress\ =\ _5;\l\
+|master_7-\>is10bitAddr\ =\ _6;\l\
+|regValue_8\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_9\ =\ regValue_8\ &\ 4294967294;\l\
+|regValue_10\ =\ regValue_9\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_10;\l\
+|baudRate\ =\{v\}\ \{CLOBBER\};\l\
+|return;\l\
+}"];
+
+	fn_117_basic_block_0:s -> fn_117_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_117_basic_block_2:s -> fn_117_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_117_basic_block_0:s -> fn_117_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterWaitTransferEnd" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterWaitTransferEnd ()";
+	fn_82_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_82_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_82_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_14\ =\ g_lpi2cMasterStatePtr[instance_13(D)];\l\
+|_1\ =\ &master_14-\>idleSemaphore;\l\
+|osifError_17\ =\ OSIF_SemaWait\ (_1,\ timeout_15(D));\l\
+|if\ (osifError_17\ ==\ 3)\l\
+\ \ goto\ \<bb\ 3\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [66.00%]\l\
+}"];
+
+	fn_82_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:365072224\<bb\ 3\>:\l\
+|_2\ =\ master_14-\>txSize;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [67.00%]\l\
+}"];
+
+	fn_82_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:120473833\<bb\ 4\>:\l\
+|LPI2C_DRV_MasterEndTransfer.constprop\ (master_14,\ 0,\ 1);\l\
+|master_14-\>status\ =\{v\}\ 3;\l\
+goto\ \<bb\ 15\>;\ [100.00%]\l\
+}"];
+
+	fn_82_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:244598391\<bb\ 5\>:\l\
+|_3\ =\ master_14-\>transferType;\l\
+|if\ (_3\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [67.00%]\l\
+}"];
+
+	fn_82_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:80717469\<bb\ 6\>:\l\
+|_4\ =\ master_14-\>dmaChannel;\l\
+|EDMA_DRV_StopChannel\ (_4);\l\
+}"];
+
+	fn_82_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:244598391\<bb\ 7\>:\l\
+|tmp_36\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_37\ =\ tmp_36\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_37;\l\
+|tmp_33\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|_34\ =\ tmp_33\ \>\>\ 16;\l\
+|tmp_35\ =\ _34\ &\ 7;\l\
+|_5\ =\ master_14-\>rxSize;\l\
+|if\ (_5\ ==\ tmp_35)\l\
+\ \ goto\ \<bb\ 8\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [66.00%]\l\
+}"];
+
+	fn_82_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:83163454\<bb\ 8\>:\l\
+|if\ (_5\ ==\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [66.00%]\l\
+}"];
+
+	fn_82_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:28275575\<bb\ 9\>:\l\
+|master_14-\>status\ =\{v\}\ 0;\l\
+|master_14-\>blocking\ =\ 0;\l\
+|_21\ =\{v\}\ master_14-\>status;\l\
+goto\ \<bb\ 16\>;\ [100.00%]\l\
+}"];
+
+	fn_82_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:161434937\<bb\ 10\>:\l\
+|if\ (_5\ \>\ tmp_35)\l\
+\ \ goto\ \<bb\ 11\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [33.00%]\l\
+}"];
+
+	fn_82_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:108161408\<bb\ 11\>:\l\
+|master_14-\>abortedTransfer\ =\ 1;\l\
+|tmp_38\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR;\l\
+|tmp_39\ =\ tmp_38\ &\ 4294770687;\l\
+|_40\ =\ tmp_35\ \<\<\ 16;\l\
+|_41\ =\ _40\ &\ 196608;\l\
+|tmp_42\ =\ tmp_39\ \|\ _41;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR\ =\{v\}\ tmp_42;\l\
+|master_14-\>status\ =\{v\}\ 3;\l\
+}"];
+
+	fn_82_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:216322816\<bb\ 12\>:\l\
+|tmp_43\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_44\ =\ tmp_43\ \|\ 2;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_44;\l\
+|osifError_25\ =\ OSIF_SemaWait\ (_1,\ timeout_15(D));\l\
+|if\ (osifError_25\ ==\ 3)\l\
+\ \ goto\ \<bb\ 13\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [79.76%]\l\
+}"];
+
+	fn_82_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:43783738\<bb\ 13\>:\l\
+|LPI2C_DRV_MasterReinit.isra\ (instance_13(D),\ master_14);\l\
+|master_14-\>status\ =\{v\}\ 3;\l\
+}"];
+
+	fn_82_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:216322816\<bb\ 14\>:\l\
+|master_14-\>abortedTransfer\ =\ 0;\l\
+}"];
+
+	fn_82_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1045466250\<bb\ 15\>:\l\
+|master_14-\>blocking\ =\ 0;\l\
+|_32\ =\{v\}\ master_14-\>status;\l\
+}"];
+
+	fn_82_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 16\>:\l\
+|#\ _6\ =\ PHI\ \<_21(9),\ _32(15)\>\l\
+|return\ _6;\l\
+}"];
+
+	fn_82_basic_block_0:s -> fn_82_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_82_basic_block_2:s -> fn_82_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_82_basic_block_2:s -> fn_82_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_82_basic_block_3:s -> fn_82_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_82_basic_block_3:s -> fn_82_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_82_basic_block_4:s -> fn_82_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_82_basic_block_5:s -> fn_82_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_82_basic_block_5:s -> fn_82_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_82_basic_block_6:s -> fn_82_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_82_basic_block_7:s -> fn_82_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_82_basic_block_7:s -> fn_82_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_82_basic_block_8:s -> fn_82_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_82_basic_block_8:s -> fn_82_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_82_basic_block_9:s -> fn_82_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_82_basic_block_10:s -> fn_82_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_82_basic_block_10:s -> fn_82_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_82_basic_block_11:s -> fn_82_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_82_basic_block_12:s -> fn_82_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_82_basic_block_12:s -> fn_82_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_82_basic_block_13:s -> fn_82_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_82_basic_block_14:s -> fn_82_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_82_basic_block_15:s -> fn_82_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_82_basic_block_16:s -> fn_82_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_82_basic_block_0:s -> fn_82_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterSetSlaveAddr" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterSetSlaveAddr ()";
+	fn_94_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_94_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_94_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_3\ =\ g_lpi2cMasterStatePtr[instance_2(D)];\l\
+|master_3-\>slaveAddress\ =\ address_4(D);\l\
+|master_3-\>is10bitAddr\ =\ is10bitAddr_6(D);\l\
+|return;\l\
+}"];
+
+	fn_94_basic_block_0:s -> fn_94_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_94_basic_block_2:s -> fn_94_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_94_basic_block_0:s -> fn_94_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterSendData" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterSendData ()";
+	fn_95_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_95_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_95_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_7\ =\ g_lpi2cMasterStatePtr[instance_6(D)];\l\
+|_1\ =\{v\}\ master_7-\>i2cIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+}"];
+
+	fn_95_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|master_7-\>txBuff\ =\ txBuff_8(D);\l\
+|master_7-\>txSize\ =\ txSize_10(D);\l\
+|master_7-\>sendStop\ =\ sendStop_12(D);\l\
+|master_7-\>i2cIdle\ =\{v\}\ 0;\l\
+|master_7-\>status\ =\{v\}\ 2;\l\
+|_2\ =\ master_7-\>transferType;\l\
+|if\ (_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_95_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:420262548\<bb\ 4\>:\l\
+|tmp_19\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_20\ =\ tmp_19\ \|\ 7168;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_20;\l\
+|LPI2C_DRV_MasterStartDmaTransfer\ (instance_6(D));\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_95_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:420262548\<bb\ 5\>:\l\
+|LPI2C_DRV_MasterSendAddress.constprop\ (master_7,\ 0);\l\
+|LPI2C_DRV_MasterQueueData.constprop\ (master_7);\l\
+|tmp_23\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR;\l\
+|tmp_24\ =\ tmp_23\ &\ 4294967292;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR\ =\{v\}\ tmp_24;\l\
+|tmp_21\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_22\ =\ tmp_21\ \|\ 7169;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_22;\l\
+}"];
+
+	fn_95_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _3\ =\ PHI\ \<0(4),\ 0(5),\ 2(2)\>\l\
+|return\ _3;\l\
+}"];
+
+	fn_95_basic_block_0:s -> fn_95_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_95_basic_block_2:s -> fn_95_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_95_basic_block_2:s -> fn_95_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_95_basic_block_3:s -> fn_95_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_95_basic_block_3:s -> fn_95_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_95_basic_block_4:s -> fn_95_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_95_basic_block_5:s -> fn_95_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_95_basic_block_6:s -> fn_95_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_95_basic_block_0:s -> fn_95_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterSendDataBlocking" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterSendDataBlocking ()";
+	fn_96_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_96_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_96_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_7\ =\ g_lpi2cMasterStatePtr[instance_6(D)];\l\
+|_1\ =\{v\}\ master_7-\>i2cIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [36.03%]\l\
+}"];
+
+	fn_96_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 3\>:\l\
+|master_7-\>blocking\ =\ 1;\l\
+|_2\ =\ &master_7-\>idleSemaphore;\l\
+|OSIF_SemaWait\ (_2,\ 0);\l\
+|LPI2C_DRV_MasterSendData\ (instance_6(D),\ txBuff_10(D),\ txSize_11(D),\ sendStop_12(D));\l\
+|_16\ =\ LPI2C_DRV_MasterWaitTransferEnd\ (instance_6(D),\ timeout_14(D));\ [tail\ call]\l\
+}"];
+
+	fn_96_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ _3\ =\ PHI\ \<_16(3),\ 2(2)\>\l\
+|return\ _3;\l\
+}"];
+
+	fn_96_basic_block_0:s -> fn_96_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_96_basic_block_2:s -> fn_96_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_96_basic_block_2:s -> fn_96_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_96_basic_block_3:s -> fn_96_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_96_basic_block_4:s -> fn_96_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_96_basic_block_0:s -> fn_96_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterAbortTransferData" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterAbortTransferData ()";
+	fn_97_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_97_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_97_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_6\ =\ g_lpi2cMasterStatePtr[instance_5(D)];\l\
+|_1\ =\ master_6-\>rxBuff;\l\
+|if\ (_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [56.78%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [43.22%]\l\
+}"];
+
+	fn_97_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:464071215\<bb\ 3\>:\l\
+|master_6-\>status\ =\{v\}\ 516;\l\
+|tmp_9\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_10\ =\ tmp_9\ &\ 4294960124;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_10;\l\
+|_11\ =\ master_6-\>transferType;\l\
+|if\ (_11\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [67.00%]\l\
+}"];
+
+	fn_97_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:153143500\<bb\ 4\>:\l\
+|_12\ =\ master_6-\>dmaChannel;\l\
+|EDMA_DRV_StopChannel\ (_12);\l\
+|_13\ =\ master_6-\>rxSize;\l\
+|if\ (_13\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_97_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:76571750\<bb\ 5\>:\l\
+|regValue_14\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_15\ =\ regValue_14\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_15;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_97_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:76571750\<bb\ 6\>:\l\
+|regValue_16\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_17\ =\ regValue_16\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_17;\l\
+}"];
+
+	fn_97_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:464071216\<bb\ 7\>:\l\
+|regValue_18\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_19\ =\ regValue_18\ &\ 4294967039;\l\
+|regValue_20\ =\ regValue_19\ \|\ 256;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_20;\l\
+|regValue_21\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR;\l\
+|regValue_22\ =\ regValue_21\ &\ 4294966783;\l\
+|regValue_23\ =\ regValue_22\ \|\ 512;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MCR\ =\{v\}\ regValue_23;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ 512;\l\
+|master_6-\>txBuff\ =\ 0B;\l\
+|master_6-\>txSize\ =\ 0;\l\
+|master_6-\>rxBuff\ =\ 0B;\l\
+|master_6-\>rxSize\ =\ 0;\l\
+|master_6-\>i2cIdle\ =\{v\}\ 1;\l\
+}"];
+
+	fn_97_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741825\<bb\ 8\>:\l\
+|#\ _2\ =\ PHI\ \<0(7),\ 4(2)\>\l\
+|return\ _2;\l\
+}"];
+
+	fn_97_basic_block_0:s -> fn_97_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_97_basic_block_2:s -> fn_97_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[56%]"];
+	fn_97_basic_block_2:s -> fn_97_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[43%]"];
+	fn_97_basic_block_3:s -> fn_97_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_97_basic_block_3:s -> fn_97_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_97_basic_block_4:s -> fn_97_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_97_basic_block_4:s -> fn_97_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_97_basic_block_5:s -> fn_97_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_97_basic_block_6:s -> fn_97_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_97_basic_block_7:s -> fn_97_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_97_basic_block_8:s -> fn_97_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_97_basic_block_0:s -> fn_97_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterReceiveData" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterReceiveData ()";
+	fn_98_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_98_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_98_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_11\ =\ g_lpi2cMasterStatePtr[instance_10(D)];\l\
+|_1\ =\{v\}\ master_11-\>i2cIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [21.72%]\l\
+}"];
+
+	fn_98_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|master_11-\>rxSize\ =\ rxSize_12(D);\l\
+|master_11-\>i2cIdle\ =\{v\}\ 0;\l\
+|master_11-\>sendStop\ =\ sendStop_15(D);\l\
+|master_11-\>rxBuff\ =\ rxBuff_17(D);\l\
+|master_11-\>status\ =\{v\}\ 2;\l\
+|_2\ =\ master_11-\>transferType;\l\
+|if\ (_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_98_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:420262548\<bb\ 4\>:\l\
+|tmp_23\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_25\ =\ tmp_23\ \|\ 7168;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_25;\l\
+|LPI2C_DRV_MasterStartDmaTransfer\ (instance_10(D));\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_98_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:420262548\<bb\ 5\>:\l\
+|LPI2C_DRV_MasterSendAddress.constprop\ (master_11,\ 1);\l\
+|_3\ =\ (unsigned\ char)\ rxSize_12(D);\l\
+|_4\ =\ _3\ +\ 255;\l\
+|tmp_47\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_48\ =\ tmp_47\ &\ 7;\l\
+|_49\ =\ (short\ unsigned\ int)\ tmp_48;\l\
+|tmp_50\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|tmp_51\ =\ tmp_50\ &\ 15;\l\
+|tmp_52\ =\ 1\ \<\<\ tmp_51;\l\
+|_53\ =\ (short\ unsigned\ int)\ tmp_52;\l\
+|if\ (_49\ \<\ _53)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_98_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:210131274\<bb\ 6\>:\l\
+|_56\ =\ (long\ unsigned\ int)\ _4;\l\
+|_57\ =\ _56\ +\ 256;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ _57;\l\
+|pretmp_69\ =\ master_11-\>cmdQueue.writeIdx;\l\
+goto\ \<bb\ 8\>;\ [100.00%]\l\
+}"];
+
+	fn_98_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:210131274\<bb\ 7\>:\l\
+|_58\ =\ master_11-\>cmdQueue.writeIdx;\l\
+|_59\ =\ (int)\ _58;\l\
+|master_11-\>cmdQueue.cmd[_59]\ =\ 1;\l\
+|master_11-\>cmdQueue.data[_59]\ =\ _4;\l\
+|_60\ =\ _58\ +\ 1;\l\
+|master_11-\>cmdQueue.writeIdx\ =\ _60;\l\
+}"];
+
+	fn_98_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:420262548\<bb\ 8\>:\l\
+|#\ prephitmp_70\ =\ PHI\ \<pretmp_69(6),\ _60(7)\>\l\
+|tmp_26\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|_27\ =\ tmp_26\ \>\>\ 8;\l\
+|tmp_28\ =\ _27\ &\ 15;\l\
+|tmp_29\ =\ 1\ \<\<\ tmp_28;\l\
+|if\ (rxSize_12(D)\ \<\ tmp_29)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_98_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:210131274\<bb\ 9\>:\l\
+|_30\ =\ (short\ unsigned\ int)\ tmp_29;\l\
+goto\ \<bb\ 11\>;\ [100.00%]\l\
+}"];
+
+	fn_98_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:210131274\<bb\ 10\>:\l\
+|rxBytes_22\ =\ (uint16_t)\ _3;\l\
+}"];
+
+	fn_98_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:420262548\<bb\ 11\>:\l\
+|#\ rxBytes_6\ =\ PHI\ \<rxBytes_22(10),\ _30(9)\>\l\
+|_5\ =\ rxBytes_6\ +\ 65535;\l\
+|tmp_33\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR;\l\
+|tmp_34\ =\ tmp_33\ &\ 4294770687;\l\
+|_35\ =\ (long\ unsigned\ int)\ _5;\l\
+|_36\ =\ _35\ \<\<\ 16;\l\
+|_37\ =\ _36\ &\ 196608;\l\
+|tmp_38\ =\ tmp_34\ \|\ _37;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR\ =\{v\}\ tmp_38;\l\
+|_32\ =\ MEM[(const\ struct\ lpi2c_master_state_t\ *)master_11].cmdQueue.readIdx;\l\
+|if\ (_32\ !=\ prephitmp_70)\l\
+\ \ goto\ \<bb\ 12\>;\ [66.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [34.00%]\l\
+}"];
+
+	fn_98_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:277373280\<bb\ 12\>:\l\
+|tmp_39\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_40\ =\ tmp_39\ \|\ 7171;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_40;\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_98_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:142889268\<bb\ 13\>:\l\
+|tmp_41\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_42\ =\ tmp_41\ \|\ 7170;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_42;\l\
+}"];
+
+	fn_98_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 14\>:\l\
+|#\ _7\ =\ PHI\ \<0(13),\ 0(12),\ 0(4),\ 2(2)\>\l\
+|return\ _7;\l\
+}"];
+
+	fn_98_basic_block_0:s -> fn_98_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_98_basic_block_2:s -> fn_98_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_98_basic_block_2:s -> fn_98_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_98_basic_block_3:s -> fn_98_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_98_basic_block_3:s -> fn_98_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_98_basic_block_4:s -> fn_98_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_98_basic_block_5:s -> fn_98_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_98_basic_block_5:s -> fn_98_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_98_basic_block_6:s -> fn_98_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_98_basic_block_7:s -> fn_98_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_98_basic_block_8:s -> fn_98_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_98_basic_block_8:s -> fn_98_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_98_basic_block_9:s -> fn_98_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_98_basic_block_10:s -> fn_98_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_98_basic_block_11:s -> fn_98_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_98_basic_block_11:s -> fn_98_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_98_basic_block_12:s -> fn_98_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_98_basic_block_13:s -> fn_98_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_98_basic_block_14:s -> fn_98_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_98_basic_block_0:s -> fn_98_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterReceiveDataBlocking" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterReceiveDataBlocking ()";
+	fn_99_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_99_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_99_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|master_7\ =\ g_lpi2cMasterStatePtr[instance_6(D)];\l\
+|_1\ =\{v\}\ master_7-\>i2cIdle;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [36.03%]\l\
+}"];
+
+	fn_99_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 3\>:\l\
+|master_7-\>blocking\ =\ 1;\l\
+|_2\ =\ &master_7-\>idleSemaphore;\l\
+|OSIF_SemaWait\ (_2,\ 0);\l\
+|LPI2C_DRV_MasterReceiveData\ (instance_6(D),\ rxBuff_10(D),\ rxSize_11(D),\ sendStop_12(D));\l\
+|_16\ =\ LPI2C_DRV_MasterWaitTransferEnd\ (instance_6(D),\ timeout_14(D));\ [tail\ call]\l\
+}"];
+
+	fn_99_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 4\>:\l\
+|#\ _3\ =\ PHI\ \<_16(3),\ 2(2)\>\l\
+|return\ _3;\l\
+}"];
+
+	fn_99_basic_block_0:s -> fn_99_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_99_basic_block_2:s -> fn_99_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_99_basic_block_2:s -> fn_99_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_99_basic_block_3:s -> fn_99_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_99_basic_block_4:s -> fn_99_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_99_basic_block_0:s -> fn_99_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterGetTransferStatus" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterGetTransferStatus ()";
+	fn_100_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_100_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_100_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|master_9\ =\ g_lpi2cMasterStatePtr[instance_8(D)];\l\
+|if\ (bytesRemaining_10(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [30.00%]\l\
+}"];
+
+	fn_100_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619280\<bb\ 3\>:\l\
+|_1\ =\ master_9-\>transferType;\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [66.00%]\l\
+}"];
+
+	fn_100_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:255550558\<bb\ 4\>:\l\
+|_2\ =\ master_9-\>txSize;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_100_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:127775279\<bb\ 5\>:\l\
+|tmp_15\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_16\ =\ tmp_15\ &\ 7;\l\
+|_3\ =\ _2\ +\ tmp_16;\l\
+|*bytesRemaining_10(D)\ =\ _3;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_100_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:127775279\<bb\ 6\>:\l\
+|_4\ =\ master_9-\>rxSize;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_100_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63887639\<bb\ 7\>:\l\
+|tmp_17\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|_18\ =\ tmp_17\ \>\>\ 16;\l\
+|tmp_19\ =\ _18\ &\ 7;\l\
+|_5\ =\ _4\ -\ tmp_19;\l\
+|*bytesRemaining_10(D)\ =\ _5;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_100_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63887639\<bb\ 8\>:\l\
+|*bytesRemaining_10(D)\ =\ 0;\l\
+}"];
+
+	fn_100_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|_14\ =\{v\}\ master_9-\>status;\l\
+|return\ _14;\l\
+}"];
+
+	fn_100_basic_block_0:s -> fn_100_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_100_basic_block_2:s -> fn_100_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_100_basic_block_2:s -> fn_100_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_100_basic_block_3:s -> fn_100_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_100_basic_block_3:s -> fn_100_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_100_basic_block_4:s -> fn_100_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_100_basic_block_4:s -> fn_100_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_100_basic_block_5:s -> fn_100_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_100_basic_block_6:s -> fn_100_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_100_basic_block_6:s -> fn_100_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_100_basic_block_7:s -> fn_100_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_100_basic_block_8:s -> fn_100_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_100_basic_block_9:s -> fn_100_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_100_basic_block_0:s -> fn_100_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterGetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterGetDefaultConfig ()";
+	fn_101_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_101_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_101_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM\ \<unsigned\ int\>\ [(void\ *)config_2(D)]\ =\ 32;\l\
+|config_2(D)-\>baudRate\ =\ 100000;\l\
+|MEM\ \<unsigned\ short\>\ [(void\ *)config_2(D)\ +\ 8B]\ =\ 1;\l\
+|config_2(D)-\>masterCallback\ =\ 0B;\l\
+|config_2(D)-\>callbackParam\ =\ 0B;\l\
+|return;\l\
+}"];
+
+	fn_101_basic_block_0:s -> fn_101_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_101_basic_block_2:s -> fn_101_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_101_basic_block_0:s -> fn_101_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_MasterIRQHandler" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_MasterIRQHandler ()";
+	subgraph cluster_102_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_102_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1565068435\<bb\ 31\>:\l\
+|#\ prephitmp_110\ =\ PHI\ \<pretmp_29(26),\ _118(30)\>\l\
+|if\ (prephitmp_110\ !=\ 0)\l\
+\ \ goto\ \<bb\ 30\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 32\>;\ [5.50%]\l\
+}"];
+
+	fn_102_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1478989672\<bb\ 30\>:\l\
+|_112\ =\ master_28-\>rxBuff;\l\
+|tmp_113\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MRDR;\l\
+|_114\ =\ (unsigned\ char)\ tmp_113;\l\
+|*_112\ =\ _114;\l\
+|_115\ =\ master_28-\>rxBuff;\l\
+|_116\ =\ _115\ +\ 1;\l\
+|master_28-\>rxBuff\ =\ _116;\l\
+|_117\ =\ master_28-\>rxSize;\l\
+|_118\ =\ _117\ +\ 4294967295;\l\
+|master_28-\>rxSize\ =\ _118;\l\
+|tmp_119\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|_120\ =\ tmp_119\ \>\>\ 16;\l\
+|tmp_121\ =\ _120\ &\ 7;\l\
+|if\ (tmp_121\ !=\ 0)\l\
+\ \ goto\ \<bb\ 31\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 34\>;\ [5.50%]\l\
+}"];
+
+	}
+	subgraph cluster_102_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_102_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1445860289\<bb\ 5\>:\l\
+|#\ _157\ =\ PHI\ \<_64(4),\ _89(6)\>\l\
+|_82\ =\ (int)\ _157;\l\
+|_83\ =\ master_28-\>cmdQueue.cmd[_82];\l\
+|_84\ =\ master_28-\>cmdQueue.data[_82];\l\
+|_85\ =\ (long\ unsigned\ int)\ _83;\l\
+|_86\ =\ _85\ \<\<\ 8;\l\
+|_87\ =\ (long\ unsigned\ int)\ _84;\l\
+|_88\ =\ _86\ +\ _87;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ _88;\l\
+|_89\ =\ _157\ +\ 1;\l\
+|tmp_90\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_91\ =\ tmp_90\ &\ 7;\l\
+|_92\ =\ (short\ unsigned\ int)\ tmp_91;\l\
+|if\ (_63\ !=\ _89)\l\
+\ \ goto\ \<bb\ 6\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [5.50%]\l\
+}"];
+
+	fn_102_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1366337973\<bb\ 6\>:\l\
+|if\ (_80\ \>\ _92)\l\
+\ \ goto\ \<bb\ 5\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 65\>;\ [5.50%]\l\
+}"];
+
+	}
+	fn_102_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_102_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_102_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|master_28\ =\ g_lpi2cMasterStatePtr[instance_27(D)];\l\
+|regValue_46\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MSR;\l\
+|_47\ =\ (_Bool)\ regValue_46;\l\
+|if\ (_47\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 66\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334799\<bb\ 3\>:\l\
+|_63\ =\ MEM[(const\ struct\ lpi2c_master_state_t\ *)master_28].cmdQueue.writeIdx;\l\
+|_64\ =\ MEM[(const\ struct\ lpi2c_master_state_t\ *)master_28].cmdQueue.readIdx;\l\
+|if\ (_63\ !=\ _64)\l\
+\ \ goto\ \<bb\ 4\>;\ [48.88%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [51.12%]\l\
+}"];
+
+	fn_102_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:173198849\<bb\ 4\>:\l\
+|tmp_74\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|tmp_75\ =\ tmp_74\ &\ 7;\l\
+|_76\ =\ (short\ unsigned\ int)\ tmp_75;\l\
+|tmp_77\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].PARAM;\l\
+|tmp_78\ =\ tmp_77\ &\ 15;\l\
+|tmp_79\ =\ 1\ \<\<\ tmp_78;\l\
+|_80\ =\ (short\ unsigned\ int)\ tmp_79;\l\
+|if\ (_76\ \<\ _80)\l\
+\ \ goto\ \<bb\ 5\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 66\>;\ [5.50%]\l\
+}"];
+
+	fn_102_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58887610\<bb\ 7\>:\l\
+|MEM\ \<unsigned\ short\>\ [(unsigned\ char\ *)master_28\ +\ 10B]\ =\ 0;\l\
+goto\ \<bb\ 22\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:181135950\<bb\ 8\>:\l\
+|_65\ =\ master_28-\>txBuff;\l\
+|if\ (_65\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 9\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [30.00%]\l\
+}"];
+
+	fn_102_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:126795166\<bb\ 9\>:\l\
+|_66\ =\ master_28-\>txSize;\l\
+|if\ (_66\ ==\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [50.00%]\l\
+}"];
+
+	fn_102_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63397583\<bb\ 10\>:\l\
+|_67\ =\ master_28-\>sendStop;\l\
+|tmp_97\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_98\ =\ tmp_97\ &\ 4294960124;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_98;\l\
+|_99\ =\ master_28-\>transferType;\l\
+|if\ (_99\ ==\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:20921203\<bb\ 11\>:\l\
+|_100\ =\ master_28-\>dmaChannel;\l\
+|EDMA_DRV_StopChannel\ (_100);\l\
+|_101\ =\ master_28-\>rxSize;\l\
+|if\ (_101\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [50.00%]\l\
+}"];
+
+	fn_102_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10460601\<bb\ 12\>:\l\
+|regValue_102\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_103\ =\ regValue_102\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_103;\l\
+goto\ \<bb\ 14\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10460601\<bb\ 13\>:\l\
+|regValue_104\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_105\ =\ regValue_104\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_105;\l\
+}"];
+
+	fn_102_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63397583\<bb\ 14\>:\l\
+|if\ (_67\ !=\ 0)\l\
+\ \ goto\ \<bb\ 15\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+}"];
+
+	fn_102_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:31698792\<bb\ 15\>:\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ 512;\l\
+}"];
+
+	fn_102_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63397583\<bb\ 16\>:\l\
+|master_28-\>txBuff\ =\ 0B;\l\
+|master_28-\>txSize\ =\ 0;\l\
+|master_28-\>rxBuff\ =\ 0B;\l\
+|master_28-\>rxSize\ =\ 0;\l\
+|master_28-\>i2cIdle\ =\{v\}\ 1;\l\
+|_68\ =\ master_28-\>blocking;\l\
+|if\ (_68\ !=\ 0)\l\
+\ \ goto\ \<bb\ 17\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:20921203\<bb\ 17\>:\l\
+|_69\ =\ &master_28-\>idleSemaphore;\l\
+|OSIF_SemaPost\ (_69);\l\
+}"];
+
+	fn_102_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63397583\<bb\ 18\>:\l\
+|master_28-\>status\ =\{v\}\ 0;\l\
+|_70\ =\ master_28-\>masterCallback;\l\
+|if\ (_70\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 19\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 66\>;\ [30.00%]\l\
+}"];
+
+	fn_102_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:44378308\<bb\ 19\>:\l\
+|_71\ =\ master_28-\>callbackParam;\l\
+|_70\ (4,\ _71);\l\
+goto\ \<bb\ 22\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63397583\<bb\ 20\>:\l\
+|LPI2C_DRV_MasterQueueData.constprop\ (master_28);\l\
+goto\ \<bb\ 22\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:54340785\<bb\ 21\>:\l\
+|tmp_72\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_73\ =\ tmp_72\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_73;\l\
+}"];
+
+	fn_102_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741828\<bb\ 22\>:\l\
+|regValue_48\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MSR;\l\
+|_49\ =\ regValue_48\ \>\>\ 1;\l\
+|_50\ =\ (_Bool)\ _49;\l\
+|if\ (_50\ !=\ 0)\l\
+\ \ goto\ \<bb\ 24\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [50.00%]\l\
+}"];
+
+	fn_102_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:613761566\<bb\ 23\>:\l\
+goto\ \<bb\ 46\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 24\>:\l\
+|_1\ =\ master_28-\>abortedTransfer;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 27\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 25\>;\ [33.00%]\l\
+}"];
+
+	fn_102_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 25\>:\l\
+|tmp_122\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFSR;\l\
+|_206\ =\ tmp_122\ \>\>\ 16;\l\
+|tmp_93\ =\ _206\ &\ 7;\l\
+|if\ (tmp_93\ !=\ 0)\l\
+\ \ goto\ \<bb\ 26\>;\ [94.50%]\l\
+else\l\
+\ \ goto\ \<bb\ 33\>;\ [5.50%]\l\
+}"];
+
+	fn_102_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:167423193\<bb\ 26\>:\l\
+|pretmp_29\ =\ master_28-\>rxSize;\l\
+goto\ \<bb\ 31\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:359703513\<bb\ 27\>:\l\
+|_2\ =\ master_28-\>blocking;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 28\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 29\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118702158\<bb\ 28\>:\l\
+|_3\ =\ &master_28-\>idleSemaphore;\l\
+|OSIF_SemaPost\ (_3);\l\
+}"];
+
+	fn_102_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:359703513\<bb\ 29\>:\l\
+|master_28-\>status\ =\{v\}\ 3;\l\
+|LPI2C_DRV_MasterReinit.isra\ (instance_27(D),\ master_28);\l\
+goto\ \<bb\ 46\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:86078763\<bb\ 32\>:\l\
+|_125\ =\ master_28-\>sendStop;\l\
+|tmp_141\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER;\l\
+|tmp_142\ =\ tmp_141\ &\ 4294960124;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MIER\ =\{v\}\ tmp_142;\l\
+|_143\ =\ master_28-\>transferType;\l\
+|if\ (_143\ ==\ 0)\l\
+\ \ goto\ \<bb\ 35\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9744207\<bb\ 33\>:\l\
+|pretmp_108\ =\ master_28-\>rxSize;\l\
+}"];
+
+	fn_102_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118702160\<bb\ 34\>:\l\
+|#\ prephitmp_139\ =\ PHI\ \<pretmp_108(33),\ _118(30)\>\l\
+|if\ (prephitmp_139\ ==\ 0)\l\
+\ \ goto\ \<bb\ 32\>;\ [0.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 44\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19293529\<bb\ 35\>:\l\
+|_144\ =\ master_28-\>dmaChannel;\l\
+|EDMA_DRV_StopChannel\ (_144);\l\
+|_145\ =\ master_28-\>rxSize;\l\
+|if\ (_145\ !=\ 0)\l\
+\ \ goto\ \<bb\ 36\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 37\>;\ [50.00%]\l\
+}"];
+
+	fn_102_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9646765\<bb\ 36\>:\l\
+|regValue_146\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_147\ =\ regValue_146\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_147;\l\
+goto\ \<bb\ 38\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9646765\<bb\ 37\>:\l\
+|regValue_148\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER;\l\
+|regValue_149\ =\ regValue_148\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MDER\ =\{v\}\ regValue_149;\l\
+}"];
+
+	fn_102_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58465242\<bb\ 38\>:\l\
+|if\ (_125\ !=\ 0)\l\
+\ \ goto\ \<bb\ 39\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 40\>;\ [50.00%]\l\
+}"];
+
+	fn_102_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29232622\<bb\ 39\>:\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MTDR\ =\{v\}\ 512;\l\
+}"];
+
+	fn_102_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58465242\<bb\ 40\>:\l\
+|master_28-\>txBuff\ =\ 0B;\l\
+|master_28-\>txSize\ =\ 0;\l\
+|master_28-\>rxBuff\ =\ 0B;\l\
+|master_28-\>rxSize\ =\ 0;\l\
+|master_28-\>i2cIdle\ =\{v\}\ 1;\l\
+|_126\ =\ master_28-\>blocking;\l\
+|if\ (_126\ !=\ 0)\l\
+\ \ goto\ \<bb\ 41\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 42\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19293529\<bb\ 41\>:\l\
+|_127\ =\ &master_28-\>idleSemaphore;\l\
+|OSIF_SemaPost\ (_127);\l\
+}"];
+
+	fn_102_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:58465242\<bb\ 42\>:\l\
+|master_28-\>status\ =\{v\}\ 0;\l\
+|_128\ =\ master_28-\>masterCallback;\l\
+|if\ (_128\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 43\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [30.00%]\l\
+}"];
+
+	fn_102_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:40925670\<bb\ 43\>:\l\
+|_129\ =\ master_28-\>callbackParam;\l\
+|_128\ (4,\ _129);\l\
+goto\ \<bb\ 46\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:118702160\<bb\ 44\>:\l\
+|tmp_130\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MFCR;\l\
+|_131\ =\ tmp_130\ \>\>\ 16;\l\
+|tmp_132\ =\ _131\ &\ 3;\l\
+|if\ (tmp_132\ \>=\ prephitmp_139)\l\
+\ \ goto\ \<bb\ 45\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [50.00%]\l\
+}"];
+
+	fn_102_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59351080\<bb\ 45\>:\l\
+|_133\ =\ (short\ unsigned\ int)\ prephitmp_139;\l\
+|_134\ =\ _133\ +\ 65535;\l\
+|tmp_135\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR;\l\
+|tmp_136\ =\ tmp_135\ &\ 4294770687;\l\
+|_137\ =\ (long\ unsigned\ int)\ _134;\l\
+|_138\ =\ _137\ \<\<\ 16;\l\
+|tmp_140\ =\ tmp_136\ \|\ _138;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MFCR\ =\{v\}\ tmp_140;\l\
+}"];
+
+	fn_102_basic_block_46 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741831\<bb\ 46\>:\l\
+|regValue_51\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MSR;\l\
+|_52\ =\ regValue_51\ \>\>\ 12;\l\
+|_53\ =\ (_Bool)\ _52;\l\
+|if\ (_53\ !=\ 0)\l\
+\ \ goto\ \<bb\ 48\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 47\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_47 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:825707469\<bb\ 47\>:\l\
+goto\ \<bb\ 52\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_48 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334802\<bb\ 48\>:\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MSR\ =\{v\}\ 4096;\l\
+|master_28-\>status\ =\{v\}\ 1;\l\
+|LPI2C_DRV_MasterEndTransfer.constprop\ (master_28,\ 0,\ 1);\l\
+|_4\ =\ master_28-\>blocking;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 49\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 50\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_49 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930485\<bb\ 49\>:\l\
+|_5\ =\ &master_28-\>idleSemaphore;\l\
+|OSIF_SemaPost\ (_5);\l\
+}"];
+
+	fn_102_basic_block_50 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334802\<bb\ 50\>:\l\
+|_6\ =\ master_28-\>masterCallback;\l\
+|if\ (_6\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 51\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 47\>;\ [30.00%]\l\
+}"];
+
+	fn_102_basic_block_51 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:248034362\<bb\ 51\>:\l\
+|_7\ =\ master_28-\>callbackParam;\l\
+|_6\ (4,\ _7);\l\
+}"];
+
+	fn_102_basic_block_52 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741831\<bb\ 52\>:\l\
+|regValue_54\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MSR;\l\
+|_55\ =\ regValue_54\ \>\>\ 11;\l\
+|_56\ =\ (_Bool)\ _55;\l\
+|if\ (_56\ !=\ 0)\l\
+\ \ goto\ \<bb\ 54\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 53\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_53 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:825707469\<bb\ 53\>:\l\
+goto\ \<bb\ 58\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_54 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334802\<bb\ 54\>:\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MSR\ =\{v\}\ 2048;\l\
+|LPI2C_DRV_MasterEndTransfer.constprop\ (master_28,\ 0,\ 1);\l\
+|_8\ =\ master_28-\>blocking;\l\
+|if\ (_8\ !=\ 0)\l\
+\ \ goto\ \<bb\ 55\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 56\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_55 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:116930485\<bb\ 55\>:\l\
+|_9\ =\ &master_28-\>idleSemaphore;\l\
+|OSIF_SemaPost\ (_9);\l\
+}"];
+
+	fn_102_basic_block_56 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334802\<bb\ 56\>:\l\
+|master_28-\>status\ =\{v\}\ 515;\l\
+|_10\ =\ master_28-\>masterCallback;\l\
+|if\ (_10\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 57\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 53\>;\ [30.00%]\l\
+}"];
+
+	fn_102_basic_block_57 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:248034362\<bb\ 57\>:\l\
+|_11\ =\ master_28-\>callbackParam;\l\
+|_10\ (4,\ _11);\l\
+}"];
+
+	fn_102_basic_block_58 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741831\<bb\ 58\>:\l\
+|regValue_57\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].MSR;\l\
+|_58\ =\ regValue_57\ \>\>\ 10;\l\
+|_59\ =\ (_Bool)\ _58;\l\
+|if\ (_59\ !=\ 0)\l\
+\ \ goto\ \<bb\ 59\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 64\>;\ [50.00%]\l\
+}"];
+
+	fn_102_basic_block_59 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870915\<bb\ 59\>:\l\
+|_12\ =\ master_28-\>blocking;\l\
+|if\ (_12\ !=\ 0)\l\
+\ \ goto\ \<bb\ 60\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 61\>;\ [67.00%]\l\
+}"];
+
+	fn_102_basic_block_60 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 60\>:\l\
+|_13\ =\ &master_28-\>idleSemaphore;\l\
+|OSIF_SemaPost\ (_13);\l\
+}"];
+
+	fn_102_basic_block_61 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870915\<bb\ 61\>:\l\
+|master_28-\>status\ =\{v\}\ 512;\l\
+|LPI2C_DRV_MasterEndTransfer.constprop\ (master_28,\ 0,\ 1);\l\
+|_14\ =\ master_28-\>masterCallback;\l\
+|if\ (_14\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 62\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 63\>;\ [30.00%]\l\
+}"];
+
+	fn_102_basic_block_62 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:375809643\<bb\ 62\>:\l\
+|_15\ =\ master_28-\>callbackParam;\l\
+|_14\ (4,\ _15);\l\
+}"];
+
+	fn_102_basic_block_63 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870916\<bb\ 63\>:\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].MSR\ =\{v\}\ 1024;\l\
+}"];
+
+	fn_102_basic_block_64 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741832\<bb\ 64\>:\l\
+|return;\l\
+}"];
+
+	fn_102_basic_block_65 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:75148588\<bb\ 65\>:\l\
+|master_28-\>cmdQueue.readIdx\ =\ _89;\l\
+}"];
+
+	fn_102_basic_block_66 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:822576896\<bb\ 66\>:\l\
+goto\ \<bb\ 22\>;\ [100.00%]\l\
+}"];
+
+	fn_102_basic_block_0:s -> fn_102_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_2:s -> fn_102_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_2:s -> fn_102_basic_block_66:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_3:s -> fn_102_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[48%]"];
+	fn_102_basic_block_3:s -> fn_102_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[51%]"];
+	fn_102_basic_block_4:s -> fn_102_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_102_basic_block_4:s -> fn_102_basic_block_66:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_102_basic_block_5:s -> fn_102_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_102_basic_block_5:s -> fn_102_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_102_basic_block_6:s -> fn_102_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[94%]"];
+	fn_102_basic_block_6:s -> fn_102_basic_block_65:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_102_basic_block_7:s -> fn_102_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_8:s -> fn_102_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_102_basic_block_8:s -> fn_102_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_102_basic_block_9:s -> fn_102_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_9:s -> fn_102_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_10:s -> fn_102_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_10:s -> fn_102_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_11:s -> fn_102_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_11:s -> fn_102_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_12:s -> fn_102_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_13:s -> fn_102_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_14:s -> fn_102_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_14:s -> fn_102_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_15:s -> fn_102_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_16:s -> fn_102_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_16:s -> fn_102_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_17:s -> fn_102_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_18:s -> fn_102_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_102_basic_block_18:s -> fn_102_basic_block_66:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_102_basic_block_19:s -> fn_102_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_20:s -> fn_102_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_21:s -> fn_102_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_22:s -> fn_102_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_22:s -> fn_102_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_23:s -> fn_102_basic_block_46:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_24:s -> fn_102_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_24:s -> fn_102_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_25:s -> fn_102_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_102_basic_block_25:s -> fn_102_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_102_basic_block_26:s -> fn_102_basic_block_31:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_27:s -> fn_102_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_27:s -> fn_102_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_28:s -> fn_102_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_29:s -> fn_102_basic_block_46:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_30:s -> fn_102_basic_block_31:n [style="dotted,bold",color=blue,weight=10,constraint=false,label="[94%]"];
+	fn_102_basic_block_30:s -> fn_102_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_102_basic_block_31:s -> fn_102_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true,label="[94%]"];
+	fn_102_basic_block_31:s -> fn_102_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true,label="[5%]"];
+	fn_102_basic_block_32:s -> fn_102_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_32:s -> fn_102_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_33:s -> fn_102_basic_block_34:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_34:s -> fn_102_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_102_basic_block_34:s -> fn_102_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_102_basic_block_35:s -> fn_102_basic_block_36:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_35:s -> fn_102_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_36:s -> fn_102_basic_block_38:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_37:s -> fn_102_basic_block_38:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_38:s -> fn_102_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_38:s -> fn_102_basic_block_40:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_39:s -> fn_102_basic_block_40:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_40:s -> fn_102_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_40:s -> fn_102_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_41:s -> fn_102_basic_block_42:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_42:s -> fn_102_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_102_basic_block_42:s -> fn_102_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_102_basic_block_43:s -> fn_102_basic_block_46:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_44:s -> fn_102_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_44:s -> fn_102_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_45:s -> fn_102_basic_block_46:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_46:s -> fn_102_basic_block_48:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_46:s -> fn_102_basic_block_47:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_47:s -> fn_102_basic_block_52:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_48:s -> fn_102_basic_block_49:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_48:s -> fn_102_basic_block_50:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_49:s -> fn_102_basic_block_50:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_50:s -> fn_102_basic_block_51:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_102_basic_block_50:s -> fn_102_basic_block_47:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_102_basic_block_51:s -> fn_102_basic_block_52:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_52:s -> fn_102_basic_block_54:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_52:s -> fn_102_basic_block_53:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_53:s -> fn_102_basic_block_58:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_54:s -> fn_102_basic_block_55:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_54:s -> fn_102_basic_block_56:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_55:s -> fn_102_basic_block_56:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_56:s -> fn_102_basic_block_57:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_102_basic_block_56:s -> fn_102_basic_block_53:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_102_basic_block_57:s -> fn_102_basic_block_58:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_58:s -> fn_102_basic_block_59:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_58:s -> fn_102_basic_block_64:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_102_basic_block_59:s -> fn_102_basic_block_60:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_102_basic_block_59:s -> fn_102_basic_block_61:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_102_basic_block_60:s -> fn_102_basic_block_61:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_61:s -> fn_102_basic_block_62:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_102_basic_block_61:s -> fn_102_basic_block_63:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_102_basic_block_62:s -> fn_102_basic_block_63:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_63:s -> fn_102_basic_block_64:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_64:s -> fn_102_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_102_basic_block_65:s -> fn_102_basic_block_66:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_66:s -> fn_102_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_102_basic_block_0:s -> fn_102_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveInit" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveInit ()";
+	fn_103_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_103_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_103_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|CLOCK_SYS_GetFreq\ (68,\ &inputClock);\l\
+|g_lpi2cSlaveStatePtr[instance_19(D)]\ =\ slave_20(D);\l\
+|slave_20(D)-\>status\ =\ 0;\l\
+|_1\ =\ userConfigPtr_23(D)-\>slaveListening;\l\
+|slave_20(D)-\>slaveListening\ =\ _1;\l\
+|_2\ =\ userConfigPtr_23(D)-\>slaveCallback;\l\
+|slave_20(D)-\>slaveCallback\ =\ _2;\l\
+|_3\ =\ userConfigPtr_23(D)-\>callbackParam;\l\
+|slave_20(D)-\>callbackParam\ =\ _3;\l\
+|slave_20(D)-\>txBuff\ =\ 0B;\l\
+|slave_20(D)-\>rxBuff\ =\ 0B;\l\
+|slave_20(D)-\>txSize\ =\ 0;\l\
+|slave_20(D)-\>rxSize\ =\ 0;\l\
+|_4\ =\ userConfigPtr_23(D)-\>transferType;\l\
+|slave_20(D)-\>transferType\ =\ _4;\l\
+|_5\ =\ userConfigPtr_23(D)-\>dmaChannel;\l\
+|slave_20(D)-\>dmaChannel\ =\ _5;\l\
+|slave_20(D)-\>isTransferInProgress\ =\{v\}\ 0;\l\
+|slave_20(D)-\>blocking\ =\ 0;\l\
+|_6\ =\ userConfigPtr_23(D)-\>is10bitAddr;\l\
+|slave_20(D)-\>is10bitAddress\ =\ _6;\l\
+|slave_20(D)-\>repeatedStarts\ =\ 0;\l\
+|_7\ =\ &slave_20(D)-\>idleSemaphore;\l\
+|OSIF_SemaCreate\ (_7,\ 0);\l\
+|INT_SYS_EnableIRQ\ (25);\l\
+|LPI2C_Init\ (1074159616B);\l\
+|_8\ =\ userConfigPtr_23(D)-\>slaveAddress;\l\
+|tmp_42\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SAMR;\l\
+|tmp_43\ =\ tmp_42\ &\ 4294965249;\l\
+|_44\ =\ (long\ unsigned\ int)\ _8;\l\
+|_45\ =\ _44\ \<\<\ 1;\l\
+|_46\ =\ _45\ &\ 2046;\l\
+|tmp_47\ =\ tmp_43\ \|\ _46;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SAMR\ =\{v\}\ tmp_47;\l\
+|_9\ =\ userConfigPtr_23(D)-\>is10bitAddr;\l\
+|if\ (_9\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+}"];
+
+	fn_103_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|tmp_48\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1;\l\
+|tmp_49\ =\ tmp_48\ &\ 4294508543;\l\
+|tmp_50\ =\ tmp_49\ \|\ 65536;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1\ =\{v\}\ tmp_50;\l\
+goto\ \<bb\ 5\>;\ [100.00%]\l\
+}"];
+
+	fn_103_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 4\>:\l\
+|tmp_51\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1;\l\
+|tmp_52\ =\ tmp_51\ &\ 4294508543;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1\ =\{v\}\ tmp_52;\l\
+}"];
+
+	fn_103_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|_10\ =\ userConfigPtr_23(D)-\>operatingMode;\l\
+|slave_66\ =\ g_lpi2cSlaveStatePtr[instance_19(D)];\l\
+|regValue_67\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1;\l\
+|regValue_68\ =\ regValue_67\ &\ 4294963199;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1\ =\{v\}\ regValue_68;\l\
+|regValue_69\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].STAR;\l\
+|regValue_70\ =\ regValue_69\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].STAR\ =\{v\}\ regValue_70;\l\
+|regValue_71\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1;\l\
+|regValue_72\ =\ regValue_71\ &\ 4294967287;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1\ =\{v\}\ regValue_72;\l\
+|regValue_73\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1;\l\
+|regValue_74\ =\ regValue_73\ &\ 4294967291;\l\
+|regValue_75\ =\ regValue_74\ \|\ 4;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1\ =\{v\}\ regValue_75;\l\
+|regValue_76\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1;\l\
+|regValue_77\ =\ regValue_76\ &\ 4294967293;\l\
+|regValue_78\ =\ regValue_77\ \|\ 2;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1\ =\{v\}\ regValue_78;\l\
+|regValue_79\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1;\l\
+|regValue_80\ =\ regValue_79\ &\ 4294967294;\l\
+|regValue_81\ =\ regValue_80\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1\ =\{v\}\ regValue_81;\l\
+|regValue_82\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1;\l\
+|regValue_83\ =\ regValue_82\ &\ 4294959103;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCFGR1\ =\{v\}\ regValue_83;\l\
+|slave_66-\>operatingMode\ =\ _10;\l\
+|_11\ =\ userConfigPtr_23(D)-\>slaveListening;\l\
+|if\ (_11\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [50.00%]\l\
+}"];
+
+	fn_103_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 6\>:\l\
+|_12\ =\ slave_20(D)-\>transferType;\l\
+|if\ (_12\ ==\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_103_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 7\>:\l\
+|tmp_53\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_54\ =\ tmp_53\ \|\ 3844;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_54;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_103_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435457\<bb\ 8\>:\l\
+|if\ (_12\ ==\ 1)\l\
+\ \ goto\ \<bb\ 9\>;\ [68.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [32.00%]\l\
+}"];
+
+	fn_103_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:182536112\<bb\ 9\>:\l\
+|tmp_55\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_56\ =\ tmp_55\ \|\ 3846;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_56;\l\
+}"];
+
+	fn_103_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 10\>:\l\
+|regValue_57\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_58\ =\ regValue_57\ &\ 4294967294;\l\
+|regValue_59\ =\ regValue_58\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_59;\l\
+}"];
+
+	fn_103_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 11\>:\l\
+|inputClock\ =\{v\}\ \{CLOBBER\};\l\
+|return\ 0;\l\
+}"];
+
+	fn_103_basic_block_0:s -> fn_103_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_103_basic_block_2:s -> fn_103_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_103_basic_block_2:s -> fn_103_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_103_basic_block_3:s -> fn_103_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_103_basic_block_4:s -> fn_103_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_103_basic_block_5:s -> fn_103_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_103_basic_block_5:s -> fn_103_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_103_basic_block_6:s -> fn_103_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_103_basic_block_6:s -> fn_103_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_103_basic_block_7:s -> fn_103_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_103_basic_block_8:s -> fn_103_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[68%]"];
+	fn_103_basic_block_8:s -> fn_103_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[32%]"];
+	fn_103_basic_block_9:s -> fn_103_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_103_basic_block_10:s -> fn_103_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_103_basic_block_11:s -> fn_103_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_103_basic_block_0:s -> fn_103_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveDeinit" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveDeinit ()";
+	fn_104_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_104_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_104_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|slave_7\ =\ g_lpi2cSlaveStatePtr[instance_6(D)];\l\
+|_1\ =\ &slave_7-\>idleSemaphore;\l\
+|OSIF_SemaDestroy\ (_1);\l\
+|_2\ =\ slave_7-\>transferType;\l\
+|if\ (_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_104_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:536870913\<bb\ 3\>:\l\
+|_3\ =\ slave_7-\>slaveListening;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+}"];
+
+	fn_104_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:268435456\<bb\ 4\>:\l\
+|regValue_13\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_14\ =\ regValue_13\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_14;\l\
+|regValue_11\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_12\ =\ regValue_11\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_12;\l\
+}"];
+
+	fn_104_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 5\>:\l\
+|g_lpi2cSlaveStatePtr[instance_6(D)]\ =\ 0B;\l\
+|regValue_15\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_16\ =\ regValue_15\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_16;\l\
+|INT_SYS_DisableIRQ\ (25);\l\
+|return\ 0;\l\
+}"];
+
+	fn_104_basic_block_0:s -> fn_104_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_104_basic_block_2:s -> fn_104_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_104_basic_block_2:s -> fn_104_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_104_basic_block_3:s -> fn_104_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_104_basic_block_3:s -> fn_104_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_104_basic_block_4:s -> fn_104_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_104_basic_block_5:s -> fn_104_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_104_basic_block_0:s -> fn_104_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveSetTxBuffer" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveSetTxBuffer ()";
+	fn_105_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_105_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_105_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|slave_3\ =\ g_lpi2cSlaveStatePtr[instance_2(D)];\l\
+|slave_3-\>txBuff\ =\ txBuff_4(D);\l\
+|slave_3-\>txSize\ =\ txSize_6(D);\l\
+|return\ 0;\l\
+}"];
+
+	fn_105_basic_block_0:s -> fn_105_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_105_basic_block_2:s -> fn_105_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_105_basic_block_0:s -> fn_105_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveSetRxBuffer" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveSetRxBuffer ()";
+	fn_106_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_106_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_106_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|slave_3\ =\ g_lpi2cSlaveStatePtr[instance_2(D)];\l\
+|slave_3-\>rxBuff\ =\ rxBuff_4(D);\l\
+|slave_3-\>rxSize\ =\ rxSize_6(D);\l\
+|return\ 0;\l\
+}"];
+
+	fn_106_basic_block_0:s -> fn_106_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_106_basic_block_2:s -> fn_106_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_106_basic_block_0:s -> fn_106_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveSendData" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveSendData ()";
+	fn_107_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_107_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_107_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|slave_7\ =\ g_lpi2cSlaveStatePtr[instance_6(D)];\l\
+|_1\ =\{v\}\ slave_7-\>isTransferInProgress;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+}"];
+
+	fn_107_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|slave_7-\>txBuff\ =\ txBuff_8(D);\l\
+|slave_7-\>txSize\ =\ txSize_10(D);\l\
+|slave_7-\>status\ =\ 2;\l\
+|_2\ =\ slave_7-\>transferType;\l\
+|if\ (_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [67.00%]\l\
+}"];
+
+	fn_107_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:277373280\<bb\ 4\>:\l\
+|tmp_19\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_20\ =\ tmp_19\ \|\ 3844;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_20;\l\
+|regValue_16\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_17\ =\ regValue_16\ &\ 4294967294;\l\
+|regValue_18\ =\ regValue_17\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_18;\l\
+|slave_7-\>isTransferInProgress\ =\{v\}\ 1;\l\
+|LPI2C_DRV_SlaveStartDmaTransfer\ (instance_6(D));\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_107_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:563151817\<bb\ 5\>:\l\
+|tmp_24\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_25\ =\ tmp_24\ \|\ 3844;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_25;\l\
+|regValue_21\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_22\ =\ regValue_21\ &\ 4294967294;\l\
+|regValue_23\ =\ regValue_22\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_23;\l\
+|slave_7-\>isTransferInProgress\ =\{v\}\ 1;\l\
+}"];
+
+	fn_107_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _3\ =\ PHI\ \<0(4),\ 0(5),\ 2(2)\>\l\
+|return\ _3;\l\
+}"];
+
+	fn_107_basic_block_0:s -> fn_107_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_107_basic_block_2:s -> fn_107_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_107_basic_block_2:s -> fn_107_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_107_basic_block_3:s -> fn_107_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_107_basic_block_3:s -> fn_107_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_107_basic_block_4:s -> fn_107_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_107_basic_block_5:s -> fn_107_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_107_basic_block_6:s -> fn_107_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_107_basic_block_0:s -> fn_107_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveSendDataBlocking" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveSendDataBlocking ()";
+	fn_108_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_108_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_108_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|slave_7\ =\ g_lpi2cSlaveStatePtr[instance_6(D)];\l\
+|_1\ =\{v\}\ slave_7-\>isTransferInProgress;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [36.03%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+}"];
+
+	fn_108_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 3\>:\l\
+|slave_7-\>blocking\ =\ 1;\l\
+|_2\ =\ &slave_7-\>idleSemaphore;\l\
+|OSIF_SemaWait\ (_2,\ 0);\l\
+|LPI2C_DRV_SlaveSendData\ (instance_6(D),\ txBuff_10(D),\ txSize_11(D));\l\
+|slave_16\ =\ g_lpi2cSlaveStatePtr[instance_6(D)];\l\
+|_17\ =\ &slave_16-\>idleSemaphore;\l\
+|osifError_18\ =\ OSIF_SemaWait\ (_17,\ timeout_13(D));\l\
+|if\ (osifError_18\ ==\ 3)\l\
+\ \ goto\ \<bb\ 5\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [79.76%]\l\
+}"];
+
+	fn_108_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:547849626\<bb\ 4\>:\l\
+|pretmp_46\ =\ slave_16-\>status;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_108_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:139023023\<bb\ 5\>:\l\
+|tmp_20\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_21\ =\ tmp_20\ &\ 4294963448;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_21;\l\
+|_22\ =\ slave_16-\>transferType;\l\
+|if\ (_22\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_108_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:69511512\<bb\ 6\>:\l\
+|_23\ =\ slave_16-\>rxSize;\l\
+|if\ (_23\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_108_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:34755756\<bb\ 7\>:\l\
+|regValue_24\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_25\ =\ regValue_24\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_25;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_108_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:34755756\<bb\ 8\>:\l\
+|regValue_26\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_27\ =\ regValue_26\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_27;\l\
+}"];
+
+	fn_108_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:139023023\<bb\ 9\>:\l\
+|regValue_28\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_29\ =\ regValue_28\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_29;\l\
+|slave_16-\>isTransferInProgress\ =\{v\}\ 0;\l\
+|slave_16-\>rxBuff\ =\ 0B;\l\
+|slave_16-\>rxSize\ =\ 0;\l\
+|slave_16-\>txBuff\ =\ 0B;\l\
+|slave_16-\>txSize\ =\ 0;\l\
+|slave_16-\>repeatedStarts\ =\ 0;\l\
+|slave_16-\>status\ =\ 3;\l\
+}"];
+
+	fn_108_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872650\<bb\ 10\>:\l\
+|#\ prephitmp_14\ =\ PHI\ \<osifError_18(9),\ pretmp_46(4)\>\l\
+|slave_16-\>blocking\ =\ 0;\l\
+}"];
+
+	fn_108_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741825\<bb\ 11\>:\l\
+|#\ _3\ =\ PHI\ \<prephitmp_14(10),\ 2(2)\>\l\
+|return\ _3;\l\
+}"];
+
+	fn_108_basic_block_0:s -> fn_108_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_108_basic_block_2:s -> fn_108_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_108_basic_block_2:s -> fn_108_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_108_basic_block_3:s -> fn_108_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_108_basic_block_3:s -> fn_108_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_108_basic_block_4:s -> fn_108_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_108_basic_block_5:s -> fn_108_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_108_basic_block_5:s -> fn_108_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_108_basic_block_6:s -> fn_108_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_108_basic_block_6:s -> fn_108_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_108_basic_block_7:s -> fn_108_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_108_basic_block_8:s -> fn_108_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_108_basic_block_9:s -> fn_108_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_108_basic_block_10:s -> fn_108_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_108_basic_block_11:s -> fn_108_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_108_basic_block_0:s -> fn_108_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveReceiveData" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveReceiveData ()";
+	fn_109_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_109_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_109_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|slave_7\ =\ g_lpi2cSlaveStatePtr[instance_6(D)];\l\
+|_1\ =\{v\}\ slave_7-\>isTransferInProgress;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [21.72%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [78.28%]\l\
+}"];
+
+	fn_109_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:840525097\<bb\ 3\>:\l\
+|slave_7-\>rxBuff\ =\ rxBuff_8(D);\l\
+|slave_7-\>rxSize\ =\ rxSize_10(D);\l\
+|slave_7-\>status\ =\ 2;\l\
+|_2\ =\ slave_7-\>transferType;\l\
+|if\ (_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [67.00%]\l\
+}"];
+
+	fn_109_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:277373280\<bb\ 4\>:\l\
+|tmp_19\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_20\ =\ tmp_19\ \|\ 3844;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_20;\l\
+|regValue_16\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_17\ =\ regValue_16\ &\ 4294967294;\l\
+|regValue_18\ =\ regValue_17\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_18;\l\
+|slave_7-\>isTransferInProgress\ =\{v\}\ 1;\l\
+|LPI2C_DRV_SlaveStartDmaTransfer\ (instance_6(D));\l\
+goto\ \<bb\ 6\>;\ [100.00%]\l\
+}"];
+
+	fn_109_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:563151817\<bb\ 5\>:\l\
+|slave_7-\>isTransferInProgress\ =\{v\}\ 1;\l\
+|tmp_24\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_25\ =\ tmp_24\ \|\ 3846;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_25;\l\
+|regValue_21\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_22\ =\ regValue_21\ &\ 4294967294;\l\
+|regValue_23\ =\ regValue_22\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_23;\l\
+}"];
+
+	fn_109_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 6\>:\l\
+|#\ _3\ =\ PHI\ \<0(4),\ 0(5),\ 2(2)\>\l\
+|return\ _3;\l\
+}"];
+
+	fn_109_basic_block_0:s -> fn_109_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_109_basic_block_2:s -> fn_109_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[21%]"];
+	fn_109_basic_block_2:s -> fn_109_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[78%]"];
+	fn_109_basic_block_3:s -> fn_109_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_109_basic_block_3:s -> fn_109_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_109_basic_block_4:s -> fn_109_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_109_basic_block_5:s -> fn_109_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_109_basic_block_6:s -> fn_109_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_109_basic_block_0:s -> fn_109_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveReceiveDataBlocking" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveReceiveDataBlocking ()";
+	fn_110_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_110_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_110_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|slave_7\ =\ g_lpi2cSlaveStatePtr[instance_6(D)];\l\
+|_1\ =\{v\}\ slave_7-\>isTransferInProgress;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [36.03%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [63.97%]\l\
+}"];
+
+	fn_110_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872649\<bb\ 3\>:\l\
+|slave_7-\>blocking\ =\ 1;\l\
+|_2\ =\ &slave_7-\>idleSemaphore;\l\
+|OSIF_SemaWait\ (_2,\ 0);\l\
+|LPI2C_DRV_SlaveReceiveData\ (instance_6(D),\ rxBuff_10(D),\ rxSize_11(D));\l\
+|slave_16\ =\ g_lpi2cSlaveStatePtr[instance_6(D)];\l\
+|_17\ =\ &slave_16-\>idleSemaphore;\l\
+|osifError_18\ =\ OSIF_SemaWait\ (_17,\ timeout_13(D));\l\
+|if\ (osifError_18\ ==\ 3)\l\
+\ \ goto\ \<bb\ 5\>;\ [20.24%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [79.76%]\l\
+}"];
+
+	fn_110_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:547849626\<bb\ 4\>:\l\
+|pretmp_46\ =\ slave_16-\>status;\l\
+goto\ \<bb\ 10\>;\ [100.00%]\l\
+}"];
+
+	fn_110_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:139023023\<bb\ 5\>:\l\
+|tmp_20\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_21\ =\ tmp_20\ &\ 4294963448;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_21;\l\
+|_22\ =\ slave_16-\>transferType;\l\
+|if\ (_22\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_110_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:69511512\<bb\ 6\>:\l\
+|_23\ =\ slave_16-\>rxSize;\l\
+|if\ (_23\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_110_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:34755756\<bb\ 7\>:\l\
+|regValue_24\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_25\ =\ regValue_24\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_25;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_110_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:34755756\<bb\ 8\>:\l\
+|regValue_26\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_27\ =\ regValue_26\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_27;\l\
+}"];
+
+	fn_110_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:139023023\<bb\ 9\>:\l\
+|regValue_28\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_29\ =\ regValue_28\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_29;\l\
+|slave_16-\>isTransferInProgress\ =\{v\}\ 0;\l\
+|slave_16-\>rxBuff\ =\ 0B;\l\
+|slave_16-\>rxSize\ =\ 0;\l\
+|slave_16-\>txBuff\ =\ 0B;\l\
+|slave_16-\>txSize\ =\ 0;\l\
+|slave_16-\>repeatedStarts\ =\ 0;\l\
+|slave_16-\>status\ =\ 3;\l\
+}"];
+
+	fn_110_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:686872650\<bb\ 10\>:\l\
+|#\ prephitmp_14\ =\ PHI\ \<osifError_18(9),\ pretmp_46(4)\>\l\
+|slave_16-\>blocking\ =\ 0;\l\
+}"];
+
+	fn_110_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741825\<bb\ 11\>:\l\
+|#\ _3\ =\ PHI\ \<prephitmp_14(10),\ 2(2)\>\l\
+|return\ _3;\l\
+}"];
+
+	fn_110_basic_block_0:s -> fn_110_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_110_basic_block_2:s -> fn_110_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[36%]"];
+	fn_110_basic_block_2:s -> fn_110_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[63%]"];
+	fn_110_basic_block_3:s -> fn_110_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[20%]"];
+	fn_110_basic_block_3:s -> fn_110_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[79%]"];
+	fn_110_basic_block_4:s -> fn_110_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_110_basic_block_5:s -> fn_110_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_110_basic_block_5:s -> fn_110_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_110_basic_block_6:s -> fn_110_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_110_basic_block_6:s -> fn_110_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_110_basic_block_7:s -> fn_110_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_110_basic_block_8:s -> fn_110_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_110_basic_block_9:s -> fn_110_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_110_basic_block_10:s -> fn_110_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_110_basic_block_11:s -> fn_110_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_110_basic_block_0:s -> fn_110_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveGetTransferStatus" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveGetTransferStatus ()";
+	fn_111_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_111_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_111_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|slave_7\ =\ g_lpi2cSlaveStatePtr[instance_6(D)];\l\
+|if\ (bytesRemaining_8(D)\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [30.00%]\l\
+}"];
+
+	fn_111_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:751619280\<bb\ 3\>:\l\
+|_1\ =\ slave_7-\>transferType;\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [66.00%]\l\
+}"];
+
+	fn_111_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:255550558\<bb\ 4\>:\l\
+|_2\ =\ slave_7-\>txSize;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_111_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:127775279\<bb\ 5\>:\l\
+|*bytesRemaining_8(D)\ =\ _2;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_111_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:127775279\<bb\ 6\>:\l\
+|_3\ =\ slave_7-\>rxSize;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+}"];
+
+	fn_111_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63887639\<bb\ 7\>:\l\
+|*bytesRemaining_8(D)\ =\ _3;\l\
+goto\ \<bb\ 9\>;\ [100.00%]\l\
+}"];
+
+	fn_111_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:63887639\<bb\ 8\>:\l\
+|*bytesRemaining_8(D)\ =\ 0;\l\
+}"];
+
+	fn_111_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 9\>:\l\
+|_12\ =\ slave_7-\>status;\l\
+|return\ _12;\l\
+}"];
+
+	fn_111_basic_block_0:s -> fn_111_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_111_basic_block_2:s -> fn_111_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_111_basic_block_2:s -> fn_111_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_111_basic_block_3:s -> fn_111_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_111_basic_block_3:s -> fn_111_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_111_basic_block_4:s -> fn_111_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_111_basic_block_4:s -> fn_111_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_111_basic_block_5:s -> fn_111_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_111_basic_block_6:s -> fn_111_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_111_basic_block_6:s -> fn_111_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_111_basic_block_7:s -> fn_111_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_111_basic_block_8:s -> fn_111_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_111_basic_block_9:s -> fn_111_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_111_basic_block_0:s -> fn_111_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveAbortTransferData" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveAbortTransferData ()";
+	fn_112_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_112_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_112_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|slave_5\ =\ g_lpi2cSlaveStatePtr[instance_4(D)];\l\
+|_1\ =\ slave_5-\>slaveListening;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [67.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+}"];
+
+	fn_112_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|slave_5-\>status\ =\ 516;\l\
+|tmp_8\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_9\ =\ tmp_8\ &\ 4294963448;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_9;\l\
+|_10\ =\ slave_5-\>transferType;\l\
+|if\ (_10\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [50.00%]\l\
+}"];
+
+	fn_112_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:177167400\<bb\ 4\>:\l\
+|_11\ =\ slave_5-\>rxSize;\l\
+|if\ (_11\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_112_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 5\>:\l\
+|regValue_12\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_13\ =\ regValue_12\ &\ 4294967293;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_13;\l\
+goto\ \<bb\ 7\>;\ [100.00%]\l\
+}"];
+
+	fn_112_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:88583700\<bb\ 6\>:\l\
+|regValue_14\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER;\l\
+|regValue_15\ =\ regValue_14\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SDER\ =\{v\}\ regValue_15;\l\
+}"];
+
+	fn_112_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 7\>:\l\
+|regValue_16\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR;\l\
+|regValue_17\ =\ regValue_16\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SCR\ =\{v\}\ regValue_17;\l\
+|slave_5-\>isTransferInProgress\ =\{v\}\ 0;\l\
+|slave_5-\>rxBuff\ =\ 0B;\l\
+|slave_5-\>rxSize\ =\ 0;\l\
+|slave_5-\>txBuff\ =\ 0B;\l\
+|slave_5-\>txSize\ =\ 0;\l\
+|slave_5-\>repeatedStarts\ =\ 0;\l\
+}"];
+
+	fn_112_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 8\>:\l\
+|return\ 0;\l\
+}"];
+
+	fn_112_basic_block_0:s -> fn_112_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_112_basic_block_2:s -> fn_112_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_112_basic_block_2:s -> fn_112_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_112_basic_block_3:s -> fn_112_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_112_basic_block_3:s -> fn_112_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_112_basic_block_4:s -> fn_112_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_112_basic_block_4:s -> fn_112_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_112_basic_block_5:s -> fn_112_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_112_basic_block_6:s -> fn_112_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_112_basic_block_7:s -> fn_112_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_112_basic_block_8:s -> fn_112_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_112_basic_block_0:s -> fn_112_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveGetDefaultConfig" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveGetDefaultConfig ()";
+	fn_113_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_113_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_113_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 2\>:\l\
+|MEM\ \<unsigned\ int\>\ [(void\ *)config_2(D)]\ =\ 32;\l\
+|MEM\ \<unsigned\ short\>\ [(void\ *)config_2(D)\ +\ 4B]\ =\ 257;\l\
+|config_2(D)-\>dmaChannel\ =\ 0;\l\
+|config_2(D)-\>slaveCallback\ =\ 0B;\l\
+|config_2(D)-\>callbackParam\ =\ 0B;\l\
+|return;\l\
+}"];
+
+	fn_113_basic_block_0:s -> fn_113_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_113_basic_block_2:s -> fn_113_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_113_basic_block_0:s -> fn_113_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_LPI2C_DRV_SlaveIRQHandler" {
+	style="dashed";
+	color="black";
+	label="LPI2C_DRV_SlaveIRQHandler ()";
+	fn_115_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_115_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_115_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741823\<bb\ 2\>:\l\
+|slave_13\ =\ g_lpi2cSlaveStatePtr[instance_12(D)];\l\
+|regValue_22\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SSR;\l\
+|_23\ =\ regValue_22\ \>\>\ 10;\l\
+|_24\ =\ (_Bool)\ _23;\l\
+|if\ (_24\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [67.00%]\l\
+}"];
+
+	fn_115_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:354334800\<bb\ 3\>:\l\
+|slave_13-\>status\ =\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SSR\ =\{v\}\ 1024;\l\
+|tmp_25\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_26\ =\ tmp_25\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_26;\l\
+|LPI2C_DRV_SlaveEndTransferHandler.constprop\ (slave_13);\ [tail\ call]\l\
+goto\ \<bb\ 45\>;\ [100.00%]\l\
+}"];
+
+	fn_115_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:719407024\<bb\ 4\>:\l\
+|regValue_30\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SSR;\l\
+|_31\ =\ regValue_30\ \>\>\ 9;\l\
+|_32\ =\ (_Bool)\ _31;\l\
+|regValue_27\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SSR;\l\
+|_28\ =\ regValue_27\ \>\>\ 8;\l\
+|_29\ =\ (_Bool)\ _28;\l\
+|if\ (_29\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:359703512\<bb\ 5\>:\l\
+|_1\ =\ slave_13-\>repeatedStarts;\l\
+|_2\ =\ _1\ +\ 1;\l\
+|slave_13-\>repeatedStarts\ =\ _2;\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 7\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [66.00%]\l\
+}"];
+
+	fn_115_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:539555269\<bb\ 6\>:\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SSR\ =\{v\}\ 512;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SSR\ =\{v\}\ 256;\l\
+|tmp_33\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_34\ =\ tmp_33\ &\ 4294967294;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_34;\l\
+|_4\ =\ slave_13-\>status;\l\
+|if\ (_4\ ==\ 2)\l\
+\ \ goto\ \<bb\ 10\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [66.00%]\l\
+}"];
+
+	fn_115_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:122299195\<bb\ 7\>:\l\
+|_3\ =\ slave_13-\>is10bitAddress;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:61149598\<bb\ 8\>:\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SSR\ =\{v\}\ 256;\l\
+|if\ (_32\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:359703512\<bb\ 9\>:\l\
+|if\ (_32\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:183448793\<bb\ 10\>:\l\
+|slave_13-\>status\ =\ 0;\l\
+}"];
+
+	fn_115_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:539555269\<bb\ 11\>:\l\
+|LPI2C_DRV_SlaveEndTransferHandler.constprop\ (slave_13);\ [tail\ call]\l\
+goto\ \<bb\ 45\>;\ [100.00%]\l\
+}"];
+
+	fn_115_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:210426555\<bb\ 12\>:\l\
+|regValue_35\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SSR;\l\
+|_36\ =\ regValue_35\ \>\>\ 2;\l\
+|_37\ =\ (_Bool)\ _36;\l\
+|if\ (_37\ !=\ 0)\l\
+\ \ goto\ \<bb\ 13\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 29\>;\ [67.00%]\l\
+}"];
+
+	fn_115_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59351079\<bb\ 13\>:\l\
+|tmp_53\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SASR;\l\
+|_54\ =\ tmp_53\ &\ 1;\l\
+|if\ (_54\ !=\ 0)\l\
+\ \ goto\ \<bb\ 14\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 23\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29675540\<bb\ 14\>:\l\
+|_55\ =\ slave_13-\>slaveCallback;\l\
+|if\ (_55\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 15\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [30.00%]\l\
+}"];
+
+	fn_115_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:20772878\<bb\ 15\>:\l\
+|_56\ =\ slave_13-\>slaveListening;\l\
+|if\ (_56\ !=\ 0)\l\
+\ \ goto\ \<bb\ 16\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10386439\<bb\ 16\>:\l\
+|_57\ =\ slave_13-\>callbackParam;\l\
+|_55\ (2,\ _57);\l\
+}"];
+
+	fn_115_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29675540\<bb\ 17\>:\l\
+|_58\ =\ slave_13-\>transferType;\l\
+|if\ (_58\ ==\ 1)\l\
+\ \ goto\ \<bb\ 18\>;\ [34.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [66.00%]\l\
+}"];
+
+	fn_115_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10089684\<bb\ 18\>:\l\
+|tmp_59\ =\{v\}\ MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|tmp_60\ =\ tmp_59\ \|\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].SIER\ =\{v\}\ tmp_60;\l\
+|slave_13-\>txUnderrunWarning\ =\ 0;\l\
+goto\ \<bb\ 28\>;\ [100.00%]\l\
+}"];
+
+	fn_115_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19585856\<bb\ 19\>:\l\
+|slave_13-\>txUnderrunWarning\ =\ 0;\l\
+|if\ (_58\ ==\ 0)\l\
+\ \ goto\ \<bb\ 21\>;\ [75.76%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [24.24%]\l\
+}"];
+
+	fn_115_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29082029\<bb\ 20\>:\l\
+goto\ \<bb\ 28\>;\ [100.00%]\l\
+}"];
+
+	fn_115_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:14837770\<bb\ 21\>:\l\
+|_61\ =\ slave_13-\>slaveListening;\l\
+|if\ (_61\ !=\ 0)\l\
+\ \ goto\ \<bb\ 22\>;\ [33.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [67.00%]\l\
+}"];
+
+	fn_115_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9792928\<bb\ 22\>:\l\
+|LPI2C_DRV_SlaveStartDmaTransfer\ (instance_12(D));\l\
+goto\ \<bb\ 28\>;\ [100.00%]\l\
+}"];
+
+	fn_115_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:29675540\<bb\ 23\>:\l\
+|_62\ =\ slave_13-\>slaveCallback;\l\
+|if\ (_62\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 24\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 26\>;\ [30.00%]\l\
+}"];
+
+	fn_115_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:20772878\<bb\ 24\>:\l\
+|_63\ =\ slave_13-\>slaveListening;\l\
+|if\ (_63\ !=\ 0)\l\
+\ \ goto\ \<bb\ 25\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:10386439\<bb\ 25\>:\l\
+|_64\ =\ slave_13-\>callbackParam;\l\
+|_62\ (3,\ _64);\l\
+}"];
+
+	fn_115_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:19289101\<bb\ 26\>:\l\
+|_65\ =\ slave_13-\>transferType;\l\
+|if\ (_65\ ==\ 0)\l\
+\ \ goto\ \<bb\ 27\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:9644550\<bb\ 27\>:\l\
+|_66\ =\ slave_13-\>slaveListening;\l\
+|if\ (_66\ !=\ 0)\l\
+\ \ goto\ \<bb\ 22\>;\ [50.77%]\l\
+else\l\
+\ \ goto\ \<bb\ 20\>;\ [49.23%]\l\
+}"];
+
+	fn_115_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:59351079\<bb\ 28\>:\l\
+|slave_13-\>status\ =\ 2;\l\
+}"];
+
+	fn_115_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:179851756\<bb\ 29\>:\l\
+|regValue_38\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SSR;\l\
+|_39\ =\ (_Bool)\ regValue_38;\l\
+|if\ (_39\ !=\ 0)\l\
+\ \ goto\ \<bb\ 30\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:89925878\<bb\ 30\>:\l\
+|tmp_40\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|_41\ =\ tmp_40\ &\ 1;\l\
+|if\ (_41\ !=\ 0)\l\
+\ \ goto\ \<bb\ 31\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:44962939\<bb\ 31\>:\l\
+|_67\ =\ slave_13-\>txUnderrunWarning;\l\
+|if\ (_67\ !=\ 0)\l\
+\ \ goto\ \<bb\ 32\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 33\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22481470\<bb\ 32\>:\l\
+|slave_13-\>status\ =\ 513;\l\
+}"];
+
+	fn_115_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:44962939\<bb\ 33\>:\l\
+|_68\ =\ slave_13-\>txSize;\l\
+|if\ (_68\ ==\ 0)\l\
+\ \ goto\ \<bb\ 34\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 37\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22481470\<bb\ 34\>:\l\
+|_69\ =\ slave_13-\>slaveCallback;\l\
+|if\ (_69\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 36\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 35\>;\ [30.00%]\l\
+}"];
+
+	fn_115_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22481470\<bb\ 35\>:\l\
+|slave_13-\>txUnderrunWarning\ =\ 1;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].STDR\ =\{v\}\ 255;\l\
+goto\ \<bb\ 38\>;\ [100.00%]\l\
+}"];
+
+	fn_115_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:15737029\<bb\ 36\>:\l\
+|_70\ =\ slave_13-\>callbackParam;\l\
+|_69\ (1,\ _70);\l\
+|_71\ =\ slave_13-\>txSize;\l\
+|if\ (_71\ ==\ 0)\l\
+\ \ goto\ \<bb\ 35\>;\ [100.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 37\>;\ [0.00%]\l\
+}"];
+
+	fn_115_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22481470\<bb\ 37\>:\l\
+|#\ _137\ =\ PHI\ \<_68(33),\ _71(36)\>\l\
+|_72\ =\ slave_13-\>txBuff;\l\
+|_73\ =\ *_72;\l\
+|_74\ =\ (long\ unsigned\ int)\ _73;\l\
+|MEM[(struct\ LPI2C_Type\ *)1074159616B].STDR\ =\{v\}\ _74;\l\
+|_75\ =\ _72\ +\ 1;\l\
+|slave_13-\>txBuff\ =\ _75;\l\
+|_76\ =\ _137\ +\ 4294967295;\l\
+|slave_13-\>txSize\ =\ _76;\l\
+}"];
+
+	fn_115_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:179851756\<bb\ 38\>:\l\
+|regValue_42\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SSR;\l\
+|_43\ =\ regValue_42\ \>\>\ 1;\l\
+|_44\ =\ (_Bool)\ _43;\l\
+|if\ (_44\ !=\ 0)\l\
+\ \ goto\ \<bb\ 39\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 45\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:89925878\<bb\ 39\>:\l\
+|tmp_45\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SIER;\l\
+|_46\ =\ tmp_45\ &\ 2;\l\
+|if\ (_46\ !=\ 0)\l\
+\ \ goto\ \<bb\ 40\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 45\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:44962939\<bb\ 40\>:\l\
+|_77\ =\ slave_13-\>rxSize;\l\
+|if\ (_77\ ==\ 0)\l\
+\ \ goto\ \<bb\ 41\>;\ [50.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 44\>;\ [50.00%]\l\
+}"];
+
+	fn_115_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22481470\<bb\ 41\>:\l\
+|_78\ =\ slave_13-\>slaveCallback;\l\
+|if\ (_78\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 43\>;\ [70.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 42\>;\ [30.00%]\l\
+}"];
+
+	fn_115_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22481470\<bb\ 42\>:\l\
+|slave_13-\>status\ =\ 514;\l\
+|tmp_81\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SRDR;\l\
+goto\ \<bb\ 45\>;\ [100.00%]\l\
+}"];
+
+	fn_115_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:15737029\<bb\ 43\>:\l\
+|_79\ =\ slave_13-\>callbackParam;\l\
+|_78\ (0,\ _79);\l\
+|_80\ =\ slave_13-\>rxSize;\l\
+|if\ (_80\ ==\ 0)\l\
+\ \ goto\ \<bb\ 42\>;\ [100.00%]\l\
+else\l\
+\ \ goto\ \<bb\ 44\>;\ [0.00%]\l\
+}"];
+
+	fn_115_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:22481470\<bb\ 44\>:\l\
+|_82\ =\ slave_13-\>rxBuff;\l\
+|tmp_83\ =\{v\}\ MEM[(const\ struct\ LPI2C_Type\ *)1074159616B].SRDR;\l\
+|_84\ =\ (unsigned\ char)\ tmp_83;\l\
+|*_82\ =\ _84;\l\
+|_85\ =\ slave_13-\>rxBuff;\l\
+|_86\ =\ _85\ +\ 1;\l\
+|slave_13-\>rxBuff\ =\ _86;\l\
+|_87\ =\ slave_13-\>rxSize;\l\
+|_88\ =\ _87\ +\ 4294967295;\l\
+|slave_13-\>rxSize\ =\ _88;\l\
+}"];
+
+	fn_115_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{COUNT:1073741824\<bb\ 45\>:\l\
+|return;\l\
+}"];
+
+	fn_115_basic_block_0:s -> fn_115_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_2:s -> fn_115_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_115_basic_block_2:s -> fn_115_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_115_basic_block_3:s -> fn_115_basic_block_45:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_4:s -> fn_115_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_4:s -> fn_115_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_5:s -> fn_115_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_115_basic_block_5:s -> fn_115_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_115_basic_block_6:s -> fn_115_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_115_basic_block_6:s -> fn_115_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_115_basic_block_7:s -> fn_115_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_7:s -> fn_115_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_8:s -> fn_115_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_8:s -> fn_115_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_9:s -> fn_115_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_9:s -> fn_115_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_10:s -> fn_115_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_11:s -> fn_115_basic_block_45:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_12:s -> fn_115_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_115_basic_block_12:s -> fn_115_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_115_basic_block_13:s -> fn_115_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_13:s -> fn_115_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_14:s -> fn_115_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_115_basic_block_14:s -> fn_115_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_115_basic_block_15:s -> fn_115_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_15:s -> fn_115_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_16:s -> fn_115_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_17:s -> fn_115_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true,label="[34%]"];
+	fn_115_basic_block_17:s -> fn_115_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true,label="[66%]"];
+	fn_115_basic_block_18:s -> fn_115_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_19:s -> fn_115_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true,label="[75%]"];
+	fn_115_basic_block_19:s -> fn_115_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[24%]"];
+	fn_115_basic_block_20:s -> fn_115_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_21:s -> fn_115_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[33%]"];
+	fn_115_basic_block_21:s -> fn_115_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[67%]"];
+	fn_115_basic_block_22:s -> fn_115_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_23:s -> fn_115_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_115_basic_block_23:s -> fn_115_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_115_basic_block_24:s -> fn_115_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_24:s -> fn_115_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_25:s -> fn_115_basic_block_26:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_26:s -> fn_115_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_26:s -> fn_115_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_27:s -> fn_115_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_27:s -> fn_115_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true,label="[49%]"];
+	fn_115_basic_block_28:s -> fn_115_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_29:s -> fn_115_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_29:s -> fn_115_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_30:s -> fn_115_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_30:s -> fn_115_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_31:s -> fn_115_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_31:s -> fn_115_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_32:s -> fn_115_basic_block_33:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_33:s -> fn_115_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_33:s -> fn_115_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_34:s -> fn_115_basic_block_36:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_115_basic_block_34:s -> fn_115_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_115_basic_block_35:s -> fn_115_basic_block_38:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_36:s -> fn_115_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_115_basic_block_36:s -> fn_115_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_115_basic_block_37:s -> fn_115_basic_block_38:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_38:s -> fn_115_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_38:s -> fn_115_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_39:s -> fn_115_basic_block_40:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_39:s -> fn_115_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_40:s -> fn_115_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_40:s -> fn_115_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true,label="[50%]"];
+	fn_115_basic_block_41:s -> fn_115_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true,label="[70%]"];
+	fn_115_basic_block_41:s -> fn_115_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true,label="[30%]"];
+	fn_115_basic_block_42:s -> fn_115_basic_block_45:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_43:s -> fn_115_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_115_basic_block_43:s -> fn_115_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true,label="[0%]"];
+	fn_115_basic_block_44:s -> fn_115_basic_block_45:n [style="solid,bold",color=blue,weight=100,constraint=true,label="[100%]"];
+	fn_115_basic_block_45:s -> fn_115_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true,label="[100%]"];
+	fn_115_basic_block_0:s -> fn_115_basic_block_1:n [style="invis",constraint=true];
+}
+}

@@ -1,0 +1,5 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pins/pins_port_hw_access.c:71:17:PINS_GetAdcInterleaveVal	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pins/pins_port_hw_access.c:134:6:PINS_Init	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pins/pins_port_hw_access.c:295:6:PINS_SetMuxModeSel	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pins/pins_port_hw_access.c:329:6:PINS_SetGlobalPinControl	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/pins/pins_port_hw_access.c:374:6:PINS_SetGlobalIntControl	0	static

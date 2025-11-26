@@ -1,0 +1,6 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/erm/erm_driver.c:54:6:ERM_DRV_Init	24	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/erm/erm_driver.c:82:6:ERM_DRV_Deinit	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/erm/erm_driver.c:99:6:ERM_DRV_SetInterruptConfig	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/erm/erm_driver.c:120:6:ERM_DRV_GetInterruptConfig	8	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/erm/erm_driver.c:142:6:ERM_DRV_ClearEvent	0	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/erm/erm_driver.c:174:17:ERM_DRV_GetErrorDetail	8	static

@@ -1,0 +1,2 @@
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/cmp/cmp_hw_access.c:50:7:CMP_SetFunctionalMode	4	static
+/home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2/platform/drivers/src/cmp/cmp_hw_access.c:116:13:CMP_GetFunctionalMode	0	static
