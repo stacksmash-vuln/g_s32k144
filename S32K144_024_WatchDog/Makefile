@@ -2,7 +2,7 @@
 CC      = arm-none-eabi-gcc
 OBJCOPY = arm-none-eabi-objcopy
 
-SDK_ROOT = /home/ijk5201/S32_SDK_S32K1xx_RTM_4.0.2
+SDK_ROOT = /home/ubuntu/S32_SDK_S32K1xx_RTM_4.0.2
 
 # Target MCU
 MCU     = cortex-m4
@@ -13,6 +13,7 @@ MCU     = cortex-m4
 CFLAGS  = -mcpu=$(MCU) -mthumb -O2 -ffreestanding -fno-builtin \
           -mfpu=fpv4-sp-d16 -mfloat-abi=softfp \
           -Wall -Wextra \
+          -fdump-tree-optimized-graph -fstack-usage \ 
           -DCPU_S32K144HFT0VLLT \
           -DUSING_OS_FREERTOS \
           -I./Sources \
